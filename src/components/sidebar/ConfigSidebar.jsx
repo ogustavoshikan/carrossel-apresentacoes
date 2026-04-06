@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Settings,
   Settings2,
   Lightbulb,
   BadgeCheck,
@@ -36,15 +37,25 @@ export default function ConfigSidebar({
   onGenerate,
   isGenerating,
   error,
+  setIsSettingsOpen,
 }) {
   return (
     <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative">
       <div className="space-y-6">
         {/* === Section: Alice Setup === */}
-        <h3 className="alice-section-title">
-          <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
-          Alice Setup
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="alice-section-title mb-0">
+            <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
+            Alice Setup
+          </h3>
+          <button 
+            onClick={() => setIsSettingsOpen(true)}
+            className="p-1.5 rounded-lg border border-border-subtle bg-surface-input hover:text-white transition-colors"
+            title="Configurações"
+          >
+            <Settings className="w-4 h-4 text-zinc-400" />
+          </button>
+        </div>
 
         <div className="space-y-4">
           {/* Handle + Verified */}

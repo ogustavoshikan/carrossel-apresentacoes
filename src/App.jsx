@@ -11,6 +11,7 @@ import WorkspaceToolbar from './components/workspace/WorkspaceToolbar';
 import VisualPreview from './components/workspace/VisualPreview';
 import TextEditor from './components/workspace/TextEditor';
 import { EmptyState, LoadingState } from './components/workspace/EmptyState';
+import SettingsModal from './components/SettingsModal';
 
 export default function App() {
   // ========================================
@@ -26,6 +27,7 @@ export default function App() {
   const [showMetrics, setShowMetrics] = useState(false);
   const [loadingImages, setLoadingImages] = useState({});
   const [slideCount, setSlideCount] = useState(SLIDE_COUNT_RANGE.default);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
@@ -87,7 +89,12 @@ export default function App() {
     async (index, prompt) => {
       setLoadingImages((prev) => ({ ...prev, [index]: true }));
       try {
-        const apiKey = '';
+        const apiKey = localStorage.getItem('alice_google_api_key');
+        if (!apiKey) {
+          setError('Acesso negado: Insira sua API Key do Google no painel de Configurações.');
+          setLoadingImages((prev) => ({ ...prev, [index]: false }));
+          return;
+        }
         const imageUrl = await generateImageWithAI(prompt, apiKey);
         setSlides((prev) =>
           prev.map((s, i) => (i === index ? { ...s, imageUrl, imagePosition: 50 } : s))
@@ -108,12 +115,17 @@ export default function App() {
       return;
     }
 
+    const apiKey = localStorage.getItem('alice_google_api_key');
+    if (!apiKey) {
+      setError('Acesso negado: Insira sua API Key do Google no painel de Configurações.');
+      return;
+    }
+
     setIsGenerating(true);
     setError('');
     setSlides([]);
 
     try {
-      const apiKey = '';
       const parsedSlides = await generateCarouselContent(theme, slideCount, apiKey);
       setSlides(parsedSlides);
     } catch (err) {
@@ -227,10 +239,16 @@ export default function App() {
           onGenerate={handleGenerate}
           isGenerating={isGenerating}
           error={error}
+          setIsSettingsOpen={setIsSettingsOpen}
         />
 
         {/* Workspace */}
         <main className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden">
+          <SettingsModal 
+            isOpen={isSettingsOpen} 
+            onClose={() => setIsSettingsOpen(false)} 
+            brandColor={gradientColor1} 
+          />
           {slides.length === 0 && !isGenerating ? (
             <EmptyState brandColor={gradientColor1} />
           ) : isGenerating ? (
