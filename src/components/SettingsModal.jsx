@@ -44,7 +44,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor }) {
       const data = await res.json();
       
       const gText = data.models.filter(m => m.supportedGenerationMethods?.includes('generateContent')).map(m => ({ id: m.name.replace('models/', ''), provider: 'google' }));
-      const gImage = [{ id: 'imagen-3.0-generate-001', provider: 'google' }];
+      const gImage = [{ id: 'imagen-4.0-generate-001', provider: 'google' }];
       
       setTextModels(prev => [...prev.filter(m => m.provider !== 'google'), ...gText]);
       setImageModels(prev => [...prev.filter(m => m.provider !== 'google'), ...gImage]);

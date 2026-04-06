@@ -119,7 +119,7 @@ Regras Estruturais Obrigatórias:
 
 export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
   if (provider === 'google') {
-    const safeModelId = modelId.includes('imagen') ? modelId.replace('models/', '') : 'imagen-3.0-generate-001';
+    const safeModelId = modelId.includes('imagen') ? modelId.replace('models/', '') : 'imagen-4.0-generate-001';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${safeModelId}:predict?key=${apiKey}`;
     const payload = {
       instances: { prompt: prompt + ' -- highly detailed, dramatic lighting, premium quality, 8k' },
