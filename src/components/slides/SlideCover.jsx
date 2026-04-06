@@ -1,0 +1,103 @@
+import React from 'react';
+import { Image as ImageIcon, ArrowRight } from 'lucide-react';
+import SmartElement from '../smart-element';
+
+/**
+ * SlideCover — Layout "cover" (sempre slide 1).
+ * Imagem superior + título grande + texto de apoio.
+ */
+export default function SlideCover({
+  data,
+  index,
+  brandColor,
+  titleScale,
+  textScale,
+  showMetrics,
+  onActionStart,
+  onTextChange,
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">
+      {/* Hero image top */}
+      <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
+        {data.imageUrl ? (
+          <div
+            className="absolute inset-0 bg-cover"
+            style={{
+              backgroundImage: `url(${data.imageUrl})`,
+              backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+            }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center opacity-50">
+            <ImageIcon className="w-8 h-8 text-zinc-700" />
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/10 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Content area */}
+      <div
+        className="flex-1 mt-[55%] p-10 flex flex-col justify-between relative"
+        style={{ backgroundColor: brandColor }}
+      >
+        <div className="absolute -top-24 left-10">
+          <SmartElement
+            slideIndex={index}
+            field="titulo"
+            position={pos('titulo')}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+          >
+            <h2
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
+              style={{ fontSize: `${120 * sTitle}px`, lineHeight: 0.8 }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartElement>
+        </div>
+
+        <div className="mt-12">
+          <SmartElement
+            slideIndex={index}
+            field="texto_apoio"
+            position={pos('texto_apoio')}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+          >
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair italic text-white max-w-[320px] mb-6 outline-none"
+              style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartElement>
+          <div className="w-20 h-[3px] bg-white/50" />
+        </div>
+
+        <div className="flex justify-between items-end pb-4 pointer-events-none">
+          <span className="font-outfit font-bold text-[10px] tracking-[0.5em] text-white/40 uppercase">
+            Instagram Ready
+          </span>
+          <div className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10">
+            <span className="text-[11px] font-outfit font-black text-white tracking-widest uppercase">
+              Deslizar
+            </span>
+            <ArrowRight className="w-4 h-4 text-white" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   ALICE STUDIO — DESIGN TOKENS (CSS)
+   ======================================== */
+
+:root {
+  /* Brand — dinâmico via JS (state gradientColor1) */
+  --color-brand: #DE1E4D;
+  --color-brand-glow: rgba(222, 30, 77, 0.25);
+
+  /* Fonts — dinâmicas via JS (state titleFont / textFont) */
+  --font-title: 'Outfit', sans-serif;
+  --font-text: 'Playfair Display', serif;
+}
+
+/* ========================================
+   BASE RESETS
+   ======================================== */
+
+body {
+  margin: 0;
+  background-color: #020202;
+  color: #f4f4f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(244, 63, 94, 0.3);
+}
+
+/* ========================================
+   SCROLLBAR CUSTOMIZADA
+   ======================================== */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #18181b;
+  border-radius: 20px;
+}
+
+/* ========================================
+   UTILITÁRIOS REUTILIZÁVEIS
+   ======================================== */
+
+@layer components {
+  /* Input base do Alice Studio */
+  .alice-input {
+    @apply w-full bg-surface-input border border-border-subtle rounded-lg px-3 py-2 text-sm text-zinc-200 focus:outline-none transition-colors;
+  }
+
+  .alice-input:focus {
+    border-color: var(--color-brand);
+  }
+
+  /* Textarea base */
+  .alice-textarea {
+    @apply w-full bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-none text-sm font-playfair italic;
+  }
+
+  .alice-textarea:focus {
+    border-color: var(--color-brand);
+  }
+
+  /* Label padrão uppercase */
+  .alice-label {
+    @apply block text-label-xs text-zinc-500 font-bold uppercase tracking-wider mb-2;
+  }
+
+  /* Section header padrão */
+  .alice-section-title {
+    @apply text-label-sm text-zinc-500 uppercase flex items-center gap-2;
+  }
+
+  /* Range slider padrão */
+  .alice-range {
+    @apply w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer;
+    accent-color: var(--color-brand);
+  }
+
+  /* Card wrapper */
+  .alice-card {
+    @apply bg-surface-card border border-border-subtle rounded-2xl overflow-hidden shadow-2xl;
+  }
+
+  /* Botão primário */
+  .alice-btn-primary {
+    @apply w-full text-white font-outfit font-black text-label-md uppercase py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:brightness-110;
+    background-color: var(--color-brand);
+  }
+
+  /* Botão ghost */
+  .alice-btn-ghost {
+    @apply flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-2 px-4 rounded-lg transition-colors font-bold cursor-pointer border border-border-hover;
+  }
+
+  /* Toolbar tab */
+  .alice-tab {
+    @apply px-4 py-2 text-label-xs uppercase font-bold rounded-lg transition-colors;
+  }
+
+  .alice-tab-active {
+    @apply bg-white/10 text-white;
+  }
+
+  .alice-tab-inactive {
+    @apply text-zinc-600 hover:text-zinc-300;
+  }
+}
