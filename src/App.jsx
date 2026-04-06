@@ -89,13 +89,23 @@ export default function App() {
     async (index, prompt) => {
       setLoadingImages((prev) => ({ ...prev, [index]: true }));
       try {
-        const apiKey = localStorage.getItem('alice_google_api_key');
-        if (!apiKey) {
-          setError('Acesso negado: Insira sua API Key do Google no painel de Configurações.');
+        const imageProvider = localStorage.getItem('alice_image_model_provider');
+        const imageModel = localStorage.getItem('alice_image_model_id');
+        
+        if (!imageProvider || !imageModel) {
+          setError('Erro: Configure um modelo de Imagem para prosseguir.');
           setLoadingImages((prev) => ({ ...prev, [index]: false }));
           return;
         }
-        const imageUrl = await generateImageWithAI(prompt, apiKey);
+        
+        const apiKey = localStorage.getItem(`alice_${imageProvider}_api_key`);
+        if (!apiKey) {
+          setError(`Erro: Chave API ausente para o provedor ${imageProvider}.`);
+          setLoadingImages((prev) => ({ ...prev, [index]: false }));
+          return;
+        }
+
+        const imageUrl = await generateImageWithAI(prompt, imageProvider, imageModel, apiKey);
         setSlides((prev) =>
           prev.map((s, i) => (i === index ? { ...s, imageUrl, imagePosition: 50 } : s))
         );
@@ -115,9 +125,17 @@ export default function App() {
       return;
     }
 
-    const apiKey = localStorage.getItem('alice_google_api_key');
+    const textProvider = localStorage.getItem('alice_text_model_provider');
+    const textModel = localStorage.getItem('alice_text_model_id');
+
+    if (!textProvider || !textModel) {
+      setError('Erro: Configure um modelo de Texto para prosseguir.');
+      return;
+    }
+    
+    const apiKey = localStorage.getItem(`alice_${textProvider}_api_key`);
     if (!apiKey) {
-      setError('Acesso negado: Insira sua API Key do Google no painel de Configurações.');
+      setError(`Erro: Chave API ausente para o provedor ${textProvider}.`);
       return;
     }
 
@@ -126,7 +144,7 @@ export default function App() {
     setSlides([]);
 
     try {
-      const parsedSlides = await generateCarouselContent(theme, slideCount, apiKey);
+      const parsedSlides = await generateCarouselContent(theme, slideCount, textProvider, textModel, apiKey);
       setSlides(parsedSlides);
     } catch (err) {
       console.error(err);
