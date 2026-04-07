@@ -18,6 +18,8 @@ export default function SlideBigNumber({
   showMetrics,
   onActionStart,
   onTextChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -38,6 +40,8 @@ export default function SlideBigNumber({
           position={pos('titulo')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
           className="flex items-baseline mb-[-10px]"
         >
           <span
@@ -57,6 +61,8 @@ export default function SlideBigNumber({
           position={pos('tag')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+          onSelectElement={onSelectElement}
           className="mb-8"
         >
           <div
@@ -80,6 +86,8 @@ export default function SlideBigNumber({
           position={pos('texto_apoio')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
           className="mb-10 max-w-[95%]"
         >
           <p
@@ -99,6 +107,8 @@ export default function SlideBigNumber({
           position={pos('imagem')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'imagem'}
+          onSelectElement={onSelectElement}
           className="w-full h-40 rounded-slide-inner overflow-hidden border border-white/5 shadow-2xl relative"
         >
           {data.imageUrl ? (

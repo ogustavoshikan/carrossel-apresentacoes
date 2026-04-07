@@ -15,6 +15,8 @@ export default function SlideCTA({
   showMetrics,
   onActionStart,
   onTextChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -41,6 +43,8 @@ export default function SlideCTA({
         position={pos('titulo')}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
         className="mb-6 relative z-10 w-full"
       >
         <h2
@@ -60,6 +64,8 @@ export default function SlideCTA({
         position={pos('texto_apoio')}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+        onSelectElement={onSelectElement}
         className="mb-12 relative z-10"
       >
         <p
@@ -79,6 +85,8 @@ export default function SlideCTA({
         position={pos('tag')}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+        onSelectElement={onSelectElement}
         className="w-full max-w-[300px] relative z-10"
       >
         <button

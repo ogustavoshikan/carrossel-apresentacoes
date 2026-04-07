@@ -15,6 +15,8 @@ export default function SlideCover({
   showMetrics,
   onActionStart,
   onTextChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -54,6 +56,9 @@ export default function SlideCover({
             position={pos('titulo')}
             showMetrics={showMetrics}
             onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
+            className="mb-8"
           >
             <h2
               contentEditable
@@ -69,13 +74,15 @@ export default function SlideCover({
 
         <div className="mt-12">
           <SmartElement
-            slideIndex={index}
-            field="texto_apoio"
-            position={pos('texto_apoio')}
-            showMetrics={showMetrics}
-            onActionStart={onActionStart}
-          >
-            <p
+          slideIndex={index}
+          field="texto_apoio"
+          position={pos('texto_apoio')}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
+          className="max-w-[70%]"
+        >    <p
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -95,6 +102,8 @@ export default function SlideCover({
             position={pos('insta_ready')}
             showMetrics={showMetrics}
             onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'}
+            onSelectElement={onSelectElement}
           >
             <span
               contentEditable
@@ -113,6 +122,8 @@ export default function SlideCover({
               position={pos('slide_call')}
               showMetrics={showMetrics}
               onActionStart={onActionStart}
+              isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'}
+              onSelectElement={onSelectElement}
             >
               <span
                 contentEditable

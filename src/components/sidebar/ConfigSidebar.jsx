@@ -9,6 +9,17 @@ import {
   AlertCircle,
   Sparkles,
   Upload,
+  X,
+  Bold,
+  Italic,
+  Underline,
+  Type,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  AlignJustify,
+  Palette,
+  PaintBucket
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE } from '../../lib/design-tokens';
 
@@ -38,7 +49,186 @@ export default function ConfigSidebar({
   isGenerating,
   error,
   setIsSettingsOpen,
+  selectedElement,
+  setSelectedElement,
+  slides,
+  setSlides,
 }) {
+  const isInspectorActive = !!selectedElement;
+
+  if (isInspectorActive) {
+    const slide = slides[selectedElement.slideIndex] || {};
+    const pos = slide.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 };
+    
+    // Atualizar uma propriedade específica do elemento no Master State
+    const updateProp = (prop, value) => {
+      setSlides(prev => prev.map((s, i) => {
+        if (i === selectedElement.slideIndex) {
+          return {
+            ...s,
+            positions: {
+              ...(s.positions || {}),
+              [selectedElement.field]: {
+                ...(s.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 }),
+                [prop]: value
+              }
+            }
+          };
+        }
+        return s;
+      }));
+    };
+
+    return (
+      <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative">
+        <div className="flex items-center gap-3 underline-offset-4 decoration-white/20 mb-[-1rem]">
+           <button 
+             onClick={() => setSelectedElement(null)}
+             className="text-zinc-500 hover:text-white transition-colors bg-white/5 rounded-full p-1"
+           >
+             <X className="w-4 h-4" />
+           </button>
+           <h3 className="text-white font-outfit font-black tracking-wide text-sm flex items-center gap-2">
+             <Settings2 className="w-4 h-4 text-rose-500" />
+             Inspetor de Propriedades
+           </h3>
+        </div>
+
+        <div className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-2">
+           <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg">
+             <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500">Campo</span>
+             <span className="text-[11px] font-mono font-bold text-white bg-white/10 px-2 py-0.5 rounded">{selectedElement.field}</span>
+           </div>
+           
+           <div className="grid grid-cols-2 gap-2 mt-4">
+             <div className="bg-surface-input px-3 py-2 rounded-lg space-y-1">
+               <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição X</span>
+               <input 
+                 type="number" 
+                 value={Math.round(pos.x)}
+                 onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                 className="w-full bg-transparent text-white font-mono text-sm outline-none"
+               />
+             </div>
+             <div className="bg-surface-input px-3 py-2 rounded-lg space-y-1">
+               <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição Y</span>
+               <input 
+                 type="number" 
+                 value={Math.round(pos.y)}
+                 onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                 className="w-full bg-transparent text-white font-mono text-sm outline-none"
+               />
+             </div>
+           </div>
+
+           <div className="mt-4">
+             <div className="flex justify-between items-center mb-2">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
+                <span className="text-[10px] font-mono text-zinc-500">{pos.scale?.toFixed(2)}x</span>
+             </div>
+             <input
+                type="range"
+                min="0.3"
+                max="5"
+                step="0.05"
+                value={pos.scale || 1}
+                onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
+                className="alice-range"
+             />
+           </div>
+
+           <div className="mt-4 pt-4 border-t border-border-subtle">
+             <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mb-3 block">Formatação de Texto</span>
+             
+             <div className="flex gap-2 mb-4">
+                <button 
+                  onClick={() => updateProp('bold', !pos.bold)}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.bold ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  <Bold className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => updateProp('italic', !pos.italic)}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.italic ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  <Italic className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => updateProp('underline', !pos.underline)}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.underline ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  <Underline className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={() => updateProp('uppercase', !pos.uppercase)}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.uppercase ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                >
+                  <Type className="w-4 h-4" />
+                </button>
+             </div>
+
+             <div className="flex gap-2 mb-4 bg-surface-input p-1 rounded-lg">
+                {['left', 'center', 'right', 'justify'].map(align => (
+                  <button 
+                    key={align}
+                    onClick={() => updateProp('align', align)}
+                    className={`flex-1 py-1.5 rounded flex justify-center items-center transition-all ${pos.align === align || (!pos.align && align === 'left') ? 'bg-zinc-700 text-white shadow' : 'text-zinc-500 hover:text-zinc-300'}`}
+                  >
+                    {align === 'left' && <AlignLeft className="w-3.5 h-3.5" />}
+                    {align === 'center' && <AlignCenter className="w-3.5 h-3.5" />}
+                    {align === 'right' && <AlignRight className="w-3.5 h-3.5" />}
+                    {align === 'justify' && <AlignJustify className="w-3.5 h-3.5" />}
+                  </button>
+                ))}
+             </div>
+
+             <div className="grid grid-cols-2 gap-3">
+               <div>
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                    <span className="flex items-center gap-1"><Palette className="w-3 h-3"/> Cor do Texto</span>
+                  </label>
+                  <div className="flex bg-surface-input rounded p-1">
+                    <input 
+                      type="color" 
+                      value={pos.color || '#ffffff'}
+                      onChange={(e) => updateProp('color', e.target.value)}
+                      className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent"
+                    />
+                    <input 
+                      type="text" 
+                      value={pos.color || ''}
+                      placeholder="#FFF"
+                      onChange={(e) => updateProp('color', e.target.value)}
+                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-2 outline-none uppercase"
+                    />
+                  </div>
+               </div>
+               <div>
+                  <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                    <span className="flex items-center gap-1"><PaintBucket className="w-3 h-3"/> Cor do Fundo</span>
+                  </label>
+                  <div className="flex bg-surface-input rounded p-1">
+                    <input 
+                      type="color" 
+                      value={pos.bgColor || '#000000'}
+                      onChange={(e) => updateProp('bgColor', e.target.value)}
+                      className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent"
+                    />
+                    <input 
+                      type="text" 
+                      value={pos.bgColor || ''}
+                      placeholder="Nenhum"
+                      onChange={(e) => updateProp('bgColor', e.target.value)}
+                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-2 outline-none uppercase"
+                    />
+                  </div>
+               </div>
+             </div>
+           </div>
+        </div>
+      </aside>
+    );
+  }
   return (
     <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative">
       <div className="space-y-6">

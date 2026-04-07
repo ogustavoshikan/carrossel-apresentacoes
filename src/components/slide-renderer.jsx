@@ -34,6 +34,8 @@ export default function SlideRenderer({
   onActionStart,
   onTextChange,
   onItemChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const Component = LAYOUT_MAP[data.layout];
   if (!Component) return null;
@@ -51,6 +53,8 @@ export default function SlideRenderer({
       onActionStart={onActionStart}
       onTextChange={onTextChange}
       onItemChange={onItemChange}
+      selectedElement={selectedElement}
+      onSelectElement={onSelectElement}
     />
   );
 }

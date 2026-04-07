@@ -18,6 +18,8 @@ export default function SlideContentSplit({
   showMetrics,
   onActionStart,
   onTextChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -38,6 +40,8 @@ export default function SlideContentSplit({
           position={pos('imagem')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'imagem'}
+          onSelectElement={onSelectElement}
           className="relative w-full h-60 rounded-slide-inner overflow-hidden mb-8 ring-1 ring-white/10 shadow-2xl"
         >
           {data.imageUrl ? (
@@ -65,6 +69,8 @@ export default function SlideContentSplit({
             position={pos('tag')}
             showMetrics={showMetrics}
             onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+            onSelectElement={onSelectElement}
           >
             <span
               contentEditable
@@ -84,6 +90,8 @@ export default function SlideContentSplit({
           position={pos('titulo')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
           className="mb-6"
         >
           <h2
@@ -103,6 +111,8 @@ export default function SlideContentSplit({
           position={pos('texto_apoio')}
           showMetrics={showMetrics}
           onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
         >
           <p
             contentEditable

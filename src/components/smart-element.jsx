@@ -23,6 +23,8 @@ export default function SmartElement({
   onActionStart,
   className,
   children,
+  isSelected,
+  onSelectElement,
 }) {
   const elRef = useRef(null);
   const [dims, setDims] = useState({ w: 0, h: 0 });
@@ -40,7 +42,12 @@ export default function SmartElement({
 
   return (
     <div
+      id={`smart-${slideIndex}-${field}`}
       ref={elRef}
+      onClickCapture={(e) => {
+        // Intercepta e propaga seleção apenas on-click sem drag
+        if (onSelectElement) onSelectElement(slideIndex, field);
+      }}
       className={`group relative transition-all ${className || ''}`}
       style={{
         transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`,
@@ -73,12 +80,30 @@ export default function SmartElement({
       {/* Conteúdo */}
       <div
         className={`w-full h-full outline-none transition-all ${
-          showMetrics
-            ? 'outline outline-1 outline-dashed outline-[var(--color-brand)]/50 bg-[var(--color-brand)]/10'
-            : 'hover:outline hover:outline-1 hover:outline-dashed hover:outline-[var(--color-brand)]/50'
+          isSelected 
+            ? 'outline outline-2 outline-offset-4 outline-[var(--color-brand)] bg-[var(--color-brand)]/5 ring-4 ring-black/20 rounded-sm'
+            : showMetrics
+              ? 'outline outline-1 outline-dashed outline-[var(--color-brand)]/50 bg-[var(--color-brand)]/10'
+              : 'hover:outline hover:outline-1 hover:outline-dashed hover:outline-[var(--color-brand)]/50'
         }`}
       >
-        {children}
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child)) {
+            return React.cloneElement(child, {
+              style: {
+                ...child.props.style,
+                color: pos.color || child.props.style?.color,
+                backgroundColor: pos.bgColor || child.props.style?.backgroundColor,
+                fontWeight: pos.bold ? '900' : child.props.style?.fontWeight,
+                fontStyle: pos.italic ? 'italic' : child.props.style?.fontStyle,
+                textDecoration: pos.underline ? 'underline' : child.props.style?.textDecoration,
+                textTransform: pos.uppercase ? 'uppercase' : child.props.style?.textTransform,
+                textAlign: pos.align || child.props.style?.textAlign,
+              },
+            });
+          }
+          return child;
+        })}
       </div>
 
       {/* Handle RESIZE — bottom-right */}

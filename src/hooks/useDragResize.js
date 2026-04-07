@@ -10,6 +10,8 @@ export function useDragResize(slides, setSlides) {
   const [actionInfo, setActionInfo] = useState(null);
 
   useEffect(() => {
+    let currentX, currentY, currentScale;
+
     const handleMouseMove = (e) => {
       if (!actionInfo) return;
 
@@ -19,42 +21,70 @@ export function useDragResize(slides, setSlides) {
       const dx = clientX - actionInfo.startX;
       const dy = clientY - actionInfo.startY;
 
-      setSlides((prev) =>
-        prev.map((s, i) => {
-          if (i === actionInfo.index) {
-            const pos = s.positions?.[actionInfo.field] || { x: 0, y: 0, scale: 1 };
+      let newX = actionInfo.origX;
+      let newY = actionInfo.origY;
+      let newScale = actionInfo.origScale;
 
-            if (actionInfo.type === 'drag') {
+      if (actionInfo.type === 'drag') {
+        newX += dx;
+        newY += dy;
+      } else if (actionInfo.type === 'resize') {
+        const scaleDelta = (dx + dy) * 0.005;
+        newScale = Math.max(0.3, actionInfo.origScale + scaleDelta);
+      }
+
+      currentX = newX;
+      currentY = newY;
+      currentScale = newScale;
+
+      // BYPASS REACT: Manipular DOM diretamente para zerar re-renders colaterais (60fps suave)
+      const targetElement = document.getElementById(`smart-${actionInfo.index}-${actionInfo.field}`);
+      if (targetElement) {
+        targetElement.style.transform = `translate(${newX}px, ${newY}px) scale(${newScale})`;
+        
+        // Calcular W/H reais do elemento visual original e escalar
+        const w = Math.round(targetElement.offsetWidth * newScale);
+        const h = Math.round(targetElement.offsetHeight * newScale);
+
+        // Atualizar Info-Tag sob o slide
+        const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
+        if (metricsTag) {
+          metricsTag.innerText = `[ X:${Math.round(newX)} Y:${Math.round(newY)} | W:${w} H:${h} S:${newScale.toFixed(2)}x ]`;
+        }
+      }
+    };
+
+    const handleMouseUp = () => {
+      if (!actionInfo) return;
+      
+      // Quando soltar, injeta no estado global para persistência Real
+      if (currentX !== undefined || currentY !== undefined || currentScale !== undefined) {
+        setSlides((prev) =>
+          prev.map((s, i) => {
+            if (i === actionInfo.index) {
+              const pos = s.positions?.[actionInfo.field] || { x: 0, y: 0, scale: 1 };
               return {
                 ...s,
                 positions: {
                   ...(s.positions || {}),
                   [actionInfo.field]: {
                     ...pos,
-                    x: actionInfo.origX + dx,
-                    y: actionInfo.origY + dy,
+                    x: currentX !== undefined ? currentX : pos.x,
+                    y: currentY !== undefined ? currentY : pos.y,
+                    scale: currentScale !== undefined ? currentScale : pos.scale,
                   },
                 },
               };
-            } else if (actionInfo.type === 'resize') {
-              const scaleDelta = (dx + dy) * 0.005;
-              const newScale = Math.max(0.3, actionInfo.origScale + scaleDelta);
-              return {
-                ...s,
-                positions: {
-                  ...(s.positions || {}),
-                  [actionInfo.field]: { ...pos, scale: newScale },
-                },
-              };
             }
-          }
-          return s;
-        })
-      );
-    };
-
-    const handleMouseUp = () => {
-      if (actionInfo) setActionInfo(null);
+            return s;
+          })
+        );
+      }
+      
+      setActionInfo(null);
+      currentX = undefined;
+      currentY = undefined;
+      currentScale = undefined;
     };
 
     if (actionInfo) {

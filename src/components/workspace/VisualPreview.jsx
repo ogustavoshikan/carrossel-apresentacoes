@@ -34,6 +34,8 @@ export default function VisualPreview({
   onResetPositions,
   onRemoveSlide,
   copiedIndex,
+  selectedElement,
+  onSelectElement,
 }) {
   const scrollRef = useRef(null);
 
@@ -95,14 +97,22 @@ export default function VisualPreview({
               onActionStart={onActionStart}
               onTextChange={onTextChange}
               onItemChange={onItemChange}
+              selectedElement={selectedElement}
+              onSelectElement={onSelectElement}
             />
           </div>
 
           {/* Controls */}
           <div className="flex flex-col gap-3" style={{ width: SLIDE_DIMENSIONS.width }}>
-            <div className="w-full flex justify-center mb-1">
+            <div className="w-full flex justify-between items-center mb-1 px-1">
                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
+               </span>
+               <span
+                 id={`metrics-${index}`}
+                 className="text-[10px] font-mono text-emerald-500/80 tracking-wider transition-all"
+               >
+                 {/* O hook useDragResize irá injetar [ X Y W H ] aqui parando re-renders colaterais */}
                </span>
             </div>
 

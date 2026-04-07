@@ -30,6 +30,7 @@ export default function App() {
   const [slideCount, setSlideCount] = useState(SLIDE_COUNT_RANGE.default);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+  const [selectedElement, setSelectedElement] = useState(null);
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
@@ -290,6 +291,10 @@ export default function App() {
           isGenerating={isGenerating}
           error={error}
           setIsSettingsOpen={setIsSettingsOpen}
+          selectedElement={selectedElement}
+          setSelectedElement={setSelectedElement}
+          slides={slides}
+          setSlides={setSlides}
         />
 
         {/* Workspace */}
@@ -349,6 +354,8 @@ export default function App() {
                   onResetPositions={resetSlidePositions}
                   onRemoveSlide={handleRemoveSlide}
                   copiedIndex={copiedIndex}
+                  selectedElement={selectedElement}
+                  onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
                 />
               )}
             </div>

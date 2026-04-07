@@ -17,6 +17,8 @@ export default function SlideQuote({
   showMetrics,
   onActionStart,
   onTextChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
@@ -37,6 +39,8 @@ export default function SlideQuote({
         position={pos('titulo')}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
         className="mb-12 relative z-10 w-full"
       >
         <h2
@@ -56,6 +60,8 @@ export default function SlideQuote({
         position={pos('texto_apoio')}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+        onSelectElement={onSelectElement}
         className="relative z-10"
       >
         <span

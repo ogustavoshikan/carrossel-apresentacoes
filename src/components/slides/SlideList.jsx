@@ -18,6 +18,8 @@ export default function SlideList({
   onActionStart,
   onTextChange,
   onItemChange,
+  selectedElement,
+  onSelectElement,
 }) {
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
@@ -47,6 +49,8 @@ export default function SlideList({
             position={pos('titulo')}
             showMetrics={showMetrics}
             onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
             className="w-full"
           >
             <h2

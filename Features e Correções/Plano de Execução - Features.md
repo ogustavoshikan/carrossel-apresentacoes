@@ -37,11 +37,11 @@ Demandam refatoração em componentes existentes e criação de novos métodos p
 ## 🔴 Nível Alto (High Effort & Complexity)
 Requerem reestruturação do "Data Flow" (modo que a informação viaja entre componentes). Exigem alta atenção para que a aplicação não sofra quedas bruscas de performance ao re-renderizar em tempo real.
 
-- [ ] **3. Range Sliders para Personalização Isolada (Título, Headline)**
+- [x] **3. Range Sliders para Personalização Isolada (Título, Headline)**
   *Desacoplar o atual redimensionamento global para um específico e embutir propriedades em cada objeto de "slide" (escalas, posições finas por id) injetando do menu inferior as edições contextuais.*
-- [ ] **5. Seleção e Edição Inteligente no Painel Esquerdo (Inspetor de Propriedades)**
+- [x] **5. Seleção e Edição Inteligente no Painel Esquerdo (Inspetor de Propriedades)**
   *Lógica "On Click no Canvas -> Muda Sidebar Config Sidebar Inspector". Criar painel esquerdo contextual de propriedades do item clicado para modificar Cor, Negrito, Alinhamento, etc., sincronizado com o Master State.*
-- [ ] **10. Info-Tag de Coordenadas Globais [X, Y, L, A] em Tempo Real**
+- [x] **10. Info-Tag de Coordenadas Globais [X, Y, L, A] em Tempo Real**
   *Fazer os hooks de `useDragResize` injetarem ou comunicarem assincronamente as strings (top, left, width, height) para a view de baixo do slide de maneira eficiente parando re-renders colaterais indesejáveis.*
 
 ---
