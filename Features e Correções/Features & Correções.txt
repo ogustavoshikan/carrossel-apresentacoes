@@ -1,0 +1,29 @@
+1. Noto haver alguns poucos textos em Inglês, mas, o app deve ser todo em Portugues-br.
+
+2. Poder fazer download dos slides de forma separada, caso o usuário queira somente um slide e não toda a sequência. Um botão adicional abaixo de cada slide pode solucionar, baixando o slide respectivo. O botão de download, ao ser clicado, deve abrir uma janela de diálogo para que o usuário escolha onde deseja salvar os slides, em vez de salvá-los automaticamente na pasta de downloads.
+
+3. Já há o botão "Foto" e "Copiar Textos" abaixo de cada card/slide, agora, deve haver também estas novas funcionalidades:
+
+Botão arrastável (Range Slider) para:
+
+Tamanho e posição para Título;
+
+Tamanho e posição para Headline;
+
+Tamanho e posição para o restante dos textos;
+
+4. No painel direito onde há os slides, deve haver botões de navegação, um à extrema direita e um à extrema esquerda para que o usuário possa navegar entre os slides.
+
+5. O usuário utilizará do master prompt para geração da sequencia de slides, e, quando o usuário clicar sobre um dos textos de qualquer slide, deve surgir no painel esquerdo, o retângulo de edição do texto selecionado. Este retângulo deve conter os mesmos botões de edição que há no painel direito, ou seja, os botões de edição de texto, tamanho, posição, negrito, itálico, sublinhado, fonte, alinhamento e principalmente cor.
+
+6. Ter a possibilidade de remover um slide do carrossel criado. Com um botão de 'X' no canto superior direito de cada slide (o 'X' deve ficar flutuando próximo, mas ele deve estar acima de cada card/slide e não na parte de dentro)
+
+7. O nome do layout utilizado deve estar abaixo do card/slide, para ajudar o usuário a saber qual modelo/layout está sendo usado. Deve estar de forma elegante e bonita, com uma fonte pequena, mas legível.
+
+8. Os textos "DESLIZAR" e "Instagram Ready" da capa atual, devem estar liberados para edição, como qualquer outro texto do slide.
+
+9. Devemos liberar a edição dos cards de imagem presente nos layouts (para aumentar, diminuir seu tamanho da moldura da imagem), e para ajudar os usuários mais leigos, devemos ter um controle bem intuitivo no menu abaixo do slide (onde já temos "FOTO", "COPIAR TEXTOS".
+
+10. Informações dos componentes do slide devem aparecer abaixo do slide, e em tempo real. Ou seja, a cada mudança de posição e ou tamanho, será visível no X, Y, L, A (X, Y, Largura e Altura) do componente selecionado. Esse menu pode ser um pouquinho abaixo do slide, e deve ser bem discreto, mas visível.
+
+11: A sidebar superior onde há o nome do app e a versão, deve ser recolhível e expansível, com um botão para isso, que deve ficar à direita.

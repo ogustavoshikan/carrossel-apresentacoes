@@ -1,5 +1,0 @@
-Analise o monólito atual e separe-o em componentes lógicos (ex: SlideCover, SlideQuote, Toolbar, etc.).
-
-Implemente tokenização de design seguindo as melhores práticas do Tailwind CSS e shadcn/ui (isole variáveis de cor como o gradientColor1, padronize tipografias font-outfit e font-playfair no config, etc.).
-
-PARADA OBRIGATÓRIA: Após finalizar a componetização, você DEVE parar e me avisar: 'Componetização concluída. Por favor, faça o commit no GitHub antes de prosseguirmos para as novas features.' Não avance sem minha permissão explícita.

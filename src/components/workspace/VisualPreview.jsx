@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Upload,
   Copy,
   CheckCircle2,
   RotateCcw,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Download
 } from 'lucide-react';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
@@ -24,20 +28,55 @@ export default function VisualPreview({
   onItemChange,
   onImageUpload,
   onImagePosition,
+  onImageScale,
   onCopySlide,
+  onExportSlide,
   onResetPositions,
+  onRemoveSlide,
   copiedIndex,
 }) {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
+  const scrollRight = () => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
+
   return (
-    <div
-      className="flex gap-10 overflow-x-auto pb-12 pt-4 px-4 snap-x snap-mandatory items-center min-h-[600px]"
-      style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}
-    >
+    <div className="relative w-full group/nav">
+      <button 
+        onClick={scrollLeft}
+        className="absolute left-2 top-1/3 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+
+      <button 
+        onClick={scrollRight}
+        className="absolute right-2 top-1/3 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      <div
+        ref={scrollRef}
+        className="flex gap-10 overflow-x-auto pb-12 pt-4 px-4 snap-x snap-mandatory items-center min-h-[600px]"
+        style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}
+      >
       {slides.map((slide, index) => (
         <div
           key={`visual-${index}`}
-          className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300"
+          className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide"
         >
+          {/* Botão Remover Slide Flutuante */}
+          {onRemoveSlide && (
+            <button
+              onClick={() => onRemoveSlide(index)}
+              className="absolute -top-3 -right-3 z-50 w-8 h-8 bg-surface-dark border border-border-subtle hover:border-red-500/50 rounded-full flex items-center justify-center text-zinc-500 hover:text-red-400 hover:bg-red-500/10 opacity-0 group-hover/slide:opacity-100 transition-all shadow-xl"
+              title="Remover Slide"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+
           {/* Slide Card */}
           <div
             id={`slide-card-${index}`}
@@ -61,6 +100,12 @@ export default function VisualPreview({
 
           {/* Controls */}
           <div className="flex flex-col gap-3" style={{ width: SLIDE_DIMENSIONS.width }}>
+            <div className="w-full flex justify-center mb-1">
+               <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
+                 Layout: {slide.layout}
+               </span>
+            </div>
+
             <div className="flex gap-3 w-full">
               <label className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg">
                 <Upload className="w-4 h-4" />
@@ -85,6 +130,14 @@ export default function VisualPreview({
                 )}
                 {copiedIndex === index ? 'Copiado!' : 'Copiar Textos'}
               </button>
+
+               <button
+                onClick={() => onExportSlide && onExportSlide(index)}
+                className="flex-1 flex items-center justify-center gap-2 text-label-xs uppercase text-white py-3.5 px-4 rounded-xl transition-all font-black shadow-lg bg-emerald-600 hover:bg-emerald-500"
+              >
+                <Download className="w-4 h-4" />
+                Slide
+              </button>
             </div>
 
             {Object.keys(slide.positions || {}).length > 0 && (
@@ -93,31 +146,54 @@ export default function VisualPreview({
                 className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-red-950/20 hover:bg-red-900/40 text-red-500 py-3 rounded-xl transition-colors border border-red-900/30 font-bold"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                Reset Positions
+                Resetar Posições
               </button>
             )}
 
             {slide.imageUrl && (
-              <div className="bg-surface-input border border-border-subtle rounded-xl p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <label className="alice-label mb-0">Image Offset Y</label>
-                  <span className="text-[10px] text-zinc-600 font-mono">
-                    {slide.imagePosition ?? 50}%
-                  </span>
+              <div className="bg-surface-input border border-border-subtle rounded-xl p-4 space-y-4">
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="alice-label mb-0">Posição da Imagem (Y)</label>
+                    <span className="text-[10px] text-zinc-600 font-mono">
+                      {slide.imagePosition ?? 50}%
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={slide.imagePosition ?? 50}
+                    onChange={(e) => onImagePosition(index, e.target.value)}
+                    className="alice-range"
+                  />
                 </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={slide.imagePosition ?? 50}
-                  onChange={(e) => onImagePosition(index, e.target.value)}
-                  className="alice-range"
-                />
+                
+                <div className="w-full h-px bg-white/5" />
+
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="alice-label mb-0">Tamanho da Imagem (Escala)</label>
+                    <span className="text-[10px] text-zinc-600 font-mono">
+                      {slide.imageScale ?? 1}x
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1"
+                    max="3"
+                    step="0.05"
+                    value={slide.imageScale ?? 1}
+                    onChange={(e) => onImageScale(index, e.target.value)}
+                    className="alice-range"
+                  />
+                </div>
               </div>
             )}
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }

@@ -107,6 +107,8 @@ export default function SlideBigNumber({
               style={{
                 backgroundImage: `url(${data.imageUrl})`,
                 backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+                transform: `scale(${data.imageScale ?? 1})`,
+                transformOrigin: 'top center',
               }}
             />
           ) : (

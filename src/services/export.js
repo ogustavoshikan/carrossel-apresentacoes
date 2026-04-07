@@ -60,3 +60,67 @@ export async function exportAllToPNG(slides, brandHandle) {
     window.scrollTo(0, originalScrollY);
   }
 }
+
+/**
+ * Exporta um único slide permitindo ao usuário escolher a pasta de destino (Save File Dialog).
+ * @param {number} i - Índice do slide
+ * @param {string} brandHandle - Handle do brand
+ */
+export async function exportSlideToPNG(i, brandHandle) {
+  if (document.activeElement instanceof HTMLElement) {
+    document.activeElement.blur();
+  }
+
+  const originalScrollY = window.scrollY;
+  document.documentElement.style.scrollBehavior = 'auto';
+  
+  await new Promise((r) => setTimeout(r, 150));
+  await document.fonts.ready;
+
+  try {
+    await ensureHtmlToImage();
+
+    const element = document.getElementById(`slide-card-${i}`);
+    if (!element) throw new Error("Elemento do slide não encontrado");
+
+    const dataUrl = await window.htmlToImage.toPng(element, {
+      pixelRatio: 3,
+      backgroundColor: '#020202',
+    });
+
+    const safeHandle = brandHandle.replace('@', '');
+    const defaultName = `${safeHandle}_slide_${i + 1}.png`;
+
+    // Utiliza File System Access API se disponível para abrir janela de salvamento
+    if (window.showSaveFilePicker) {
+      try {
+        const fileHandle = await window.showSaveFilePicker({
+          suggestedName: defaultName,
+          types: [{
+            description: 'PNG Image',
+            accept: { 'image/png': ['.png'] },
+          }],
+        });
+        const writable = await fileHandle.createWritable();
+        const blob = await (await fetch(dataUrl)).blob();
+        await writable.write(blob);
+        await writable.close();
+      } catch (err) {
+        // Usuário cancelou ou navegador bloqueou, volta silenciosamente ou desvia fallback
+        if (err.name !== 'AbortError') {
+          console.error("Save File Picker failed", err);
+          throw err;
+        }
+      }
+    } else {
+      // Fallback para navegadores sem suporte (ex: Safari)
+      const link = document.createElement('a');
+      link.download = defaultName;
+      link.href = dataUrl;
+      link.click();
+    }
+  } finally {
+    document.documentElement.style.scrollBehavior = '';
+    window.scrollTo(0, originalScrollY);
+  }
+}

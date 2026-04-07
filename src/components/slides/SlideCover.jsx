@@ -25,13 +25,15 @@ export default function SlideCover({
       {/* Hero image top */}
       <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
         {data.imageUrl ? (
-          <div
-            className="absolute inset-0 bg-cover"
-            style={{
-              backgroundImage: `url(${data.imageUrl})`,
-              backgroundPosition: `center ${data.imagePosition ?? 50}%`,
-            }}
-          />
+            <div
+              className="absolute inset-0 bg-cover"
+              style={{
+                backgroundImage: `url(${data.imageUrl})`,
+                backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+                transform: `scale(${data.imageScale ?? 1})`,
+                transformOrigin: 'top center',
+              }}
+            />
         ) : (
           <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center opacity-50">
             <ImageIcon className="w-8 h-8 text-zinc-700" />
@@ -86,15 +88,42 @@ export default function SlideCover({
           <div className="w-20 h-[3px] bg-white/50" />
         </div>
 
-        <div className="flex justify-between items-end pb-4 pointer-events-none">
-          <span className="font-outfit font-bold text-[10px] tracking-[0.5em] text-white/40 uppercase">
-            Instagram Ready
-          </span>
-          <div className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10">
-            <span className="text-[11px] font-outfit font-black text-white tracking-widest uppercase">
-              Deslizar
+        <div className="flex justify-between items-end pb-4 relative z-10">
+          <SmartElement
+            slideIndex={index}
+            field="insta_ready"
+            position={pos('insta_ready')}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+          >
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] tracking-[0.5em] text-white/40 uppercase outline-none block"
+            >
+              {data.insta_ready || 'Instagram Ready'}
             </span>
-            <ArrowRight className="w-4 h-4 text-white" />
+          </SmartElement>
+
+          <div className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto">
+            <SmartElement
+              slideIndex={index}
+              field="slide_call"
+              position={pos('slide_call')}
+              showMetrics={showMetrics}
+              onActionStart={onActionStart}
+            >
+              <span
+                contentEditable
+                suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
+                className="text-[11px] font-outfit font-black text-white tracking-widest uppercase outline-none block"
+              >
+                {data.slide_call || 'Deslizar'}
+              </span>
+            </SmartElement>
+            <ArrowRight className="w-4 h-4 text-white shrink-0 pointer-events-none" />
           </div>
         </div>
       </div>

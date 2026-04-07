@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 import { useDragResize } from './hooks/useDragResize';
 import { generateCarouselContent, generateImageWithAI } from './services/ai';
-import { exportAllToPNG } from './services/export';
+import { exportAllToPNG, exportSlideToPNG } from './services/export';
 import { copyToClipboard } from './lib/clipboard';
 import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
 
@@ -28,6 +29,7 @@ export default function App() {
   const [loadingImages, setLoadingImages] = useState({});
   const [slideCount, setSlideCount] = useState(SLIDE_COUNT_RANGE.default);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(true);
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
@@ -59,6 +61,10 @@ export default function App() {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
   }, []);
 
+  const handleRemoveSlide = useCallback((index) => {
+    setSlides(prev => prev.filter((_, i) => i !== index));
+  }, []);
+
   const handleSlideItemChange = useCallback((slideIndex, itemIndex, field, value) => {
     setSlides((prev) =>
       prev.map((s, i) => {
@@ -83,6 +89,10 @@ export default function App() {
 
   const handleImagePosition = useCallback((index, value) => {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imagePosition: value } : s)));
+  }, []);
+
+  const handleImageScale = useCallback((index, value) => {
+    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imageScale: value } : s)));
   }, []);
 
   const handleGenerateImage = useCallback(
@@ -166,6 +176,18 @@ export default function App() {
     }
   }, [slides, brandHandle]);
 
+  const handleExportSlide = useCallback(async (index) => {
+    setIsExporting(true);
+    try {
+      await exportSlideToPNG(index, brandHandle);
+    } catch (err) {
+      console.error(`Erro ao exportar slide ${index}:`, err);
+      setError(`Deu BO na hora de exportar o slide ${index + 1}.`);
+    } finally {
+      setIsExporting(false);
+    }
+  }, [brandHandle]);
+
   const handleCopySlide = useCallback(
     (index) => {
       const slide = slides[index];
@@ -203,38 +225,48 @@ export default function App() {
       `}</style>
 
       {/* NAVBAR */}
-      <nav className="h-20 border-b border-border-subtle bg-surface-card/80 backdrop-blur-3xl px-8 flex flex-wrap items-center justify-between z-[100] relative">
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-4 group cursor-pointer">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white"
-              style={{
-                backgroundColor: gradientColor1,
-                boxShadow: `0 0 20px ${gradientColor1}40`,
-              }}
-            >
-              A
-            </div>
-            <div className="flex flex-col">
-              <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
-                Alice <span style={{ color: gradientColor1 }}>Studio</span>
-              </span>
-              <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">
-                v3.2 Final
-              </span>
+      <div className={`transition-all duration-300 ease-in-out origin-top border-b border-border-subtle bg-surface-card/80 backdrop-blur-3xl z-[100] relative flex flex-col ${isNavbarOpen ? 'h-20' : 'h-0 overflow-hidden border-transparent'}`}>
+        <nav className="h-20 px-8 flex flex-wrap items-center justify-between shrink-0">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white"
+                style={{
+                  backgroundColor: gradientColor1,
+                  boxShadow: `0 0 20px ${gradientColor1}40`,
+                }}
+              >
+                A
+              </div>
+              <div className="flex flex-col">
+                <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
+                  Alice <span style={{ color: gradientColor1 }}>Studio</span>
+                </span>
+                <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">
+                  v3.2 Final
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex items-center gap-6 mt-4 sm:mt-0">
-          <div className="hidden lg:flex items-center gap-4 px-6 py-2 bg-white/5 rounded-full border border-border-hover">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-            <span className="text-label-xs font-outfit text-white uppercase">
-              Safe Zones Verified
-            </span>
+          <div className="flex items-center gap-6 mt-4 sm:mt-0">
+            <div className="hidden lg:flex items-center gap-4 px-6 py-2 bg-white/5 rounded-full border border-border-hover">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+              <span className="text-label-xs font-outfit text-white uppercase">
+                Zonas Seguras
+              </span>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
+
+      {/* NAVBAR TOGGLE BUTTON */}
+      <button 
+        onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+        className="absolute top-0 right-1/2 translate-x-1/2 lg:right-10 lg:translate-x-0 z-[110] bg-surface-card/90 border border-border-subtle border-t-0 rounded-b-xl px-4 py-1.5 text-zinc-500 hover:text-white transition-colors shadow-2xl backdrop-blur-md"
+      >
+        {isNavbarOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+      </button>
 
       {/* MAIN LAYOUT */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
@@ -293,6 +325,7 @@ export default function App() {
                   onTextChange={handleSlideTextChange}
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
+                  onImageScale={handleImageScale}
                   onGenerateImage={handleGenerateImage}
                   loadingImages={loadingImages}
                 />
@@ -310,8 +343,11 @@ export default function App() {
                   onItemChange={handleSlideItemChange}
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
+                  onImageScale={handleImageScale}
                   onCopySlide={handleCopySlide}
+                  onExportSlide={handleExportSlide}
                   onResetPositions={resetSlidePositions}
+                  onRemoveSlide={handleRemoveSlide}
                   copiedIndex={copiedIndex}
                 />
               )}
