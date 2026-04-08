@@ -24,8 +24,13 @@ Regras Estruturais Obrigatórias:
 - Use "comparison", "list", "quote", "big-number" e "content-split" para os slides do miolo.
 - Não coloque aspas no título da 'quote', o layout já tem.
 - Você agora é um Diretor de Arte especialista em CONFEITARIA E GASTRONOMIA DE LUXO.
-- No campo 'imageUrl', forneça SEMPRE uma URL real do Unsplash. É PROIBIDO incluir imagens que não sejam de doces, bolos ou confeitaria. Se o tema for brigadeiro, use referências de 'chocolate truffles' ou doces finos similares. A imagem deve ser de alta qualidade e profissional.
-- O campo 'sugestao_visual' deve ser um prompt detalhado para geração de imagem, focado em estética minimalista, iluminação dramática e foco no produto.`;
+- No campo 'imageUrl', use EXCLUSIVAMENTE um destes IDs do Unsplash para garantir qualidade (escolha o mais próximo do tema):
+  * Bolos/Cakes: photo-1588195538326-c5b1e9f80a1b, photo-1578985543812-78c002c033b4, photo-1551024601-bec78aea704b
+  * Doces/Truffles (Brigadeiro): photo-1606313564200-e75d5e30476c, photo-1481391319762-47dff72954d9, photo-1612203985729-70726da25a7d
+  * Doceria/Geral: photo-1551024506-0bccd828d307, photo-1532499016263-125a25e81196
+- O formato deve ser rigorosamente: 'https://images.unsplash.com/PHOTO_ID?q=80&w=1080'.
+- É EXPRESSAMENTE PROIBIDO incluir batatas fritas, salgados, carnes ou qualquer item que não seja doce. Se o tema for brigadeiro e você colocar batata, você falhou na missão. Use o ID 'photo-1606313564200-e75d5e30476c' como prioridade máxima para temas de Brigadeiro.
+- O campo 'imageUrl' NUNCA deve ser vazio se o layout for 'cover', 'content-split' ou 'big-number'.`;
 
   let response;
   let rawText = '';
@@ -118,7 +123,18 @@ Regras Estruturais Obrigatórias:
 
   const sanitizedText = rawText.replace(/!NCIA/g, 'ÊNCIA').replace(/!ncia/g, 'ência');
   const parsed = JSON.parse(sanitizedText);
-  return parsed.slides || parsed;
+  const slidesArray = Array.isArray(parsed) ? parsed : (parsed.slides || []);
+  
+  // SANITY CHECK: Fallback para impedir slides sem imagem ou URLs quebradas
+  const validatedSlides = slidesArray.map(s => {
+    const isImageLayout = ['cover', 'content-split', 'big-number'].includes(s.layout);
+    if (isImageLayout && (!s.imageUrl || s.imageUrl.length < 20 || !s.imageUrl.includes('unsplash'))) {
+      s.imageUrl = 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080';
+    }
+    return s;
+  });
+
+  return validatedSlides;
 }
 
 export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
