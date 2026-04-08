@@ -186,22 +186,38 @@ export default function ConfigSidebar({
     const pos = slide.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 };
     
     // Atualizar uma propriedade específica do elemento no Master State
-    const updateProp = (prop, value) => {
+    const updateProp = (prop, valueOrFn) => {
       setSlides(prev => prev.map((s, i) => {
         if (i === selectedElement.slideIndex) {
+          const currentPos = s.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 };
+          const newValue = typeof valueOrFn === 'function' ? valueOrFn(currentPos[prop] ?? (prop === 'scale' ? 1 : 0)) : valueOrFn;
           return {
             ...s,
             positions: {
               ...(s.positions || {}),
               [selectedElement.field]: {
-                ...(s.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 }),
-                [prop]: value
+                ...currentPos,
+                [prop]: newValue
               }
             }
           };
         }
         return s;
       }));
+    };
+
+    // Função para incremento contínuo ao segurar botão
+    const startAutoScroll = (prop, delta) => {
+      const interval = setInterval(() => {
+        updateProp(prop, v => v + delta);
+      }, 50);
+      const stop = () => {
+        clearInterval(interval);
+        window.removeEventListener('mouseup', stop);
+        window.removeEventListener('touchend', stop);
+      };
+      window.addEventListener('mouseup', stop);
+      window.addEventListener('touchend', stop);
     };
 
     return (
@@ -242,21 +258,37 @@ export default function ConfigSidebar({
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
-                  <input 
-                    type="number" 
-                    step="1"
-                    value={Math.round(pos?.x || 0)}
-                    onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
-                    className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
-                  />
+                  <div className="flex items-center gap-1">
+                    <button 
+                      onMouseDown={() => startAutoScroll('x', -1)}
+                      onTouchStart={() => startAutoScroll('x', -1)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      -
+                    </button>
+                    <input 
+                      type="number" 
+                      step="1"
+                      value={Math.round(pos?.x || 0)}
+                      onChange={(e) => updateProp('x', Number(e.target.value))}
+                      className="w-10 bg-transparent text-white font-mono text-xs outline-none text-center"
+                    />
+                    <button 
+                      onMouseDown={() => startAutoScroll('x', 1)}
+                      onTouchStart={() => startAutoScroll('x', 1)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
                   <input 
                     type="range"
                     min="-500"
                     max="500"
-                    step="1"
-                    value={Math.round(pos?.x || 0)}
-                    onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                    step="any"
+                    value={pos?.x || 0}
+                    onChange={(e) => updateProp('x', Math.round(Number(e.target.value)))}
                     className="alice-range w-full"
                   />
               </div>
@@ -264,21 +296,37 @@ export default function ConfigSidebar({
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
-                  <input 
-                    type="number" 
-                    step="1"
-                    value={Math.round(pos?.y || 0)}
-                    onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
-                    className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
-                  />
+                  <div className="flex items-center gap-1">
+                    <button 
+                      onMouseDown={() => startAutoScroll('y', -1)}
+                      onTouchStart={() => startAutoScroll('y', -1)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      -
+                    </button>
+                    <input 
+                      type="number" 
+                      step="1"
+                      value={Math.round(pos?.y || 0)}
+                      onChange={(e) => updateProp('y', Number(e.target.value))}
+                      className="w-10 bg-transparent text-white font-mono text-xs outline-none text-center"
+                    />
+                    <button 
+                      onMouseDown={() => startAutoScroll('y', 1)}
+                      onTouchStart={() => startAutoScroll('y', 1)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
                   <input 
                     type="range"
                     min="-500"
                     max="500"
-                    step="1"
-                    value={Math.round(pos?.y || 0)}
-                    onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                    step="any"
+                    value={pos?.y || 0}
+                    onChange={(e) => updateProp('y', Math.round(Number(e.target.value)))}
                     className="alice-range w-full"
                   />
               </div>
@@ -293,7 +341,7 @@ export default function ConfigSidebar({
                 type="range"
                 min="0.3"
                 max="5"
-                step="0.03"
+                step="0.01"
                 value={pos.scale || 1}
                 onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
                 className="alice-range"
@@ -347,23 +395,31 @@ export default function ConfigSidebar({
 
              <div className="grid grid-cols-2 gap-3">
                <div>
-                   <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
-                     <span className="flex items-center gap-1.5">
-                       <input
-                         type="color"
-                         value={pos.color || '#ffffff'}
-                         onChange={(e) => updateProp('color', e.target.value)}
-                         className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
-                         title="Escolher cor"
-                       />
-                       Cor do Texto
-                     </span>
-                   </label>
+                    <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                      <span className="flex items-center gap-1.5">
+                        <input
+                          type="color"
+                          value={pos.color || '#ffffff'}
+                          onChange={(e) => updateProp('color', e.target.value)}
+                          className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
+                          title="Escolher cor"
+                        />
+                        Cor do Texto
+                      </span>
+                    </label>
                   <div className="flex items-center bg-surface-input rounded p-1 gap-1">
-                    <span
-                      className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm flex-shrink-0"
-                      style={{ backgroundColor: pos.color || '#ffffff' }}
-                    />
+                    <label className="flex-shrink-0 cursor-pointer">
+                      <input
+                        type="color"
+                        value={pos.color || '#ffffff'}
+                        onChange={(e) => updateProp('color', e.target.value)}
+                        className="absolute w-0 h-0 opacity-0 pointer-events-none"
+                      />
+                      <span
+                        className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm"
+                        style={{ backgroundColor: pos.color || '#ffffff' }}
+                      />
+                    </label>
                     <input 
                       type="text" 
                       value={pos.color || ''}
@@ -374,23 +430,31 @@ export default function ConfigSidebar({
                   </div>
                </div>
                <div>
-                   <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
-                     <span className="flex items-center gap-1.5">
-                       <input
-                         type="color"
-                         value={pos.bgColor || '#000000'}
-                         onChange={(e) => updateProp('bgColor', e.target.value)}
-                         className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
-                         title="Escolher cor"
-                       />
-                       Cor do Fundo
-                     </span>
-                   </label>
+                    <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                      <span className="flex items-center gap-1.5">
+                        <input
+                          type="color"
+                          value={pos.bgColor || '#000000'}
+                          onChange={(e) => updateProp('bgColor', e.target.value)}
+                          className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
+                          title="Escolher cor"
+                        />
+                        Cor do Fundo
+                      </span>
+                    </label>
                   <div className="flex items-center bg-surface-input rounded p-1 gap-1">
-                    <span
-                      className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm flex-shrink-0"
-                      style={{ backgroundColor: pos.bgColor || '#000000' }}
-                    />
+                    <label className="flex-shrink-0 cursor-pointer">
+                      <input
+                        type="color"
+                        value={pos.bgColor || '#000000'}
+                        onChange={(e) => updateProp('bgColor', e.target.value)}
+                        className="absolute w-0 h-0 opacity-0 pointer-events-none"
+                      />
+                      <span
+                        className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm"
+                        style={{ backgroundColor: pos.bgColor || '#000000' }}
+                      />
+                    </label>
                     <input 
                       type="text" 
                       value={pos.bgColor || ''}
