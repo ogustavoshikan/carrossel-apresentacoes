@@ -20,8 +20,30 @@ import {
   AlignRight,
   AlignJustify,
   Info,
+  ChevronDown,
+  ChevronRight,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
+
+const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
+  const [isOpen, setIsOpen] = React.useState(defaultOpen);
+  return (
+    <div className="bg-surface-card border border-border-subtle rounded-xl overflow-hidden mb-4">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex justify-between items-center p-4 bg-white/5 hover:bg-white/10 transition-colors"
+      >
+        <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400">{title}</span>
+        {isOpen ? <ChevronDown className="w-4 h-4 text-zinc-500" /> : <ChevronRight className="w-4 h-4 text-zinc-500" />}
+      </button>
+      {isOpen && (
+        <div className="p-4 pt-0 flex flex-col gap-4 mt-4">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
 
 /**
  * ConfigSidebar — Sidebar de configurações do Alice Studio.
@@ -365,6 +387,48 @@ export default function ConfigSidebar({
                    className="alice-range w-full"
                 />
               </div>
+              <div className="bg-surface-input px-3 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 mt-2">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 text-center w-full">Direcional Minimalista</span>
+                <div className="grid grid-cols-3 gap-1 w-fit">
+                   <div />
+                   <button 
+                     onMouseDown={() => startAutoScroll('y', -1)} 
+                     onTouchStart={() => startAutoScroll('y', -1)}
+                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-t-lg active:scale-95 transition-all outline-none border border-white/5 pb-1"
+                   >
+                     <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-transparent border-b-zinc-400" />
+                   </button>
+                   <div />
+                   
+                   <button 
+                     onMouseDown={() => startAutoScroll('x', -1)} 
+                     onTouchStart={() => startAutoScroll('x', -1)}
+                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-l-lg active:scale-95 transition-all outline-none border border-white/5 pr-1"
+                   >
+                     <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-r-[8px] border-transparent border-r-zinc-400" />
+                   </button>
+                   <div className="w-10 h-10 bg-zinc-950 rounded-sm border border-white/5 flex items-center justify-center shadow-inner">
+                     <div className="w-3 h-3 rounded-full bg-zinc-800/50 shadow" />
+                   </div>
+                   <button 
+                     onMouseDown={() => startAutoScroll('x', 1)} 
+                     onTouchStart={() => startAutoScroll('x', 1)}
+                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-r-lg active:scale-95 transition-all outline-none border border-white/5 pl-1"
+                   >
+                     <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-zinc-400" />
+                   </button>
+                   
+                   <div />
+                   <button 
+                     onMouseDown={() => startAutoScroll('y', 1)} 
+                     onTouchStart={() => startAutoScroll('y', 1)}
+                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-b-lg active:scale-95 transition-all outline-none border border-white/5 pt-1"
+                   >
+                     <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-zinc-400" />
+                   </button>
+                   <div />
+                </div>
+              </div>
            </div>
 
            <div className="mt-4 pt-4 border-t border-border-subtle">
@@ -519,7 +583,7 @@ export default function ConfigSidebar({
           Direção Criativa
         </h3>
 
-        <div className="space-y-4">
+        <CollapsibleSection title="HANDLE A CORPO / TEXTO">
           {/* Handle + Verified */}
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -597,7 +661,9 @@ export default function ConfigSidebar({
               </div>
             </div>
           </div>
+        </CollapsibleSection>
 
+        <CollapsibleSection title="TAMANHO TÍTULO A BORDAS">
           {/* Scale: Título */}
           <div>
             <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
@@ -672,7 +738,7 @@ export default function ConfigSidebar({
               className="alice-range w-full"
             />
           </div>
-        </div>
+        </CollapsibleSection>
 
         <div className="h-px bg-white/5 w-full" />
 
