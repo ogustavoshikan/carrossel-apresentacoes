@@ -394,37 +394,41 @@ export default function ConfigSidebar({
                    <button 
                      onMouseDown={() => startAutoScroll('y', -1)} 
                      onTouchStart={() => startAutoScroll('y', -1)}
-                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-t-lg active:scale-95 transition-all outline-none border border-white/5 pb-1"
+                     className="w-8 h-8 flex justify-center items-center rounded-t-lg active:scale-95 transition-all outline-none border border-white/20 pb-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                     style={{ backgroundColor: gradientColor1 }}
                    >
-                     <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-transparent border-b-zinc-400" />
+                     <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-b-[6px] border-transparent border-b-white/90" />
                    </button>
                    <div />
                    
                    <button 
                      onMouseDown={() => startAutoScroll('x', -1)} 
                      onTouchStart={() => startAutoScroll('x', -1)}
-                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-l-lg active:scale-95 transition-all outline-none border border-white/5 pr-1"
+                     className="w-8 h-8 flex justify-center items-center rounded-l-lg active:scale-95 transition-all outline-none border border-white/20 pr-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                     style={{ backgroundColor: gradientColor1 }}
                    >
-                     <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-r-[8px] border-transparent border-r-zinc-400" />
+                     <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-r-[6px] border-transparent border-r-white/90" />
                    </button>
-                   <div className="w-10 h-10 bg-zinc-950 rounded-sm border border-white/5 flex items-center justify-center shadow-inner">
-                     <div className="w-3 h-3 rounded-full bg-zinc-800/50 shadow" />
+                   <div className="w-8 h-8 bg-zinc-950 rounded-sm border border-white/10 flex items-center justify-center shadow-inner">
+                     <div className="w-2.5 h-2.5 rounded-full bg-zinc-800/80 shadow" />
                    </div>
                    <button 
                      onMouseDown={() => startAutoScroll('x', 1)} 
                      onTouchStart={() => startAutoScroll('x', 1)}
-                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-r-lg active:scale-95 transition-all outline-none border border-white/5 pl-1"
+                     className="w-8 h-8 flex justify-center items-center rounded-r-lg active:scale-95 transition-all outline-none border border-white/20 pl-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                     style={{ backgroundColor: gradientColor1 }}
                    >
-                     <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[8px] border-transparent border-l-zinc-400" />
+                     <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-white/90" />
                    </button>
                    
                    <div />
                    <button 
                      onMouseDown={() => startAutoScroll('y', 1)} 
                      onTouchStart={() => startAutoScroll('y', 1)}
-                     className="w-10 h-10 flex justify-center items-center bg-zinc-800 hover:bg-zinc-700 rounded-b-lg active:scale-95 transition-all outline-none border border-white/5 pt-1"
+                     className="w-8 h-8 flex justify-center items-center rounded-b-lg active:scale-95 transition-all outline-none border border-white/20 pt-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                     style={{ backgroundColor: gradientColor1 }}
                    >
-                     <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-transparent border-t-zinc-400" />
+                     <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-transparent border-t-white/90" />
                    </button>
                    <div />
                 </div>
@@ -666,9 +670,9 @@ export default function ConfigSidebar({
         <CollapsibleSection title="TAMANHO TÍTULO A BORDAS">
           {/* Scale: Título */}
           <div>
-            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
-              Tamanho Título: {titleSizeScale}%
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+              <span>Tamanho Título: {titleSizeScale}%</span>
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
               <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
                 Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
               </div>
@@ -685,9 +689,9 @@ export default function ConfigSidebar({
 
           {/* Scale: Texto */}
           <div>
-            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
-              Tamanho Texto: {textSizeScale}%
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+              <span>Tamanho Texto: {textSizeScale}%</span>
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
               <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
                 Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
               </div>
@@ -704,9 +708,9 @@ export default function ConfigSidebar({
 
           {/* Scale: Border Radius */}
           <div>
-            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
-              Bordas do Card: {cardBorderRadius}px
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+              <span>Bordas do Card: {cardBorderRadius}px</span>
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
               <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
                 Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
               </div>
@@ -722,9 +726,9 @@ export default function ConfigSidebar({
           </div>
 
           <div>
-            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
-              Bordas Internas (Imagens): {imageBorderRadius}px
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+              <span>Bordas Internas: {imageBorderRadius}px</span>
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
               <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
                 Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
               </div>
