@@ -36,8 +36,8 @@ export default function App() {
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
   const [isVerified, setIsVerified] = useState(BRAND_DEFAULTS.isVerified);
   const [gradientColor1, setGradientColor1] = useState(BRAND_DEFAULTS.gradientColor1);
-  const [titleSizeScale, setTitleSizeScale] = useState(100);
-  const [textSizeScale, setTextSizeScale] = useState(100);
+  const [titleSizeScale, setTitleSizeScale] = useState(70);
+  const [textSizeScale, setTextSizeScale] = useState(70);
   const [cardBorderRadius, setCardBorderRadius] = useState(0);
   const [imageBorderRadius, setImageBorderRadius] = useState(40);
   const [isExporting, setIsExporting] = useState(false);

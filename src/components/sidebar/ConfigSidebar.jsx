@@ -670,11 +670,13 @@ export default function ConfigSidebar({
         <CollapsibleSection title="TAMANHO TÍTULO A BORDAS">
           {/* Scale: Título */}
           <div>
-            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+            <label className="alice-label flex items-center justify-between w-full">
               <span>Tamanho Título: {titleSizeScale}%</span>
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
+              <div className="group relative cursor-help">
+                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                  Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
+                </div>
               </div>
             </label>
             <input
@@ -689,11 +691,13 @@ export default function ConfigSidebar({
 
           {/* Scale: Texto */}
           <div>
-            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+            <label className="alice-label flex items-center justify-between w-full">
               <span>Tamanho Texto: {textSizeScale}%</span>
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
+              <div className="group relative cursor-help">
+                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                  Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
+                </div>
               </div>
             </label>
             <input
@@ -708,11 +712,13 @@ export default function ConfigSidebar({
 
           {/* Scale: Border Radius */}
           <div>
-            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+            <label className="alice-label flex items-center justify-between w-full">
               <span>Bordas do Card: {cardBorderRadius}px</span>
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
+              <div className="group relative cursor-help">
+                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                  Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
+                </div>
               </div>
             </label>
             <input
@@ -726,11 +732,13 @@ export default function ConfigSidebar({
           </div>
 
           <div>
-            <label className="alice-label flex items-center justify-between w-full group relative cursor-help">
+            <label className="alice-label flex items-center justify-between w-full">
               <span>Bordas Internas: {imageBorderRadius}px</span>
-              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
+              <div className="group relative cursor-help">
+                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                  Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
+                </div>
               </div>
             </label>
             <input

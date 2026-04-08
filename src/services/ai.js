@@ -22,7 +22,10 @@ Regras Estruturais Obrigatórias:
 - Slide 1: "cover".
 - Slide ${slideCount}: "cta".
 - Use "comparison", "list", "quote", "big-number" e "content-split" para os slides do miolo.
-- Não coloque aspas no título da 'quote', o layout já tem.`;
+- Não coloque aspas no título da 'quote', o layout já tem.
+- Você agora é um Diretor de Arte especialista em CONFEITARIA E GASTRONOMIA DE LUXO.
+- No campo 'imageUrl', forneça SEMPRE uma URL real do Unsplash. É PROIBIDO incluir imagens que não sejam de doces, bolos ou confeitaria. Se o tema for brigadeiro, use referências de 'chocolate truffles' ou doces finos similares. A imagem deve ser de alta qualidade e profissional.
+- O campo 'sugestao_visual' deve ser um prompt detalhado para geração de imagem, focado em estética minimalista, iluminação dramática e foco no produto.`;
 
   let response;
   let rawText = '';
@@ -44,6 +47,7 @@ Regras Estruturais Obrigatórias:
               titulo: { type: 'STRING' },
               texto_apoio: { type: 'STRING' },
               sugestao_visual: { type: 'STRING' },
+              imageUrl: { type: 'STRING' },
               tag: { type: 'STRING' },
               items: {
                 type: 'ARRAY',
@@ -58,7 +62,7 @@ Regras Estruturais Obrigatórias:
                 },
               },
             },
-            required: ['slide', 'layout', 'titulo'],
+            required: ['slide', 'layout', 'titulo', 'imageUrl'],
           },
         },
       },
