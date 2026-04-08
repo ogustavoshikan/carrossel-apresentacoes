@@ -28,9 +28,9 @@ export default {
         playfair: ['var(--font-text)', 'serif'],
       },
       borderRadius: {
-        slide: '2.5rem',
-        'slide-inner': '2rem',
-        'slide-sm': '1.5rem',
+        slide: 'var(--radius-slide, 2.5rem)',
+        'slide-inner': 'var(--radius-inner, 2rem)',
+        'slide-sm': 'var(--radius-sm, 1.5rem)',
       },
       fontSize: {
         'cover-title': ['120px', { lineHeight: '0.8', letterSpacing: '-0.05em', fontWeight: '900' }],

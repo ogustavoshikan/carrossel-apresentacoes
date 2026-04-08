@@ -65,7 +65,29 @@ body {
 
   /* Textarea base */
   .alice-textarea {
-    @apply w-full bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-none text-sm font-playfair italic;
+    @apply w-full bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-y text-sm font-playfair italic;
+  }
+
+  .alice-textarea::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .alice-textarea::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .alice-textarea::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .alice-textarea::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid transparent;
+    background-clip: padding-box;
   }
 
   .alice-textarea:focus {

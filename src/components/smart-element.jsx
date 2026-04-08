@@ -44,8 +44,8 @@ export default function SmartElement({
     <div
       id={`smart-${slideIndex}-${field}`}
       ref={elRef}
-      onClickCapture={(e) => {
-        // Intercepta e propaga seleção apenas on-click sem drag
+      onClick={(e) => {
+        e.stopPropagation();
         if (onSelectElement) onSelectElement(slideIndex, field);
       }}
       className={`group relative transition-all ${className || ''}`}

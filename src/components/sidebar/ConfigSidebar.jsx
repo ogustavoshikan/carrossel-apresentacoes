@@ -39,6 +39,10 @@ export default function ConfigSidebar({
   setTitleSizeScale,
   textSizeScale,
   setTextSizeScale,
+  cardBorderRadius,
+  setCardBorderRadius,
+  imageBorderRadius,
+  setImageBorderRadius,
   // Prompt state
   theme,
   setTheme,
@@ -58,6 +62,77 @@ export default function ConfigSidebar({
 
   if (isInspectorActive) {
     const slide = slides[selectedElement.slideIndex] || {};
+
+    // Múltiplos Focos (Todo o Slide)
+    if (!selectedElement.field) {
+      return (
+        <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative">
+          <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg mb-1 border border-border-subtle">
+            <h3 className="text-white font-outfit font-black tracking-wide text-sm flex items-center gap-2 uppercase px-2">
+              <Settings2 className="w-4 h-4 text-emerald-500" />
+              Edição (Slide {selectedElement.slideIndex + 1})
+            </h3>
+            <button 
+              onClick={() => setSelectedElement(null)}
+              className="text-zinc-500 hover:text-white transition-colors bg-white/5 rounded-full p-1 border border-white/10"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            {['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button'].map(key => {
+              if (slide[key] === undefined) return null;
+              return (
+                <div key={key} className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-3">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500">{key.replace('_', ' ')}</span>
+                    <button 
+                      onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: key })}
+                      className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white px-2 py-1 rounded bg-black/40 border border-white/5 transition-colors"
+                    >
+                      Props Design
+                    </button>
+                  </div>
+                  <textarea 
+                    value={slide[key] || ''}
+                    onChange={(e) => {
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [key]: e.target.value} : s));
+                    }}
+                    className="alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-zinc-200"
+                  />
+                </div>
+              );
+            })}
+
+            {slide.items && slide.items.map((item, idx) => (
+              <div key={idx} className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-3">
+                 <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500 mt-1 block">Item Lista {idx + 1}</span>
+                 <input 
+                    value={item.label || ''}
+                    onChange={(e) => {
+                      const newItems = [...slide.items];
+                      newItems[idx].label = e.target.value;
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, items: newItems} : s));
+                    }}
+                    className="alice-input font-bold"
+                 />
+                 <textarea 
+                    value={item.text || ''}
+                    onChange={(e) => {
+                      const newItems = [...slide.items];
+                      newItems[idx].text = e.target.value;
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, items: newItems} : s));
+                    }}
+                    className="alice-textarea min-h-20 w-full p-3 font-playfair text-sm text-zinc-300 italic"
+                 />
+              </div>
+            ))}
+          </div>
+        </aside>
+      );
+    }
+
     const pos = slide.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 };
     
     // Atualizar uma propriedade específica do elemento no Master State
@@ -100,25 +175,55 @@ export default function ConfigSidebar({
              <span className="text-[11px] font-mono font-bold text-white bg-white/10 px-2 py-0.5 rounded">{selectedElement.field}</span>
            </div>
            
-           <div className="grid grid-cols-2 gap-2 mt-4">
-             <div className="bg-surface-input px-3 py-2 rounded-lg space-y-1">
-               <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição X</span>
-               <input 
-                 type="number" 
-                 value={Math.round(pos.x)}
-                 onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
-                 className="w-full bg-transparent text-white font-mono text-sm outline-none"
-               />
-             </div>
-             <div className="bg-surface-input px-3 py-2 rounded-lg space-y-1">
-               <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição Y</span>
-               <input 
-                 type="number" 
-                 value={Math.round(pos.y)}
-                 onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
-                 className="w-full bg-transparent text-white font-mono text-sm outline-none"
-               />
-             </div>
+           <div className="flex gap-3 w-full">
+              <button
+                 onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
+                 className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
+              >
+                <Settings2 className="w-4 h-4" />
+                Editar 
+              </button>
+
+              <div className="flex-1 grid grid-cols-2 gap-2">
+                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
+                    <input 
+                      type="number" 
+                      value={Math.round(pos?.x || 0)}
+                      onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                      className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
+                    />
+                  </div>
+                  <input 
+                    type="range"
+                    min="-500"
+                    max="500"
+                    value={Math.round(pos?.x || 0)}
+                    onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                    className="alice-range w-full"
+                  />
+                </div>
+                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
+                    <input 
+                      type="number" 
+                      value={Math.round(pos?.y || 0)}
+                      onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                      className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
+                    />
+                  </div>
+                  <input 
+                    type="range"
+                    min="-500"
+                    max="500"
+                    value={Math.round(pos?.y || 0)}
+                    onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                    className="alice-range w-full"
+                  />
+                </div>
+              </div>
            </div>
 
            <div className="mt-4">
@@ -225,6 +330,27 @@ export default function ConfigSidebar({
                </div>
              </div>
            </div>
+
+            <div className="mt-4 pt-4 border-t border-border-subtle">
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block">Conteúdo</span>
+                <button 
+                   onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
+                   className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors"
+                >
+                   Ver Tudo
+                </button>
+              </div>
+              <textarea 
+                value={slide[selectedElement.field] || ''}
+                disabled={!Object.keys(slide).includes(selectedElement.field)}
+                onChange={(e) => {
+                  setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
+                }}
+                className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!Object.keys(slide).includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                placeholder={!Object.keys(slide).includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : ''}
+              />
+            </div>
         </div>
       </aside>
     );
@@ -235,7 +361,7 @@ export default function ConfigSidebar({
         {/* === Section: Alice Setup === */}
         <h3 className="alice-section-title">
           <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
-          Alice Setup
+          Direção Criativa
         </h3>
 
         <div className="space-y-4">
@@ -334,6 +460,35 @@ export default function ConfigSidebar({
               className="alice-range"
             />
           </div>
+
+          {/* Scale: Border Radius */}
+          <div>
+            <label className="alice-label">
+              Bordas do Card: {cardBorderRadius}px
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="40"
+              value={cardBorderRadius}
+              onChange={(e) => setCardBorderRadius(Number(e.target.value))}
+              className="alice-range"
+            />
+          </div>
+
+          <div>
+            <label className="alice-label">
+              Bordas Internas (Imagens): {imageBorderRadius}px
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="80"
+              value={imageBorderRadius}
+              onChange={(e) => setImageBorderRadius(Number(e.target.value))}
+              className="alice-range"
+            />
+          </div>
         </div>
 
         <div className="h-px bg-white/5 w-full" />
@@ -342,7 +497,7 @@ export default function ConfigSidebar({
         <div className="space-y-4">
           <label className="alice-section-title">
             <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
-            Master Prompt
+            Briefing
           </label>
           <textarea
             className="alice-textarea h-32"
@@ -395,7 +550,7 @@ export default function ConfigSidebar({
               </>
             ) : (
               <>
-                <Send className="w-4 h-4" /> Start AI
+                <Send className="w-4 h-4" /> GERAR CARROSSEL
               </>
             )}
           </button>

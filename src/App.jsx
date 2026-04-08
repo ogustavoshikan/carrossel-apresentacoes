@@ -38,6 +38,8 @@ export default function App() {
   const [gradientColor1, setGradientColor1] = useState(BRAND_DEFAULTS.gradientColor1);
   const [titleSizeScale, setTitleSizeScale] = useState(100);
   const [textSizeScale, setTextSizeScale] = useState(100);
+  const [cardBorderRadius, setCardBorderRadius] = useState(0);
+  const [imageBorderRadius, setImageBorderRadius] = useState(40);
   const [isExporting, setIsExporting] = useState(false);
 
   // Drag & Resize hook
@@ -52,6 +54,9 @@ export default function App() {
     '--color-brand-glow': `${gradientColor1}40`,
     '--font-title': `'${BRAND_DEFAULTS.titleFont}', sans-serif`,
     '--font-text': `'${BRAND_DEFAULTS.textFont}', serif`,
+    '--radius-slide': `${cardBorderRadius}px`,
+    '--radius-inner': `${imageBorderRadius * 0.8}px`,
+    '--radius-sm': `${imageBorderRadius * 0.6}px`,
   };
 
   // ========================================
@@ -64,6 +69,15 @@ export default function App() {
 
   const handleRemoveSlide = useCallback((index) => {
     setSlides(prev => prev.filter((_, i) => i !== index));
+  }, []);
+
+  const handleDuplicateSlide = useCallback((index) => {
+    setSlides(prev => {
+      const clonedSlide = JSON.parse(JSON.stringify(prev[index]));
+      const newSlides = [...prev];
+      newSlides.splice(index + 1, 0, clonedSlide);
+      return newSlides;
+    });
   }, []);
 
   const handleSlideItemChange = useCallback((slideIndex, itemIndex, field, value) => {
@@ -241,10 +255,10 @@ export default function App() {
               </div>
               <div className="flex flex-col">
                 <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
-                  Alice <span style={{ color: gradientColor1 }}>Studio</span>
+                  Carrossel <span style={{ color: gradientColor1 }}>Studio</span>
                 </span>
-                <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">
-                  v3.2 Final
+                <span className="text-[8px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
+                  Sistema inteligente para criação de carrosséis de alta performance
                 </span>
               </div>
             </div>
@@ -283,6 +297,10 @@ export default function App() {
           setTitleSizeScale={setTitleSizeScale}
           textSizeScale={textSizeScale}
           setTextSizeScale={setTextSizeScale}
+          cardBorderRadius={cardBorderRadius}
+          setCardBorderRadius={setCardBorderRadius}
+          imageBorderRadius={imageBorderRadius}
+          setImageBorderRadius={setImageBorderRadius}
           theme={theme}
           setTheme={setTheme}
           slideCount={slideCount}
@@ -298,7 +316,10 @@ export default function App() {
         />
 
         {/* Workspace */}
-        <main className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden">
+        <main 
+          className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden"
+          onClick={() => setSelectedElement(null)}
+        >
           <SettingsModal 
             isOpen={isSettingsOpen} 
             onClose={() => setIsSettingsOpen(false)} 
@@ -353,6 +374,7 @@ export default function App() {
                   onExportSlide={handleExportSlide}
                   onResetPositions={resetSlidePositions}
                   onRemoveSlide={handleRemoveSlide}
+                  onDuplicateSlide={handleDuplicateSlide}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}

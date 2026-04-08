@@ -3,6 +3,7 @@ import {
   Upload,
   Copy,
   CheckCircle2,
+  Settings2,
   RotateCcw,
   X,
   ChevronLeft,
@@ -33,6 +34,7 @@ export default function VisualPreview({
   onExportSlide,
   onResetPositions,
   onRemoveSlide,
+  onDuplicateSlide,
   copiedIndex,
   selectedElement,
   onSelectElement,
@@ -116,9 +118,17 @@ export default function VisualPreview({
                </span>
             </div>
 
-            <div className="flex gap-3 w-full">
-              <label className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg">
-                <Upload className="w-4 h-4" />
+              <button
+                 onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); }}
+                 className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-500 py-3 rounded-xl transition-colors font-bold border border-emerald-500/30"
+               >
+                 <Settings2 className="w-4 h-4" />
+                 Editar Textos / Visual
+               </button>
+
+              <div className="flex gap-3 w-full">
+                <label className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg">
+                  <Upload className="w-4 h-4" />
                 Foto
                 <input
                   type="file"
@@ -146,9 +156,19 @@ export default function VisualPreview({
                 className="flex-1 flex items-center justify-center gap-2 text-label-xs uppercase text-white py-3.5 px-4 rounded-xl transition-all font-black shadow-lg bg-emerald-600 hover:bg-emerald-500"
               >
                 <Download className="w-4 h-4" />
-                Slide
+                Salvar
               </button>
             </div>
+
+            {onDuplicateSlide && (
+               <button
+                 onClick={() => onDuplicateSlide(index)}
+                 className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-3 rounded-xl transition-colors font-bold border border-border-hover mt-1"
+               >
+                 <Copy className="w-3.5 h-3.5" />
+                 Duplicar Slide
+               </button>
+            )}
 
             {Object.keys(slide.positions || {}).length > 0 && (
               <button
