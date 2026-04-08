@@ -126,7 +126,34 @@ export function useDragResize(slides, setSlides) {
 
   const resetSlidePositions = useCallback(
     (index) => {
-      setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, positions: {} } : s)));
+      // Propriedades de formatação de texto que NÃO devem ser zeradas
+      const TEXT_PROPS = ['color', 'bgColor', 'bold', 'italic', 'underline', 'uppercase', 'align', 'fontSize'];
+
+      setSlides((prev) =>
+        prev.map((s, i) => {
+          if (i !== index) return s;
+
+          // Zera x/y/scale de cada campo, preservando formatações de texto
+          const newPositions = {};
+          for (const [field, props] of Object.entries(s.positions || {})) {
+            const preserved = {};
+            for (const key of TEXT_PROPS) {
+              if (props[key] !== undefined) preserved[key] = props[key];
+            }
+            if (Object.keys(preserved).length > 0) {
+              newPositions[field] = preserved;
+            }
+          }
+
+          // Limpar o transform do DOM diretamente (o hook escreve diretamente no DOM)
+          for (const field of Object.keys(s.positions || {})) {
+            const el = document.getElementById(`smart-${index}-${field}`);
+            if (el) el.style.transform = '';
+          }
+
+          return { ...s, positions: newPositions };
+        })
+      );
     },
     [setSlides]
   );

@@ -293,7 +293,7 @@ export default function ConfigSidebar({
                 type="range"
                 min="0.3"
                 max="5"
-                step="0.2"
+                step="0.03"
                 value={pos.scale || 1}
                 onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
                 className="alice-range"
@@ -349,52 +349,54 @@ export default function ConfigSidebar({
                <div>
                    <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
                      <span className="flex items-center gap-1.5">
-                       <span
-                         className="inline-block w-3 h-3 rounded-sm border border-white/20 shadow-sm"
-                         style={{ backgroundColor: pos.color || '#ffffff' }}
+                       <input
+                         type="color"
+                         value={pos.color || '#ffffff'}
+                         onChange={(e) => updateProp('color', e.target.value)}
+                         className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
+                         title="Escolher cor"
                        />
                        Cor do Texto
                      </span>
                    </label>
-                  <div className="flex bg-surface-input rounded p-1">
-                    <input 
-                      type="color" 
-                      value={pos.color || '#ffffff'}
-                      onChange={(e) => updateProp('color', e.target.value)}
-                      className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent"
+                  <div className="flex items-center bg-surface-input rounded p-1 gap-1">
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm flex-shrink-0"
+                      style={{ backgroundColor: pos.color || '#ffffff' }}
                     />
                     <input 
                       type="text" 
                       value={pos.color || ''}
                       placeholder="#FFF"
                       onChange={(e) => updateProp('color', e.target.value)}
-                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-2 outline-none uppercase"
+                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
                     />
                   </div>
                </div>
                <div>
                    <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
                      <span className="flex items-center gap-1.5">
-                       <span
-                         className="inline-block w-3 h-3 rounded-sm border border-white/20 shadow-sm"
-                         style={{ backgroundColor: pos.bgColor || '#000000' }}
+                       <input
+                         type="color"
+                         value={pos.bgColor || '#000000'}
+                         onChange={(e) => updateProp('bgColor', e.target.value)}
+                         className="w-3 h-3 rounded-sm cursor-pointer border-0 p-0 bg-transparent block"
+                         title="Escolher cor"
                        />
                        Cor do Fundo
                      </span>
                    </label>
-                  <div className="flex bg-surface-input rounded p-1">
-                    <input 
-                      type="color" 
-                      value={pos.bgColor || '#000000'}
-                      onChange={(e) => updateProp('bgColor', e.target.value)}
-                      className="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent"
+                  <div className="flex items-center bg-surface-input rounded p-1 gap-1">
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm flex-shrink-0"
+                      style={{ backgroundColor: pos.bgColor || '#000000' }}
                     />
                     <input 
                       type="text" 
                       value={pos.bgColor || ''}
                       placeholder="Nenhum"
                       onChange={(e) => updateProp('bgColor', e.target.value)}
-                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-2 outline-none uppercase"
+                      className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
                     />
                   </div>
                </div>
