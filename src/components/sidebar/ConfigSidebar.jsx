@@ -333,19 +333,37 @@ export default function ConfigSidebar({
            </div>
 
            <div className="mt-4">
-             <div className="flex justify-between items-center mb-2">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
-                <span className="text-[10px] font-mono text-zinc-500">{pos.scale?.toFixed(2)}x</span>
-             </div>
-             <input
-                type="range"
-                min="0.3"
-                max="5"
-                step="0.01"
-                value={pos.scale || 1}
-                onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
-                className="alice-range"
-             />
+              <div className="flex justify-between items-center mb-2">
+                 <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
+                 <div className="flex items-center gap-1">
+                    <button 
+                      onMouseDown={() => startAutoScroll('scale', -0.01)}
+                      onTouchStart={() => startAutoScroll('scale', -0.01)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      -
+                    </button>
+                    <span className="text-[10px] font-mono text-zinc-200 min-w-[40px] text-center">
+                      {pos.scale?.toFixed(2)}x
+                    </span>
+                    <button 
+                      onMouseDown={() => startAutoScroll('scale', 0.01)}
+                      onTouchStart={() => startAutoScroll('scale', 0.01)}
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                    >
+                      +
+                    </button>
+                 </div>
+              </div>
+              <input
+                 type="range"
+                 min="0.3"
+                 max="5"
+                 step="any"
+                 value={pos.scale || 1}
+                 onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
+                 className="alice-range"
+              />
            </div>
 
            <div className="mt-4 pt-4 border-t border-border-subtle">

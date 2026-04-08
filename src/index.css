@@ -139,3 +139,14 @@ body {
     @apply text-zinc-600 hover:text-zinc-300;
   }
 }
+
+/* Esconder setas padrão de input number (spinners) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
