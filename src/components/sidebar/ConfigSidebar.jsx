@@ -175,54 +175,53 @@ export default function ConfigSidebar({
              <span className="text-[11px] font-mono font-bold text-white bg-white/10 px-2 py-0.5 rounded">{selectedElement.field}</span>
            </div>
            
-           <div className="flex gap-3 w-full">
+           <div className="flex flex-col gap-3 w-full">
               <button
                  onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
-                 className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
+                 className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
               >
                 <Settings2 className="w-4 h-4" />
                 Editar 
               </button>
 
-              <div className="flex-1 grid grid-cols-2 gap-2">
-                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
-                    <input 
-                      type="number" 
-                      value={Math.round(pos?.x || 0)}
-                      onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
-                      className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
-                    />
-                  </div>
+              <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
                   <input 
-                    type="range"
-                    min="-500"
-                    max="500"
+                    type="number" 
                     value={Math.round(pos?.x || 0)}
                     onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
-                    className="alice-range w-full"
+                    className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
                   />
                 </div>
-                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
-                    <input 
-                      type="number" 
-                      value={Math.round(pos?.y || 0)}
-                      onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
-                      className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
-                    />
-                  </div>
+                <input 
+                  type="range"
+                  min="-500"
+                  max="500"
+                  value={Math.round(pos?.x || 0)}
+                  onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                  className="alice-range w-full"
+                />
+              </div>
+
+              <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
                   <input 
-                    type="range"
-                    min="-500"
-                    max="500"
+                    type="number" 
                     value={Math.round(pos?.y || 0)}
                     onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
-                    className="alice-range w-full"
+                    className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
                   />
                 </div>
+                <input 
+                  type="range"
+                  min="-500"
+                  max="500"
+                  value={Math.round(pos?.y || 0)}
+                  onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                  className="alice-range w-full"
+                />
               </div>
            </div>
 
