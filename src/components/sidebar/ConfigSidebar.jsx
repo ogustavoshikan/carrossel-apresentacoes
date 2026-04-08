@@ -19,6 +19,7 @@ import {
   AlignCenter,
   AlignRight,
   AlignJustify,
+  Info,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 
@@ -599,8 +600,12 @@ export default function ConfigSidebar({
 
           {/* Scale: Título */}
           <div>
-            <label className="alice-label">
+            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
               Tamanho Título: {titleSizeScale}%
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
+              </div>
             </label>
             <input
               type="range"
@@ -608,14 +613,18 @@ export default function ConfigSidebar({
               max={FONT_SCALE_RANGE.max}
               value={titleSizeScale}
               onChange={(e) => setTitleSizeScale(e.target.value)}
-              className="alice-range"
+              className="alice-range w-full"
             />
           </div>
 
           {/* Scale: Texto */}
           <div>
-            <label className="alice-label">
+            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
               Tamanho Texto: {textSizeScale}%
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
+              </div>
             </label>
             <input
               type="range"
@@ -623,14 +632,18 @@ export default function ConfigSidebar({
               max={FONT_SCALE_RANGE.max}
               value={textSizeScale}
               onChange={(e) => setTextSizeScale(e.target.value)}
-              className="alice-range"
+              className="alice-range w-full"
             />
           </div>
 
           {/* Scale: Border Radius */}
           <div>
-            <label className="alice-label">
+            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
               Bordas do Card: {cardBorderRadius}px
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
+              </div>
             </label>
             <input
               type="range"
@@ -638,13 +651,17 @@ export default function ConfigSidebar({
               max="40"
               value={cardBorderRadius}
               onChange={(e) => setCardBorderRadius(Number(e.target.value))}
-              className="alice-range"
+              className="alice-range w-full"
             />
           </div>
 
           <div>
-            <label className="alice-label">
+            <label className="alice-label flex items-center gap-1 w-fit group relative cursor-help">
               Bordas Internas (Imagens): {imageBorderRadius}px
+              <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors ml-1" />
+              <div className="absolute bottom-full mb-1.5 left-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
+              </div>
             </label>
             <input
               type="range"
@@ -652,7 +669,7 @@ export default function ConfigSidebar({
               max="80"
               value={imageBorderRadius}
               onChange={(e) => setImageBorderRadius(Number(e.target.value))}
-              className="alice-range"
+              className="alice-range w-full"
             />
           </div>
         </div>
