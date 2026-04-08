@@ -13,6 +13,7 @@ export default function SlideContentSplit({
   slideCount,
   brandHandle,
   brandColor,
+  isVerified,
   titleScale,
   textScale,
   showMetrics,
@@ -32,6 +33,7 @@ export default function SlideContentSplit({
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
+        isVerified={isVerified}
       />
       <div className="flex-1 flex flex-col justify-center pt-10">
         <SmartElement

@@ -13,6 +13,7 @@ export default function SlideList({
   slideCount,
   brandHandle,
   brandColor,
+  isVerified,
   titleScale,
   showMetrics,
   onActionStart,
@@ -31,6 +32,7 @@ export default function SlideList({
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
+        isVerified={isVerified}
       />
       <div className="flex-1 flex flex-col justify-center pt-8">
         <div className="flex items-center gap-5 mb-10">

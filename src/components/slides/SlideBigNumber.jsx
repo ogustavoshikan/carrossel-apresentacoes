@@ -13,6 +13,7 @@ export default function SlideBigNumber({
   slideCount,
   brandHandle,
   brandColor,
+  isVerified,
   titleScale,
   textScale,
   showMetrics,
@@ -32,6 +33,7 @@ export default function SlideBigNumber({
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
+        isVerified={isVerified}
       />
       <div className="flex-1 flex flex-col justify-center relative z-10 pt-8">
         <SmartElement

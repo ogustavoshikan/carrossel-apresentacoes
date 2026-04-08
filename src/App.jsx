@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { ChevronUp, ChevronDown, Cake } from 'lucide-react';
 import { useDragResize } from './hooks/useDragResize';
 import { generateCarouselContent, generateImageWithAI } from './services/ai';
 import { exportAllToPNG, exportSlideToPNG } from './services/export';
@@ -41,6 +41,9 @@ export default function App() {
   const [cardBorderRadius, setCardBorderRadius] = useState(0);
   const [imageBorderRadius, setImageBorderRadius] = useState(40);
   const [isExporting, setIsExporting] = useState(false);
+  const [titleFont, setTitleFont] = useState(BRAND_DEFAULTS.titleFont);
+  const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
+  const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('alice_app_logo') || '');
 
   // Drag & Resize hook
   const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides);
@@ -52,8 +55,8 @@ export default function App() {
   const dynamicStyles = {
     '--color-brand': gradientColor1,
     '--color-brand-glow': `${gradientColor1}40`,
-    '--font-title': `'${BRAND_DEFAULTS.titleFont}', sans-serif`,
-    '--font-text': `'${BRAND_DEFAULTS.textFont}', serif`,
+    '--font-title': `'${titleFont}', sans-serif`,
+    '--font-text': `'${textFont}', serif`,
     '--radius-slide': `${cardBorderRadius}px`,
     '--radius-inner': `${imageBorderRadius * 0.8}px`,
     '--radius-sm': `${imageBorderRadius * 0.6}px`,
@@ -234,9 +237,9 @@ export default function App() {
       className="min-h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
       style={dynamicStyles}
     >
-      {/* Google Fonts (dinâmico) */}
+      {/* Google Fonts (dinâmico — carrega as fontes selecionadas pelo usuário) */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=${BRAND_DEFAULTS.titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${BRAND_DEFAULTS.textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
       `}</style>
 
       {/* NAVBAR */}
@@ -245,19 +248,23 @@ export default function App() {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-4 group cursor-pointer">
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white"
-                style={{
+                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white overflow-hidden"
+                style={appLogoUrl ? {} : {
                   backgroundColor: gradientColor1,
                   boxShadow: `0 0 20px ${gradientColor1}40`,
                 }}
               >
-                A
+                {appLogoUrl ? (
+                  <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
+                ) : (
+                  <Cake className="w-5 h-5" />
+                )}
               </div>
               <div className="flex flex-col">
                 <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
                   Carrossel <span style={{ color: gradientColor1 }}>Studio</span>
                 </span>
-                <span className="text-[8px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
+                <span className="text-[10px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
                   Sistema inteligente para criação de carrosséis de alta performance
                 </span>
               </div>
@@ -265,12 +272,6 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
-            <div className="hidden lg:flex items-center gap-4 px-6 py-2 bg-white/5 rounded-full border border-border-hover">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-              <span className="text-label-xs font-outfit text-white uppercase">
-                Zonas Seguras
-              </span>
-            </div>
           </div>
         </nav>
       </div>
@@ -313,6 +314,13 @@ export default function App() {
           setSelectedElement={setSelectedElement}
           slides={slides}
           setSlides={setSlides}
+          onImageUpload={handleImageUpload}
+          onImagePosition={handleImagePosition}
+          onImageScale={handleImageScale}
+          titleFont={titleFont}
+          setTitleFont={setTitleFont}
+          textFont={textFont}
+          setTextFont={setTextFont}
         />
 
         {/* Workspace */}
@@ -323,7 +331,13 @@ export default function App() {
           <SettingsModal 
             isOpen={isSettingsOpen} 
             onClose={() => setIsSettingsOpen(false)} 
-            brandColor={gradientColor1} 
+            brandColor={gradientColor1}
+            appLogoUrl={appLogoUrl}
+            onLogoChange={(url) => {
+              setAppLogoUrl(url);
+              if (url) localStorage.setItem('alice_app_logo', url);
+              else localStorage.removeItem('alice_app_logo');
+            }}
           />
           {slides.length === 0 && !isGenerating ? (
             <EmptyState brandColor={gradientColor1} />
@@ -361,6 +375,7 @@ export default function App() {
                   slideCount={slideCount}
                   brandHandle={brandHandle}
                   brandColor={gradientColor1}
+                  isVerified={isVerified}
                   titleScale={titleSizeScale}
                   textScale={textSizeScale}
                   showMetrics={showMetrics}

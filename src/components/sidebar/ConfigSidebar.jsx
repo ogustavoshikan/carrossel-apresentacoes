@@ -9,6 +9,7 @@ import {
   AlertCircle,
   Sparkles,
   Upload,
+  Image as ImageIcon,
   X,
   Bold,
   Italic,
@@ -18,10 +19,8 @@ import {
   AlignCenter,
   AlignRight,
   AlignJustify,
-  Palette,
-  PaintBucket
 } from 'lucide-react';
-import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE } from '../../lib/design-tokens';
+import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 
 /**
  * ConfigSidebar — Sidebar de configurações do Alice Studio.
@@ -57,6 +56,13 @@ export default function ConfigSidebar({
   setSelectedElement,
   slides,
   setSlides,
+  onImageUpload,
+  onImagePosition,
+  onImageScale,
+  titleFont,
+  setTitleFont,
+  textFont,
+  setTextFont,
 }) {
   const isInspectorActive = !!selectedElement;
 
@@ -81,6 +87,50 @@ export default function ConfigSidebar({
           </div>
 
           <div className="flex flex-col gap-4">
+            {/* === Bloco de Imagem do Slide (sempre no topo) === */}
+            <div className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-3">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500">Imagem do Slide</span>
+              {slide.imageUrl ? (
+                <div className="flex flex-col gap-3">
+                  <div
+                    className="w-full h-28 rounded-lg overflow-hidden bg-zinc-900 relative"
+                    style={{
+                      backgroundImage: `url(${slide.imageUrl})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: `center ${slide.imagePosition ?? 50}%`,
+                    }}
+                  >
+                    <label className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity cursor-pointer">
+                      <Upload className="w-5 h-5 text-white" />
+                      <input type="file" accept="image/*" className="hidden" onChange={(e) => onImageUpload(selectedElement.slideIndex, e)} />
+                    </label>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição Y</span>
+                      <span className="text-[9px] font-mono text-zinc-500">{slide.imagePosition ?? 50}%</span>
+                    </div>
+                    <input type="range" min="0" max="100" value={slide.imagePosition ?? 50} onChange={(e) => onImagePosition(selectedElement.slideIndex, e.target.value)} className="alice-range w-full" />
+                  </div>
+                  {onImageScale && (
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
+                        <span className="text-[9px] font-mono text-zinc-500">{slide.imageScale ?? 1}x</span>
+                      </div>
+                      <input type="range" min="1" max="3" step="0.05" value={slide.imageScale ?? 1} onChange={(e) => onImageScale(selectedElement.slideIndex, e.target.value)} className="alice-range w-full" />
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <label className="flex flex-col items-center justify-center gap-2 h-20 border-2 border-dashed border-border-subtle rounded-lg text-zinc-600 hover:text-zinc-400 hover:border-zinc-600 transition-colors cursor-pointer">
+                  <ImageIcon className="w-5 h-5" />
+                  <span className="text-[9px] font-bold uppercase tracking-widest">Adicionar Imagem</span>
+                  <input type="file" accept="image/*" className="hidden" onChange={(e) => onImageUpload(selectedElement.slideIndex, e)} />
+                </label>
+              )}
+            </div>
+
             {['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button'].map(key => {
               if (slide[key] === undefined) return null;
               return (
@@ -194,6 +244,7 @@ export default function ConfigSidebar({
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
                   <input 
                     type="number" 
+                    step="1"
                     value={Math.round(pos?.x || 0)}
                     onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
                     className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
@@ -215,6 +266,7 @@ export default function ConfigSidebar({
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
                   <input 
                     type="number" 
+                    step="1"
                     value={Math.round(pos?.y || 0)}
                     onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
                     className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
@@ -241,7 +293,7 @@ export default function ConfigSidebar({
                 type="range"
                 min="0.3"
                 max="5"
-                step="0.05"
+                step="0.2"
                 value={pos.scale || 1}
                 onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
                 className="alice-range"
@@ -295,9 +347,15 @@ export default function ConfigSidebar({
 
              <div className="grid grid-cols-2 gap-3">
                <div>
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
-                    <span className="flex items-center gap-1"><Palette className="w-3 h-3"/> Cor do Texto</span>
-                  </label>
+                   <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                     <span className="flex items-center gap-1.5">
+                       <span
+                         className="inline-block w-3 h-3 rounded-sm border border-white/20 shadow-sm"
+                         style={{ backgroundColor: pos.color || '#ffffff' }}
+                       />
+                       Cor do Texto
+                     </span>
+                   </label>
                   <div className="flex bg-surface-input rounded p-1">
                     <input 
                       type="color" 
@@ -315,9 +373,15 @@ export default function ConfigSidebar({
                   </div>
                </div>
                <div>
-                  <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
-                    <span className="flex items-center gap-1"><PaintBucket className="w-3 h-3"/> Cor do Fundo</span>
-                  </label>
+                   <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2 flex justify-between">
+                     <span className="flex items-center gap-1.5">
+                       <span
+                         className="inline-block w-3 h-3 rounded-sm border border-white/20 shadow-sm"
+                         style={{ backgroundColor: pos.bgColor || '#000000' }}
+                       />
+                       Cor do Fundo
+                     </span>
+                   </label>
                   <div className="flex bg-surface-input rounded p-1">
                     <input 
                       type="color" 
@@ -383,7 +447,7 @@ export default function ConfigSidebar({
               />
             </div>
             <div>
-              <label className="alice-label">Selo Verified</label>
+              <label className="alice-label">Selo de Verificado</label>
               <button
                 onClick={() => setIsVerified(!isVerified)}
                 className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
@@ -424,16 +488,28 @@ export default function ConfigSidebar({
             </div>
             <div>
               <label className="alice-label">Fontes Extras</label>
-              <button
-                onClick={() =>
-                  alert(
-                    'As fontes primárias da Alice (Outfit/Playfair) já estão otimizadas para conversão. Não estrague meu design, Mr. Gustavo.'
-                  )
-                }
-                className="w-full h-[38px] bg-surface-input border border-border-subtle rounded-lg text-[10px] uppercase tracking-widest text-zinc-500 hover:text-white transition-colors"
-              >
-                Bloqueado
-              </button>
+              <div className="flex flex-col gap-2">
+                <div>
+                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Título</label>
+                  <select
+                    value={titleFont}
+                    onChange={(e) => setTitleFont(e.target.value)}
+                    className="alice-input text-xs py-1.5"
+                  >
+                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
+                  <select
+                    value={textFont}
+                    onChange={(e) => setTextFont(e.target.value)}
+                    className="alice-input text-xs py-1.5"
+                  >
+                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
 

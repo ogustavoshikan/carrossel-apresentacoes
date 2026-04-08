@@ -1,0 +1,19 @@
+1. Mudar o ICON do app do atual "A" para o icon de confeitaria, mas, claro, mantendo as cores padrão. Seria interessante, o usuário poder colocar sua própria foto ou a logo da empresa. Essa configuração pode estar em "Configurações & Adaptadores", nas configurações que temos no canto inferior esquerdo.
+
+2. Selo verified deve voltar a funcionar e aparecer à direita do @ do usuário.
+
+3. No "Inspetor de Propriedades" o COR DO TEXTO e COR DO FUNDO estão com seus icons sendo um |, preciso que altere para que seja aquele famoso quadrado, correspondente a cor atual, e, quando clicamos, aparece o seletor de cor tracicional, que já temos.
+
+4. Em "Inspetor de Propriedades", quando utilizamos "POS.X", "POS. Y" e "Escala", eles estão saltando de 5 em 5 (o Escala está saltando de 0.5 em 0.5, seria bom se fosse 0.2 em 0.2, ou sejam, mais suave, trazendo mais suavidade ao aumento e diminuição). Preciso que estejam saltando de 1 em 1. Se não for possível, mude para px, pois já relatei isso antes e não foi corrigido.
+
+A ideia é que o aumento e diminuição destes botões estejam mais suaves, tanto os botões arrastáveis quanto o texto se movimentando pelo slide.
+
+5. Fontes extaras estão bloqueados. Temos de corrigir, e, criar campos para que possamos mudar tanto a fonte do título, quanto a das headline's. (aqui devemos conversar pois há muitos textos no slide, então, como seria a troca de fontes? cada elemento de texto teria seu proprio campo para alteração de fonte?)
+
+6. Quando clicamos em "Editar Textos / Visual" (abaixo do Slide ou indo por Clique no elemento > surge Inspetor de Propriedades > clique no EDITAR), surge o painel onde tem todos os campos de texto do slide, mas faltou um, o da imagem do Slide. Devemos adicionar, e ele deve ficar lá no topo, acima de "Título".
+
+7. "Zonas Seguras", do topo direito, deve ser removido.
+
+8. O tamanho do "Sistema inteligente para criação de carrosséis de alta performance" subtítulo do app, está muito pequeno. Sugiro aumentar um pouquinho o tamanho da fonte.
+
+9. "SELO VERIFIED" deve virar: "SELO DE VERIFICADO".

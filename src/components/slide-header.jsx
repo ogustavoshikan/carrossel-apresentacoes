@@ -1,4 +1,5 @@
 import React from 'react';
+import { BadgeCheck } from 'lucide-react';
 
 /**
  * SlideHeader — Header padrão dos slides com handle e contador.
@@ -8,9 +9,10 @@ import React from 'react';
  * @param {number} props.total - Total de slides
  * @param {string} props.brandHandle - Handle do brand
  * @param {string} props.brandColor - Cor do brand
+ * @param {boolean} [props.isVerified=false] - Exibir selo de verificado
  * @param {boolean} [props.dark=false] - Modo claro (para slides brancos)
  */
-export default function SlideHeader({ index, total, brandHandle, brandColor, dark = false }) {
+export default function SlideHeader({ index, total, brandHandle, brandColor, isVerified = false, dark = false }) {
   return (
     <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
       <div className="flex items-center gap-3">
@@ -25,6 +27,12 @@ export default function SlideHeader({ index, total, brandHandle, brandColor, dar
         >
           @{brandHandle}
         </span>
+        {isVerified && (
+          <BadgeCheck
+            className="w-3.5 h-3.5"
+            style={{ color: brandColor }}
+          />
+        )}
       </div>
       <div
         className={`font-outfit font-bold text-[11px] px-3 py-1.5 rounded-lg border backdrop-blur-xl ${

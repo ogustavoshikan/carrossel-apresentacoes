@@ -13,6 +13,7 @@ export default function SlideQuote({
   slideCount,
   brandHandle,
   brandColor,
+  isVerified,
   titleScale,
   showMetrics,
   onActionStart,
@@ -79,6 +80,7 @@ export default function SlideQuote({
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
+        isVerified={isVerified}
         dark
       />
       <SlideFooterPlaceholder />

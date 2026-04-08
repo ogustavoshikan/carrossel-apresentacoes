@@ -28,6 +28,7 @@ export default function SlideRenderer({
   slideCount,
   brandHandle,
   brandColor,
+  isVerified,
   titleScale,
   textScale,
   showMetrics,
@@ -47,6 +48,7 @@ export default function SlideRenderer({
       slideCount={slideCount}
       brandHandle={brandHandle}
       brandColor={brandColor}
+      isVerified={isVerified}
       titleScale={titleScale}
       textScale={textScale}
       showMetrics={showMetrics}

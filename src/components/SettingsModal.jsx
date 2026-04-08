@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle } from 'lucide-react';
+import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon } from 'lucide-react';
 
-export default function SettingsModal({ isOpen, onClose, brandColor }) {
+export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl, onLogoChange }) {
   const [tab, setTab] = useState('google');
   const [googleKey, setGoogleKey] = useState('');
   const [openaiKey, setOpenaiKey] = useState('');
@@ -147,11 +147,78 @@ export default function SettingsModal({ isOpen, onClose, brandColor }) {
           >
             OpenAI
           </button>
+          <button 
+            className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'identidade' ? 'text-white border-b-2' : 'text-zinc-500'}`}
+            style={{ borderColor: tab === 'identidade' ? brandColor : 'transparent' }}
+            onClick={() => setTab('identidade')}
+          >
+            Identidade
+          </button>
         </div>
 
         {/* Body */}
         <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6">
-          {tab === 'google' && (
+        {tab === 'identidade' && (
+          <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200">
+            <div>
+              <label className="alice-label">Logo / Foto do Perfil</label>
+              <p className="text-xs text-zinc-500 font-mono mb-4">Aparece na navbar. Se vazia, exibe o ícone padrão de confeitaria.</p>
+              {appLogoUrl ? (
+                <div className="space-y-3">
+                  <div
+                    className="w-20 h-20 rounded-xl overflow-hidden border border-border-subtle mx-auto"
+                    style={{ backgroundImage: `url(${appLogoUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                  />
+                  <div className="flex gap-2">
+                    <label className="flex items-center justify-center gap-1.5 flex-1 h-9 bg-surface-input border border-border-subtle rounded-lg text-[11px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors cursor-pointer">
+                      <Upload className="w-3.5 h-3.5" />
+                      Trocar
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          if (!file) return;
+                          const reader = new FileReader();
+                          reader.onload = (ev) => onLogoChange(ev.target.result);
+                          reader.readAsDataURL(file);
+                        }}
+                      />
+                    </label>
+                    <button
+                      onClick={() => onLogoChange('')}
+                      className="flex items-center justify-center gap-1.5 flex-1 h-9 bg-surface-input border border-red-900/30 rounded-lg text-[11px] uppercase tracking-widest font-bold text-red-400 hover:text-red-300 hover:border-red-700/50 transition-colors"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      Remover
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <label className="flex flex-col items-center justify-center gap-3 h-36 border-2 border-dashed border-border-subtle rounded-xl text-zinc-500 hover:text-zinc-300 hover:border-zinc-500 transition-colors cursor-pointer">
+                  <Upload className="w-6 h-6" />
+                  <span className="text-xs font-bold uppercase tracking-widest">Clique para fazer upload</span>
+                  <span className="text-[10px] text-zinc-600">PNG, JPG, WEBP • Recomendado: quadrada</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (!file) return;
+                      const reader = new FileReader();
+                      reader.onload = (ev) => onLogoChange(ev.target.result);
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </label>
+              )}
+            </div>
+          </div>
+        )}
+
+        {tab === 'google' && (
             <div className="space-y-4 animate-in fade-in zoom-in-95 duration-200">
               <label className="alice-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> Google Gemini API Key
