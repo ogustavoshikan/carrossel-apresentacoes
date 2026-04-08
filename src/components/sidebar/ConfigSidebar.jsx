@@ -176,13 +176,18 @@ export default function ConfigSidebar({
            </div>
            
            <div className="flex flex-col gap-3 w-full">
-              <button
-                 onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
-                 className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
-              >
-                <Settings2 className="w-4 h-4" />
-                Editar 
-              </button>
+              <div className="flex flex-col gap-2">
+                <button
+                   onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
+                   className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
+                >
+                  <Settings2 className="w-4 h-4" />
+                  Editar 
+                </button>
+                <p className="text-[9px] text-zinc-500 text-center font-bold tracking-tight px-2 leading-tight">
+                  Clique acima para editar todos os conteúdos de texto deste slide simultaneamente.
+                </p>
+              </div>
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
@@ -194,14 +199,15 @@ export default function ConfigSidebar({
                     className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
                   />
                 </div>
-                <input 
-                  type="range"
-                  min="-500"
-                  max="500"
-                  value={Math.round(pos?.x || 0)}
-                  onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
-                  className="alice-range w-full"
-                />
+                  <input 
+                    type="range"
+                    min="-500"
+                    max="500"
+                    step="1"
+                    value={Math.round(pos?.x || 0)}
+                    onChange={(e) => updateProp('x', parseInt(e.target.value) || 0)}
+                    className="alice-range w-full"
+                  />
               </div>
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
@@ -214,14 +220,15 @@ export default function ConfigSidebar({
                     className="w-12 bg-transparent text-white font-mono text-xs outline-none text-right"
                   />
                 </div>
-                <input 
-                  type="range"
-                  min="-500"
-                  max="500"
-                  value={Math.round(pos?.y || 0)}
-                  onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
-                  className="alice-range w-full"
-                />
+                  <input 
+                    type="range"
+                    min="-500"
+                    max="500"
+                    step="1"
+                    value={Math.round(pos?.y || 0)}
+                    onChange={(e) => updateProp('y', parseInt(e.target.value) || 0)}
+                    className="alice-range w-full"
+                  />
               </div>
            </div>
 
