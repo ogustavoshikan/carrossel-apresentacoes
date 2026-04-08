@@ -83,6 +83,19 @@ export default function App() {
     });
   }, []);
 
+  const handleMoveSlide = useCallback((fromIndex, toIndex) => {
+    setSlides(prev => {
+      if (toIndex < 0 || toIndex >= prev.length) return prev;
+      const newSlides = [...prev];
+      const [movedItem] = newSlides.splice(fromIndex, 1);
+      newSlides.splice(toIndex, 0, movedItem);
+      // Re-indexar a propriedade \`slide\`
+      return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
+    });
+    // Limpar o array selecionado para prevenir referências mortas
+    setSelectedElement(null);
+  }, []);
+
   const handleSlideItemChange = useCallback((slideIndex, itemIndex, field, value) => {
     setSlides((prev) =>
       prev.map((s, i) => {
@@ -390,8 +403,10 @@ export default function App() {
                   onResetPositions={resetSlidePositions}
                   onRemoveSlide={handleRemoveSlide}
                   onDuplicateSlide={handleDuplicateSlide}
+                  onMoveSlide={handleMoveSlide}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
+                  isExporting={isExporting}
                   onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
                 />
               )}

@@ -39,6 +39,8 @@ export default function VisualPreview({
   copiedIndex,
   selectedElement,
   onSelectElement,
+  onMoveSlide,
+  isExporting,
 }) {
   const scrollRef = useRef(null);
 
@@ -67,8 +69,8 @@ export default function VisualPreview({
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}
       >
       {slides.map((slide, index) => (
+        <React.Fragment key={`slide-wrapper-${index}`}>
         <div
-          key={`visual-${index}`}
           className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide"
         >
           {/* Botão Remover Slide Flutuante */}
@@ -224,6 +226,29 @@ export default function VisualPreview({
             )}
           </div>
         </div>
+        
+        {/* Controle de Reordenação (Inter-Slides) */}
+        {!isExporting && index < slides.length - 1 && onMoveSlide && (
+             <div className="relative w-0 flex justify-center items-center z-40 -ml-1">
+                <div className="absolute flex flex-col gap-3">
+                   <button 
+                     onClick={() => onMoveSlide(index + 1, index)} 
+                     className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all shadow-xl active:scale-95 hover:border-white/20"
+                     title="Mover para a Esquerda"
+                   >
+                     <ChevronLeft className="w-5 h-5 -ml-0.5" />
+                   </button>
+                   <button 
+                     onClick={() => onMoveSlide(index, index + 1)} 
+                     className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all shadow-xl active:scale-95 hover:border-white/20"
+                     title="Mover para a Direita"
+                   >
+                     <ChevronRight className="w-5 h-5 ml-0.5" />
+                   </button>
+                </div>
+             </div>
+          )}
+        </React.Fragment>
       ))}
       </div>
     </div>
