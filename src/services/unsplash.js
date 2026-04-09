@@ -10,11 +10,11 @@ const UNSPLASH_API_URL = 'https://api.unsplash.com';
  * Busca fotos no Unsplash.
  * @param {string} query - Termo de busca
  * @param {string} apiKey - Unsplash Access Key
- * @param {number} page - Página dos resultados (default: 1)
- * @param {number} perPage - Quantidade de resultados (default: 12)
+ * @param {number} page - Página dos resultados (default: 1) — cada página = 1 req (limite: 50 req/hora)
+ * @param {number} perPage - Quantidade de resultados (default: 20, máx: 30)
  * @returns {Promise<Array>} Array de { id, thumbUrl, regularUrl, alt, photographer, photographerUrl }
  */
-export async function searchUnsplashPhotos(query, apiKey, page = 1, perPage = 12) {
+export async function searchUnsplashPhotos(query, apiKey, page = 1, perPage = 20) {
   const params = new URLSearchParams({
     query,
     page,

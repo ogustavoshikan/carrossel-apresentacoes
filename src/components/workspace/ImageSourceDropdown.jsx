@@ -1,31 +1,37 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Upload, Link, Search, X, Loader2, Camera, ExternalLink } from 'lucide-react';
+import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown } from 'lucide-react';
 import { searchUnsplashPhotos } from '../../services/unsplash';
+import { searchPexelsPhotos } from '../../services/pexels';
+import { searchPixabayPhotos } from '../../services/pixabay';
 
 /**
  * ImageSourceDropdown — Seletor de origem de imagem para slides.
- * Três modos: Upload do computador, URL externa, Busca no Unsplash.
+ * Suporta: Upload local, URL externa e Multibuca (Unsplash, Pexels, Pixabay).
  *
  * @param {number}   slideIndex     - Índice do slide alvo
  * @param {function} onImageUpload  - Handler do upload local (event-based)
- * @param {function} onImageFromUrl - Handler para URL/Unsplash (url string)
+ * @param {function} onImageFromUrl - Handler para URL/Busca (url string)
  * @param {string}   brandColor     - Cor de destaque do projeto
  */
 export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImageFromUrl, brandColor }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'unsplash'
+  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'search'
   const [urlInput, setUrlInput] = useState('');
   const [urlError, setUrlError] = useState('');
 
-  // Unsplash state
+  // Search state
   const [query, setQuery] = useState('');
-  const [unsplashResults, setUnsplashResults] = useState([]);
+  const [provider, setProvider] = useState('unsplash'); // 'unsplash' | 'pexels' | 'pixabay'
+  const [results, setResults] = useState([]);
+  const [page, setPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [searchError, setSearchError] = useState('');
   const [hasSearched, setHasSearched] = useState(false);
 
   const dropdownRef = useRef(null);
   const fileInputRef = useRef(null);
+  const scrollContainerRef = useRef(null);
 
   // Fechar ao clicar fora
   useEffect(() => {
@@ -64,47 +70,81 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
     handleClose();
   };
 
-  // ── Tab: Unsplash ─────────────────────────────────────────────────────────
+  // ── Tab: Search ──────────────────────────────────────────────────────────
 
-  const handleUnsplashSearch = useCallback(async () => {
+  const performSearch = useCallback(async (isLoadMore = false) => {
     const trimmed = query.trim();
     if (!trimmed) return;
 
-    const apiKey = localStorage.getItem('alice_unsplash_api_key');
+    const currentProvider = provider;
+    const apiKey = localStorage.getItem(`alice_${currentProvider}_api_key`);
+    
     if (!apiKey) {
-      setSearchError('Chave Unsplash não configurada. Acesse Configurações → Unsplash.');
+      setSearchError(`Chave ${currentProvider.toUpperCase()} não configurada.`);
       return;
     }
 
-    setIsSearching(true);
+    if (isLoadMore) setIsLoadingMore(true);
+    else {
+      setIsSearching(true);
+      setResults([]);
+      setPage(1);
+    }
+    
     setSearchError('');
     setHasSearched(true);
 
+    const currentPage = isLoadMore ? page + 1 : 1;
+
     try {
-      const results = await searchUnsplashPhotos(trimmed, apiKey);
-      setUnsplashResults(results);
-      if (results.length === 0) setSearchError('Nenhuma imagem encontrada. Tente outro termo.');
+      let newResults = [];
+      if (currentProvider === 'unsplash') {
+        newResults = await searchUnsplashPhotos(trimmed, apiKey, currentPage);
+      } else if (currentProvider === 'pexels') {
+        newResults = await searchPexelsPhotos(trimmed, apiKey, currentPage);
+      } else if (currentProvider === 'pixabay') {
+        newResults = await searchPixabayPhotos(trimmed, apiKey, currentPage);
+      }
+
+      if (isLoadMore) {
+        setResults(prev => [...prev, ...newResults]);
+        setPage(currentPage);
+      } else {
+        setResults(newResults);
+        if (newResults.length === 0) setSearchError('Nenhuma imagem encontrada.');
+      }
     } catch (err) {
-      setSearchError(err.message || 'Erro na busca. Verifique sua chave Unsplash.');
-      setUnsplashResults([]);
+      setSearchError(err.message || 'Erro na busca. Verifique sua chave.');
     } finally {
       setIsSearching(false);
+      setIsLoadingMore(false);
     }
-  }, [query]);
+  }, [query, provider, page]);
 
-  const handleSelectUnsplashPhoto = (photo) => {
+  const handleSelectPhoto = (photo) => {
     onImageFromUrl(slideIndex, photo.regularUrl);
     handleClose();
   };
 
   const handleSearchKeyDown = (e) => {
-    if (e.key === 'Enter') handleUnsplashSearch();
+    if (e.key === 'Enter') performSearch();
   };
+
+  // Reset results when provider changes
+  useEffect(() => {
+    if (hasSearched) performSearch();
+  }, [provider]);
 
   // ── Render ────────────────────────────────────────────────────────────────
 
   const TAB_STYLE_ACTIVE = 'text-white border-b-2 transition-colors';
   const TAB_STYLE_INACTIVE = 'text-zinc-500 hover:text-zinc-300 border-b-2 border-transparent transition-colors';
+
+  const PROVIDERS = [
+    { id: 'unsplash', name: 'Unsplash', color: 'text-white' },
+    { id: 'pexels',   name: 'Pexels',   color: 'text-emerald-400' },
+    { id: 'pixabay',  name: 'Pixabay',  color: 'text-cyan-400' },
+  ];
 
   return (
     <div ref={dropdownRef} className="relative flex-1">
@@ -120,7 +160,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="absolute bottom-full mb-2 left-0 z-[300] w-72 bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden"
+          className="absolute bottom-full mb-2 left-0 z-[300] w-80 bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -136,12 +176,12 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
             </button>
           </div>
 
-          {/* Tabs */}
+          {/* Tabs Principais */}
           <div className="flex gap-0 px-4 mt-3 border-b border-border-subtle">
             {[
               { id: 'upload', icon: Upload, label: 'Computador' },
               { id: 'url',    icon: Link,   label: 'URL' },
-              { id: 'unsplash', icon: Camera, label: 'Unsplash' },
+              { id: 'search', icon: Camera, label: 'Buscar' },
             ].map(({ id, icon: Icon, label }) => (
               <button
                 key={id}
@@ -207,84 +247,121 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
             </div>
           )}
 
-          {/* Tab: Unsplash */}
-          {activeTab === 'unsplash' && (
+          {/* Tab: Buscar (Multibuca) */}
+          {activeTab === 'search' && (
             <div className="flex flex-col">
-              {/* Search bar */}
-              <div className="p-3 flex gap-2 border-b border-border-subtle">
+              {/* Provedores (Sub-tabs) */}
+              <div className="flex gap-2 px-3 pt-2">
+                {PROVIDERS.map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => setProvider(p.id)}
+                    className={`text-[9px] font-black uppercase tracking-widest flex-1 py-1.5 rounded-md border transition-all ${
+                      provider === p.id 
+                        ? `bg-white/10 border-white/20 ${p.color}` 
+                        : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400'
+                    }`}
+                  >
+                    {p.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* Barra de busca */}
+              <div className="p-3 flex gap-2">
                 <input
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleSearchKeyDown}
-                  placeholder="brigadeiro, bolo, confeitaria..."
+                  placeholder={`Buscar no ${PROVIDERS.find(p => p.id === provider).name}...`}
                   className="alice-input flex-1 text-xs"
                   autoFocus
                 />
                 <button
-                  onClick={handleUnsplashSearch}
+                  onClick={() => performSearch(false)}
                   disabled={isSearching || !query.trim()}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg text-zinc-900 transition-all hover:brightness-110 disabled:opacity-40 shrink-0"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg text-zinc-900 transition-all hover:brightness-110 disabled:opacity-40 shrink-0"
                   style={{ backgroundColor: brandColor }}
                 >
                   {isSearching ? (
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
-                    <Search className="w-3.5 h-3.5" />
+                    <Search className="w-4 h-4" />
                   )}
                 </button>
               </div>
 
               {/* Grid de resultados */}
-              <div className="overflow-y-auto max-h-56 p-2" style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}>
+              <div 
+                ref={scrollContainerRef}
+                className="overflow-y-auto max-h-64 p-2 custom-scrollbar"
+              >
                 {searchError && (
                   <p className="text-[10px] text-rose-400 font-mono text-center p-4">{searchError}</p>
                 )}
                 {!hasSearched && !searchError && (
-                  <p className="text-[10px] text-zinc-600 font-mono text-center p-4">
-                    Digite um termo e pressione Enter ou clique em buscar.
-                  </p>
-                )}
-                {unsplashResults.length > 0 && (
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {unsplashResults.map((photo) => (
-                      <div key={photo.id} className="relative group/thumb cursor-pointer" onClick={() => handleSelectUnsplashPhoto(photo)}>
-                        <img
-                          src={photo.thumbUrl}
-                          alt={photo.alt}
-                          className="w-full aspect-square object-cover rounded-md border border-border-subtle group-hover/thumb:border-white/30 transition-all"
-                        />
-                        {/* Overlay com crédito */}
-                        <div className="absolute inset-0 bg-black/0 group-hover/thumb:bg-black/60 rounded-md transition-all flex flex-col items-center justify-center gap-1 opacity-0 group-hover/thumb:opacity-100">
-                          <span className="text-[8px] text-white font-bold text-center px-1 leading-tight">
-                            {photo.photographer}
-                          </span>
-                          <a
-                            href={photo.unsplashUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="text-[7px] text-zinc-300 underline flex items-center gap-0.5"
-                          >
-                            Unsplash <ExternalLink className="w-2 h-2" />
-                          </a>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="flex flex-col items-center justify-center py-8 opacity-40">
+                    <Camera className="w-8 h-8 mb-2" />
+                    <p className="text-[9px] text-zinc-500 uppercase font-black tracking-tighter text-center px-6">
+                      Busca integrada em alta resolução.<br/>Selecione um provedor acima.
+                    </p>
                   </div>
+                )}
+                {results.length > 0 && (
+                  <>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      {results.map((photo) => (
+                        <div 
+                          key={photo.id} 
+                          className="relative group/thumb cursor-pointer aspect-[3/4]" 
+                          onClick={() => handleSelectPhoto(photo)}
+                        >
+                          <img
+                            src={photo.thumbUrl}
+                            alt={photo.alt}
+                            className="w-full h-full object-cover rounded-md border border-border-subtle group-hover/thumb:border-white/30 transition-all"
+                          />
+                          {/* Overlay com crédito */}
+                          <div className="absolute inset-0 bg-black/0 group-hover/thumb:bg-black/60 rounded-md transition-all flex flex-col items-center justify-center gap-1 opacity-0 group-hover/thumb:opacity-100">
+                            <span className="text-[8px] text-white font-bold text-center px-1 leading-tight">
+                              {photo.photographer}
+                            </span>
+                            <div className="flex items-center gap-1">
+                              <span className={`text-[7px] uppercase font-black px-1 rounded bg-black/40 ${PROVIDERS.find(p => p.id === photo.provider)?.color || 'text-white'}`}>
+                                {photo.provider}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Botão Carregar Mais */}
+                    <button
+                      onClick={() => performSearch(true)}
+                      disabled={isLoadingMore}
+                      className="w-full mt-3 py-2 border border-white/5 bg-white/5 hover:bg-white/10 rounded-lg text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-white transition-all flex items-center justify-center gap-2 mb-2"
+                    >
+                      {isLoadingMore ? (
+                        <Loader2 className="w-3 h-3 animate-spin" />
+                      ) : (
+                        <>
+                          <ChevronDown className="w-3 h-3" />
+                          Carregar Mais
+                        </>
+                      )}
+                    </button>
+                  </>
                 )}
               </div>
 
-              {/* Footer Unsplash attribution */}
-              <div className="px-3 py-2 border-t border-border-subtle">
-                <a
-                  href="https://unsplash.com?utm_source=alice_studio&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[9px] text-zinc-600 hover:text-zinc-400 transition-colors flex items-center gap-1"
-                >
-                  Powered by Unsplash <ExternalLink className="w-2.5 h-2.5" />
-                </a>
+              {/* Attribution Footer */}
+              <div className="px-3 py-2 border-t border-border-subtle bg-black/20 flex justify-between items-center">
+                <span className="text-[8px] text-zinc-600 uppercase font-bold tracking-widest">
+                  Powered by {PROVIDERS.find(p => p.id === provider).name}
+                </span>
+                <ExternalLink className="w-2.5 h-2.5 text-zinc-600" />
               </div>
             </div>
           )}

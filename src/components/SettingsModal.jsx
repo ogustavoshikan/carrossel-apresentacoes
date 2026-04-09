@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon } from 'lucide-react';
+import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon, Camera } from 'lucide-react';
 
 export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl, onLogoChange }) {
   const [tab, setTab] = useState('google');
   const [googleKey, setGoogleKey] = useState('');
   const [openaiKey, setOpenaiKey] = useState('');
   const [unsplashKey, setUnsplashKey] = useState('');
+  const [pexelsKey, setPexelsKey] = useState('');
+  const [pixabayKey, setPixabayKey] = useState('');
   const [saved, setSaved] = useState(false);
 
   const [isVerifyingGoogle, setIsVerifyingGoogle] = useState(false);
@@ -26,6 +28,8 @@ export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl,
       setGoogleKey(localStorage.getItem('alice_google_api_key') || '');
       setOpenaiKey(localStorage.getItem('alice_openai_api_key') || '');
       setUnsplashKey(localStorage.getItem('alice_unsplash_api_key') || '');
+      setPexelsKey(localStorage.getItem('alice_pexels_api_key') || '');
+      setPixabayKey(localStorage.getItem('alice_pixabay_api_key') || '');
       setTextModels(JSON.parse(localStorage.getItem('alice_available_text_models') || '[]'));
       setImageModels(JSON.parse(localStorage.getItem('alice_available_image_models') || '[]'));
       setSelectedTextModel(localStorage.getItem('alice_text_model_id') || '');
@@ -86,6 +90,8 @@ export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl,
     localStorage.setItem('alice_google_api_key', googleKey.trim());
     localStorage.setItem('alice_openai_api_key', openaiKey.trim());
     localStorage.setItem('alice_unsplash_api_key', unsplashKey.trim());
+    localStorage.setItem('alice_pexels_api_key', pexelsKey.trim());
+    localStorage.setItem('alice_pixabay_api_key', pixabayKey.trim());
     localStorage.setItem('alice_available_text_models', JSON.stringify(textModels));
     localStorage.setItem('alice_available_image_models', JSON.stringify(imageModels));
     localStorage.setItem('alice_text_model_id', selectedTextModel);
@@ -155,7 +161,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl,
             style={{ borderColor: tab === 'unsplash' ? brandColor : 'transparent' }}
             onClick={() => setTab('unsplash')}
           >
-            Unsplash
+            Imagens
           </button>
           <button 
             className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'identidade' ? 'text-white border-b-2' : 'text-zinc-500'}`}
@@ -273,43 +279,55 @@ export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl,
           )}
 
           {tab === 'unsplash' && (
-            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-200">
-              <div>
+            <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200 p-1">
+              {/* Unsplash */}
+              <div className="space-y-3">
                 <label className="alice-label flex items-center gap-2">
-                  <Key className="w-3 h-3" /> Unsplash Access Key
+                  <Camera className="w-3 h-3" /> Unsplash Access Key
                 </label>
-                <p className="text-xs text-zinc-500 font-mono mb-3">
-                  Obtenha sua chave gratuita em{' '}
-                  <a
-                    href="https://unsplash.com/developers"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-zinc-300 transition-colors"
-                  >
-                    unsplash.com/developers
-                  </a>
-                  . Plano gratuito inclui 50 req/hora.
-                </p>
+                <input
+                  type="password"
+                  value={unsplashKey}
+                  onChange={(e) => setUnsplashKey(e.target.value)}
+                  className="alice-input w-full"
+                  placeholder="Paste Unsplash key..."
+                />
               </div>
-              <input
-                type="password"
-                value={unsplashKey}
-                onChange={(e) => setUnsplashKey(e.target.value)}
-                className="alice-input w-full"
-                placeholder="seu-access-key-aqui"
-              />
-              <div className="p-3 bg-surface-input border border-border-subtle rounded-lg">
+
+              {/* Pexels */}
+              <div className="space-y-3">
+                <label className="alice-label flex items-center gap-2 text-emerald-500">
+                  <ImageIcon className="w-3 h-3" /> Pexels API Key
+                </label>
+                <input
+                  type="password"
+                  value={pexelsKey}
+                  onChange={(e) => setPexelsKey(e.target.value)}
+                  className="alice-input w-full"
+                  placeholder="Paste Pexels key..."
+                />
+              </div>
+
+              {/* Pixabay */}
+              <div className="space-y-3">
+                <label className="alice-label flex items-center gap-2 text-cyan-500">
+                  <ImageIcon className="w-3 h-3" /> Pixabay API Key
+                </label>
+                <input
+                  type="password"
+                  value={pixabayKey}
+                  onChange={(e) => setPixabayKey(e.target.value)}
+                  className="alice-input w-full"
+                  placeholder="Paste Pixabay key..."
+                />
+              </div>
+
+              <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
                 <p className="text-[10px] text-zinc-500 font-mono leading-relaxed">
-                  ℹ️ O Alice Studio usa a API do Unsplash para busca de imagens. Conforme os{' '}
-                  <a
-                    href="https://unsplash.com/api-terms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-zinc-300"
-                  >
-                    termos da API
-                  </a>
-                  , os créditos dos fotógrafos são exibidos nas buscas.
+                  Obtenha as chaves gratuitas nos portais:
+                  <br/>• <a href="https://unsplash.com/developers" target="_blank" className="underline hover:text-white">unsplash.com/developers</a>
+                  <br/>• <a href="https://www.pexels.com/api/" target="_blank" className="underline hover:text-white">pexels.com/api/</a>
+                  <br/>• <a href="https://pixabay.com/api/docs/" target="_blank" className="underline hover:text-white">pixabay.com/api/docs/</a>
                 </p>
               </div>
             </div>
