@@ -25,6 +25,7 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
+import LayoutSelector from './LayoutSelector';
 
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
@@ -71,6 +72,8 @@ export default function ConfigSidebar({
   setTheme,
   slideCount,
   setSlideCount,
+  layoutSelection,
+  setLayoutSelection,
   // Actions
   onGenerate,
   isGenerating,
@@ -797,6 +800,18 @@ export default function ConfigSidebar({
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
           />
+
+          {/* Seleção de Layouts */}
+          {setLayoutSelection && (
+            <CollapsibleSection title="DISTRIBUIÇÃO DE LAYOUTS" defaultOpen={false}>
+              <LayoutSelector
+                layoutSelection={layoutSelection}
+                setLayoutSelection={setLayoutSelection}
+                slideCount={slideCount}
+                brandColor={gradientColor1}
+              />
+            </CollapsibleSection>
+          )}
 
           {/* Slide Count */}
           <div>

@@ -6,6 +6,7 @@ import { exportAllToPNG, exportSlideToPNG } from './services/export';
 import { copyToClipboard } from './lib/clipboard';
 import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
 import { createSlideFromTemplate } from './lib/layout-templates';
+import { LAYOUT_META } from './lib/layout-templates';
 
 // Componentes
 import ConfigSidebar from './components/sidebar/ConfigSidebar';
@@ -32,6 +33,12 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
   const [selectedElement, setSelectedElement] = useState(null);
+
+  // Seleção de layouts (Fase 4)
+  const [layoutSelection, setLayoutSelection] = useState({
+    mode: 'ai', // 'ai' | 'manual'
+    layouts: {}, // { 'content-split': 2, 'big-number': 1, ... }
+  });
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
@@ -206,7 +213,9 @@ export default function App() {
     setSlides([]);
 
     try {
-      const parsedSlides = await generateCarouselContent(theme, slideCount, textProvider, textModel, apiKey);
+      const parsedSlides = await generateCarouselContent(
+        theme, slideCount, textProvider, textModel, apiKey, layoutSelection
+      );
       setSlides(parsedSlides);
     } catch (err) {
       console.error(err);
@@ -340,6 +349,8 @@ export default function App() {
           setTheme={setTheme}
           slideCount={slideCount}
           setSlideCount={setSlideCount}
+          layoutSelection={layoutSelection}
+          setLayoutSelection={setLayoutSelection}
           onGenerate={handleGenerate}
           isGenerating={isGenerating}
           error={error}

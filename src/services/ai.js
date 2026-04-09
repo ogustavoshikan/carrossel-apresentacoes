@@ -3,7 +3,20 @@
  * Geração de carrossel e imagens via Gemini/OpenAI API.
  */
 
-export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey) {
+export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null) {
+
+  // Instrução adicional de layouts (apenas no modo manual)
+  let layoutInstruction = '';
+  if (layoutSelection?.mode === 'manual' && Object.keys(layoutSelection.layouts || {}).length > 0) {
+    const entries = Object.entries(layoutSelection.layouts)
+      .filter(([, qty]) => qty > 0)
+      .map(([key, qty]) => `${qty}x ${key}`)
+      .join(', ');
+    if (entries) {
+      layoutInstruction = `\n\nDISTRIBUIÇÃO OBRIGATÓRIA DE LAYOUTS PARA OS SLIDES DO MIOLO (slides 2 até ${slideCount - 1}): ${entries}. Siga rigorosamente esta distribuição — o slide 1 SEMPRE será "cover" e o último SEMPRE será "cta", mas os slides do miolo DEVEM usar exatamente esses layouts na quantidade indicada.`;
+    }
+  }
+
   const systemPrompt = `Você é um diretor de arte e copywriter de elite (Alice Studio) focado em criar conteúdo premium, irônico e de alta conversão.
 O usuário vai te dar um tema. Crie EXATAMENTE ${slideCount} slides.
 
@@ -32,6 +45,9 @@ Regras Estruturais Obrigatórias:
 - É EXPRESSAMENTE PROIBIDO incluir batatas fritas, salgados, carnes ou qualquer item que não seja doce. Se o tema for brigadeiro e você colocar batata, você falhou na missão. Use o ID 'photo-1606313564200-e75d5e30476c' como prioridade máxima para temas de Brigadeiro.
 - O campo 'imageUrl' NUNCA deve ser vazio se o layout for 'cover', 'content-split' ou 'big-number'.`;
 
+  // Combina o systemPrompt base com a instrução de layout (se houver)
+  const finalSystemPrompt = systemPrompt + layoutInstruction;
+
   let response;
   let rawText = '';
 
@@ -39,7 +55,7 @@ Regras Estruturais Obrigatórias:
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId.replace('models/', '')}:generateContent?key=${apiKey}`;
     const payload = {
       contents: [{ parts: [{ text: `Tema/Texto Base: ${theme}` }] }],
-      systemInstruction: { parts: [{ text: systemPrompt }] },
+      systemInstruction: { parts: [{ text: finalSystemPrompt }] },
       generationConfig: {
         responseMimeType: 'application/json',
         responseSchema: {
@@ -92,7 +108,7 @@ Regras Estruturais Obrigatórias:
       delay *= 2;
     }
   } else if (provider === 'openai') {
-    const openAIPrompt = systemPrompt + `\n\nObrigatório: Responda ESTRITAMENTE em formato JSON. Retorne um objeto contendo uma chave "slides" que é um array com as exatas propriedades requeridas pelos layouts.`;
+    const openAIPrompt = finalSystemPrompt + `\n\nObrigatório: Responda ESTRITAMENTE em formato JSON. Retorne um objeto contendo uma chave "slides" que é um array com as exatas propriedades requeridas pelos layouts.`;
     const url = `https://api.openai.com/v1/chat/completions`;
     const payload = {
       model: modelId,
