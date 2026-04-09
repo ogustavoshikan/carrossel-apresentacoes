@@ -1,12 +1,13 @@
-import React, { useState, useCallback } from 'react';
-import { ChevronUp, ChevronDown, Cake } from 'lucide-react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { ChevronUp, ChevronDown, Cake, Star } from 'lucide-react';
 import { useDragResize } from './hooks/useDragResize';
-import { generateCarouselContent, generateImageWithAI } from './services/ai';
+import { generateCarouselContent, generateImageWithAI, generateSingleSlideContent } from './services/ai';
 import { exportAllToPNG, exportSlideToPNG } from './services/export';
 import { copyToClipboard } from './lib/clipboard';
 import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
 import { createSlideFromTemplate } from './lib/layout-templates';
 import { LAYOUT_META } from './lib/layout-templates';
+import { getFavorites, saveFavorite, removeFavorite } from './lib/favorites';
 
 // Componentes
 import ConfigSidebar from './components/sidebar/ConfigSidebar';
@@ -15,6 +16,7 @@ import VisualPreview from './components/workspace/VisualPreview';
 import TextEditor from './components/workspace/TextEditor';
 import { EmptyState, LoadingState } from './components/workspace/EmptyState';
 import SettingsModal from './components/SettingsModal';
+import FavoriteNameModal from './components/workspace/FavoriteNameModal';
 
 export default function App() {
   // ========================================
@@ -42,6 +44,13 @@ export default function App() {
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    getFavorites().then(setFavorites).catch(console.error);
+  }, []);
+  
+  const [favoritePrompt, setFavoritePrompt] = useState({ isOpen: false, slideIndex: null, defaultName: '', resolve: null });
   const [isVerified, setIsVerified] = useState(BRAND_DEFAULTS.isVerified);
   const [gradientColor1, setGradientColor1] = useState(BRAND_DEFAULTS.gradientColor1);
   const [titleSizeScale, setTitleSizeScale] = useState(70);
@@ -137,6 +146,118 @@ export default function App() {
     setSlides((prev) =>
       prev.map((s, i) => (i === index ? { ...s, imageUrl, imagePosition: 50 } : s))
     );
+  }, []);
+
+  const [isInjecting, setIsInjecting] = useState(false);
+
+  const handleInjectSlide = async (rawText, layoutKey, clearInput) => {
+    setIsInjecting(true);
+    setError('');
+    
+    // get API details via same schema as handleGenerate
+    const provider = localStorage.getItem('alice_text_model_provider');
+    const modelId = localStorage.getItem('alice_text_model_id');
+
+    if (!provider || !modelId) {
+      setError('Erro: Configure um modelo de Texto para Injeção (Engrenagem superior).');
+      setIsInjecting(false);
+      return;
+    }
+
+    const apiKey = localStorage.getItem(`alice_${provider}_api_key`);
+    if (!apiKey) {
+      setError(`Chave da API ausente para o provedor ${provider}. Verifique as configurações.`);
+      setIsInjecting(false);
+      return;
+    }
+
+    try {
+      const generatedSlide = await generateSingleSlideContent(rawText, layoutKey, provider, modelId, apiKey);
+      
+      setSlides(prev => {
+        const lastIsCta = prev.length > 0 && prev[prev.length - 1].layout === 'cta';
+        const newArray = [...prev];
+        if (lastIsCta) {
+          // Injeta ANTES do CTA
+          newArray.splice(newArray.length - 1, 0, generatedSlide);
+        } else {
+           // Se nao houver cta fixo no fin, poe no fin
+          newArray.push(generatedSlide);
+        }
+        
+        // Corrige numbering
+        return newArray.map((s, i) => ({ ...s, slide: i + 1 }));
+      });
+
+      if (clearInput) clearInput();
+    } catch (err) {
+      console.error(err);
+      setError(err.message || 'Erro ao gerar o Slide Direto.');
+      setTimeout(() => setError(''), 4000);
+    } finally {
+      setIsInjecting(false);
+    }
+  };
+
+  const handleFavoriteSlide = useCallback((index) => {
+    return new Promise((resolve) => {
+       const slideToSave = slides[index];
+       const defaultName = slideToSave.title || slideToSave.text || `Layout ${slideToSave.layout || 'Básico'}`;
+       setFavoritePrompt({
+          isOpen: true,
+          slideIndex: index,
+          defaultName,
+          resolve
+       });
+    });
+  }, [slides]);
+
+  const confirmFavorite = async (customName) => {
+     const { slideIndex, resolve } = favoritePrompt;
+     setFavoritePrompt({ isOpen: false, slideIndex: null, defaultName: '', resolve: null });
+
+     if (!customName) {
+        resolve(false);
+        return;
+     }
+
+     const slideToSave = slides[slideIndex];
+     const finalSlide = { ...slideToSave, customFavoriteName: customName };
+
+     try {
+       await saveFavorite(finalSlide);
+       const updated = await getFavorites();
+       setFavorites(updated);
+       resolve(true); // Retorna sucesso pro spinner
+     } catch (e) {
+       console.error(e);
+       setError("Erro ao favoritar slide.");
+       setTimeout(() => setError(''), 3000);
+       resolve(false);
+     }
+  };
+
+  const cancelFavorite = () => {
+    if (favoritePrompt.resolve) favoritePrompt.resolve(false);
+    setFavoritePrompt({ isOpen: false, slideIndex: null, defaultName: '', resolve: null });
+  };
+
+  const handleUseFavorite = useCallback((favoriteSlideData) => {
+    setSlides(prev => {
+       const newSlide = JSON.parse(JSON.stringify(favoriteSlideData)); 
+       const newSlides = [...prev, newSlide];
+       return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
+    });
+  }, []);
+
+  const handleRemoveFavorite = useCallback(async (id) => {
+    try {
+      await removeFavorite(id);
+      const updated = await getFavorites();
+      setFavorites(updated);
+    } catch (e) {
+      console.error(e);
+    }
   }, []);
 
   const handleImagePosition = useCallback((index, value) => {
@@ -280,6 +401,15 @@ export default function App() {
       className="min-h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
       style={dynamicStyles}
     >
+      {/* Favorite Modal */}
+      <FavoriteNameModal 
+        isOpen={favoritePrompt.isOpen}
+        defaultName={favoritePrompt.defaultName}
+        onConfirm={confirmFavorite}
+        onCancel={cancelFavorite}
+        brandColor={gradientColor1}
+      />
+
       {/* Google Fonts (dinâmico — carrega as fontes selecionadas pelo usuário) */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
@@ -366,11 +496,16 @@ export default function App() {
           setTitleFont={setTitleFont}
           textFont={textFont}
           setTextFont={setTextFont}
+          favorites={favorites}
+          onUseFavorite={handleUseFavorite}
+          onRemoveFavorite={handleRemoveFavorite}
+          onInjectSlide={handleInjectSlide}
+          isInjecting={isInjecting}
         />
 
         {/* Workspace */}
         <main 
-          className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden"
+          className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden custom-scrollbar"
           onClick={() => setSelectedElement(null)}
         >
           <SettingsModal 
@@ -436,6 +571,7 @@ export default function App() {
                   onResetPositions={resetSlidePositions}
                   onRemoveSlide={handleRemoveSlide}
                   onDuplicateSlide={handleDuplicateSlide}
+                  onFavoriteSlide={handleFavoriteSlide}
                   onMoveSlide={handleMoveSlide}
                   onAddSlide={handleAddSlide}
                   copiedIndex={copiedIndex}

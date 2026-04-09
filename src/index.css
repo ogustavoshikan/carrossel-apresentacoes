@@ -36,6 +36,11 @@ body {
    SCROLLBAR CUSTOMIZADA
    ======================================== */
 
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #18181b transparent;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
 }

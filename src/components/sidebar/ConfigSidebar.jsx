@@ -90,6 +90,11 @@ export default function ConfigSidebar({
   setTitleFont,
   textFont,
   setTextFont,
+  favorites,
+  onUseFavorite,
+  onRemoveFavorite,
+  onInjectSlide,
+  isInjecting,
 }) {
   const isInspectorActive = !!selectedElement;
 
@@ -701,7 +706,7 @@ export default function ConfigSidebar({
           </div>
         </CollapsibleSection>
 
-        <CollapsibleSection title="TAMANHO TÍTULO A BORDAS">
+        <CollapsibleSection title="TAMANHO TÍTULO A BORDAS" defaultOpen={false}>
           {/* Scale: Título */}
           <div>
             <label className="alice-label flex items-center justify-between w-full">
@@ -809,6 +814,11 @@ export default function ConfigSidebar({
                 setLayoutSelection={setLayoutSelection}
                 slideCount={slideCount}
                 brandColor={gradientColor1}
+                favorites={favorites}
+                onUseFavorite={onUseFavorite}
+                onRemoveFavorite={onRemoveFavorite}
+                onInjectSlide={onInjectSlide}
+                isInjecting={isInjecting}
               />
             </CollapsibleSection>
           )}

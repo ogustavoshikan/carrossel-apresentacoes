@@ -153,6 +153,97 @@ Regras Estruturais Obrigatórias:
   return validatedSlides;
 }
 
+export async function generateSingleSlideContent(rawText, layoutKey, provider, modelId, apiKey) {
+  const systemPrompt = `Você receberá um texto avulso inserido pelo usuário. Sua missão é interpretá-lo e convertê-lo para UM (1) único slide no formato de objeto JSON, utilizando obrigatoriamente o layout "${layoutKey}".
+
+Mapeamento do Layout (${layoutKey}):
+- "cover": titulo, texto_apoio, imageUrl (obrigatório)
+- "content-split": titulo, texto_apoio, tag, imageUrl (obrigatório)
+- "big-number": titulo (número gigante), tag (texto em cima), texto_apoio, imageUrl (obrigatório)
+- "quote": titulo (a frase), texto_apoio (o autor ou subfrase)
+- "comparison": titulo, items (array com 'label', 'value', 'highlight' booleana)
+- "list": titulo, items (array com 'label', 'text')
+- "cta": titulo, texto_apoio, tag (texto do botão)
+
+O formato da rede responde EXCLUSIVAMENTE um objeto JSON valido (e nada mais) contendo: 'slide': 1, 'layout': '${layoutKey}', e as outras propriedades acima.
+As strings injetadas no JSON não devem conter marcações adicionais que o invalidem. Ajuste o tom para ser assertivo, claro e premium (português do Brasil). Preserve as intenções de foco e lista do texto recebido caso seja do tipo 'list' ou 'comparison'.
+
+Para 'imageUrl', use um ID do Unsplash (ex: photo-1551024506-0bccd828d307 ou photo-1606313564200-e75d5e30476c) e insira a URL completa 'https://images.unsplash.com/ID?q=80&w=1080'.`;
+
+  let response;
+  let resultText = '';
+
+  if (provider === 'google') {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId.replace('models/', '')}:generateContent?key=${apiKey}`;
+    const payload = {
+      contents: [{ parts: [{ text: `Texto Bruto recebido:\n${rawText}` }] }],
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+      generationConfig: {
+        responseMimeType: 'application/json',
+      },
+    };
+
+    let retries = 3;
+    let delay = 1000;
+    while (retries > 0) {
+      response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        break;
+      }
+      retries--;
+      if (retries === 0) throw new Error(`Falha na API Google: ${response.status}`);
+      await new Promise((res) => setTimeout(res, delay));
+      delay *= 1.5;
+    }
+  } else if (provider === 'openai') {
+    const openAIPrompt = systemPrompt + `\n\nResponda ESTRITAMENTE em formato JSON com apenas as chaves exigidas para este slide, sem envolvê-lo em "slides".`;
+    const url = `https://api.openai.com/v1/chat/completions`;
+    const payload = {
+      model: modelId,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: openAIPrompt },
+        { role: "user", content: `Texto Bruto recebido:\n${rawText}` }
+      ]
+    };
+    response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Falha na API OpenAI: ${response.status}`);
+    const data = await response.json();
+    resultText = data.choices[0].message.content;
+  } else {
+    throw new Error('Provedor de IA não suportado para Injeção Direta.');
+  }
+
+  if (!resultText) throw new Error('A IA não retornou o slide.');
+
+  const sanitizedText = resultText.replace(/!NCIA/g, 'ÊNCIA').replace(/!ncia/g, 'ência');
+  let parsedSlide = JSON.parse(sanitizedText);
+  
+  if (parsedSlide.slides && parsedSlide.slides.length > 0) {
+    parsedSlide = parsedSlide.slides[0];
+  }
+
+  const isImageLayout = ['cover', 'content-split', 'big-number'].includes(parsedSlide.layout || layoutKey);
+  if (isImageLayout && (!parsedSlide.imageUrl || parsedSlide.imageUrl.length < 20 || !parsedSlide.imageUrl.includes('unsplash'))) {
+    parsedSlide.imageUrl = 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080';
+  }
+  
+  parsedSlide.layout = parsedSlide.layout || layoutKey;
+  parsedSlide.isInjected = true;
+
+  return parsedSlide;
+}
+
 export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
   if (provider === 'google') {
     const safeModelId = modelId.includes('imagen') ? modelId.replace('models/', '') : 'imagen-4.0-generate-001';

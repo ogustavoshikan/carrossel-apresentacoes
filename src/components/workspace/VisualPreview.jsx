@@ -10,7 +10,8 @@ import {
   ArrowLeft,
   ArrowRight,
   Download,
-  Plus
+  Plus,
+  Star
 } from 'lucide-react';
 import AddSlidePopover from './AddSlidePopover';
 import SlideRenderer from '../slide-renderer';
@@ -41,6 +42,7 @@ export default function VisualPreview({
   onResetPositions,
   onRemoveSlide,
   onDuplicateSlide,
+  onFavoriteSlide,
   copiedIndex,
   selectedElement,
   onSelectElement,
@@ -51,6 +53,19 @@ export default function VisualPreview({
   const scrollRef = useRef(null);
   // índice do gap entre slides com o popover aberto (-1 = nenhum)
   const [openAddIndex, setOpenAddIndex] = useState(-1);
+  const [favoritedIndices, setFavoritedIndices] = useState({});
+
+  const handleFavoriteClick = async (index) => {
+    if (onFavoriteSlide) {
+      const success = await onFavoriteSlide(index);
+      if (success) {
+        setFavoritedIndices(prev => ({ ...prev, [index]: true }));
+        setTimeout(() => {
+          setFavoritedIndices(prev => ({ ...prev, [index]: false }));
+        }, 2000);
+      }
+    }
+  };
 
   const scrollLeft = () => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
   const scrollRight = () => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
@@ -169,13 +184,24 @@ export default function VisualPreview({
             </div>
 
             {onDuplicateSlide && (
-               <button
-                 onClick={() => onDuplicateSlide(index)}
-                 className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-3 rounded-xl transition-colors font-bold border border-border-hover mt-1"
-               >
-                 <Copy className="w-3.5 h-3.5" />
-                 Duplicar Slide
-               </button>
+               <div className="flex gap-2 mt-1">
+                 <button
+                   onClick={() => onDuplicateSlide(index)}
+                   className="flex-1 flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-3 rounded-xl transition-colors font-bold border border-border-hover"
+                 >
+                   <Copy className="w-3.5 h-3.5" />
+                   Duplicar Slide
+                 </button>
+                 {onFavoriteSlide && (
+                   <button
+                     onClick={() => handleFavoriteClick(index)}
+                     className={`w-14 shrink-0 flex items-center justify-center text-label-xs py-3 rounded-xl transition-colors font-bold border ${favoritedIndices[index] ? 'bg-emerald-500/20 text-emerald-500 border-emerald-500/50' : 'bg-surface-input hover:bg-yellow-500/10 hover:border-yellow-500/50 text-yellow-500/70 hover:text-yellow-500 border-border-hover'}`}
+                     title={favoritedIndices[index] ? "Salvo!" : "Salvar como Favorito"}
+                   >
+                     {favoritedIndices[index] ? <CheckCircle2 className="w-4 h-4" /> : <Star className="w-4 h-4" />}
+                   </button>
+                 )}
+               </div>
             )}
 
             {Object.keys(slide.positions || {}).length > 0 && (

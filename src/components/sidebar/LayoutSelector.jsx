@@ -1,5 +1,5 @@
-import React from 'react';
-import { Sparkles, SlidersHorizontal } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, SlidersHorizontal, Plus, Star, X, Type } from 'lucide-react';
 import { LAYOUT_META } from '../../lib/layout-templates';
 
 /**
@@ -97,7 +97,9 @@ const MIOLO_LAYOUTS = LAYOUT_META.filter((l) => !FIXED_LAYOUTS.includes(l.key));
  *  - slideCount {number} — total de slides a gerar
  *  - brandColor {string} — cor primária
  */
-export default function LayoutSelector({ layoutSelection, setLayoutSelection, slideCount, brandColor }) {
+export default function LayoutSelector({ layoutSelection, setLayoutSelection, slideCount, brandColor, favorites = [], onUseFavorite, onRemoveFavorite, onInjectSlide, isInjecting }) {
+  const [directLayout, setDirectLayout] = useState('content-split');
+  const [directText, setDirectText] = useState('');
   const isManual = layoutSelection.mode === 'manual';
 
   // Total de slides do miolo (sem cover e cta)
@@ -126,10 +128,10 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
       <div className="flex gap-1 p-1 bg-surface-input rounded-xl border border-border-subtle">
         <button
           onClick={() => setMode('ai')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
-            !isManual
-              ? 'bg-surface-card text-white shadow border border-border-hover'
-              : 'text-zinc-500 hover:text-zinc-300'
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+            layoutSelection.mode === 'ai'
+              ? 'bg-surface-card text-white shadow border-border-hover'
+              : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
           <Sparkles className="w-3 h-3" />
@@ -137,19 +139,41 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
         </button>
         <button
           onClick={() => setMode('manual')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
-            isManual
-              ? 'bg-surface-card text-white shadow border border-border-hover'
-              : 'text-zinc-500 hover:text-zinc-300'
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+            layoutSelection.mode === 'manual'
+              ? 'bg-surface-card text-white shadow border-border-hover'
+              : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
           <SlidersHorizontal className="w-3 h-3" />
           Manual
         </button>
+        <button
+          onClick={() => setMode('direct')}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+            layoutSelection.mode === 'direct'
+              ? 'bg-surface-card text-white shadow border-border-hover'
+              : 'text-zinc-500 hover:text-zinc-300 border-transparent'
+          }`}
+        >
+          <Type className="w-3 h-3" />
+          Direto
+        </button>
+        <button
+          onClick={() => setMode('favorites')}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+            layoutSelection.mode === 'favorites'
+              ? 'bg-surface-card text-white shadow border-border-hover'
+              : 'text-zinc-500 hover:text-zinc-300 border-transparent'
+          }`}
+        >
+          <Star className="w-3 h-3" />
+          Favs {favorites.length > 0 && `(${favorites.length})`}
+        </button>
       </div>
 
       {/* Modo IA — mensagem informativa */}
-      {!isManual && (
+      {layoutSelection.mode === 'ai' && (
         <p className="text-[10px] text-zinc-500 text-center leading-relaxed px-1">
           A IA selecionará os melhores layouts para o seu briefing.
         </p>
@@ -161,21 +185,22 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
           {/* Layouts fixos (informativos) */}
           <div className="flex gap-2">
             {[
-              { key: 'cover', label: 'Capa' },
-              { key: 'cta', label: 'CTA' },
-            ].map(({ key, label }) => (
+              { key: 'cover', label: 'Capa', desc: 'Abertura' },
+              { key: 'cta', label: 'CTA', desc: 'Fechamento' },
+            ].map(({ key, label, desc }) => (
               <div
                 key={key}
-                className="flex-1 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/3 border border-white/5 opacity-40"
+                className="flex-[0.5] flex flex-col items-center justify-between p-3 rounded-xl bg-white/3 border border-white/5 opacity-50"
               >
-                <div className="w-5 h-6 shrink-0">{LAYOUT_ICONS[key]}</div>
-                <div className="flex-1">
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-500">
-                    {label}
-                  </p>
-                  <p className="text-[8px] text-zinc-600">Fixo</p>
-                </div>
-                <span className="text-[10px] font-mono text-zinc-600">1</span>
+                 <div className="w-8 h-10 shrink-0 mb-3">{LAYOUT_ICONS[key]}</div>
+                 <div className="text-center w-full">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">{label}</p>
+                    <p className="text-[8px] text-zinc-600 mb-2">{desc}</p>
+                    <div className="w-full flex justify-between items-center text-[10px] font-mono border-t border-white/5 pt-1">
+                       <span className="text-zinc-600">FX</span>
+                       <span className="text-zinc-500 font-bold">1</span>
+                    </div>
+                 </div>
               </div>
             ))}
           </div>
@@ -190,35 +215,47 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
           </div>
 
           {/* Layouts editáveis do miolo */}
-          <div className="flex flex-col gap-1.5">
-            {MIOLO_LAYOUTS.map(({ key, label }) => {
+          <div className="grid grid-cols-2 gap-2">
+            {MIOLO_LAYOUTS.map(({ key, label, description }) => {
               const qty = layoutSelection.layouts?.[key] ?? 0;
               return (
                 <div
                   key={key}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-input border border-border-subtle"
+                  className="flex flex-col gap-3 p-3 rounded-xl bg-surface-input border border-border-subtle group hover:border-border-hover transition-colors"
                 >
-                  <div className="w-5 h-6 shrink-0 opacity-80">{LAYOUT_ICONS[key]}</div>
-                  <span className="flex-1 text-[10px] font-bold text-zinc-300 uppercase tracking-wide">
-                    {label}
-                  </span>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-10 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
+                      {LAYOUT_ICONS[key]}
+                    </div>
+                    <div className="flex-1 flex flex-col pt-0.5">
+                      <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest leading-none mb-1.5">
+                        {label}
+                      </span>
+                      <span className="text-[8px] text-zinc-500 leading-snug line-clamp-2" title={description}>
+                        {description}
+                      </span>
+                    </div>
+                  </div>
 
                   {/* Stepper compacto */}
-                  <div className="flex items-center gap-1">
-                    <button
-                      onClick={() => setQty(key, qty - 1)}
-                      disabled={qty === 0}
-                      className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-[11px] font-bold disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
-                    >
-                      −
-                    </button>
-                    <span className="w-5 text-center text-xs font-mono text-white">{qty}</span>
-                    <button
-                      onClick={() => setQty(key, qty + 1)}
-                      className="w-5 h-5 flex items-center justify-center rounded bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-[11px] font-bold transition-colors"
-                    >
-                      +
-                    </button>
+                  <div className="flex items-center justify-between mt-auto border-t border-white/5 pt-2">
+                    <span className="text-[9px] font-mono text-zinc-600 tracking-widest">QTD</span>
+                    <div className="flex items-center gap-1 bg-black/20 rounded-md p-0.5 border border-white/5">
+                      <button
+                        onClick={() => setQty(key, qty - 1)}
+                        disabled={qty === 0}
+                        className="w-5 h-5 flex items-center justify-center rounded-md bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-bold disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
+                      >
+                        −
+                      </button>
+                      <span className="w-5 text-center text-[10px] font-mono text-white">{qty}</span>
+                      <button
+                        onClick={() => setQty(key, qty + 1)}
+                        className="w-5 h-5 flex items-center justify-center rounded-md bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-bold transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
               );
@@ -254,6 +291,123 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
               Reduza a seleção ou aumente o total de slides a gerar.
             </p>
           )}
+        </div>
+      )}
+
+      {/* Modo Injeção Direta */}
+      {layoutSelection.mode === 'direct' && (
+        <div className="flex flex-col gap-3 mt-1 animate-in fade-in">
+          <p className="text-[10px] text-zinc-500 text-center leading-relaxed px-1">
+            Selecione o layout alvo e insira seu texto manualmente. Adicionaremos este slide gerado pela IA ao fim do Carrossel.
+          </p>
+
+          {/* Grid Simplificado de Seleção */}
+          <div className="grid grid-cols-4 sm:grid-cols-4 gap-2">
+            {LAYOUT_META.map((meta) => {
+              const Icon = LAYOUT_ICONS[meta.key];
+              const isSelected = directLayout === meta.key;
+              return (
+                <div key={meta.key} className="flex flex-col items-center gap-1">
+                  <div
+                    onClick={() => setDirectLayout(meta.key)}
+                    className={`w-full aspect-[3/4] rounded-lg p-3 flex items-center justify-center cursor-pointer transition-all border ${
+                      isSelected
+                        ? 'bg-brand/10 border-brand/50 shadow-[0_0_15px_-3px_rgba(var(--brand-rgb),0.3)]'
+                        : 'bg-surface-input border-border-subtle hover:border-white/20'
+                    }`}
+                  >
+                    <div className={`w-full h-full flex items-center justify-center opacity-80 ${isSelected ? 'opacity-100' : 'opacity-60'} transition-opacity`}>
+                       {Icon}
+                    </div>
+                  </div>
+                  <span className={`text-[8px] uppercase tracking-widest font-bold truncate w-full text-center ${isSelected ? 'text-white' : 'text-zinc-500'}`}>
+                    {meta.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex flex-col border border-border-subtle focus-within:border-brand/40 bg-surface-input rounded-xl overflow-hidden transition-colors mt-2">
+            <textarea
+              className="w-full h-24 bg-transparent resize-none outline-none p-3 text-xs text-white placeholder:text-zinc-600 focus:placeholder:text-zinc-500 transition-colors"
+              placeholder="Cole seu texto aqui e a IA fará a formatação mágica para o layout escolhido..."
+              value={directText}
+              onChange={(e) => setDirectText(e.target.value)}
+            />
+            <div className="p-2 border-t border-border-subtle bg-black/20 flex justify-end">
+              <button
+                onClick={() => onInjectSlide && onInjectSlide(directText, directLayout, () => setDirectText(''))}
+                disabled={!directText.trim() || isInjecting}
+                className="flex items-center gap-2 px-4 py-2 bg-brand hover:bg-brand-hover text-white rounded-lg text-[10px] font-bold uppercase tracking-widest transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isInjecting ? (
+                  <>
+                    <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white animate-spin" />
+                    Processando...
+                  </>
+                ) : (
+                  <>
+                     <Sparkles className="w-3 h-3" />
+                     Injetar Slide
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modo Favoritos */}
+      {layoutSelection.mode === 'favorites' && (
+        <div className="flex flex-col gap-3 mt-1">
+           {favorites.length === 0 ? (
+              <div className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 text-center gap-3">
+                 <Star className="w-6 h-6 text-yellow-500/30" />
+                 <p className="text-[10px] text-zinc-500">Você ainda não favoritou nenhum slide. Utilize a estrela amarela na visualização para salvar seus favoritos.</p>
+              </div>
+           ) : (
+              <div className="grid grid-cols-2 gap-2">
+                 {favorites.map(fav => (
+                    <div key={fav.id} className="relative group flex flex-col bg-surface-input border border-border-subtle rounded-xl overflow-hidden hover:border-border-hover transition-colors">
+                       <div 
+                         className="h-20 bg-cover bg-center w-full"
+                         style={{ backgroundImage: fav.slideData.imageUrl ? `url(${fav.slideData.imageUrl})` : 'none', backgroundColor: '#18181b' }}
+                       >
+                         {!fav.slideData.imageUrl && (
+                           <div className="w-full h-full flex items-center justify-center text-[10px] text-zinc-500 uppercase tracking-widest font-bold">
+                             {fav.slideData.layout}
+                           </div>
+                         )}
+                       </div>
+                       
+                       <div className="p-2 border-t border-white/5 bg-zinc-950/40">
+                         <span className="text-[9px] uppercase text-zinc-400 tracking-widest block text-center truncate">
+                            {fav.slideData.customFavoriteName || fav.slideData.title || fav.slideData.text || 'Favorito'}
+                         </span>
+                       </div>
+
+                       {/* Hover Overlay */}
+                       <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                         <button 
+                            onClick={(e) => { e.preventDefault(); onUseFavorite && onUseFavorite(fav.slideData); }}
+                            className="bg-emerald-600/20 text-emerald-500 hover:bg-emerald-500 hover:text-white p-2 rounded-full transition-colors border border-emerald-500/30 font-bold"
+                            title="Inserir Slide Canvas"
+                         >
+                           <Plus className="w-4 h-4" />
+                         </button>
+                         <button 
+                            onClick={(e) => { e.preventDefault(); onRemoveFavorite && onRemoveFavorite(fav.id); }}
+                            className="bg-red-950/40 text-red-500 hover:bg-red-600 hover:text-white p-2 rounded-full transition-colors border border-red-500/30"
+                            title="Remover Favorito"
+                         >
+                           <X className="w-4 h-4" />
+                         </button>
+                       </div>
+                    </div>
+                 ))}
+              </div>
+           )}
         </div>
       )}
     </div>
