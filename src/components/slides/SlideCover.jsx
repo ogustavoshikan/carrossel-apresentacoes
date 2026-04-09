@@ -65,7 +65,7 @@ export default function SlideCover({
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-outfit font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
-              style={{ fontSize: `${120 * sTitle}px`, lineHeight: 0.8 }}
+              style={{ fontSize: `${96 * sTitle}px`, lineHeight: 0.8 }}
             >
               {data.titulo}
             </h2>

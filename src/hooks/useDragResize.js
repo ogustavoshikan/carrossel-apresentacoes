@@ -180,7 +180,10 @@ export function useDragResize(slides, setSlides) {
             if (el) el.style.transform = '';
           }
 
-          return { ...s, positions: newPositions };
+          // Remover propriedades de imagem (Y e Scale) mas clonar o resto do slide
+          const { imagePosition, imageScale, ...restSlide } = s;
+
+          return { ...restSlide, positions: newPositions };
         })
       );
     },

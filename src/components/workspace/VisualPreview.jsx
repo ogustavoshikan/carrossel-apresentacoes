@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
   Copy,
   CheckCircle2,
@@ -11,8 +11,22 @@ import {
   ArrowRight,
   Download,
   Plus,
-  Star
+  Star,
+  PenLine,
+  CopyPlus,
+  Save,
+  Image as ImageIcon
 } from 'lucide-react';
+
+const Tooltip = ({ children, text }) => (
+  <div className="group relative flex items-center justify-center">
+    {children}
+    <div className="absolute -top-12 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out bg-zinc-100 text-zinc-900 font-medium text-xs px-2.5 py-1.5 rounded shadow-xl pointer-events-none whitespace-nowrap z-50">
+      {text}
+      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-100 rotate-45"></div>
+    </div>
+  </div>
+);
 import AddSlidePopover from './AddSlidePopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
@@ -51,15 +65,30 @@ export default function VisualPreview({
   isExporting,
 }) {
   const scrollRef = useRef(null);
-  // índice do gap entre slides com o popover aberto (-1 = nenhum)
   const [openAddIndex, setOpenAddIndex] = useState(-1);
   const [favoritedIndices, setFavoritedIndices] = useState({});
+  const [toast, setToast] = useState(null);
+
+  const handleActionFeedback = (actionName) => {
+    setToast(actionName);
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(50);
+    }
+  };
+
+  useEffect(() => {
+    if (toast) {
+      const timer = setTimeout(() => setToast(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   const handleFavoriteClick = async (index) => {
     if (onFavoriteSlide) {
       const success = await onFavoriteSlide(index);
       if (success) {
         setFavoritedIndices(prev => ({ ...prev, [index]: true }));
+        handleActionFeedback('Slide Favoritado');
         setTimeout(() => {
           setFavoritedIndices(prev => ({ ...prev, [index]: false }));
         }, 2000);
@@ -72,6 +101,14 @@ export default function VisualPreview({
 
   return (
     <div className="relative w-full group/nav">
+      {/* Toast Notification Premium */}
+      <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+        <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center gap-2 text-sm font-bold border border-white/20">
+          <CheckCircle2 size={16} className="text-[#DE1E4D]" />
+          <span>{toast}</span>
+        </div>
+      </div>
+
       <button 
         onClick={scrollLeft}
         className="absolute left-2 top-1/3 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
@@ -144,74 +181,73 @@ export default function VisualPreview({
                </span>
             </div>
 
-              <button
-                 onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); }}
-                 className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-500 py-3 rounded-xl transition-colors font-bold border border-emerald-500/30"
-               >
-                 <Settings2 className="w-4 h-4" />
-                 Editar Textos / Visual
-               </button>
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
+                  className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] flex justify-center items-center gap-2 group"
+                >
+                  <PenLine size={16} className="text-zinc-500 group-hover:text-[#DE1E4D] transition-colors" />
+                  Editar Textos / Visual
+                </button>
 
-              <div className="flex gap-3 w-full">
-                <ImageSourceDropdown
-                  slideIndex={index}
-                  onImageUpload={onImageUpload}
-                  onImageFromUrl={onImageFromUrl}
-                  brandColor={brandColor}
-                />
+                <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 mt-1">
+                  <div className="flex items-center gap-0.5">
+                    <Tooltip text="Alterar Foto">
+                      <ImageSourceDropdown
+                        slideIndex={index}
+                        onImageUpload={onImageUpload}
+                        onImageFromUrl={onImageFromUrl}
+                        brandColor={brandColor}
+                        variant="icon"
+                      />
+                    </Tooltip>
+                    
+                    <Tooltip text="Copiar Textos">
+                      <button onClick={(e) => { e.stopPropagation(); onCopySlide(index); handleActionFeedback('Textos Copiados'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
+                        {copiedIndex === index ? <CheckCircle2 size={18} className="text-green-400" /> : <Copy size={18} />}
+                      </button>
+                    </Tooltip>
+                    
+                    {onDuplicateSlide && (
+                      <>
+                        <div className="w-px h-4 bg-zinc-800/80 mx-1"></div>
+                        
+                        <Tooltip text="Duplicar Slide">
+                          <button onClick={(e) => { e.stopPropagation(); onDuplicateSlide(index); handleActionFeedback('Slide Duplicado'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
+                            <CopyPlus size={18} />
+                          </button>
+                        </Tooltip>
+                      </>
+                    )}
+                    
+                    {onFavoriteSlide && (
+                      <Tooltip text={favoritedIndices[index] ? "Salvo!" : "Favoritar"}>
+                        <button onClick={(e) => { e.stopPropagation(); handleFavoriteClick(index); }} className={`p-2 rounded-md transition-all active:scale-90 ${favoritedIndices[index] ? 'text-amber-500 bg-amber-400/10' : 'text-zinc-400 hover:text-amber-400 hover:bg-amber-400/10'}`}>
+                          <Star size={18} />
+                        </button>
+                      </Tooltip>
+                    )}
+                  </div>
 
-              <button
-                onClick={() => onCopySlide(index)}
-                className="flex-[2] flex items-center justify-center gap-2 text-label-xs uppercase text-white py-3.5 px-4 rounded-xl transition-all font-black shadow-lg hover:brightness-110"
-                style={{ backgroundColor: brandColor }}
-              >
-                {copiedIndex === index ? (
-                  <CheckCircle2 className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
-                {copiedIndex === index ? 'Copiado!' : 'Copiar Textos'}
-              </button>
+                  <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-2">
+                    <Save size={16} />
+                    Salvar
+                  </button>
+                </div>
+              </div>
 
-               <button
-                onClick={() => onExportSlide && onExportSlide(index)}
-                className="flex-1 flex items-center justify-center gap-2 text-label-xs uppercase text-white py-3.5 px-4 rounded-xl transition-all font-black shadow-lg bg-emerald-600 hover:bg-emerald-500"
-              >
-                <Download className="w-4 h-4" />
-                Salvar
-              </button>
-            </div>
-
-            {onDuplicateSlide && (
-               <div className="flex gap-2 mt-1">
-                 <button
-                   onClick={() => onDuplicateSlide(index)}
-                   className="flex-1 flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-3 rounded-xl transition-colors font-bold border border-border-hover"
-                 >
-                   <Copy className="w-3.5 h-3.5" />
-                   Duplicar Slide
-                 </button>
-                 {onFavoriteSlide && (
-                   <button
-                     onClick={() => handleFavoriteClick(index)}
-                     className={`w-14 shrink-0 flex items-center justify-center text-label-xs py-3 rounded-xl transition-colors font-bold border ${favoritedIndices[index] ? 'bg-emerald-500/20 text-emerald-500 border-emerald-500/50' : 'bg-surface-input hover:bg-yellow-500/10 hover:border-yellow-500/50 text-yellow-500/70 hover:text-yellow-500 border-border-hover'}`}
-                     title={favoritedIndices[index] ? "Salvo!" : "Salvar como Favorito"}
-                   >
-                     {favoritedIndices[index] ? <CheckCircle2 className="w-4 h-4" /> : <Star className="w-4 h-4" />}
-                   </button>
-                 )}
-               </div>
-            )}
-
-            {Object.keys(slide.positions || {}).length > 0 && (
-              <button
-                onClick={() => onResetPositions(index)}
-                className="w-full flex items-center justify-center gap-2 text-label-xs uppercase bg-red-950/20 hover:bg-red-900/40 text-red-500 py-3 rounded-xl transition-colors border border-red-900/30 font-bold"
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-                Resetar Posições
-              </button>
-            )}
+              {/* Resetar Posições (Aparece se tiver edições de posição ou imagem) */}
+              {(Object.keys(slide.positions || {}).length > 0 || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
+                <div className="transition-all duration-300 ease-in-out overflow-hidden max-h-10 mt-3 opacity-100">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
+                    className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
+                  >
+                    <RotateCcw size={12} />
+                    Resetar Posições
+                  </button>
+                </div>
+              )}
 
             {slide.imageUrl && (
               <div className="bg-surface-input border border-border-subtle rounded-xl p-4 space-y-4">

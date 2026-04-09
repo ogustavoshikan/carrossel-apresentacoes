@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown } from 'lucide-react';
+import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown, Image as ImageIcon } from 'lucide-react';
 import { searchUnsplashPhotos } from '../../services/unsplash';
 import { searchPexelsPhotos } from '../../services/pexels';
 import { searchPixabayPhotos } from '../../services/pixabay';
@@ -13,7 +13,7 @@ import { searchPixabayPhotos } from '../../services/pixabay';
  * @param {function} onImageFromUrl - Handler para URL/Busca (url string)
  * @param {string}   brandColor     - Cor de destaque do projeto
  */
-export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImageFromUrl, brandColor }) {
+export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImageFromUrl, brandColor, variant }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'search'
   const [urlInput, setUrlInput] = useState('');
@@ -149,13 +149,22 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
   return (
     <div ref={dropdownRef} className="relative flex-1">
       {/* Botão principal */}
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"
-      >
-        <Upload className="w-4 h-4" />
-        Foto
-      </button>
+      {variant === 'icon' ? (
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"
+        >
+          <ImageIcon size={18} />
+        </button>
+      ) : (
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"
+        >
+          <Upload className="w-4 h-4" />
+          Foto
+        </button>
+      )}
 
       {/* Dropdown */}
       {isOpen && (
