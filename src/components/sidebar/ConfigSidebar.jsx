@@ -22,6 +22,7 @@ import {
   Info,
   ChevronDown,
   ChevronRight,
+  RotateCcw,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 
@@ -282,6 +283,13 @@ export default function ConfigSidebar({
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
                   <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => updateProp('x', 0)}
+                      title="Resetar X"
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                    </button>
                     <button 
                       onMouseDown={() => startAutoScroll('x', -1)}
                       onTouchStart={() => startAutoScroll('x', -1)}
@@ -320,6 +328,13 @@ export default function ConfigSidebar({
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
                   <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => updateProp('y', 0)}
+                      title="Resetar Y"
+                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                    </button>
                     <button 
                       onMouseDown={() => startAutoScroll('y', -1)}
                       onTouchStart={() => startAutoScroll('y', -1)}
@@ -358,6 +373,13 @@ export default function ConfigSidebar({
                 <div className="flex justify-between items-center">
                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => updateProp('scale', 1)}
+                        title="Resetar Escala"
+                        className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                      >
+                        <RotateCcw className="w-3 h-3" />
+                      </button>
                       <button 
                         onMouseDown={() => startAutoScroll('scale', -0.01)}
                         onTouchStart={() => startAutoScroll('scale', -0.01)}
@@ -388,7 +410,16 @@ export default function ConfigSidebar({
                 />
               </div>
               <div className="bg-surface-input px-3 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 mt-2">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 text-center w-full">Direcional Minimalista</span>
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Direcional Minimalista</span>
+                  <button
+                    onClick={() => { updateProp('x', 0); updateProp('y', 0); updateProp('scale', 1); }}
+                    title="Resetar posição e escala"
+                    className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                  </button>
+                </div>
                 <div className="grid grid-cols-3 gap-1 w-fit">
                    <div />
                    <button 
