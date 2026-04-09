@@ -35,7 +35,7 @@ export default function SlideContentSplit({
         brandColor={brandColor}
         isVerified={isVerified}
       />
-      <div className="flex-1 flex flex-col justify-center pt-10">
+      <div className="flex-1 flex flex-col justify-center pt-6">
         <SmartElement
           slideIndex={index}
           field="imagem"
@@ -100,7 +100,7 @@ export default function SlideContentSplit({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter outline-none"
+            className="font-outfit font-black text-white tracking-tighter outline-none line-clamp-2 overflow-hidden"
             style={{ fontSize: `${32 * sTitle}px`, lineHeight: 1.1 }}
           >
             {data.titulo}
@@ -120,7 +120,7 @@ export default function SlideContentSplit({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-400 outline-none antialiased"
+            className="font-playfair text-zinc-400 outline-none antialiased line-clamp-3 overflow-hidden"
             style={{ fontSize: `${18 * sText}px`, lineHeight: 1.6 }}
           >
             {data.texto_apoio}

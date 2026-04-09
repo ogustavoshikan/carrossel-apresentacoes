@@ -14,7 +14,7 @@ import { BadgeCheck } from 'lucide-react';
  */
 export default function SlideHeader({ index, total, brandHandle, brandColor, isVerified = false, dark = false }) {
   return (
-    <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+    <div className="absolute top-0 left-0 w-full p-5 flex justify-between items-center z-50 pointer-events-none">
       <div className="flex items-center gap-3">
         <div
           className={`w-2.5 h-2.5 rounded-full ${dark ? 'bg-black' : ''}`}

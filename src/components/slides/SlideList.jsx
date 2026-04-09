@@ -34,7 +34,7 @@ export default function SlideList({
         brandColor={brandColor}
         isVerified={isVerified}
       />
-      <div className="flex-1 flex flex-col justify-center pt-8">
+      <div className="flex-1 flex flex-col justify-center pt-6">
         <div className="flex items-center gap-5 mb-10">
           <div
             className="w-12 h-12 border rounded-[1rem] flex items-center justify-center shrink-0 pointer-events-none"
@@ -59,7 +59,7 @@ export default function SlideList({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter leading-none outline-none"
+              className="font-outfit font-black text-white tracking-tighter leading-none outline-none line-clamp-2 overflow-hidden"
               style={{ fontSize: `${30 * sTitle}px` }}
             >
               {data.titulo}
@@ -81,7 +81,7 @@ export default function SlideList({
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                  className="font-outfit font-bold text-white text-[14px] uppercase tracking-[0.2em] mb-2 outline-none block"
+                  className="font-outfit font-bold text-white text-[14px] uppercase tracking-[0.2em] mb-2 outline-none block line-clamp-1 overflow-hidden"
                 >
                   {item.label}
                 </h4>
@@ -89,7 +89,7 @@ export default function SlideList({
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onItemChange(index, i, 'text', e.currentTarget.innerText)}
-                  className="font-playfair text-zinc-400 text-base leading-snug outline-none block"
+                  className="font-playfair text-zinc-400 text-base leading-snug outline-none block line-clamp-2 overflow-hidden"
                 >
                   {item.text}
                 </p>

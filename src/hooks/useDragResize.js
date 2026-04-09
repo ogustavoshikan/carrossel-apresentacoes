@@ -28,6 +28,13 @@ export function useDragResize(slides, setSlides) {
       if (actionInfo.type === 'drag') {
         newX += dx;
         newY += dy;
+
+        // BOUNDS: clamp para não ultrapassar as bordas do slide
+        if (actionInfo.constraints) {
+          const { minX, maxX, minY, maxY } = actionInfo.constraints;
+          newX = Math.max(minX, Math.min(maxX, newX));
+          newY = Math.max(minY, Math.min(maxY, newY));
+        }
       } else if (actionInfo.type === 'resize') {
         const scaleDelta = (dx + dy) * 0.005;
         newScale = Math.max(0.3, actionInfo.origScale + scaleDelta);
@@ -110,6 +117,27 @@ export function useDragResize(slides, setSlides) {
       const slide = slides[index];
       const pos = slide.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
+      const el = document.getElementById(`smart-${index}-${field}`);
+      const slideCard = document.getElementById(`slide-card-${index}`);
+
+      let constraints = null;
+      if (el && slideCard) {
+        const MARGIN = 12; // px mínimos visíveis na borda
+        const elRect = el.getBoundingClientRect();
+        const slideRect = slideCard.getBoundingClientRect();
+        // Posição natural do elemento dentro do slide (descontando o transform atual)
+        const elNaturalLeft = elRect.left - slideRect.left - pos.x;
+        const elNaturalTop  = elRect.top  - slideRect.top  - pos.y;
+        const elW = el.offsetWidth;
+        const elH = el.offsetHeight;
+        constraints = {
+          minX: MARGIN - elNaturalLeft,
+          maxX: slideRect.width  - elNaturalLeft - elW - MARGIN,
+          minY: MARGIN - elNaturalTop,
+          maxY: slideRect.height - elNaturalTop  - elH - MARGIN,
+        };
+      }
+
       setActionInfo({
         type,
         index,
@@ -119,6 +147,7 @@ export function useDragResize(slides, setSlides) {
         origX: pos.x,
         origY: pos.y,
         origScale: pos.scale || 1,
+        constraints,
       });
     },
     [slides]

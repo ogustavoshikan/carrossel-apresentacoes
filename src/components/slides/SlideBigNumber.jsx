@@ -35,7 +35,7 @@ export default function SlideBigNumber({
         brandColor={brandColor}
         isVerified={isVerified}
       />
-      <div className="flex-1 flex flex-col justify-center relative z-10 pt-8">
+      <div className="flex-1 flex flex-col justify-center relative z-10 pt-6">
         <SmartElement
           slideIndex={index}
           field="titulo"
@@ -50,7 +50,7 @@ export default function SlideBigNumber({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none"
+            className="font-outfit font-black text-white tracking-tighter leading-none outline-none truncate max-w-full block"
             style={{ fontSize: `${130 * sTitle}px` }}
           >
             {data.titulo}
@@ -96,7 +96,7 @@ export default function SlideBigNumber({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-300 outline-none"
+            className="font-playfair text-zinc-300 outline-none line-clamp-3 overflow-hidden"
             style={{ fontSize: `${20 * sText}px`, lineHeight: 1.6 }}
           >
             {data.texto_apoio}

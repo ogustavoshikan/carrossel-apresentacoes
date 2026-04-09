@@ -43,7 +43,17 @@ Regras Estruturais Obrigatórias:
   * Doceria/Geral: photo-1551024506-0bccd828d307, photo-1532499016263-125a25e81196
 - O formato deve ser rigorosamente: 'https://images.unsplash.com/PHOTO_ID?q=80&w=1080'.
 - É EXPRESSAMENTE PROIBIDO incluir batatas fritas, salgados, carnes ou qualquer item que não seja doce. Se o tema for brigadeiro e você colocar batata, você falhou na missão. Use o ID 'photo-1606313564200-e75d5e30476c' como prioridade máxima para temas de Brigadeiro.
-- O campo 'imageUrl' NUNCA deve ser vazio se o layout for 'cover', 'content-split' ou 'big-number'.`;
+- O campo 'imageUrl' NUNCA deve ser vazio se o layout for 'cover', 'content-split' ou 'big-number'.
+
+LIMITES OBRIGATÓRIOS DE TEXTO (crítico para evitar overflow visual nos slides):
+- "cover": titulo máx 4 palavras (impacto direto, ex: "TOP 5 DOCES"), texto_apoio máx 12 palavras.
+- "content-split": tag máx 2 palavras, titulo máx 7 palavras (máx 2 linhas), texto_apoio máx 20 palavras (máx 3 linhas).
+- "big-number": titulo = APENAS o número ou símbolo (ex: "82%", "3x", "#1"), tag máx 3 palavras, texto_apoio máx 20 palavras (máx 3 linhas).
+- "quote": titulo máx 15 palavras (frase de impacto), texto_apoio máx 4 palavras (apenas nome/fonte).
+- "comparison": titulo máx 6 palavras, máx 3 itens no array, label máx 2 palavras, value máx 8 palavras por item.
+- "list": titulo máx 6 palavras, máx 3 itens no array, label máx 3 palavras, text máx 12 palavras por item.
+- "cta": titulo máx 5 palavras, texto_apoio máx 15 palavras, tag máx 2 palavras (ex: "ENCOMENDAR").
+Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais objetividade.`;
 
   // Combina o systemPrompt base com a instrução de layout (se houver)
   const finalSystemPrompt = systemPrompt + layoutInstruction;
