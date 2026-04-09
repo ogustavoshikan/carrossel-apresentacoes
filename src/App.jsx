@@ -62,8 +62,42 @@ export default function App() {
   const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
   const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('alice_app_logo') || '');
 
+  const [sidebarWidth, setSidebarWidth] = useState(420);
+  const [isResizingSidebar, setIsResizingSidebar] = useState(false);
+
   // Drag & Resize hook
   const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides);
+
+  // Sidebar Resize Logic
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isResizingSidebar) return;
+      // Impede seleção de texto durante o drag
+      e.preventDefault();
+      const newWidth = e.clientX;
+      if (newWidth >= 300 && newWidth <= 800) {
+        setSidebarWidth(newWidth);
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsResizingSidebar(false);
+      document.body.style.cursor = 'default';
+      document.body.style.userSelect = 'auto';
+    };
+
+    if (isResizingSidebar) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isResizingSidebar]);
 
   // ========================================
   // CSS CUSTOM PROPERTIES (dinâmicas)
@@ -461,6 +495,7 @@ export default function App() {
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
         {/* Sidebar */}
         <ConfigSidebar
+          width={sidebarWidth}
           brandHandle={brandHandle}
           setBrandHandle={setBrandHandle}
           isVerified={isVerified}
@@ -502,6 +537,15 @@ export default function App() {
           onInjectSlide={handleInjectSlide}
           isInjecting={isInjecting}
         />
+
+        {/* Resize Handle */}
+        <div 
+          onMouseDown={() => setIsResizingSidebar(true)}
+          className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''}`}
+          style={{ '--color-handle': isResizingSidebar ? gradientColor1 : undefined }}
+        >
+          {/* O ::after no CSS já cuida da linha visual */}
+        </div>
 
         {/* Workspace */}
         <main 

@@ -52,6 +52,7 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
  * Contém: Alice Setup (handle, cor, verificado, fontes) + Master Prompt + geração.
  */
 export default function ConfigSidebar({
+  width,
   // Brand state
   brandHandle,
   setBrandHandle,
@@ -104,7 +105,10 @@ export default function ConfigSidebar({
     // Múltiplos Focos (Todo o Slide)
     if (!selectedElement.field) {
       return (
-        <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative">
+        <aside 
+          className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative"
+          style={{ '--sidebar-width': `${width}px` }}
+        >
           <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg mb-1 border border-border-subtle">
             <h3 className="text-white font-outfit font-black tracking-wide text-sm flex items-center gap-2 uppercase px-2">
               <Settings2 className="w-4 h-4 text-emerald-500" />
@@ -253,7 +257,10 @@ export default function ConfigSidebar({
     };
 
     return (
-      <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative">
+      <aside 
+        className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
+        style={{ '--sidebar-width': `${width}px` }}
+      >
         <div className="flex items-center gap-3 underline-offset-4 decoration-white/20 mb-[-1rem]">
            <button 
              onClick={() => setSelectedElement(null)}
@@ -618,7 +625,10 @@ export default function ConfigSidebar({
     );
   }
   return (
-    <aside className="w-full lg:w-96 border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative">
+    <aside 
+      className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
+      style={{ '--sidebar-width': `${width}px` }}
+    >
       <div className="space-y-6">
         {/* === Section: Alice Setup === */}
         <h3 className="alice-section-title">

@@ -170,6 +170,31 @@ body {
   .alice-tab-inactive {
     @apply text-zinc-600 hover:text-zinc-300;
   }
+
+  /* Handle de Resize */
+  .alice-resize-handle {
+    @apply hidden lg:flex w-1 hover:w-1.5 bg-white/5 hover:bg-zinc-800 transition-all cursor-col-resize items-center justify-center z-50 relative;
+  }
+
+  .alice-resize-handle::after {
+    content: '';
+    @apply w-[1px] h-8 bg-zinc-800 group-hover:bg-white/20 transition-colors;
+  }
+
+  .alice-resize-handle-active {
+    @apply bg-zinc-800 w-1.5 !important;
+  }
+
+  /* Sidebar Resizable support */
+  .alice-sidebar-resizable {
+    @apply w-full transition-[width] duration-75;
+  }
+
+  @screen lg {
+    .alice-sidebar-resizable {
+      width: var(--sidebar-width, 384px);
+    }
+  }
 }
 
 /* Esconder setas padrão de input number (spinners) */
