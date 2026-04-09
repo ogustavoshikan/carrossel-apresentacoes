@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Copy,
   CheckCircle2,
@@ -9,8 +9,10 @@ import {
   ChevronRight,
   ArrowLeft,
   ArrowRight,
-  Download
+  Download,
+  Plus
 } from 'lucide-react';
+import AddSlidePopover from './AddSlidePopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
@@ -43,9 +45,12 @@ export default function VisualPreview({
   selectedElement,
   onSelectElement,
   onMoveSlide,
+  onAddSlide,
   isExporting,
 }) {
   const scrollRef = useRef(null);
+  // índice do gap entre slides com o popover aberto (-1 = nenhum)
+  const [openAddIndex, setOpenAddIndex] = useState(-1);
 
   const scrollLeft = () => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
   const scrollRight = () => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
@@ -226,10 +231,32 @@ export default function VisualPreview({
           </div>
         </div>
         
-        {/* Controle de Reordenação (Inter-Slides) */}
+        {/* Controle de Reordenação + Botão Adicionar (Inter-Slides) */}
         {!isExporting && index < slides.length - 1 && onMoveSlide && (
              <div className="relative w-0 flex justify-center items-center z-40 -ml-1">
-        <div className="absolute flex flex-col gap-3">
+        <div className="absolute flex flex-col gap-2">
+
+           {/* Botão + para inserir slide após este */}
+           {onAddSlide && (
+             <div className="relative flex justify-center">
+               <button
+                 onClick={(e) => { e.stopPropagation(); setOpenAddIndex(openAddIndex === index ? -1 : index); }}
+                 className="w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100"
+                 title="Inserir slide aqui"
+               >
+                 <Plus className="w-3.5 h-3.5" />
+               </button>
+               {openAddIndex === index && (
+                 <AddSlidePopover
+                   insertIndex={index + 1}
+                   onAddSlide={onAddSlide}
+                   onClose={() => setOpenAddIndex(-1)}
+                   brandColor={brandColor}
+                 />
+               )}
+             </div>
+           )}
+
            <button 
              onClick={() => onMoveSlide(index + 1, index)} 
              className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"

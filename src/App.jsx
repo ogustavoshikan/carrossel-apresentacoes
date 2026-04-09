@@ -5,6 +5,7 @@ import { generateCarouselContent, generateImageWithAI } from './services/ai';
 import { exportAllToPNG, exportSlideToPNG } from './services/export';
 import { copyToClipboard } from './lib/clipboard';
 import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
+import { createSlideFromTemplate } from './lib/layout-templates';
 
 // Componentes
 import ConfigSidebar from './components/sidebar/ConfigSidebar';
@@ -89,10 +90,23 @@ export default function App() {
       const newSlides = [...prev];
       const [movedItem] = newSlides.splice(fromIndex, 1);
       newSlides.splice(toIndex, 0, movedItem);
-      // Re-indexar a propriedade \`slide\`
+      // Re-indexar a propriedade `slide`
       return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
     });
     // Limpar o array selecionado para prevenir referências mortas
+    setSelectedElement(null);
+  }, []);
+
+  const handleAddSlide = useCallback((layoutType, insertIndex) => {
+    setSlides(prev => {
+      const newSlide = createSlideFromTemplate(layoutType, insertIndex + 1);
+      if (!newSlide) return prev;
+      const newSlides = [...prev];
+      // insertIndex aponta para a posição APÓS o slide de referência
+      newSlides.splice(insertIndex, 0, newSlide);
+      // Re-indexar todos os slides
+      return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
+    });
     setSelectedElement(null);
   }, []);
 
@@ -412,6 +426,7 @@ export default function App() {
                   onRemoveSlide={handleRemoveSlide}
                   onDuplicateSlide={handleDuplicateSlide}
                   onMoveSlide={handleMoveSlide}
+                  onAddSlide={handleAddSlide}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}
