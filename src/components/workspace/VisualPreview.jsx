@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import {
-  Upload,
   Copy,
   CheckCircle2,
   Settings2,
@@ -14,6 +13,7 @@ import {
 } from 'lucide-react';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
+import ImageSourceDropdown from './ImageSourceDropdown';
 
 /**
  * VisualPreview — Grid horizontal de cards visuais com controles por slide.
@@ -33,6 +33,7 @@ export default function VisualPreview({
   onImageUpload,
   onImagePosition,
   onImageScale,
+  onImageFromUrl,
   onCopySlide,
   onExportSlide,
   onResetPositions,
@@ -133,16 +134,12 @@ export default function VisualPreview({
                </button>
 
               <div className="flex gap-3 w-full">
-                <label className="alice-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg">
-                  <Upload className="w-4 h-4" />
-                Foto
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => onImageUpload(index, e)}
+                <ImageSourceDropdown
+                  slideIndex={index}
+                  onImageUpload={onImageUpload}
+                  onImageFromUrl={onImageFromUrl}
+                  brandColor={brandColor}
                 />
-              </label>
 
               <button
                 onClick={() => onCopySlide(index)}

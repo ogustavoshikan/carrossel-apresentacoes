@@ -126,6 +126,13 @@ export default function App() {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imageScale: value } : s)));
   }, []);
 
+  const handleImageFromUrl = useCallback((index, url) => {
+    if (!url) return;
+    setSlides((prev) =>
+      prev.map((s, i) => (i === index ? { ...s, imageUrl: url, imagePosition: 50 } : s))
+    );
+  }, []);
+
   const handleGenerateImage = useCallback(
     async (index, prompt) => {
       setLoadingImages((prev) => ({ ...prev, [index]: true }));
@@ -398,6 +405,7 @@ export default function App() {
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
                   onImageScale={handleImageScale}
+                  onImageFromUrl={handleImageFromUrl}
                   onCopySlide={handleCopySlide}
                   onExportSlide={handleExportSlide}
                   onResetPositions={resetSlidePositions}
