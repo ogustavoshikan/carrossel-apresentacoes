@@ -88,8 +88,7 @@ export default function VisualPreview({
 
       <div
         ref={scrollRef}
-        className="flex gap-10 overflow-x-auto pb-12 pt-4 px-4 snap-x snap-mandatory items-center min-h-[600px]"
-        style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}
+        className="flex gap-10 overflow-x-auto pb-12 pt-4 px-4 snap-x snap-mandatory items-center min-h-[600px] custom-scrollbar"
       >
       {slides.map((slide, index) => (
         <React.Fragment key={`slide-wrapper-${index}`}>
