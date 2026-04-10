@@ -1,15 +1,18 @@
 import React from 'react';
 import { Image as ImageIcon, ArrowRight } from 'lucide-react';
 import SmartElement from '../smart-element';
+import { COVER_VARIANT_COMPONENTS } from './cover-variants';
 
 /**
  * SlideCover — Layout "cover" (sempre slide 1).
  * Imagem superior + título grande + texto de apoio.
+ * Suporta variantes visuais via data.coverVariantIndex.
  */
 export default function SlideCover({
   data,
   index,
   brandColor,
+  brandHandle,
   titleScale,
   textScale,
   showMetrics,
@@ -18,6 +21,28 @@ export default function SlideCover({
   selectedElement,
   onSelectElement,
 }) {
+  // Delegação para variante visual (1-10)
+  const variantIndex = data.coverVariantIndex || 0;
+  if (variantIndex > 0 && COVER_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = COVER_VARIANT_COMPONENTS[variantIndex];
+    return (
+      <VariantComponent
+        data={data}
+        index={index}
+        brandColor={brandColor}
+        brandHandle={brandHandle}
+        titleScale={titleScale}
+        textScale={textScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+      />
+    );
+  }
+
+  // Layout original (variante 0)
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };

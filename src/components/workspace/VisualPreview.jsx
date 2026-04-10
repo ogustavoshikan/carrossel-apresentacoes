@@ -15,6 +15,7 @@ import {
   PenLine,
   CopyPlus,
   Save,
+  Shuffle,
   Image as ImageIcon
 } from 'lucide-react';
 
@@ -28,6 +29,7 @@ const Tooltip = ({ children, text }) => (
   </div>
 );
 import AddSlidePopover from './AddSlidePopover';
+import CoverVariantPopover from './CoverVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
@@ -62,10 +64,12 @@ export default function VisualPreview({
   onSelectElement,
   onMoveSlide,
   onAddSlide,
+  onCoverVariantChange,
   isExporting,
 }) {
   const scrollRef = useRef(null);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
+  const [openVariantIndex, setOpenVariantIndex] = useState(-1);
   const [favoritedIndices, setFavoritedIndices] = useState({});
   const [toast, setToast] = useState(null);
 
@@ -229,10 +233,36 @@ export default function VisualPreview({
                     )}
                   </div>
 
-                  <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-2">
-                    <Save size={16} />
-                    Salvar
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {/* Trocar Variante — apenas para slides cover */}
+                    {slide.layout === 'cover' && onCoverVariantChange && (
+                      <div className="relative">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                        >
+                          <Shuffle size={14} />
+                          Variante
+                        </button>
+                        {openVariantIndex === index && (
+                          <CoverVariantPopover
+                            currentVariantIndex={slide.coverVariantIndex || 0}
+                            onSelect={(variantId) => {
+                              onCoverVariantChange(index, variantId);
+                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                            }}
+                            onClose={() => setOpenVariantIndex(-1)}
+                            brandColor={brandColor}
+                          />
+                        )}
+                      </div>
+                    )}
+
+                    <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-2">
+                      <Save size={16} />
+                      Salvar
+                    </button>
+                  </div>
                 </div>
               </div>
 

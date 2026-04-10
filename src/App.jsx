@@ -302,6 +302,12 @@ export default function App() {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imageScale: value } : s)));
   }, []);
 
+  const handleCoverVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, coverVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url) => {
     if (!url) return;
     setSlides((prev) =>
@@ -618,6 +624,7 @@ export default function App() {
                   onFavoriteSlide={handleFavoriteSlide}
                   onMoveSlide={handleMoveSlide}
                   onAddSlide={handleAddSlide}
+                  onCoverVariantChange={handleCoverVariantChange}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}
