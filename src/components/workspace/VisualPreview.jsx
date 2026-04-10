@@ -30,6 +30,7 @@ const Tooltip = ({ children, text }) => (
 );
 import AddSlidePopover from './AddSlidePopover';
 import CoverVariantPopover from './CoverVariantPopover';
+import SplitVariantPopover from './SplitVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
@@ -65,6 +66,7 @@ export default function VisualPreview({
   onMoveSlide,
   onAddSlide,
   onCoverVariantChange,
+  onSplitVariantChange,
   isExporting,
 }) {
   const scrollRef = useRef(null);
@@ -249,6 +251,30 @@ export default function VisualPreview({
                             currentVariantIndex={slide.coverVariantIndex || 0}
                             onSelect={(variantId) => {
                               onCoverVariantChange(index, variantId);
+                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                            }}
+                            onClose={() => setOpenVariantIndex(-1)}
+                            brandColor={brandColor}
+                          />
+                        )}
+                      </div>
+                    )}
+
+                    {/* Trocar Variante — apenas para slides content-split */}
+                    {slide.layout === 'content-split' && onSplitVariantChange && (
+                      <div className="relative">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                        >
+                          <Shuffle size={14} />
+                          Variante
+                        </button>
+                        {openVariantIndex === index && (
+                          <SplitVariantPopover
+                            currentVariantIndex={slide.splitVariantIndex || 0}
+                            onSelect={(variantId) => {
+                              onSplitVariantChange(index, variantId);
                               handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
                             }}
                             onClose={() => setOpenVariantIndex(-1)}

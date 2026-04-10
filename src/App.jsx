@@ -308,6 +308,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleSplitVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, splitVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url) => {
     if (!url) return;
     setSlides((prev) =>
@@ -625,6 +631,7 @@ export default function App() {
                   onMoveSlide={handleMoveSlide}
                   onAddSlide={handleAddSlide}
                   onCoverVariantChange={handleCoverVariantChange}
+                  onSplitVariantChange={handleSplitVariantChange}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}

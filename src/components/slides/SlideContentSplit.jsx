@@ -2,6 +2,7 @@ import React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
+import { SPLIT_VARIANT_COMPONENTS } from './split-variants';
 
 /**
  * SlideContentSplit — Layout "content-split".
@@ -22,6 +23,30 @@ export default function SlideContentSplit({
   selectedElement,
   onSelectElement,
 }) {
+  // Delegação para variante visual (1-5)
+  const variantIndex = data.splitVariantIndex || 0;
+  if (variantIndex > 0 && SPLIT_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = SPLIT_VARIANT_COMPONENTS[variantIndex];
+    return (
+      <VariantComponent
+        data={data}
+        index={index}
+        slideCount={slideCount}
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        titleScale={titleScale}
+        textScale={textScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+      />
+    );
+  }
+
+  // Layout original (variante 0)
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
