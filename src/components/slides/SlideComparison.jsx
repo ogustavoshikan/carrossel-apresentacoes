@@ -2,26 +2,36 @@ import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
+import { COMPARISON_VARIANT_COMPONENTS } from './comparison-variants';
 
 /**
  * SlideComparison — Layout "comparison".
  * Título + lista de comparação com highlight.
  */
-export default function SlideComparison({
-  data,
-  index,
-  slideCount,
-  brandHandle,
-  brandColor,
-  isVerified,
-  titleScale,
-  showMetrics,
-  onActionStart,
-  onTextChange,
-  onItemChange,
-  selectedElement,
-  onSelectElement,
-}) {
+export default function SlideComparison(props) {
+  const {
+    data,
+    index,
+    slideCount,
+    brandHandle,
+    brandColor,
+    isVerified,
+    titleScale,
+    showMetrics,
+    onActionStart,
+    onTextChange,
+    onItemChange,
+    selectedElement,
+    onSelectElement,
+  } = props;
+
+  // Renderiza variante se selecionada
+  const variantIndex = data.comparisonVariantIndex || 0;
+  if (variantIndex > 0 && COMPARISON_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = COMPARISON_VARIANT_COMPONENTS[variantIndex];
+    return <VariantComponent {...props} />;
+  }
+
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 

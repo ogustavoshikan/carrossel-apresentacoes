@@ -326,6 +326,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleComparisonVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, comparisonVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url) => {
     if (!url) return;
     setSlides((prev) =>
@@ -646,6 +652,7 @@ export default function App() {
                   onSplitVariantChange={handleSplitVariantChange}
                   onBigNumberVariantChange={handleBigNumberVariantChange}
                   onQuoteVariantChange={handleQuoteVariantChange}
+                  onComparisonVariantChange={handleComparisonVariantChange}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}
