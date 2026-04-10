@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Move } from 'lucide-react';
+import { Move, GripVertical } from 'lucide-react';
 
 /**
  * SmartElement — Wrapper drag/resize para elementos editáveis dos slides.
@@ -53,6 +53,7 @@ export default function SmartElement({
         transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`,
         zIndex: showMetrics ? 50 : 40,
         transformOrigin: 'center center',
+        ...(pos.width ? { width: `${pos.width}px` } : {}),
       }}
     >
       {/* Métricas */}
@@ -106,7 +107,23 @@ export default function SmartElement({
         })}
       </div>
 
-      {/* Handle RESIZE — bottom-right */}
+      {/* Handle RESIZE WIDTH — lateral direita */}
+      <div
+        onMouseDown={(e) => {
+          e.stopPropagation();
+          onActionStart(e, slideIndex, field, 'resize-width');
+        }}
+        onTouchStart={(e) => {
+          e.stopPropagation();
+          onActionStart(e, slideIndex, field, 'resize-width');
+        }}
+        className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-8 bg-zinc-700 hover:bg-[var(--color-brand)] rounded-full cursor-ew-resize opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-600 pointer-events-auto transition-colors"
+        title="Redimensionar largura"
+      >
+        <GripVertical size={8} className="text-zinc-400" />
+      </div>
+
+      {/* Handle RESIZE SCALE — canto inferior direito */}
       <div
         onMouseDown={(e) => {
           e.stopPropagation();
@@ -117,6 +134,7 @@ export default function SmartElement({
           onActionStart(e, slideIndex, field, 'resize');
         }}
         className="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
+        title="Redimensionar escala"
       />
     </div>
   );
