@@ -73,6 +73,13 @@ export function useDragResize(slides, setSlides) {
 
         currentWidth = newWidth;
         targetElement.style.width = `${newWidth}px`;
+        targetElement.style.maxWidth = 'none';
+        
+        // Remove a restrição visual em tempo real no elemento interno (Tailwind max-w classes)
+        const innerTextChild = targetElement.querySelector('h1, h2, h3, h4, p, span');
+        if (innerTextChild) {
+          innerTextChild.style.maxWidth = 'none';
+        }
 
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
@@ -209,6 +216,12 @@ export function useDragResize(slides, setSlides) {
             if (el) {
               el.style.transform = '';
               el.style.width = '';
+              el.style.maxWidth = '';
+              
+              const innerTextChild = el.querySelector('h1, h2, h3, h4, p, span');
+              if (innerTextChild) {
+                innerTextChild.style.maxWidth = '';
+              }
             }
           }
 
