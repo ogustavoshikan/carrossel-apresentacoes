@@ -332,6 +332,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleCtaVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, ctaVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url) => {
     if (!url) return;
     setSlides((prev) =>
@@ -653,6 +659,7 @@ export default function App() {
                   onBigNumberVariantChange={handleBigNumberVariantChange}
                   onQuoteVariantChange={handleQuoteVariantChange}
                   onComparisonVariantChange={handleComparisonVariantChange}
+                  onCtaVariantChange={handleCtaVariantChange}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}

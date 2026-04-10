@@ -34,6 +34,7 @@ import SplitVariantPopover from './SplitVariantPopover';
 import BigNumberVariantPopover from './BigNumberVariantPopover';
 import QuoteVariantPopover from './QuoteVariantPopover';
 import ComparisonVariantPopover from './ComparisonVariantPopover';
+import CtaVariantPopover from './CtaVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
@@ -73,6 +74,7 @@ export default function VisualPreview({
   onBigNumberVariantChange,
   onQuoteVariantChange,
   onComparisonVariantChange,
+  onCtaVariantChange,
   isExporting,
 }) {
   const scrollRef = useRef(null);
@@ -355,6 +357,30 @@ export default function VisualPreview({
                             currentVariantIndex={slide.comparisonVariantIndex || 0}
                             onSelect={(variantId) => {
                               onComparisonVariantChange(index, variantId);
+                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                            }}
+                            onClose={() => setOpenVariantIndex(-1)}
+                            brandColor={brandColor}
+                          />
+                        )}
+                      </div>
+                    )}
+
+                    {/* Trocar Variante — apenas para slides cta */}
+                    {slide.layout === 'cta' && onCtaVariantChange && (
+                      <div className="relative">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                        >
+                          <Shuffle size={14} />
+                          Variante
+                        </button>
+                        {openVariantIndex === index && (
+                          <CtaVariantPopover
+                            currentVariantIndex={slide.ctaVariantIndex || 0}
+                            onSelect={(variantId) => {
+                              onCtaVariantChange(index, variantId);
                               handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
                             }}
                             onClose={() => setOpenVariantIndex(-1)}

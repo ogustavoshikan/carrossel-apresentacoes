@@ -1,23 +1,33 @@
 import React from 'react';
 import { Zap, Heart, Bookmark, Share2 } from 'lucide-react';
 import SmartElement from '../smart-element';
+import { CTA_VARIANT_COMPONENTS, ImageBg } from './cta-variants';
 
 /**
  * SlideCTA — Layout "cta" (sempre o último slide).
  * Ícone Zap + título + texto + botão + social icons.
  */
-export default function SlideCTA({
-  data,
-  index,
-  brandColor,
-  titleScale,
-  textScale,
-  showMetrics,
-  onActionStart,
-  onTextChange,
-  selectedElement,
-  onSelectElement,
-}) {
+export default function SlideCTA(props) {
+  const {
+    data,
+    index,
+    brandColor,
+    titleScale,
+    textScale,
+    showMetrics,
+    onActionStart,
+    onTextChange,
+    selectedElement,
+    onSelectElement,
+  } = props;
+
+  // Se houver uma variante selecionada (> 0), usa o componente correspondente
+  const ctaVariantIndex = data.ctaVariantIndex || 0;
+  if (ctaVariantIndex > 0 && CTA_VARIANT_COMPONENTS[ctaVariantIndex]) {
+    const VariantComponent = CTA_VARIANT_COMPONENTS[ctaVariantIndex];
+    return <VariantComponent {...props} />;
+  }
+
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
@@ -27,6 +37,21 @@ export default function SlideCTA({
       className="w-full h-full flex flex-col p-16 items-center justify-center text-center text-white relative overflow-hidden"
       style={{ backgroundColor: brandColor }}
     >
+      {/* Background Image Setup */}
+      <div className="absolute inset-0 opacity-40 blur-md scale-110 pointer-events-none">
+        <ImageBg
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full"
+        />
+      </div>
+
       {/* Decorative line */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[140%] rotate-12 border-[1px] border-white/40" />
