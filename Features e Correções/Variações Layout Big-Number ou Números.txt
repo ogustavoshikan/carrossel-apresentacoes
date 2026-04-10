@@ -1,0 +1,353 @@
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 1
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+<div>
+<span className="font-outfit font-black text-white tracking-tighter leading-none outline-none block mb-2" style={{ fontSize: '130px' }}>70%</span>
+</div>
+<div className="mb-6">
+<div className="px-6 py-2 inline-block rounded-md shadow-2xl" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+<span className="font-outfit font-bold text-white text-[12px] tracking-[0.3em] uppercase">CACAU PURO</span>
+</div>
+</div>
+<div className="mb-8">
+<p className="font-playfair text-zinc-300 outline-none line-clamp-3" style={{ fontSize: '18px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+<div className="w-full flex-1 min-h-[120px] rounded-[2rem] overflow-hidden relative shadow-2xl ring-1 ring-white/5">
+<div className="absolute inset-0 bg-cover grayscale" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 1>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 2
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-10 relative overflow-hidden text-center">
+<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none font-outfit font-black text-white leading-none tracking-tighter z-0" style={{ fontSize: '300px' }}>70%</div>
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="relative z-10 mb-8">
+<span className="font-outfit font-black tracking-tighter leading-none outline-none block drop-shadow-[0_0_40px_rgba(222,30,77,0.4)]" style={{ fontSize: '100px', color: 'rgb(222, 30, 77)' }}>70%</span>
+</div>
+<div className="relative z-10 mb-6">
+<span className="font-outfit font-bold text-white text-[14px] tracking-[0.4em] uppercase border border-white/20 px-6 py-2 rounded-full">CACAU PURO</span>
+</div>
+<div className="relative z-10">
+<p className="font-playfair text-zinc-400 outline-none max-w-[80%]" style={{ fontSize: '20px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+
+<FIM VARIANTE 2>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 3
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#050505] flex flex-col overflow-hidden relative">
+<div className="w-full h-[45%] p-10 flex flex-col items-end justify-center relative shrink-0" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+<div className="w-full text-right">
+<span className="font-outfit font-black text-white tracking-tighter leading-none outline-none block" style={{ fontSize: '110px' }}>70%</span>
+</div>
+</div>
+<div className="flex-1 p-10 flex flex-col justify-center bg-[#050505] relative shrink-0">
+<div className="mb-4">
+<span className="font-outfit font-black text-[12px] tracking-widest text-zinc-500 uppercase">CACAU PURO</span>
+</div>
+<div>
+<p className="font-playfair text-white outline-none" style={{ fontSize: '22px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 3>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 4
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative items-center justify-center text-center">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full">
+<span className="font-outfit font-black text-transparent tracking-tighter leading-none block outline-none" style={{ fontSize: '200px', WebkitTextStroke: '2px rgba(255, 255, 255, 0.05)' }}>70%</span>
+</div>
+<div className="relative z-10 bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 w-full">
+<div className="mb-4">
+<span className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase" style={{ color: 'rgb(222, 30, 77)' }}>CACAU PURO</span>
+</div>
+<div>
+<p className="font-playfair text-white outline-none" style={{ fontSize: '22px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 4>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 5
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#080808] flex overflow-hidden relative">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="w-1/2 h-full flex items-center justify-end p-6 relative z-10">
+<div>
+<span className="font-outfit font-black tracking-tighter leading-none outline-none block text-right" style={{ fontSize: '120px', color: 'rgb(222, 30, 77)' }}>70%</span>
+</div>
+</div>
+<div className="w-1/2 h-full flex flex-col items-start justify-center p-6 bg-zinc-900 border-l border-white/5">
+<div className="mb-4">
+<span className="font-outfit font-bold text-white text-[10px] tracking-widest uppercase">CACAU PURO</span>
+</div>
+<div>
+<p className="font-playfair text-zinc-400 outline-none text-left" style={{ fontSize: '16px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+<div className="mt-8 w-full h-32 rounded-full overflow-hidden">
+<div className="absolute inset-0 bg-cover" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 5>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 6
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="absolute top-0 right-0 w-[150%] h-[150%] bg-cover opacity-20" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+<div className="flex-1 flex flex-col justify-center relative z-10">
+<div className="flex gap-6 items-center mb-8">
+<div className="w-32 h-32 rounded-full flex items-center justify-center shrink-0 border-4 border-[#050505] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+<span className="font-outfit font-black text-white tracking-tighter leading-none outline-none" style={{ fontSize: '40px' }}>70%</span>
+</div>
+<div className="flex-1">
+<span className="font-outfit font-bold text-[18px] tracking-[0.2em] uppercase text-white">CACAU PURO</span>
+</div>
+</div>
+<div className="bg-[#0A0A0A] p-8 rounded-3xl border border-white/10">
+<p className="font-playfair text-zinc-300 outline-none" style={{ fontSize: '20px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 6>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 7
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#020202] flex flex-col p-10 overflow-hidden relative justify-center items-center text-center">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="w-full mb-4">
+<span className="font-outfit font-black tracking-tighter leading-none outline-none block bg-clip-text text-transparent bg-cover bg-center" style={{ fontSize: '180px', backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>70%</span>
+</div>
+<div className="mb-6">
+<span className="font-outfit font-bold text-[14px] tracking-[0.4em] uppercase" style={{ color: 'rgb(222, 30, 77)' }}>CACAU PURO</span>
+</div>
+<div>
+<p className="font-playfair text-zinc-400 outline-none max-w-[80%] mx-auto" style={{ fontSize: '18px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+
+<FIM VARIANTE 7>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 8
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="absolute top-1/4 -right-10 z-20 pointer-events-none">
+<span className="font-outfit font-black text-transparent tracking-tighter leading-none" style={{ fontSize: '160px', WebkitTextStroke: '3px rgb(222, 30, 77)' }}>70%</span>
+</div>
+<div className="flex-1 flex flex-col justify-end pt-8 relative z-10">
+<div className="w-[80%] h-64 rounded-2xl overflow-hidden relative shadow-2xl mb-8 border border-white/10">
+<div className="absolute inset-0 bg-cover grayscale" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+</div>
+<div className="mb-2">
+<span className="font-outfit font-bold text-white text-[10px] tracking-[0.3em] uppercase">CACAU PURO</span>
+</div>
+<div>
+<p className="font-playfair text-zinc-300 outline-none" style={{ fontSize: '18px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 8>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 9
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#050505] flex overflow-hidden relative">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="w-24 h-full flex items-center justify-center border-r border-white/5" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+<div className="transform -rotate-90 origin-center w-[500px] text-center">
+<span className="font-outfit font-black text-white tracking-tighter outline-none inline-block whitespace-nowrap" style={{ fontSize: '90px' }}>70%</span>
+</div>
+</div>
+<div className="flex-1 flex flex-col justify-center p-10 relative">
+<div className="absolute inset-0 bg-cover opacity-10" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+<div className="mb-6 relative z-10">
+<span className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase text-zinc-500">CACAU PURO</span>
+</div>
+<div className="relative z-10">
+<p className="font-playfair text-white outline-none leading-relaxed" style={{ fontSize: '24px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 9>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 10
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full flex flex-col overflow-hidden relative">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="h-1/2 w-full bg-[#050505] relative">
+<div className="absolute inset-0 bg-cover opacity-30 grayscale" style={{ backgroundImage: 'url(&quot', https: '//images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&amp', backgroundPosition: 'center 50%' }}>
+</div>
+</div>
+<div className="h-1/2 w-full p-10 flex flex-col justify-end" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+<div>
+<p className="font-playfair text-black outline-none font-bold" style={{ fontSize: '22px' }}>Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+<div className="absolute top-1/2 left-10 -translate-y-1/2 z-10">
+<h2 className="font-outfit font-black text-white tracking-tighter leading-none outline-none drop-shadow-2xl" style={{ fontSize: '140px' }}>70%</h2>
+</div>
+<div className="absolute top-[45%] right-10 z-10">
+<span className="font-outfit font-black text-[12px] uppercase tracking-widest text-white/50">CACAU PURO</span>
+</div>
+</div>
+
+<FIM VARIANTE 10>
+
+// ==========================================
+// Alice Studio Export - Categoria: BIG-NUMBER | Variante: 11
+// Extraído e formatado em JSX nativo para o Mr. Gustavo.
+// Mantenha a integridade do meu design.
+// ==========================================
+
+<div className="w-full h-full bg-[#020202] flex flex-col p-10 relative overflow-hidden">
+<div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
+<div className="flex items-center gap-3">
+<div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+</div>
+<span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">@TIAJOANABRIGADEIROS</span>
+</div>
+</div>
+<div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 pt-16">
+<div className="col-span-2 row-span-1 rounded-[2rem] flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: 'rgb(222, 30, 77)' }}>
+<div className="absolute inset-0 bg-black/10">
+</div>
+<div className="relative z-10 w-full text-center">
+<h2 className="font-outfit font-black text-white tracking-tighter outline-none" style={{ fontSize: '120px', lineHeight: '0.8' }}>70%</h2>
+</div>
+</div>
+<div className="col-span-1 row-span-1 bg-[#0A0A0A] rounded-[2rem] p-6 border border-white/5 flex flex-col justify-center">
+<div>
+<span className="font-outfit font-bold text-[10px] tracking-[0.4em] uppercase text-zinc-500">CACAU PURO</span>
+</div>
+</div>
+<div className="col-span-1 row-span-1 bg-zinc-900 rounded-[2rem] p-6 border border-white/5 flex flex-col justify-center">
+<div>
+<p className="font-playfair text-zinc-300 outline-none text-sm">Abaixo dessa porcentagem, você está pagando caríssimo apenas por açúcar refinado e gordura vegetal.</p>
+</div>
+</div>
+</div>
+</div>
+
+<FIM VARIANTE 11>

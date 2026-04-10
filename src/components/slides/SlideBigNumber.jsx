@@ -2,10 +2,12 @@ import React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
+import { BIGNUMBER_VARIANT_COMPONENTS } from './bignumber-variants';
 
 /**
  * SlideBigNumber — Layout "big-number".
  * Número grande + tag + texto + imagem inferior.
+ * Suporta variantes visuais via data.bigNumberVariantIndex.
  */
 export default function SlideBigNumber({
   data,
@@ -22,6 +24,30 @@ export default function SlideBigNumber({
   selectedElement,
   onSelectElement,
 }) {
+  // Delegação para variante visual (1-11)
+  const variantIndex = data.bigNumberVariantIndex || 0;
+  if (variantIndex > 0 && BIGNUMBER_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = BIGNUMBER_VARIANT_COMPONENTS[variantIndex];
+    return (
+      <VariantComponent
+        data={data}
+        index={index}
+        slideCount={slideCount}
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        titleScale={titleScale}
+        textScale={textScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+      />
+    );
+  }
+
+  // Layout original (variante 0)
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
