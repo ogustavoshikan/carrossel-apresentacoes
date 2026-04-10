@@ -62,7 +62,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
 export function SplitVariant1({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -70,13 +70,16 @@ export function SplitVariant1({
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
 
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         {/* Imagem arredondada */}
@@ -140,7 +143,7 @@ export function SplitVariant1({
 export function SplitVariant2({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -157,13 +160,16 @@ export function SplitVariant2({
 
       {/* Conteúdo direito */}
       <div className="w-[55%] h-full p-10 flex flex-col justify-center relative z-0">
-        <SlideHeader
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
           index={index + 1}
           total={slideCount}
           brandHandle={brandHandle}
           brandColor={brandColor}
           isVerified={isVerified}
-        />
+          showSlideCounter={showSlideCounter}
+          slideCounterPosition={slideCounterPosition}
+
+              />
 
         <div className="mb-6 mt-10">
           <SmartField field="tag" {...sp}>
@@ -214,7 +220,7 @@ export function SplitVariant2({
 export function SplitVariant3({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -222,13 +228,16 @@ export function SplitVariant3({
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
 
       {/* Bloco superior: texto */}
       <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b border-white/10 shrink-0">
@@ -285,7 +294,7 @@ export function SplitVariant3({
 export function SplitVariant4({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -293,13 +302,16 @@ export function SplitVariant4({
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-8 relative overflow-hidden">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-4 pt-12 overflow-hidden">
         {/* Card Titulo — topo full width */}
@@ -374,7 +386,7 @@ export function SplitVariant4({
 export function SplitVariant5({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -384,13 +396,16 @@ export function SplitVariant5({
     <div className="w-full h-full bg-[#E5E5E5] flex flex-col overflow-hidden text-black border-8 border-black">
       {/* Bloco superior: título */}
       <div className="h-1/2 w-full bg-black p-8 text-white relative flex flex-col justify-end border-b-8 border-black">
-        <SlideHeader
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
           index={index + 1}
           total={slideCount}
           brandHandle={brandHandle}
           brandColor={brandColor}
           isVerified={isVerified}
-        />
+          showSlideCounter={showSlideCounter}
+          slideCounterPosition={slideCounterPosition}
+
+              />
 
         <div className="absolute top-8 right-8">
           <SmartField field="tag" {...sp}>
@@ -464,3 +479,4 @@ export const SPLIT_VARIANT_META = [
   { id: 4, name: 'Bento Grid', description: 'Grid bento com três células' },
   { id: 5, name: 'Brutalist', description: 'Estilo brutalista com bordas grossas' },
 ];
+

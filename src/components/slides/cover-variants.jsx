@@ -611,3 +611,4 @@ export const COVER_VARIANT_META = [
   { id: 9, name: 'Spotlight', description: 'Card branco com watermark' },
   { id: 10, name: 'Bottom Minimal', description: 'Texto inferior minimalista' },
 ];
+

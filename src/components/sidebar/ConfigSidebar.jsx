@@ -97,6 +97,10 @@ export default function ConfigSidebar({
   onRemoveFavorite,
   onInjectSlide,
   isInjecting,
+  showSlideCounter,
+  setShowSlideCounter,
+  slideCounterPosition,
+  setSlideCounterPosition,
 }) {
   const isInspectorActive = !!selectedElement;
 
@@ -434,61 +438,105 @@ export default function ConfigSidebar({
                    className="alice-range w-full"
                 />
               </div>
-              <div className="bg-surface-input px-3 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 mt-2">
-                <div className="flex items-center justify-between w-full">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Direcional Minimalista</span>
-                  <button
-                    onClick={() => { updateProp('x', 0); updateProp('y', 0); updateProp('scale', 1); }}
-                    title="Resetar posição e escala"
-                    className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
-                  >
-                    <RotateCcw className="w-3 h-3" />
-                  </button>
-                </div>
-                <div className="grid grid-cols-3 gap-1 w-fit">
-                   <div />
-                   <button 
-                     onMouseDown={() => startAutoScroll('y', -1)} 
-                     onTouchStart={() => startAutoScroll('y', -1)}
-                     className="w-8 h-8 flex justify-center items-center rounded-t-lg active:scale-95 transition-all outline-none border border-white/20 pb-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
-                     style={{ backgroundColor: gradientColor1 }}
-                   >
-                     <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-b-[6px] border-transparent border-b-white/90" />
-                   </button>
-                   <div />
-                   
-                   <button 
-                     onMouseDown={() => startAutoScroll('x', -1)} 
-                     onTouchStart={() => startAutoScroll('x', -1)}
-                     className="w-8 h-8 flex justify-center items-center rounded-l-lg active:scale-95 transition-all outline-none border border-white/20 pr-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
-                     style={{ backgroundColor: gradientColor1 }}
-                   >
-                     <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-r-[6px] border-transparent border-r-white/90" />
-                   </button>
-                   <div className="w-8 h-8 bg-zinc-950 rounded-sm border border-white/10 flex items-center justify-center shadow-inner">
-                     <div className="w-2.5 h-2.5 rounded-full bg-zinc-800/80 shadow" />
-                   </div>
-                   <button 
-                     onMouseDown={() => startAutoScroll('x', 1)} 
-                     onTouchStart={() => startAutoScroll('x', 1)}
-                     className="w-8 h-8 flex justify-center items-center rounded-r-lg active:scale-95 transition-all outline-none border border-white/20 pl-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
-                     style={{ backgroundColor: gradientColor1 }}
-                   >
-                     <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-white/90" />
-                   </button>
-                   
-                   <div />
-                   <button 
-                     onMouseDown={() => startAutoScroll('y', 1)} 
-                     onTouchStart={() => startAutoScroll('y', 1)}
-                     className="w-8 h-8 flex justify-center items-center rounded-b-lg active:scale-95 transition-all outline-none border border-white/20 pt-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
-                     style={{ backgroundColor: gradientColor1 }}
-                   >
-                     <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-transparent border-t-white/90" />
-                   </button>
-                   <div />
-                </div>
-              </div>
+              {(() => {
+                const isSpecialElement = selectedElement.field === 'handle' || selectedElement.field === 'counter';
+                return (
+                  <div className={`mt-2 flex ${isSpecialElement ? 'gap-2' : ''}`}>
+                    {/* Direcional Minimalista */}
+                    <div className={`bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 ${isSpecialElement ? 'flex-1' : 'w-full'}`}>
+                      <div className="flex items-center justify-between w-full px-1">
+                        <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">{isSpecialElement ? 'Direcional' : 'Direcional Minimalista'}</span>
+                        <button
+                          onClick={() => { updateProp('x', 0); updateProp('y', 0); updateProp('scale', 1); }}
+                          title="Resetar posição e escala"
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                        </button>
+                      </div>
+                      <div className="grid grid-cols-3 gap-1 w-fit">
+                         <div />
+                         <button 
+                           onMouseDown={() => startAutoScroll('y', -1)} 
+                           onTouchStart={() => startAutoScroll('y', -1)}
+                           className="w-8 h-8 flex justify-center items-center rounded-t-lg active:scale-95 transition-all outline-none border border-white/20 pb-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                           style={{ backgroundColor: gradientColor1 }}
+                         >
+                           <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-b-[6px] border-transparent border-b-white/90" />
+                         </button>
+                         <div />
+                         
+                         <button 
+                           onMouseDown={() => startAutoScroll('x', -1)} 
+                           onTouchStart={() => startAutoScroll('x', -1)}
+                           className="w-8 h-8 flex justify-center items-center rounded-l-lg active:scale-95 transition-all outline-none border border-white/20 pr-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                           style={{ backgroundColor: gradientColor1 }}
+                         >
+                           <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-r-[6px] border-transparent border-r-white/90" />
+                         </button>
+                         <div className="w-8 h-8 bg-zinc-950 rounded-sm border border-white/10 flex items-center justify-center shadow-inner">
+                           <div className="w-2.5 h-2.5 rounded-full bg-zinc-800/80 shadow" />
+                         </div>
+                         <button 
+                           onMouseDown={() => startAutoScroll('x', 1)} 
+                           onTouchStart={() => startAutoScroll('x', 1)}
+                           className="w-8 h-8 flex justify-center items-center rounded-r-lg active:scale-95 transition-all outline-none border border-white/20 pl-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                           style={{ backgroundColor: gradientColor1 }}
+                         >
+                           <div className="w-0 h-0 border-t-[5px] border-b-[5px] border-l-[6px] border-transparent border-l-white/90" />
+                         </button>
+                         
+                         <div />
+                         <button 
+                           onMouseDown={() => startAutoScroll('y', 1)} 
+                           onTouchStart={() => startAutoScroll('y', 1)}
+                           className="w-8 h-8 flex justify-center items-center rounded-b-lg active:scale-95 transition-all outline-none border border-white/20 pt-0.5 hover:brightness-110 opacity-90 hover:opacity-100 shadow-md"
+                           style={{ backgroundColor: gradientColor1 }}
+                         >
+                           <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-transparent border-t-white/90" />
+                         </button>
+                         <div />
+                      </div>
+                    </div>
+
+                    {/* Controle Grid 3x3 (apenas para Handle e Counter) */}
+                    {isSpecialElement && (
+                       <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 flex-1">
+                         <div className="flex items-center justify-between w-full px-1">
+                           <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição</span>
+                         </div>
+                         <div className="grid grid-cols-3 gap-1 w-fit">
+                           {[
+                             'top-left', 'top-center', 'top-right',
+                             'center-left', 'center-center', 'center-right',
+                             'bottom-left', 'bottom-center', 'bottom-right'
+                           ].map(alignKey => {
+                             const currentAlign = pos.align || (selectedElement.field === 'handle' ? 'top-left' : 'top-right');
+                             const isActive = currentAlign === alignKey;
+                             return (
+                               <button
+                                 key={alignKey}
+                                 onClick={() => updateProp('align', alignKey)}
+                                 className={`w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none ${
+                                   isActive
+                                     ? 'border border-opacity-50 shadow-[0_0_15px_rgba(0,0,0,0.3)]'
+                                     : 'bg-white/5 border border-transparent hover:bg-white/10'
+                                 }`}
+                                 style={isActive ? { borderColor: gradientColor1, backgroundColor: `${gradientColor1}15` } : {}}
+                               >
+                                 <div 
+                                   className={`w-1.5 h-1.5 rounded-full ${isActive ? 'shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-zinc-600'}`}
+                                   style={isActive ? { backgroundColor: gradientColor1 } : {}}
+                                 />
+                               </button>
+                             );
+                           })}
+                         </div>
+                       </div>
+                    )}
+                  </div>
+                );
+              })()}
            </div>
 
            <div className="mt-4 pt-4 border-t border-border-subtle">
@@ -647,8 +695,8 @@ export default function ConfigSidebar({
         </h3>
 
         <CollapsibleSection title="HANDLE A CORPO / TEXTO">
-          {/* Handle + Verified */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Handle + Verified + Counter */}
+          <div className="flex flex-col gap-4">
             <div>
               <label className="alice-label">Handle (Arroba)</label>
               <input
@@ -658,27 +706,52 @@ export default function ConfigSidebar({
                 className="alice-input"
               />
             </div>
-            <div>
-              <label className="alice-label">Selo de Verificado</label>
-              <button
-                onClick={() => setIsVerified(!isVerified)}
-                className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
-                  isVerified
-                    ? ''
-                    : 'bg-surface-input border-border-subtle text-zinc-500'
-                }`}
-                style={
-                  isVerified
-                    ? {
-                        backgroundColor: `${gradientColor1}20`,
-                        borderColor: `${gradientColor1}50`,
-                        color: gradientColor1,
-                      }
-                    : {}
-                }
-              >
-                <BadgeCheck className="w-4 h-4" /> {isVerified ? 'ON' : 'OFF'}
-              </button>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="alice-label">Selo Verificado</label>
+                <button
+                  onClick={() => setIsVerified(!isVerified)}
+                  className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
+                    isVerified
+                      ? ''
+                      : 'bg-surface-input border-border-subtle text-zinc-500'
+                  }`}
+                  style={
+                    isVerified
+                      ? {
+                          backgroundColor: `${gradientColor1}20`,
+                          borderColor: `${gradientColor1}50`,
+                          color: gradientColor1,
+                        }
+                      : {}
+                  }
+                >
+                  <BadgeCheck className="w-4 h-4" />
+                  {isVerified ? 'ON' : 'OFF'}
+                </button>
+              </div>
+              <div>
+                <label className="alice-label">Contador</label>
+                <button
+                  onClick={() => setShowSlideCounter(!showSlideCounter)}
+                  className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
+                    showSlideCounter
+                      ? ''
+                      : 'bg-surface-input border-border-subtle text-zinc-500'
+                  }`}
+                  style={
+                    showSlideCounter
+                      ? {
+                          backgroundColor: `${gradientColor1}20`,
+                          borderColor: `${gradientColor1}50`,
+                          color: gradientColor1,
+                        }
+                      : {}
+                  }
+                >
+                  {showSlideCounter ? 'ON' : 'OFF'}
+                </button>
+              </div>
             </div>
           </div>
 

@@ -37,6 +37,8 @@ export default function SlideRenderer({
   onItemChange,
   selectedElement,
   onSelectElement,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   const Component = LAYOUT_MAP[data.layout];
   if (!Component) return null;
@@ -57,6 +59,8 @@ export default function SlideRenderer({
       onItemChange={onItemChange}
       selectedElement={selectedElement}
       onSelectElement={onSelectElement}
+      showSlideCounter={showSlideCounter}
+      slideCounterPosition={slideCounterPosition}
     />
   );
 }

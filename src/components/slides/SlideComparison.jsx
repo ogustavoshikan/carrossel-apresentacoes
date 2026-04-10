@@ -23,6 +23,8 @@ export default function SlideComparison(props) {
     onItemChange,
     selectedElement,
     onSelectElement,
+    showSlideCounter,
+    slideCounterPosition,
   } = props;
 
   // Renderiza variante se selecionada
@@ -37,13 +39,16 @@ export default function SlideComparison(props) {
 
   return (
     <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-20">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
       <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden min-h-0">
         <SmartElement
           slideIndex={index}
@@ -113,3 +118,4 @@ export default function SlideComparison(props) {
     </div>
   );
 }
+

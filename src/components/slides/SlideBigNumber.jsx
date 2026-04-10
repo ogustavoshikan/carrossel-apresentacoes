@@ -23,6 +23,8 @@ export default function SlideBigNumber({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   // Delegação para variante visual (1-11)
   const variantIndex = data.bigNumberVariantIndex || 0;
@@ -43,7 +45,10 @@ export default function SlideBigNumber({
         onTextChange={onTextChange}
         selectedElement={selectedElement}
         onSelectElement={onSelectElement}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
     );
   }
 
@@ -54,13 +59,16 @@ export default function SlideBigNumber({
 
   return (
     <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-16 relative overflow-hidden">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
       <div className="flex-1 flex flex-col justify-center relative z-10 pt-6">
         <SmartElement
           slideIndex={index}
@@ -161,3 +169,4 @@ export default function SlideBigNumber({
     </div>
   );
 }
+

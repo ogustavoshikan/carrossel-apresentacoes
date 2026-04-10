@@ -62,6 +62,10 @@ export default function App() {
   const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
   const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('alice_app_logo') || '');
 
+  // Contador de slides
+  const [showSlideCounter, setShowSlideCounter] = useState(true);
+  const [slideCounterPosition, setSlideCounterPosition] = useState('top-right');
+
   const [sidebarWidth, setSidebarWidth] = useState(420);
   const [isResizingSidebar, setIsResizingSidebar] = useState(false);
 
@@ -581,6 +585,10 @@ export default function App() {
           onRemoveFavorite={handleRemoveFavorite}
           onInjectSlide={handleInjectSlide}
           isInjecting={isInjecting}
+          showSlideCounter={showSlideCounter}
+          setShowSlideCounter={setShowSlideCounter}
+          slideCounterPosition={slideCounterPosition}
+          setSlideCounterPosition={setSlideCounterPosition}
         />
 
         {/* Resize Handle */}
@@ -674,6 +682,8 @@ export default function App() {
                   selectedElement={selectedElement}
                   isExporting={isExporting}
                   onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
+                  showSlideCounter={showSlideCounter}
+                  slideCounterPosition={slideCounterPosition}
                 />
               )}
             </div>

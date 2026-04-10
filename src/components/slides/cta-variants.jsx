@@ -838,3 +838,4 @@ export const CTA_VARIANT_META = [
   { id: 7, title: 'App Interface', desc: 'Design lembrando uma interface de agendamento' },
   { id: 8, title: 'Tech Start', desc: 'Visual mais dark com bordas tracejadas e gradiente' },
 ];
+

@@ -397,3 +397,4 @@ export const QUOTE_VARIANT_META = [
   { id: 10, name: 'Glass Card', description: 'Card vidro desfocado em fundo fotográfico' },
   { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo' }
 ];
+

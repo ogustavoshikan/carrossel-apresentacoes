@@ -21,19 +21,24 @@ export default function SlideList({
   onItemChange,
   selectedElement,
   onSelectElement,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
     <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-20 relative">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
       <div className="flex-1 flex flex-col justify-center pt-6">
         <div className="flex items-center gap-5 mb-10">
           <div
@@ -102,3 +107,4 @@ export default function SlideList({
     </div>
   );
 }
+

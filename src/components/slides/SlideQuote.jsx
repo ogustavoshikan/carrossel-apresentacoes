@@ -21,6 +21,8 @@ export default function SlideQuote({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   const variantIndex = data.quoteVariantIndex || 0;
 
@@ -41,7 +43,10 @@ export default function SlideQuote({
         onTextChange={onTextChange}
         selectedElement={selectedElement}
         onSelectElement={onSelectElement}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
     );
   }
 
@@ -100,15 +105,19 @@ export default function SlideQuote({
         </span>
       </SmartElement>
 
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
         dark
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
       <SlideFooterPlaceholder />
     </div>
   );
 }
+

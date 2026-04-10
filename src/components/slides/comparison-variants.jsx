@@ -37,13 +37,15 @@ const ComparisonTitle = ({ data, index, scale, onActionStart, onTextChange, sele
 // ==========================================
 
 export function ComparisonVariant1(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Comum', value: 'Item A', highlight: false }, { label: 'Premium', value: 'Item B', highlight: true }];
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden">
         <ComparisonTitle 
@@ -90,7 +92,7 @@ export function ComparisonVariant1(props) {
 }
 
 export function ComparisonVariant2(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -133,7 +135,9 @@ export function ComparisonVariant2(props) {
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#020202] rounded-full flex items-center justify-center font-outfit font-black text-white border-4 border-[#020202] z-10 text-xs shrink-0">VS</div>
       <div className="absolute top-0 left-0 w-full p-8">
-        <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       </div>
       {/* Title is hidden in this variant as per layout, but we could add if needed. Keeping true to mockup. */}
     </div>
@@ -141,7 +145,7 @@ export function ComparisonVariant2(props) {
 }
 
 export function ComparisonVariant3(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const midPoint = Math.ceil(items.length / 2);
@@ -152,7 +156,9 @@ export function ComparisonVariant3(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ComparisonTitle 
@@ -202,13 +208,15 @@ export function ComparisonVariant3(props) {
 }
 
 export function ComparisonVariant4(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ComparisonTitle 
@@ -247,7 +255,7 @@ export function ComparisonVariant4(props) {
 }
 
 export function ComparisonVariant5(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -258,7 +266,9 @@ export function ComparisonVariant5(props) {
 
   return (
     <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-10 relative overflow-hidden text-black">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor="#000000" isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor="#000000" isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col pt-16 overflow-hidden relative">
         <ComparisonTitle 
@@ -288,7 +298,7 @@ export function ComparisonVariant5(props) {
 }
 
 export function ComparisonVariant6(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -298,7 +308,9 @@ export function ComparisonVariant6(props) {
 
   return (
     <div className="w-full h-full bg-[#020202] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <div className="mb-10 shrink-0">
@@ -338,7 +350,7 @@ export function ComparisonVariant6(props) {
 }
 
 export function ComparisonVariant7(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -351,7 +363,9 @@ export function ComparisonVariant7(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ComparisonTitle 
@@ -399,7 +413,7 @@ export function ComparisonVariant7(props) {
 }
 
 export function ComparisonVariant8(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -409,7 +423,9 @@ export function ComparisonVariant8(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       
       <ComparisonTitle 
         data={data} index={index} scale={sTitle} 
@@ -444,7 +460,7 @@ export function ComparisonVariant8(props) {
 }
 
 export function ComparisonVariant9(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -453,7 +469,9 @@ export function ComparisonVariant9(props) {
   return (
     <div className="w-full h-full bg-[#050505] flex relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full p-8 z-50">
-        <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       </div>
       <div className="absolute inset-0 bg-zinc-900 clip-diagonal z-0" style={{ clipPath: 'polygon(0px 0px, 45% 0px, 55% 100%, 0px 100%)' }}></div>
       
@@ -499,7 +517,7 @@ export function ComparisonVariant9(props) {
 }
 
 export function ComparisonVariant10(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -511,7 +529,9 @@ export function ComparisonVariant10(props) {
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden items-center text-center">
       <div className="absolute top-0 left-0 w-full p-8 z-50 w-full text-left">
-        <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       </div>
       
       <ComparisonTitle 
@@ -544,7 +564,7 @@ export function ComparisonVariant10(props) {
 }
 
 export function ComparisonVariant11(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -555,7 +575,9 @@ export function ComparisonVariant11(props) {
   return (
     <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-12 relative overflow-hidden text-black">
       <div className="absolute top-0 left-0 w-full p-8 z-50">
-        <SlideHeader index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor="#000000" isVerified={isVerified} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} brandColor="#000000" isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+
+              />
       </div>
       
       <ComparisonTitle 
@@ -621,3 +643,4 @@ export const COMPARISON_VARIANT_META = [
   { id: 10, nome: 'Toggle', badge: null },
   { id: 11, nome: 'Correção', badge: 'PRO' },
 ];
+

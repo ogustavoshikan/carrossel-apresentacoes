@@ -41,21 +41,21 @@ export default function SmartElement({
   }, [showMetrics, pos.scale, pos.x, pos.y, children]);
 
   return (
-    <div
-      id={`smart-${slideIndex}-${field}`}
-      ref={elRef}
-      onClick={(e) => {
-        e.stopPropagation();
-        if (onSelectElement) onSelectElement(slideIndex, field);
-      }}
-      className={`group relative transition-all ${className || ''}`}
-      style={{
-        transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`,
-        zIndex: showMetrics ? 50 : 40,
-        transformOrigin: 'center center',
-        ...(pos.width ? { width: `${pos.width}px` } : {}),
-      }}
-    >
+      <div
+        id={`smart-${slideIndex}-${field}`}
+        ref={elRef}
+        onClick={(e) => {
+          e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
+        }}
+        className={`group relative transition-all ${className || ''}`}
+        style={{
+          transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`,
+          zIndex: showMetrics ? 50 : 40,
+          transformOrigin: 'center center',
+          ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
+        }}
+      >
       {/* Métricas */}
       {showMetrics && (
         <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[var(--color-brand)] text-white text-[10px] font-mono font-bold px-2 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none z-[60] border border-[var(--color-brand)] opacity-90 backdrop-blur-sm">
@@ -100,6 +100,7 @@ export default function SmartElement({
                 textDecoration: pos.underline ? 'underline' : child.props.style?.textDecoration,
                 textTransform: pos.uppercase ? 'uppercase' : child.props.style?.textTransform,
                 textAlign: pos.align || child.props.style?.textAlign,
+                ...(pos.width ? { maxWidth: 'none' } : {}),
               },
             });
           }

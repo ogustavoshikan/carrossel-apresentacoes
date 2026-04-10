@@ -75,7 +75,7 @@ function BrandTag({ brandHandle, brandColor }) {
 export function BigNumberVariant1({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -83,13 +83,16 @@ export function BigNumberVariant1({
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
 
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         {/* Número grande */}
@@ -781,7 +784,7 @@ export function BigNumberVariant10({
 export function BigNumberVariant11({
   data, index, slideCount, brandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -789,13 +792,16 @@ export function BigNumberVariant11({
 
   return (
     <div className="w-full h-full bg-[#020202] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 pt-16">
         {/* Card número — topo full width */}
@@ -882,3 +888,4 @@ export const BIGNUMBER_VARIANT_META = [
   { id: 10, name: 'Magazine',      description: 'Imagem superior + número sobreposto + cor' },
   { id: 11, name: 'Bento Grid',    description: 'Grid com número, tag e texto em cards' },
 ];
+

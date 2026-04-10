@@ -22,6 +22,8 @@ export default function SlideContentSplit({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   // Delegação para variante visual (1-5)
   const variantIndex = data.splitVariantIndex || 0;
@@ -42,7 +44,10 @@ export default function SlideContentSplit({
         onTextChange={onTextChange}
         selectedElement={selectedElement}
         onSelectElement={onSelectElement}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
     );
   }
 
@@ -53,13 +58,16 @@ export default function SlideContentSplit({
 
   return (
     <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-16 relative">
-      <SlideHeader
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
-      />
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+
+              />
       <div className="flex-1 flex flex-col justify-center pt-6">
         <SmartElement
           slideIndex={index}
@@ -156,3 +164,4 @@ export default function SlideContentSplit({
     </div>
   );
 }
+

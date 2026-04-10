@@ -77,6 +77,8 @@ export default function VisualPreview({
   onCtaVariantChange,
   isExporting,
   onRemoveImage,
+  showSlideCounter,
+  slideCounterPosition,
 }) {
   const scrollRef = useRef(null);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
@@ -181,6 +183,8 @@ export default function VisualPreview({
               onItemChange={onItemChange}
               selectedElement={selectedElement}
               onSelectElement={onSelectElement}
+              showSlideCounter={showSlideCounter}
+              slideCounterPosition={slideCounterPosition}
             />
           </div>
 
