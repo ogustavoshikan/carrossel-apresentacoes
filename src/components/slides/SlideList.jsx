@@ -12,6 +12,7 @@ export default function SlideList({
   index,
   slideCount,
   brandHandle,
+  brandAvatar,
   brandColor,
   isVerified,
   titleScale,
@@ -33,6 +34,7 @@ export default function SlideList({
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

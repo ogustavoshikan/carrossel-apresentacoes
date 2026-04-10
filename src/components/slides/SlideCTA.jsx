@@ -11,6 +11,9 @@ export default function SlideCTA(props) {
   const {
     data,
     index,
+    slideCount,
+    brandHandle,
+    brandAvatar,
     brandColor,
     titleScale,
     textScale,

@@ -13,6 +13,7 @@ export default function SlideQuote({
   index,
   slideCount,
   brandHandle,
+  brandAvatar,
   brandColor,
   isVerified,
   titleScale,
@@ -35,6 +36,7 @@ export default function SlideQuote({
         index={index}
         slideCount={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -109,6 +111,7 @@ export default function SlideQuote({
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         dark

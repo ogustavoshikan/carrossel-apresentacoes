@@ -13,6 +13,7 @@ export default function SlideContentSplit({
   index,
   slideCount,
   brandHandle,
+  brandAvatar,
   brandColor,
   isVerified,
   titleScale,
@@ -35,6 +36,7 @@ export default function SlideContentSplit({
         index={index}
         slideCount={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -62,6 +64,7 @@ export default function SlideContentSplit({
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

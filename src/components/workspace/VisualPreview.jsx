@@ -46,6 +46,7 @@ export default function VisualPreview({
   slides,
   slideCount,
   brandHandle,
+  brandAvatar,
   brandColor,
   isVerified,
   titleScale,
@@ -173,6 +174,7 @@ export default function VisualPreview({
               index={index}
               slideCount={slideCount}
               brandHandle={brandHandle}
+              brandAvatar={brandAvatar}
               brandColor={brandColor}
               isVerified={isVerified}
               titleScale={titleScale}

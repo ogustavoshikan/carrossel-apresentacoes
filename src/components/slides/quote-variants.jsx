@@ -23,10 +23,14 @@ function ImageBg({ imageUrl, imagePosition, imageScale, rounded = '' }) {
   );
 }
 
-function BrandTag({ handle, color, align = 'left', className = '' }) {
+function BrandTag({ handle, brandAvatar, color, align = 'left', className = '' }) {
   return (
     <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : align === 'right' ? 'justify-end' : ''} ${className}`}>
-      <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
+      {brandAvatar ? (
+        <img src={brandAvatar} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
+      ) : (
+        <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
+      )}
       <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500 truncate">
         @{handle}
       </span>
@@ -40,7 +44,7 @@ function BrandTag({ handle, color, align = 'left', className = '' }) {
  * ─────────────────────────────────────────────────────────────────
  */
 
-function QuoteVariant1({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant1({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -62,13 +66,13 @@ function QuoteVariant1({ data, index, brandHandle, brandColor, titleScale, showM
       </SmartElement>
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
     </div>
   );
 }
 
-function QuoteVariant2({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant2({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -89,13 +93,13 @@ function QuoteVariant2({ data, index, brandHandle, brandColor, titleScale, showM
       </SmartElement>
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
     </div>
   );
 }
 
-function QuoteVariant3({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant3({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -120,13 +124,13 @@ function QuoteVariant3({ data, index, brandHandle, brandColor, titleScale, showM
       </SmartElement>
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color="rgba(255,255,255,0.7)" />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color="rgba(255,255,255,0.7)" />
       </div>
     </div>
   );
 }
 
-function QuoteVariant4({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant4({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -149,13 +153,13 @@ function QuoteVariant4({ data, index, brandHandle, brandColor, titleScale, showM
       </div>
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
     </div>
   );
 }
 
-function QuoteVariant5({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant5({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -183,13 +187,13 @@ function QuoteVariant5({ data, index, brandHandle, brandColor, titleScale, showM
       </div>
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
     </div>
   );
 }
 
-function QuoteVariant6({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant6({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -202,7 +206,7 @@ function QuoteVariant6({ data, index, brandHandle, brandColor, titleScale, showM
       <div className="absolute top-0 left-0 right-0 h-4 z-10" style={{ backgroundColor: brandColor }} />
       
       <div className="absolute top-0 left-0 w-full p-8 mt-4 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <div className="flex-1 flex flex-col justify-center relative z-10">
@@ -218,7 +222,7 @@ function QuoteVariant6({ data, index, brandHandle, brandColor, titleScale, showM
   );
 }
 
-function QuoteVariant7({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant7({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -229,7 +233,7 @@ function QuoteVariant7({ data, index, brandHandle, brandColor, titleScale, showM
       <div className="absolute inset-0 bg-black/60 z-[0]" />
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <div className="w-full bg-white text-black p-10 border-4 border-zinc-700 shadow-[12px_12px_0_0_rgba(255,255,255,0.1)] relative z-10">
@@ -249,7 +253,7 @@ function QuoteVariant7({ data, index, brandHandle, brandColor, titleScale, showM
   );
 }
 
-function QuoteVariant8({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant8({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -257,7 +261,7 @@ function QuoteVariant8({ data, index, brandHandle, brandColor, titleScale, showM
   return (
     <div className="w-full h-full bg-[#050505] flex overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <div className="w-[20%] h-full flex items-center justify-center relative z-10" style={{ backgroundColor: brandColor }}>
@@ -280,7 +284,7 @@ function QuoteVariant8({ data, index, brandHandle, brandColor, titleScale, showM
   );
 }
 
-function QuoteVariant9({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant9({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -291,7 +295,7 @@ function QuoteVariant9({ data, index, brandHandle, brandColor, titleScale, showM
       <div className="absolute inset-0 bg-black/70 z-[0]" />
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-10 relative z-10 w-full">
@@ -305,7 +309,7 @@ function QuoteVariant9({ data, index, brandHandle, brandColor, titleScale, showM
   );
 }
 
-function QuoteVariant10({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant10({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -316,7 +320,7 @@ function QuoteVariant10({ data, index, brandHandle, brandColor, titleScale, show
       <div className="absolute inset-0 bg-black/70 z-[0]" />
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <div className="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl rounded-bl-none p-10 relative mb-6 shadow-xl z-10">
@@ -334,7 +338,7 @@ function QuoteVariant10({ data, index, brandHandle, brandColor, titleScale, show
   );
 }
 
-function QuoteVariant11({ data, index, brandHandle, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+function QuoteVariant11({ data, index, brandHandle, brandAvatar, brandColor, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -345,7 +349,7 @@ function QuoteVariant11({ data, index, brandHandle, brandColor, titleScale, show
       <div className="absolute inset-0 bg-[#E5E5E5]/90 z-[0]" />
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <BrandTag handle={brandHandle} color={brandColor} />
+        <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
       <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[400px] font-playfair font-black text-black/5 pointer-events-none leading-none select-none z-0">"</div>

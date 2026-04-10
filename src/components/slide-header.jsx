@@ -9,6 +9,7 @@ export default function SlideHeader({
   index,
   total,
   brandHandle,
+  brandAvatar,
   brandColor,
   isVerified = false,
   dark = false,
@@ -51,13 +52,17 @@ export default function SlideHeader({
       className={`pointer-events-auto ${isSelectedHandle ? 'z-[60]' : 'z-50'}`}
     >
       <div className="flex items-center gap-3 select-none">
-        <div
-          className={`w-2.5 h-2.5 rounded-full ${dark ? 'bg-black' : ''}`}
-          style={{ backgroundColor: dark ? '#000' : brandColor }}
-        />
+        {brandAvatar ? (
+          <img src={brandAvatar} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+        ) : (
+          <div
+            className={`w-2.5 h-2.5 rounded-full ${dark ? 'bg-black' : ''}`}
+            style={{ backgroundColor: dark ? '#000' : brandColor }}
+          />
+        )}
         <span
           className={`font-outfit font-black tracking-[0.25em] text-[10px] uppercase ${
-            dark ? 'text-black/60' : 'text-zinc-500'
+            dark ? 'text-black' : 'text-zinc-500'
           }`}
         >
           @{brandHandle}

@@ -53,9 +53,10 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
  */
 export default function ConfigSidebar({
   width,
-  // Brand state
   brandHandle,
   setBrandHandle,
+  brandAvatar,
+  setBrandAvatar,
   isVerified,
   setIsVerified,
   gradientColor1,
@@ -699,12 +700,54 @@ export default function ConfigSidebar({
           <div className="flex flex-col gap-4">
             <div>
               <label className="alice-label">Handle (Arroba)</label>
-              <input
-                type="text"
+              <div className="flex gap-2 w-full">
+                {/* Avatar Uploader com botão limpar */}
+                <div className="relative shrink-0">
+                  <label className="w-10 h-10 bg-surface-input border border-border-subtle rounded-lg flex items-center justify-center cursor-pointer hover:border-white/20 transition-colors relative overflow-hidden group block">
+                    {brandAvatar ? (
+                      <img src={brandAvatar} alt="Avatar" className="w-full h-full object-cover" />
+                    ) : (
+                      <ImageIcon className="w-4 h-4 text-zinc-500" />
+                    )}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <Upload className="w-3 h-3 text-white" />
+                    </div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onload = (ev) => setBrandAvatar(ev.target.result);
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+                  {brandAvatar && (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setBrandAvatar(null);
+                      }}
+                      className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-zinc-800 border border-zinc-600 rounded-full flex items-center justify-center text-zinc-300 hover:text-white hover:bg-zinc-700 transition-colors z-10"
+                      title="Remover foto"
+                    >
+                      <X className="w-2.5 h-2.5" />
+                    </button>
+                  )}
+                </div>
+                
+                <input
+                  type="text"
                 value={brandHandle}
                 onChange={(e) => setBrandHandle(e.target.value)}
-                className="alice-input"
-              />
+                  className="alice-input flex-1"
+                />
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>

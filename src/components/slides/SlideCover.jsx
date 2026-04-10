@@ -13,6 +13,7 @@ export default function SlideCover({
   index,
   brandColor,
   brandHandle,
+  brandAvatar,
   titleScale,
   textScale,
   showMetrics,
@@ -31,6 +32,7 @@ export default function SlideCover({
         index={index}
         brandColor={brandColor}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         titleScale={titleScale}
         textScale={textScale}
         showMetrics={showMetrics}

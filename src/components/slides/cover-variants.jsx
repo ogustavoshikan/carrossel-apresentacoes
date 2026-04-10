@@ -57,11 +57,15 @@ function ImageBg({ data, className = '', style = {}, children }) {
 
 // ─── Helper: BrandTag ───────────────────────────────────────
 // Badge do handle de marca no topo do slide.
-function BrandTag({ brandHandle, brandColor }) {
+function BrandTag({ brandHandle, brandAvatar, brandColor }) {
   return (
     <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
       <div className="flex items-center gap-3">
-        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }} />
+        {brandAvatar ? (
+          <img src={brandAvatar} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
+        ) : (
+          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }} />
+        )}
         <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">
           {brandHandle || '@studio'}
         </span>
@@ -132,7 +136,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, titleScale
       <ImageBg data={data} className="absolute inset-0 opacity-60" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div className="relative z-10 flex-1 flex flex-col justify-end p-10 pb-16">
         <div className="mb-6">
@@ -186,7 +190,7 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, titleScale
       <ImageBg data={data} className="absolute inset-0 opacity-40 blur-md scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div className="flex-1 flex flex-col justify-end relative z-10">
         <div className="w-16 h-2 mb-8" style={{ backgroundColor: brandColor }} />
@@ -234,7 +238,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, titleScale
         <ImageBg data={data} className="absolute inset-0 opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
 
-        <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+        <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
         <div className="relative z-10 px-10 pb-10 pt-24 flex-1 flex flex-col justify-between items-center text-center">
           <div>
@@ -288,7 +292,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, titleScale
       <div className="h-[60%] w-full relative">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
-        <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+        <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
       </div>
 
       <div
@@ -334,7 +338,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, titleScale
 
   return (
     <div className="relative w-full h-full bg-[#050505] flex flex-col overflow-hidden p-8 pt-20">
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div
         className="w-full h-1/2 rounded-t-full rounded-b-[2rem] overflow-hidden relative border-b-4"
@@ -384,7 +388,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, titleScale
     <div className="relative w-full h-full bg-zinc-950 flex flex-col p-10 overflow-hidden items-center justify-center">
       <ImageBg data={data} className="absolute inset-0 opacity-20 blur-xl scale-110" />
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Polaroid Card */}
       <div className="w-[85%] aspect-[3/4] bg-white p-4 rounded-xl shadow-2xl rotate-[-4deg] relative z-10 flex flex-col">
@@ -437,7 +441,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, titleScale
       <ImageBg data={data} className="absolute inset-0 opacity-30 blur-lg scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div className="relative z-10 mt-16">
         <div className="mb-6">
@@ -488,7 +492,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, titleScale
         ))}
       </div>
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* White Card */}
       <div
@@ -550,7 +554,7 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, titleScal
       <ImageBg data={data} className="absolute inset-0 opacity-40 blur-md scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div className="mt-auto relative z-20 p-10 pb-16 text-center">
         <div className="mb-4">

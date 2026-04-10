@@ -14,6 +14,7 @@ export default function SlideComparison(props) {
     index,
     slideCount,
     brandHandle,
+    brandAvatar,
     brandColor,
     isVerified,
     titleScale,
@@ -43,6 +44,7 @@ export default function SlideComparison(props) {
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
