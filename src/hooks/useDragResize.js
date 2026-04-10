@@ -68,8 +68,8 @@ export function useDragResize(slides, setSlides) {
 
       } else if (actionInfo.type === 'resize-width') {
         const MIN_WIDTH = 80;
-        const maxWidth = actionInfo.slideWidth || 9999;
-        const newWidth = Math.max(MIN_WIDTH, Math.min(maxWidth, actionInfo.origWidth + dx));
+        const boundedMax = actionInfo.constraints?.maxWidth || (actionInfo.slideWidth || 9999);
+        const newWidth = Math.max(MIN_WIDTH, Math.min(boundedMax, actionInfo.origWidth + (dx / actionInfo.origScale)));
 
         currentWidth = newWidth;
         targetElement.style.width = `${newWidth}px`;
@@ -152,7 +152,7 @@ export function useDragResize(slides, setSlides) {
       let origWidth = pos.width || (el ? el.offsetWidth : 200);
       let slideWidth = slideCard ? slideCard.offsetWidth : 9999;
 
-      if (type === 'drag' && el && slideCard) {
+      if ((type === 'drag' || type === 'resize-width') && el && slideCard) {
         const MARGIN = 12; // px mínimos visíveis na borda
         const slideRect = slideCard.getBoundingClientRect();
         const elRect = el.getBoundingClientRect();
@@ -161,14 +161,20 @@ export function useDragResize(slides, setSlides) {
         // elRect.left já inclui translate(pos.x) — desconta para obter o "left natural"
         const elNaturalLeft = elRect.left - slideRect.left - pos.x;
         const elNaturalTop  = elRect.top  - slideRect.top  - pos.y;
-        const elW = el.offsetWidth  * (pos.scale || 1);
-        const elH = el.offsetHeight * (pos.scale || 1);
+        const scale = pos.scale || 1;
+        const elW = el.offsetWidth  * scale;
+        const elH = el.offsetHeight * scale;
+
+        // Limite máximo de largura CSS (anulando o scale para o tamanho base) antes de bater na borda
+        const availableSpaceToSlideEdge = slideRect.width - (elRect.left - slideRect.left) - MARGIN;
+        const maxCSSWidth = availableSpaceToSlideEdge / scale;
 
         constraints = {
           minX: -(elNaturalLeft) + MARGIN,
           maxX: slideRect.width  - elNaturalLeft - elW - MARGIN,
           minY: -(elNaturalTop)  + MARGIN,
           maxY: slideRect.height - elNaturalTop  - elH - MARGIN,
+          maxWidth: maxCSSWidth,
         };
       }
 
