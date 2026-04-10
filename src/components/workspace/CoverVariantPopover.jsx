@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { X } from 'lucide-react';
 import { COVER_VARIANT_META } from '../slides/cover-variants';
 
 /**
@@ -175,13 +176,18 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
         {/* Header */}
-        <div className="flex items-center justify-between mb-3">
-          <h4 className="text-[11px] font-outfit font-black uppercase tracking-widest text-zinc-400">
-            Variante da Capa
-          </h4>
-          <span className="text-[10px] font-mono text-zinc-600">
-            {currentVariantIndex === 0 ? 'Original' : COVER_VARIANT_META.find(v => v.id === currentVariantIndex)?.name}
-          </span>
+        <div className="flex items-center justify-between mb-3 relative">
+          <div className="flex items-center gap-2">
+            <h4 className="text-[11px] font-outfit font-black uppercase tracking-widest text-zinc-400">
+              Variante da Capa
+            </h4>
+            <span className="text-[10px] font-mono text-zinc-600 truncate max-w-[100px]">
+              {currentVariantIndex === 0 ? 'Original' : COVER_VARIANT_META.find(v => v.id === currentVariantIndex)?.name}
+            </span>
+          </div>
+          <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800 absolute -right-2 -top-2">
+            <X size={14} />
+          </button>
         </div>
 
         {/* Grid de variantes */}
@@ -191,7 +197,6 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
               key={variant.id}
               onClick={() => {
                 onSelect(variant.id);
-                onClose();
               }}
               className="flex flex-col items-center gap-1.5 group"
               title={variant.description}
