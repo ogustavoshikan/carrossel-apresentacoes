@@ -123,21 +123,23 @@ export default function VisualPreview({
 
       <button 
         onClick={scrollLeft}
-        className="absolute left-2 top-1/3 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 }}
+        className="absolute left-2 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
 
       <button 
         onClick={scrollRight}
-        className="absolute right-2 top-1/3 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 }}
+        className="absolute right-2 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       <div
         ref={scrollRef}
-        className="flex gap-10 overflow-x-auto pb-12 pt-4 px-4 snap-x snap-mandatory items-center min-h-[600px] custom-scrollbar"
+        className="flex gap-10 overflow-x-auto pb-12 pt-8 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar"
       >
       {slides.map((slide, index) => (
         <React.Fragment key={`slide-wrapper-${index}`}>
@@ -428,8 +430,8 @@ export default function VisualPreview({
         
         {/* Controle de Reordenação + Botão Adicionar (Inter-Slides) */}
         {!isExporting && index < slides.length - 1 && onMoveSlide && (
-             <div className="relative w-0 flex justify-center items-center z-40 -ml-1">
-        <div className="absolute flex flex-col gap-2">
+             <div className="relative w-0 flex justify-center z-40 -ml-1" style={{ marginTop: SLIDE_DIMENSIONS.height / 2 }}>
+        <div className="absolute flex flex-col gap-2 -translate-y-1/2">
 
            {/* Botão + para inserir slide após este */}
            {onAddSlide && (
