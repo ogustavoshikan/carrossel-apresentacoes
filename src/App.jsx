@@ -302,6 +302,14 @@ export default function App() {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imageScale: value } : s)));
   }, []);
 
+  const handleRemoveImage = useCallback((index) => {
+    setSlides((prev) =>
+      prev.map((s, i) =>
+        i === index ? { ...s, imageUrl: null, imagePosition: 50, imageScale: 1 } : s
+      )
+    );
+  }, []);
+
   const handleCoverVariantChange = useCallback((slideIndex, variantIndex) => {
     setSlides(prev => prev.map((s, i) =>
       i === slideIndex ? { ...s, coverVariantIndex: variantIndex } : s
@@ -563,6 +571,7 @@ export default function App() {
           onImageUpload={handleImageUpload}
           onImagePosition={handleImagePosition}
           onImageScale={handleImageScale}
+          onRemoveImage={handleRemoveImage}
           titleFont={titleFont}
           setTitleFont={setTitleFont}
           textFont={textFont}
@@ -645,6 +654,7 @@ export default function App() {
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
                   onImageScale={handleImageScale}
+                  onRemoveImage={handleRemoveImage}
                   onImageFromUrl={handleImageFromUrl}
                   onCopySlide={handleCopySlide}
                   onExportSlide={handleExportSlide}

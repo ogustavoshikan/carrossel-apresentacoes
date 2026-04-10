@@ -76,6 +76,7 @@ export default function VisualPreview({
   onComparisonVariantChange,
   onCtaVariantChange,
   isExporting,
+  onRemoveImage,
 }) {
   const scrollRef = useRef(null);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
@@ -449,6 +450,16 @@ export default function VisualPreview({
                     className="alice-range"
                   />
                 </div>
+
+                {onRemoveImage && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); onRemoveImage(index); }}
+                    className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-1"
+                  >
+                    <X size={12} />
+                    Remover Imagem
+                  </button>
+                )}
               </div>
             )}
           </div>

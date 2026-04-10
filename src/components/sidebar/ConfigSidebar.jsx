@@ -87,6 +87,7 @@ export default function ConfigSidebar({
   onImageUpload,
   onImagePosition,
   onImageScale,
+  onRemoveImage,
   titleFont,
   setTitleFont,
   textFont,
@@ -156,6 +157,15 @@ export default function ConfigSidebar({
                       </div>
                       <input type="range" min="1" max="3" step="0.05" value={slide.imageScale ?? 1} onChange={(e) => onImageScale(selectedElement.slideIndex, e.target.value)} className="alice-range w-full" />
                     </div>
+                  )}
+                  {onRemoveImage && (
+                    <button
+                      onClick={() => onRemoveImage(selectedElement.slideIndex)}
+                      className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <X className="w-3 h-3" />
+                      Remover Imagem
+                    </button>
                   )}
                 </div>
               ) : (
