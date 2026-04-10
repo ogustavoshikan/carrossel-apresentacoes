@@ -2,6 +2,7 @@ import React from 'react';
 import { Quote } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
+import { QUOTE_VARIANT_COMPONENTS } from './quote-variants';
 
 /**
  * SlideQuote — Layout "quote".
@@ -21,6 +22,30 @@ export default function SlideQuote({
   selectedElement,
   onSelectElement,
 }) {
+  const variantIndex = data.quoteVariantIndex || 0;
+
+  // Se for variante > 0, delega pro componente de variante
+  if (variantIndex > 0 && QUOTE_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = QUOTE_VARIANT_COMPONENTS[variantIndex];
+    return (
+      <VariantComponent
+        data={data}
+        index={index}
+        slideCount={slideCount}
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        titleScale={titleScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+      />
+    );
+  }
+
+  // Fallback: Layout Original (variante 0)
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 

@@ -320,6 +320,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleQuoteVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, quoteVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url) => {
     if (!url) return;
     setSlides((prev) =>
@@ -639,6 +645,7 @@ export default function App() {
                   onCoverVariantChange={handleCoverVariantChange}
                   onSplitVariantChange={handleSplitVariantChange}
                   onBigNumberVariantChange={handleBigNumberVariantChange}
+                  onQuoteVariantChange={handleQuoteVariantChange}
                   copiedIndex={copiedIndex}
                   selectedElement={selectedElement}
                   isExporting={isExporting}
