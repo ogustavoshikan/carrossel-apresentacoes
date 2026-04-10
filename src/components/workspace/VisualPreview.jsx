@@ -144,7 +144,7 @@ export default function VisualPreview({
       {slides.map((slide, index) => (
         <React.Fragment key={`slide-wrapper-${index}`}>
         <div
-          className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide"
+          className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide z-10"
         >
           {/* Botão Remover Slide Flutuante */}
           {onRemoveSlide && (
@@ -430,7 +430,7 @@ export default function VisualPreview({
         
         {/* Controle de Reordenação + Botão Adicionar (Inter-Slides) */}
         {!isExporting && index < slides.length - 1 && onMoveSlide && (
-             <div className="relative w-0 flex justify-center z-40 -ml-1" style={{ marginTop: SLIDE_DIMENSIONS.height / 2 }}>
+             <div className="relative w-0 flex justify-center z-[100] -ml-1" style={{ marginTop: SLIDE_DIMENSIONS.height / 2 }}>
         <div className="absolute flex flex-col gap-2 -translate-y-1/2">
 
            {/* Botão + para inserir slide após este */}
