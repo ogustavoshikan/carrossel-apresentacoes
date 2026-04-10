@@ -438,20 +438,22 @@ export function BigNumberVariant6({
       <div className="flex-1 flex flex-col justify-center relative z-10">
         {/* Badge circular + tag */}
         <div className="flex gap-6 items-center mb-8">
-          <SmartField field="titulo" {...sp}
+          <div
             className="w-32 h-32 rounded-full flex items-center justify-center shrink-0 border-4 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
             style={{ borderColor: '#050505', backgroundColor: brandColor }}
           >
-            <span
-              contentEditable
-              suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter leading-none outline-none"
-              style={{ fontSize: `${40 * sTitle}px` }}
-            >
-              {data.titulo}
-            </span>
-          </SmartField>
+            <SmartField field="titulo" {...sp}>
+              <span
+                contentEditable
+                suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-outfit font-black text-white tracking-tighter leading-none outline-none"
+                style={{ fontSize: `${40 * sTitle}px` }}
+              >
+                {data.titulo}
+              </span>
+            </SmartField>
+          </div>
 
           <SmartField field="tag" {...sp} className="flex-1">
             <span
