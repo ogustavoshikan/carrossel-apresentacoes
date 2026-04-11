@@ -195,8 +195,8 @@ export default function VisualPreview({
           </div>
 
           {/* Controls */}
-          <div className="flex flex-col gap-3" style={{ width: SLIDE_DIMENSIONS.width }}>
-            <div className="w-full flex justify-between items-center mb-1 px-1">
+          <div className="bg-[#141414] border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
+            <div className="flex justify-between items-center mb-3">
                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
                </span>
@@ -208,16 +208,15 @@ export default function VisualPreview({
                </span>
             </div>
 
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
-                  className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] flex justify-center items-center gap-2 group"
-                >
-                  <PenLine size={16} className="text-zinc-500 group-hover:text-[#DE1E4D] transition-colors" />
-                  Editar Textos / Visual
-                </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
+              className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
+            >
+              <PenLine size={16} className="text-zinc-500 group-hover:text-[#DE1E4D] transition-colors" />
+              Editar Textos / Visual
+            </button>
 
-                <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 mt-1">
+            <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 mt-1">
                   <div className="flex items-center gap-0.5">
                     <Tooltip text="Alterar Foto">
                       <ImageSourceDropdown
@@ -430,69 +429,69 @@ export default function VisualPreview({
                       Salvar
                     </button>
                   </div>
-                </div>
-              </div>
+            </div>
 
-              {/* Resetar Posições (Aparece se tiver edições de posição ou imagem) */}
-              {(Object.keys(slide.positions || {}).length > 0 || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
-                <div className="transition-all duration-300 ease-in-out overflow-hidden max-h-10 mt-3 opacity-100">
-                  <button
-                    onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
-                    className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
-                  >
-                    <RotateCcw size={12} />
-                    Resetar Posições
-                  </button>
-                </div>
-              )}
+            {/* Elemento 4: Painel de Sliders (Y, Escala, Reset) */}
+            {(slide.imageUrl || Object.keys(slide.positions || {}).length > 0) && (
+              <div className="bg-[#0f0f0f] border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
+                {slide.imageUrl && (
+                  <>
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
+                        <span className="text-[10px] text-zinc-600 font-mono">{slide.imagePosition ?? 50}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={slide.imagePosition ?? 50}
+                        onChange={(e) => onImagePosition(index, e.target.value)}
+                        className="alice-range"
+                      />
+                    </div>
+                    
+                    <div className="w-full h-px bg-white/5" />
 
-            {slide.imageUrl && (
-              <div className="bg-surface-input border border-border-subtle rounded-xl p-4 space-y-4">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="alice-label mb-0">Posição da Imagem (Y)</label>
-                    <span className="text-[10px] text-zinc-600 font-mono">
-                      {slide.imagePosition ?? 50}%
-                    </span>
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <label className="text-xs font-medium text-zinc-400 mb-0">Tamanho da Imagem (Escala)</label>
+                        <span className="text-[10px] text-zinc-600 font-mono">{slide.imageScale ?? 1}x</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="3"
+                        step="0.05"
+                        value={slide.imageScale ?? 1}
+                        onChange={(e) => onImageScale(index, e.target.value)}
+                        className="alice-range"
+                      />
+                    </div>
+
+                    {onRemoveImage && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); onRemoveImage(index); }}
+                        className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-1"
+                      >
+                        <X size={12} />
+                        Remover Imagem
+                      </button>
+                    )}
+                  </>
+                )}
+
+                {/* Resetar Posições */}
+                {(Object.keys(slide.positions || {}).length > 0 || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
+                  <div className={slide.imageUrl ? "pt-2 border-t border-white/5" : ""}>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
+                      className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
+                    >
+                      <RotateCcw size={12} />
+                      Resetar Posições
+                    </button>
                   </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={slide.imagePosition ?? 50}
-                    onChange={(e) => onImagePosition(index, e.target.value)}
-                    className="alice-range"
-                  />
-                </div>
-                
-                <div className="w-full h-px bg-white/5" />
-
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="alice-label mb-0">Tamanho da Imagem (Escala)</label>
-                    <span className="text-[10px] text-zinc-600 font-mono">
-                      {slide.imageScale ?? 1}x
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min="1"
-                    max="3"
-                    step="0.05"
-                    value={slide.imageScale ?? 1}
-                    onChange={(e) => onImageScale(index, e.target.value)}
-                    className="alice-range"
-                  />
-                </div>
-
-                {onRemoveImage && (
-                  <button
-                    onClick={(e) => { e.stopPropagation(); onRemoveImage(index); }}
-                    className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-1"
-                  >
-                    <X size={12} />
-                    Remover Imagem
-                  </button>
                 )}
               </div>
             )}
