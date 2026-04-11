@@ -195,7 +195,7 @@ export default function VisualPreview({
           </div>
 
           {/* Controls */}
-          <div className="bg-[#141414] border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
+          <div className="bg-[#080808] border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
             <div className="flex justify-between items-center mb-3">
                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
