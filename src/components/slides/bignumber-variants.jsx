@@ -55,7 +55,8 @@ function ImageBg({ data, className = '', style = {}, children }) {
 }
 
 // ─── Helper: BrandTag ───────────────────────────────────────
-function BrandTag({ brandHandle, brandAvatar, brandColor }) {
+function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor }) {
+  if (showBrandHandle === false) return null;
   return (
     <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
       <div className="flex items-center gap-3">
@@ -159,11 +160,7 @@ export function BigNumberVariant1({
 // VARIANTE 2 — Phantom Center
 // Número centralizado com ghost gigante atrás (sem imagem).
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant2({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -229,11 +226,7 @@ export function BigNumberVariant2({
 // VARIANTE 3 — Color Block
 // Bloco colorido superior com número + área escura inferior com texto.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant3({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -294,11 +287,7 @@ export function BigNumberVariant3({
 // VARIANTE 4 — Glass Card
 // Número outline sutil atrás + card glassmorphic centralizado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant4({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -351,11 +340,7 @@ export function BigNumberVariant4({
 // VARIANTE 5 — Side Panel
 // Número colorido à esquerda + painel de conteúdo à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant5({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -419,11 +404,7 @@ export function BigNumberVariant5({
 // VARIANTE 6 — Circle Badge
 // Número em círculo pequeno + tag + card de texto destacado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant6({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -497,11 +478,7 @@ export function BigNumberVariant6({
 // VARIANTE 7 — Texture Fill
 // Número com fundo da imagem via background-clip + texto abaixo.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant7({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -570,11 +547,7 @@ export function BigNumberVariant7({
 // VARIANTE 8 — Outline Float
 // Número outline colorido flutuando + imagem + texto inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant8({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -641,11 +614,7 @@ export function BigNumberVariant8({
 // VARIANTE 9 — Sidebar Ribbon
 // Faixa lateral colorida com número rotacionado + texto à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant9({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -712,11 +681,7 @@ export function BigNumberVariant9({
 // VARIANTE 10 — Magazine Split
 // Imagem superior semitransparente + número sobreposto + bloco de cor inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant10({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
-  titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement,
-}) {
+export function BigNumberVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };

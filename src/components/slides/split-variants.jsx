@@ -60,7 +60,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
 // Inspirado no layout do arquivo original (Variante 1).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant1({
-  data, index, slideCount, brandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -141,7 +141,7 @@ export function SplitVariant1({
 // Inspirado no layout do arquivo original (Variante 2).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant2({
-  data, index, slideCount, brandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -218,7 +218,7 @@ export function SplitVariant2({
 // Inspirado no layout do arquivo original (Variante 3).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant3({
-  data, index, slideCount, brandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -292,7 +292,7 @@ export function SplitVariant3({
 // Inspirado no layout do arquivo original (Variante 4).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant4({
-  data, index, slideCount, brandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -384,7 +384,7 @@ export function SplitVariant4({
 // Inspirado no layout do arquivo original (Variante 5).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant5({
-  data, index, slideCount, brandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {

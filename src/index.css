@@ -32,6 +32,10 @@ body {
   background-color: rgba(244, 63, 94, 0.3);
 }
 
+[contenteditable="true"] {
+  white-space: pre-wrap;
+}
+
 /* ========================================
    SCROLLBAR CUSTOMIZADA
    ======================================== */

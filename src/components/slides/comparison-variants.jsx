@@ -37,7 +37,7 @@ const ComparisonTitle = ({ data, index, scale, onActionStart, onTextChange, sele
 // ==========================================
 
 export function ComparisonVariant1(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Comum', value: 'Item A', highlight: false }, { label: 'Premium', value: 'Item B', highlight: true }];
 
@@ -92,7 +92,7 @@ export function ComparisonVariant1(props) {
 }
 
 export function ComparisonVariant2(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -145,7 +145,7 @@ export function ComparisonVariant2(props) {
 }
 
 export function ComparisonVariant3(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const midPoint = Math.ceil(items.length / 2);
@@ -208,7 +208,7 @@ export function ComparisonVariant3(props) {
 }
 
 export function ComparisonVariant4(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
 
@@ -255,7 +255,7 @@ export function ComparisonVariant4(props) {
 }
 
 export function ComparisonVariant5(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -298,7 +298,7 @@ export function ComparisonVariant5(props) {
 }
 
 export function ComparisonVariant6(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -350,7 +350,7 @@ export function ComparisonVariant6(props) {
 }
 
 export function ComparisonVariant7(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -413,7 +413,7 @@ export function ComparisonVariant7(props) {
 }
 
 export function ComparisonVariant8(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -460,7 +460,7 @@ export function ComparisonVariant8(props) {
 }
 
 export function ComparisonVariant9(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -517,7 +517,7 @@ export function ComparisonVariant9(props) {
 }
 
 export function ComparisonVariant10(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -564,7 +564,7 @@ export function ComparisonVariant10(props) {
 }
 
 export function ComparisonVariant11(props) {
-  const { data, index, slideCount, brandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   

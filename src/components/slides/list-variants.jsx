@@ -38,7 +38,7 @@ const ListTitle = ({ data, index, scale, onActionStart, onTextChange, selectedEl
 // ==========================================
 
 export function ListVariant1(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -71,7 +71,7 @@ export function ListVariant1(props) {
 }
 
 export function ListVariant2(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -96,7 +96,7 @@ export function ListVariant2(props) {
 }
 
 export function ListVariant3(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -125,7 +125,7 @@ export function ListVariant3(props) {
 }
 
 export function ListVariant4(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -157,7 +157,7 @@ export function ListVariant4(props) {
 }
 
 export function ListVariant5(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -188,7 +188,7 @@ export function ListVariant5(props) {
 }
 
 export function ListVariant6(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -219,7 +219,7 @@ export function ListVariant6(props) {
 }
 
 export function ListVariant7(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -252,7 +252,7 @@ export function ListVariant7(props) {
 }
 
 export function ListVariant8(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -278,7 +278,7 @@ export function ListVariant8(props) {
 }
 
 export function ListVariant9(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -304,7 +304,7 @@ export function ListVariant9(props) {
 }
 
 export function ListVariant10(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
@@ -330,7 +330,7 @@ export function ListVariant10(props) {
 }
 
 export function ListVariant11(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
