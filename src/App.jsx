@@ -511,7 +511,7 @@ export default function App() {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-4 group cursor-pointer">
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white overflow-hidden"
+                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-xl tracking-tighter transition-transform group-hover:rotate-6 text-white overflow-hidden"
                 style={appLogoUrl ? {} : {
                   backgroundColor: gradientColor1,
                   boxShadow: `0 0 20px ${gradientColor1}40`,
@@ -520,7 +520,7 @@ export default function App() {
                 {appLogoUrl ? (
                   <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
                 ) : (
-                  <Cake className="w-5 h-5" />
+                  <span>CS</span>
                 )}
               </div>
               <div className="flex flex-col">
