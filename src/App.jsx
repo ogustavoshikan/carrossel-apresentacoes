@@ -46,6 +46,7 @@ export default function App() {
 
   // Brand Customization
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
+  const [showBrandHandle, setShowBrandHandle] = useState(true);
   const [brandAvatar, setBrandAvatar] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
@@ -560,6 +561,8 @@ export default function App() {
           width={sidebarWidth}
           brandHandle={brandHandle}
           setBrandHandle={setBrandHandle}
+          showBrandHandle={showBrandHandle}
+          setShowBrandHandle={setShowBrandHandle}
           brandAvatar={brandAvatar}
           setBrandAvatar={setBrandAvatar}
           isVerified={isVerified}
@@ -667,6 +670,7 @@ export default function App() {
                   slides={slides}
                   slideCount={slideCount}
                   brandHandle={brandHandle}
+                  showBrandHandle={showBrandHandle}
                   brandAvatar={brandAvatar}
                   brandColor={gradientColor1}
                   isVerified={isVerified}

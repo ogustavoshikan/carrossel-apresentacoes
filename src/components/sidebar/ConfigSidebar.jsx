@@ -57,6 +57,8 @@ export default function ConfigSidebar({
   setBrandHandle,
   brandAvatar,
   setBrandAvatar,
+  showBrandHandle,
+  setShowBrandHandle,
   isVerified,
   setIsVerified,
   gradientColor1,
@@ -240,8 +242,15 @@ export default function ConfigSidebar({
     const updateProp = (prop, valueOrFn) => {
       setSlides(prev => prev.map((s, i) => {
         if (i === selectedElement.slideIndex) {
-          const currentPos = s.positions?.[selectedElement.field] || { x: 0, y: 0, scale: 1 };
-          const newValue = typeof valueOrFn === 'function' ? valueOrFn(currentPos[prop] ?? (prop === 'scale' ? 1 : 0)) : valueOrFn;
+          const rawPos = s.positions?.[selectedElement.field] || {};
+          const currentPos = {
+            x: rawPos.x ?? 0,
+            y: rawPos.y ?? 0,
+            scale: rawPos.scale ?? 1,
+            ...rawPos
+          };
+          
+          const newValue = typeof valueOrFn === 'function' ? valueOrFn(currentPos[prop]) : valueOrFn;
           return {
             ...s,
             positions: {
@@ -257,8 +266,9 @@ export default function ConfigSidebar({
       }));
     };
 
-    // Função para incremento contínuo ao segurar botão
+    // Função para incremento contínuo ao segurar botão (com disparo imediato ao clicar)
     const startAutoScroll = (prop, delta) => {
+      updateProp(prop, v => v + delta);
       const interval = setInterval(() => {
         updateProp(prop, v => v + delta);
       }, 50);
@@ -328,6 +338,7 @@ export default function ConfigSidebar({
                       -
                     </button>
                     <input 
+                      id="config-pos-x"
                       type="number" 
                       step="1"
                       value={Math.round(pos?.x || 0)}
@@ -373,6 +384,7 @@ export default function ConfigSidebar({
                       -
                     </button>
                     <input 
+                      id="config-pos-y"
                       type="number" 
                       step="1"
                       value={Math.round(pos?.y || 0)}
@@ -743,10 +755,29 @@ export default function ConfigSidebar({
                 
                 <input
                   type="text"
-                value={brandHandle}
-                onChange={(e) => setBrandHandle(e.target.value)}
-                  className="alice-input flex-1"
+                  value={brandHandle}
+                  onChange={(e) => setBrandHandle(e.target.value)}
+                  className="alice-input flex-1 min-w-0"
                 />
+                <button
+                  onClick={() => setShowBrandHandle(!showBrandHandle)}
+                  className={`h-10 px-3 rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center shrink-0 ${
+                    showBrandHandle
+                      ? ''
+                      : 'bg-surface-input border-border-subtle text-zinc-500'
+                  }`}
+                  style={
+                    showBrandHandle
+                      ? {
+                          backgroundColor: `${gradientColor1}20`,
+                          borderColor: `${gradientColor1}50`,
+                          color: gradientColor1,
+                        }
+                      : {}
+                  }
+                >
+                  {showBrandHandle ? 'ON' : 'OFF'}
+                </button>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">

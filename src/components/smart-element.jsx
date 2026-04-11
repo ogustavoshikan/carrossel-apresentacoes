@@ -67,10 +67,12 @@ export default function SmartElement({
       <div
         onMouseDown={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'drag');
         }}
         onTouchStart={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'drag');
         }}
         className="absolute -top-3 -left-3 w-6 h-6 bg-zinc-800 text-rose-500 rounded-full cursor-move opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-700 pointer-events-auto"
@@ -112,10 +114,12 @@ export default function SmartElement({
       <div
         onMouseDown={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize-width');
         }}
         onTouchStart={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize-width');
         }}
         className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-8 bg-zinc-700 hover:bg-[var(--color-brand)] rounded-full cursor-ew-resize opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-600 pointer-events-auto transition-colors"
@@ -128,10 +132,12 @@ export default function SmartElement({
       <div
         onMouseDown={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize');
         }}
         onTouchStart={(e) => {
           e.stopPropagation();
+          if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize');
         }}
         className="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"

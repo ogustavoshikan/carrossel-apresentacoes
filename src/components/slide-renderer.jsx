@@ -27,6 +27,7 @@ export default function SlideRenderer({
   index,
   slideCount,
   brandHandle,
+  showBrandHandle,
   brandAvatar,
   brandColor,
   isVerified,
@@ -50,6 +51,7 @@ export default function SlideRenderer({
       index={index}
       slideCount={slideCount}
       brandHandle={brandHandle}
+      showBrandHandle={showBrandHandle}
       brandAvatar={brandAvatar}
       brandColor={brandColor}
       isVerified={isVerified}

@@ -9,6 +9,7 @@ export default function SlideHeader({
   index,
   total,
   brandHandle,
+  showBrandHandle = true,
   brandAvatar,
   brandColor,
   isVerified = false,
@@ -41,7 +42,7 @@ export default function SlideHeader({
   const isSelectedHandle = selectedElement?.slideIndex === slideIndex && selectedElement?.field === 'handle';
   const isSelectedCounter = selectedElement?.slideIndex === slideIndex && selectedElement?.field === 'counter';
 
-  const handleEl = (
+  const handleEl = showBrandHandle ? (
     <SmartElement
       slideIndex={slideIndex}
       field="handle"
@@ -75,7 +76,7 @@ export default function SlideHeader({
         )}
       </div>
     </SmartElement>
-  );
+  ) : null;
 
   const counterEl = showSlideCounter ? (
     <SmartElement

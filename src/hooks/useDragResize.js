@@ -51,6 +51,12 @@ export function useDragResize(slides, setSlides) {
           metricsTag.innerText = `[ X:${Math.round(newX)} Y:${Math.round(newY)} | W:${w} H:${h} ]`;
         }
 
+        // Atualização em tempo real nos inputs do ConfigSidebar
+        const inputX = document.getElementById('config-pos-x');
+        if (inputX) inputX.value = Math.round(newX);
+        const inputY = document.getElementById('config-pos-y');
+        if (inputY) inputY.value = Math.round(newY);
+
       } else if (actionInfo.type === 'resize') {
         const scaleDelta = (dx + dy) * 0.005;
         const newScale = Math.max(0.3, actionInfo.origScale + scaleDelta);
@@ -95,16 +101,26 @@ export function useDragResize(slides, setSlides) {
       const changed = currentX !== undefined || currentY !== undefined || currentScale !== undefined || currentWidth !== undefined;
 
       if (changed) {
+        const finalX = currentX;
+        const finalY = currentY;
+        const finalScale = currentScale;
+        const finalWidth = currentWidth;
+
         setSlides((prev) =>
           prev.map((s, i) => {
             if (i !== actionInfo.index) return s;
-            const pos = s.positions?.[actionInfo.field] || { x: 0, y: 0, scale: 1 };
-            const updatedPos = { ...pos };
+            const pos = s.positions?.[actionInfo.field] || {};
+            const updatedPos = { x: 0, y: 0, scale: 1, ...pos };
 
-            if (currentX     !== undefined) updatedPos.x     = currentX;
-            if (currentY     !== undefined) updatedPos.y     = currentY;
-            if (currentScale !== undefined) updatedPos.scale = currentScale;
-            if (currentWidth !== undefined) updatedPos.width = currentWidth;
+            if (finalX !== undefined) updatedPos.x = finalX;
+            if (finalY !== undefined) updatedPos.y = finalY;
+            if (finalScale !== undefined) updatedPos.scale = finalScale;
+            if (finalWidth !== undefined) updatedPos.width = finalWidth;
+
+            // PREVENIR UNDEFINED - GARANTIR VALORES SÓLIDOS
+            if (updatedPos.x === undefined || isNaN(updatedPos.x)) updatedPos.x = 0;
+            if (updatedPos.y === undefined || isNaN(updatedPos.y)) updatedPos.y = 0;
+            if (updatedPos.scale === undefined || isNaN(updatedPos.scale)) updatedPos.scale = 1;
 
             return {
               ...s,
@@ -169,11 +185,13 @@ export function useDragResize(slides, setSlides) {
         const availableSpaceToSlideEdge = slideRect.width - (elRect.left - slideRect.left) - MARGIN;
         const maxCSSWidth = availableSpaceToSlideEdge / scale;
 
+        const bottomMargin = (field === 'handle' || field === 'counter') ? 2 : MARGIN;
+
         constraints = {
           minX: -(elNaturalLeft) + MARGIN,
           maxX: slideRect.width  - elNaturalLeft - elW - MARGIN,
           minY: -(elNaturalTop)  + MARGIN,
-          maxY: slideRect.height - elNaturalTop  - elH - MARGIN,
+          maxY: slideRect.height - elNaturalTop  - elH - bottomMargin,
           maxWidth: maxCSSWidth,
         };
       }

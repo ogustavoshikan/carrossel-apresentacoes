@@ -47,6 +47,7 @@ export default function VisualPreview({
   slides,
   slideCount,
   brandHandle,
+  showBrandHandle,
   brandAvatar,
   brandColor,
   isVerified,
@@ -176,6 +177,7 @@ export default function VisualPreview({
               index={index}
               slideCount={slideCount}
               brandHandle={brandHandle}
+              showBrandHandle={showBrandHandle}
               brandAvatar={brandAvatar}
               brandColor={brandColor}
               isVerified={isVerified}
