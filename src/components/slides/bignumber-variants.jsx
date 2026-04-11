@@ -90,7 +90,7 @@ export function BigNumberVariant1({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle} brandAvatar={brandAvatar}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
@@ -178,7 +178,7 @@ export function BigNumberVariant2({
         {data.titulo}
       </div>
 
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Número colorido com glow */}
       <SmartField field="titulo" {...sp} className="relative z-10 mb-8">
@@ -285,7 +285,7 @@ export function BigNumberVariant3({
       </div>
 
       {/* Brand tag no topo */}
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
     </div>
   );
 }
@@ -305,7 +305,7 @@ export function BigNumberVariant4({
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative items-center justify-center text-center">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Número outline fantasma */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center pointer-events-none">
@@ -362,7 +362,7 @@ export function BigNumberVariant5({
 
   return (
     <div className="w-full h-full bg-[#080808] flex overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Número à esquerda */}
       <div className="w-1/2 h-full flex items-center justify-end p-6 relative z-10">
@@ -430,7 +430,7 @@ export function BigNumberVariant6({
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Imagem de fundo com opacidade */}
       <SmartField field="imagem" {...sp}
@@ -524,7 +524,7 @@ export function BigNumberVariant7({
 
   return (
     <div className="w-full h-full bg-[#020202] flex flex-col p-10 overflow-hidden relative justify-center items-center text-center">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Número com textura de imagem */}
       <SmartField field="titulo" {...sp} className="w-full mb-4">
@@ -581,7 +581,7 @@ export function BigNumberVariant8({
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Número outline flutuando à direita */}
       <div className="absolute top-1/4 -right-10 z-20 pointer-events-none">
@@ -652,7 +652,7 @@ export function BigNumberVariant9({
 
   return (
     <div className="w-full h-full bg-[#050505] flex overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Faixa lateral colorida */}
       <div
@@ -723,7 +723,7 @@ export function BigNumberVariant10({
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0">
@@ -799,7 +799,7 @@ export function BigNumberVariant11({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle} brandAvatar={brandAvatar}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

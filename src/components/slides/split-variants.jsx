@@ -73,7 +73,7 @@ export function SplitVariant1({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
@@ -163,7 +163,7 @@ export function SplitVariant2({
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
           index={index + 1}
           total={slideCount}
-          brandHandle={brandHandle}
+          brandHandle={brandHandle} showBrandHandle={showBrandHandle}
           brandColor={brandColor}
           isVerified={isVerified}
           showSlideCounter={showSlideCounter}
@@ -231,7 +231,7 @@ export function SplitVariant3({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
@@ -305,7 +305,7 @@ export function SplitVariant4({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
@@ -399,7 +399,7 @@ export function SplitVariant5({
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
           index={index + 1}
           total={slideCount}
-          brandHandle={brandHandle}
+          brandHandle={brandHandle} showBrandHandle={showBrandHandle}
           brandColor={brandColor}
           isVerified={isVerified}
           showSlideCounter={showSlideCounter}

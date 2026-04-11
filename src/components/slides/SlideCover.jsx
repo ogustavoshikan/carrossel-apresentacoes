@@ -31,7 +31,7 @@ export default function SlideCover({
         data={data}
         index={index}
         brandColor={brandColor}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
         titleScale={titleScale}
         textScale={textScale}

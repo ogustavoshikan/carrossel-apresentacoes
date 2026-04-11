@@ -35,7 +35,7 @@ export default function SlideList({
         data={data}
         index={index}
         slideCount={slideCount}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
@@ -60,7 +60,7 @@ export default function SlideList({
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
-        brandHandle={brandHandle}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
