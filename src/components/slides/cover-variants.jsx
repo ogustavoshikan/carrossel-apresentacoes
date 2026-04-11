@@ -126,7 +126,7 @@ export function CoverVariant1({ data, index, brandColor, titleScale, textScale, 
 // VARIANTE 2 — Cinemático
 // Imagem full-bleed com texto inferior e gradient
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant2({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant2({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -180,7 +180,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 3 — Blur Editorial
 // Background desfocado + barra de acento + border-left
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant3({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant3({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -227,7 +227,7 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 4 — Moldura Editorial
 // Background claro com moldura branca e estilo magazine
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant4({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant4({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -282,7 +282,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 5 — Rounded Split
 // Imagem superior + bloco de cor arredondado inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant5({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant5({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -331,7 +331,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 6 — Arco
 // Imagem em container arch-shaped + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant6({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant6({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -380,7 +380,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 7 — Polaroid
 // Card estilo foto instantânea com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant7({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant7({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -431,7 +431,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 8 — Acento Lateral
 // Texto centrado com borda lateral colorida
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant8({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant8({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -476,7 +476,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 9 — Spotlight Card
 // Fundo com texto watermark + card branco central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant9({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant9({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -544,7 +544,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, titleScale
 // VARIANTE 10 — Bottom Minimal
 // Background desfocado + texto inferior centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant10({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant10({ data, index, brandColor, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };

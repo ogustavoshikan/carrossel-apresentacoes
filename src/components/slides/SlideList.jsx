@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
+import { LIST_VARIANT_COMPONENTS } from './list-variants';
 
 /**
  * SlideList — Layout "list".
@@ -25,11 +26,37 @@ export default function SlideList({
   showSlideCounter,
   slideCounterPosition,
 }) {
+  const variantIndex = data.listVariantIndex || 0;
+
+  if (variantIndex > 0 && LIST_VARIANT_COMPONENTS[variantIndex]) {
+    const VariantComponent = LIST_VARIANT_COMPONENTS[variantIndex];
+    return (
+      <VariantComponent
+        data={data}
+        index={index}
+        slideCount={slideCount}
+        brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        titleScale={titleScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        onItemChange={onItemChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
+    );
+  }
+
   const sTitle = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-20 relative">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-20 relative overflow-hidden">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
@@ -42,7 +69,7 @@ export default function SlideList({
 
               />
       <div className="flex-1 flex flex-col justify-center pt-6">
-        <div className="flex items-center gap-5 mb-10">
+        <div className="flex items-center gap-5 mb-10 shrink-0">
           <div
             className="w-12 h-12 border rounded-[1rem] flex items-center justify-center shrink-0 pointer-events-none"
             style={{
@@ -74,11 +101,11 @@ export default function SlideList({
           </SmartElement>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 flex-1 overflow-y-auto pr-2">
           {(data.items || [{ label: 'Item', text: 'Text' }]).map((item, i) => (
             <div key={i} className="flex gap-6 items-start group">
               <div
-                className="font-outfit font-black text-base opacity-30 transition-opacity pointer-events-none"
+                className="font-outfit font-black text-base opacity-30 transition-opacity pointer-events-none mt-1"
                 style={{ color: brandColor }}
               >
                 0{i + 1}
@@ -88,7 +115,7 @@ export default function SlideList({
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                  className="font-outfit font-bold text-white text-[14px] uppercase tracking-[0.2em] mb-2 outline-none block line-clamp-1 overflow-hidden"
+                  className="font-outfit font-bold text-white text-[14px] uppercase tracking-[0.2em] mb-2 outline-none block line-clamp-1"
                 >
                   {item.label}
                 </h4>
@@ -96,7 +123,7 @@ export default function SlideList({
                   contentEditable
                   suppressContentEditableWarning
                   onBlur={(e) => onItemChange(index, i, 'text', e.currentTarget.innerText)}
-                  className="font-playfair text-zinc-400 text-base leading-snug outline-none block line-clamp-2 overflow-hidden"
+                  className="font-playfair text-zinc-400 text-base leading-snug outline-none block line-clamp-2"
                 >
                   {item.text}
                 </p>
