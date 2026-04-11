@@ -1,0 +1,47 @@
+/* CSS específico para The Cinematic Splash Screen */
+:root {
+  --brand-color: #DE1E4D;
+  --brand-dark: #0f0f11;
+  --brand-surface: #1a1a1d;
+  --ease-premium: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.preloader-container {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: var(--brand-dark);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease-premium);
+}
+
+.preloader-container.active {
+  opacity: 1; pointer-events: all;
+}
+
+.v6-text { 
+  font-family: 'Outfit', sans-serif;
+  font-size: 4.5rem; 
+  font-weight: 900; 
+  letter-spacing: -2px; 
+  color: #ffffff; 
+  /* The original animation takes exactly 3s. Run once and hold at the end. */
+  animation: v6-focus 3s var(--ease-premium) forwards; 
+}
+
+.v6-text span { 
+  color: var(--brand-color); 
+}
+
+@keyframes v6-focus {
+  0% { filter: blur(15px); transform: scale(1.1); opacity: 0; letter-spacing: 15px; }
+  25%, 75% { filter: blur(0); transform: scale(1); opacity: 1; letter-spacing: -2px; text-shadow: 0 0 30px rgba(222, 30, 77, 0.3); }
+  100% { filter: blur(15px); transform: scale(0.9); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .v6-text {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,282 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Playfair+Display:ital@1&display=swap');
+
+  .splash-root {
+    min-height: 500px;
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .splash-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(222,30,64,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(222,30,64,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes gridPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .splash-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(222,30,64,0.18) 0%, transparent 70%);
+    animation: glowPulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { transform: scale(0.9); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  .splash-logo-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .splash-icon {
+    width: 52px;
+    height: 52px;
+    background: #DE1E40;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: white;
+    letter-spacing: -1px;
+    animation: iconPop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+  }
+
+  @keyframes iconPop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .splash-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .splash-brand-main {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+
+  .splash-brand-main span {
+    color: #DE1E40;
+  }
+
+  .splash-brand-sub {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .splash-tagline {
+    position: relative;
+    z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+    margin-bottom: 40px;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both;
+  }
+
+  .splash-slides-preview {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.22,1,0.36,1) 0.5s both;
+  }
+
+  .slide-card {
+    width: 52px;
+    height: 68px;
+    border-radius: 6px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+    animation: slideCardPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+
+  .slide-card:nth-child(1) { animation-delay: 0.6s; }
+  .slide-card:nth-child(2) { animation-delay: 0.75s; }
+  .slide-card:nth-child(3) { animation-delay: 0.9s; }
+  .slide-card:nth-child(4) { animation-delay: 1.05s; }
+  .slide-card:nth-child(5) { animation-delay: 1.2s; }
+
+  @keyframes slideCardPop {
+    from { transform: translateY(20px) scale(0.85); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .slide-card:nth-child(3) {
+    width: 58px;
+    height: 76px;
+    border-color: #DE1E40;
+    box-shadow: 0 0 0 1px #DE1E40, 0 8px 24px rgba(222,30,64,0.3);
+    margin-top: -4px;
+  }
+
+  .slide-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: #DE1E40;
+  }
+
+  .slide-card:nth-child(1) .slide-accent { background: #1e1e2e; height: 20px; }
+  .slide-card:nth-child(2) .slide-accent { height: 16px; background: #222; }
+  .slide-card:nth-child(4) .slide-accent { height: 22px; background: #1a1a1a; }
+  .slide-card:nth-child(5) .slide-accent { height: 12px; }
+
+  .slide-dot {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .slide-card:nth-child(3) .slide-dot { background: rgba(255,255,255,0.5); }
+
+  .splash-loader {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.22,1,0.36,1) 0.7s both;
+  }
+
+  .loader-track {
+    width: 180px;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .loader-bar {
+    height: 100%;
+    background: #DE1E40;
+    border-radius: 99px;
+    animation: loaderLoop 2s ease-in-out infinite;
+  }
+
+  @keyframes loaderLoop {
+    0% { width: 0%; margin-left: 0%; }
+    50% { width: 60%; margin-left: 20%; }
+    100% { width: 0%; margin-left: 100%; }
+  }
+
+  .loader-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    animation: textBlink 2s ease-in-out infinite;
+  }
+
+  @keyframes textBlink {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 0.6; }
+  }
+
+  .corner-deco {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-color: rgba(222,30,64,0.2);
+    border-style: solid;
+  }
+
+  .corner-deco.tl {
+    top: 20px; left: 20px;
+    border-width: 2px 0 0 2px;
+  }
+
+  .corner-deco.br {
+    bottom: 20px; right: 20px;
+    border-width: 0 2px 2px 0;
+  }
+</style>
+
+<div class="splash-root">
+  <div class="splash-bg-grid"></div>
+  <div class="splash-glow"></div>
+
+  <div class="corner-deco tl"></div>
+  <div class="corner-deco br"></div>
+
+  <div class="splash-logo-wrap">
+    <div class="splash-icon">CS</div>
+    <div class="splash-brand">
+      <div class="splash-brand-main"><span>Carrossel</span> Studio</div>
+      <div class="splash-brand-sub">Sistema inteligente de carrosséis</div>
+    </div>
+  </div>
+
+  <div class="splash-tagline">Criação de carrosséis de alta performance</div>
+
+  <div class="splash-slides-preview">
+    <div class="slide-card"><div class="slide-dot"></div><div class="slide-accent"></div></div>
+    <div class="slide-card"><div class="slide-dot"></div><div class="slide-accent"></div></div>
+    <div class="slide-card"><div class="slide-dot"></div><div class="slide-accent"></div></div>
+    <div class="slide-card"><div class="slide-dot"></div><div class="slide-accent"></div></div>
+    <div class="slide-card"><div class="slide-dot"></div><div class="slide-accent"></div></div>
+  </div>
+
+  <div class="splash-loader">
+    <div class="loader-track"><div class="loader-bar"></div></div>
+    <div class="loader-label">Carregando</div>
+  </div>
+</div>
+

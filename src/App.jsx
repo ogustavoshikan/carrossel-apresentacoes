@@ -17,6 +17,8 @@ import TextEditor from './components/workspace/TextEditor';
 import { EmptyState, LoadingState } from './components/workspace/EmptyState';
 import SettingsModal from './components/SettingsModal';
 import FavoriteNameModal from './components/workspace/FavoriteNameModal';
+import SplashScreen from './components/SplashScreen';
+import SplashScreenCinematic from './components/SplashScreenCinematic';
 
 export default function App() {
   // ========================================
@@ -69,6 +71,7 @@ export default function App() {
 
   const [sidebarWidth, setSidebarWidth] = useState(420);
   const [isResizingSidebar, setIsResizingSidebar] = useState(false);
+  const [splashStep, setSplashStep] = useState(1);
 
   // Drag & Resize hook
   const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides);
@@ -484,6 +487,10 @@ export default function App() {
       className="min-h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
       style={dynamicStyles}
     >
+      {splashStep < 3 && <div className="fixed inset-0 z-[9998] bg-[#0d0d0d]" />}
+      {splashStep === 1 && <SplashScreen onComplete={() => setSplashStep(2)} />}
+      {splashStep === 2 && <SplashScreenCinematic onComplete={() => setSplashStep(3)} />}
+      
       {/* Favorite Modal */}
       <FavoriteNameModal 
         isOpen={favoritePrompt.isOpen}
