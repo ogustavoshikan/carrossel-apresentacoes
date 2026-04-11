@@ -22,6 +22,7 @@ export default function SlideQuote({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
 }) {

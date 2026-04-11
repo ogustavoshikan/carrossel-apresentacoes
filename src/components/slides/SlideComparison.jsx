@@ -24,6 +24,7 @@ export default function SlideComparison(props) {
     onItemChange,
     selectedElement,
     onSelectElement,
+    showBrandHandle,
     showSlideCounter,
     slideCounterPosition,
   } = props;

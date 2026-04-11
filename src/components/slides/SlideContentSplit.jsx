@@ -23,6 +23,7 @@ export default function SlideContentSplit({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
 }) {

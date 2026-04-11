@@ -21,6 +21,7 @@ export default function SlideCover({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showBrandHandle,
 }) {
   // Delegação para variante visual (1-10)
   const variantIndex = data.coverVariantIndex || 0;

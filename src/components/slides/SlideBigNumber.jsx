@@ -24,6 +24,7 @@ export default function SlideBigNumber({
   onTextChange,
   selectedElement,
   onSelectElement,
+  showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
 }) {

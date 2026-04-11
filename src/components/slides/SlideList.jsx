@@ -23,6 +23,7 @@ export default function SlideList({
   onItemChange,
   selectedElement,
   onSelectElement,
+  showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
 }) {
