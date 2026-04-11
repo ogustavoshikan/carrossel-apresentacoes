@@ -89,15 +89,20 @@ export default function TextEditor({
               <p className="alice-label mb-1">Visual (Sugestão IA)</p>
               {slide.sugestao_visual && (
                 <p className="text-xs text-zinc-500 font-mono mb-4">
-                  {slide.sugestao_visual}
+                  {typeof slide.sugestao_visual === 'string' 
+                    ? slide.sugestao_visual 
+                    : JSON.stringify(slide.sugestao_visual)}
                 </p>
               )}
 
               <div className="flex flex-wrap gap-3">
                 <button
-                  onClick={() =>
-                    onGenerateImage(index, slide.sugestao_visual || 'premium luxury object')
-                  }
+                  onClick={() => {
+                    const prompt = typeof slide.sugestao_visual === 'string' 
+                      ? slide.sugestao_visual 
+                      : (slide.sugestao_visual ? JSON.stringify(slide.sugestao_visual) : 'premium luxury object');
+                    onGenerateImage(index, prompt);
+                  }}
                   disabled={loadingImages[index]}
                   className="flex items-center gap-2 text-label-xs uppercase py-2 px-4 rounded-lg transition-colors font-bold border"
                   style={{
