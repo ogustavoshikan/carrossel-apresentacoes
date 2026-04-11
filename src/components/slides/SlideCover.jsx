@@ -123,25 +123,7 @@ export default function SlideCover({
           <div className="w-20 h-[3px] bg-white/50" />
         </div>
 
-        <div className="flex justify-between items-end pb-4 relative z-10">
-          <SmartElement
-            slideIndex={index}
-            field="insta_ready"
-            position={pos('insta_ready')}
-            showMetrics={showMetrics}
-            onActionStart={onActionStart}
-            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'}
-            onSelectElement={onSelectElement}
-          >
-            <span
-              contentEditable
-              suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] tracking-[0.5em] text-white/40 uppercase outline-none block"
-            >
-              {data.insta_ready || 'Instagram Ready'}
-            </span>
-          </SmartElement>
+        <div className="flex justify-end items-end pb-4 relative z-10">
 
           <div className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto">
             <SmartElement

@@ -137,16 +137,18 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
       <ImageBg data={data} className="absolute inset-0 opacity-60" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
-
       <div className="relative z-10 flex-1 flex flex-col justify-end p-10 pb-16">
         <div className="mb-6">
-          <span
-            className="text-[10px] font-outfit font-black tracking-[0.4em] uppercase"
-            style={{ color: brandColor }}
-          >
-            ALICE V3.2
-          </span>
+          <SmartField field="studio_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)}
+              className="text-[10px] font-outfit font-black tracking-[0.4em] uppercase outline-none block"
+              style={{ color: brandColor }}
+            >
+              {data.studio_text || 'STUDIO'}
+            </span>
+          </SmartField>
         </div>
 
         <SmartField field="titulo" {...sp}>
@@ -190,8 +192,6 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandH
     <div className="relative w-full h-full flex flex-col p-10 overflow-hidden bg-[#050505]">
       <ImageBg data={data} className="absolute inset-0 opacity-40 blur-md scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       <div className="flex-1 flex flex-col justify-end relative z-10">
         <div className="w-16 h-2 mb-8" style={{ backgroundColor: brandColor }} />
@@ -238,8 +238,6 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
       <div className="flex-1 border-[12px] border-white bg-black relative flex flex-col overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
-
-        <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
         <div className="relative z-10 px-10 pb-10 pt-24 flex-1 flex flex-col justify-between items-center text-center">
           <div>
@@ -293,7 +291,6 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
       <div className="h-[60%] w-full relative">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
-        <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
       </div>
 
       <div
@@ -416,12 +413,16 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
         </SmartField>
 
         <div className="mt-4">
-          <span
-            className="inline-block px-4 py-2 bg-black text-white font-outfit font-black text-[10px] tracking-widest uppercase border border-white/20 rounded-md"
-            style={{ color: brandColor }}
-          >
-            NEW INSIGHT
-          </span>
+          <SmartField field="badge_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="inline-block px-4 py-2 bg-black text-white font-outfit font-black text-[10px] tracking-widest uppercase border border-white/20 rounded-md outline-none"
+              style={{ color: brandColor }}
+            >
+              {data.badge_text || 'NEW INSIGHT'}
+            </span>
+          </SmartField>
         </div>
       </div>
     </div>
@@ -504,12 +505,16 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
 
         <div className="relative z-10">
           <div className="mb-6">
-            <span
-              className="font-outfit font-black text-[12px] uppercase tracking-widest"
-              style={{ color: brandColor }}
-            >
-              DESTAQUE
-            </span>
+            <SmartField field="badge_text" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-outfit font-black text-[12px] uppercase tracking-widest outline-none block"
+                style={{ color: brandColor }}
+              >
+                {data.badge_text || 'DESTAQUE'}
+              </span>
+            </SmartField>
           </div>
 
           <div className="mb-6">

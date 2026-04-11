@@ -103,7 +103,7 @@ export function ListVariant3(props) {
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-cover opacity-10 grayscale" style={{ backgroundImage: `url('${data.imageUrl || ''}')`, backgroundPosition: 'center 50%' }}></div>
-      <div className="relative z-50">
+      <div className="absolute inset-0 pointer-events-none z-[60]">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
       </div>
       
@@ -131,7 +131,7 @@ export function ListVariant4(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <div className="relative z-50"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} /></div>
+      <div className="absolute inset-0 pointer-events-none z-[60]"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} /></div>
       
       <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
@@ -340,8 +340,8 @@ export function ListVariant11(props) {
       
       <ListTitle data={data} index={index} scale={sTitle * 1.25} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-8 shrink-0 mt-8 w-full" />
       
-      <div className="flex-1 flex flex-wrap content-start justify-center gap-4 overflow-y-auto pt-2 w-full">
-        <div className="flex flex-wrap justify-center gap-3 mb-2">
+      <div className="flex-1 flex flex-wrap content-start justify-center gap-2 overflow-hidden pt-2 w-full">
+        <div className="flex flex-wrap justify-center gap-2 mb-1">
           {items.map((item, i) => (
             <div key={`badge-${i}`} className="bg-[#050505] border border-zinc-800 rounded-full px-4 py-2 flex items-center gap-3 shadow-lg group">
               <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: brandColor }}></div>
@@ -350,9 +350,9 @@ export function ListVariant11(props) {
           ))}
         </div>
         
-        <div className="w-full mt-4 space-y-3">
+        <div className="w-full mt-2 space-y-2">
           {items.map((item, i) => (
-            <div key={`text-${i}`} className="w-full p-4 border border-zinc-800 rounded-3xl bg-[#020202] group text-center">
+            <div key={`text-${i}`} className="w-full p-3 border border-zinc-800 rounded-3xl bg-[#020202] group text-center">
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm italic outline-none">"{item.text}"</p>
             </div>
           ))}
