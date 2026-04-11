@@ -311,7 +311,7 @@ export default function ConfigSidebar({
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. X</span>
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição X</span>
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => updateProp('x', 0)}
@@ -356,7 +356,7 @@ export default function ConfigSidebar({
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Pos. Y</span>
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição Y</span>
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => updateProp('y', 0)}
