@@ -3,7 +3,23 @@
  * Geração de carrossel e imagens via Gemini/OpenAI API.
  */
 
-export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null) {
+/**
+ * Monta o bloco de contexto criativo a ser injetado no systemPrompt.
+ * Campos vazios são ignorados — nenhuma linha extra no prompt.
+ */
+function buildContextBlock(ctx = {}) {
+  const lines = [];
+  if (ctx.publicoAlvo)  lines.push(`- PÚBLICO-ALVO: ${ctx.publicoAlvo}`);
+  if (ctx.faixaEtaria)  lines.push(`- FAIXA ETÁRIA: ${ctx.faixaEtaria}`);
+  if (ctx.tom)          lines.push(`- TOM DE VOZ: ${ctx.tom}`);
+  if (ctx.objetivo)     lines.push(`- OBJETIVO DO CONTEÚDO: ${ctx.objetivo}`);
+  if (ctx.diferenciais) lines.push(`- DIFERENCIAIS DA MARCA: ${ctx.diferenciais}`);
+  if (ctx.chamadaAcao)  lines.push(`- CALL TO ACTION DESEJADO: ${ctx.chamadaAcao}`);
+  if (lines.length === 0) return '';
+  return `\n\nCONTEXTO DA MARCA (use para personalizar e enriquecer o conteúdo):\n${lines.join('\n')}`;
+}
+
+export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}) {
 
   // Instrução adicional de layouts (apenas no modo manual)
   let layoutInstruction = '';
@@ -55,8 +71,8 @@ LIMITES OBRIGATÓRIOS DE TEXTO (crítico para evitar overflow visual nos slides)
 - "cta": titulo máx 5 palavras, texto_apoio máx 15 palavras, tag máx 2 palavras (ex: "ENCOMENDAR").
 Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais objetividade.`;
 
-  // Combina o systemPrompt base com a instrução de layout (se houver)
-  const finalSystemPrompt = systemPrompt + layoutInstruction;
+  // Combina o systemPrompt base com o contexto criativo e a instrução de layout (se houver)
+  const finalSystemPrompt = systemPrompt + buildContextBlock(creativeContext) + layoutInstruction;
 
   let response;
   let rawText = '';

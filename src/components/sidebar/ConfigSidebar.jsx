@@ -75,6 +75,8 @@ export default function ConfigSidebar({
   // Prompt state
   theme,
   setTheme,
+  creativeContext = {},
+  setCreativeContext,
   slideCount,
   setSlideCount,
   layoutSelection,
@@ -973,6 +975,97 @@ export default function ConfigSidebar({
               value={imageBorderRadius}
               onChange={(e) => setImageBorderRadius(Number(e.target.value))}
               className="alice-range w-full"
+            />
+          </div>
+        </CollapsibleSection>
+
+        <div className="h-px bg-white/5 w-full" />
+
+        {/* === Section: Contexto Criativo === */}
+        <CollapsibleSection title="CONTEXTO CRIATIVO" defaultOpen={false}>
+          <p className="text-[9px] text-zinc-500 font-medium leading-relaxed -mt-1">
+            Todos os campos são opcionais. O que for preenchido enriquece o prompt enviado à IA.
+          </p>
+
+          {/* Público-alvo */}
+          <div>
+            <label className="alice-label">Público-alvo</label>
+            <input
+              type="text"
+              className="alice-input w-full"
+              placeholder="Ex: Mães, presentes corporativos..."
+              value={creativeContext.publicoAlvo || ''}
+              onChange={(e) => setCreativeContext({ ...creativeContext, publicoAlvo: e.target.value })}
+            />
+          </div>
+
+          {/* Faixa Etária */}
+          <div>
+            <label className="alice-label">Faixa Etária</label>
+            <input
+              type="text"
+              className="alice-input w-full"
+              placeholder="Ex: 25–45 anos"
+              value={creativeContext.faixaEtaria || ''}
+              onChange={(e) => setCreativeContext({ ...creativeContext, faixaEtaria: e.target.value })}
+            />
+          </div>
+
+          {/* Tom de Voz + Objetivo lado a lado */}
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tom de Voz</label>
+              <select
+                className="alice-input text-xs py-[0.675rem] w-full"
+                value={creativeContext.tom || ''}
+                onChange={(e) => setCreativeContext({ ...creativeContext, tom: e.target.value })}
+              >
+                <option value="">— Selecione —</option>
+                <option value="Sofisticado e premium">Sofisticado</option>
+                <option value="Inspirador e empático">Inspirador</option>
+                <option value="Direto e objetivo">Direto</option>
+                <option value="Educativo e didático">Educativo</option>
+                <option value="Leve e divertido">Divertido</option>
+                <option value="Ácido e irônico">Ácido / Irônico</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Objetivo</label>
+              <select
+                className="alice-input text-xs py-[0.675rem] w-full"
+                value={creativeContext.objetivo || ''}
+                onChange={(e) => setCreativeContext({ ...creativeContext, objetivo: e.target.value })}
+              >
+                <option value="">— Selecione —</option>
+                <option value="Vender / Converter">Vender</option>
+                <option value="Gerar engajamento">Engajar</option>
+                <option value="Educar a audiência">Educar</option>
+                <option value="Posicionar a marca">Posicionar</option>
+                <option value="Nutrir o relacionamento">Nutrir</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Diferenciais */}
+          <div>
+            <label className="alice-label">Diferenciais da Marca</label>
+            <textarea
+              className="alice-textarea h-16"
+              placeholder="Ex: Ingredientes premium, embalagem artesanal, produção limitada..."
+              value={creativeContext.diferenciais || ''}
+              onChange={(e) => setCreativeContext({ ...creativeContext, diferenciais: e.target.value })}
+            />
+          </div>
+
+          {/* CTA */}
+          <div>
+            <label className="alice-label">Call to Action</label>
+            <input
+              type="text"
+              className="alice-input w-full"
+              placeholder="Ex: Mande mensagem para encomendar"
+              value={creativeContext.chamadaAcao || ''}
+              onChange={(e) => setCreativeContext({ ...creativeContext, chamadaAcao: e.target.value })}
             />
           </div>
         </CollapsibleSection>

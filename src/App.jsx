@@ -26,6 +26,14 @@ export default function App() {
   // ========================================
 
   const [theme, setTheme] = useState('');
+  const [creativeContext, setCreativeContext] = useState(() => {
+    try {
+      const saved = localStorage.getItem('alice_creative_context');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
   const [slides, setSlides] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
@@ -429,7 +437,7 @@ export default function App() {
 
     try {
       const parsedSlides = await generateCarouselContent(
-        theme, slideCount, textProvider, textModel, apiKey, layoutSelection
+        theme, slideCount, textProvider, textModel, apiKey, layoutSelection, creativeContext
       );
       setSlides(parsedSlides);
     } catch (err) {
@@ -438,7 +446,7 @@ export default function App() {
     } finally {
       setIsGenerating(false);
     }
-  }, [theme, slideCount]);
+  }, [theme, slideCount, creativeContext]);
 
   const handleExportAll = useCallback(async () => {
     setIsExporting(true);
@@ -584,6 +592,11 @@ export default function App() {
             setImageBorderRadius={setImageBorderRadius}
             theme={theme}
             setTheme={setTheme}
+            creativeContext={creativeContext}
+            setCreativeContext={(newCtx) => {
+              setCreativeContext(newCtx);
+              localStorage.setItem('alice_creative_context', JSON.stringify(newCtx));
+            }}
             slideCount={slideCount}
             setSlideCount={setSlideCount}
             layoutSelection={layoutSelection}
