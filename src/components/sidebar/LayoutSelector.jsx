@@ -125,50 +125,50 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
   return (
     <div className="flex flex-col gap-3">
       {/* Toggle: IA vs Manual */}
-      <div className="flex gap-1 p-1 bg-surface-input rounded-xl border border-border-subtle">
+      <div className="grid grid-cols-4 gap-1 p-1 bg-surface-input rounded-xl border border-border-subtle">
         <button
           onClick={() => setMode('ai')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 rounded-lg text-[8px] sm:text-[9px] font-bold uppercase tracking-wider transition-all border ${
             layoutSelection.mode === 'ai'
               ? 'bg-surface-card text-white shadow border-border-hover'
               : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
-          <Sparkles className="w-3 h-3" />
-          IA Decide
+          <Sparkles className="w-3 h-3 shrink-0" />
+          <span className="truncate">IA Decide</span>
         </button>
         <button
           onClick={() => setMode('manual')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 rounded-lg text-[8px] sm:text-[9px] font-bold uppercase tracking-wider transition-all border ${
             layoutSelection.mode === 'manual'
               ? 'bg-surface-card text-white shadow border-border-hover'
               : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
-          <SlidersHorizontal className="w-3 h-3" />
-          Manual
+          <SlidersHorizontal className="w-3 h-3 shrink-0" />
+          <span className="truncate">Manual</span>
         </button>
         <button
           onClick={() => setMode('direct')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 rounded-lg text-[8px] sm:text-[9px] font-bold uppercase tracking-wider transition-all border ${
             layoutSelection.mode === 'direct'
               ? 'bg-surface-card text-white shadow border-border-hover'
               : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
-          <Type className="w-3 h-3" />
-          Direto
+          <Type className="w-3 h-3 shrink-0" />
+          <span className="truncate">Direto</span>
         </button>
         <button
           onClick={() => setMode('favorites')}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all border ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 rounded-lg text-[8px] sm:text-[9px] font-bold uppercase tracking-wider transition-all border ${
             layoutSelection.mode === 'favorites'
               ? 'bg-surface-card text-white shadow border-border-hover'
               : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
-          <Star className="w-3 h-3" />
-          Favs {favorites.length > 0 && `(${favorites.length})`}
+          <Star className="w-3 h-3 shrink-0" />
+          <span className="truncate px-0.5">Favs {favorites.length > 0 && `(${favorites.length})`}</span>
         </button>
       </div>
 

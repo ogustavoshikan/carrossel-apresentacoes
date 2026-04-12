@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Settings,
   Settings2,
+  LayoutTemplate,
   Lightbulb,
   BadgeCheck,
   Loader2,
@@ -106,6 +107,7 @@ export default function ConfigSidebar({
   setSlideCounterPosition,
 }) {
   const isInspectorActive = !!selectedElement;
+  const [activeTab, setActiveTab] = React.useState('ajustes');
 
   if (isInspectorActive) {
     const slide = slides[selectedElement.slideIndex] || {};
@@ -696,16 +698,43 @@ export default function ConfigSidebar({
     );
   }
   return (
-    <aside 
-      className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
-      style={{ '--sidebar-width': `${width}px` }}
-    >
-      <div className="space-y-6">
-        {/* === Section: Alice Setup === */}
-        <h3 className="alice-section-title">
-          <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
-          Direção Criativa
-        </h3>
+    <div className="flex h-full alice-sidebar-resizable border-r border-border-subtle bg-surface-dark z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
+      {/* NavBar */}
+      <div className="w-[76px] shrink-0 border-r border-border-subtle bg-black/20 flex flex-col items-center py-6 gap-4 z-50">
+        <button 
+          onClick={() => setActiveTab('ajustes')}
+          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'ajustes' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+        >
+          <Settings2 className="w-5 h-5" />
+          <span className="text-[9px] uppercase tracking-widest font-bold">Ajustes</span>
+        </button>
+        <button 
+          onClick={() => setActiveTab('layouts')}
+          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'layouts' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+        >
+          <LayoutTemplate className="w-5 h-5" />
+          <span className="text-[9px] uppercase tracking-widest font-bold">Layouts</span>
+        </button>
+        <div className="w-8 h-px bg-white/10 my-2" />
+        <button 
+          onClick={() => setActiveTab('midia')}
+          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'midia' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+        >
+          <ImageIcon className="w-5 h-5" />
+          <span className="text-[9px] uppercase tracking-widest font-bold">Mídia</span>
+        </button>
+      </div>
+
+      {/* Content Panel */}
+      <div className="flex-1 flex flex-col h-full overflow-hidden relative">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 lg:p-8 space-y-6">
+          {activeTab === 'ajustes' && (
+            <>
+              {/* === Section: Alice Setup === */}
+              <h3 className="alice-section-title">
+                <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
+                Direção Criativa
+              </h3>
 
         <CollapsibleSection title="HANDLE A CORPO / TEXTO">
           {/* Handle + Verified + Counter */}
@@ -973,83 +1002,101 @@ export default function ConfigSidebar({
             onChange={(e) => setTheme(e.target.value)}
           />
 
-          {/* Seleção de Layouts */}
-          {setLayoutSelection && (
-            <CollapsibleSection title="DISTRIBUIÇÃO DE LAYOUTS" defaultOpen={false}>
-              <LayoutSelector
-                layoutSelection={layoutSelection}
-                setLayoutSelection={setLayoutSelection}
-                slideCount={slideCount}
-                brandColor={gradientColor1}
-                favorites={favorites}
-                onUseFavorite={onUseFavorite}
-                onRemoveFavorite={onRemoveFavorite}
-                onInjectSlide={onInjectSlide}
-                isInjecting={isInjecting}
-              />
-            </CollapsibleSection>
-          )}
-
-          {/* Slide Count */}
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <label className="alice-label mb-0">Slides a Gerar</label>
-              <span
-                className="font-bold px-2 py-0.5 rounded text-xs"
-                style={{
-                  backgroundColor: `${gradientColor1}20`,
-                  color: gradientColor1,
-                }}
-              >
-                {slideCount}
-              </span>
-            </div>
-            <input
-              type="range"
-              min={SLIDE_COUNT_RANGE.min}
-              max={SLIDE_COUNT_RANGE.max}
-              value={slideCount}
-              onChange={(e) => setSlideCount(parseInt(e.target.value))}
-              className="alice-range"
-            />
           </div>
-
-          {/* Error */}
-          {error && (
-            <div className="mt-4 p-4 bg-red-950/30 border border-red-900/50 rounded-xl flex items-start gap-3 text-red-400 text-xs font-mono">
-              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-              <p>{error}</p>
-            </div>
+            </>
           )}
 
-          {/* Generate Button */}
-          <button
-            onClick={onGenerate}
-            disabled={isGenerating}
-            className="alice-btn-primary mt-6"
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" /> Processando...
-              </>
-            ) : (
-              <>
-                <Send className="w-4 h-4" /> GERAR CARROSSEL
-              </>
+          {activeTab === 'layouts' && (
+             <div className="space-y-4">
+               {setLayoutSelection && (
+                 <CollapsibleSection title="DISTRIBUIÇÃO DE LAYOUTS" defaultOpen={true}>
+                   <LayoutSelector
+                     layoutSelection={layoutSelection}
+                     setLayoutSelection={setLayoutSelection}
+                     slideCount={slideCount}
+                     brandColor={gradientColor1}
+                     favorites={favorites}
+                     onUseFavorite={onUseFavorite}
+                     onRemoveFavorite={onRemoveFavorite}
+                     onInjectSlide={onInjectSlide}
+                     isInjecting={isInjecting}
+                   />
+                 </CollapsibleSection>
+               )}
+             </div>
+          )}
+
+          {activeTab === 'midia' && (
+             <div className="flex-1 h-full min-h-[200px] flex flex-col items-center justify-center">
+                <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2">
+                  <ImageIcon className="w-4 h-4" />
+                  Em breve!
+                </p>
+             </div>
+          )}
+        </div>
+
+        {/* Rodapé Fixo */}
+        <div className="shrink-0 p-6 lg:p-8 pt-6 border-t border-border-subtle bg-surface-dark space-y-4 z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+            {/* Slide Count */}
+            <div>
+              <div className="flex justify-between items-center mb-2">
+                <label className="alice-label mb-0">Slides a Gerar</label>
+                <span
+                  className="font-bold px-2 py-0.5 rounded text-xs"
+                  style={{
+                    backgroundColor: `${gradientColor1}20`,
+                    color: gradientColor1,
+                  }}
+                >
+                  {slideCount}
+                </span>
+              </div>
+              <input
+                type="range"
+                min={SLIDE_COUNT_RANGE.min}
+                max={SLIDE_COUNT_RANGE.max}
+                value={slideCount}
+                onChange={(e) => setSlideCount(parseInt(e.target.value))}
+                className="alice-range w-full"
+              />
+            </div>
+
+            {/* Error */}
+            {error && (
+              <div className="mt-4 p-4 bg-red-950/30 border border-red-900/50 rounded-xl flex items-start gap-3 text-red-400 text-xs font-mono">
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <p>{error}</p>
+              </div>
             )}
-          </button>
+
+            {/* Generate Button */}
+            <button
+              onClick={onGenerate}
+              disabled={isGenerating}
+              className="alice-btn-primary mt-6 !mb-2"
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" /> Processando...
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" /> GERAR CARROSSEL
+                </>
+              )}
+            </button>
+            <div className="w-full flex justify-center pt-2 border-t border-white/5">
+                <button 
+                  onClick={() => setIsSettingsOpen(true)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-white/5 transition-colors group"
+                >
+                  <Settings className="w-3.5 h-3.5 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-zinc-600 group-hover:text-zinc-400 transition-colors">Adapters & API</span>
+                </button>
+            </div>
         </div>
       </div>
-
-      <div className="mt-auto pt-6 border-t border-white/5">
-        <button 
-          onClick={() => setIsSettingsOpen(true)}
-          className="w-full flex items-center justify-center gap-2 p-3 rounded-lg border border-border-subtle bg-surface-input hover:border-white/20 hover:text-white transition-colors group"
-        >
-          <Settings className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
-          <span className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 group-hover:text-white transition-colors">Adapters & API</span>
-        </button>
-      </div>
-    </aside>
+    </div>
   );
 }
