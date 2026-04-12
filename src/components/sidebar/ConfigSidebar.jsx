@@ -114,7 +114,7 @@ export default function ConfigSidebar({
     if (!selectedElement.field) {
       return (
         <aside 
-          className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative"
+          className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative"
           style={{ '--sidebar-width': `${width}px` }}
         >
           <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg mb-1 border border-border-subtle">
@@ -283,7 +283,7 @@ export default function ConfigSidebar({
 
     return (
       <aside 
-        className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
+        className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
         style={{ '--sidebar-width': `${width}px` }}
       >
         <div className="flex items-center gap-3 underline-offset-4 decoration-white/20 mb-[-1rem]">
@@ -697,7 +697,7 @@ export default function ConfigSidebar({
   }
   return (
     <aside 
-      className="alice-sidebar-resizable border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
+      className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
       style={{ '--sidebar-width': `${width}px` }}
     >
       <div className="space-y-6">

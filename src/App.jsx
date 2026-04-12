@@ -491,7 +491,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
+      className="h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
       style={dynamicStyles}
     >
       {splashStep < 3 && <div className="fixed inset-0 z-[9998] bg-[#0d0d0d]" />}
