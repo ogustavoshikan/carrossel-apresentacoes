@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon, Camera } from 'lucide-react';
 
-export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl, onLogoChange }) {
+export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColorChange, appLogoUrl, onLogoChange }) {
   const [tab, setTab] = useState('google');
   const [googleKey, setGoogleKey] = useState('');
   const [openaiKey, setOpenaiKey] = useState('');
@@ -176,6 +176,20 @@ export default function SettingsModal({ isOpen, onClose, brandColor, appLogoUrl,
         <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6">
         {tab === 'identidade' && (
           <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200">
+            {/* Cor Destaque */}
+            <div>
+              <label className="alice-label">Cor Destaque</label>
+              <p className="text-xs text-zinc-500 font-mono mb-3">Cor principal da marca. Usada nos destaques, borders e acentos dos slides.</p>
+              <div className="flex gap-3 items-center bg-surface-input border border-border-subtle p-2 rounded-lg">
+                <input
+                  type="color"
+                  value={brandColor}
+                  onChange={(e) => onBrandColorChange && onBrandColorChange(e.target.value)}
+                  className="w-8 h-8 rounded cursor-pointer bg-transparent border-0 p-0 shrink-0"
+                />
+                <span className="text-[11px] font-mono text-zinc-300 uppercase tracking-widest">{brandColor}</span>
+              </div>
+            </div>
             <div>
               <label className="alice-label">Logo / Foto do Perfil</label>
               <p className="text-xs text-zinc-500 font-mono mb-4">Aparece na navbar. Se vazia, exibe o ícone padrão de confeitaria.</p>

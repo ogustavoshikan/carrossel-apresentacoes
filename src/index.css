@@ -42,8 +42,8 @@ body {
 
 /* Estilo global para scrollbars (Navegador) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -52,28 +52,33 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #555;
 }
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 
 /* Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: #333 transparent; */
 }
 
 .custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: #333 transparent; */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -82,7 +87,18 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 20px;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Esconder as setas indicadoras do topo e base */
+.custom-scrollbar::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 /* ========================================
@@ -92,7 +108,7 @@ body {
 @layer components {
   /* Input base do Alice Studio */
   .alice-input {
-    @apply w-full bg-surface-input border border-border-subtle rounded-lg px-3 py-2 text-sm text-zinc-200 focus:outline-none transition-colors;
+    @apply w-full bg-surface-input border border-border-subtle rounded-lg px-3 py-2.5 text-xs text-zinc-200 focus:outline-none transition-colors;
   }
 
   .alice-input:focus {
@@ -101,7 +117,7 @@ body {
 
   /* Textarea base */
   .alice-textarea {
-    @apply w-full bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-y text-sm font-playfair italic;
+    @apply w-full min-h-[120px] bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-y text-xs font-playfair italic;
   }
 
   .alice-textarea::-webkit-scrollbar {
@@ -132,7 +148,7 @@ body {
 
   /* Label padrão uppercase */
   .alice-label {
-    @apply block text-label-xs text-zinc-500 font-bold uppercase tracking-wider mb-2;
+    @apply block text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-2;
   }
 
   /* Section header padrão */
@@ -142,8 +158,26 @@ body {
 
   /* Range slider padrão */
   .alice-range {
-    @apply w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer;
+    @apply w-full h-[4px] bg-zinc-800 rounded-lg appearance-none cursor-pointer;
     accent-color: var(--color-brand);
+  }
+
+  .alice-range::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-brand);
+    cursor: pointer;
+  }
+
+  .alice-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-brand);
+    cursor: pointer;
+    border: none;
   }
 
   /* Card wrapper */
@@ -153,7 +187,7 @@ body {
 
   /* Botão primário */
   .alice-btn-primary {
-    @apply w-full text-white font-outfit font-black text-label-md uppercase py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:brightness-110;
+    @apply w-full text-white font-outfit font-black text-[11px] tracking-widest uppercase py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:brightness-110;
     background-color: var(--color-brand);
   }
 

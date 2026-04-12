@@ -71,7 +71,7 @@ export default function App() {
   const [showSlideCounter, setShowSlideCounter] = useState(true);
   const [slideCounterPosition, setSlideCounterPosition] = useState('top-right');
 
-  const [sidebarWidth, setSidebarWidth] = useState(420);
+  const [sidebarWidth, setSidebarWidth] = useState(452);
   const [isResizingSidebar, setIsResizingSidebar] = useState(false);
   const [splashStep, setSplashStep] = useState(1);
 
@@ -646,6 +646,7 @@ export default function App() {
             isOpen={isSettingsOpen} 
             onClose={() => setIsSettingsOpen(false)} 
             brandColor={gradientColor1}
+            onBrandColorChange={setGradientColor1}
             appLogoUrl={appLogoUrl}
             onLogoChange={(url) => {
               setAppLogoUrl(url);

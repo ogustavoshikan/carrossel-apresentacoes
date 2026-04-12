@@ -36,11 +36,11 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-3.5 bg-white/5 hover:bg-white/10 transition-colors"
       >
-        <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400">{title}</span>
+        <span className="text-[11px] font-bold tracking-widest uppercase text-zinc-400">{title}</span>
         {isOpen ? <ChevronDown className="w-4 h-4 text-zinc-500" /> : <ChevronRight className="w-4 h-4 text-zinc-500" />}
       </button>
       {isOpen && (
-        <div className="p-3.5 pt-0 flex flex-col gap-3 mt-3">
+        <div className="p-4 pt-0 flex flex-col gap-4 mt-3">
           {children}
         </div>
       )}
@@ -700,44 +700,44 @@ export default function ConfigSidebar({
   return (
     <div className="flex h-full alice-sidebar-resizable border-r border-border-subtle bg-surface-dark z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
       {/* NavBar */}
-      <div className="w-[76px] shrink-0 border-r border-border-subtle bg-black/20 flex flex-col items-center py-6 gap-4 z-50">
+      <div className="w-[72px] shrink-0 border-r border-border-subtle bg-black/20 flex flex-col items-center py-6 px-2 gap-4 z-50">
         <button 
           onClick={() => setActiveTab('ajustes')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'ajustes' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-xl transition-all ${activeTab === 'ajustes' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
         >
-          <Settings2 className="w-5 h-5" />
-          <span className="text-[9px] uppercase tracking-widest font-bold">Ajustes</span>
+          <Settings2 size={24} />
+          <span className="text-[9px] font-bold tracking-wide mt-1">Ajustes</span>
         </button>
         <button 
           onClick={() => setActiveTab('layouts')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'layouts' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-xl transition-all ${activeTab === 'layouts' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
         >
-          <LayoutTemplate className="w-5 h-5" />
-          <span className="text-[9px] uppercase tracking-widest font-bold">Layouts</span>
+          <LayoutTemplate size={24} />
+          <span className="text-[9px] font-bold tracking-wide mt-1">Layouts</span>
         </button>
         <div className="w-8 h-px bg-white/10 my-2" />
         <button 
           onClick={() => setActiveTab('midia')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-[60px] py-3 rounded-xl transition-all ${activeTab === 'midia' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-xl transition-all ${activeTab === 'midia' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
         >
-          <ImageIcon className="w-5 h-5" />
-          <span className="text-[9px] uppercase tracking-widest font-bold">Mídia</span>
+          <ImageIcon size={24} />
+          <span className="text-[9px] font-bold tracking-wide mt-1">Mídia</span>
         </button>
 
-        <div className="mt-auto pb-2">
+        <div className="mt-auto pb-2 w-full">
           <button 
             onClick={() => setIsSettingsOpen(true)}
-            className="p-3 rounded-xl transition-all text-zinc-500 hover:bg-white/5 hover:text-white"
+            className="p-3 w-full flex justify-center rounded-xl transition-all text-zinc-500 hover:bg-white/5 hover:text-white"
             title="Adapters & API"
           >
-            <Settings className="w-5 h-5" />
+            <Settings size={24} />
           </button>
         </div>
       </div>
 
       {/* Content Panel */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative">
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 lg:p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 space-y-6">
           {activeTab === 'ajustes' && (
             <>
               {/* === Section: Alice Setup === */}
@@ -819,95 +819,75 @@ export default function ConfigSidebar({
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="alice-label">Selo Verificado</label>
+            <div className="flex flex-col gap-3">
+              {/* Selo Verificado */}
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] uppercase font-bold tracking-widest text-zinc-400 flex items-center gap-1.5">
+                  <BadgeCheck className="w-3.5 h-3.5" />
+                  Selo Verificado
+                </span>
                 <button
+                  role="switch"
+                  aria-checked={isVerified}
                   onClick={() => setIsVerified(!isVerified)}
-                  className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
-                    isVerified
-                      ? ''
-                      : 'bg-surface-input border-border-subtle text-zinc-500'
+                  className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                    isVerified ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
                   }`}
-                  style={
-                    isVerified
-                      ? {
-                          backgroundColor: `${gradientColor1}20`,
-                          borderColor: `${gradientColor1}50`,
-                          color: gradientColor1,
-                        }
-                      : {}
-                  }
+                  style={{ '--toggle-active': gradientColor1 }}
                 >
-                  <BadgeCheck className="w-4 h-4" />
-                  {isVerified ? 'ON' : 'OFF'}
+                  <span
+                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
+                      isVerified ? 'translate-x-4' : 'translate-x-0'
+                    }`}
+                  />
                 </button>
               </div>
-              <div>
-                <label className="alice-label">Contador</label>
+
+              {/* Contador */}
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] uppercase font-bold tracking-widest text-zinc-400">
+                  Contador
+                </span>
                 <button
+                  role="switch"
+                  aria-checked={showSlideCounter}
                   onClick={() => setShowSlideCounter(!showSlideCounter)}
-                  className={`w-full h-[38px] rounded-lg border text-[11px] uppercase tracking-widest font-bold transition-all flex items-center justify-center gap-2 ${
-                    showSlideCounter
-                      ? ''
-                      : 'bg-surface-input border-border-subtle text-zinc-500'
+                  className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                    showSlideCounter ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
                   }`}
-                  style={
-                    showSlideCounter
-                      ? {
-                          backgroundColor: `${gradientColor1}20`,
-                          borderColor: `${gradientColor1}50`,
-                          color: gradientColor1,
-                        }
-                      : {}
-                  }
+                  style={{ '--toggle-active': gradientColor1 }}
                 >
-                  {showSlideCounter ? 'ON' : 'OFF'}
+                  <span
+                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
+                      showSlideCounter ? 'translate-x-4' : 'translate-x-0'
+                    }`}
+                  />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Cor + Fontes (bloqueado) */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Fontes em linha única */}
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="alice-label">Cor Destaque</label>
-              <div className="flex gap-2 items-center bg-surface-input border border-border-subtle p-1.5 rounded-lg">
-                <input
-                  type="color"
-                  value={gradientColor1}
-                  onChange={(e) => setGradientColor1(e.target.value)}
-                  className="w-6 h-6 rounded cursor-pointer bg-transparent border-0 p-0"
-                />
-                <span className="text-[10px] font-mono text-zinc-400 uppercase">
-                  {gradientColor1}
-                </span>
-              </div>
+              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Título</label>
+              <select
+                value={titleFont}
+                onChange={(e) => setTitleFont(e.target.value)}
+                className="alice-input text-xs py-1.5 w-full"
+              >
+                {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+              </select>
             </div>
             <div>
-              <label className="alice-label">Fontes Extras</label>
-              <div className="flex flex-col gap-2">
-                <div>
-                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Título</label>
-                  <select
-                    value={titleFont}
-                    onChange={(e) => setTitleFont(e.target.value)}
-                    className="alice-input text-xs py-1.5"
-                  >
-                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
-                  <select
-                    value={textFont}
-                    onChange={(e) => setTextFont(e.target.value)}
-                    className="alice-input text-xs py-1.5"
-                  >
-                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
-                  </select>
-                </div>
-              </div>
+              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
+              <select
+                value={textFont}
+                onChange={(e) => setTextFont(e.target.value)}
+                className="alice-input text-xs py-1.5 w-full"
+              >
+                {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+              </select>
             </div>
           </div>
         </CollapsibleSection>
