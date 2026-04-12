@@ -31,16 +31,16 @@ import LayoutSelector from './LayoutSelector';
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
   return (
-    <div className="bg-surface-card border border-border-subtle rounded-xl overflow-hidden mb-4">
+    <div className="bg-surface-card border border-border-subtle rounded-xl overflow-hidden mb-2">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-4 bg-white/5 hover:bg-white/10 transition-colors"
+        className="w-full flex justify-between items-center p-3.5 bg-white/5 hover:bg-white/10 transition-colors"
       >
         <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400">{title}</span>
         {isOpen ? <ChevronDown className="w-4 h-4 text-zinc-500" /> : <ChevronRight className="w-4 h-4 text-zinc-500" />}
       </button>
       {isOpen && (
-        <div className="p-4 pt-0 flex flex-col gap-4 mt-4">
+        <div className="p-3.5 pt-0 flex flex-col gap-3 mt-3">
           {children}
         </div>
       )}
@@ -737,7 +737,7 @@ export default function ConfigSidebar({
 
       {/* Content Panel */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative">
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 lg:p-8 space-y-6">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 lg:p-6 space-y-4">
           {activeTab === 'ajustes' && (
             <>
               {/* === Section: Alice Setup === */}
