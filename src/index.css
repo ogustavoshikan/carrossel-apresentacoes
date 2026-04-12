@@ -188,6 +188,19 @@ body {
     @apply bg-zinc-800 w-1.5 !important;
   }
 
+  /* Botão de Colapsar Sidebar */
+  .alice-collapse-btn {
+    @apply hidden lg:flex fixed top-1/2 -translate-y-1/2 -translate-x-1/2 z-[110] w-6 h-10 bg-surface-dark border border-white/10 rounded-lg items-center justify-center text-white transition-all shadow-2xl cursor-pointer;
+  }
+
+  .alice-collapse-btn:hover {
+    @apply bg-zinc-800 border-white/20 scale-110;
+  }
+
+  .alice-collapse-btn.collapsed {
+    @apply translate-x-0 rounded-l-none;
+  }
+
   /* Sidebar Resizable support */
   .alice-sidebar-resizable {
     @apply w-full transition-[width] duration-75;

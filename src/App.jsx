@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { ChevronUp, ChevronDown, Cake, Star } from 'lucide-react';
+import { ChevronUp, ChevronDown, Cake, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useDragResize } from './hooks/useDragResize';
 import { generateCarouselContent, generateImageWithAI, generateSingleSlideContent } from './services/ai';
 import { exportAllToPNG, exportSlideToPNG } from './services/export';
@@ -37,6 +37,7 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
   const [selectedElement, setSelectedElement] = useState(null);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // Seleção de layouts (Fase 4)
   const [layoutSelection, setLayoutSelection] = useState({
@@ -557,63 +558,80 @@ export default function App() {
       {/* MAIN LAYOUT */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
         {/* Sidebar */}
-        <ConfigSidebar
-          width={sidebarWidth}
-          brandHandle={brandHandle}
-          setBrandHandle={setBrandHandle}
-          showBrandHandle={showBrandHandle}
-          setShowBrandHandle={setShowBrandHandle}
-          brandAvatar={brandAvatar}
-          setBrandAvatar={setBrandAvatar}
-          isVerified={isVerified}
-          setIsVerified={setIsVerified}
-          gradientColor1={gradientColor1}
-          setGradientColor1={setGradientColor1}
-          titleSizeScale={titleSizeScale}
-          setTitleSizeScale={setTitleSizeScale}
-          textSizeScale={textSizeScale}
-          setTextSizeScale={setTextSizeScale}
-          cardBorderRadius={cardBorderRadius}
-          setCardBorderRadius={setCardBorderRadius}
-          imageBorderRadius={imageBorderRadius}
-          setImageBorderRadius={setImageBorderRadius}
-          theme={theme}
-          setTheme={setTheme}
-          slideCount={slideCount}
-          setSlideCount={setSlideCount}
-          layoutSelection={layoutSelection}
-          setLayoutSelection={setLayoutSelection}
-          onGenerate={handleGenerate}
-          isGenerating={isGenerating}
-          error={error}
-          setIsSettingsOpen={setIsSettingsOpen}
-          selectedElement={selectedElement}
-          setSelectedElement={setSelectedElement}
-          slides={slides}
-          setSlides={setSlides}
-          onImageUpload={handleImageUpload}
-          onImagePosition={handleImagePosition}
-          onImageScale={handleImageScale}
-          onRemoveImage={handleRemoveImage}
-          titleFont={titleFont}
-          setTitleFont={setTitleFont}
-          textFont={textFont}
-          setTextFont={setTextFont}
-          favorites={favorites}
-          onUseFavorite={handleUseFavorite}
-          onRemoveFavorite={handleRemoveFavorite}
-          onInjectSlide={handleInjectSlide}
-          isInjecting={isInjecting}
-          showSlideCounter={showSlideCounter}
-          setShowSlideCounter={setShowSlideCounter}
-          slideCounterPosition={slideCounterPosition}
-          setSlideCounterPosition={setSlideCounterPosition}
-        />
+        <div 
+          className={`flex shrink-0 transition-all duration-300 ease-in-out overflow-hidden ${isSidebarCollapsed ? 'w-0' : ''}`}
+          style={{ width: isSidebarCollapsed ? 0 : sidebarWidth }}
+        >
+          <ConfigSidebar
+            width={sidebarWidth}
+            brandHandle={brandHandle}
+            setBrandHandle={setBrandHandle}
+            showBrandHandle={showBrandHandle}
+            setShowBrandHandle={setShowBrandHandle}
+            brandAvatar={brandAvatar}
+            setBrandAvatar={setBrandAvatar}
+            isVerified={isVerified}
+            setIsVerified={setIsVerified}
+            gradientColor1={gradientColor1}
+            setGradientColor1={setGradientColor1}
+            titleSizeScale={titleSizeScale}
+            setTitleSizeScale={setTitleSizeScale}
+            textSizeScale={textSizeScale}
+            setTextSizeScale={setTextSizeScale}
+            cardBorderRadius={cardBorderRadius}
+            setCardBorderRadius={setCardBorderRadius}
+            imageBorderRadius={imageBorderRadius}
+            setImageBorderRadius={setImageBorderRadius}
+            theme={theme}
+            setTheme={setTheme}
+            slideCount={slideCount}
+            setSlideCount={setSlideCount}
+            layoutSelection={layoutSelection}
+            setLayoutSelection={setLayoutSelection}
+            onGenerate={handleGenerate}
+            isGenerating={isGenerating}
+            error={error}
+            setIsSettingsOpen={setIsSettingsOpen}
+            selectedElement={selectedElement}
+            setSelectedElement={setSelectedElement}
+            slides={slides}
+            setSlides={setSlides}
+            onImageUpload={handleImageUpload}
+            onImagePosition={handleImagePosition}
+            onImageScale={handleImageScale}
+            onRemoveImage={handleRemoveImage}
+            titleFont={titleFont}
+            setTitleFont={setTitleFont}
+            textFont={textFont}
+            setTextFont={setTextFont}
+            favorites={favorites}
+            onUseFavorite={handleUseFavorite}
+            onRemoveFavorite={handleRemoveFavorite}
+            onInjectSlide={handleInjectSlide}
+            isInjecting={isInjecting}
+            showSlideCounter={showSlideCounter}
+            setShowSlideCounter={setShowSlideCounter}
+            slideCounterPosition={slideCounterPosition}
+            setSlideCounterPosition={setSlideCounterPosition}
+          />
+        </div>
+
+        {/* Toggle Sidebar Button */}
+        <button
+          onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+          className={`alice-collapse-btn ${isSidebarCollapsed ? 'collapsed' : ''}`}
+          style={{ 
+            left: isSidebarCollapsed ? '0' : `${sidebarWidth}px`,
+          }}
+          title={isSidebarCollapsed ? "Expandir Painel" : "Recolher Painel"}
+        >
+          {isSidebarCollapsed ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
+        </button>
 
         {/* Resize Handle */}
         <div 
-          onMouseDown={() => setIsResizingSidebar(true)}
-          className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''}`}
+          onMouseDown={() => !isSidebarCollapsed && setIsResizingSidebar(true)}
+          className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''} ${isSidebarCollapsed ? 'pointer-events-none opacity-0' : ''}`}
           style={{ '--color-handle': isResizingSidebar ? gradientColor1 : undefined }}
         >
           {/* O ::after no CSS já cuida da linha visual */}
