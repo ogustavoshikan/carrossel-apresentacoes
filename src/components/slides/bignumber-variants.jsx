@@ -78,7 +78,7 @@ function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor }) {
 // Número gigante + tag pill colorida + texto + imagem inferior arredondada.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant1({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -751,7 +751,7 @@ export function BigNumberVariant10({ data, index, brandColor, brandHandle, showB
 // Grid 2×2 com número em card colorido + tag + texto em cards separados.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant11({
-  data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
