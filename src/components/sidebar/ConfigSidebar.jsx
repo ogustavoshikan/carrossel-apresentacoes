@@ -723,6 +723,16 @@ export default function ConfigSidebar({
           <ImageIcon className="w-5 h-5" />
           <span className="text-[9px] uppercase tracking-widest font-bold">Mídia</span>
         </button>
+
+        <div className="mt-auto pb-2">
+          <button 
+            onClick={() => setIsSettingsOpen(true)}
+            className="p-3 rounded-xl transition-all text-zinc-500 hover:bg-white/5 hover:text-white"
+            title="Adapters & API"
+          >
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
       {/* Content Panel */}
@@ -1086,15 +1096,6 @@ export default function ConfigSidebar({
                 </>
               )}
             </button>
-            <div className="w-full flex justify-center pt-2 border-t border-white/5">
-                <button 
-                  onClick={() => setIsSettingsOpen(true)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-white/5 transition-colors group"
-                >
-                  <Settings className="w-3.5 h-3.5 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-zinc-600 group-hover:text-zinc-400 transition-colors">Adapters & API</span>
-                </button>
-            </div>
         </div>
       </div>
     </div>
