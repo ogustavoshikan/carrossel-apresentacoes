@@ -396,7 +396,7 @@ export function ComparisonVariant7(props) {
               const right = rightItems[i];
               return (
                 <div key={i} className="flex border-b border-white/5 last:border-0 items-stretch h-1/3 min-h-[60px]">
-                  <div className="w-1/2 p-2 px-4 text-center flex items-center justify-center gap-2">
+                  <div className="w-1/2 p-2 px-4 text-center flex items-center justify-center gap-2 bg-black/40">
                     {left && (
                       <>
                         <X className="w-4 h-4 text-zinc-600 shrink-0" />
@@ -404,7 +404,7 @@ export function ComparisonVariant7(props) {
                       </>
                     )}
                   </div>
-                  <div className="w-1/2 p-2 px-4 text-center border-l border-white/5 flex items-center justify-center gap-2 bg-[#0A0A0A]">
+                  <div className="w-1/2 p-2 px-4 text-center border-l border-white/5 flex items-center justify-center gap-2" style={{ backgroundColor: `${brandColor}20` }}>
                     {right && (
                       <>
                         <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: brandColor }} />

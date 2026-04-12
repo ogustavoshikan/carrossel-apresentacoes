@@ -74,47 +74,63 @@ export default function SlideComparison(props) {
           </h2>
         </SmartElement>
 
-        <div className="space-y-2">
-          {(data.items || [{ label: 'A', value: 'B', highlight: false }]).map((item, i) => (
-            <div
-              key={i}
-              className={`flex justify-between items-center p-3 rounded-slide-sm border transition-all duration-500 ${
-                item.highlight ? 'shadow-xl' : 'bg-white/5 border-white/5 opacity-40'
-              }`}
-              style={
-                item.highlight
-                  ? { backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` }
-                  : {}
-              }
-            >
-              <div className="flex flex-col gap-0.5 w-full">
-                <span
-                  contentEditable
-                  suppressContentEditableWarning
-                  onBlur={(e) => onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                  className={`font-outfit font-black text-[10px] tracking-widest uppercase outline-none block line-clamp-1 overflow-hidden ${
-                    !item.highlight ? 'text-zinc-500' : ''
-                  }`}
-                  style={item.highlight ? { color: brandColor } : {}}
-                >
-                  {item.label}
-                </span>
-                <span
-                  contentEditable
-                  suppressContentEditableWarning
-                  onBlur={(e) => onItemChange(index, i, 'value', e.currentTarget.innerText)}
-                  className={`font-playfair text-lg outline-none block line-clamp-2 overflow-hidden ${
-                    item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'
-                  }`}
-                >
-                  {item.value}
-                </span>
+        <div className="space-y-3 mt-4">
+          {(() => {
+            const items = data.items || [{ label: 'Mercado', value: 'Qualidade comum', highlight: false }, { label: 'Nós', value: 'Excelência garantida', highlight: true }];
+            const leftItems = items.filter(it => !it.highlight);
+            const rightItems = items.filter(it => it.highlight);
+            const rowCount = Math.max(leftItems.length, rightItems.length, 1);
+            
+            return Array.from({ length: rowCount }).map((_, i) => {
+              const left = leftItems[i];
+              const right = rightItems[i];
+  
+              return (
+                <div key={i} className="flex gap-3 w-full">
+                {left && (
+                  <div className="w-1/2 flex flex-col p-3 rounded-slide-sm border bg-white/5 border-white/5 opacity-40 justify-center">
+                    <span
+                      contentEditable suppressContentEditableWarning
+                      onBlur={(e) => onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'label', e.currentTarget.innerText)}
+                      className="font-outfit font-black text-[9px] tracking-widest uppercase outline-none block line-clamp-1 overflow-hidden text-zinc-500 mb-0.5"
+                    >
+                      {left.label}
+                    </span>
+                    <span
+                      contentEditable suppressContentEditableWarning
+                      onBlur={(e) => onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)}
+                      className="font-playfair text-[15px] outline-none block line-clamp-2 overflow-hidden text-zinc-400 italic"
+                    >
+                      {left.value}
+                    </span>
+                  </div>
+                )}
+                {right && (
+                  <div className="w-1/2 flex justify-between items-center p-3 rounded-slide-sm border shadow-xl transition-all duration-500" style={{ backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` }}>
+                    <div className="flex flex-col flex-1 pr-3">
+                      <span
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'label', e.currentTarget.innerText)}
+                        className="font-outfit font-black text-[9px] tracking-widest uppercase outline-none block line-clamp-1 overflow-hidden mb-0.5"
+                        style={{ color: brandColor }}
+                      >
+                        {right.label}
+                      </span>
+                      <span
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)}
+                        className="font-playfair text-[15px] outline-none block line-clamp-2 overflow-hidden text-white font-bold"
+                      >
+                        {right.value}
+                      </span>
+                    </div>
+                    <CheckCircle2 className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
+                  </div>
+                )}
               </div>
-              {item.highlight && (
-                <CheckCircle2 className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
-              )}
-            </div>
-          ))}
+            );
+          });
+        })()}
         </div>
       </div>
       <SlideFooterPlaceholder />
