@@ -606,16 +606,20 @@ export function ComparisonVariant11(props) {
           const left = leftItems[i];
           const right = rightItems[i];
           return (
-            <div key={i} className="relative w-full border-b border-black/10 pb-2 flex-shrink-0">
+            <div key={i} className="relative w-full border-b border-black/10 pb-4 pt-2 flex flex-col flex-shrink-0 mt-4">
               {left && (
-                <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-outfit font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block mr-4 z-0">
-                  {left.value}
-                </span>
+                <div className="w-full relative z-0 mb-[-0.5rem]">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-outfit font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block w-full pr-8">
+                    {left.value}
+                  </span>
+                </div>
               )}
               {right && (
-                <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="absolute -top-6 right-0 font-playfair italic font-bold text-2xl transform -rotate-2 w-3/4 max-w-[70%] text-right bg-[#E5E5E5] pl-4 z-10" style={{ color: brandColor }}>
-                  {right.value}
-                </span>
+                <div className="w-full flex justify-end z-10 relative mt-2">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair italic font-bold text-2xl transform -rotate-2 max-w-[85%] text-right bg-[#E5E5E5] pl-4" style={{ color: brandColor }}>
+                    {right.value}
+                  </span>
+                </div>
               )}
             </div>
           );

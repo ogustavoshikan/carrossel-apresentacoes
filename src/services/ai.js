@@ -50,7 +50,7 @@ LIMITES OBRIGATÓRIOS DE TEXTO (crítico para evitar overflow visual nos slides)
 - "content-split": tag máx 2 palavras, titulo máx 7 palavras (máx 2 linhas), texto_apoio máx 20 palavras (máx 3 linhas).
 - "big-number": titulo = APENAS o número ou símbolo (ex: "82%", "3x", "#1"), tag máx 3 palavras, texto_apoio máx 20 palavras (máx 3 linhas).
 - "quote": titulo máx 15 palavras (frase de impacto), texto_apoio máx 4 palavras (apenas nome/fonte).
-- "comparison": titulo máx 6 palavras, máx 3 itens no array, label máx 2 palavras, value máx 8 palavras por item.
+- "comparison": titulo máx 6 palavras, OBRIGATÓRIO: gere EXATAMENTE 6 itens no array, alternando rigorosamente entre 1 item Comum/Mercado (highlight: false) e 1 item Premium/Marca (highlight: true). NUNCA agrupe comparações usando a palavra 'vs' na mesma string. label máx 2 palavras, value máx 8 palavras por item.
 - "list": titulo máx 6 palavras, máx 3 itens no array, label máx 3 palavras, text máx 12 palavras por item.
 - "cta": titulo máx 5 palavras, texto_apoio máx 15 palavras, tag máx 2 palavras (ex: "ENCOMENDAR").
 Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais objetividade.`;
