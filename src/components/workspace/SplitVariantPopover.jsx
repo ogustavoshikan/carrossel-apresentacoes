@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Shuffle } from 'lucide-react';
 import { SPLIT_VARIANT_META } from '../slides/split-variants';
 
 /**
@@ -145,7 +145,7 @@ export default function SplitVariantPopover({ currentVariantIndex, onSelect, onC
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
         {/* Header */}
         <div className="flex items-center justify-between mb-3 relative">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 pr-12">
             <h4 className="text-[11px] font-outfit font-black uppercase tracking-widest text-zinc-400">
               Variante do Split
             </h4>
@@ -153,9 +153,22 @@ export default function SplitVariantPopover({ currentVariantIndex, onSelect, onC
               {currentVariantIndex === 0 ? 'Original' : SPLIT_VARIANT_META.find(v => v.id === currentVariantIndex)?.name}
             </span>
           </div>
-          <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800 absolute -right-2 -top-2">
-            <X size={14} />
-          </button>
+          <div className="absolute -right-2 -top-2 flex items-center gap-0.5">
+            <button 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                const randomIndex = Math.floor(Math.random() * SPLIT_VARIANT_META.length);
+                onSelect(SPLIT_VARIANT_META[randomIndex].id); 
+              }} 
+              className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800"
+              title="Variante Aleatória"
+            >
+              <Shuffle size={14} />
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800">
+              <X size={14} />
+            </button>
+          </div>
         </div>
 
         {/* Grid de variantes com Scroll */}

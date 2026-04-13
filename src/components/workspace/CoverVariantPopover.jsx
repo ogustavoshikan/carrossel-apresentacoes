@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Shuffle } from 'lucide-react';
 import { COVER_VARIANT_META } from '../slides/cover-variants';
 
 /**
@@ -284,7 +284,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            <div className="w-[1px] h-4 bg-white/40 ml-0.5 mt-2" />
            <div className="w-2 h-[1.5px] bg-white/60 mb-1" />
         </div>
-        <div className="flex-1 h-full grayscale opacity-60" style={{ background: img }} />
+        <div className="flex-1 h-full opacity-60" style={{ background: img }} />
         <div className="absolute top-1/2 left-2 w-[80%] h-[4px] bg-white rounded-full shadow-lg -translate-y-1/2" />
       </div>
     ),
@@ -323,7 +323,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         <div className="h-[55%] relative" style={{ background: accent }}>
            <div className="absolute top-1.5 left-1.5 w-4 h-[2px] bg-white/40" />
         </div>
-        <div className="h-[45%] grayscale" style={{ background: img }} />
+        <div className="h-[45%]" style={{ background: img }} />
         <div className="absolute top-1/2 left-1.5 w-[85%] flex flex-col gap-1.5 -translate-y-1/2">
            <div className="w-full h-[4px] bg-white rounded-full shadow-lg" />
            <div className="w-[60%] h-[3px] bg-white rounded-full shadow-md" />
@@ -387,7 +387,7 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
         {/* Header */}
         <div className="flex items-center justify-between mb-3 relative">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 pr-12">
             <h4 className="text-[11px] font-outfit font-black uppercase tracking-widest text-zinc-400">
               Variante da Capa
             </h4>
@@ -395,9 +395,22 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
               {currentVariantIndex === 0 ? 'Original' : COVER_VARIANT_META.find(v => v.id === currentVariantIndex)?.name}
             </span>
           </div>
-          <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800 absolute -right-2 -top-2">
-            <X size={14} />
-          </button>
+          <div className="absolute -right-2 -top-2 flex items-center gap-0.5">
+            <button 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                const randomIndex = Math.floor(Math.random() * COVER_VARIANT_META.length);
+                onSelect(COVER_VARIANT_META[randomIndex].id); 
+              }} 
+              className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800"
+              title="Variante Aleatória"
+            >
+              <Shuffle size={14} />
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800">
+              <X size={14} />
+            </button>
+          </div>
         </div>
 
         {/* Grid de variantes com Scroll */}

@@ -624,7 +624,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
       <div className="absolute top-0 right-0 w-full h-full opacity-20 blur-[100px] pointer-events-none" style={{ backgroundColor: brandColor }} />
       
       <div className="relative z-10 w-full aspect-square bg-white p-6 shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-sm flex flex-col">
-        <div className="flex-1 overflow-hidden relative grayscale">
+        <div className="flex-1 overflow-hidden relative">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="h-12 flex items-center justify-center pt-4">
@@ -1129,7 +1129,7 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
         <div className="w-8 h-[2px] bg-white mb-8" />
       </div>
       <div className="w-[55%] h-full shrink-0 relative bg-zinc-800 z-0">
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
       <div className="absolute top-1/2 left-[10%] -translate-y-1/2 z-20 w-[80%]">
         <SmartField field="texto_apoio" {...sp} className="mb-4">
@@ -1175,7 +1175,7 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
           </SmartField>
         </div>
         <div className="w-full h-[30%] shrink-0 bg-zinc-300 relative border-t-2" style={{ borderColor: brandColor }}>
-          <div className="absolute inset-0 bg-cover bg-center grayscale" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         </div>
       </div>
     </div>
@@ -1250,7 +1250,7 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
         <div className="absolute inset-0 z-10 opacity-20 mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(circle at 20% 150%, white 0%, transparent 60%)' }} />
       </div>
       <div className="w-full h-[45%] bg-zinc-300 relative shrink-0 z-0">
-        <div className="absolute inset-0 bg-cover bg-center grayscale" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full px-6 z-30">
         <SmartField field="titulo" {...sp}>
