@@ -164,6 +164,27 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 12: Glass List
+    12: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden p-2 gap-2" style={{ background: '#050505' }}>
+        <div className="flex items-center justify-center">
+          <div className="w-4 h-6 rounded-[2px]" style={{ background: accent, opacity: 0.9, boxShadow: `0 4px 8px ${accent}40` }} />
+        </div>
+        <div className="flex-1 bg-white/5 backdrop-blur-[2px] border border-white/10 rounded-lg p-1.5 flex flex-col justify-center gap-1">
+           <div className="w-4 h-[1px] bg-zinc-500 rounded-full" />
+           <div className="w-[85%] h-[1.5px] bg-white/70 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 13: Elegant Glow
+    13: (
+      <div className="w-full h-full flex flex-col items-center justify-center rounded-[3px] overflow-hidden p-2 relative" style={{ background: '#080808' }}>
+        <div className="absolute inset-0 opacity-10 blur-xl rounded-full scale-110" style={{ background: accent }} />
+        <div className="w-6 h-8 bg-white rounded-[2px] mb-2 relative z-10 shadow-lg" />
+        <div className="w-4 h-[1px] rounded-full relative z-10" style={{ background: accent }} />
+        <div className="w-[70%] h-[1.5px] bg-zinc-600 rounded-full mt-1 relative z-10" />
+      </div>
+    ),
   };
 
   return (

@@ -10,6 +10,7 @@ import { QUOTE_VARIANT_META } from '../slides/quote-variants';
 function VariantThumbnail({ variantId, brandColor, isSelected }) {
   const accent = brandColor;
   const dark = '#18181b';
+  const img = '#3f3f46';
 
   const layouts = {
     // 0: Original — centralizado fundo branco
@@ -125,6 +126,20 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
              <div className="w-[80%] h-[2.5px] bg-black rounded-full" />
              <div className="w-[50%] h-[2.5px] bg-black rounded-full" />
              <div className="w-[40%] h-[1.5px] bg-zinc-500 rounded-full mt-0.5" />
+           </div>
+        </div>
+      </div>
+    ),
+    // 12: Client Photo
+    12: (
+      <div className="w-full h-full flex flex-col justify-center rounded-[3px] overflow-hidden p-1.5 gap-1.5" style={{ background: '#050505' }}>
+        <div className="w-[85%] h-[2px] bg-white rounded-full self-center" />
+        <div className="w-[60%] h-[2px] bg-white rounded-full self-center" />
+        <div className="flex items-center gap-1 mt-1">
+           <div className="w-4 h-4 rounded-full" style={{ background: img }} />
+           <div className="flex flex-col gap-0.5">
+             <div className="w-6 h-[1.5px] bg-white/80 rounded-full" />
+             <div className="w-4 h-[1px] bg-zinc-500 rounded-full" />
            </div>
         </div>
       </div>

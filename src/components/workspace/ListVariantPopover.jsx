@@ -154,6 +154,34 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            <div className="w-[80%] h-[1px] bg-white/50" />
          </div>
       </div>
+    ),
+    // 12: Checklist Gold
+    12: (
+      <div className="w-full h-full flex flex-col justify-center rounded-[3px] bg-zinc-950 p-1.5 gap-1.5">
+         {[...Array(3)].map((_, i) => (
+           <div key={i} className="flex items-center gap-1.5">
+             <div className="w-2.5 h-2.5 rounded-full flex items-center justify-center" style={{ background: `${accent}20`, border: `0.5px solid ${accent}40` }}>
+               <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+             </div>
+             <div className="flex-1 flex flex-col gap-0.5">
+               <div className="w-[80%] h-[1px] bg-white/80" />
+               <div className="w-[40%] h-[0.5px] bg-white/30" />
+             </div>
+           </div>
+         ))}
+      </div>
+    ),
+    // 13: Step-by-Step
+    13: (
+      <div className="w-full h-full flex flex-col justify-center rounded-[3px] bg-[#080808] p-1.5 gap-2 relative overflow-hidden">
+         {[...Array(3)].map((_, i) => (
+           <div key={i} className="relative flex flex-col justify-center pl-4 border-l" style={{ borderColor: accent }}>
+             <div className="absolute -left-1 -top-1 opacity-10 font-black text-[14px]" style={{ color: accent }}>{i+1}</div>
+             <div className="w-[70%] h-[1.5px] bg-white/80 mb-0.5" />
+             <div className="w-[40%] h-[1px] bg-white/30" />
+           </div>
+         ))}
+      </div>
     )
   };
 

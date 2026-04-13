@@ -138,6 +138,216 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 11: Luxury Frame — image in white frame
+    11: (
+      <div className="w-full h-full flex items-center justify-center rounded-[3px] p-2 relative" style={{ background: dark }}>
+        <div className="absolute inset-0 opacity-20 blur-md" style={{ background: accent }} />
+        <div className="w-full h-full bg-white p-1 shadow-lg rounded-[1px] flex flex-col relative z-10">
+          <div className="flex-1" style={{ background: img }} />
+          <div className="h-2 flex items-center justify-center">
+            <div className="w-4 h-[1px] bg-black/20" />
+          </div>
+        </div>
+        <div className="absolute bottom-1 w-[70%] h-[3px] bg-white rounded-full z-20" />
+      </div>
+    ),
+    // 12: Diagonal Slice
+    12: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative" style={{ background: img }}>
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 origin-bottom-left -rotate-12 translate-y-1/2 w-[150%]" style={{ background: accent }} />
+        <div className="absolute bottom-2 left-1.5 w-[70%] h-[3px] bg-white rounded-full" />
+      </div>
+    ),
+    // 13: Bold Overlay
+    13: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden" style={{ background: dark }}>
+        <div className="h-[55%]" style={{ background: img }} />
+        <div className="h-[45%]" style={{ background: accent }}>
+           <div className="mt-4 ml-1.5 w-[40%] h-[2px] bg-white/40 rounded-full" />
+        </div>
+        <div className="absolute top-[45%] left-1.5 w-[75%] h-[4px] bg-white/90 rounded-full shadow-lg" />
+      </div>
+    ),
+    // 14: Top Block
+    14: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden" style={{ background: accent }}>
+        <div className="flex-1 p-1.5">
+          <div className="w-3 h-[1.5px] bg-white/50 mb-1" />
+          <div className="w-[80%] h-[3px] bg-white rounded-full" />
+          <div className="mt-1 w-[40%] h-[2px] bg-white/60 rounded-full" />
+        </div>
+        <div className="h-[30%] border-t-[2px] border-zinc-200" style={{ background: img }} />
+      </div>
+    ),
+    // 15: Center Card
+    15: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1" style={{ background: accent }}>
+        <div className="flex-1 flex flex-col bg-zinc-950 rounded-[2px] overflow-hidden">
+          <div className="h-[60%]" style={{ background: img }} />
+          <div className="flex-1 bg-white flex flex-col items-center justify-center gap-0.5">
+            <div className="w-[60%] h-[2px] bg-black/80 rounded-full" />
+            <div className="w-[40%] h-[1.5px] bg-black/30 rounded-full" />
+          </div>
+        </div>
+      </div>
+    ),
+    // 16: Bottom Gradient
+    16: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative" style={{ background: img }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="absolute inset-0 opacity-40" style={{ background: `linear-gradient(to top, ${accent}, transparent)` }} />
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[70%] flex flex-col items-center gap-1">
+          <div className="w-full h-[3px] bg-white rounded-full" />
+          <div className="w-[60%] h-[2px] bg-white/40 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 17: Minimal Side
+    17: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden" style={{ background: '#EBE9E1' }}>
+        <div className="w-[55%] p-1.5 flex flex-col justify-center gap-1">
+          <div className="w-3 h-[1.5px]" style={{ background: accent }} />
+          <div className="w-[85%] h-[3px] bg-black/80 rounded-full" />
+          <div className="w-[50%] h-[2px] bg-black/20 rounded-full" />
+        </div>
+        <div className="w-[45%]" style={{ background: img }} />
+      </div>
+    ),
+    // 18: Glassmorphism Center
+    18: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative flex items-center justify-center" style={{ background: dark }}>
+        <div className="absolute inset-0 opacity-40" style={{ background: img }} />
+        <div className="absolute w-6 h-6 rounded-full blur-md opacity-60" style={{ background: accent }} />
+        <div className="w-[80%] h-[50%] bg-white/10 backdrop-blur-[2px] border border-white/20 rounded-lg flex flex-col items-center justify-center gap-1 relative z-10">
+           <div className="w-[60%] h-[2.5px] bg-white/90 rounded-full" />
+           <div className="w-[40%] h-[1.5px] bg-white/40 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 19: Arch Featured
+    19: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5" style={{ background: '#fff' }}>
+        <div className="flex-1 rounded-t-full rounded-b-md border-[2px]" style={{ background: img, borderColor: accent }} />
+        <div className="h-6 flex flex-col items-center justify-center gap-1">
+          <div className="w-[70%] h-[2.5px] bg-black/80 rounded-full" />
+          <div className="w-[40%] h-[1.5px]" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 20: Rotating Polaroid
+    20: (
+      <div className="w-full h-full flex items-center justify-center rounded-[3px] overflow-hidden relative" style={{ background: '#fff' }}>
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }} />
+        <div className="w-[70%] h-[75%] bg-white shadow-md rotate-2 p-1 flex flex-col border border-zinc-100">
+           <div className="flex-1 bg-zinc-100" style={{ background: img }} />
+           <div className="h-3 flex items-center justify-center">
+             <div className="w-[60%] h-[1.5px] bg-black/20" />
+           </div>
+        </div>
+        <div className="absolute bottom-2 left-1 w-8 h-3 shadow-sm rotate-[-4deg]" style={{ background: accent }} />
+      </div>
+    ),
+    // 21: Diagonal Edge
+    21: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative flex flex-col justify-end p-2" style={{ background: accent }}>
+        <div className="absolute top-0 right-0 w-[140%] h-[60%] bg-black origin-top-right -rotate-12 overflow-hidden shadow-lg border-b-[2px] border-white">
+          <div className="absolute inset-0 opacity-60" style={{ background: img }} />
+        </div>
+        <div className="relative z-10">
+          <div className="w-[85%] h-[4px] bg-white rounded-full mb-1.5" />
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-[1.5px] bg-white" />
+            <div className="w-[40%] h-[1.5px] bg-white/60 rounded-full" />
+          </div>
+        </div>
+      </div>
+    ),
+    // 22: Header Minimal
+    22: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 bg-white">
+        <div className="flex justify-between items-center w-full">
+           <div className="w-4 h-[1px] bg-zinc-200" />
+           <div className="w-1 h-1 rounded-full bg-zinc-300" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center relative">
+          <div className="absolute -left-2 w-6 h-6 rounded-full blur-md opacity-30" style={{ background: accent }} />
+          <div className="w-full h-[4px] bg-black rounded-full mb-1" />
+          <div className="w-[50%] h-[2px] rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 23: Vertical Split
+    23: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden relative" style={{ background: '#fff' }}>
+        <div className="w-[40%] h-full flex flex-col justify-between p-1" style={{ background: accent }}>
+           <div className="w-[1px] h-4 bg-white/40 ml-0.5 mt-2" />
+           <div className="w-2 h-[1.5px] bg-white/60 mb-1" />
+        </div>
+        <div className="flex-1 h-full grayscale opacity-60" style={{ background: img }} />
+        <div className="absolute top-1/2 left-2 w-[80%] h-[4px] bg-white rounded-full shadow-lg -translate-y-1/2" />
+      </div>
+    ),
+    // 24: Grid Process
+    24: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden p-2 flex flex-col relative bg-white border border-zinc-100">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${accent} 1px, transparent 1px), linear-gradient(90deg, ${accent} 1px, transparent 1px)`, backgroundSize: '6px 6px' }} />
+        <div className="flex justify-between items-center mb-auto relative z-10">
+           <div className="w-3 h-3 rounded-full border border-zinc-300" />
+           <div className="w-4 h-[1px] bg-zinc-300" />
+        </div>
+        <div className="w-full h-[4px] bg-black/80 rounded-full mb-2 relative z-10" />
+        <div className="w-full h-[30%] border-t" style={{ background: img, borderColor: accent }} />
+      </div>
+    ),
+    // 25: Frosted Float
+    25: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative flex items-center justify-center" style={{ background: dark }}>
+        <div className="absolute inset-0 opacity-50 blur-[1px]" style={{ background: img }} />
+        <div className="w-[85%] h-[75%] bg-white/20 backdrop-blur-[2px] border border-white/30 rounded-lg p-1.5 flex flex-col justify-between shadow-xl">
+           <div className="flex justify-between items-center">
+             <div className="w-3 h-[1px] bg-white/60" />
+             <div className="w-2 h-[1px] bg-white/40" />
+           </div>
+           <div className="flex flex-col items-center gap-0.5">
+             <div className="w-4 h-[1.5px] bg-white/60 rounded-full" />
+             <div className="w-[80%] h-[3px] bg-white rounded-full" />
+           </div>
+           <div className="w-3 h-3 rounded-full bg-white/20 border border-white/10 self-center" />
+        </div>
+      </div>
+    ),
+    // 26: Overlay Volume
+    26: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative" style={{ background: '#fff' }}>
+        <div className="h-[55%] relative" style={{ background: accent }}>
+           <div className="absolute top-1.5 left-1.5 w-4 h-[2px] bg-white/40" />
+        </div>
+        <div className="h-[45%] grayscale" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1.5 w-[85%] flex flex-col gap-1.5 -translate-y-1/2">
+           <div className="w-full h-[4px] bg-white rounded-full shadow-lg" />
+           <div className="w-[60%] h-[3px] bg-white rounded-full shadow-md" />
+        </div>
+      </div>
+    ),
+    // 27: Slanted New
+    27: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative" style={{ background: '#fff' }}>
+        <div className="absolute inset-0 h-[70%] bg-zinc-800" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 65%, 0 85%)' }}>
+          <div className="absolute inset-0 opacity-60" style={{ background: img }} />
+        </div>
+        <div className="relative z-10 p-1.5 flex flex-col h-full">
+           <div className="w-3 h-3 rounded-full bg-white shadow-sm flex items-center justify-center">
+             <div className="w-1.5 h-1.5 bg-black rounded-full" />
+           </div>
+           <div className="mt-auto flex flex-col items-end gap-0.5 mb-4">
+             <div className="w-[40%] h-[1.5px] bg-zinc-400 rounded-full" />
+             <div className="w-[85%] h-[3.5px] bg-black rounded-full" />
+           </div>
+           <div className="w-full h-[1px] bg-zinc-200" />
+        </div>
+      </div>
+    ),
   };
 
   return (

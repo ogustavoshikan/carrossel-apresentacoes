@@ -95,6 +95,17 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 7: Fashion Overlap
+    7: (
+      <div className="w-full h-full flex items-center justify-center rounded-[3px] overflow-hidden p-2 relative" style={{ background: '#0A0A0A' }}>
+        <div className="w-full h-[80%] bg-white rounded-xl shadow-lg flex flex-col items-center justify-center p-1.5 gap-1 relative">
+           <div className="w-[30%] h-[1.5px] rounded-full" style={{ background: accent }} />
+           <div className="w-[80%] h-[3px] bg-black/80 rounded-full" />
+           <div className="w-[60%] h-[1.5px] bg-black/20 rounded-full" />
+           <div className="absolute -top-2 -right-1 w-5 h-5 rounded-full border border-white shadow-md overflow-hidden" style={{ background: img }} />
+        </div>
+      </div>
+    ),
   };
 
   return (
