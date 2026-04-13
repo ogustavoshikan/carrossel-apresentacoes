@@ -592,6 +592,95 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 11 — Luxury Frame
+// Imagem dentro de moldura com sombra profunda e título sobreposto
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant11({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#0A0A0A] flex flex-col items-center justify-center p-12 overflow-hidden text-center">
+      {/* Background Glow */}
+      <div className="absolute top-0 right-0 w-full h-full opacity-20 blur-[100px] pointer-events-none" style={{ backgroundColor: brandColor }} />
+      
+      <div className="relative z-10 w-full aspect-square bg-white p-6 shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-sm flex flex-col">
+        <div className="flex-1 overflow-hidden relative grayscale">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="h-12 flex items-center justify-center pt-4">
+          <span className="font-playfair italic text-zinc-400 text-[10px] tracking-widest uppercase">Alice Studio Premium Editorial</span>
+        </div>
+      </div>
+
+      <div className="absolute bottom-20 left-0 w-full px-8 z-20 pointer-events-none">
+        <SmartField field="titulo" {...sp} className="pointer-events-auto">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white tracking-tighter drop-shadow-2xl outline-none leading-[0.8]"
+            style={{ fontSize: `${80 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 12 — Diagonal Slice
+// Divisão diagonal dinâmica entre cor e imagem
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-black flex flex-col overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      <div 
+        className="absolute inset-0 z-10 origin-bottom-left -rotate-[15deg] translate-y-1/2 h-[150%] w-[150%]"
+        style={{ backgroundColor: brandColor }}
+      />
+
+      <div className="relative z-20 flex-1 flex flex-col justify-end p-12 pb-20">
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="text-white font-outfit font-black tracking-tighter leading-none outline-none mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+            style={{ fontSize: `${90 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+
+        <div className="w-16 h-1 bg-white/40 mb-6" />
+
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/90 font-playfair italic outline-none max-w-[280px]"
+            style={{ fontSize: `${24 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -606,6 +695,8 @@ export const COVER_VARIANT_COMPONENTS = {
   8: CoverVariant8,
   9: CoverVariant9,
   10: CoverVariant10,
+  11: CoverVariant11,
+  12: CoverVariant12,
 };
 
 export const COVER_VARIANT_META = [
@@ -620,5 +711,7 @@ export const COVER_VARIANT_META = [
   { id: 8, name: 'Acento Lateral', description: 'Borda lateral colorida' },
   { id: 9, name: 'Spotlight', description: 'Card branco com watermark' },
   { id: 10, name: 'Bottom Minimal', description: 'Texto inferior minimalista' },
+  { id: 11, name: 'Luxury Frame', description: 'Moldura branca com sombra profunda' },
+  { id: 12, name: 'Diagonal Slice', description: 'Corte diagonal dinâmico' },
 ];
 

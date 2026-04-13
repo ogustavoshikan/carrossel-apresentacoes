@@ -362,6 +362,67 @@ export function ListVariant11(props) {
   );
 }
 
+export function ListVariant12(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const items = data.items || [{ label: 'Item', text: 'Text' }];
+
+  return (
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      
+      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+        <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-10 shrink-0 w-full" />
+        
+        <div className="space-y-4 flex-1 overflow-hidden pr-2 flex flex-col justify-center">
+          {items.map((item, i) => (
+            <div key={i} className="flex gap-5 items-center bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-all group overflow-hidden">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: `${brandColor}20`, border: `1px solid ${brandColor}40` }}>
+                <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-[12px] uppercase tracking-[0.15em] outline-none line-clamp-1 truncate">{item.label}</h4>
+                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-xs leading-snug outline-none line-clamp-3 italic break-words max-w-full">
+                  {item.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant13(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const items = data.items || [{ label: 'Item', text: 'Text' }];
+
+  return (
+    <div className="w-full h-full bg-[#080808] flex flex-col p-12 relative overflow-hidden">
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      
+      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+        <ListTitle data={data} index={index} scale={sTitle * 1.2} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-12 shrink-0 w-full" />
+        
+        <div className="space-y-12 flex-1 overflow-hidden pr-2 pt-10 flex flex-col justify-center">
+          {items.map((item, i) => (
+            <div key={i} className="relative flex flex-col justify-center min-h-[60px] group">
+              {/* Ajustado posicionamento para não cortar o número */}
+              <div className="absolute -left-4 -top-12 font-outfit font-black text-[100px] leading-none opacity-10 pointer-events-none select-none italic" style={{ color: brandColor }}>0{i + 1}</div>
+              <div className="relative z-10 pl-12 border-l-2" style={{ borderColor: brandColor }}>
+                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-lg uppercase tracking-tighter mb-1 outline-none line-clamp-1">{item.label}</h4>
+                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-relaxed outline-none line-clamp-2 italic break-words max-w-[90%]">{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -378,6 +439,8 @@ export const LIST_VARIANT_COMPONENTS = {
   9: ListVariant9,
   10: ListVariant10,
   11: ListVariant11,
+  12: ListVariant12,
+  13: ListVariant13,
 };
 
 export const LIST_VARIANT_META = [
@@ -393,4 +456,6 @@ export const LIST_VARIANT_META = [
   { id: 9, nome: 'Grid Mode', badge: null },
   { id: 10, nome: 'Staggered', badge: null },
   { id: 11, nome: 'Badges', badge: 'PRO' },
+  { id: 12, nome: 'Checklist Gold', badge: 'NEW' },
+  { id: 13, nome: 'Step-by-Step', badge: 'NEW' },
 ];

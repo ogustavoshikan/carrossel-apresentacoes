@@ -826,6 +826,117 @@ export function BigNumberVariant11({
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 12 — Glass List
+// Número gigante lateral + card de texto glassmorphic vertical
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant12(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-[#050505] flex relative overflow-hidden p-12">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      {/* Background Decorativo */}
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 blur-[120px] opacity-20 rounded-full" style={{ backgroundColor: brandColor }} />
+
+      <div className="flex-1 flex items-center relative z-10 gap-8 mt-12">
+        <SmartField field="titulo" {...sp} className="shrink-0">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black tracking-tighter leading-none outline-none block"
+            style={{ fontSize: `${160 * sTitle}px`, color: brandColor, textShadow: `0 20px 40px ${brandColor}40` }}
+          >
+            {data.titulo}
+          </span>
+        </SmartField>
+
+        <div className="flex-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 shadow-2xl">
+          <SmartField field="tag" {...sp} className="mb-4">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[10px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
+            >
+              {data.tag || 'INSIGHT'}
+            </span>
+          </SmartField>
+
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair text-white italic leading-relaxed outline-none break-words max-w-full"
+              style={{ fontSize: `${22 * sText}px` }}
+            >
+              "{data.texto_apoio}"
+            </p>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 13 — Elegant Glow
+// Número centralizado com preenchimento branco e glow externo
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant13(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
+
+      <div className="relative mb-12">
+        <div className="absolute inset-0 blur-[60px] opacity-40 rounded-full" style={{ backgroundColor: brandColor }} />
+        <SmartField field="titulo" {...sp} className="relative z-10">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white tracking-tighter leading-none outline-none block italic"
+            style={{ fontSize: `${180 * sTitle}px` }}
+          >
+            {data.titulo}
+          </span>
+        </SmartField>
+      </div>
+
+      <SmartField field="tag" {...sp} className="mb-6">
+        <span
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+          className="font-outfit font-black text-[14px] tracking-[0.5em] uppercase outline-none block"
+          style={{ color: brandColor }}
+        >
+          {data.tag || 'HIGHLIGHT'}
+        </span>
+      </SmartField>
+
+      <SmartField field="texto_apoio" {...sp} className="max-w-[85%]">
+        <p
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-playfair text-zinc-400 outline-none leading-relaxed"
+          style={{ fontSize: `${20 * sText}px` }}
+        >
+          {data.texto_apoio}
+        </p>
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -841,6 +952,8 @@ export const BIGNUMBER_VARIANT_COMPONENTS = {
   9: BigNumberVariant9,
   10: BigNumberVariant10,
   11: BigNumberVariant11,
+  12: BigNumberVariant12,
+  13: BigNumberVariant13,
 };
 
 export const BIGNUMBER_VARIANT_META = [
@@ -856,5 +969,7 @@ export const BIGNUMBER_VARIANT_META = [
   { id: 9,  name: 'Sidebar',       description: 'Faixa lateral colorida com número rotacionado' },
   { id: 10, name: 'Magazine',      description: 'Imagem superior + número sobreposto + cor' },
   { id: 11, name: 'Bento Grid',    description: 'Grid com número, tag e texto em cards' },
+  { id: 12, name: 'Glass List',    description: 'Número lateral + card glassmorphic vertical' },
+  { id: 13, name: 'Elegant Glow',  description: 'Número central branco com glow da marca' },
 ];
 

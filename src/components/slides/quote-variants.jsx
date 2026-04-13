@@ -367,6 +367,81 @@ function QuoteVariant11({ data, index, brandHandle, brandAvatar, brandColor, tit
   );
 }
 
+function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showBrandHandle, showSlideCounter, slideCounterPosition }) {
+  const tScale = titleScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
+
+  return (
+    <div className="w-full h-full bg-[#050505] flex flex-col p-12 justify-center items-center relative overflow-hidden">
+      {/* Cabeçalho Padronizado: Handle + Selo + Contador */}
+      <SlideHeader 
+        data={data} 
+        slideIndex={index} 
+        onActionStart={onActionStart} 
+        selectedElement={selectedElement} 
+        onSelectElement={onSelectElement} 
+        index={index + 1} 
+        total={slideCount} 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified} 
+        showSlideCounter={showSlideCounter} 
+        slideCounterPosition={slideCounterPosition} 
+      />
+
+      {/* Background Premium: Gradiente de profundidade com luz suave da cor da marca */}
+      <div className="absolute inset-0 bg-neutral-950 z-[0]" />
+      <div className="absolute -top-[20%] -right-[20%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-20" style={{ backgroundColor: brandColor }} />
+      <div className="absolute -bottom-[20%] -left-[20%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-10" style={{ backgroundColor: brandColor }} />
+      
+      {/* Pattern de luxo sutil */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+
+      <div className="relative z-10 w-full max-w-[460px]">
+        {/* Balão de Depoimento - Estilo Glassmorphism White */}
+        <div className="bg-white rounded-[3rem] rounded-bl-none p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative mb-10 border-b-[12px]" style={{ borderColor: `${brandColor}CC` }}>
+          <Quote className="absolute -top-5 -left-5 w-14 h-14 p-3 bg-black rounded-2xl text-white border-4 border-white shadow-2xl" style={{ backgroundColor: brandColor }} />
+          
+          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 w-full">
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-bold text-zinc-900 outline-none leading-relaxed tracking-tight" style={{ fontSize: `${26 * tScale}px` }}>
+              "{data.titulo}"
+            </h2>
+          </SmartElement>
+        </div>
+
+        {/* Perfil do Cliente Estilizado */}
+        <div className="flex items-center gap-5 pl-6">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full blur-md opacity-50" style={{ backgroundColor: brandColor }} />
+            <div className="w-16 h-16 rounded-full border-4 border-white/10 shadow-2xl overflow-hidden shrink-0 relative z-10">
+              {data.imageUrl ? (
+                <img src={data.imageUrl} alt="client" className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-white/20 uppercase font-black text-[8px]">No Photo</div>
+              )}
+            </div>
+          </div>
+          
+          <div className="flex flex-col">
+            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-base tracking-[0.1em] uppercase text-white outline-none block">
+                {data.texto_apoio}
+              </span>
+            </SmartElement>
+            <div className="flex items-center gap-2 mt-1">
+              <div className="w-3 h-[1px] bg-zinc-600" />
+              <span className="font-outfit text-[10px] text-zinc-500 uppercase tracking-[0.2em] font-black">Cliente Satisfeito</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /**
  * ─────────────────────────────────────────────────────────────────
  * EXPORT E MAPEAMENTO
@@ -385,6 +460,7 @@ export const QUOTE_VARIANT_COMPONENTS = {
   9: QuoteVariant9,
   10: QuoteVariant10,
   11: QuoteVariant11,
+  12: QuoteVariant12,
 };
 
 export const QUOTE_VARIANT_META = [
@@ -399,6 +475,7 @@ export const QUOTE_VARIANT_META = [
   { id: 8, name: 'Vertical Auth', description: 'Sidebar esticada colorida com autor rotacionado' },
   { id: 9, name: 'Gradient Text', description: 'Texto gigante com preenchimento em gradiente brilhante' },
   { id: 10, name: 'Glass Card', description: 'Card vidro desfocado em fundo fotográfico' },
-  { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo' }
+  { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo' },
+  { id: 12, name: 'Social Proof', description: 'Depoimento premium com balão e avatar' }
 ];
 
