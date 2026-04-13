@@ -112,7 +112,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     ),
     // 8: Outline Float — número outline + imagem + texto
     8: (
-      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5" style={{ background: '#080808' }}>
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 relative" style={{ background: '#080808' }}>
         <div className="absolute right-0 top-[20%] opacity-80 font-black text-transparent border-r-0"
           style={{ WebkitTextStroke: `1px ${accent}`, fontSize: '32px', lineHeight: 1 }}>N</div>
         <div className="flex-1 flex flex-col justify-end gap-1">
