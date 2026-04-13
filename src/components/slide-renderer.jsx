@@ -13,14 +13,20 @@ import SlideCTA from './slides/SlideCTA';
  */
 
 const LAYOUT_MAP = {
-  cover: SlideCover,
+  'cover': SlideCover,
+  'cover-18': SlideCover,
+  'cover-19': SlideCover,
+  'cover-20': SlideCover,
+  'cover-21': SlideCover,
+  'cover-22': SlideCover,
   'content-split': SlideContentSplit,
   'big-number': SlideBigNumber,
-  quote: SlideQuote,
-  comparison: SlideComparison,
-  list: SlideList,
-  cta: SlideCTA,
+  'quote': SlideQuote,
+  'comparison': SlideComparison,
+  'list': SlideList,
+  'cta': SlideCTA,
 };
+
 
 export default function SlideRenderer({
   data,

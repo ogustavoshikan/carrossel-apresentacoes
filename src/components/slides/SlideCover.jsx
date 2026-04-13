@@ -22,9 +22,19 @@ export default function SlideCover({
   selectedElement,
   onSelectElement,
   showBrandHandle,
+  slideCount,
 }) {
-  // Delegação para variante visual (1-17)
-  const variantIndex = data.coverVariantIndex || 0;
+  // Delegação para variante visual (1-22)
+  let variantIndex = data.coverVariantIndex || 0;
+
+  // Suporte a layouts nomeados como 'cover-18', 'cover-19', etc.
+  if (variantIndex === 0 && data.layout && data.layout.startsWith('cover-')) {
+    const layoutIdx = parseInt(data.layout.replace('cover-', ''));
+    if (!isNaN(layoutIdx)) {
+      variantIndex = layoutIdx;
+    }
+  }
+
   if (variantIndex > 0 && COVER_VARIANT_COMPONENTS[variantIndex]) {
     const VariantComponent = COVER_VARIANT_COMPONENTS[variantIndex];
     return (
@@ -41,6 +51,7 @@ export default function SlideCover({
         onTextChange={onTextChange}
         selectedElement={selectedElement}
         onSelectElement={onSelectElement}
+        slideCount={slideCount}
       />
     );
   }

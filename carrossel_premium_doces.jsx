@@ -469,8 +469,142 @@ export default function App() {
     const renderVisualCard = (data, index) => {
         const sTitle = titleSizeScale / 100;
         const sText = textSizeScale / 100;
+        const slideData = data;
+        const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+        const bgBase = '#ffffff';
+
+        const TextWrapper = ({ as: Component = 'div', field, children, className, style, ...props }) => {
+            return (
+                <Component
+                    contentEditable
+                    suppressContentEditableWarning
+                    onBlur={(e) => handleSlideTextChange(index, field, e.currentTarget.innerText)}
+                    className={`outline-none ${className || ''}`}
+                    style={style}
+                    {...props}
+                >
+                    {children}
+                </Component>
+            );
+        };
 
         switch (data.layout) {
+            case 'cover-18':
+                return (
+                    <div className="w-full h-full relative overflow-hidden bg-black flex flex-col justify-center items-center p-6">
+                        <div className="absolute inset-0 z-0">
+                            <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{ backgroundColor: gradientColor1 }} />
+                        </div>
+                        <div className="relative z-10 w-full bg-white/10 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: '#DE1E4D50' }}>
+                            <SmartEl slideIndex={index} field="texto_apoio" className="mb-4">
+                                <TextWrapper as="span" field="texto_apoio" className="text-white tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{ fontFamily: titleFont, color: gradientColor1 }}>
+                                    {slideData.texto_apoio}
+                                </TextWrapper>
+                            </SmartEl>
+                            <SmartEl slideIndex={index} field="titulo" className="w-full">
+                                <TextWrapper as="h2" field="titulo" className="font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontFamily: titleFont, fontSize: `${42 * sTitle}px` }}>
+                                    {slideData.titulo}
+                                </TextWrapper>
+                            </SmartEl>
+                        </div>
+                        <div className="absolute bottom-8 w-full px-8 flex justify-between items-center z-10">
+                            <span className="font-bold tracking-widest text-[10px] text-white drop-shadow uppercase" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+                            <ArrowRight className="w-5 h-5 text-white drop-shadow" />
+                        </div>
+                    </div>
+                );
+
+            case 'cover-19':
+                return (
+                    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+                        <div className="w-full flex-1 rounded-t-full rounded-b-xl overflow-hidden bg-zinc-300 relative shadow-inner mb-6 border-[6px]" style={{ borderColor: gradientColor1 }}>
+                            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white px-4 py-1.5 rounded-t-xl text-[10px] font-bold uppercase tracking-widest" style={{ color: gradientColor1, fontFamily: titleFont }}>Featured</div>
+                        </div>
+                        <div className="w-full flex flex-col items-center text-center shrink-0 mb-4">
+                            <SmartEl slideIndex={index} field="titulo" className="w-full mb-2">
+                                <TextWrapper as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[1] tracking-tight whitespace-pre-line" style={{ fontFamily: titleFont, fontSize: `${38 * sTitle}px` }}>
+                                    {slideData.titulo}
+                                </TextWrapper>
+                            </SmartEl>
+                            <SmartEl slideIndex={index} field="texto_apoio">
+                                <TextWrapper as="span" field="texto_apoio" className="tracking-[0.2em] uppercase text-[9px] font-bold" style={{ color: gradientColor1, fontFamily: titleFont }}>
+                                    {slideData.texto_apoio}
+                                </TextWrapper>
+                            </SmartEl>
+                        </div>
+                    </div>
+                );
+
+            case 'cover-20':
+                return (
+                    <div className="w-full h-full p-6 flex flex-col items-center justify-center relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+                        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#1a1a1a 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+                        <div className="bg-white p-4 pb-12 shadow-2xl rotate-2 w-[90%] relative z-10 flex flex-col">
+                            <div className="w-full aspect-[4/5] bg-zinc-200 relative mb-5 border border-zinc-100">
+                                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+                            </div>
+                            <SmartEl slideIndex={index} field="titulo">
+                                <TextWrapper as="h2" field="titulo" className="font-black text-center text-[#1a1a1a] leading-[1.1] tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+                                    {slideData.titulo}
+                                </TextWrapper>
+                            </SmartEl>
+                        </div>
+                        <div className="absolute bottom-10 left-10 z-20 rotate-[-4deg]">
+                            <SmartEl slideIndex={index} field="texto_apoio">
+                                <TextWrapper as="span" field="texto_apoio" className="text-white px-4 py-1.5 font-bold text-[10px] uppercase tracking-[0.2em] shadow-lg" style={{ backgroundColor: gradientColor1, fontFamily: titleFont }}>
+                                    {slideData.texto_apoio}
+                                </TextWrapper>
+                            </SmartEl>
+                        </div>
+                    </div>
+                );
+
+            case 'cover-21':
+                return (
+                    <div className="w-full h-full relative overflow-hidden" style={{ backgroundColor: gradientColor1 }}>
+                        <div className="absolute top-0 right-0 w-[150%] h-[65%] bg-black origin-top-right -rotate-12 z-0 overflow-hidden shadow-2xl border-b-[12px] border-white">
+                            <div className="absolute inset-0 bg-cover bg-center opacity-80 rotate-12 scale-150" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+                        </div>
+                        <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end pb-12">
+                            <SmartEl slideIndex={index} field="titulo" className="w-full shrink-0 mb-4">
+                                <TextWrapper as="h2" field="titulo" className="font-black leading-[0.8] tracking-tighter text-white uppercase whitespace-pre-line drop-shadow-md" style={{ fontFamily: titleFont, fontSize: `${72 * sTitle}px` }}>
+                                    {slideData.titulo}
+                                </TextWrapper>
+                            </SmartEl>
+                            <div className="flex items-center gap-4">
+                                <div className="w-8 h-1 bg-white" />
+                                <SmartEl slideIndex={index} field="texto_apoio" className="shrink-0">
+                                    <TextWrapper as="p" field="texto_apoio" className="text-white tracking-[0.3em] text-[10px] font-bold uppercase" style={{ fontFamily: titleFont }}>
+                                        {slideData.texto_apoio}
+                                    </TextWrapper>
+                                </SmartEl>
+                            </div>
+                        </div>
+                    </div>
+                );
+
+            case 'cover-22':
+                return (
+                    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden" style={{ backgroundColor: bgBase }}>
+                        <SlideHeader index={slideData.slide || index + 1} total={slides.length} />
+                        <div className="flex-1 flex flex-col justify-center relative">
+                            <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: gradientColor1 }} />
+                            <SmartEl slideIndex={index} field="titulo" className="mb-6 z-10">
+                                <TextWrapper as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase break-words" style={{ fontFamily: titleFont, fontSize: `${80 * sTitle}px` }}>
+                                    {slideData.titulo}
+                                </TextWrapper>
+                            </SmartEl>
+                            <SmartEl slideIndex={index} field="texto_apoio" className="z-10">
+                                <TextWrapper as="p" field="texto_apoio" className="font-bold tracking-[0.3em] uppercase text-[12px]" style={{ color: gradientColor1, fontFamily: titleFont }}>
+                                    {slideData.texto_apoio}
+                                </TextWrapper>
+                            </SmartEl>
+                        </div>
+                    </div>
+                );
+
             case 'cover':
                 return (
                     <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image as ImageIcon, ArrowRight, BadgeCheck, ChevronRight } from 'lucide-react';
 import SmartElement from '../smart-element';
+import SlideHeader from '../slide-header';
 
 // ============================================================
-// ALICE STUDIO — COVER VARIANTS (1-10)
+// ALICE STUDIO — COVER VARIANTS (1-22)
 // Cada variante recebe as mesmas props do SlideCover e renderiza
 // um layout visual diferente, preservando dados dinâmicos.
 // ============================================================
@@ -25,6 +26,22 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
     >
       {children}
     </SmartElement>
+  );
+}
+
+// ─── Helper: TextWrapper ────────────────────────────────────
+function TextWrapper({ field, index, onTextChange, as: Component = 'div', className, style, children, ...props }) {
+  return (
+    <Component
+      contentEditable
+      suppressContentEditableWarning
+      onBlur={(e) => onTextChange(index, field, e.currentTarget.innerText)}
+      className={`outline-none ${className || ''}`}
+      style={style}
+      {...props}
+    >
+      {children}
+    </Component>
   );
 }
 
@@ -54,6 +71,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
     </div>
   );
 }
+
 
 // ─── Helper: BrandTag ───────────────────────────────────────
 // Badge do handle de marca no topo do slide.
@@ -915,6 +933,183 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 18 — Glassmorphism Center
+// Card central com backdrop blur sobre imagem com glow
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant18({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-black flex flex-col justify-center items-center p-6">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{ backgroundColor: brandColor }} />
+      </div>
+      <div className="relative z-10 w-full bg-white/10 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: `${brandColor}50` }}>
+        <SmartField field="texto_apoio" {...sp} className="mb-4">
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{ color: brandColor }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="titulo" {...sp} className="w-full">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontSize: `${42 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+      </div>
+      <div className="absolute bottom-8 w-full px-8 flex justify-between items-center z-10">
+        <span className="font-outfit font-bold tracking-widest text-[10px] text-white drop-shadow uppercase">{brandHandle || '@studio'}</span>
+        <ArrowRight className="w-5 h-5 text-white drop-shadow" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 19 — Arch Featured
+// Imagem em arco superior com badge central
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant19({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <div className="w-full flex-1 rounded-t-full rounded-b-xl overflow-hidden bg-zinc-300 relative shadow-inner mb-6 border-[6px]" style={{ borderColor: brandColor }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white px-4 py-1.5 rounded-t-xl text-[10px] font-bold uppercase tracking-widest font-outfit" style={{ color: brandColor }}>Featured</div>
+      </div>
+      <div className="w-full flex flex-col items-center text-center shrink-0 mb-4">
+        <SmartField field="titulo" {...sp} className="w-full mb-2">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[1] tracking-tight whitespace-pre-line" style={{ fontSize: `${38 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp}>
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit tracking-[0.2em] uppercase text-[9px] font-bold" style={{ color: brandColor }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 20 — Rotating Polaroid
+// Foto rotacionada com padrão de fundo e badge flutuante
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant20({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col items-center justify-center relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#1a1a1a 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+      <div className="bg-white p-4 pb-12 shadow-2xl rotate-2 w-[90%] relative z-10 flex flex-col">
+        <div className="w-full aspect-[4/5] bg-zinc-200 relative mb-5 border border-zinc-100">
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        </div>
+        <SmartField field="titulo" {...sp}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-center text-[#1a1a1a] leading-[1.1] tracking-tighter" style={{ fontSize: `${28 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+      </div>
+      <div className="absolute bottom-10 left-10 z-20 rotate-[-4deg]">
+        <SmartField field="texto_apoio" {...sp}>
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-white px-4 py-1.5 font-bold text-[10px] uppercase tracking-[0.2em] shadow-lg" style={{ backgroundColor: brandColor }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 21 — Diagonal Edge
+// Imagem superior diagonal com título gigante inferior
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant21({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden" style={{ backgroundColor: brandColor }}>
+      <div className="absolute top-0 right-0 w-[150%] h-[65%] bg-black origin-top-right -rotate-12 z-0 overflow-hidden shadow-2xl border-b-[12px] border-white">
+        <div className="absolute inset-0 bg-cover bg-center opacity-80 rotate-12 scale-150" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+      </div>
+      <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end pb-12">
+        <SmartField field="titulo" {...sp} className="w-full shrink-0 mb-4">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter text-white uppercase whitespace-pre-line drop-shadow-md" style={{ fontSize: `${72 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-1 bg-white" />
+          <SmartField field="texto_apoio" {...sp} className="shrink-0">
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-white tracking-[0.3em] text-[10px] font-bold uppercase">
+              {slideData.texto_apoio}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 22 — Header Minimal
+// Header padrão + título gigante centrado com glow lateral
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant22({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <SlideHeader currentIndex={slideData.slide || index + 1} total={slideCount} />
+      <div className="flex-1 flex flex-col justify-center relative">
+        <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: brandColor }} />
+        <SmartField field="titulo" {...sp} className="mb-6 z-10">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase break-words" style={{ fontSize: `${80 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="z-10">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit font-bold tracking-[0.3em] uppercase text-[12px]" style={{ color: brandColor }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// REGISTRO DE VARIANTES
+// ═══════════════════════════════════════════════════════════
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -933,6 +1128,11 @@ export const COVER_VARIANT_COMPONENTS = {
   15: CoverVariant15,
   16: CoverVariant16,
   17: CoverVariant17,
+  18: CoverVariant18,
+  19: CoverVariant19,
+  20: CoverVariant20,
+  21: CoverVariant21,
+  22: CoverVariant22,
 };
 
 export const COVER_VARIANT_META = [
@@ -954,5 +1154,11 @@ export const COVER_VARIANT_META = [
   { id: 15, name: 'Center Card', description: 'Imagem superior e card central' },
   { id: 16, name: 'Bottom Gradient', description: 'Imagem full com gradient colorido' },
   { id: 17, name: 'Minimal Side', description: 'Divisão lateral limpa' },
+  { id: 18, name: 'Glassmorphism Center', description: 'Card com blur sobre glow' },
+  { id: 19, name: 'Arch Featured', description: 'Imagem em arco com badge' },
+  { id: 20, name: 'Rotating Polaroid', description: 'Polaroid com padrão radial' },
+  { id: 21, name: 'Diagonal Edge', description: 'Corte diagonal com título gigante' },
+  { id: 22, name: 'Header Minimal', description: 'Título uppercase com glow lateral' },
 ];
+
 
