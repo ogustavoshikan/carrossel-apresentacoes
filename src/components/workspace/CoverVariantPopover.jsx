@@ -161,7 +161,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     ),
     // 13: Bold Overlay
     13: (
-      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden" style={{ background: dark }}>
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative" style={{ background: dark }}>
         <div className="h-[55%]" style={{ background: img }} />
         <div className="h-[45%]" style={{ background: accent }}>
            <div className="mt-4 ml-1.5 w-[40%] h-[2px] bg-white/40 rounded-full" />
