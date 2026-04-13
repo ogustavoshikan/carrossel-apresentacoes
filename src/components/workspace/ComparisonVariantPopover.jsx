@@ -183,7 +183,7 @@ export default function ComparisonVariantPopover({ currentVariantIndex, onSelect
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[60] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
@@ -202,15 +202,15 @@ export default function ComparisonVariantPopover({ currentVariantIndex, onSelect
           </button>
         </div>
 
-        {/* Grid de variantes */}
-        <div className="grid grid-cols-4 gap-2.5">
+        {/* Grid de variantes com Scroll */}
+        <div className="grid grid-cols-4 gap-2.5 max-h-[320px] overflow-y-auto pr-1.5 custom-scrollbar">
           {COMPARISON_VARIANT_META.map((variant) => (
             <button
               key={variant.id}
               onClick={() => {
                 onSelect(variant.id);
               }}
-              className="flex flex-col items-center gap-1.5 group"
+              className="flex flex-col items-center gap-1.5 group mb-2"
               title={variant.nome}
             >
               <VariantThumbnail

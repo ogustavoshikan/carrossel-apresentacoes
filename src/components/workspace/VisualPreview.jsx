@@ -153,7 +153,7 @@ export default function VisualPreview({
       {slides.map((slide, index) => (
         <React.Fragment key={`slide-wrapper-${index}`}>
         <div
-          className="flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide z-10"
+          className={`flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide ${openVariantIndex === index ? 'z-50' : 'z-10'}`}
         >
           {/* Botão Remover Slide Flutuante */}
           {onRemoveSlide && (
