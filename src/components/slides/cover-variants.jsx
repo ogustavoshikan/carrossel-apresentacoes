@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as ImageIcon } from 'lucide-react';
+import { Image as ImageIcon, ArrowRight, BadgeCheck, ChevronRight } from 'lucide-react';
 import SmartElement from '../smart-element';
 
 // ============================================================
@@ -681,6 +681,237 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 13 — Bold Overlay
+// Título sobreposto com mix-blend e badge de marca
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant13({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-[#020202] relative">
+      <div className="h-[55%] w-full shrink-0 bg-zinc-900 relative">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+      <div className="h-[45%] w-full p-6 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
+        <div className="flex items-center gap-1.5 border-b border-white/20 pb-2 shrink-0 w-full">
+          <span className="font-outfit font-bold tracking-widest text-[10px] text-white uppercase">
+            {brandHandle || '@studio'}
+          </span>
+          <BadgeCheck className="w-3.5 h-3.5 text-white" />
+        </div>
+        <div className="flex justify-between items-center shrink-0 relative z-20">
+          <SmartField field="texto_apoio" {...sp} className="max-w-[140px]">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit font-light text-white/90 text-[11px] tracking-widest uppercase leading-none outline-none"
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+          <div className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full">
+            <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white leading-none mt-[1px]">Deslize</span>
+            <ArrowRight className="w-3 h-3 text-white" />
+          </div>
+        </div>
+      </div>
+      <div className="absolute top-[58%] left-6 -translate-y-1/2 z-30 w-[85%]">
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[0.85] tracking-tighter text-[#EBE9E1] drop-shadow-2xl mix-blend-difference whitespace-pre-line outline-none"
+            style={{ fontSize: `${52 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 14 — Top Block
+// Título superior em bloco de cor com imagem inferior
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant14({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
+      <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
+        <div className="w-12 h-1 bg-white/50 mb-6 shrink-0" />
+        <SmartField field="titulo" {...sp} className="mb-4 w-full shrink-0">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[0.85] tracking-tighter text-white uppercase whitespace-pre-line outline-none"
+            style={{ fontSize: `${64 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="shrink-0">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/80 tracking-widest text-[11px] uppercase font-bold font-outfit outline-none"
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+      <div className="w-full h-[30%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1]">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-white text-[9px] font-bold tracking-widest font-outfit uppercase">
+          {brandHandle || '@studio'}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 15 — Center Card
+// Imagem superior e card centralizado com título
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant15({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
+      <div className="flex-1 flex flex-col relative overflow-hidden bg-[#020202]">
+        <div className="w-full h-[65%] shrink-0 bg-zinc-300 relative border-b border-zinc-300">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center items-center text-center p-6 bg-white relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
+          <SmartField field="texto_apoio" {...sp} className="mb-3 shrink-0">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit font-bold tracking-widest text-[10px] uppercase outline-none"
+              style={{ color: brandColor }}
+            >
+              {data.texto_apoio}
+            </span>
+          </SmartField>
+          <SmartField field="titulo" {...sp} className="shrink-0 w-full">
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] leading-tight uppercase outline-none"
+              style={{ fontSize: `${36 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 16 — Bottom Gradient
+// Imagem full com gradient colorido e título centralizado
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant16({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-black flex flex-col justify-end p-8">
+      <div className="absolute inset-0 z-0">
+        <ImageBg data={data} className="absolute inset-0 opacity-80" />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, #000 0%, ${brandColor}60 40%, transparent 100%)` }} />
+      </div>
+      <div className="relative z-10 w-full flex flex-col items-center text-center">
+        <SmartField field="texto_apoio" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold mb-4 block outline-none"
+          >
+            {data.texto_apoio}
+          </span>
+        </SmartField>
+        <SmartField field="titulo" {...sp} className="w-full mb-8">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl outline-none"
+            style={{ fontSize: `${56 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        <div className="w-full h-px bg-white/30 mb-4" />
+        <div className="flex justify-between items-center w-full">
+          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/70 uppercase">
+            {brandHandle || '@studio'}
+          </span>
+          <div className="flex items-center gap-1 text-white">
+            <span className="font-outfit font-bold text-[9px] uppercase tracking-widest">Swipe</span>
+            <ChevronRight className="w-3 h-3" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 17 — Minimal Side
+// Divisão lateral com título e imagem
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant17({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1]">
+      <div className="w-[55%] h-full p-6 flex flex-col justify-between shrink-0 relative z-10 bg-[#EBE9E1]">
+        <div className="flex flex-col gap-1">
+          <span className="font-outfit font-black text-[10px] uppercase tracking-widest" style={{ color: brandColor }}>Studio System</span>
+          <div className="w-8 h-[2px]" style={{ backgroundColor: brandColor }} />
+        </div>
+        <div className="flex flex-col justify-center flex-1">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] leading-[0.9] tracking-tighter whitespace-pre-line mb-4 outline-none"
+              style={{ fontSize: `${48 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-zinc-500 font-outfit font-bold tracking-widest text-[9px] uppercase outline-none"
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+        <span className="font-outfit font-bold tracking-widest text-[9px] text-zinc-400 uppercase">
+          {brandHandle || '@studio'}
+        </span>
+      </div>
+      <div className="w-[45%] h-full shrink-0 bg-zinc-200">
+        <ImageBg data={data} className="w-full h-full" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -697,6 +928,11 @@ export const COVER_VARIANT_COMPONENTS = {
   10: CoverVariant10,
   11: CoverVariant11,
   12: CoverVariant12,
+  13: CoverVariant13,
+  14: CoverVariant14,
+  15: CoverVariant15,
+  16: CoverVariant16,
+  17: CoverVariant17,
 };
 
 export const COVER_VARIANT_META = [
@@ -713,5 +949,10 @@ export const COVER_VARIANT_META = [
   { id: 10, name: 'Bottom Minimal', description: 'Texto inferior minimalista' },
   { id: 11, name: 'Luxury Frame', description: 'Moldura branca com sombra profunda' },
   { id: 12, name: 'Diagonal Slice', description: 'Corte diagonal dinâmico' },
+  { id: 13, name: 'Bold Overlay', description: 'Título com mix-blend e badge' },
+  { id: 14, name: 'Top Block', description: 'Bloco de cor superior e imagem' },
+  { id: 15, name: 'Center Card', description: 'Imagem superior e card central' },
+  { id: 16, name: 'Bottom Gradient', description: 'Imagem full com gradient colorido' },
+  { id: 17, name: 'Minimal Side', description: 'Divisão lateral limpa' },
 ];
 

@@ -23,7 +23,7 @@ export default function SlideCover({
   onSelectElement,
   showBrandHandle,
 }) {
-  // Delegação para variante visual (1-10)
+  // Delegação para variante visual (1-17)
   const variantIndex = data.coverVariantIndex || 0;
   if (variantIndex > 0 && COVER_VARIANT_COMPONENTS[variantIndex]) {
     const VariantComponent = COVER_VARIANT_COMPONENTS[variantIndex];
