@@ -40,7 +40,7 @@ export default function SlideComparison(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-20">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-10 rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
@@ -52,7 +52,7 @@ export default function SlideComparison(props) {
         slideCounterPosition={slideCounterPosition}
 
               />
-      <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden min-h-0">
+      <div className="flex-1 flex flex-col justify-start pt-12 pb-8 min-h-0">
         <SmartElement
           slideIndex={index}
           field="titulo"
@@ -61,7 +61,7 @@ export default function SlideComparison(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
           onSelectElement={onSelectElement}
-          className="mb-5"
+          className="mb-4"
         >
           <h2
             contentEditable
@@ -74,7 +74,7 @@ export default function SlideComparison(props) {
           </h2>
         </SmartElement>
 
-        <div className="space-y-3 mt-4">
+        <div className="space-y-2 mt-2">
           {(() => {
             const items = data.items || [{ label: 'Mercado', value: 'Qualidade comum', highlight: false }, { label: 'Nós', value: 'Excelência garantida', highlight: true }];
             const leftItems = items.filter(it => !it.highlight);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle2, X } from 'lucide-react';
 import SmartElement from '../smart-element';
-import SlideHeader from '../slide-header';
+import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 
 // ==========================================
 // HELPERS
@@ -39,15 +39,25 @@ const ComparisonTitle = ({ data, index, scale, onActionStart, onTextChange, sele
 export function ComparisonVariant1(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
-  const items = data.items || [{ label: 'Comum', value: 'Item A', highlight: false }, { label: 'Premium', value: 'Item B', highlight: true }];
+    const items = data.items || [];
+    const normalItems = items.filter(it => !it.highlight);
+    const highlightItems = items.filter(it => it.highlight);
+    
+    // Constrói a lista de 4 itens (Cinza, Destaque, Cinza, Destaque)
+    const displayItems = [
+      { item: normalItems[0] || { label: 'Mercado', value: 'Padrão Comum', highlight: false }, originalIndex: items.indexOf(normalItems[0]) },
+      { item: highlightItems[0] || { label: 'Premium', value: 'Sua Solução Elite', highlight: true }, originalIndex: items.indexOf(highlightItems[0]) },
+      { item: normalItems[1] || { label: 'Mercado', value: 'Limitação do Setor', highlight: false }, originalIndex: items.indexOf(normalItems[1]) },
+      { item: highlightItems[1] || { label: 'Premium', value: 'Diferencial Exclusivo', highlight: true }, originalIndex: items.indexOf(highlightItems[1]) }
+    ];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-start pt-12 pb-8">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
@@ -56,37 +66,43 @@ export function ComparisonVariant1(props) {
           className="text-white"
         />
 
-        <div className="space-y-1.5 overflow-hidden flex-1 pr-2 flex flex-col justify-center">
-          {items.map((item, i) => (
-            <div 
-              key={i} 
-              className={`flex justify-between items-center p-3.5 rounded-2xl border transition-all ${
-                item.highlight ? 'shadow-xl' : 'bg-white/5 border-white/5 opacity-50'
-              }`}
-              style={item.highlight ? { backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` } : {}}
-            >
-              <div className="flex flex-col w-full">
-                <span 
-                  contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                  className={`font-outfit font-black text-[9px] tracking-widest uppercase block ${!item.highlight ? 'text-zinc-500' : ''}`}
-                  style={item.highlight ? { color: brandColor } : {}}
-                >
-                  {item.label}
-                </span>
-                <span 
-                  contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'value', e.currentTarget.innerText)}
-                  className={`font-playfair text-base block truncate line-clamp-2 ${item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'}`}
-                >
-                  {item.value}
-                </span>
+        <div className="space-y-3 overflow-hidden flex-1 pr-2 flex flex-col justify-center">
+          {displayItems.map((obj, i) => {
+            const { item, originalIndex } = obj;
+            const targetIndex = originalIndex !== -1 ? originalIndex : items.length + i;
+            
+            return (
+              <div 
+                key={i} 
+                className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${
+                  item.highlight ? 'shadow-2xl' : 'bg-white/5 border-white/5 opacity-50'
+                }`}
+                style={item.highlight ? { backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` } : {}}
+              >
+                <div className="flex flex-col w-full">
+                  <span 
+                    contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'label', e.currentTarget.innerText)}
+                    className={`font-outfit font-black text-[9px] tracking-widest uppercase block ${!item.highlight ? 'text-zinc-500' : ''}`}
+                    style={item.highlight ? { color: brandColor } : {}}
+                  >
+                    {item.label}
+                  </span>
+                  <span 
+                    contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'value', e.currentTarget.innerText)}
+                    className={`font-playfair text-base block truncate line-clamp-2 ${item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'}`}
+                  >
+                    {item.value}
+                  </span>
+                </div>
+                {item.highlight && (
+                  <CheckCircle2 className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
+                )}
               </div>
-              {item.highlight && (
-                <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: brandColor }} />
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -102,8 +118,8 @@ export function ComparisonVariant2(props) {
   const brandLabel = highlightItems[0]?.label || brandHandle || 'Sua Marca';
 
   return (
-    <div className="w-full h-full flex flex-row overflow-hidden relative">
-      <div className="w-1/2 h-full bg-zinc-900 p-8 pt-24 flex flex-col border-r border-black/20">
+    <div className="w-full h-full flex flex-row relative rounded-slide">
+      <div className="w-1/2 h-full bg-zinc-900 p-8 pt-28 flex flex-col border-r border-black/20">
         <h3 contentEditable suppressContentEditableWarning className="font-outfit font-black text-zinc-600 tracking-widest uppercase text-xs mb-8">{mercadoLabel}</h3>
         <div className="space-y-6 flex-1 overflow-hidden">
           {normalItems.map((item, i) => (
@@ -118,7 +134,7 @@ export function ComparisonVariant2(props) {
           ))}
         </div>
       </div>
-      <div className="w-1/2 h-full p-8 pt-24 flex flex-col" style={{ backgroundColor: brandColor }}>
+      <div className="w-1/2 h-full p-8 pt-28 flex flex-col" style={{ backgroundColor: brandColor }}>
         <h3 contentEditable suppressContentEditableWarning className="font-outfit font-black text-black/50 tracking-widest uppercase text-xs mb-8 line-clamp-1">{brandLabel}</h3>
         <div className="space-y-6 flex-1 overflow-hidden">
           {highlightItems.map((item, i) => (
@@ -155,12 +171,12 @@ export function ComparisonVariant3(props) {
   const rowCount = Math.max(leftItems.length, rightItems.length);
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
@@ -168,7 +184,7 @@ export function ComparisonVariant3(props) {
           wrapperClasses="mb-10 text-center shrink-0"
         />
 
-        <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-6 flex-1 overflow-hidden shadow-2xl flex flex-col justify-start">
+        <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-2 flex-1 shadow-2xl flex flex-col justify-start">
           {Array.from({ length: rowCount }).map((_, i) => {
             const left = leftItems[i];
             const right = rightItems[i];
@@ -203,6 +219,7 @@ export function ComparisonVariant3(props) {
           })}
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -219,12 +236,12 @@ export function ComparisonVariant4(props) {
   const itemsDisp = [baseNormal[0], baseHighlight[0], baseNormal[1], baseHighlight[1]];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
@@ -256,6 +273,7 @@ export function ComparisonVariant4(props) {
           ))}
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -271,12 +289,12 @@ export function ComparisonVariant5(props) {
   const brandLabel = highlightItems[0]?.label || brandHandle || 'Alice Standard';
 
   return (
-    <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-10 relative overflow-hidden text-black">
+    <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-10 pb-10 relative text-black rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor="#000000" isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col pt-16 overflow-hidden relative">
+      <div className="flex-1 flex flex-col pt-20 pb-12 relative">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
@@ -299,6 +317,7 @@ export function ComparisonVariant5(props) {
           </div>
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -313,12 +332,12 @@ export function ComparisonVariant6(props) {
   const rowCount = Math.max(leftItems.length, rightItems.length);
 
   return (
-    <div className="w-full h-full bg-[#020202] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#020202] flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
         <div className="mb-10 shrink-0">
           <SmartElement slideIndex={index} field="titulo" position={data.positions?.titulo || {x:0, y:0, scale:1}} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
             <h2 
@@ -351,6 +370,7 @@ export function ComparisonVariant6(props) {
           })}
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -372,12 +392,12 @@ export function ComparisonVariant7(props) {
   const brandLabel = rightItems[0]?.label || brandHandle || 'Alice';
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
@@ -418,6 +438,7 @@ export function ComparisonVariant7(props) {
           </div>
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -432,7 +453,7 @@ export function ComparisonVariant8(props) {
   const brandLabel = highlightItems[0]?.label || brandHandle || 'Padrão';
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
               />
@@ -465,6 +486,7 @@ export function ComparisonVariant8(props) {
           </ul>
         </div>
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -477,7 +499,7 @@ export function ComparisonVariant9(props) {
   const highlightItems = items.filter(it => it.highlight);
   
   return (
-    <div className="w-full h-full bg-[#050505] flex relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex relative rounded-slide">
       <div className="absolute top-0 left-0 w-full p-8 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
@@ -493,7 +515,7 @@ export function ComparisonVariant9(props) {
           wrapperClasses="mb-10 text-center pointer-events-auto"
         />
 
-        <div className="flex-1 flex pointer-events-auto overflow-hidden">
+        <div className="flex-1 flex pointer-events-auto">
           <div className="w-1/2 pr-6 flex flex-col gap-5 items-end text-right pt-16">
             {normalItems.map((item, i) => (
               <div key={i} className="w-full">
@@ -537,7 +559,7 @@ export function ComparisonVariant10(props) {
   const brandLabel = highlightItems[0]?.label || brandHandle || 'Alice Mode';
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden items-center text-center">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 pb-10 relative items-center text-center rounded-slide">
       <div className="absolute top-0 left-0 w-full p-8 z-50 w-full text-left">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
@@ -556,7 +578,7 @@ export function ComparisonVariant10(props) {
         <div contentEditable suppressContentEditableWarning className="flex-1 h-full rounded-full flex items-center justify-center text-[10px] font-outfit font-bold uppercase tracking-widest text-white shadow-md px-2 leading-tight" style={{ backgroundColor: brandColor }}>{brandLabel}</div>
       </div>
       
-      <div className="w-full flex-1 bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-center gap-6 overflow-hidden">
+      <div className="w-full flex-1 bg-white/5 border border-white/10 rounded-3xl p-8 pb-12 flex flex-col justify-start gap-4">
         {highlightItems.map((item, i) => (
           <div key={i} className="flex items-center gap-4 text-left">
             <CheckCircle2 className="w-6 h-6 shrink-0" style={{ color: brandColor }} />
@@ -569,6 +591,7 @@ export function ComparisonVariant10(props) {
           </div>
         ))}
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
@@ -587,7 +610,7 @@ export function ComparisonVariant11(props) {
   const rowCount = 3;
 
   return (
-    <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-12 relative overflow-hidden text-black">
+    <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-10 pb-10 relative text-black rounded-slide">
       <div className="absolute top-0 left-0 w-full p-8 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandColor="#000000" isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
 
@@ -601,7 +624,7 @@ export function ComparisonVariant11(props) {
         wrapperClasses="mb-12 shrink-0 mt-4 z-10" align="text-left" color="text-black"
       />
 
-      <div className="flex-1 flex flex-col justify-center space-y-12 overflow-hidden pt-4 pb-4">
+      <div className="flex-1 flex flex-col justify-start space-y-8 pt-12 pb-12">
         {Array.from({ length: rowCount }).map((_, i) => {
           const left = leftItems[i];
           const right = rightItems[i];
@@ -625,6 +648,7 @@ export function ComparisonVariant11(props) {
           );
         })}
       </div>
+      <SlideFooterPlaceholder />
     </div>
   );
 }
