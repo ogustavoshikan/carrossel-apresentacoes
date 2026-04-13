@@ -153,7 +153,7 @@ export default function SlideBigNumber({
         >
           {data.imageUrl ? (
             <div
-              className="w-full h-full bg-cover grayscale"
+              className="w-full h-full bg-cover"
               style={{
                 backgroundImage: `url(${data.imageUrl})`,
                 backgroundPosition: `center ${data.imagePosition ?? 50}%`,
