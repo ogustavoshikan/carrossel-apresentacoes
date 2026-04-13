@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as ImageIcon, ArrowRight, BadgeCheck, ChevronRight } from 'lucide-react';
+import { Image as ImageIcon, ArrowRight, BadgeCheck, ChevronRight, Sparkles } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
@@ -1110,6 +1110,217 @@ export function CoverVariant22({ data, index, brandColor, titleScale, textScale,
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 23 — Vertical Split
+// Split vertical com handle rotacionado e imagem blend
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant23({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-row overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+      <div className="w-[45%] h-full shrink-0 flex flex-col justify-between p-6 z-10" style={{ backgroundColor: brandColor, color: 'white' }}>
+        <span className="font-outfit font-bold text-[10px] tracking-widest uppercase transform -rotate-90 origin-top-left translate-y-[200px]">{brandHandle || '@studio'}</span>
+        <div className="w-8 h-[2px] bg-white mb-8" />
+      </div>
+      <div className="w-[55%] h-full shrink-0 relative bg-zinc-800 z-0">
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-luminosity opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+      </div>
+      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 z-20 w-[80%]">
+        <SmartField field="texto_apoio" {...sp} className="mb-4">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-outfit font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded">
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="titulo" {...sp}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.9] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${64 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 24 — Grid Process
+// Estilo técnico com grid, badge numerado e imagem inferior
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant24({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <div className="flex-1 border-2 flex flex-col p-6 relative overflow-hidden" style={{ borderColor: brandColor }}>
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
+        <div className="flex justify-between items-center mb-auto relative z-10 shrink-0">
+          <div className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-outfit font-bold text-xs" style={{ borderColor: brandColor, color: brandColor }}>01</div>
+          <span className="font-outfit font-bold tracking-widest text-[9px] uppercase" style={{ color: brandColor }}>O PROCESSO</span>
+        </div>
+        <div className="relative z-10 shrink-0 mb-6">
+          <SmartField field="titulo" {...sp}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter uppercase break-words" style={{ color: brandColor, fontSize: `${80 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+        </div>
+        <div className="w-full h-[30%] shrink-0 bg-zinc-300 relative border-t-2" style={{ borderColor: brandColor }}>
+          <div className="absolute inset-0 bg-cover bg-center grayscale" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 25 — Frosted Float
+// Card com glassmorphism flutuando sobre imagem desfocada
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant25({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex flex-col items-center justify-center p-6">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-cover bg-center opacity-70 blur-sm scale-110" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+      <div className="relative z-10 w-full h-[75%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col justify-between p-8">
+        <div className="flex justify-between items-center w-full">
+          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/90 uppercase">{brandHandle || '@studio'}</span>
+          <div className="w-8 h-[1px] bg-white/50" />
+        </div>
+        <div className="flex flex-col items-center text-center">
+          <SmartField field="texto_apoio" {...sp} className="mb-4">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 bg-white/10">
+              {slideData.texto_apoio}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="titulo" {...sp} className="w-full">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl" style={{ fontSize: `${48 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+        </div>
+        <div className="flex justify-center items-center w-full">
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white backdrop-blur-md border border-white/10">
+            <ArrowRight className="w-4 h-4" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 26 — Overlay Volume
+// Bloco superior de cor com blend e imagem inferior P&B
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant26({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+      <div className="w-full h-[55%] relative shrink-0 z-0" style={{ backgroundColor: brandColor }}>
+        <div className="absolute top-6 left-6 w-[80%] flex justify-between items-center z-20">
+          <span className="font-outfit font-black text-[10px] uppercase tracking-widest text-white border border-white/30 px-2 py-1">VOL. 14</span>
+          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/80 uppercase">
+            @{brandHandle || 'studio'}
+          </span>
+        </div>
+        <div className="absolute inset-0 z-10 opacity-20 mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(circle at 20% 150%, white 0%, transparent 60%)' }} />
+      </div>
+      <div className="w-full h-[45%] bg-zinc-300 relative shrink-0 z-0">
+        <div className="absolute inset-0 bg-cover bg-center grayscale" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+      </div>
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full px-6 z-30">
+        <SmartField field="titulo" {...sp}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${70 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="mt-4">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-[#1a1a1a] font-black tracking-[0.2em] text-[12px] uppercase bg-white inline-block px-4 py-1.5 shadow-xl">
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 27 — Slanted New
+// Recorte diagonal superior com badge Sparkles e footer
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant27({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
+  const bgBase = '#ffffff';
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+      <div className="absolute inset-0 z-0 bg-zinc-800" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 65%, 0 85%)' }}>
+        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
+      </div>
+      <div className="relative z-10 w-full h-full p-8 flex flex-col justify-between">
+        <div className="flex justify-between items-center w-full">
+          <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow-lg">
+            <Sparkles className="w-4 h-4 fill-current" />
+          </div>
+          <div className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-outfit font-bold text-[9px] tracking-widest uppercase">Novo</div>
+        </div>
+        <div className="flex flex-col items-end text-right mt-auto mb-10">
+          <SmartField field="texto_apoio" {...sp} className="mb-2">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-zinc-500 font-bold tracking-[0.3em] uppercase text-[10px]">
+              {slideData.texto_apoio}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="titulo" {...sp} className="w-full">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase whitespace-pre-line" style={{ fontSize: `${60 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+        </div>
+        <div className="flex items-center gap-4 border-t-2 pt-4" style={{ borderColor: brandColor }}>
+          <span className="font-outfit font-bold tracking-widest text-[9px] uppercase" style={{ color: brandColor }}>
+            @{brandHandle || 'studio'}
+          </span>
+          <div className="flex-1 h-px bg-zinc-300" />
+          <span className="font-outfit font-bold text-[9px] uppercase">2026</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// REGISTRO DE VARIANTES
+// ═══════════════════════════════════════════════════════════
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -1133,6 +1344,11 @@ export const COVER_VARIANT_COMPONENTS = {
   20: CoverVariant20,
   21: CoverVariant21,
   22: CoverVariant22,
+  23: CoverVariant23,
+  24: CoverVariant24,
+  25: CoverVariant25,
+  26: CoverVariant26,
+  27: CoverVariant27,
 };
 
 export const COVER_VARIANT_META = [
@@ -1159,6 +1375,12 @@ export const COVER_VARIANT_META = [
   { id: 20, name: 'Rotating Polaroid', description: 'Polaroid com padrão radial' },
   { id: 21, name: 'Diagonal Edge', description: 'Corte diagonal com título gigante' },
   { id: 22, name: 'Header Minimal', description: 'Título uppercase com glow lateral' },
+  { id: 23, name: 'Vertical Split', description: 'Split vertical com handle rotacionado' },
+  { id: 24, name: 'Grid Process', description: 'Estilo técnico com grid e badge' },
+  { id: 25, name: 'Frosted Float', description: 'Card flutuante com blur intenso' },
+  { id: 26, name: 'Overlay Volume', description: 'Bloco superior blend sobre imagem' },
+  { id: 27, name: 'Slanted New', description: 'Recorte diagonal com ícone Sparkles' },
 ];
+
 
 
