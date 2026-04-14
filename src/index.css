@@ -120,30 +120,36 @@ body {
     @apply w-full min-h-[120px] bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-y text-xs font-playfair italic;
   }
 
+  .alice-textarea::-webkit-resizer {
+    background: transparent;
+  }
+
+  .alice-textarea::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
   .alice-textarea::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   .alice-textarea::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
+    background: transparent;
     border-radius: 0 12px 12px 0;
   }
 
   .alice-textarea::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
   }
 
   .alice-textarea::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.2);
-    border: 2px solid transparent;
-    background-clip: padding-box;
   }
 
   .alice-textarea:focus {
     border-color: var(--color-brand);
+    box-shadow: 0 0 0 1px var(--color-brand);
+    outline: none;
   }
 
   /* Label padrão uppercase */

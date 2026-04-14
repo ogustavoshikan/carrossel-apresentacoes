@@ -14,7 +14,8 @@ export function useDragResize(slides, setSlides) {
     // drag        → currentX, currentY (nunca toca em scale/width)
     // resize      → currentScale        (nunca toca em x/y/width)
     // resize-width→ currentWidth        (nunca toca em x/y/scale)
-    let currentX, currentY, currentScale, currentWidth;
+    // rotate      → currentRotation     (nunca toca nas demais)
+    let currentX, currentY, currentScale, currentWidth, currentRotation;
 
     const handleMouseMove = (e) => {
       if (!actionInfo) return;
@@ -42,7 +43,7 @@ export function useDragResize(slides, setSlides) {
         currentX = newX;
         currentY = newY;
         // scale mantida do que já existe, sem tocar
-        targetElement.style.transform = `translate(${newX}px, ${newY}px) scale(${actionInfo.origScale})`;
+        targetElement.style.transform = `translate(${newX}px, ${newY}px) scale(${actionInfo.origScale}) rotate(${actionInfo.origRotation || 0}deg)`;
 
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
@@ -63,7 +64,7 @@ export function useDragResize(slides, setSlides) {
 
         currentScale = newScale;
         // x/y mantidos do que já existe, sem tocar
-        targetElement.style.transform = `translate(${actionInfo.origX}px, ${actionInfo.origY}px) scale(${newScale})`;
+        targetElement.style.transform = `translate(${actionInfo.origX}px, ${actionInfo.origY}px) scale(${newScale}) rotate(${actionInfo.origRotation || 0}deg)`;
 
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
@@ -91,6 +92,35 @@ export function useDragResize(slides, setSlides) {
         if (metricsTag) {
           metricsTag.innerText = `[ W:${Math.round(newWidth)}px ]`;
         }
+      } else if (actionInfo.type === 'rotate') {
+         const elRect = targetElement.getBoundingClientRect();
+         const centerX = elRect.left + elRect.width / 2;
+         const centerY = elRect.top + elRect.height / 2;
+         
+         const dxStart = actionInfo.startX - centerX;
+         const dyStart = actionInfo.startY - centerY;
+         const dxCurrent = clientX - centerX;
+         const dyCurrent = clientY - centerY;
+
+         const angleStart = Math.atan2(dyStart, dxStart) * 180 / Math.PI;
+         const angleCurrent = Math.atan2(dyCurrent, dxCurrent) * 180 / Math.PI;
+
+         let newRotation = (actionInfo.origRotation || 0) + (angleCurrent - angleStart);
+         
+         // Snap to 45 deg intervals se aproximar muito
+         if (Math.abs(newRotation % 90) < 5) {
+             newRotation = Math.round(newRotation / 90) * 90;
+         } else if (Math.abs(newRotation % 45) < 3) {
+             newRotation = Math.round(newRotation / 45) * 45;
+         }
+
+         currentRotation = newRotation;
+         targetElement.style.transform = `translate(${actionInfo.origX}px, ${actionInfo.origY}px) scale(${actionInfo.origScale}) rotate(${newRotation}deg)`;
+
+         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
+         if (metricsTag) {
+           metricsTag.innerText = `[ R:${newRotation.toFixed(0)}° ]`;
+         }
       }
     };
 
@@ -98,13 +128,14 @@ export function useDragResize(slides, setSlides) {
       if (!actionInfo) return;
 
       // Só persiste o que realmente mudou nesta ação
-      const changed = currentX !== undefined || currentY !== undefined || currentScale !== undefined || currentWidth !== undefined;
+      const changed = currentX !== undefined || currentY !== undefined || currentScale !== undefined || currentWidth !== undefined || currentRotation !== undefined;
 
       if (changed) {
         const finalX = currentX;
         const finalY = currentY;
         const finalScale = currentScale;
         const finalWidth = currentWidth;
+        const finalRotation = currentRotation;
 
         setSlides((prev) =>
           prev.map((s, i) => {
@@ -116,6 +147,7 @@ export function useDragResize(slides, setSlides) {
             if (finalY !== undefined) updatedPos.y = finalY;
             if (finalScale !== undefined) updatedPos.scale = finalScale;
             if (finalWidth !== undefined) updatedPos.width = finalWidth;
+            if (finalRotation !== undefined) updatedPos.rotation = finalRotation;
 
             // PREVENIR UNDEFINED - GARANTIR VALORES SÓLIDOS
             if (updatedPos.x === undefined || isNaN(updatedPos.x)) updatedPos.x = 0;
@@ -135,6 +167,7 @@ export function useDragResize(slides, setSlides) {
       currentY = undefined;
       currentScale = undefined;
       currentWidth = undefined;
+      currentRotation = undefined;
     };
 
     if (actionInfo) {
@@ -205,6 +238,7 @@ export function useDragResize(slides, setSlides) {
         origX: pos.x,
         origY: pos.y,
         origScale: pos.scale || 1,
+        origRotation: pos.rotation || 0,
         origWidth,
         slideWidth,
         constraints,

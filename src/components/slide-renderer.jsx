@@ -12,6 +12,8 @@ import SlideCTA from './slides/SlideCTA';
  * Substitui o switch/case monolítico de renderVisualCard.
  */
 
+import SmartElement from './smart-element';
+
 const LAYOUT_MAP = {
   'cover': SlideCover,
   'cover-18': SlideCover,
@@ -52,25 +54,63 @@ export default function SlideRenderer({
   if (!Component) return null;
 
   return (
-    <Component
-      data={data}
-      index={index}
-      slideCount={slideCount}
-      brandHandle={brandHandle}
-      showBrandHandle={showBrandHandle}
-      brandAvatar={brandAvatar}
-      brandColor={brandColor}
-      isVerified={isVerified}
-      titleScale={titleScale}
-      textScale={textScale}
-      showMetrics={showMetrics}
-      onActionStart={onActionStart}
-      onTextChange={onTextChange}
-      onItemChange={onItemChange}
-      selectedElement={selectedElement}
-      onSelectElement={onSelectElement}
-      showSlideCounter={showSlideCounter}
-      slideCounterPosition={slideCounterPosition}
-    />
+    <>
+      <Component
+        data={data}
+        index={index}
+        slideCount={slideCount}
+        brandHandle={brandHandle}
+        showBrandHandle={showBrandHandle}
+        brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        titleScale={titleScale}
+        textScale={textScale}
+        showMetrics={showMetrics}
+        onActionStart={onActionStart}
+        onTextChange={onTextChange}
+        onItemChange={onItemChange}
+        selectedElement={selectedElement}
+        onSelectElement={onSelectElement}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
+
+      {/* Camada Global de Clones (Duplicação T5.3) */}
+      {data.clonedFields && data.clonedFields.length > 0 && (
+         <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
+           {data.clonedFields.map(clone => {
+             const Tag = clone.type;
+             const posKey = clone.id;
+             const isSel = selectedElement?.slideIndex === index && selectedElement?.field === posKey;
+             
+             return (
+               <div key={posKey} className="absolute left-0 top-0">
+                 <SmartElement
+                    slideIndex={index}
+                    field={posKey}
+                    position={data.positions?.[posKey] || {x: 0, y: 0, scale: 1, rotation: 0}}
+                    showMetrics={showMetrics}
+                    onActionStart={onActionStart}
+                    isSelected={isSel}
+                    onSelectElement={onSelectElement}
+                 >
+                    <Tag
+                      contentEditable
+                      suppressContentEditableWarning
+                      onBlur={(e) => onTextChange(index, posKey, e.currentTarget.innerText)}
+                      className={`${clone.className} pointer-events-auto`}
+                      // Não injetamos style direto aqui porque o próprio SmartElement 
+                      // aplica cloneElement nas props.style para os componentes (cor, size, line-height)
+                    >
+                      {data[posKey] !== undefined ? data[posKey] : ''}
+                    </Tag>
+                 </SmartElement>
+               </div>
+             );
+           })}
+         </div>
+      )}
+    </>
   );
 }

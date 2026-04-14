@@ -1,7 +1,44 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Move, GripVertical } from 'lucide-react';
+import { Move, GripVertical, RotateCw } from 'lucide-react';
 
 /**
+ * Componente isolado para proteger a edição RTF do React Reconciliation
+ */
+const SafeEditable = React.forwardRef(({ html, tagName: Tag, onHtmlBlur, isEditing, externalOnKeyDown, ...props }, forwardedRef) => {
+  const localRef = useRef(null);
+  const ref = forwardedRef || localRef;
+
+  useEffect(() => {
+    if (ref.current && document.activeElement !== ref.current) {
+      if (ref.current.innerHTML !== html) {
+        ref.current.innerHTML = html;
+      }
+    }
+  }, [html, ref]);
+
+  return (
+    <Tag
+      {...props}
+      ref={ref}
+      onKeyDown={(e) => {
+         if (isEditing && (e.ctrlKey || e.metaKey)) {
+             const key = e.key.toLowerCase();
+             if (['b', 'i', 'u'].includes(key)) {
+                 e.preventDefault();
+                 if (key === 'b') document.execCommand('bold', false, null);
+                 if (key === 'i') document.execCommand('italic', false, null);
+                 if (key === 'u') document.execCommand('underline', false, null);
+             }
+         }
+         if (externalOnKeyDown) externalOnKeyDown(e);
+      }}
+      onBlur={(e) => {
+         if (onHtmlBlur) onHtmlBlur(e, ref.current.innerHTML);
+         if (props.onBlur) props.onBlur(e);
+      }}
+    />
+  );
+});/**
  * SmartElement — Wrapper drag/resize para elementos editáveis dos slides.
  * Mostra handles de drag (move) e resize (scale) ao hover.
  * Mostra métricas (W/H/Scale) quando showMetrics está ativo.
@@ -28,8 +65,14 @@ export default function SmartElement({
 }) {
   const elRef = useRef(null);
   const [dims, setDims] = useState({ w: 0, h: 0 });
+  const [isEditing, setIsEditing] = useState(false);
 
   const pos = position;
+  const inverseScale = 1 / (pos.scale || 1);
+
+  useEffect(() => {
+    if (!isSelected) setIsEditing(false);
+  }, [isSelected]);
 
   useEffect(() => {
     if (showMetrics && elRef.current) {
@@ -42,47 +85,122 @@ export default function SmartElement({
 
   return (
       <div
-        id={`smart-${slideIndex}-${field}`}
-        ref={elRef}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (onSelectElement) onSelectElement(slideIndex, field);
-        }}
-        className={`group relative transition-all ${className || ''}`}
-        style={{
-          transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale})`,
-          zIndex: showMetrics ? 50 : 40,
-          transformOrigin: 'center center',
-          ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
-        }}
-      >
+          className={`group relative ${className || ''}`}
+          style={{
+            transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale}) rotate(${pos.rotation || 0}deg)`,
+            zIndex: isSelected ? 60 : (showMetrics ? 50 : 40),
+            transformOrigin: 'center center',
+            ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
+          }}
+          ref={elRef}
+          id={`smart-${slideIndex}-${field}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onSelectElement) onSelectElement(slideIndex, field);
+          }}
+        >
       {/* Métricas */}
       {showMetrics && (
-        <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[var(--color-brand)] text-white text-[10px] font-mono font-bold px-2 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none z-[60] border border-[var(--color-brand)] opacity-90 backdrop-blur-sm">
+        <div 
+          className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[var(--color-brand)] text-white text-[10px] font-mono font-bold px-2 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none z-[60] border border-[var(--color-brand)] opacity-90 backdrop-blur-sm"
+          style={{ transform: `translateX(-50%) scale(${inverseScale})`, transformOrigin: 'bottom center' }}
+        >
           W: {dims.w}px | H: {dims.h}px | S: {pos.scale.toFixed(2)}x
         </div>
       )}
 
-      {/* Handle DRAG — top-left */}
-      <div
-        onMouseDown={(e) => {
-          e.stopPropagation();
-          if (onSelectElement) onSelectElement(slideIndex, field);
-          onActionStart(e, slideIndex, field, 'drag');
-        }}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          if (onSelectElement) onSelectElement(slideIndex, field);
-          onActionStart(e, slideIndex, field, 'drag');
-        }}
-        className="absolute -top-3 -left-3 w-6 h-6 bg-zinc-800 text-rose-500 rounded-full cursor-move opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-700 pointer-events-auto"
+      {/* Handles BOTTOM (Drag + Rotate) */}
+      <div 
+        className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 z-50 transition-opacity"
+        style={{ transform: `translateX(-50%) scale(${inverseScale})`, transformOrigin: 'top center' }}
       >
-        <Move size={12} />
+        <div
+          onMouseDown={(e) => {
+            e.stopPropagation();
+            if (onSelectElement) onSelectElement(slideIndex, field);
+            onActionStart(e, slideIndex, field, 'drag');
+          }}
+          onTouchStart={(e) => {
+            e.stopPropagation();
+            if (onSelectElement) onSelectElement(slideIndex, field);
+            onActionStart(e, slideIndex, field, 'drag');
+          }}
+          className="w-6 h-6 bg-zinc-800 hover:bg-zinc-700 text-rose-500 rounded-full cursor-move flex items-center justify-center shadow-xl border border-zinc-600 pointer-events-auto transition-transform hover:scale-110 active:scale-95"
+          title="Mover"
+        >
+          <Move size={12} />
+        </div>
+        <div
+          onMouseDown={(e) => {
+            e.stopPropagation();
+            if (onSelectElement) onSelectElement(slideIndex, field);
+            onActionStart(e, slideIndex, field, 'rotate');
+          }}
+          onTouchStart={(e) => {
+            e.stopPropagation();
+            if (onSelectElement) onSelectElement(slideIndex, field);
+            onActionStart(e, slideIndex, field, 'rotate');
+          }}
+          className="w-6 h-6 bg-zinc-800 hover:bg-zinc-700 text-blue-400 rounded-full cursor-default flex items-center justify-center shadow-xl border border-zinc-600 pointer-events-auto transition-transform hover:scale-110 active:scale-95"
+          title="Rotacionar"
+        >
+          <RotateCw size={12} />
+        </div>
       </div>
+
+      {/* Canvas-Like Drag Overlay (Intercepts clicks for moving) */}
+      {!isEditing && (
+         <div 
+           className="absolute inset-0 z-20 cursor-move pointer-events-auto"
+           title="Mova live, ou dê DUPLO CLIQUE para digitar texto"
+           onDoubleClick={(e) => {
+             e.stopPropagation();
+             setIsEditing(true);
+             const x = e.clientX;
+             const y = e.clientY;
+             
+             // Move cursor sync without triggering strict re-renders inside inner text
+             setTimeout(() => {
+               const ta = elRef.current?.querySelector('textarea, input, [contenteditable]');
+               if (ta) {
+                   ta.focus();
+                   try {
+                       if (document.caretPositionFromPoint) {
+                           const pos = document.caretPositionFromPoint(x, y);
+                           if (pos) {
+                               const sel = window.getSelection();
+                               sel.collapse(pos.offsetNode, pos.offset);
+                           }
+                       } else if (document.caretRangeFromPoint) {
+                           const range = document.caretRangeFromPoint(x, y);
+                           if (range) {
+                               const sel = window.getSelection();
+                               sel.removeAllRanges();
+                               sel.addRange(range);
+                           }
+                       }
+                   } catch(err) {
+                       // Silently fail if coordinates are invalid, just keeps normal focus
+                   }
+               }
+             }, 10);
+           }}
+           onMouseDown={(e) => {
+             e.stopPropagation();
+             if (onSelectElement) onSelectElement(slideIndex, field);
+             onActionStart(e, slideIndex, field, 'drag');
+           }}
+           onTouchStart={(e) => {
+             e.stopPropagation();
+             if (onSelectElement) onSelectElement(slideIndex, field);
+             onActionStart(e, slideIndex, field, 'drag');
+           }}
+         />
+      )}
 
       {/* Conteúdo */}
       <div
-        className={`w-full h-full outline-none transition-all ${
+        className={`w-full h-full outline-none transition-all relative z-10 ${
           isSelected 
             ? 'outline outline-2 outline-offset-4 outline-[var(--color-brand)] bg-[var(--color-brand)]/5 ring-4 ring-black/20 rounded-sm'
             : showMetrics
@@ -92,8 +210,9 @@ export default function SmartElement({
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              style: {
+             const isEditable = child.props.contentEditable;
+             
+             const mergedStyle = {
                 ...child.props.style,
                 color: pos.color || child.props.style?.color,
                 backgroundColor: pos.bgColor || child.props.style?.backgroundColor,
@@ -102,9 +221,45 @@ export default function SmartElement({
                 textDecoration: pos.underline ? 'underline' : child.props.style?.textDecoration,
                 textTransform: pos.uppercase ? 'uppercase' : child.props.style?.textTransform,
                 textAlign: pos.align || child.props.style?.textAlign,
+                lineHeight: pos.lineHeight !== undefined ? pos.lineHeight : child.props.style?.lineHeight,
+                letterSpacing: pos.letterSpacing !== undefined ? `${pos.letterSpacing}px` : child.props.style?.letterSpacing,
                 ...(pos.width ? { maxWidth: 'none' } : {}),
-              },
-            });
+             };
+             
+             if (isEditable) {
+                 const Tag = child.type;
+                 // Extraímos onBlur e onKeyDown para não causar loop
+                 const { onBlur: originalOnBlur, onKeyDown: originalOnKeyDown, children: originalChildren, ...restProps } = child.props;
+                 
+                 return (
+                     <SafeEditable
+                         tagName={Tag}
+                         html={originalChildren || ''}
+                         isEditing={isEditing}
+                         externalOnKeyDown={originalOnKeyDown}
+                         {...restProps}
+                         style={mergedStyle}
+                         onHtmlBlur={(e, rawHtml) => {
+                             setIsEditing(false); // Retorna a camada de proteção Canva
+                             if (originalOnBlur) {
+                                 const fakeEvent = {
+                                     ...e,
+                                     currentTarget: {
+                                         ...e.currentTarget,
+                                         innerText: rawHtml
+                                     }
+                                 };
+                                 // Usamos call para manter o this flexível (opcional)
+                                 originalOnBlur(fakeEvent);
+                             }
+                         }}
+                     />
+                 );
+             } else {
+                 return React.cloneElement(child, {
+                     style: mergedStyle
+                 });
+             }
           }
           return child;
         })}
@@ -123,6 +278,7 @@ export default function SmartElement({
           onActionStart(e, slideIndex, field, 'resize-width');
         }}
         className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-8 bg-zinc-700 hover:bg-[var(--color-brand)] rounded-full cursor-ew-resize opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-600 pointer-events-auto transition-colors"
+        style={{ transform: `translateY(-50%) scale(${inverseScale})`, transformOrigin: 'center left' }}
         title="Redimensionar largura"
       >
         <GripVertical size={8} className="text-zinc-400" />
@@ -141,6 +297,7 @@ export default function SmartElement({
           onActionStart(e, slideIndex, field, 'resize');
         }}
         className="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
+        style={{ transform: `scale(${inverseScale})`, transformOrigin: 'top left' }}
         title="Redimensionar escala"
       />
     </div>

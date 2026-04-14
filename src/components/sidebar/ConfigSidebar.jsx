@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Settings,
   Settings2,
@@ -24,6 +24,8 @@ import {
   ChevronDown,
   ChevronRight,
   RotateCcw,
+  Copy,
+  Trash2,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 import LayoutSelector from './LayoutSelector';
@@ -110,6 +112,32 @@ export default function ConfigSidebar({
 }) {
   const isInspectorActive = !!selectedElement;
   const [activeTab, setActiveTab] = React.useState('ajustes');
+  const savedSelection = useRef(null);
+
+  // Salva a seleção nativa antes de qualquer clique roubar o foco do contentEditable
+  const saveSelection = () => {
+    const sel = window.getSelection();
+    if (sel && sel.rangeCount > 0 && !sel.isCollapsed) {
+      savedSelection.current = sel.getRangeAt(0).cloneRange();
+    } else {
+      savedSelection.current = null;
+    }
+  };
+
+  // Aplica formatação RTF na seleção salva, ou fullblock se não houver seleção parcial
+  const applyRichFormat = (command, updateFallback) => {
+    const saved = savedSelection.current;
+    if (saved) {
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(saved);
+      document.execCommand(command, false, null);
+      savedSelection.current = null;
+    } else {
+      // Fallback: aplica no bloco inteiro (comportamento original)
+      updateFallback();
+    }
+  };
 
   if (isInspectorActive) {
     const slide = slides[selectedElement.slideIndex] || {};
@@ -254,7 +282,14 @@ export default function ConfigSidebar({
             ...rawPos
           };
           
-          const newValue = typeof valueOrFn === 'function' ? valueOrFn(currentPos[prop]) : valueOrFn;
+          const getValueFallback = (p) => {
+            if (currentPos[p] !== undefined) return currentPos[p];
+            if (p === 'lineHeight') return 1.0;
+            if (p === 'letterSpacing') return 0;
+            return undefined;
+          };
+          
+          const newValue = typeof valueOrFn === 'function' ? valueOrFn(getValueFallback(prop)) : valueOrFn;
           return {
             ...s,
             positions: {
@@ -518,38 +553,64 @@ export default function ConfigSidebar({
 
                     {/* Controle Grid 3x3 (apenas para Handle e Counter) */}
                     {isSpecialElement && (
-                       <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 flex-1">
-                         <div className="flex items-center justify-between w-full px-1">
-                           <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição</span>
-                         </div>
-                         <div className="grid grid-cols-3 gap-1 w-fit">
-                           {[
-                             'top-left', 'top-center', 'top-right',
-                             'center-left', 'center-center', 'center-right',
-                             'bottom-left', 'bottom-center', 'bottom-right'
-                           ].map(alignKey => {
-                             const currentAlign = pos.align || (selectedElement.field === 'handle' ? 'top-left' : 'top-right');
-                             const isActive = currentAlign === alignKey;
-                             return (
-                               <button
-                                 key={alignKey}
-                                 onClick={() => updateProp('align', alignKey)}
-                                 className={`w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none ${
-                                   isActive
-                                     ? 'border border-opacity-50 shadow-[0_0_15px_rgba(0,0,0,0.3)]'
-                                     : 'bg-white/5 border border-transparent hover:bg-white/10'
-                                 }`}
-                                 style={isActive ? { borderColor: gradientColor1, backgroundColor: `${gradientColor1}15` } : {}}
-                               >
-                                 <div 
-                                   className={`w-1.5 h-1.5 rounded-full ${isActive ? 'shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-zinc-600'}`}
-                                   style={isActive ? { backgroundColor: gradientColor1 } : {}}
-                                 />
-                               </button>
-                             );
-                           })}
-                         </div>
-                       </div>
+                      <div className="flex flex-col gap-2 flex-1">
+                        <div className="bg-surface-input px-3 py-3 rounded-lg flex items-center justify-between">
+                           <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">
+                             Visibilidade Local
+                           </span>
+                           <button
+                             role="switch"
+                             aria-checked={!slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter']}
+                             onClick={() => {
+                               const key = selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter';
+                               setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? { ...s, [key]: !s[key] } : s));
+                             }}
+                             className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                               !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
+                             }`}
+                             style={{ '--toggle-active': gradientColor1 }}
+                           >
+                             <span
+                               className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
+                                 !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'translate-x-4' : 'translate-x-0'
+                               }`}
+                             />
+                           </button>
+                        </div>
+
+                        <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
+                          <div className="flex items-center justify-between w-full px-1">
+                            <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-1 w-fit">
+                            {[
+                              'top-left', 'top-center', 'top-right',
+                              'center-left', 'center-center', 'center-right',
+                              'bottom-left', 'bottom-center', 'bottom-right'
+                            ].map(alignKey => {
+                              const currentAlign = pos.align || (selectedElement.field === 'handle' ? 'top-left' : 'top-right');
+                              const isActive = currentAlign === alignKey;
+                              return (
+                                <button
+                                  key={alignKey}
+                                  onClick={() => updateProp('align', alignKey)}
+                                  className={`w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none ${
+                                    isActive
+                                      ? 'border border-opacity-50 shadow-[0_0_15px_rgba(0,0,0,0.3)]'
+                                      : 'bg-white/5 border border-transparent hover:bg-white/10'
+                                  }`}
+                                  style={isActive ? { borderColor: gradientColor1, backgroundColor: `${gradientColor1}15` } : {}}
+                                >
+                                  <div 
+                                    className={`w-1.5 h-1.5 rounded-full ${isActive ? 'shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-zinc-600'}`}
+                                    style={isActive ? { backgroundColor: gradientColor1 } : {}}
+                                  />
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 );
@@ -561,25 +622,29 @@ export default function ConfigSidebar({
              
              <div className="flex gap-2 mb-4">
                 <button 
-                  onClick={() => updateProp('bold', !pos.bold)}
+                  onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
+                  onClick={() => applyRichFormat('bold', () => updateProp('bold', !pos.bold))}
                   className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.bold ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Bold className="w-4 h-4" />
                 </button>
                 <button 
-                  onClick={() => updateProp('italic', !pos.italic)}
+                  onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
+                  onClick={() => applyRichFormat('italic', () => updateProp('italic', !pos.italic))}
                   className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.italic ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Italic className="w-4 h-4" />
                 </button>
                 <button 
-                  onClick={() => updateProp('underline', !pos.underline)}
+                  onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
+                  onClick={() => applyRichFormat('underline', () => updateProp('underline', !pos.underline))}
                   className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.underline ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Underline className="w-4 h-4" />
                 </button>
                 <button 
-                  onClick={() => updateProp('uppercase', !pos.uppercase)}
+                  onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
+                  onClick={() => applyRichFormat('strikeThrough', () => updateProp('uppercase', !pos.uppercase))}
                   className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.uppercase ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Type className="w-4 h-4" />
@@ -673,7 +738,184 @@ export default function ConfigSidebar({
                   </div>
                </div>
              </div>
-           </div>
+
+              <div className="space-y-3 mt-4">
+                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                  <div className="flex justify-between items-center">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Entrelinhas</span>
+                     <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => updateProp('lineHeight', undefined)}
+                          title="Resetar"
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                        </button>
+                        <button 
+                          onMouseDown={() => startAutoScroll('lineHeight', -0.05)}
+                          onTouchStart={() => startAutoScroll('lineHeight', -0.05)}
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        >
+                          -
+                        </button>
+                        <span className="text-[10px] font-mono text-zinc-200 min-w-[40px] text-center">
+                          {(pos.lineHeight !== undefined ? pos.lineHeight : 1.0).toFixed(2)}x
+                        </span>
+                        <button 
+                          onMouseDown={() => startAutoScroll('lineHeight', 0.05)}
+                          onTouchStart={() => startAutoScroll('lineHeight', 0.05)}
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        >
+                          +
+                        </button>
+                     </div>
+                  </div>
+                  <input
+                     type="range"
+                     min="0.5"
+                     max="2.5"
+                     step="any"
+                     value={pos.lineHeight !== undefined ? pos.lineHeight : 1.0}
+                     onChange={(e) => updateProp('lineHeight', parseFloat(e.target.value))}
+                     className="alice-range w-full"
+                  />
+                </div>
+
+                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
+                  <div className="flex justify-between items-center">
+                     <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Espaçamento Letras</span>
+                     <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => updateProp('letterSpacing', 0)}
+                          title="Resetar"
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                        </button>
+                        <button 
+                          onMouseDown={() => startAutoScroll('letterSpacing', -0.5)}
+                          onTouchStart={() => startAutoScroll('letterSpacing', -0.5)}
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        >
+                          -
+                        </button>
+                        <span className="text-[10px] font-mono text-zinc-200 min-w-[40px] text-center">
+                          {(pos.letterSpacing || 0).toFixed(1)}
+                        </span>
+                        <button 
+                          onMouseDown={() => startAutoScroll('letterSpacing', 0.5)}
+                          onTouchStart={() => startAutoScroll('letterSpacing', 0.5)}
+                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        >
+                          +
+                        </button>
+                     </div>
+                  </div>
+                  <input
+                     type="range"
+                     min="-10"
+                     max="50"
+                     step="any"
+                     value={pos.letterSpacing || 0}
+                     onChange={(e) => updateProp('letterSpacing', parseFloat(e.target.value))}
+                     className="alice-range w-full"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-border-subtle">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mb-3 block">Ações do Elemento</span>
+              <div className="flex gap-2">
+                 <button
+                    onClick={() => {
+                       const {slideIndex, field} = selectedElement;
+                       const smartEl = document.getElementById(`smart-${slideIndex}-${field}`);
+                       const textNode = smartEl?.querySelector('[contenteditable]');
+                       if (!textNode) return;
+
+                       const cloneId = `clone_${Date.now()}`;
+                       const cloneData = {
+                         id: cloneId,
+                         sourceField: field,
+                         type: textNode.tagName.toLowerCase(),
+                         className: textNode.className.replace('outline-none', '').trim()
+                       };
+                       
+                       setSlides(prev => prev.map((s, i) => {
+                           if(i !== slideIndex) return s;
+                           const originalText = s[field] || textNode.innerText;
+                           const originalPos = s.positions?.[field] || {};
+                           
+                           const slideCard = document.getElementById(`slide-card-${slideIndex}`);
+                           let startX = 0;
+                           let startY = 0;
+                           
+                           if (slideCard) {
+                               const slideRect = slideCard.getBoundingClientRect();
+                               const elRect = smartEl.getBoundingClientRect();
+                               const scaleFactor = slideRect.width / slideCard.offsetWidth;
+                               
+                               const unscaledW = smartEl.offsetWidth;
+                               const unscaledH = smartEl.offsetHeight;
+                               
+                               const unscaledCenterX = (elRect.left + elRect.width / 2 - slideRect.left) / scaleFactor;
+                               const unscaledCenterY = (elRect.top + elRect.height / 2 - slideRect.top) / scaleFactor;
+                               
+                               startX = unscaledCenterX - unscaledW / 2;
+                               startY = unscaledCenterY - unscaledH / 2;
+                           }
+                           
+                           return {
+                              ...s,
+                              [cloneId]: originalText,
+                              clonedFields: [...(s.clonedFields || []), cloneData],
+                              positions: {
+                                 ...(s.positions || {}),
+                                 [cloneId]: { 
+                                     x: startX, 
+                                     y: startY + 60, 
+                                     scale: (originalPos.scale || 1), 
+                                     rotation: (originalPos.rotation || 0),
+                                     ...originalPos, // keep color, italic, etc.
+                                     x: startX, // overwrite in case ...originalPos sets it
+                                     y: startY + 60
+                                 }
+                              }
+                           };
+                       }));
+                       setTimeout(() => setSelectedElement({ slideIndex, field: cloneId }), 50);
+                    }}
+                    className="flex-1 py-1.5 bg-[var(--color-brand)]/10 hover:bg-[var(--color-brand)]/20 text-[var(--color-brand)] border border-[var(--color-brand)]/20 rounded-md text-xs font-bold transition-all flex items-center justify-center gap-2"
+                 >
+                    <Copy size={14} /> Duplicar Camada
+                 </button>
+                 
+                 {selectedElement.field && selectedElement.field.startsWith('clone_') && (
+                     <button
+                        onClick={() => {
+                           const {slideIndex, field} = selectedElement;
+                           setSlides(prev => prev.map((s, i) => {
+                               if (i !== slideIndex) return s;
+                               const newClonedFields = (s.clonedFields || []).filter(c => c.id !== field);
+                               const { [field]: textToRemove, ...restSlide } = s;
+                               const { [field]: posToRemove, ...restPositions } = s.positions || {};
+                               return {
+                                   ...restSlide,
+                                   clonedFields: newClonedFields,
+                                   positions: restPositions
+                               };
+                           }));
+                           setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null });
+                        }}
+                        className="px-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 border border-rose-500/20 rounded-md text-xs transition-all flex items-center justify-center"
+                        title="Remover Camada Clonada"
+                     >
+                        <Trash2 size={16} />
+                     </button>
+                 )}
+              </div>
+            </div>
 
             <div className="mt-4 pt-4 border-t border-border-subtle">
               <div className="flex justify-between items-center mb-3">
