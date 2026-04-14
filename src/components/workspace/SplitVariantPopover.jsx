@@ -178,6 +178,86 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         <div className="w-[50%] h-[1.5px] bg-white/70 rounded-full mt-0.5" />
       </div>
     ),
+    // 13: Thin Border Split
+    13: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 border-[1.5px]" style={{ background: '#ffffff', borderColor: accent }}>
+        <div className="flex justify-between items-end mb-1 mt-1">
+          <div className="w-[50%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-[20%] h-[2px] rounded-full opacity-30" style={{ background: accent }} />
+        </div>
+        <div className="w-full h-[40%] rounded-sm mb-1" style={{ background: img }} />
+        <div className="flex flex-col gap-0.5 pl-0.5">
+          <div className="w-[90%] h-[1.5px] bg-zinc-500 rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 14: Floating Element
+    14: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 relative bg-[#FAFAFA]">
+        <div className="w-[85%] h-[45%] absolute top-2 right-1 rounded-sm border border-white z-0" style={{ background: img }} />
+        <div className="relative mt-auto w-[90%] bg-white border border-black/5 rounded px-1 py-1.5 flex flex-col gap-0.5 shadow-sm z-10 -ml-0.5">
+          <div className="w-[30%] h-[1.5px] rounded-full" style={{ background: accent }} />
+          <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full mt-0.5" />
+          <div className="w-[90%] h-[1.5px] bg-zinc-500 rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 15: Arch View
+    15: (
+      <div className="w-full h-full flex flex-col items-center rounded-[3px] overflow-hidden p-1 bg-[#FAFAFA]">
+        <div className="w-full h-[45%] rounded-t-full rounded-b-[2px] mb-1 shrink-0" style={{ background: img }} />
+        <div className="flex flex-col items-center w-full gap-0.5 mt-0.5">
+          <div className="w-[30%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
+          <div className="w-[70%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-[90%] h-[1.5px] bg-zinc-500 rounded-full mt-0.5" />
+          <div className="w-[50%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 16: Frame Bottom Card
+    16: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 bg-[#FAFAFA]">
+        <div className="w-full h-[45%] relative mb-1.5 mt-0.5 shrink-0">
+          <div className="absolute top-0 right-1 bottom-[2px] left-0 rounded-br-[10px] rounded-tl-[2px] z-10 border border-white" style={{ background: img }} />
+          <div className="absolute bottom-0 right-0 w-4 h-4 rounded-br-[12px] z-0" style={{ background: accent }} />
+        </div>
+        <div className="flex flex-col gap-0.5 pl-0.5">
+          <div className="w-[20%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
+          <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-[90%] h-[1.5px] bg-zinc-500 rounded-full mt-0.5" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 17: Diagonal Shift
+    17: (
+      <div className="w-full h-full flex flex-col items-center justify-center rounded-[3px] overflow-hidden p-1 relative bg-[#18181b]">
+        <div className="w-[85%] h-[40%] rounded-[2px] -rotate-6 z-10 border border-zinc-700 mt-1" style={{ background: img }} />
+        <div className="w-[95%] bg-white rounded-[2px] rotate-2 -mt-2.5 z-20 flex flex-col px-1 pt-1 pb-1.5 gap-0.5 shadow-sm">
+          <div className="flex items-center gap-1 mb-0.5">
+            <div className="w-1 h-1 rounded-full shrink-0" style={{ background: accent }} />
+            <div className="w-[30%] h-[1px] rounded-full bg-zinc-400" />
+          </div>
+          <div className="w-[80%] h-[1.5px] bg-zinc-800 rounded-full" />
+          <div className="w-[90%] h-[1.5px] bg-zinc-500 rounded-full mt-0.5" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 18: Edge Half View
+    18: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="w-full h-[50%] border-b-[2px] shrink-0" style={{ background: img, borderColor: accent }} />
+        <div className="flex-1 flex flex-col p-1.5 gap-1 border-t border-black/5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] pt-2">
+          <div className="w-[90%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-[70%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-full h-[1.5px] bg-zinc-500 rounded-full mt-0.5" />
+          <div className="w-[85%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
   };
 
   return (
