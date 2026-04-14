@@ -717,6 +717,13 @@ export default function ConfigSidebar({
           <LayoutTemplate size={18} />
           <span className="text-[9px] font-bold tracking-wide mt-1">Layouts</span>
         </button>
+        <button 
+          onClick={() => setActiveTab('autopost')}
+          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-[8px] transition-all ${activeTab === 'autopost' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
+        >
+          <Sparkles size={18} />
+          <span className="text-[9px] font-bold tracking-wide mt-1">Auto-Post</span>
+        </button>
         <div className="w-8 h-px bg-white/10 my-2" />
         <button 
           onClick={() => setActiveTab('midia')}
@@ -1106,6 +1113,15 @@ export default function ConfigSidebar({
                    />
                  </CollapsibleSection>
                )}
+             </div>
+          )}
+
+          {activeTab === 'autopost' && (
+             <div className="flex-1 h-full min-h-[200px] flex flex-col items-center justify-center">
+                <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  Em breve!
+                </p>
              </div>
           )}
 
