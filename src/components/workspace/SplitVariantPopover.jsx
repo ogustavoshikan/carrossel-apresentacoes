@@ -106,6 +106,78 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 8: Image Top Split
+    8: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 gap-1 bg-[#FAFAFA]">
+        <div className="w-full h-[40%] rounded-md" style={{ background: img }} />
+        <div className="flex gap-1.5 mt-0.5">
+          <div className="w-3 h-2 rounded-sm shrink-0" style={{ background: accent }} />
+          <div className="flex-1 flex flex-col gap-0.5 pt-0.5">
+             <div className="w-[90%] h-[2px] bg-zinc-800 rounded-full" />
+             <div className="w-[60%] h-[2px] bg-zinc-800 rounded-full" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-0.5 mt-0.5">
+          <div className="w-full h-[1px] bg-zinc-400 rounded-full" />
+          <div className="w-[85%] h-[1px] bg-zinc-400 rounded-full" />
+          <div className="w-[40%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 9: Circle Top
+    9: (
+      <div className="w-full h-full flex flex-col items-center p-1 relative rounded-[3px] overflow-hidden" style={{ background: '#F4F4F5' }}>
+        <div className="w-6 h-6 rounded-full mt-1 border-[1.5px] border-white shadow-sm z-10 shrink-0" style={{ background: img }} />
+        <div className="w-[90%] h-[45%] bg-white border border-black/5 rounded-md -mt-2 p-1 flex flex-col items-center gap-1 justify-end pb-1.5">
+           <div className="w-[80%] h-[2px] rounded-full mt-0.5" style={{ background: accent }} />
+           <div className="w-[60%] h-[2px] rounded-full" style={{ background: accent }} />
+           <div className="w-[70%] h-[1px] bg-zinc-400 mt-0.5" />
+        </div>
+      </div>
+    ),
+    // 10: Polaroid Tilt
+    10: (
+      <div className="w-full h-full flex flex-col items-center rounded-[3px] overflow-hidden p-1 bg-[#E8E8E8]">
+        <div className="w-7 h-8 bg-white shadow-sm flex flex-col p-0.5 mt-1 -rotate-[5deg]">
+           <div className="w-full h-5" style={{ background: img }} />
+           <div className="flex justify-between mt-[2px]">
+             <div className="w-2 h-[1px] bg-zinc-300" />
+             <div className="w-[2px] h-[2px] rounded-full" style={{ background: accent }} />
+           </div>
+        </div>
+        <div className="flex flex-col items-center gap-0.5 mt-1.5 w-full pt-0.5">
+           <div className="w-[70%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[50%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[80%] h-[1px] bg-zinc-500 mt-0.5 rounded-full" />
+           <div className="w-[60%] h-[1px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 11: Overlap Card
+    11: (
+      <div className="w-full h-full flex flex-col relative rounded-[3px] overflow-hidden bg-[#FAFAFA]">
+        <div className="w-full h-[55%] shrink-0" style={{ background: img }} />
+        <div className="w-[110%] flex-1 bg-white rounded-tr-xl -mt-2 z-10 border-t border-black/5 shadow-sm p-1.5 flex flex-col gap-0.5">
+           <div className="flex items-center gap-1 mb-0.5">
+             <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+             <div className="w-3 h-[1.5px] bg-zinc-300 rounded-full" />
+           </div>
+           <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-800 rounded-full mt-0.5" />
+           <div className="w-[90%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 12: Dark Centered
+    12: (
+      <div className="w-full h-full flex flex-col items-center rounded-[3px] overflow-hidden" style={{ background: accent }}>
+        <div className="w-[60%] h-[2px] bg-white rounded-full mt-3" />
+        <div className="w-[40%] h-[2px] bg-white rounded-full mt-0.5" />
+        <div className="w-[26px] h-[26px] rounded-full mt-1.5 border-[1.5px] border-white/20 shrink-0" style={{ background: img }} />
+        <div className="w-[80%] h-[1.5px] bg-white/70 rounded-full mt-1.5" />
+        <div className="w-[50%] h-[1.5px] bg-white/70 rounded-full mt-0.5" />
+      </div>
+    ),
   };
 
   return (

@@ -520,6 +520,272 @@ export function SplitVariant7(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 8 — Image Top Split
+// Imagem superior rounded + header + conteúdo horizontal
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant8(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA]">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-2xl overflow-hidden shadow-lg mb-6 shrink-0 bg-zinc-300 relative border border-black/5 mt-4">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+
+      <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex items-start gap-4 mb-4 shrink-0">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="text-white font-outfit font-bold px-2 py-0.5 rounded text-[11px] shrink-0 outline-none uppercase tracking-wide"
+              style={{ backgroundColor: brandColor }}
+            >
+              {data.tag || 'TAG'}
+            </span>
+          </SmartField>
+          
+          <SmartField field="titulo" {...sp} className="flex-1 min-w-0">
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] tracking-tight leading-[1.1] outline-none break-words"
+              style={{ fontSize: `${24 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        
+        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-6"
+            style={{ fontSize: `${15 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 9 — Circle Top 
+// Imagem oval superior com container glassmorphism logo abaixo
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant9(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#F4F4F5]">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] mx-auto mt-6 rounded-[5rem] overflow-hidden shadow-2xl mb-8 shrink-0 bg-zinc-300 relative border-4 border-white">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+      
+      <div className="flex-1 flex flex-col items-center text-center min-h-0 bg-white/60 backdrop-blur-md p-6 rounded-3xl border border-white shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+        <SmartField field="titulo" {...sp} className="w-full shrink-0 mb-3">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black tracking-tight leading-[1.1] outline-none break-words"
+            style={{ color: brandColor, fontSize: `${22 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp} className="w-full flex-1 overflow-hidden">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-5"
+            style={{ fontSize: `${14 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 10 — Polaroid Tilt
+// Layout minimalista com estilo polaroid inclinada
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant10(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#E8E8E8] relative">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <div className="w-[90%] mx-auto bg-white p-3 shadow-xl flex flex-col shrink-0 mb-8 mt-4 rotate-[-2deg] border border-black/5 z-10">
+        <SmartField field="imagem" {...sp} className="w-full aspect-square relative mb-3 overflow-hidden bg-zinc-200">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+        
+        <div className="flex justify-between items-center px-2">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-zinc-400 text-[10px] tracking-widest uppercase outline-none"
+            >
+              {data.tag || `VOL. 0${index + 1}`}
+            </span>
+          </SmartField>
+          
+          <svg className="w-3 h-3" style={{ color: brandColor }} fill="currentColor" viewBox="0 0 24 24">
+             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div className="flex-1 flex flex-col min-h-0 px-4 mt-2">
+        <SmartField field="titulo" {...sp} className="shrink-0 mb-3">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[#1a1a1a] tracking-tight leading-[1.1] outline-none break-words"
+            style={{ fontSize: `${26 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-zinc-600 leading-relaxed italic outline-none line-clamp-5"
+            style={{ fontSize: `${15 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 11 — Overlap Card
+// Imagem de fundo com card de texto subindo e sobrepondo
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant11(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative border border-black/5 mt-4">
+         <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+      
+      <div className="flex-1 flex flex-col min-h-0 bg-white p-6 rounded-tr-[2.5rem] -mt-10 relative z-10 shadow-[0_-15px_30px_rgba(0,0,0,0.06)] border-t border-r border-white">
+        <div className="flex items-center gap-2 mb-3 mt-1 shrink-0">
+          <span className="w-2 h-2 rounded-full" style={{ backgroundColor: brandColor }} />
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-xs text-zinc-400 tracking-wider uppercase outline-none"
+            >
+              {data.tag || 'TAG'}
+            </span>
+          </SmartField>
+        </div>
+        
+        <SmartField field="titulo" {...sp} className="mb-3 shrink-0">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[#1a1a1a] leading-[1.1] outline-none break-words"
+            style={{ fontSize: `${24 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-4"
+            style={{ fontSize: `${14 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 12 — Dark Centered
+// Layout centralizado com círculo e foco na cor da marca
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant12(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden items-center text-white" style={{ backgroundColor: brandColor }}>
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      
+      <SmartField field="titulo" {...sp} className="mt-8 mb-6 w-full shrink-0">
+        <h2
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black leading-tight outline-none break-words text-center"
+          style={{ fontSize: `${28 * sTitle}px` }}
+        >
+          {data.titulo}
+        </h2>
+      </SmartField>
+      
+      <SmartField field="imagem" {...sp} className="w-48 h-48 rounded-full overflow-hidden shrink-0 border-4 border-white/20 relative mb-6 shadow-2xl">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+      
+      <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0 w-full">
+        <p
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-playfair text-white/80 leading-snug outline-none line-clamp-5 text-center"
+          style={{ fontSize: `${15 * sText}px` }}
+        >
+          {data.texto_apoio}
+        </p>
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -530,6 +796,11 @@ export const SPLIT_VARIANT_COMPONENTS = {
   4: SplitVariant4,
   5: SplitVariant5,
   7: SplitVariant7,
+  8: SplitVariant8,
+  9: SplitVariant9,
+  10: SplitVariant10,
+  11: SplitVariant11,
+  12: SplitVariant12,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -540,6 +811,11 @@ export const SPLIT_VARIANT_META = [
   { id: 4, name: 'Bento Grid', description: 'Grid bento com três células' },
   { id: 5, name: 'Brutalist', description: 'Estilo brutalista com bordas grossas' },
   { id: 7, name: 'Fashion Overlap', description: 'Card branco com foto circular sobreposta' },
+  { id: 8, name: 'Image Top Split', description: 'Imagem superior rounded + header + conteúdo horizontal' },
+  { id: 9, name: 'Circle Top', description: 'Imagem oval superior com container glassmorphism logo abaixo' },
+  { id: 10, name: 'Polaroid Tilt', description: 'Layout minimalista com estilo polaroid inclinada' },
+  { id: 11, name: 'Overlap Card', description: 'Imagem de fundo com card de texto subindo e sobrepondo' },
+  { id: 12, name: 'Dark Centered', description: 'Layout centralizado com círculo e foco na cor da marca' },
 ];
 
 
