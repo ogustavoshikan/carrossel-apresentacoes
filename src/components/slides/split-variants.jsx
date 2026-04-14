@@ -535,6 +535,7 @@ export function SplitVariant8(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
+      <div className="w-full shrink-0" style={{ height: '3px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-2xl overflow-hidden shadow-lg mb-6 shrink-0 bg-zinc-300 relative border border-black/5 mt-4">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
@@ -564,12 +565,12 @@ export function SplitVariant8(props) {
           </SmartField>
         </div>
         
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-6"
-            style={{ fontSize: `${15 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -609,12 +610,12 @@ export function SplitVariant9(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="w-full flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="w-full flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-5"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -700,6 +701,7 @@ export function SplitVariant11(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
+      <div className="w-full shrink-0" style={{ height: '3px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative border border-black/5 mt-4">
          <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
@@ -729,12 +731,12 @@ export function SplitVariant11(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-4"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -777,8 +779,8 @@ export function SplitVariant12(props) {
         <p
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-white/80 leading-snug outline-none line-clamp-5 text-center"
-          style={{ fontSize: `${15 * sText}px` }}
+          className="font-playfair text-white/80 leading-snug outline-none text-center"
+          style={{ fontSize: `${18 * sText}px` }}
         >
           {data.texto_apoio}
         </p>
@@ -833,8 +835,8 @@ export function SplitVariant13(props) {
         <p
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-zinc-800 leading-relaxed font-medium outline-none line-clamp-6"
-          style={{ fontSize: `${14 * sText}px` }}
+          className="font-playfair text-zinc-800 leading-relaxed font-medium outline-none"
+          style={{ fontSize: `${18 * sText}px` }}
         >
           {data.texto_apoio}
         </p>
@@ -941,12 +943,12 @@ export function SplitVariant15(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="w-[90%] flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="w-[90%] flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-relaxed outline-none line-clamp-5"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-relaxed outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -999,12 +1001,12 @@ export function SplitVariant16(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-5"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1059,12 +1061,12 @@ export function SplitVariant17(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-4"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1104,12 +1106,12 @@ export function SplitVariant18(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden w-full">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 min-h-0 w-full">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-relaxed font-medium outline-none line-clamp-5 w-full"
-            style={{ fontSize: `${15 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-relaxed font-medium outline-none w-full"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1157,12 +1159,12 @@ export function SplitVariant19(props) {
           </SmartField>
         </div>
         
-        <SmartField field="texto_apoio" {...sp} className="overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-snug outline-none line-clamp-5"
-            style={{ fontSize: `${15 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1211,12 +1213,12 @@ export function SplitVariant20(props) {
             </h2>
           </SmartField>
           
-          <SmartField field="texto_apoio" {...sp} className="overflow-hidden">
+          <SmartField field="texto_apoio" {...sp} className="min-h-0">
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-800 leading-snug outline-none line-clamp-4"
-              style={{ fontSize: `${14 * sText}px` }}
+              className="font-playfair text-zinc-800 leading-snug outline-none"
+              style={{ fontSize: `${18 * sText}px` }}
             >
               {data.texto_apoio}
             </p>
@@ -1253,12 +1255,12 @@ export function SplitVariant21(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="w-[70%]">
+        <SmartField field="texto_apoio" {...sp} className="w-[70%] min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-6"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1309,12 +1311,12 @@ export function SplitVariant22(props) {
             </h2>
           </SmartField>
           
-          <SmartField field="texto_apoio" {...sp} className="overflow-hidden">
+          <SmartField field="texto_apoio" {...sp} className="min-h-0">
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-6"
-              style={{ fontSize: `${14 * sText}px` }}
+              className="font-playfair text-zinc-600 leading-snug outline-none"
+              style={{ fontSize: `${18 * sText}px` }}
             >
               {data.texto_apoio}
             </p>
@@ -1365,12 +1367,12 @@ export function SplitVariant23(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="text-right">
+        <SmartField field="texto_apoio" {...sp} className="text-right min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-4"
-            style={{ fontSize: `${13 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1421,12 +1423,12 @@ export function SplitVariant24(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="w-[90%] flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="w-[90%] flex-1 min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-700 leading-relaxed outline-none line-clamp-5"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-700 leading-relaxed outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1485,12 +1487,12 @@ export function SplitVariant25(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-4"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -1539,12 +1541,12 @@ export function SplitVariant26(props) {
           </h2>
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp} className="overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="min-h-0">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-relaxed font-medium outline-none line-clamp-5"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair text-zinc-600 leading-relaxed font-medium outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
