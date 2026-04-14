@@ -258,6 +258,100 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 19: Offset Grid
+    19: (
+      <div className="w-full h-full flex items-center justify-center rounded-[3px] overflow-hidden bg-[#18181b] relative p-1">
+        <div className="w-[60%] h-[70%] absolute top-1 left-1 rounded-sm" style={{ background: img }} />
+        <div className="w-[60%] h-[50%] absolute bottom-1 right-1 bg-white/10 backdrop-blur-md rounded-sm border border-white/10 p-1 flex flex-col justify-center z-10 shadow-sm">
+            <div className="w-[30%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
+            <div className="w-[80%] h-[2px] bg-white/90 rounded-full" />
+            <div className="w-[90%] h-[1px] bg-zinc-400 rounded-full mt-0.5" />
+        </div>
+      </div>
+    ),
+    // 20: Clean Split
+    20: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="h-[45%] w-full shrink-0" style={{ background: img }} />
+        <div className="flex-1 flex flex-col p-1.5 justify-center gap-0.5 pb-2">
+           <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[30%] h-[1.5px] rounded-full mt-0.5" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 21: Floating Text
+    21: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 bg-[#FAFAFA] relative">
+        <div className="w-[calc(100%-8px)] h-[60%] rounded-md absolute top-1 left-1" style={{ background: img }} />
+        <div className="w-[85%] h-[40%] bg-white border border-black/5 rounded-md shadow-[0_2px_4px_rgba(0,0,0,0.05)] absolute bottom-1 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center p-1 gap-0.5 z-10">
+          <div className="w-[30%] h-[1.5px] rounded-full" style={{ background: accent }} />
+          <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full" />
+          <div className="w-[60%] h-[1px] bg-zinc-500 rounded-full mt-0.5" />
+        </div>
+      </div>
+    ),
+    // 22: Text Frame
+    22: (
+      <div className="w-full h-full flex items-center justify-center rounded-[3px] overflow-hidden p-1 relative" style={{ background: accent }}>
+        <div className="w-full h-full border-[1.5px] border-white/30 rounded-sm flex flex-col p-1 relative z-10">
+           <div className="w-full h-[40%] bg-black/20 rounded-[2px]" style={{ background: img }} />
+           <div className="flex-1 flex flex-col justify-end gap-0.5 pb-0.5">
+             <div className="w-[80%] h-[2px] bg-white rounded-full" />
+             <div className="w-[90%] h-[1.5px] bg-white/70 rounded-full mt-0.5" />
+             <div className="w-[50%] h-[1.5px] bg-white/70 rounded-full" />
+           </div>
+        </div>
+      </div>
+    ),
+    // 23: Overlap Bottom
+    23: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-[#18181b]">
+        <div className="w-full h-[55%] relative shrink-0">
+           <div className="w-full h-full rounded-b-md" style={{ background: img }} />
+        </div>
+        <div className="flex-1 flex flex-col items-center -mt-2 z-10 px-1">
+           <div className="w-full bg-white rounded-sm p-1 flex flex-col items-center shadow-lg gap-0.5">
+             <div className="w-[60%] h-[2px] bg-zinc-800 rounded-full" />
+             <div className="w-[30%] h-[1.5px] rounded-full mt-0.5" style={{ background: accent }} />
+           </div>
+        </div>
+      </div>
+    ),
+    // 24: Pill Shape
+    24: (
+      <div className="w-full h-full flex flex-col items-center rounded-[3px] overflow-hidden bg-[#FAFAFA] p-1.5">
+        <div className="w-[75%] h-[50%] rounded-full shrink-0 shadow-sm border border-black/5" style={{ background: img }} />
+        <div className="flex flex-col items-center w-full mt-1.5 gap-0.5">
+           <div className="w-[30%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
+           <div className="w-[80%] h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[50%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 25: Diagonal Split
+    25: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative bg-[#18181b]">
+        <div className="absolute top-0 left-0 right-0 h-[65%]" style={{ background: img, clipPath: 'polygon(0 0, 100% 0, 100% 80%, 0 100%)' }} />
+        <div className="absolute bottom-1 left-1.5 flex flex-col gap-0.5 z-10 w-full pl-0.5">
+           <div className="w-[20%] h-[1.5px] rounded-full" style={{ background: accent }} />
+           <div className="w-[70%] h-[2px] bg-white/90 rounded-full" />
+           <div className="w-[50%] h-[1.5px] bg-white/50 rounded-full mt-0.5" />
+        </div>
+      </div>
+    ),
+    // 26: Hero Cover
+    26: (
+      <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden relative bg-[#18181b]">
+        <div className="absolute inset-0 opacity-60" style={{ background: img }} />
+        <div className="z-10 flex flex-col items-center justify-center p-1 w-full gap-0.5">
+           <div className="w-[30%] h-[2px] rounded-full mb-0.5" style={{ background: accent }} />
+           <div className="w-[90%] h-[2.5px] bg-white rounded-full" />
+           <div className="w-[60%] h-[2.5px] bg-white rounded-full" />
+           <div className="w-[80%] h-[1.5px] bg-white/70 rounded-full mt-0.5" />
+        </div>
+      </div>
+    ),
   };
 
   return (
