@@ -131,7 +131,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           </div>
 
           {/* Mantra & Hero CTA */}
-          <section className="relative w-full rounded-[2rem] bg-gradient-to-br from-[#1A1A1A] to-[#050505] border border-[#FFFFFF]/10 overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
+          <section className="relative w-full rounded-[2rem] bg-gradient-to-br to-[#050505] border border-[#FFFFFF]/10 overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
             {/* Efeitos decorativos do Hero */}
             <div
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-150"
@@ -211,7 +211,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 >
                   {/* Card 4:5 Container */}
                   <div
-                    className="relative aspect-[4/5] rounded-3xl bg-[#0A0A0A] border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
+                    className="relative aspect-[4/5] rounded-3xl border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
                     style={{ borderColor: hoveredCard === idx ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)' }}
                   >
                     
