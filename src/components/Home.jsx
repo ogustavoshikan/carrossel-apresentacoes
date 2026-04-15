@@ -150,10 +150,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
               
               <h3 className="text-4xl lg:text-5xl font-black text-[#FFFFFF] tracking-tighter uppercase leading-[1.1] mb-6">
                 Nunca Comece<br />
-                <span
-                  className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: `linear-gradient(to right, ${brandColor}, #FF4D79)` }}
-                >Do Zero.</span>
+                <span style={{ color: brandColor }}>Do Zero.</span>
               </h3>
               
               <p className="text-[#FFFFFF]/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
@@ -172,7 +169,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 </span>
                 <div
                   className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0"
-                  style={{ background: `linear-gradient(to right, ${brandColor}, #8A1230)` }}
+                  style={{ backgroundColor: brandColor }}
                 />
                 <span className="absolute z-10 inset-0 flex items-center justify-center gap-3 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 text-white">
                   <Play size={16} className="fill-white" />
