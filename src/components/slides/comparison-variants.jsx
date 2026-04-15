@@ -75,7 +75,7 @@ export function ComparisonVariant1(props) {
               <div 
                 key={i} 
                 className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${
-                  item.highlight ? 'shadow-2xl' : 'bg-white/5 border-white/5 opacity-50'
+                  item.highlight ? 'shadow-2xl' : 'bg-surface-input/30 border-white/5 opacity-50'
                 }`}
                 style={item.highlight ? { backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` } : {}}
               >
@@ -203,7 +203,7 @@ export function ComparisonVariant3(props) {
                     </span>
                   )}
                 </div>
-                <div className="w-px h-8 bg-white/10 shrink-0"></div>
+                <div className="w-px h-8 bg-surface-input/30 shrink-0"></div>
                 <div className="flex-1 text-left">
                   {right && (
                     <span 
@@ -578,7 +578,7 @@ export function ComparisonVariant10(props) {
         <div contentEditable suppressContentEditableWarning className="flex-1 h-full rounded-full flex items-center justify-center text-[10px] font-outfit font-bold uppercase tracking-widest text-white shadow-md px-2 leading-tight" style={{ backgroundColor: brandColor }}>{brandLabel}</div>
       </div>
       
-      <div className="w-full flex-1 bg-white/5 border border-white/10 rounded-3xl p-8 pb-12 flex flex-col justify-start gap-4">
+      <div className="w-full flex-1 bg-surface-input/30 border border-white/10 rounded-3xl p-8 pb-12 flex flex-col justify-start gap-4">
         {highlightItems.map((item, i) => (
           <div key={i} className="flex items-center gap-4 text-left">
             <CheckCircle2 className="w-6 h-6 shrink-0" style={{ color: brandColor }} />
@@ -685,4 +685,5 @@ export const COMPARISON_VARIANT_META = [
   { id: 10, nome: 'Toggle', badge: null },
   { id: 11, nome: 'Correção', badge: 'PRO' },
 ];
+
 

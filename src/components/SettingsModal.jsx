@@ -175,7 +175,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
         {/* Body */}
         <div className="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6">
         {tab === 'identidade' && (
-          <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200">
+          <div className="space-y-6 animate-in fade-in zoom-in-95 duration-150">
             {/* Cor Destaque */}
             <div>
               <label className="alice-label">Cor Destaque</label>
@@ -249,7 +249,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
         )}
 
         {tab === 'google' && (
-            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-200">
+            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
               <label className="alice-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> Google Gemini API Key
               </label>
@@ -271,7 +271,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
           )}
 
           {tab === 'openai' && (
-            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-200">
+            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
               <label className="alice-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> OpenAI API Key
               </label>
@@ -293,7 +293,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
           )}
 
           {tab === 'unsplash' && (
-            <div className="space-y-6 animate-in fade-in zoom-in-95 duration-200 p-1">
+            <div className="space-y-6 animate-in fade-in zoom-in-95 duration-150 p-1">
               {/* Unsplash */}
               <div className="space-y-3">
                 <label className="alice-label flex items-center gap-2">
@@ -336,7 +336,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
                 />
               </div>
 
-              <div className="p-3 bg-white/5 border border-white/10 rounded-lg">
+              <div className="p-3 bg-surface-input/30 border border-white/10 rounded-lg">
                 <p className="text-[10px] text-zinc-500 font-mono leading-relaxed">
                   Obtenha as chaves gratuitas nos portais:
                   <br/>• <a href="https://unsplash.com/developers" target="_blank" className="underline hover:text-white">unsplash.com/developers</a>
@@ -347,7 +347,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             </div>
           )}
 
-          <div className="h-px bg-white/5 w-full my-4" />
+          <div className="h-px bg-surface-input/30 w-full my-4" />
 
           {/* Global Selection */}
           <div className="space-y-4">
@@ -409,3 +409,4 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
     </div>
   );
 }
+

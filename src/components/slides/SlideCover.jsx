@@ -131,7 +131,7 @@ export default function SlideCover({
               {data.texto_apoio}
             </p>
           </SmartElement>
-          <div className="w-20 h-[3px] bg-white/50" />
+          <div className="w-20 h-[3px] bg-surface-input/300" />
         </div>
 
         <div className="flex justify-end items-end pb-4 relative z-10">
@@ -162,4 +162,5 @@ export default function SlideCover({
     </div>
   );
 }
+
 

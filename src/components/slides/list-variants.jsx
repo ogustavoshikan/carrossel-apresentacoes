@@ -137,7 +137,7 @@ export function ListVariant4(props) {
         <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
         
         <div className="flex-1 overflow-y-auto flex flex-col justify-center items-center relative py-2 w-full">
-          <div className="absolute top-0 bottom-0 w-px bg-white/10 left-1/2 -translate-x-1/2 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 w-px bg-surface-input/30 left-1/2 -translate-x-1/2 pointer-events-none"></div>
           {items.map((item, i) => {
             const isLeft = i % 2 === 0;
             return (
@@ -231,7 +231,7 @@ export function ListVariant7(props) {
         <ListTitle data={data} index={index} scale={sTitle * 0.85} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-3 shrink-0 w-full" />
         
         <div className="flex-1 overflow-hidden pr-2 relative flex flex-col justify-center">
-          <div className="absolute top-0 bottom-0 left-4 w-1 bg-white/10 pointer-events-none"></div>
+          <div className="absolute top-0 bottom-0 left-4 w-1 bg-surface-input/30 pointer-events-none"></div>
           <div className="space-y-3 relative z-10 overflow-y-auto">
             {items.map((item, i) => (
               <div key={i} className="flex gap-5 items-center group">
@@ -265,7 +265,7 @@ export function ListVariant8(props) {
         
         <div className="flex-1 overflow-y-auto space-y-4 pr-1">
           {items.map((item, i) => (
-            <div key={i} className="bg-white/5 rounded-2xl p-5 relative overflow-hidden border border-white/5 flex flex-col justify-center min-h-[90px] group">
+            <div key={i} className="bg-surface-input/30 rounded-2xl p-5 relative overflow-hidden border border-white/5 flex flex-col justify-center min-h-[90px] group">
               <div className="absolute -right-4 -bottom-6 font-outfit font-black text-white/5 text-[100px] leading-none pointer-events-none">0{i + 1}</div>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-xs uppercase tracking-widest mb-1 relative z-10 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-300 text-sm relative z-10 outline-none line-clamp-2">{item.text}</p>
@@ -316,7 +316,7 @@ export function ListVariant10(props) {
       
       <div className="flex-1 flex flex-col space-y-4 pr-1 overflow-y-auto">
         {items.map((item, i) => (
-          <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-4 shadow-lg flex items-center gap-4 group" style={{ marginLeft: `${Math.min(i * 15, 60)}px` }}>
+          <div key={i} className="bg-surface-input/30 border border-white/10 rounded-2xl p-4 shadow-lg flex items-center gap-4 group" style={{ marginLeft: `${Math.min(i * 15, 60)}px` }}>
             <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center font-outfit font-black text-xs border border-white/10 text-zinc-400 shrink-0 pointer-events-none">0{i + 1}</div>
             <div className="flex-1">
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-[11px] uppercase tracking-widest mb-1 text-white outline-none line-clamp-1">{item.label}</h4>
@@ -376,7 +376,7 @@ export function ListVariant12(props) {
         
         <div className="space-y-4 flex-1 overflow-hidden pr-2 flex flex-col justify-center">
           {items.map((item, i) => (
-            <div key={i} className="flex gap-5 items-center bg-white/5 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-all group overflow-hidden">
+            <div key={i} className="flex gap-5 items-center bg-surface-input/30 p-4 rounded-2xl border border-white/5 hover:border-white/10 transition-all group overflow-hidden">
               <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: `${brandColor}20`, border: `1px solid ${brandColor}40` }}>
                 <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
               </div>
@@ -459,3 +459,4 @@ export const LIST_VARIANT_META = [
   { id: 12, nome: 'Checklist Gold', badge: 'NEW' },
   { id: 13, nome: 'Step-by-Step', badge: 'NEW' },
 ];
+

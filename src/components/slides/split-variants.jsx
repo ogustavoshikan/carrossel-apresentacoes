@@ -177,7 +177,7 @@ export function SplitVariant2({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="px-3 py-1 bg-white/5 border border-white/10 rounded font-outfit text-[10px] tracking-widest text-zinc-400 outline-none inline-block"
+              className="px-3 py-1 bg-surface-input/30 border border-white/10 rounded font-outfit text-[10px] tracking-widest text-zinc-400 outline-none inline-block"
             >
               {data.tag || 'TAG'}
             </span>
@@ -1621,5 +1621,6 @@ export const SPLIT_VARIANT_META = [
   { id: 25, name: 'Dark Gradient Bottom', description: 'Bordas e gradiente inferior em foto' },
   { id: 26, name: 'Float Color Circle', description: 'Círculo de cor e text frame na direita superior' },
 ];
+
 
 

@@ -20,3 +20,4 @@ export default function SplashScreenCinematic({ onComplete }) {
     </div>
   );
 }
+

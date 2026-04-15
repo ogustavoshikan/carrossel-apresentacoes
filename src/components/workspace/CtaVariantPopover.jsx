@@ -75,7 +75,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     // 5: Blur Tilt
     5: (
       <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1 gap-1 bg-zinc-800">
-        <div className="w-[90%] h-[85%] bg-white/10 border border-white/20 rounded p-1 flex flex-col items-center justify-center gap-0.5 -rotate-2">
+        <div className="w-[90%] h-[85%] bg-surface-input/30 border border-white/20 rounded p-1 flex flex-col items-center justify-center gap-0.5 -rotate-2">
            <div className="w-4 h-4 rounded-full flex items-center justify-center mb-0.5 p-[2px]" style={{ background: accent }}>
              <div className="w-[50%] h-[50%] border-t border-r border-white rotate-45" />
            </div>
@@ -127,7 +127,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 flex-shrink-0 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -156,7 +156,7 @@ export default function CtaVariantPopover({ currentVariantIndex, onSelect, onClo
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
@@ -216,3 +216,4 @@ export default function CtaVariantPopover({ currentVariantIndex, onSelect, onClo
     </div>
   );
 }
+

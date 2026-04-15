@@ -69,7 +69,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
           </div>
           <div className="relative z-10 flex flex-col items-center gap-0.5">
             <div className="w-[60%] h-[3px] bg-white/80 rounded-full" />
-            <div className="w-[40%] h-[2px] bg-white/50 rounded-full" />
+            <div className="w-[40%] h-[2px] bg-surface-input/300 rounded-full" />
           </div>
         </div>
       </div>
@@ -173,7 +173,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     14: (
       <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden" style={{ background: accent }}>
         <div className="flex-1 p-1.5">
-          <div className="w-3 h-[1.5px] bg-white/50 mb-1" />
+          <div className="w-3 h-[1.5px] bg-surface-input/300 mb-1" />
           <div className="w-[80%] h-[3px] bg-white rounded-full" />
           <div className="mt-1 w-[40%] h-[2px] bg-white/60 rounded-full" />
         </div>
@@ -219,7 +219,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
       <div className="w-full h-full rounded-[3px] overflow-hidden relative flex items-center justify-center" style={{ background: dark }}>
         <div className="absolute inset-0 opacity-40" style={{ background: img }} />
         <div className="absolute w-6 h-6 rounded-full blur-md opacity-60" style={{ background: accent }} />
-        <div className="w-[80%] h-[50%] bg-white/10 backdrop-blur-[2px] border border-white/20 rounded-lg flex flex-col items-center justify-center gap-1 relative z-10">
+        <div className="w-[80%] h-[50%] bg-surface-input/30 backdrop-blur-[2px] border border-white/20 rounded-lg flex flex-col items-center justify-center gap-1 relative z-10">
            <div className="w-[60%] h-[2.5px] bg-white/90 rounded-full" />
            <div className="w-[40%] h-[1.5px] bg-white/40 rounded-full" />
         </div>
@@ -352,7 +352,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -381,7 +381,7 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
@@ -441,3 +441,4 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
     </div>
   );
 }
+

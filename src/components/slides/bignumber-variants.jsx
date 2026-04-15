@@ -854,7 +854,7 @@ export function BigNumberVariant12(props) {
           </span>
         </SmartField>
 
-        <div className="flex-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 shadow-2xl">
+        <div className="flex-1 bg-surface-input/30 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 shadow-2xl">
           <SmartField field="tag" {...sp} className="mb-4">
             <span
               contentEditable suppressContentEditableWarning
@@ -972,4 +972,5 @@ export const BIGNUMBER_VARIANT_META = [
   { id: 12, name: 'Glass List',    description: 'Número lateral + card glassmorphic vertical' },
   { id: 13, name: 'Elegant Glow',  description: 'Número central branco com glow da marca' },
 ];
+
 

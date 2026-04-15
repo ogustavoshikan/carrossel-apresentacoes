@@ -199,7 +199,7 @@ body {
 
   /* Botão ghost */
   .alice-btn-ghost {
-    @apply flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-zinc-400 py-2 px-4 rounded-lg transition-colors font-bold cursor-pointer border border-border-hover;
+    @apply flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input/50 hover:bg-surface-input text-zinc-400 py-2 px-4 rounded-lg transition-colors font-bold cursor-pointer border border-border-hover;
   }
 
   /* Toolbar tab */
@@ -208,20 +208,25 @@ body {
   }
 
   .alice-tab-active {
-    @apply bg-white/10 text-white;
+    @apply bg-surface-input text-white border border-white/10;
   }
 
   .alice-tab-inactive {
     @apply text-zinc-600 hover:text-zinc-300;
   }
 
-  .alice-resize-handle {
-    @apply hidden lg:flex w-1 hover:w-1.5 bg-transparent hover:bg-white/5 transition-all cursor-col-resize items-center justify-center z-50 relative;
+  /* Animações de Transição de Página */
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
-  .alice-resize-handle::after {
-    content: '';
-    @apply w-[1px] h-8 bg-transparent group-hover:bg-zinc-700 transition-colors;
+  .animate-page-transition {
+    animation: fade-in-up 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .alice-resize-handle {
+    @apply hidden lg:flex w-1 bg-transparent transition-all cursor-col-resize items-center justify-center z-50 relative;
   }
 
   .alice-resize-handle-active {
@@ -230,7 +235,7 @@ body {
 
   /* Botão de Colapsar Sidebar */
   .alice-collapse-btn {
-    @apply hidden lg:flex fixed top-1/2 -translate-y-1/2 -translate-x-1/2 z-[110] w-6 h-10 bg-surface-dark border border-white/10 rounded-lg items-center justify-center text-white transition-all shadow-2xl cursor-pointer;
+    @apply hidden lg:flex absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-[110] w-6 h-10 bg-surface-dark border border-white/10 rounded-lg items-center justify-center text-white transition-all shadow-lg cursor-pointer;
   }
 
   .alice-collapse-btn:hover {
@@ -243,7 +248,7 @@ body {
 
   /* Sidebar Resizable support */
   .alice-sidebar-resizable {
-    @apply w-full transition-[width] duration-75;
+    @apply w-full transition-[width] duration-150;
   }
 
   @screen lg {

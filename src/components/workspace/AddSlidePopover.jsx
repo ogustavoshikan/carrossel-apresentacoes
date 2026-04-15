@@ -134,7 +134,7 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
         </span>
         <button
           onClick={onClose}
-          className="w-6 h-6 flex items-center justify-center rounded-lg text-zinc-500 hover:text-white hover:bg-white/10 transition-colors"
+          className="w-6 h-6 flex items-center justify-center rounded-lg text-zinc-500 hover:text-white hover:bg-surface-input/50 transition-colors"
         >
           <X className="w-3.5 h-3.5" />
         </button>
@@ -147,7 +147,7 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
             key={key}
             onClick={() => handleSelect(key)}
             title={description}
-            className="group flex flex-col items-center gap-2 p-2 rounded-xl border border-border-subtle hover:border-brand/60 bg-surface-input hover:bg-white/5 transition-all duration-150 hover:scale-[1.03] active:scale-95"
+            className="group flex flex-col items-center gap-2 p-2 rounded-xl border border-border-subtle hover:border-brand/60 bg-surface-input hover:bg-surface-input/50 transition-all duration-150 hover:scale-[1.03] active:scale-95"
           >
             {/* Miniatura SVG */}
             <div className="w-10 h-[50px] opacity-80 group-hover:opacity-100 transition-opacity">
@@ -168,3 +168,4 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
     </div>
   );
 }
+

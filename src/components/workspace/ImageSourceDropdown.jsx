@@ -169,7 +169,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="absolute bottom-full mb-2 left-0 z-[300] w-80 bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-200"
+          className="absolute bottom-full mb-2 left-0 z-[300] w-80 bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -267,7 +267,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
                     onClick={() => setProvider(p.id)}
                     className={`text-[9px] font-black uppercase tracking-widest flex-1 py-1.5 rounded-md border transition-all ${
                       provider === p.id 
-                        ? `bg-white/10 border-white/20 ${p.color}` 
+                        ? `bg-surface-input/30 border-white/20 ${p.color}` 
                         : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400'
                     }`}
                   >
@@ -350,7 +350,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
                     <button
                       onClick={() => performSearch(true)}
                       disabled={isLoadingMore}
-                      className="w-full mt-3 py-2 border border-white/5 bg-white/5 hover:bg-white/10 rounded-lg text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-white transition-all flex items-center justify-center gap-2 mb-2"
+                      className="w-full mt-3 py-2 border border-white/5 bg-surface-input/30 hover:bg-surface-input/50 rounded-lg text-[9px] font-black uppercase tracking-widest text-zinc-400 hover:text-white transition-all flex items-center justify-center gap-2 mb-2"
                     >
                       {isLoadingMore ? (
                         <Loader2 className="w-3 h-3 animate-spin" />
@@ -379,3 +379,4 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
     </div>
   );
 }
+

@@ -88,7 +88,7 @@ export default function SlideComparison(props) {
               return (
                 <div key={i} className="flex gap-3 w-full">
                 {left && (
-                  <div className="w-1/2 flex flex-col p-3 rounded-slide-sm border bg-white/5 border-white/5 opacity-40 justify-center">
+                  <div className="w-1/2 flex flex-col p-3 rounded-slide-sm border bg-surface-input/30 border-white/5 opacity-40 justify-center">
                     <span
                       contentEditable suppressContentEditableWarning
                       onBlur={(e) => onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'label', e.currentTarget.innerText)}
@@ -106,7 +106,7 @@ export default function SlideComparison(props) {
                   </div>
                 )}
                 {right && (
-                  <div className="w-1/2 flex justify-between items-center p-3 rounded-slide-sm border shadow-xl transition-all duration-500" style={{ backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` }}>
+                  <div className="w-1/2 flex justify-between items-center p-3 rounded-slide-sm border shadow-xl transition-all duration-150" style={{ backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` }}>
                     <div className="flex flex-col flex-1 pr-3">
                       <span
                         contentEditable suppressContentEditableWarning
@@ -137,4 +137,5 @@ export default function SlideComparison(props) {
     </div>
   );
 }
+
 

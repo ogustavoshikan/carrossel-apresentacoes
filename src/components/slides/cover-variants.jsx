@@ -134,7 +134,7 @@ export function CoverVariant1({ data, index, brandColor, titleScale, textScale, 
               {data.texto_apoio}
             </p>
           </SmartField>
-          <div className="w-20 h-[3px] bg-white/50 mb-8" />
+          <div className="w-20 h-[3px] bg-surface-input/300 mb-8" />
         </div>
       </div>
     </div>
@@ -728,7 +728,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
               {data.texto_apoio}
             </p>
           </SmartField>
-          <div className="flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full">
+          <div className="flex items-center gap-2 bg-surface-input/30 px-4 py-1.5 rounded-full">
             <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white leading-none mt-[1px]">Deslize</span>
             <ArrowRight className="w-3 h-3 text-white" />
           </div>
@@ -761,7 +761,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
   return (
     <div className="w-full h-full flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
-        <div className="w-12 h-1 bg-white/50 mb-6 shrink-0" />
+        <div className="w-12 h-1 bg-surface-input/300 mb-6 shrink-0" />
         <SmartField field="titulo" {...sp} className="mb-4 w-full shrink-0">
           <h2
             contentEditable suppressContentEditableWarning
@@ -950,7 +950,7 @@ export function CoverVariant18({ data, index, brandColor, brandHandle, titleScal
         <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{ backgroundColor: brandColor }} />
       </div>
-      <div className="relative z-10 w-full bg-white/10 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: `${brandColor}50` }}>
+      <div className="relative z-10 w-full bg-surface-input/30 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: `${brandColor}50` }}>
         <SmartField field="texto_apoio" {...sp} className="mb-4">
           <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{ color: brandColor }}>
             {slideData.texto_apoio}
@@ -1199,14 +1199,14 @@ export function CoverVariant25({ data, index, brandColor, brandHandle, titleScal
         <div className="absolute inset-0 bg-cover bg-center opacity-70 blur-sm scale-110" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         <div className="absolute inset-0 bg-black/40" />
       </div>
-      <div className="relative z-10 w-full h-[75%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col justify-between p-8">
+      <div className="relative z-10 w-full h-[75%] bg-surface-input/30 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col justify-between p-8">
         <div className="flex justify-between items-center w-full">
           <span className="font-outfit font-bold tracking-widest text-[9px] text-white/90 uppercase">{brandHandle || '@studio'}</span>
-          <div className="w-8 h-[1px] bg-white/50" />
+          <div className="w-8 h-[1px] bg-surface-input/300" />
         </div>
         <div className="flex flex-col items-center text-center">
           <SmartField field="texto_apoio" {...sp} className="mb-4">
-            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 bg-white/10">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 bg-surface-input/30">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1381,6 +1381,7 @@ export const COVER_VARIANT_META = [
   { id: 26, name: 'Overlay Volume', description: 'Bloco superior blend sobre imagem' },
   { id: 27, name: 'Slanted New', description: 'Recorte diagonal com ícone Sparkles' },
 ];
+
 
 
 

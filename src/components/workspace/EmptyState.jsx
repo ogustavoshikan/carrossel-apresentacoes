@@ -152,3 +152,4 @@ export function LoadingState({ brandColor = '#DE1E40' }) {
     </div>
   );
 }
+

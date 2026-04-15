@@ -48,3 +48,4 @@ export default function SplashScreen({ onComplete }) {
     </div>
   );
 }
+

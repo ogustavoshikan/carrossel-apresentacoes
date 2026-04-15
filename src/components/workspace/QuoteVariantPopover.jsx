@@ -44,7 +44,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
       <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: accent }}>
         <div className="w-[80%] h-[3px] bg-white rounded-full" />
         <div className="w-[50%] h-[3px] bg-white rounded-full" />
-        <div className="w-4 h-[1px] bg-white/50 rounded-full mt-0.5" />
+        <div className="w-4 h-[1px] bg-surface-input/300 rounded-full mt-0.5" />
         <div className="w-[40%] h-[1.5px] bg-white/90 rounded-full" />
       </div>
     ),
@@ -62,7 +62,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     // 5: Bento Card
     5: (
       <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5" style={{ background: '#020202' }}>
-        <div className="w-[90%] h-[80%] border border-white/20 rounded bg-white/5 p-1 flex flex-col items-center justify-center gap-1.5 relative">
+        <div className="w-[90%] h-[80%] border border-white/20 rounded bg-surface-input/30 p-1 flex flex-col items-center justify-center gap-1.5 relative">
           <div className="absolute -top-1.5 w-3 h-3 bg-[#020202] rounded-sm flex items-center justify-center" style={{ left: '2px' }}>
             <div className="w-1.5 h-1.5 rounded-sm" style={{ background: accent }} />
           </div>
@@ -112,7 +112,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     // 10: Glass Card
     10: (
       <div className="w-full h-full flex flex-col justify-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#080808' }}>
-        <div className="w-[90%] bg-white/10 border border-white/20 p-1.5 rounded-sm rounded-bl-none flex items-center">
+        <div className="w-[90%] bg-surface-input/30 border border-white/20 p-1.5 rounded-sm rounded-bl-none flex items-center">
            <div className="w-[70%] h-[2px] bg-white rounded-full" />
         </div>
         <div className="w-[40%] h-[1.5px] bg-zinc-500 rounded-full ml-1" />
@@ -148,7 +148,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 flex-shrink-0 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -177,7 +177,7 @@ export default function QuoteVariantPopover({ currentVariantIndex, onSelect, onC
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
@@ -237,3 +237,4 @@ export default function QuoteVariantPopover({ currentVariantIndex, onSelect, onC
     </div>
   );
 }
+

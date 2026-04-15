@@ -207,11 +207,11 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
 
           {/* Divisor com label do miolo */}
           <div className="flex items-center gap-2">
-            <div className="flex-1 h-px bg-white/5" />
+            <div className="flex-1 h-px bg-surface-input/50" />
             <span className="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">
               Miolo ({mioloCount} slides)
             </span>
-            <div className="flex-1 h-px bg-white/5" />
+            <div className="flex-1 h-px bg-surface-input/50" />
           </div>
 
           {/* Layouts editáveis do miolo */}
@@ -244,14 +244,14 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
                       <button
                         onClick={() => setQty(key, qty - 1)}
                         disabled={qty === 0}
-                        className="w-5 h-5 flex items-center justify-center rounded-md bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-bold disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
+                        className="w-5 h-5 flex items-center justify-center rounded-md bg-surface-input/50 hover:bg-surface-input/50 text-zinc-400 hover:text-white text-xs font-bold disabled:opacity-20 disabled:cursor-not-allowed transition-colors"
                       >
                         −
                       </button>
                       <span className="w-5 text-center text-[10px] font-mono text-white">{qty}</span>
                       <button
                         onClick={() => setQty(key, qty + 1)}
-                        className="w-5 h-5 flex items-center justify-center rounded-md bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white text-xs font-bold transition-colors"
+                        className="w-5 h-5 flex items-center justify-center rounded-md bg-surface-input/50 hover:bg-surface-input/50 text-zinc-400 hover:text-white text-xs font-bold transition-colors"
                       >
                         +
                       </button>
@@ -362,7 +362,7 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
       {layoutSelection.mode === 'favorites' && (
         <div className="flex flex-col gap-3 mt-1">
            {favorites.length === 0 ? (
-              <div className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-white/10 text-center gap-3">
+              <div className="flex flex-col items-center justify-center p-6 bg-surface-input/50 rounded-xl border border-white/10 text-center gap-3">
                  <Star className="w-6 h-6 text-yellow-500/30" />
                  <p className="text-[10px] text-zinc-500">Você ainda não favoritou nenhum slide. Utilize a estrela amarela na visualização para salvar seus favoritos.</p>
               </div>
@@ -413,3 +413,4 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
     </div>
   );
 }
+

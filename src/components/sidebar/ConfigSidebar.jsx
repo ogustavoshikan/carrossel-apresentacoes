@@ -33,16 +33,16 @@ import LayoutSelector from './LayoutSelector';
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
   return (
-    <div className="bg-surface-card border border-border-subtle rounded-[8px] overflow-hidden mb-2">
+    <div className="bg-[#111111]/50 border border-white/5 rounded-2xl overflow-hidden mb-4 backdrop-blur-md transition-all duration-150">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-3.5 bg-white/5 hover:bg-white/10 transition-colors"
+        className="w-full flex justify-between items-center p-4 bg-surface-input/30 hover:bg-surface-input transition-colors outline-none focus:outline-none focus-visible:outline-none"
       >
-        <span className="text-[10px] font-bold tracking-widest uppercase text-zinc-400">{title}</span>
-        {isOpen ? <ChevronDown className="w-4 h-4 text-zinc-500" /> : <ChevronRight className="w-4 h-4 text-zinc-500" />}
+        <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/40">{title}</span>
+        {isOpen ? <ChevronDown className="w-4 h-4 text-white/20" /> : <ChevronRight className="w-4 h-4 text-white/20" />}
       </button>
       {isOpen && (
-        <div className="p-4 pt-0 flex flex-col gap-4 mt-3">
+        <div className="p-5 flex flex-col gap-5 animate-fade-in">
           {children}
         </div>
       )}
@@ -146,9 +146,77 @@ export default function ConfigSidebar({
     if (!selectedElement.field) {
       return (
         <aside 
-          className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-4 overflow-y-auto custom-scrollbar z-40 relative"
-          style={{ '--sidebar-width': `${width}px` }}
-        >
+          className="alice-sidebar-resizable h-full border-r border-white/5 bg-[#000000]/95 p-6 lg:p-8 flex flex-col gap-6 overflow-y-auto custom-scrollbar z-40 relative"
+          style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
+
+          <header className="flex justify-between items-center mb-2">
+            <div className="flex flex-col">
+              <span className="text-[10px] font-black tracking-[0.2em] text-[#DE1E4D] uppercase">Inspetor</span>
+              <h2 className="text-xl font-black text-white tracking-tighter uppercase leading-none">Slide <span className="text-white/40">#{selectedElement.slideIndex + 1}</span></h2>
+            </div>
+            <button 
+              onClick={() => setSelectedElement(null)}
+              className="p-2 hover:bg-surface-input/50 rounded-xl transition-colors text-white/40 hover:text-white"
+            >
+              <X size={20} />
+            </button>
+          </header>
+
+          <div className="h-px bg-surface-input/50 w-full" />
+
+          {/* Seção: Layout */}
+          <section className="space-y-4">
+             <div className="flex items-center gap-2 mb-2">
+                <LayoutTemplate size={14} className="text-[#DE1E4D]" />
+                <h4 className="text-[10px] font-bold tracking-[0.1em] text-white/60 uppercase">Configuração de Layout</h4>
+                </div>
+
+                <div className="bg-surface-input/50 border border-white/5 rounded-2xl p-5 space-y-6">
+                <div>
+                   <label className="alice-label !text-[9px]">Variante do Layout</label>                   <div className="grid grid-cols-2 gap-3 mt-2">
+                      <LayoutSelector 
+                         layoutKey={slide.layout}
+                         slideIndex={selectedElement.slideIndex}
+                         slides={slides}
+                         onCoverVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, coverVariantIndex: v} : s))}
+                         onSplitVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, splitVariantIndex: v} : s))}
+                         onBigNumberVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, bigNumberVariantIndex: v} : s))}
+                         onQuoteVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, quoteVariantIndex: v} : s))}
+                         onComparisonVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, comparisonVariantIndex: v} : s))}
+                         onCtaVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, ctaVariantIndex: v} : s))}
+                         onListVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, listVariantIndex: v} : s))}
+                      />
+                   </div>
+                </div>
+             </div>
+          </section>
+
+          {/* Botões de Ação do Slide */}
+          <div className="grid grid-cols-2 gap-3 pt-6">
+             <button 
+                onClick={() => {
+                   const cloned = JSON.parse(JSON.stringify(slides[selectedElement.slideIndex]));
+                   setSlides(prev => {
+                      const updated = [...prev];
+                      updated.splice(selectedElement.slideIndex + 1, 0, cloned);
+                      return updated.map((s, i) => ({ ...s, slide: i + 1 }));
+                   });
+                }}
+                className="flex items-center justify-center gap-2 py-3 bg-surface-input hover:bg-surface-input/50 border border-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest text-white/70 transition-all"
+             >
+                <Copy size={14} /> Duplicar
+             </button>
+             <button 
+                onClick={() => {
+                   setSlides(prev => prev.filter((_, i) => i !== selectedElement.slideIndex).map((s, i) => ({ ...s, slide: i + 1 })));
+                   setSelectedElement(null);
+                }}
+                className="flex items-center justify-center gap-2 py-3 bg-red-950/20 hover:bg-red-950/40 border border-red-900/30 rounded-xl text-[10px] font-bold uppercase tracking-widest text-red-400 transition-all"
+             >
+                <Trash2 size={14} /> Excluir
+             </button>
+          </div>
+
           <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg mb-1 border border-border-subtle">
             <h3 className="text-white font-outfit font-black tracking-wide text-sm flex items-center gap-2 uppercase px-2">
               <Settings2 className="w-4 h-4 text-emerald-500" />
@@ -156,7 +224,7 @@ export default function ConfigSidebar({
             </h3>
             <button 
               onClick={() => setSelectedElement(null)}
-              className="text-zinc-500 hover:text-white transition-colors bg-white/5 rounded-full p-1 border border-white/10"
+              className="text-zinc-500 hover:text-white transition-colors bg-surface-input rounded-full p-1 border border-white/10"
             >
               <X className="w-4 h-4" />
             </button>
@@ -328,7 +396,7 @@ export default function ConfigSidebar({
         <div className="flex items-center gap-3 underline-offset-4 decoration-white/20 mb-[-1rem]">
            <button 
              onClick={() => setSelectedElement(null)}
-             className="text-zinc-500 hover:text-white transition-colors bg-white/5 rounded-full p-1"
+             className="text-zinc-500 hover:text-white transition-colors bg-surface-input/50 rounded-full p-1"
            >
              <X className="w-4 h-4" />
            </button>
@@ -341,7 +409,7 @@ export default function ConfigSidebar({
         <div className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-2">
            <div className="flex justify-between items-center bg-black/20 p-2 rounded-lg">
              <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500">Campo</span>
-             <span className="text-[11px] font-mono font-bold text-white bg-white/10 px-2 py-0.5 rounded">{selectedElement.field}</span>
+             <span className="text-[11px] font-mono font-bold text-white bg-surface-input px-2 py-0.5 rounded">{selectedElement.field}</span>
            </div>
            
            <div className="flex flex-col gap-3 w-full">
@@ -365,14 +433,14 @@ export default function ConfigSidebar({
                     <button
                       onClick={() => updateProp('x', 0)}
                       title="Resetar X"
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                     >
                       <RotateCcw className="w-3 h-3" />
                     </button>
                     <button 
                       onMouseDown={() => startAutoScroll('x', -1)}
                       onTouchStart={() => startAutoScroll('x', -1)}
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                     >
                       -
                     </button>
@@ -387,7 +455,7 @@ export default function ConfigSidebar({
                     <button 
                       onMouseDown={() => startAutoScroll('x', 1)}
                       onTouchStart={() => startAutoScroll('x', 1)}
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                     >
                       +
                     </button>
@@ -411,14 +479,14 @@ export default function ConfigSidebar({
                     <button
                       onClick={() => updateProp('y', 0)}
                       title="Resetar Y"
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                     >
                       <RotateCcw className="w-3 h-3" />
                     </button>
                     <button 
                       onMouseDown={() => startAutoScroll('y', -1)}
                       onTouchStart={() => startAutoScroll('y', -1)}
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                     >
                       -
                     </button>
@@ -433,7 +501,7 @@ export default function ConfigSidebar({
                     <button 
                       onMouseDown={() => startAutoScroll('y', 1)}
                       onTouchStart={() => startAutoScroll('y', 1)}
-                      className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                      className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                     >
                       +
                     </button>
@@ -457,14 +525,14 @@ export default function ConfigSidebar({
                       <button
                         onClick={() => updateProp('scale', 1)}
                         title="Resetar Escala"
-                        className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                        className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                       >
                         <RotateCcw className="w-3 h-3" />
                       </button>
                       <button 
                         onMouseDown={() => startAutoScroll('scale', -0.01)}
                         onTouchStart={() => startAutoScroll('scale', -0.01)}
-                        className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                       >
                         -
                       </button>
@@ -474,7 +542,7 @@ export default function ConfigSidebar({
                       <button 
                         onMouseDown={() => startAutoScroll('scale', 0.01)}
                         onTouchStart={() => startAutoScroll('scale', 0.01)}
-                        className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                        className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                       >
                         +
                       </button>
@@ -501,7 +569,7 @@ export default function ConfigSidebar({
                         <button
                           onClick={() => { updateProp('x', 0); updateProp('y', 0); updateProp('scale', 1); }}
                           title="Resetar posição e escala"
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                         >
                           <RotateCcw className="w-3 h-3" />
                         </button>
@@ -565,17 +633,16 @@ export default function ConfigSidebar({
                                const key = selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter';
                                setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? { ...s, [key]: !s[key] } : s));
                              }}
-                             className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                             className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
                                !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
                              }`}
                              style={{ '--toggle-active': gradientColor1 }}
                            >
                              <span
-                               className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
+                               className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
                                  !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'translate-x-4' : 'translate-x-0'
                                }`}
-                             />
-                           </button>
+                             />                           </button>
                         </div>
 
                         <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
@@ -597,7 +664,7 @@ export default function ConfigSidebar({
                                   className={`w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none ${
                                     isActive
                                       ? 'border border-opacity-50 shadow-[0_0_15px_rgba(0,0,0,0.3)]'
-                                      : 'bg-white/5 border border-transparent hover:bg-white/10'
+                                      : 'bg-surface-input/50 border border-transparent hover:bg-surface-input'
                                   }`}
                                   style={isActive ? { borderColor: gradientColor1, backgroundColor: `${gradientColor1}15` } : {}}
                                 >
@@ -624,28 +691,28 @@ export default function ConfigSidebar({
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('bold', () => updateProp('bold', !pos.bold))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.bold ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.bold ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Bold className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('italic', () => updateProp('italic', !pos.italic))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.italic ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.italic ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Italic className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('underline', () => updateProp('underline', !pos.underline))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.underline ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.underline ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Underline className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('strikeThrough', () => updateProp('uppercase', !pos.uppercase))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.uppercase ? 'bg-white/10 border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.uppercase ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
                 >
                   <Type className="w-4 h-4" />
                 </button>
@@ -747,14 +814,14 @@ export default function ConfigSidebar({
                         <button
                           onClick={() => updateProp('lineHeight', undefined)}
                           title="Resetar"
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                         >
                           <RotateCcw className="w-3 h-3" />
                         </button>
                         <button 
                           onMouseDown={() => startAutoScroll('lineHeight', -0.05)}
                           onTouchStart={() => startAutoScroll('lineHeight', -0.05)}
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input hover:bg-surface-input/50 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                         >
                           -
                         </button>
@@ -764,7 +831,7 @@ export default function ConfigSidebar({
                         <button 
                           onMouseDown={() => startAutoScroll('lineHeight', 0.05)}
                           onTouchStart={() => startAutoScroll('lineHeight', 0.05)}
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input hover:bg-surface-input/50 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                         >
                           +
                         </button>
@@ -788,14 +855,14 @@ export default function ConfigSidebar({
                         <button
                           onClick={() => updateProp('letterSpacing', 0)}
                           title="Resetar"
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                         >
                           <RotateCcw className="w-3 h-3" />
                         </button>
                         <button 
                           onMouseDown={() => startAutoScroll('letterSpacing', -0.5)}
                           onTouchStart={() => startAutoScroll('letterSpacing', -0.5)}
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                         >
                           -
                         </button>
@@ -805,7 +872,7 @@ export default function ConfigSidebar({
                         <button 
                           onMouseDown={() => startAutoScroll('letterSpacing', 0.5)}
                           onTouchStart={() => startAutoScroll('letterSpacing', 0.5)}
-                          className="w-5 h-5 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                          className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-surface-input rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
                         >
                           +
                         </button>
@@ -942,399 +1009,392 @@ export default function ConfigSidebar({
     );
   }
   return (
-    <div className="flex h-full alice-sidebar-resizable border-r border-border-subtle bg-surface-dark z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
-      {/* NavBar */}
-      <div className="w-[72px] shrink-0 border-r border-border-subtle bg-black/20 flex flex-col items-center py-5 px-2 gap-3 z-50">
-        <button 
-          onClick={() => setActiveTab('ajustes')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-[8px] transition-all ${activeTab === 'ajustes' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
-        >
-          <Settings2 size={18} />
-          <span className="text-[9px] font-bold tracking-wide mt-1">Ajustes</span>
-        </button>
-        <button 
-          onClick={() => setActiveTab('layouts')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-[8px] transition-all ${activeTab === 'layouts' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
-        >
-          <LayoutTemplate size={18} />
-          <span className="text-[9px] font-bold tracking-wide mt-1">Layouts</span>
-        </button>
-        <button 
-          onClick={() => setActiveTab('autopost')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-[8px] transition-all ${activeTab === 'autopost' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
-        >
-          <Sparkles size={18} />
-          <span className="text-[9px] font-bold tracking-wide mt-1">Auto-Post</span>
-        </button>
-        <div className="w-8 h-px bg-white/10 my-2" />
-        <button 
-          onClick={() => setActiveTab('midia')}
-          className={`flex flex-col items-center justify-center gap-1.5 w-full py-3 rounded-[8px] transition-all ${activeTab === 'midia' ? 'bg-white/10 text-white' : 'text-zinc-500 hover:bg-white/5 hover:text-zinc-300'}`}
-        >
-          <ImageIcon size={18} />
-          <span className="text-[9px] font-bold tracking-wide mt-1">Mídia</span>
-        </button>
-
-        <div className="mt-auto pb-2 w-full">
-          <button 
-            onClick={() => setIsSettingsOpen(true)}
-            className="p-3 w-full flex justify-center rounded-xl transition-all text-zinc-500 hover:bg-white/5 hover:text-white"
-            title="Adapters & API"
-          >
-            <Settings size={18} />
-          </button>
-        </div>
-      </div>
-
+    <div className="flex h-full alice-sidebar-resizable border-r border-white/5 bg-[#000000]/95 z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
+      
       {/* Content Panel */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative">
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-5">
+        
+        {/* Horizontal Tabs (Premium) */}
+        <div className="flex items-center gap-1 p-2 bg-surface-dark/40 border-b border-white/5 shrink-0">
+          {[
+            { id: 'ajustes', label: 'Direção', icon: Settings2 },
+            { id: 'layouts', label: 'Layouts', icon: LayoutTemplate },
+            { id: 'autopost', label: 'Post', icon: Sparkles },
+            { id: 'midia', label: 'Mídia', icon: ImageIcon },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  if (tab.id === 'autopost') {
+                    onComingSoon(Sparkles, 'Auto-Post');
+                  } else if (tab.id === 'midia') {
+                    onComingSoon(ImageIcon, 'Mídia Assets');
+                  } else {
+                    setActiveTab(tab.id);
+                  }
+                }}
+                className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl outline-none ring-0 border-none transition-none
+                  ${isActive 
+                    ? 'bg-[#1A1A1A] text-white border border-white/10' 
+                    : 'text-white/30 hover:text-white/60 hover:bg-[#111111]'}`}
+              >
+                <Icon size={14} className={isActive ? 'text-[#DE1E4D]' : ''} />
+                <span className="text-[10px] font-black uppercase tracking-widest">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8">
           {activeTab === 'ajustes' && (
             <>
               {/* === Section: Alice Setup === */}
-              <h3 className="alice-section-title">
-                <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
+              <h3 className="text-[10px] font-black tracking-[0.3em] uppercase text-white/20 flex items-center gap-2 mb-2">
+                <Settings2 className="w-3.5 h-3.5" style={{ color: gradientColor1 }} />
                 Direção Criativa
               </h3>
 
-        <CollapsibleSection title="HANDLE A CORPO / TEXTO">
-          {/* Handle + Verified + Counter */}
-          <div className="flex flex-col gap-5">
-            <div>
-              <label className="alice-label">Handle (Arroba)</label>
-              <div className="flex gap-2 w-full">
-                {/* Avatar Uploader com botão limpar */}
-                <div className="relative shrink-0">
-                  <label className="w-10 h-10 bg-surface-input border border-border-subtle rounded-[5px] flex items-center justify-center cursor-pointer hover:border-white/20 transition-colors relative overflow-hidden group block">
-                    {brandAvatar ? (
-                      <img src={brandAvatar} alt="Avatar" className="w-full h-full object-cover" />
-                    ) : (
-                      <ImageIcon className="w-4 h-4 text-zinc-500" />
-                    )}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                      <Upload className="w-3 h-3 text-white" />
+              <CollapsibleSection title="IDENTIDADE VISUAL">
+                {/* Handle + Verified + Counter */}
+                <div className="flex flex-col gap-5">
+                  <div>
+                    <label className="text-[10px] font-bold tracking-widest text-white/40 uppercase mb-2 block">Handle (Arroba)</label>
+                    <div className="flex gap-3 w-full">
+                      {/* Avatar Uploader com botão limpar */}
+                      <div className="relative shrink-0">
+                        <label className="w-12 h-12 bg-surface-input border border-white/5 rounded-xl flex items-center justify-center cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group block">
+                          {brandAvatar ? (
+                            <img src={brandAvatar} alt="Avatar" className="w-full h-full object-cover" />
+                          ) : (
+                            <ImageIcon className="w-5 h-5 text-white/20" />
+                          )}
+                          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                            <Upload className="w-4 h-4 text-white" />
+                          </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                const reader = new FileReader();
+                                reader.onload = (ev) => setBrandAvatar(ev.target.result);
+                                reader.readAsDataURL(file);
+                              }
+                            }}
+                          />
+                        </label>
+                        {brandAvatar && (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setBrandAvatar(null);
+                            }}
+                            className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#DE1E4D] border border-black/50 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-110 z-10"
+                            title="Remover foto"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
+                      
+                      <input
+                        type="text"
+                        value={brandHandle}
+                        onChange={(e) => setBrandHandle(e.target.value)}
+                        className="alice-input flex-1 min-w-0 !rounded-xl !border-white/5 !bg-surface-input"
+                        placeholder="@seuhandle"
+                      />
+                      <button
+                        onClick={() => setShowBrandHandle(!showBrandHandle)}
+                        className={`h-[48px] px-4 rounded-xl border text-[10px] uppercase tracking-widest font-black transition-all flex items-center justify-center shrink-0 ${
+                          showBrandHandle
+                            ? 'bg-surface-input border-white/10 text-white'
+                            : 'bg-surface-input/30 border-white/5 text-white/20'
+                        }`}
+                        style={
+                          showBrandHandle
+                            ? {
+                                backgroundColor: `${gradientColor1}15`,
+                                borderColor: `${gradientColor1}30`,
+                                color: gradientColor1,
+                              }
+                            : {}
+                        }
+                      >
+                        {showBrandHandle ? 'ON' : 'OFF'}
+                      </button>
                     </div>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files[0];
-                        if (file) {
-                          const reader = new FileReader();
-                          reader.onload = (ev) => setBrandAvatar(ev.target.result);
-                          reader.readAsDataURL(file);
-                        }
-                      }}
-                    />
-                  </label>
-                  {brandAvatar && (
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setBrandAvatar(null);
-                      }}
-                      className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-zinc-800 border border-zinc-600 rounded-full flex items-center justify-center text-zinc-300 hover:text-white hover:bg-zinc-700 transition-colors z-10"
-                      title="Remover foto"
+                  </div>
+                  <div className="flex flex-col gap-[1.1rem]">
+                    {/* Selo Verificado */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 flex items-center gap-1.5">
+                        <BadgeCheck className="w-3.5 h-3.5" />
+                        Selo Verificado
+                      </span>
+                      <button
+                        role="switch"
+                        aria-checked={isVerified}
+                        onClick={() => setIsVerified(!isVerified)}
+                        className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
+                          isVerified ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
+                        }`}
+                        style={{ '--toggle-active': gradientColor1 }}
+                      >
+                        <span
+                          className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
+                            isVerified ? 'translate-x-4' : 'translate-x-0'
+                          }`}
+                        />
+                      </button>
+                    </div>
+
+                    {/* Contador */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400">
+                        Contador
+                      </span>
+                      <button
+                        role="switch"
+                        aria-checked={showSlideCounter}
+                        onClick={() => setShowSlideCounter(!showSlideCounter)}
+                        className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
+                          showSlideCounter ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
+                        }`}
+                        style={{ '--toggle-active': gradientColor1 }}
+                      >
+                        <span
+                          className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
+                            showSlideCounter ? 'translate-x-4' : 'translate-x-0'
+                          }`}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Fontes em linha única */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Título</label>
+                    <select
+                      value={titleFont}
+                      onChange={(e) => setTitleFont(e.target.value)}
+                      className="alice-input text-xs py-[0.675rem] w-full"
                     >
-                      <X className="w-2.5 h-2.5" />
-                    </button>
-                  )}
+                      {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
+                    <select
+                      value={textFont}
+                      onChange={(e) => setTextFont(e.target.value)}
+                      className="alice-input text-xs py-[0.675rem] w-full"
+                    >
+                      {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                    </select>
+                  </div>
                 </div>
-                
-                <input
-                  type="text"
-                  value={brandHandle}
-                  onChange={(e) => setBrandHandle(e.target.value)}
-                  className="alice-input flex-1 min-w-0 !py-[8px]"
+              </CollapsibleSection>
+
+              <CollapsibleSection title="TAMANHO TÍTULO A BORDAS" defaultOpen={false}>
+                {/* Scale: Título */}
+                <div>
+                  <label className="alice-label flex items-center justify-between w-full">
+                    <span>Tamanho Título: {titleSizeScale}%</span>
+                    <div className="group relative cursor-help">
+                      <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                      <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                        Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="range"
+                    min={FONT_SCALE_RANGE.min}
+                    max={FONT_SCALE_RANGE.max}
+                    value={titleSizeScale}
+                    onChange={(e) => setTitleSizeScale(e.target.value)}
+                    className="alice-range w-full"
+                  />
+                </div>
+
+                {/* Scale: Texto */}
+                <div>
+                  <label className="alice-label flex items-center justify-between w-full">
+                    <span>Tamanho Texto: {textSizeScale}%</span>
+                    <div className="group relative cursor-help">
+                      <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                      <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                        Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="range"
+                    min={FONT_SCALE_RANGE.min}
+                    max={FONT_SCALE_RANGE.max}
+                    value={textSizeScale}
+                    onChange={(e) => setTextSizeScale(e.target.value)}
+                    className="alice-range w-full"
+                  />
+                </div>
+
+                {/* Scale: Border Radius */}
+                <div>
+                  <label className="alice-label flex items-center justify-between w-full">
+                    <span>Bordas do Card: {cardBorderRadius}px</span>
+                    <div className="group relative cursor-help">
+                      <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                      <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                        Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="40"
+                    value={cardBorderRadius}
+                    onChange={(e) => setCardBorderRadius(Number(e.target.value))}
+                    className="alice-range w-full"
+                  />
+                </div>
+
+                <div>
+                  <label className="alice-label flex items-center justify-between w-full">
+                    <span>Bordas Internas: {imageBorderRadius}px</span>
+                    <div className="group relative cursor-help">
+                      <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                      <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
+                        Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
+                      </div>
+                    </div>
+                  </label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="80"
+                    value={imageBorderRadius}
+                    onChange={(e) => setImageBorderRadius(Number(e.target.value))}
+                    className="alice-range w-full"
+                  />
+                </div>
+              </CollapsibleSection>
+
+              <div className="h-px bg-surface-input/50 w-full" />
+
+              {/* === Section: Contexto Criativo === */}
+              <CollapsibleSection title="CONTEXTO CRIATIVO" defaultOpen={false}>
+                <p className="text-[9px] text-zinc-500 font-medium leading-relaxed -mt-1">
+                  Todos os campos são opcionais. O que for preenchido enriquece o prompt enviado à IA.
+                </p>
+
+                {/* Público-alvo */}
+                <div>
+                  <label className="alice-label">Público-alvo</label>
+                  <input
+                    type="text"
+                    className="alice-input w-full"
+                    placeholder="Ex: Mães, presentes corporativos..."
+                    value={creativeContext.publicoAlvo || ''}
+                    onChange={(e) => setCreativeContext({ ...creativeContext, publicoAlvo: e.target.value })}
+                  />
+                </div>
+
+                {/* Faixa Etária */}
+                <div>
+                  <label className="alice-label">Faixa Etária</label>
+                  <input
+                    type="text"
+                    className="alice-input w-full"
+                    placeholder="Ex: 25–45 anos"
+                    value={creativeContext.faixaEtaria || ''}
+                    onChange={(e) => setCreativeContext({ ...creativeContext, faixaEtaria: e.target.value })}
+                  />
+                </div>
+
+                {/* Tom de Voz + Objetivo lado a lado */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tom de Voz</label>
+                    <select
+                      className="alice-input text-xs py-[0.675rem] w-full"
+                      value={creativeContext.tom || ''}
+                      onChange={(e) => setCreativeContext({ ...creativeContext, tom: e.target.value })}
+                    >
+                      <option value="">— Selecione —</option>
+                      <option value="Sofisticado e premium">Sofisticado</option>
+                      <option value="Inspirador e empático">Inspirador</option>
+                      <option value="Direto e objetivo">Direto</option>
+                      <option value="Educativo e didático">Educativo</option>
+                      <option value="Leve e divertido">Divertido</option>
+                      <option value="Ácido e irônico">Ácido / Irônico</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Objetivo</label>
+                    <select
+                      className="alice-input text-xs py-[0.675rem] w-full"
+                      value={creativeContext.objetivo || ''}
+                      onChange={(e) => setCreativeContext({ ...creativeContext, objetivo: e.target.value })}
+                    >
+                      <option value="">— Selecione —</option>
+                      <option value="Vender / Converter">Vender</option>
+                      <option value="Gerar engajamento">Engajar</option>
+                      <option value="Educar a audiência">Educar</option>
+                      <option value="Posicionar a marca">Posicionar</option>
+                      <option value="Nutrir o relacionamento">Nutrir</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Diferenciais */}
+                <div>
+                  <label className="alice-label">Diferenciais da Marca</label>
+                  <textarea
+                    className="alice-textarea h-16"
+                    placeholder="Ex: Ingredientes premium, embalagem artesanal, produção limitada..."
+                    value={creativeContext.diferenciais || ''}
+                    onChange={(e) => setCreativeContext({ ...creativeContext, diferenciais: e.target.value })}
+                  />
+                </div>
+
+                {/* CTA */}
+                <div>
+                  <label className="alice-label">Call to Action</label>
+                  <input
+                    type="text"
+                    className="alice-input w-full"
+                    placeholder="Ex: Mande mensagem para encomendar"
+                    value={creativeContext.chamadaAcao || ''}
+                    onChange={(e) => setCreativeContext({ ...creativeContext, chamadaAcao: e.target.value })}
+                  />
+                </div>
+              </CollapsibleSection>
+
+              <div className="h-px bg-surface-input/50 w-full" />
+
+              {/* === Section: Master Prompt === */}
+              <div className="space-y-4">
+                <label className="alice-section-title">
+                  <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
+                  Briefing
+                </label>
+                <textarea
+                  className="alice-textarea h-32"
+                  placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
+                  value={theme}
+                  onChange={(e) => setTheme(e.target.value)}
                 />
-                <button
-                  onClick={() => setShowBrandHandle(!showBrandHandle)}
-                  className={`h-[38px] px-3 rounded-[5px] border text-[10px] uppercase tracking-widest font-bold transition-all flex items-center justify-center shrink-0 ${
-                    showBrandHandle
-                      ? ''
-                      : 'bg-surface-input border-border-subtle text-zinc-500'
-                  }`}
-                  style={
-                    showBrandHandle
-                      ? {
-                          backgroundColor: `${gradientColor1}20`,
-                          borderColor: `${gradientColor1}50`,
-                          color: gradientColor1,
-                        }
-                      : {}
-                  }
-                >
-                  {showBrandHandle ? 'ON' : 'OFF'}
-                </button>
               </div>
-            </div>
-            <div className="flex flex-col gap-[1.1rem]">
-              {/* Selo Verificado */}
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400 flex items-center gap-1.5">
-                  <BadgeCheck className="w-3.5 h-3.5" />
-                  Selo Verificado
-                </span>
-                <button
-                  role="switch"
-                  aria-checked={isVerified}
-                  onClick={() => setIsVerified(!isVerified)}
-                  className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                    isVerified ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
-                  }`}
-                  style={{ '--toggle-active': gradientColor1 }}
-                >
-                  <span
-                    className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
-                      isVerified ? 'translate-x-4' : 'translate-x-0'
-                    }`}
-                  />
-                </button>
-              </div>
-
-              {/* Contador */}
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-400">
-                  Contador
-                </span>
-                <button
-                  role="switch"
-                  aria-checked={showSlideCounter}
-                  onClick={() => setShowSlideCounter(!showSlideCounter)}
-                  className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                    showSlideCounter ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
-                  }`}
-                  style={{ '--toggle-active': gradientColor1 }}
-                >
-                  <span
-                    className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
-                      showSlideCounter ? 'translate-x-4' : 'translate-x-0'
-                    }`}
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Fontes em linha única */}
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Título</label>
-              <select
-                value={titleFont}
-                onChange={(e) => setTitleFont(e.target.value)}
-                className="alice-input text-xs py-[0.675rem] w-full"
-              >
-                {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
-              <select
-                value={textFont}
-                onChange={(e) => setTextFont(e.target.value)}
-                className="alice-input text-xs py-[0.675rem] w-full"
-              >
-                {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
-              </select>
-            </div>
-          </div>
-        </CollapsibleSection>
-
-        <CollapsibleSection title="TAMANHO TÍTULO A BORDAS" defaultOpen={false}>
-          {/* Scale: Título */}
-          <div>
-            <label className="alice-label flex items-center justify-between w-full">
-              <span>Tamanho Título: {titleSizeScale}%</span>
-              <div className="group relative cursor-help">
-                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                  Ajusta globalmente o tamanho das fontes dos títulos principais dos slides.
-                </div>
-              </div>
-            </label>
-            <input
-              type="range"
-              min={FONT_SCALE_RANGE.min}
-              max={FONT_SCALE_RANGE.max}
-              value={titleSizeScale}
-              onChange={(e) => setTitleSizeScale(e.target.value)}
-              className="alice-range w-full"
-            />
-          </div>
-
-          {/* Scale: Texto */}
-          <div>
-            <label className="alice-label flex items-center justify-between w-full">
-              <span>Tamanho Texto: {textSizeScale}%</span>
-              <div className="group relative cursor-help">
-                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-48 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                  Define a proporção de tamanho de fontes para os textos de apoio e parágrafos.
-                </div>
-              </div>
-            </label>
-            <input
-              type="range"
-              min={FONT_SCALE_RANGE.min}
-              max={FONT_SCALE_RANGE.max}
-              value={textSizeScale}
-              onChange={(e) => setTextSizeScale(e.target.value)}
-              className="alice-range w-full"
-            />
-          </div>
-
-          {/* Scale: Border Radius */}
-          <div>
-            <label className="alice-label flex items-center justify-between w-full">
-              <span>Bordas do Card: {cardBorderRadius}px</span>
-              <div className="group relative cursor-help">
-                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                  Arredondamento dos cantos externos do formato do carrossel e shapes de fundo.
-                </div>
-              </div>
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="40"
-              value={cardBorderRadius}
-              onChange={(e) => setCardBorderRadius(Number(e.target.value))}
-              className="alice-range w-full"
-            />
-          </div>
-
-          <div>
-            <label className="alice-label flex items-center justify-between w-full">
-              <span>Bordas Internas: {imageBorderRadius}px</span>
-              <div className="group relative cursor-help">
-                <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
-                <div className="absolute bottom-full mb-1.5 right-0 hidden group-hover:block w-52 bg-black/95 border border-white/10 shadow-xl text-zinc-300 text-[10px] p-2 rounded-lg z-[60] normal-case tracking-normal font-normal">
-                  Controla o quão arredondadas serão as imagens de cover e avatares dentro dos slides.
-                </div>
-              </div>
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="80"
-              value={imageBorderRadius}
-              onChange={(e) => setImageBorderRadius(Number(e.target.value))}
-              className="alice-range w-full"
-            />
-          </div>
-        </CollapsibleSection>
-
-        <div className="h-px bg-white/5 w-full" />
-
-        {/* === Section: Contexto Criativo === */}
-        <CollapsibleSection title="CONTEXTO CRIATIVO" defaultOpen={false}>
-          <p className="text-[9px] text-zinc-500 font-medium leading-relaxed -mt-1">
-            Todos os campos são opcionais. O que for preenchido enriquece o prompt enviado à IA.
-          </p>
-
-          {/* Público-alvo */}
-          <div>
-            <label className="alice-label">Público-alvo</label>
-            <input
-              type="text"
-              className="alice-input w-full"
-              placeholder="Ex: Mães, presentes corporativos..."
-              value={creativeContext.publicoAlvo || ''}
-              onChange={(e) => setCreativeContext({ ...creativeContext, publicoAlvo: e.target.value })}
-            />
-          </div>
-
-          {/* Faixa Etária */}
-          <div>
-            <label className="alice-label">Faixa Etária</label>
-            <input
-              type="text"
-              className="alice-input w-full"
-              placeholder="Ex: 25–45 anos"
-              value={creativeContext.faixaEtaria || ''}
-              onChange={(e) => setCreativeContext({ ...creativeContext, faixaEtaria: e.target.value })}
-            />
-          </div>
-
-          {/* Tom de Voz + Objetivo lado a lado */}
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tom de Voz</label>
-              <select
-                className="alice-input text-xs py-[0.675rem] w-full"
-                value={creativeContext.tom || ''}
-                onChange={(e) => setCreativeContext({ ...creativeContext, tom: e.target.value })}
-              >
-                <option value="">— Selecione —</option>
-                <option value="Sofisticado e premium">Sofisticado</option>
-                <option value="Inspirador e empático">Inspirador</option>
-                <option value="Direto e objetivo">Direto</option>
-                <option value="Educativo e didático">Educativo</option>
-                <option value="Leve e divertido">Divertido</option>
-                <option value="Ácido e irônico">Ácido / Irônico</option>
-              </select>
-            </div>
-            <div>
-              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Objetivo</label>
-              <select
-                className="alice-input text-xs py-[0.675rem] w-full"
-                value={creativeContext.objetivo || ''}
-                onChange={(e) => setCreativeContext({ ...creativeContext, objetivo: e.target.value })}
-              >
-                <option value="">— Selecione —</option>
-                <option value="Vender / Converter">Vender</option>
-                <option value="Gerar engajamento">Engajar</option>
-                <option value="Educar a audiência">Educar</option>
-                <option value="Posicionar a marca">Posicionar</option>
-                <option value="Nutrir o relacionamento">Nutrir</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Diferenciais */}
-          <div>
-            <label className="alice-label">Diferenciais da Marca</label>
-            <textarea
-              className="alice-textarea h-16"
-              placeholder="Ex: Ingredientes premium, embalagem artesanal, produção limitada..."
-              value={creativeContext.diferenciais || ''}
-              onChange={(e) => setCreativeContext({ ...creativeContext, diferenciais: e.target.value })}
-            />
-          </div>
-
-          {/* CTA */}
-          <div>
-            <label className="alice-label">Call to Action</label>
-            <input
-              type="text"
-              className="alice-input w-full"
-              placeholder="Ex: Mande mensagem para encomendar"
-              value={creativeContext.chamadaAcao || ''}
-              onChange={(e) => setCreativeContext({ ...creativeContext, chamadaAcao: e.target.value })}
-            />
-          </div>
-        </CollapsibleSection>
-
-        <div className="h-px bg-white/5 w-full" />
-
-        {/* === Section: Master Prompt === */}
-        <div className="space-y-4">
-          <label className="alice-section-title">
-            <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
-            Briefing
-          </label>
-          <textarea
-            className="alice-textarea h-32"
-            placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-          />
-
-          </div>
             </>
           )}
 
@@ -1359,35 +1419,42 @@ export default function ConfigSidebar({
           )}
 
           {activeTab === 'autopost' && (
-             <div className="flex-1 h-full min-h-[200px] flex flex-col items-center justify-center">
-                <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  Em breve!
+             <div className="flex-1 h-full min-h-[300px] flex flex-col items-center justify-center p-8 text-center animate-fade-in">
+                <div className="w-16 h-16 bg-surface-input/30 border border-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                   <Sparkles className="w-6 h-6 text-[#DE1E4D]" />
+                </div>
+                <h4 className="text-lg font-black text-white tracking-tighter uppercase mb-2">Auto-Post System</h4>
+                <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[200px]">
+                  Agendamento inteligente e publicação direta em breve.
                 </p>
              </div>
           )}
 
           {activeTab === 'midia' && (
-             <div className="flex-1 h-full min-h-[200px] flex flex-col items-center justify-center">
-                <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 px-4 py-2 rounded-lg flex items-center gap-2">
-                  <ImageIcon className="w-4 h-4" />
-                  Em breve!
+             <div className="flex-1 h-full min-h-[300px] flex flex-col items-center justify-center p-8 text-center animate-fade-in">
+                <div className="w-16 h-16 bg-surface-input/30 border border-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                   <ImageIcon className="w-6 h-6 text-[#DE1E4D]" />
+                </div>
+                <h4 className="text-lg font-black text-white tracking-tighter uppercase mb-2">Media Assets</h4>
+                <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[200px]">
+                  Biblioteca de recursos e uploads globais em breve.
                 </p>
              </div>
           )}
         </div>
 
         {/* Rodapé Fixo */}
-        <div className="shrink-0 p-4 lg:p-5 pt-4 border-t border-border-subtle bg-surface-dark space-y-3 z-40 shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+        <div className="shrink-0 p-6 border-t border-white/5 bg-[#000000]/40 space-y-5 z-40">
             {/* Slide Count */}
             <div>
-              <div className="flex justify-between items-center mb-2">
-                <label className="alice-label mb-0 !text-[10px]">Slides a Gerar</label>
+              <div className="flex justify-between items-center mb-3">
+                <label className="text-[10px] font-black tracking-[0.2em] uppercase text-white/40">Slides a Gerar</label>
                 <span
-                  className="font-bold px-2 py-0.5 rounded text-xs"
+                  className="font-bold px-3 py-1 rounded-lg text-xs"
                   style={{
-                    backgroundColor: `${gradientColor1}20`,
+                    backgroundColor: `${gradientColor1}15`,
                     color: gradientColor1,
+                    border: `1px solid ${gradientColor1}30`
                   }}
                 >
                   {slideCount}
@@ -1405,7 +1472,7 @@ export default function ConfigSidebar({
 
             {/* Error */}
             {error && (
-              <div className="mt-4 p-4 bg-red-950/30 border border-red-900/50 rounded-xl flex items-start gap-3 text-red-400 text-xs font-mono">
+              <div className="p-4 bg-red-950/20 border border-red-900/30 rounded-2xl flex items-start gap-3 text-red-400 text-[10px] font-bold uppercase tracking-wider animate-fade-in">
                 <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                 <p>{error}</p>
               </div>
@@ -1415,17 +1482,20 @@ export default function ConfigSidebar({
             <button
               onClick={onGenerate}
               disabled={isGenerating}
-              className="alice-btn-primary mt-4 !mb-2 !w-[calc(100%-20px)] mx-auto !py-[11px]"
+              className="group relative w-full overflow-hidden bg-white text-black py-4 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-[1.02] active:scale-95 transition-all duration-150 shadow-[0_0_30px_rgba(255,255,255,0.1)] outline-none focus:outline-none focus-visible:outline-none"
             >
-              {isGenerating ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Processando...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" /> GERAR CARROSSEL
-                </>
-              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#DE1E4D] to-[#8A1230] opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+              <span className="relative z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors">
+                {isGenerating ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> Sincronizando...
+                  </>
+                ) : (
+                  <>
+                    <Send size={14} /> Gerar Carrossel
+                  </>
+                )}
+              </span>
             </button>
         </div>
       </div>

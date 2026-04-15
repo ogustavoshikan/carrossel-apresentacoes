@@ -118,7 +118,7 @@ export default function SlideCTA(props) {
         className="w-full max-w-[300px] relative z-10"
       >
         <button
-          className="w-full py-6 bg-white font-outfit font-black text-[12px] uppercase tracking-[0.4em] rounded-2xl shadow-2xl hover:bg-black hover:text-white transition-all duration-500 pointer-events-none"
+          className="w-full py-6 bg-white font-outfit font-black text-[12px] uppercase tracking-[0.4em] rounded-2xl shadow-2xl hover:bg-black hover:text-white transition-all duration-150 pointer-events-none"
           style={{ color: brandColor }}
         >
           {data.tag || 'CLIQUE AQUI'}
@@ -143,4 +143,5 @@ export default function SlideCTA(props) {
     </div>
   );
 }
+
 

@@ -22,7 +22,7 @@ import {
 const Tooltip = ({ children, text }) => (
   <div className="group relative flex items-center justify-center">
     {children}
-    <div className="absolute -top-12 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out bg-zinc-100 text-zinc-900 font-medium text-xs px-2.5 py-1.5 rounded shadow-xl pointer-events-none whitespace-nowrap z-50">
+    <div className="absolute -top-12 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-150 ease-out bg-zinc-100 text-zinc-900 font-medium text-xs px-2.5 py-1.5 rounded shadow-xl pointer-events-none whitespace-nowrap z-50">
       {text}
       <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-100 rotate-45"></div>
     </div>
@@ -123,7 +123,7 @@ export default function VisualPreview({
   return (
     <div className="relative w-full group/nav">
       {/* Toast Notification Premium */}
-      <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-300 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+      <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-150 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
         <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center gap-2 text-sm font-bold border border-white/20">
           <CheckCircle2 size={16} className="text-[#DE1E4D]" />
           <span>{toast}</span>
@@ -153,7 +153,7 @@ export default function VisualPreview({
       {slides.map((slide, index) => (
         <React.Fragment key={`slide-wrapper-${index}`}>
         <div
-          className={`flex flex-col gap-6 shrink-0 snap-center transition-all duration-300 relative group/slide ${openVariantIndex === index ? 'z-50' : 'z-10'}`}
+          className={`flex flex-col gap-6 shrink-0 snap-center transition-all duration-150 relative group/slide ${openVariantIndex === index ? 'z-50' : 'z-10'}`}
         >
           {/* Botão Remover Slide Flutuante */}
           {onRemoveSlide && (
@@ -197,7 +197,7 @@ export default function VisualPreview({
           {/* Controls */}
           <div className="bg-[#080808] border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
             <div className="flex justify-between items-center mb-3">
-               <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded-full border border-white/10">
+               <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
                </span>
                <span
@@ -210,7 +210,7 @@ export default function VisualPreview({
 
             <button
               onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
-              className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-200 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
+              className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
             >
               <PenLine size={16} className="text-zinc-500 group-hover:text-[#DE1E4D] transition-colors" />
               Editar Textos / Visual
@@ -261,7 +261,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -285,7 +285,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -309,7 +309,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -333,7 +333,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -357,7 +357,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -381,7 +381,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -405,7 +405,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                         >
                           <Shuffle size={14} />
                           Variante
@@ -424,7 +424,7 @@ export default function VisualPreview({
                       </div>
                     )}
 
-                    <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-200 active:scale-95 flex items-center gap-2">
+                    <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2">
                       <Save size={16} />
                       Salvar
                     </button>
@@ -451,7 +451,7 @@ export default function VisualPreview({
                       />
                     </div>
                     
-                    <div className="w-full h-px bg-white/5" />
+                    <div className="w-full h-px bg-surface-input/30" />
 
                     <div>
                       <div className="flex justify-between items-center mb-2">
@@ -508,7 +508,7 @@ export default function VisualPreview({
              <div className="relative flex justify-center">
                <button
                  onClick={(e) => { e.stopPropagation(); setOpenAddIndex(openAddIndex === index ? -1 : index); }}
-                 className="w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-500 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100"
+                 className="w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-500 hover:text-white hover:bg-surface-input/50 hover:border-white/20 transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100"
                  title="Inserir slide aqui"
                >
                  <Plus className="w-3.5 h-3.5" />
@@ -526,14 +526,14 @@ export default function VisualPreview({
 
            <button 
              onClick={() => onMoveSlide(index + 1, index)} 
-             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
              title="Mover slide para a Esquerda"
            >
              <ArrowLeft className="w-4 h-4" />
            </button>
            <button 
              onClick={() => onMoveSlide(index, index + 1)} 
-             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
              title="Mover slide para a Direita"
            >
              <ArrowRight className="w-4 h-4" />
@@ -547,3 +547,4 @@ export default function VisualPreview({
     </div>
   );
 }
+

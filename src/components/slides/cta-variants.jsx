@@ -58,7 +58,7 @@ export function CTAVariant1(props) {
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-1 z-10" style={{ backgroundColor: brandColor }}></div>
-      <div className="w-24 h-24 rounded-full border-2 p-1 mb-8 shadow-[0_0_40px_rgba(0,0,0,0.5)] transition-shadow duration-500 hover:shadow-[0_0_60px_rgba(0,0,0,0.8)]" style={{ borderColor: brandColor }}>
+      <div className="w-24 h-24 rounded-full border-2 p-1 mb-8 shadow-[0_0_40px_rgba(0,0,0,0.5)] transition-shadow duration-150 hover:shadow-[0_0_60px_rgba(0,0,0,0.8)]" style={{ borderColor: brandColor }}>
         <div className="w-full h-full rounded-full bg-zinc-800 flex items-center justify-center overflow-hidden">
           <span className="font-outfit font-black text-2xl uppercase" style={{ color: brandColor }}>
             {brandHandle?.[0] || 'A'}
@@ -450,7 +450,7 @@ export function CTAVariant5(props) {
         />
       </div>
       
-      <div className="relative z-10 w-[95%] bg-white/10 backdrop-blur-3xl border border-white/20 rounded-[2rem] p-8 py-10 shadow-2xl flex flex-col items-center text-center transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+      <div className="relative z-10 w-[95%] bg-surface-input/30 backdrop-blur-3xl border border-white/20 rounded-[2rem] p-8 py-10 shadow-2xl flex flex-col items-center text-center transform -rotate-2 hover:rotate-0 transition-transform duration-150">
         <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-inner pointer-events-none" style={{ backgroundColor: brandColor }}>
           <ArrowUpRight className="w-8 h-8 text-white" />
         </div>
@@ -838,4 +838,5 @@ export const CTA_VARIANT_META = [
   { id: 7, title: 'App Interface', desc: 'Design lembrando uma interface de agendamento' },
   { id: 8, title: 'Tech Start', desc: 'Visual mais dark com bordas tracejadas e gradiente' },
 ];
+
 

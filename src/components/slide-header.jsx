@@ -92,7 +92,7 @@ export default function SlideHeader({
         className={`font-outfit font-bold text-[11px] px-3 py-1.5 rounded-lg border backdrop-blur-xl select-none -translate-y-[8px] ${
           dark
             ? 'bg-black/5 text-black border-black/10'
-            : 'bg-white/5 text-zinc-400 border-white/10'
+            : 'bg-surface-input/30 text-zinc-400 border-white/10'
         }`}
       >
         {index} <span className="opacity-30 mx-1">/</span> {total}
@@ -117,3 +117,4 @@ export default function SlideHeader({
 export function SlideFooterPlaceholder() {
   return <div className="h-10 w-full pointer-events-none" />;
 }
+

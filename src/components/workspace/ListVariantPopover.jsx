@@ -12,15 +12,15 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
          <div className="w-[60%] h-[2.5px] bg-white rounded-full mb-1" />
          <div className="flex gap-1 items-start">
            <div className="w-2 h-2 rounded-[2px]" style={{ background: accent }} />
-           <div className="w-[70%] h-[1.5px] bg-white/50 rounded-full mt-0.5" />
+           <div className="w-[70%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
          </div>
          <div className="flex gap-1 items-start">
            <div className="w-2 h-2 rounded-[2px]" style={{ background: accent }} />
-           <div className="w-[80%] h-[1.5px] bg-white/50 rounded-full mt-0.5" />
+           <div className="w-[80%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
          </div>
          <div className="flex gap-1 items-start">
            <div className="w-2 h-2 rounded-[2px]" style={{ background: accent }} />
-           <div className="w-[60%] h-[1.5px] bg-white/50 rounded-full mt-0.5" />
+           <div className="w-[60%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
          </div>
       </div>
     ),
@@ -31,7 +31,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
          {[...Array(3)].map((_, i) => (
            <div key={i} className="flex gap-1 items-center border-b border-white/10 pb-[1px]">
              <div className="w-1.5 h-2 bg-white/20 rounded-[1px]" />
-             <div className="flex-1 h-[1.5px] bg-white/50 rounded-full" />
+             <div className="flex-1 h-[1.5px] bg-surface-input/300 rounded-full" />
            </div>
          ))}
       </div>
@@ -51,9 +51,9 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     3: (
       <div className="w-full h-full flex flex-col justify-center px-2 border-l border-white/20 ml-1 rounded-[3px] bg-[#050505] gap-1.5 relative">
          {[...Array(3)].map((_, i) => (
-           <div key={i} className="relative w-full h-[6px] bg-white/5 rounded-sm p-[1px]">
+           <div key={i} className="relative w-full h-[6px] bg-surface-input/30 rounded-sm p-[1px]">
              <div className="absolute -left-[5px] top-1/2 -translate-y-1/2 w-1 h-1 rounded-full border-[1px] border-black" style={{ background: accent }} />
-             <div className="w-[90%] h-[1.5px] bg-white/50 rounded-full" />
+             <div className="w-[90%] h-[1.5px] bg-surface-input/300 rounded-full" />
            </div>
          ))}
       </div>
@@ -109,7 +109,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     8: (
       <div className="w-full h-full flex flex-col justify-center rounded-[3px] bg-[#080808] p-1 gap-1">
          {[...Array(3)].map((_, i) => (
-           <div key={i} className="w-full h-[10px] bg-white/10 rounded-[2px] relative overflow-hidden flex items-center px-1">
+           <div key={i} className="w-full h-[10px] bg-surface-input/30 rounded-[2px] relative overflow-hidden flex items-center px-1">
               <div className="w-[60%] h-[1.5px]" style={{ background: accent }} />
               <div className="absolute -right-1 -bottom-1 w-4 h-4 bg-white/20 rounded-full" />
            </div>
@@ -132,7 +132,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     10: (
       <div className="w-full h-full flex flex-col justify-center rounded-[3px] bg-[#050505] p-1 gap-0.5">
          {[...Array(3)].map((_, i) => (
-           <div key={i} className="w-[70%] h-[8px] bg-white/10 rounded-[2px] flex items-center px-[1px] gap-0.5" style={{ marginLeft: `${i * 10}%` }}>
+           <div key={i} className="w-[70%] h-[8px] bg-surface-input/30 rounded-[2px] flex items-center px-[1px] gap-0.5" style={{ marginLeft: `${i * 10}%` }}>
               <div className="w-1.5 h-1.5 bg-black rounded-full" />
               <div className="w-3 h-[1.5px] bg-white/60 rounded-full" />
            </div>
@@ -151,7 +151,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            </div>
          </div>
          <div className="w-[90%] h-[12px] bg-zinc-900 border border-zinc-800 rounded-[3px] flex items-center justify-center px-1">
-           <div className="w-[80%] h-[1px] bg-white/50" />
+           <div className="w-[80%] h-[1px] bg-surface-input/300" />
          </div>
       </div>
     ),
@@ -187,7 +187,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 flex-shrink-0 relative ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0 relative ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -216,7 +216,7 @@ export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, bra
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
@@ -276,3 +276,4 @@ export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, bra
     </div>
   );
 }
+

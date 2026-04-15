@@ -17,7 +17,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
       <div className="w-full h-full flex flex-col pt-1.5 px-1.5 gap-1 rounded-[3px] overflow-hidden" style={{ background: '#1c1c1c' }}>
          <div className="w-[60%] h-[2px] bg-white rounded-full" />
          <div className="w-full mt-1 flex flex-col gap-1">
-           <div className="w-full p-0.5 rounded-[1px] bg-white/10 flex justify-between">
+           <div className="w-full p-0.5 rounded-[1px] bg-surface-input/30 flex justify-between">
               <div className="w-1/2 h-[1px] bg-zinc-500 rounded-full" />
            </div>
            <div className="w-full p-0.5 rounded-[1px] flex justify-between shadow-[0_1px_2px_rgba(0,0,0,0.5)]" style={{ background: accent }}>
@@ -31,9 +31,9 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     1: (
       <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#050505' }}>
          <div className="w-full flex-1 flex flex-col gap-0.5">
-           <div className="w-full p-1 rounded-[2px] bg-white/5 opacity-50 flex" />
+           <div className="w-full p-1 rounded-[2px] bg-surface-input/30 opacity-50 flex" />
            <div className="w-full p-1 rounded-[2px] shadow-xl flex" style={{ background: `${accent}15` }} />
-           <div className="w-full p-1 rounded-[2px] bg-white/5 opacity-50 flex" />
+           <div className="w-full p-1 rounded-[2px] bg-surface-input/30 opacity-50 flex" />
          </div>
       </div>
     ),
@@ -138,7 +138,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            <div className="w-1/2" />
            <div className="w-1/2 rounded-full" style={{ background: accent }} />
          </div>
-         <div className="w-full flex-1 bg-white/5 border border-white/10 rounded-[3px]" />
+         <div className="w-full flex-1 bg-surface-input/30 border border-white/10 rounded-[3px]" />
       </div>
     ),
     // 11: Variante 11
@@ -154,7 +154,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 flex-shrink-0 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -183,7 +183,7 @@ export default function ComparisonVariantPopover({ currentVariantIndex, onSelect
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
@@ -243,3 +243,4 @@ export default function ComparisonVariantPopover({ currentVariantIndex, onSelect
     </div>
   );
 }
+

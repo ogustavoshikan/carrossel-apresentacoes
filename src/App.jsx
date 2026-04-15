@@ -19,12 +19,16 @@ import SettingsModal from './components/SettingsModal';
 import FavoriteNameModal from './components/workspace/FavoriteNameModal';
 import SplashScreen from './components/SplashScreen';
 import SplashScreenCinematic from './components/SplashScreenCinematic';
+import Home from './components/Home';
+import GlobalSidebar from './components/GlobalSidebar';
+import ComingSoon from './components/workspace/ComingSoon';
 
 export default function App() {
   // ========================================
   // STATE
   // ========================================
 
+  const [view, setView] = useState('home'); // 'home' | 'studio' | 'coming-soon'
   const [theme, setTheme] = useState('');
   const [creativeContext, setCreativeContext] = useState(() => {
     try {
@@ -82,6 +86,12 @@ export default function App() {
   const [sidebarWidth, setSidebarWidth] = useState(452);
   const [isResizingSidebar, setIsResizingSidebar] = useState(false);
   const [splashStep, setSplashStep] = useState(1);
+  const [comingSoonData, setComingSoonData] = useState({ icon: null, label: 'Em breve' });
+
+  const handleComingSoon = useCallback((icon, label) => {
+    setComingSoonData({ icon, label });
+    setView('coming-soon');
+  }, []);
 
   // Drag & Resize hook
   const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides);
@@ -500,250 +510,274 @@ export default function App() {
 
   return (
     <div
-      className="h-screen bg-surface-base text-zinc-100 font-sans flex flex-col overflow-hidden"
+      className="h-screen bg-[#050505] text-[#FFFFFF] font-sans flex overflow-hidden relative"
       style={dynamicStyles}
     >
       {splashStep < 3 && <div className="fixed inset-0 z-[9998] bg-[#0d0d0d]" />}
       {splashStep === 1 && <SplashScreen onComplete={() => setSplashStep(2)} />}
       {splashStep === 2 && <SplashScreenCinematic onComplete={() => setSplashStep(3)} />}
       
-      {/* Favorite Modal */}
-      <FavoriteNameModal 
-        isOpen={favoritePrompt.isOpen}
-        defaultName={favoritePrompt.defaultName}
-        onConfirm={confirmFavorite}
-        onCancel={cancelFavorite}
-        brandColor={gradientColor1}
+      {/* GLOBAL NAVIGATION BAR (Premium) */}
+      <GlobalSidebar 
+        currentView={view} 
+        onNavigate={setView} 
+        onOpenSettings={() => setIsSettingsOpen(true)} 
+        onComingSoon={handleComingSoon}
       />
 
-      {/* Google Fonts (dinâmico — carrega as fontes selecionadas pelo usuário) */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
-      `}</style>
+      {/* VIEW CONTENT AREA */}
+      <div className="flex-1 flex flex-col overflow-hidden relative">
+        {view === 'home' ? (
+          <div key="home" className="flex-1 flex flex-col animate-page-transition h-full">
+            <Home onStartProject={() => setView('studio')} />
+          </div>
+        ) : view === 'coming-soon' ? (
+          <ComingSoon 
+            key="coming-soon"
+            onBack={() => setView('studio')} 
+            brandColor={gradientColor1} 
+            icon={comingSoonData.icon} 
+            label={comingSoonData.label} 
+          />
+        ) : (
+          <div key="studio" className="flex-1 flex flex-col animate-page-transition h-full">
+            {/* Favorite Modal */}
+            <FavoriteNameModal 
+              isOpen={favoritePrompt.isOpen}
+              defaultName={favoritePrompt.defaultName}
+              onConfirm={confirmFavorite}
+              onCancel={cancelFavorite}
+              brandColor={gradientColor1}
+            />
 
-      {/* NAVBAR */}
-      <div className={`transition-all duration-300 ease-in-out origin-top border-b border-border-subtle bg-surface-card/80 backdrop-blur-3xl z-[100] relative flex flex-col ${isNavbarOpen ? 'h-20' : 'h-0 overflow-hidden border-transparent'}`}>
-        <nav className="h-20 px-8 flex flex-wrap items-center justify-between shrink-0">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-4 group cursor-pointer">
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-xl tracking-tighter transition-transform group-hover:rotate-6 text-white overflow-hidden"
-                style={appLogoUrl ? {} : {
-                  backgroundColor: gradientColor1,
-                  boxShadow: `0 0 20px ${gradientColor1}40`,
-                }}
-              >
-                {appLogoUrl ? (
-                  <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
-                ) : (
-                  <span>CS</span>
-                )}
-              </div>
-              <div className="flex flex-col">
-                <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
-                  Carrossel <span style={{ color: gradientColor1 }}>Studio</span>
-                </span>
-                <span className="text-[10px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
-                  Sistema inteligente para criação de carrosséis de alta performance
-                </span>
-              </div>
+            {/* Google Fonts */}
+            <style>{`
+              @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
+            `}</style>
+
+            {/* NAVBAR (Studio Only) */}
+            <div className={`transition-all duration-150 ease-in-out origin-top border-b border-[#FFFFFF]/5 bg-[#000000]/80 backdrop-blur-3xl z-[100] relative flex flex-col ${isNavbarOpen ? 'h-20' : 'h-0 overflow-hidden border-transparent'}`}>
+              <nav className="h-20 px-8 flex flex-wrap items-center justify-between shrink-0">
+                <div className="flex items-center gap-8">
+                  <div className="flex items-center gap-4 group cursor-pointer" onClick={() => setView('home')}>
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-xl tracking-tighter transition-transform group-hover:rotate-6 text-white overflow-hidden"
+                      style={appLogoUrl ? {} : {
+                        backgroundColor: gradientColor1,
+                        boxShadow: `0 0 20px ${gradientColor1}40`,
+                      }}
+                    >
+                      {appLogoUrl ? (
+                        <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
+                      ) : (
+                        <span>CS</span>
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
+                        Carrossel <span style={{ color: gradientColor1 }}>Studio</span>
+                      </span>
+                      <span className="text-[10px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
+                        Sistema inteligente para criação de carrosséis de alta performance
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </nav>
             </div>
-          </div>
 
-          <div className="flex items-center gap-6 mt-4 sm:mt-0">
-          </div>
-        </nav>
-      </div>
+            {/* NAVBAR TOGGLE BUTTON */}
+            <button 
+              onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+              className="absolute top-0 right-1/2 translate-x-1/2 lg:right-10 lg:translate-x-0 z-[110] bg-surface-card/90 border border-border-subtle border-t-0 rounded-b-xl px-4 py-1.5 text-zinc-500 hover:text-white transition-colors shadow-lg backdrop-blur-md"
+            >
+              {isNavbarOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
 
-      {/* NAVBAR TOGGLE BUTTON */}
-      <button 
-        onClick={() => setIsNavbarOpen(!isNavbarOpen)}
-        className="absolute top-0 right-1/2 translate-x-1/2 lg:right-10 lg:translate-x-0 z-[110] bg-surface-card/90 border border-border-subtle border-t-0 rounded-b-xl px-4 py-1.5 text-zinc-500 hover:text-white transition-colors shadow-2xl backdrop-blur-md"
-      >
-        {isNavbarOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-      </button>
-
-      {/* MAIN LAYOUT */}
-      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
-        {/* Sidebar */}
-        <div 
-          className={`flex shrink-0 transition-all duration-300 ease-in-out overflow-hidden ${isSidebarCollapsed ? 'w-0' : ''}`}
-          style={{ width: isSidebarCollapsed ? 0 : sidebarWidth }}
-        >
-          <ConfigSidebar
-            width={sidebarWidth}
-            brandHandle={brandHandle}
-            setBrandHandle={setBrandHandle}
-            showBrandHandle={showBrandHandle}
-            setShowBrandHandle={setShowBrandHandle}
-            brandAvatar={brandAvatar}
-            setBrandAvatar={setBrandAvatar}
-            isVerified={isVerified}
-            setIsVerified={setIsVerified}
-            gradientColor1={gradientColor1}
-            setGradientColor1={setGradientColor1}
-            titleSizeScale={titleSizeScale}
-            setTitleSizeScale={setTitleSizeScale}
-            textSizeScale={textSizeScale}
-            setTextSizeScale={setTextSizeScale}
-            cardBorderRadius={cardBorderRadius}
-            setCardBorderRadius={setCardBorderRadius}
-            imageBorderRadius={imageBorderRadius}
-            setImageBorderRadius={setImageBorderRadius}
-            theme={theme}
-            setTheme={setTheme}
-            creativeContext={creativeContext}
-            setCreativeContext={(newCtx) => {
-              setCreativeContext(newCtx);
-              localStorage.setItem('alice_creative_context', JSON.stringify(newCtx));
-            }}
-            slideCount={slideCount}
-            setSlideCount={setSlideCount}
-            layoutSelection={layoutSelection}
-            setLayoutSelection={setLayoutSelection}
-            onGenerate={handleGenerate}
-            isGenerating={isGenerating}
-            error={error}
-            setIsSettingsOpen={setIsSettingsOpen}
-            selectedElement={selectedElement}
-            setSelectedElement={setSelectedElement}
-            slides={slides}
-            setSlides={setSlides}
-            onImageUpload={handleImageUpload}
-            onImagePosition={handleImagePosition}
-            onImageScale={handleImageScale}
-            onRemoveImage={handleRemoveImage}
-            titleFont={titleFont}
-            setTitleFont={setTitleFont}
-            textFont={textFont}
-            setTextFont={setTextFont}
-            favorites={favorites}
-            onUseFavorite={handleUseFavorite}
-            onRemoveFavorite={handleRemoveFavorite}
-            onInjectSlide={handleInjectSlide}
-            isInjecting={isInjecting}
-            showSlideCounter={showSlideCounter}
-            setShowSlideCounter={setShowSlideCounter}
-            slideCounterPosition={slideCounterPosition}
-            setSlideCounterPosition={setSlideCounterPosition}
-          />
-        </div>
-
-        {/* Toggle Sidebar Button */}
-        <button
-          onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-          className={`alice-collapse-btn ${isSidebarCollapsed ? 'collapsed' : ''}`}
-          style={{ 
-            left: isSidebarCollapsed ? '0' : `${sidebarWidth}px`,
-          }}
-          title={isSidebarCollapsed ? "Expandir Painel" : "Recolher Painel"}
-        >
-          {isSidebarCollapsed ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
-        </button>
-
-        {/* Resize Handle */}
-        <div 
-          onMouseDown={() => !isSidebarCollapsed && setIsResizingSidebar(true)}
-          className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''} ${isSidebarCollapsed ? 'pointer-events-none opacity-0' : ''}`}
-          style={{ '--color-handle': isResizingSidebar ? gradientColor1 : undefined }}
-        >
-          {/* O ::after no CSS já cuida da linha visual */}
-        </div>
-
-        {/* Workspace */}
-        <main 
-          className="flex-1 bg-surface-primary relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden custom-scrollbar"
-          onClick={() => setSelectedElement(null)}
-        >
-          <SettingsModal 
-            isOpen={isSettingsOpen} 
-            onClose={() => setIsSettingsOpen(false)} 
-            brandColor={gradientColor1}
-            onBrandColorChange={setGradientColor1}
-            appLogoUrl={appLogoUrl}
-            onLogoChange={(url) => {
-              setAppLogoUrl(url);
-              if (url) localStorage.setItem('alice_app_logo', url);
-              else localStorage.removeItem('alice_app_logo');
-            }}
-          />
-          {slides.length === 0 && !isGenerating ? (
-            <EmptyState brandColor={gradientColor1} />
-          ) : isGenerating ? (
-            <LoadingState brandColor={gradientColor1} />
-          ) : (
-            <div className="space-y-6 max-w-full">
-              <WorkspaceToolbar
-                slides={slides}
-                viewMode={viewMode}
-                setViewMode={setViewMode}
-                showMetrics={showMetrics}
-                setShowMetrics={setShowMetrics}
-                onExportAll={handleExportAll}
-                onCopyAll={handleCopyAll}
-                isExporting={isExporting}
-                copiedIndex={copiedIndex}
-                brandColor={gradientColor1}
-              />
-
-              {viewMode === 'text' ? (
-                <TextEditor
-                  slides={slides}
-                  brandColor={gradientColor1}
-                  onTextChange={handleSlideTextChange}
-                  onImageUpload={handleImageUpload}
-                  onImagePosition={handleImagePosition}
-                  onImageScale={handleImageScale}
-                  onGenerateImage={handleGenerateImage}
-                  loadingImages={loadingImages}
-                />
-              ) : (
-                <VisualPreview
-                  slides={slides}
-                  slideCount={slideCount}
+            {/* STUDIO WORKSPACE LAYOUT */}
+            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative group/layout">
+              {/* Secondary Sidebar (Properties/Config) */}
+              <div 
+                className={`flex shrink-0 transition-all duration-150 ease-in-out overflow-hidden ${isSidebarCollapsed ? 'w-0' : ''}`}
+                style={{ width: isSidebarCollapsed ? 0 : sidebarWidth }}
+              >
+                <ConfigSidebar
+                  width={sidebarWidth}
                   brandHandle={brandHandle}
+                  setBrandHandle={setBrandHandle}
                   showBrandHandle={showBrandHandle}
+                  setShowBrandHandle={setShowBrandHandle}
                   brandAvatar={brandAvatar}
-                  brandColor={gradientColor1}
+                  setBrandAvatar={setBrandAvatar}
                   isVerified={isVerified}
-                  titleScale={titleSizeScale}
-                  textScale={textSizeScale}
-                  showMetrics={showMetrics}
-                  onActionStart={handleActionStart}
-                  onTextChange={handleSlideTextChange}
-                  onItemChange={handleSlideItemChange}
+                  setIsVerified={setIsVerified}
+                  gradientColor1={gradientColor1}
+                  setGradientColor1={setGradientColor1}
+                  titleSizeScale={titleSizeScale}
+                  setTitleSizeScale={setTitleSizeScale}
+                  textSizeScale={textSizeScale}
+                  setTextSizeScale={setTextSizeScale}
+                  cardBorderRadius={cardBorderRadius}
+                  setCardBorderRadius={setCardBorderRadius}
+                  imageBorderRadius={imageBorderRadius}
+                  setImageBorderRadius={setImageBorderRadius}
+                  theme={theme}
+                  setTheme={setTheme}
+                  creativeContext={creativeContext}
+                  setCreativeContext={(newCtx) => {
+                    setCreativeContext(newCtx);
+                    localStorage.setItem('alice_creative_context', JSON.stringify(newCtx));
+                  }}
+                  slideCount={slideCount}
+                  setSlideCount={setSlideCount}
+                  layoutSelection={layoutSelection}
+                  setLayoutSelection={setLayoutSelection}
+                  onGenerate={handleGenerate}
+                  isGenerating={isGenerating}
+                  error={error}
+                  setIsSettingsOpen={setIsSettingsOpen}
+                  selectedElement={selectedElement}
+                  setSelectedElement={setSelectedElement}
+                  slides={slides}
+                  setSlides={setSlides}
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
                   onImageScale={handleImageScale}
                   onRemoveImage={handleRemoveImage}
-                  onImageFromUrl={handleImageFromUrl}
-                  onCopySlide={handleCopySlide}
-                  onExportSlide={handleExportSlide}
-                  onResetPositions={resetSlidePositions}
-                  onRemoveSlide={handleRemoveSlide}
-                  onDuplicateSlide={handleDuplicateSlide}
-                  onFavoriteSlide={handleFavoriteSlide}
-                  onMoveSlide={handleMoveSlide}
-                  onAddSlide={handleAddSlide}
-                  onCoverVariantChange={handleCoverVariantChange}
-                  onSplitVariantChange={handleSplitVariantChange}
-                  onBigNumberVariantChange={handleBigNumberVariantChange}
-                  onQuoteVariantChange={handleQuoteVariantChange}
-                  onComparisonVariantChange={handleComparisonVariantChange}
-                  onCtaVariantChange={handleCtaVariantChange}
-                  onListVariantChange={handleListVariantChange}
-                  copiedIndex={copiedIndex}
-                  selectedElement={selectedElement}
-                  isExporting={isExporting}
-                  onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
+                  titleFont={titleFont}
+                  setTitleFont={setTitleFont}
+                  textFont={textFont}
+                  setTextFont={setTextFont}
+                  favorites={favorites}
+                  onUseFavorite={handleUseFavorite}
+                  onRemoveFavorite={handleRemoveFavorite}
+                  onInjectSlide={handleInjectSlide}
+                  isInjecting={isInjecting}
                   showSlideCounter={showSlideCounter}
+                  setShowSlideCounter={setShowSlideCounter}
                   slideCounterPosition={slideCounterPosition}
+                  setSlideCounterPosition={setSlideCounterPosition}
+                  onComingSoon={handleComingSoon}
                 />
-              )}
+              </div>
+
+              {/* Toggle Sidebar Button */}
+              <button
+                onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+                className={`alice-collapse-btn opacity-0 group-hover/layout:opacity-100 transition-opacity duration-150 ${isSidebarCollapsed ? 'collapsed opacity-100' : ''}`}
+                style={{ 
+                  left: isSidebarCollapsed ? '0' : `${sidebarWidth}px`,
+                }}
+                title={isSidebarCollapsed ? "Expandir Painel" : "Recolher Painel"}
+              >
+                {isSidebarCollapsed ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
+              </button>
+
+              {/* Resize Handle */}
+              <div 
+                onMouseDown={() => !isSidebarCollapsed && setIsResizingSidebar(true)}
+                className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''} ${isSidebarCollapsed ? 'pointer-events-none opacity-0' : ''}`}
+                style={{ '--color-handle': isResizingSidebar ? gradientColor1 : undefined }}
+              />
+
+              {/* Workspace */}
+              <main 
+                className="flex-1 bg-[#0a0a0a] relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden custom-scrollbar"
+                onClick={() => setSelectedElement(null)}
+              >
+                <SettingsModal 
+                  isOpen={isSettingsOpen} 
+                  onClose={() => setIsSettingsOpen(false)} 
+                  brandColor={gradientColor1}
+                  onBrandColorChange={setGradientColor1}
+                  appLogoUrl={appLogoUrl}
+                  onLogoChange={(url) => {
+                    setAppLogoUrl(url);
+                    if (url) localStorage.setItem('alice_app_logo', url);
+                    else localStorage.removeItem('alice_app_logo');
+                  }}
+                />
+                {slides.length === 0 && !isGenerating ? (
+                  <EmptyState brandColor={gradientColor1} />
+                ) : isGenerating ? (
+                  <LoadingState brandColor={gradientColor1} />
+                ) : (
+                  <div className="space-y-6 max-w-full">
+                    <WorkspaceToolbar
+                      slides={slides}
+                      viewMode={viewMode}
+                      setViewMode={setViewMode}
+                      showMetrics={showMetrics}
+                      setShowMetrics={setShowMetrics}
+                      onExportAll={handleExportAll}
+                      onCopyAll={handleCopyAll}
+                      isExporting={isExporting}
+                      copiedIndex={copiedIndex}
+                      brandColor={gradientColor1}
+                    />
+
+                    {viewMode === 'text' ? (
+                      <TextEditor
+                        slides={slides}
+                        brandColor={gradientColor1}
+                        onTextChange={handleSlideTextChange}
+                        onImageUpload={handleImageUpload}
+                        onImagePosition={handleImagePosition}
+                        onImageScale={handleImageScale}
+                        onGenerateImage={handleGenerateImage}
+                        loadingImages={loadingImages}
+                      />
+                    ) : (
+                      <VisualPreview
+                        slides={slides}
+                        slideCount={slideCount}
+                        brandHandle={brandHandle}
+                        showBrandHandle={showBrandHandle}
+                        brandAvatar={brandAvatar}
+                        brandColor={gradientColor1}
+                        isVerified={isVerified}
+                        titleScale={titleSizeScale}
+                        textScale={textSizeScale}
+                        showMetrics={showMetrics}
+                        onActionStart={handleActionStart}
+                        onTextChange={handleSlideTextChange}
+                        onItemChange={handleSlideItemChange}
+                        onImageUpload={handleImageUpload}
+                        onImagePosition={handleImagePosition}
+                        onImageScale={handleImageScale}
+                        onRemoveImage={handleRemoveImage}
+                        onImageFromUrl={handleImageFromUrl}
+                        onCopySlide={handleCopySlide}
+                        onExportSlide={handleExportSlide}
+                        onResetPositions={resetSlidePositions}
+                        onRemoveSlide={handleRemoveSlide}
+                        onDuplicateSlide={handleDuplicateSlide}
+                        onFavoriteSlide={handleFavoriteSlide}
+                        onMoveSlide={handleMoveSlide}
+                        onAddSlide={handleAddSlide}
+                        onCoverVariantChange={handleCoverVariantChange}
+                        onSplitVariantChange={handleSplitVariantChange}
+                        onBigNumberVariantChange={handleBigNumberVariantChange}
+                        onQuoteVariantChange={handleQuoteVariantChange}
+                        onComparisonVariantChange={handleComparisonVariantChange}
+                        onCtaVariantChange={handleCtaVariantChange}
+                        onListVariantChange={handleListVariantChange}
+                        copiedIndex={copiedIndex}
+                        selectedElement={selectedElement}
+                        isExporting={isExporting}
+                        onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
+                        showSlideCounter={showSlideCounter}
+                        slideCounterPosition={slideCounterPosition}
+                      />
+                    )}
+                  </div>
+                )}
+              </main>
             </div>
-          )}
-        </main>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+

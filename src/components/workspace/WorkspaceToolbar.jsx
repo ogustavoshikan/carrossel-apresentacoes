@@ -26,7 +26,7 @@ export default function WorkspaceToolbar({
   return (
     <div className="flex flex-col xl:flex-row gap-4 justify-between items-start xl:items-center bg-surface-card border border-border-subtle p-4 rounded-2xl shadow-xl z-20 relative">
       <div className="flex flex-wrap items-center gap-4 w-full xl:w-auto">
-        <span className="text-white font-outfit font-black tracking-widest bg-white/5 px-4 py-2 rounded-lg text-label-xs uppercase border border-border-hover">
+        <span className="text-white font-outfit font-black tracking-widest bg-surface-input px-4 py-2 rounded-lg text-label-xs uppercase border border-border-hover">
           {slides.length} Slides
         </span>
 
@@ -87,7 +87,7 @@ export default function WorkspaceToolbar({
         )}
         <button
           onClick={onCopyAll}
-          className="flex-1 xl:flex-none flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-white/5 text-white py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap border border-border-hover font-bold"
+          className="flex-1 xl:flex-none flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-surface-input/50 text-white py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap border border-border-hover font-bold"
         >
           {copiedIndex === 'all' ? (
             <CheckCircle2 className="w-4 h-4 text-green-400" />
@@ -100,3 +100,6 @@ export default function WorkspaceToolbar({
     </div>
   );
 }
+
+
+

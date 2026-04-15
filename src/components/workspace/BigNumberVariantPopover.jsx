@@ -82,7 +82,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
           <div className="w-[60%] h-[35%] rounded" style={{ background: accent, opacity: 0.9 }} />
         </div>
         <div className="flex-1 h-full p-1.5 flex flex-col justify-center gap-1 border-l border-white/10" style={{ background: '#27272a' }}>
-          <div className="w-[50%] h-[1.5px] bg-white/50 rounded-full" />
+          <div className="w-[50%] h-[1.5px] bg-surface-input/300 rounded-full" />
           <div className="w-[80%] h-[1.5px] bg-zinc-500/60 rounded-full" />
           <div className="w-full h-6 rounded-lg mt-0.5" style={{ background: img }} />
         </div>
@@ -96,7 +96,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
           <div className="w-[50%] h-[2px] bg-white/70 rounded-full" />
         </div>
         <div className="flex-1 w-full rounded-lg border border-white/10 p-1 flex flex-col justify-center gap-0.5" style={{ background: '#0A0A0A' }}>
-          <div className="w-[80%] h-[1.5px] bg-white/50 rounded-full" />
+          <div className="w-[80%] h-[1.5px] bg-surface-input/300 rounded-full" />
           <div className="w-[65%] h-[1.5px] bg-white/30 rounded-full" />
         </div>
       </div>
@@ -131,7 +131,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         <div className="flex-1 p-1.5 flex flex-col justify-center gap-1">
           <div className="w-[45%] h-[1.5px] bg-zinc-600 rounded-full" />
           <div className="w-[85%] h-[2px] bg-white/70 rounded-full" />
-          <div className="w-[75%] h-[1.5px] bg-white/50 rounded-full" />
+          <div className="w-[75%] h-[1.5px] bg-surface-input/300 rounded-full" />
           <div className="w-[60%] h-[1.5px] bg-white/30 rounded-full" />
         </div>
       </div>
@@ -170,7 +170,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         <div className="flex items-center justify-center">
           <div className="w-4 h-6 rounded-[2px]" style={{ background: accent, opacity: 0.9, boxShadow: `0 4px 8px ${accent}40` }} />
         </div>
-        <div className="flex-1 bg-white/5 backdrop-blur-[2px] border border-white/10 rounded-lg p-1.5 flex flex-col justify-center gap-1">
+        <div className="flex-1 bg-surface-input/30 backdrop-blur-[2px] border border-white/10 rounded-lg p-1.5 flex flex-col justify-center gap-1">
            <div className="w-4 h-[1px] bg-zinc-500 rounded-full" />
            <div className="w-[85%] h-[1.5px] bg-white/70 rounded-full" />
         </div>
@@ -189,7 +189,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -218,7 +218,7 @@ export default function BigNumberVariantPopover({ currentVariantIndex, onSelect,
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px]">
@@ -278,3 +278,4 @@ export default function BigNumberVariantPopover({ currentVariantIndex, onSelect,
     </div>
   );
 }
+

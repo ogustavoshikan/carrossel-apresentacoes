@@ -116,7 +116,7 @@ function QuoteVariant3({ data, index, brandHandle, brandAvatar, brandColor, titl
       </SmartElement>
       
       <div className="w-full flex justify-center relative z-10 mb-4 pointer-events-none">
-        <div className="w-12 h-1 bg-white/50" />
+        <div className="w-12 h-1 bg-surface-input/300" />
       </div>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
@@ -323,7 +323,7 @@ function QuoteVariant10({ data, index, brandHandle, brandAvatar, brandColor, tit
         <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
       </div>
       
-      <div className="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl rounded-bl-none p-10 relative mb-6 shadow-xl z-10">
+      <div className="w-full bg-surface-input/30 backdrop-blur-md border border-white/10 rounded-3xl rounded-bl-none p-10 relative mb-6 shadow-xl z-10">
         <Quote className="absolute top-6 right-6 w-8 h-8 text-white/10 pointer-events-none" />
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 w-[90%]">
@@ -478,4 +478,5 @@ export const QUOTE_VARIANT_META = [
   { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo' },
   { id: 12, name: 'Social Proof', description: 'Depoimento premium com balão e avatar' }
 ];
+
 

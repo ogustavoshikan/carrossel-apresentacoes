@@ -65,13 +65,13 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     // 4: Bento Grid — grid 2 colunas
     4: (
       <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 gap-1" style={{ background: '#050505' }}>
-        <div className="w-full h-[35%] rounded-md bg-white/5 border border-white/10 flex flex-col justify-center px-1 gap-0.5">
+        <div className="w-full h-[35%] rounded-md bg-surface-input/30 border border-white/10 flex flex-col justify-center px-1 gap-0.5">
           <div className="w-[30%] h-[1.5px] bg-zinc-600 rounded-full" />
           <div className="w-[60%] h-[2.5px] bg-white/70 rounded-full" />
         </div>
         <div className="flex-1 flex gap-1">
           <div className="flex-1 rounded-md border border-white/10" style={{ background: img }} />
-          <div className="flex-1 rounded-md bg-white/5 border border-white/10 p-1 flex flex-col justify-center gap-1">
+          <div className="flex-1 rounded-md bg-surface-input/30 border border-white/10 p-1 flex flex-col justify-center gap-1">
             <div className="w-full h-[1.5px] bg-zinc-500/60 rounded-full" />
             <div className="w-[80%] h-[1.5px] bg-zinc-500/50 rounded-full" />
             <div className="w-3 h-3 rounded-full mt-0.5 shrink-0" style={{ background: accent }} />
@@ -262,7 +262,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     19: (
       <div className="w-full h-full flex items-center justify-center rounded-[3px] overflow-hidden bg-[#18181b] relative p-1">
         <div className="w-[60%] h-[70%] absolute top-1 left-1 rounded-sm" style={{ background: img }} />
-        <div className="w-[60%] h-[50%] absolute bottom-1 right-1 bg-white/10 backdrop-blur-md rounded-sm border border-white/10 p-1 flex flex-col justify-center z-10 shadow-sm">
+        <div className="w-[60%] h-[50%] absolute bottom-1 right-1 bg-surface-input/30 backdrop-blur-md rounded-sm border border-white/10 p-1 flex flex-col justify-center z-10 shadow-sm">
             <div className="w-[30%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
             <div className="w-[80%] h-[2px] bg-white/90 rounded-full" />
             <div className="w-[90%] h-[1px] bg-zinc-400 rounded-full mt-0.5" />
@@ -336,7 +336,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         <div className="absolute bottom-1 left-1.5 flex flex-col gap-0.5 z-10 w-full pl-0.5">
            <div className="w-[20%] h-[1.5px] rounded-full" style={{ background: accent }} />
            <div className="w-[70%] h-[2px] bg-white/90 rounded-full" />
-           <div className="w-[50%] h-[1.5px] bg-white/50 rounded-full mt-0.5" />
+           <div className="w-[50%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
         </div>
       </div>
     ),
@@ -356,7 +356,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-200 cursor-pointer ring-2 ${
+      className={`w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 ${
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
@@ -385,7 +385,7 @@ export default function SplitVariantPopover({ currentVariantIndex, onSelect, onC
   return (
     <div
       ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[280px]">
@@ -445,3 +445,4 @@ export default function SplitVariantPopover({ currentVariantIndex, onSelect, onC
     </div>
   );
 }
+
