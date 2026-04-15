@@ -18,7 +18,7 @@ import {
  * @name Typewriter
  * @description Efeito de escrita premium.
  */
-const Typewriter = ({ phrases }) => {
+const Typewriter = ({ phrases, brandColor }) => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
@@ -41,7 +41,7 @@ const Typewriter = ({ phrases }) => {
 
   return (
     <span className="inline-flex items-center">
-      <span className="text-[#DE1E4D] font-bold text-sm tracking-widest uppercase">
+      <span className="font-bold text-sm tracking-widest uppercase" style={{ color: brandColor }}>
         {phrases[index].substring(0, subIndex)}
       </span>
       <span className="ml-1 w-[2px] h-4 bg-[#FFFFFF] animate-pulse" />
@@ -49,8 +49,20 @@ const Typewriter = ({ phrases }) => {
   );
 };
 
-export default function Home({ onStartProject }) {
+/** Converte hex + alpha em rgba para usar em inline styles */
+const hexToRgba = (hex, alpha) => {
+  if (!hex || hex.length < 7) return `rgba(222, 30, 77, ${alpha})`;
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [galleryBtnHovered, setGalleryBtnHovered] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [createCardHovered, setCreateCardHovered] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 60000);
@@ -77,8 +89,8 @@ export default function Home({ onStartProject }) {
 
       
       {/* Background Ambience */}
-      <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#DE1E4D]/10 blur-[200px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#DE1E4D]/5 blur-[150px] pointer-events-none rounded-full" />
+      <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] blur-[200px] pointer-events-none rounded-full" style={{ backgroundColor: hexToRgba(brandColor, 0.10) }} />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] blur-[150px] pointer-events-none rounded-full" style={{ backgroundColor: hexToRgba(brandColor, 0.05) }} />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay" />
 
       {/* Main Content */}
@@ -100,10 +112,10 @@ export default function Home({ onStartProject }) {
             
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 px-4 py-2 bg-[#111111]/80 backdrop-blur-md border border-[#FFFFFF]/10 rounded-full shadow-inner">
-                <Activity size={14} className="text-[#DE1E4D] animate-pulse" />
+                <Activity size={14} className="animate-pulse" style={{ color: brandColor }} />
                 <span className="text-[10px] font-bold tracking-widest text-[#FFFFFF]/70 uppercase">Sistema Operacional</span>
                 <div className="h-4 w-px bg-[#FFFFFF]/20" />
-                <span className="text-[#DE1E4D] text-[10px] font-black">TM</span>
+                <span className="text-[10px] font-black" style={{ color: brandColor }}>TM</span>
               </div>
             </div>
           </header>
@@ -111,28 +123,37 @@ export default function Home({ onStartProject }) {
           {/* Imposing Title */}
           <div className="w-full relative">
             <h1 className="text-[50px] md:text-[70px] font-black text-[#FFFFFF] tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl">
-              CARROSSEL <span className="text-[#DE1E4D]">STUDIO</span>.
+              CARROSSEL <span style={{ color: brandColor }}>STUDIO</span>.
             </h1>
             <div className="mt-6 flex items-center gap-4 border-b border-[#FFFFFF]/10 pb-8">
-               <Typewriter phrases={internalSlogans} />
+               <Typewriter phrases={internalSlogans} brandColor={brandColor} />
             </div>
           </div>
 
           {/* Mantra & Hero CTA */}
           <section className="relative w-full rounded-[2rem] bg-gradient-to-br from-[#1A1A1A] to-[#050505] border border-[#FFFFFF]/10 overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
             {/* Efeitos decorativos do Hero */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#DE1E4D]/20 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-150" />
+            <div
+              className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-150"
+              style={{ background: `radial-gradient(circle, ${hexToRgba(brandColor, 0.20)} 0%, transparent 70%)` }}
+            />
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
 
             <div className="relative z-10 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#DE1E4D]/10 border border-[#DE1E4D]/30 rounded-full mb-8">
-                <Sparkles size={12} className="text-[#DE1E4D]" />
-                <span className="text-[#DE1E4D] text-[9px] font-bold tracking-[0.2em] uppercase">Mantra Operacional</span>
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-8"
+                style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.30)}` }}
+              >
+                <Sparkles size={12} style={{ color: brandColor }} />
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase" style={{ color: brandColor }}>Mantra Operacional</span>
               </div>
               
               <h3 className="text-4xl lg:text-5xl font-black text-[#FFFFFF] tracking-tighter uppercase leading-[1.1] mb-6">
                 Nunca Comece<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DE1E4D] to-[#FF4D79]">Do Zero.</span>
+                <span
+                  className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: `linear-gradient(to right, ${brandColor}, #FF4D79)` }}
+                >Do Zero.</span>
               </h3>
               
               <p className="text-[#FFFFFF]/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
@@ -149,7 +170,10 @@ export default function Home({ onStartProject }) {
                   <Play size={16} className="fill-black" />
                   Novo Projeto no Studio
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#DE1E4D] to-[#8A1230] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0" />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0"
+                  style={{ background: `linear-gradient(to right, ${brandColor}, #8A1230)` }}
+                />
                 <span className="absolute z-10 inset-0 flex items-center justify-center gap-3 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 text-white">
                   <Play size={16} className="fill-white" />
                   Iniciar Criação
@@ -162,10 +186,15 @@ export default function Home({ onStartProject }) {
           <section className="space-y-8">
             <div className="flex justify-between items-end px-2 border-b border-[#FFFFFF]/5 pb-4">
               <div>
-                <h3 className="text-2xl font-black text-[#FFFFFF] tracking-tighter uppercase">Capacidade <span className="text-[#DE1E4D]">Criativa</span></h3>
+                <h3 className="text-2xl font-black text-[#FFFFFF] tracking-tighter uppercase">Capacidade <span style={{ color: brandColor }}>Criativa</span></h3>
                 <p className="text-[#FFFFFF]/40 text-xs mt-1 font-light">Explorador de templates e designs recentes.</p>
               </div>
-              <button className="group flex items-center gap-2 text-[#FFFFFF]/40 hover:text-[#DE1E4D] text-[10px] font-bold uppercase tracking-widest transition-colors">
+              <button
+                className="group flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest transition-colors"
+                style={{ color: galleryBtnHovered ? brandColor : 'rgba(255,255,255,0.40)' }}
+                onMouseEnter={() => setGalleryBtnHovered(true)}
+                onMouseLeave={() => setGalleryBtnHovered(false)}
+              >
                 Ver Galeria Completa
                 <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
@@ -180,9 +209,14 @@ export default function Home({ onStartProject }) {
                   className="snap-center shrink-0 w-[280px] lg:w-[320px] group cursor-pointer"
                   style={{ animationDelay: `${item.delay}ms` }}
                   onClick={onStartProject}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
                   {/* Card 4:5 Container */}
-                  <div className="relative aspect-[4/5] rounded-3xl bg-[#0A0A0A] border border-[#FFFFFF]/10 overflow-hidden mb-6 group-hover:border-[#DE1E4D]/50 transition-colors duration-150 shadow-2xl">
+                  <div
+                    className="relative aspect-[4/5] rounded-3xl bg-[#0A0A0A] border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
+                    style={{ borderColor: hoveredCard === idx ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)' }}
+                  >
                     
                     {/* Fake Slides flutuando dentro do card */}
                     <div className="absolute inset-0 flex items-center justify-center p-8 perspective-[1000px]">
@@ -195,19 +229,25 @@ export default function Home({ onStartProject }) {
                       {/* Slide Principal/Frente */}
                       <div className="absolute w-3/4 h-3/4 bg-gradient-to-br from-[#333333] to-[#111111] rounded-xl border border-[#FFFFFF]/20 shadow-2xl z-10 flex flex-col p-4 group-hover:scale-105 transition-all duration-150">
                         {/* Simulação de conteúdo do slide */}
-                        <div className="w-8 h-8 bg-[#DE1E4D]/20 rounded-full mb-auto flex items-center justify-center">
-                           <LayoutGrid size={12} className="text-[#DE1E4D]" />
+                        <div className="w-8 h-8 rounded-full mb-auto flex items-center justify-center" style={{ backgroundColor: hexToRgba(brandColor, 0.20) }}>
+                           <LayoutGrid size={12} style={{ color: brandColor }} />
                         </div>
                         <div className="space-y-2 w-full">
                           <div className="h-2 w-3/4 bg-[#FFFFFF]/20 rounded-full" />
                           <div className="h-2 w-1/2 bg-[#FFFFFF]/10 rounded-full" />
-                          <div className="h-8 w-full bg-[#DE1E4D]/10 rounded-lg mt-4 border border-[#DE1E4D]/20" />
+                          <div className="h-8 w-full rounded-lg mt-4" style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.20)}` }} />
                         </div>
                       </div>
                     </div>
 
                     {/* Overlay de Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#DE1E4D]/90 via-[#DE1E4D]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex flex-col justify-end p-6 z-20">
+                    <div
+                      className="absolute inset-0 transition-opacity duration-150 flex flex-col justify-end p-6 z-20"
+                      style={{
+                        background: `linear-gradient(to top, ${hexToRgba(brandColor, 0.90)}, ${hexToRgba(brandColor, 0.20)}, transparent)`,
+                        opacity: hoveredCard === idx ? 1 : 0,
+                      }}
+                    >
                       <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-150">
                         <button className="w-full py-3 bg-[#FFFFFF] text-[#000000] rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2">
                           <Plus size={14} /> Abrir no Studio
@@ -235,12 +275,29 @@ export default function Home({ onStartProject }) {
               <div 
                 className="snap-center shrink-0 w-[280px] lg:w-[320px] group cursor-pointer flex flex-col justify-center"
                 onClick={onStartProject}
+                onMouseEnter={() => setCreateCardHovered(true)}
+                onMouseLeave={() => setCreateCardHovered(false)}
               >
-                 <div className="relative aspect-[4/5] rounded-3xl border-2 border-dashed border-[#FFFFFF]/10 flex flex-col items-center justify-center gap-4 hover:border-[#DE1E4D]/50 hover:bg-[#DE1E4D]/5 transition-all duration-150 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-[#222222] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#DE1E4D] transition-all duration-150">
+                 <div
+                   className="relative aspect-[4/5] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center gap-4 transition-all duration-150 mb-6"
+                   style={{
+                     borderColor: createCardHovered ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)',
+                     backgroundColor: createCardHovered ? hexToRgba(brandColor, 0.05) : 'transparent',
+                   }}
+                 >
+                    <div
+                      className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-150"
+                      style={{
+                        backgroundColor: createCardHovered ? brandColor : '#222222',
+                        transform: createCardHovered ? 'scale(1.1)' : 'scale(1)',
+                      }}
+                    >
                       <Plus size={24} className="text-[#FFFFFF]" />
                     </div>
-                    <span className="text-[#FFFFFF]/50 text-xs font-bold uppercase tracking-widest group-hover:text-[#FFFFFF]">Criar Avulso</span>
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest transition-colors"
+                      style={{ color: createCardHovered ? '#FFFFFF' : 'rgba(255,255,255,0.50)' }}
+                    >Criar Avulso</span>
                  </div>
               </div>
 
@@ -252,4 +309,3 @@ export default function Home({ onStartProject }) {
     </div>
   );
 }
-

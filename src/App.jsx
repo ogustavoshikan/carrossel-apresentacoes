@@ -529,7 +529,7 @@ export default function App() {
       <div className="flex-1 flex flex-col overflow-hidden relative">
         {view === 'home' ? (
           <div key="home" className="flex-1 flex flex-col animate-page-transition h-full">
-            <Home onStartProject={() => setView('studio')} />
+            <Home onStartProject={() => setView('studio')} brandColor={gradientColor1} />
           </div>
         ) : view === 'coming-soon' ? (
           <ComingSoon 
