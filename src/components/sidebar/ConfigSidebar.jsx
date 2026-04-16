@@ -161,10 +161,10 @@ export default function ConfigSidebar({
             </button>
           </header>
 
-          <div className="h-px bg-surface-input/50 w-full" />
+          <div className="h-px bg-surface-input/50 w-full -my-2" />
 
           {/* Botões de Ação do Slide */}
-          <div className="grid grid-cols-2 gap-3 pt-6">
+          <div className="grid grid-cols-2 gap-3 -mt-2">
              <button 
                 onClick={() => {
                    const cloned = JSON.parse(JSON.stringify(slides[selectedElement.slideIndex]));
