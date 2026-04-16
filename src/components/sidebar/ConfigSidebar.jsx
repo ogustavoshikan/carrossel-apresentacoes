@@ -28,6 +28,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
+import LayoutSelector from './LayoutSelector';
 
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
