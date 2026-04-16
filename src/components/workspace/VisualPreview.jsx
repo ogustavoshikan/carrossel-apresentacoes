@@ -119,9 +119,11 @@ export default function VisualPreview({
 
   const scrollLeft = () => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
   const scrollRight = () => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
+  const [showLeftNav, setShowLeftNav] = React.useState(false);
+  const [showRightNav, setShowRightNav] = React.useState(false);
 
   return (
-    <div className="relative w-full group/nav">
+    <div className="relative w-full">
       {/* Toast Notification Premium */}
       <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-150 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
         <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center gap-2 text-sm font-bold border border-white/20">
@@ -130,27 +132,47 @@ export default function VisualPreview({
         </div>
       </div>
 
-      <button 
-        onClick={scrollLeft}
-        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 }}
-        className="absolute left-2 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+      {/* Zona de hover esquerda */}
+      <div
+        className="absolute left-0 z-50 pointer-events-auto"
+        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 - 140, width: 100, height: 280 }}
+        onMouseEnter={() => setShowLeftNav(true)}
+        onMouseLeave={() => setShowLeftNav(false)}
       >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
+        <button
+          onClick={scrollLeft}
+          className={`absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white transition-opacity shadow-2xl ${
+            showLeftNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+      </div>
 
-      <button 
-        onClick={scrollRight}
-        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 }}
-        className="absolute right-2 -translate-y-1/2 z-50 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white opacity-0 group-hover/nav:opacity-100 transition-opacity disabled:opacity-0 shadow-2xl"
+      {/* Zona de hover direita */}
+      <div
+        className="absolute right-0 z-50 pointer-events-auto"
+        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 - 140, width: 100, height: 280 }}
+        onMouseEnter={() => setShowRightNav(true)}
+        onMouseLeave={() => setShowRightNav(false)}
       >
-        <ChevronRight className="w-5 h-5" />
-      </button>
+        <button
+          onClick={scrollRight}
+          className={`absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white transition-opacity shadow-2xl ${
+            showRightNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
 
       <div
         ref={scrollRef}
-        className="flex gap-10 overflow-x-auto pb-12 pt-8 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar"
+        className="flex gap-10 overflow-x-auto pb-12 pt-8 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar relative"
       >
+
       {slides.map((slide, index) => (
+
         <React.Fragment key={`slide-wrapper-${index}`}>
         <div
           className={`flex flex-col gap-6 shrink-0 snap-center transition-all duration-150 relative group/slide ${openVariantIndex === index ? 'z-50' : 'z-10'}`}

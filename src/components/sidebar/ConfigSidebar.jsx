@@ -1400,6 +1400,20 @@ export default function ConfigSidebar({
 
           {activeTab === 'layouts' && (
              <div className="space-y-4">
+               {/* Briefing sincronizado */}
+               <div className="space-y-2">
+                 <label className="alice-section-title">
+                   <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
+                   Briefing
+                 </label>
+                 <textarea
+                   className="alice-textarea h-28"
+                   placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
+                   value={theme}
+                   onChange={(e) => setTheme(e.target.value)}
+                 />
+               </div>
+               <div className="h-px bg-surface-input/50 w-full" />
                {setLayoutSelection && (
                  <CollapsibleSection title="DISTRIBUIÇÃO DE LAYOUTS" defaultOpen={true}>
                    <LayoutSelector

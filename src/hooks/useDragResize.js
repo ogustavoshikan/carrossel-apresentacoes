@@ -59,7 +59,7 @@ export function useDragResize(slides, setSlides) {
         if (inputY) inputY.value = Math.round(newY);
 
       } else if (actionInfo.type === 'resize') {
-        const scaleDelta = (dx + dy) * 0.005;
+        const scaleDelta = -(dx + dy) * 0.005;
         const newScale = Math.max(0.3, actionInfo.origScale + scaleDelta);
 
         currentScale = newScale;

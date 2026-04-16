@@ -5,7 +5,6 @@ import {
   Sparkles,
   Image as ImageIcon,
   Settings,
-  Layers
 } from 'lucide-react';
 
 /**
@@ -39,15 +38,23 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick }) => (
  * @name GlobalSidebar
  * @description Barra lateral principal do ecossistema Alice Studio.
  */
-const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon }) => {
+const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, appLogoUrl, brandColor }) => {
   return (
     <aside className="w-24 border-r border-[#FFFFFF]/5 bg-[#000000]/95 flex flex-col items-center justify-between py-8 z-[200] relative h-full shrink-0">
       {/* Logo / Home Trigger */}
       <div 
         onClick={() => onNavigate('home')}
-        className="w-12 h-12 bg-gradient-to-br from-[#DE1E4D] to-[#8A1230] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(222,30,77,0.4)] border border-[#FFFFFF]/20 cursor-pointer hover:scale-110 active:scale-95 transition-all duration-150"
+        className="w-12 h-12 rounded-xl flex items-center justify-center font-outfit font-black text-xl tracking-tighter text-white overflow-hidden cursor-pointer hover:scale-110 active:scale-95 transition-all duration-150"
+        style={appLogoUrl ? {} : {
+          backgroundColor: brandColor || '#DE1E4D',
+          boxShadow: `0 0 20px ${brandColor ? brandColor + '40' : 'rgba(222,30,77,0.4)'}`,
+        }}
       >
-        <Layers size={24} className="text-[#FFFFFF]" />
+        {appLogoUrl ? (
+          <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
+        ) : (
+          <span className="select-none">CS</span>
+        )}
       </div>
       
       {/* Primary Navigation */}

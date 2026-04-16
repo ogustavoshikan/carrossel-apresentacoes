@@ -523,6 +523,8 @@ export default function App() {
         onNavigate={setView} 
         onOpenSettings={() => setIsSettingsOpen(true)} 
         onComingSoon={handleComingSoon}
+        appLogoUrl={appLogoUrl}
+        brandColor={gradientColor1}
       />
 
       {/* VIEW CONTENT AREA */}
@@ -560,19 +562,6 @@ export default function App() {
               <nav className="h-20 px-8 flex flex-wrap items-center justify-between shrink-0">
                 <div className="flex items-center gap-8">
                   <div className="flex items-center gap-4 group cursor-pointer" onClick={() => setView('home')}>
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-xl tracking-tighter transition-transform group-hover:rotate-6 text-white overflow-hidden"
-                      style={appLogoUrl ? {} : {
-                        backgroundColor: gradientColor1,
-                        boxShadow: `0 0 20px ${gradientColor1}40`,
-                      }}
-                    >
-                      {appLogoUrl ? (
-                        <img src={appLogoUrl} alt="Logo" className="w-full h-full object-cover" />
-                      ) : (
-                        <span>CS</span>
-                      )}
-                    </div>
                     <div className="flex flex-col">
                       <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
                         Carrossel <span style={{ color: gradientColor1 }}>Studio</span>

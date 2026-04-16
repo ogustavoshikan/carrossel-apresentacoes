@@ -296,8 +296,8 @@ export default function SmartElement({
           if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize');
         }}
-        className="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
-        style={{ transform: `scale(${inverseScale})`, transformOrigin: 'top left' }}
+        className="absolute -top-2 -left-2 w-3 h-3 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
+        style={{ transform: `scale(${inverseScale})`, transformOrigin: 'bottom right' }}
         title="Redimensionar escala"
       />
     </div>
