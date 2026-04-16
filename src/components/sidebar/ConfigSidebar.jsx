@@ -493,11 +493,11 @@ export default function ConfigSidebar({
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
-                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
+                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Tamanho do Texto</span>
                    <div className="flex items-center gap-1">
                       <button
                         onClick={() => updateProp('scale', 1)}
-                        title="Resetar Escala"
+                        title="Resetar Tamanho"
                         className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                       >
                         <RotateCcw className="w-3 h-3" />
@@ -541,7 +541,7 @@ export default function ConfigSidebar({
                         <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">{isSpecialElement ? 'Direcional' : 'Direcional Minimalista'}</span>
                         <button
                           onClick={() => { updateProp('x', 0); updateProp('y', 0); updateProp('scale', 1); }}
-                          title="Resetar posição e escala"
+                          title="Resetar posição e tamanho"
                           className="w-5 h-5 flex items-center justify-center bg-surface-input/50 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
                         >
                           <RotateCcw className="w-3 h-3" />
@@ -879,7 +879,14 @@ export default function ConfigSidebar({
                          id: cloneId,
                          sourceField: field,
                          type: textNode.tagName.toLowerCase(),
-                         className: textNode.className.replace('outline-none', '').trim()
+                         className: textNode.className.replace('outline-none', '').trim(),
+                         style: {
+                           fontSize: textNode.style.fontSize,
+                           lineHeight: textNode.style.lineHeight,
+                           letterSpacing: textNode.style.letterSpacing,
+                           textTransform: textNode.style.textTransform,
+                           fontFamily: window.getComputedStyle(textNode).fontFamily
+                         }
                        };
                        
                        setSlides(prev => prev.map((s, i) => {

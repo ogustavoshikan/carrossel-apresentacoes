@@ -100,6 +100,7 @@ export default function SlideRenderer({
                       suppressContentEditableWarning
                       onBlur={(e) => onTextChange(index, posKey, e.currentTarget.innerText)}
                       className={`${clone.className} pointer-events-auto`}
+                      style={clone.style}
                       // Não injetamos style direto aqui porque o próprio SmartElement 
                       // aplica cloneElement nas props.style para os componentes (cor, size, line-height)
                     >

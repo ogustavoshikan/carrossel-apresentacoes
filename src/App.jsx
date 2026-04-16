@@ -127,6 +127,56 @@ export default function App() {
     };
   }, [isResizingSidebar]);
 
+  // Teclado: Movimentação de elementos selecionados com as setas (2px por vez)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedElement) return;
+      
+      const active = document.activeElement;
+      if (active && (
+         active.tagName === 'INPUT' || 
+         active.tagName === 'TEXTAREA' || 
+         active.isContentEditable
+      )) {
+        return; // não movimentar se o usuário estiver digitando
+      }
+
+      const { slideIndex, field } = selectedElement;
+      const step = 2; // incremento de 2px definido nos requisitos
+      let dx = 0;
+      let dy = 0;
+
+      if (e.key === 'ArrowUp') dy = -step;
+      else if (e.key === 'ArrowDown') dy = step;
+      else if (e.key === 'ArrowLeft') dx = -step;
+      else if (e.key === 'ArrowRight') dx = step;
+      else return;
+
+      e.preventDefault(); // impede o scroll
+
+      setSlides((prev) => {
+        const newSlides = [...prev];
+        const slide = { ...newSlides[slideIndex] };
+        const positions = { ...(slide.positions || {}) };
+        const currentPos = positions[field] || { x: 0, y: 0, scale: 1, rotation: 0 };
+        
+        positions[field] = {
+           ...currentPos,
+           x: (currentPos.x || 0) + dx,
+           y: (currentPos.y || 0) + dy
+        };
+        
+        slide.positions = positions;
+        newSlides[slideIndex] = slide;
+        return newSlides;
+      });
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedElement, setSlides]);
+
+
   // ========================================
   // CSS CUSTOM PROPERTIES (dinâmicas)
   // ========================================
