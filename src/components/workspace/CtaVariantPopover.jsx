@@ -171,17 +171,6 @@ export default function CtaVariantPopover({ currentVariantIndex, onSelect, onClo
             </span>
           </div>
           <div className="absolute -right-2 -top-2 flex items-center gap-0.5">
-            <button 
-              onClick={(e) => { 
-                e.stopPropagation(); 
-                const randomIndex = Math.floor(Math.random() * CTA_VARIANT_META.length);
-                onSelect(CTA_VARIANT_META[randomIndex].id); 
-              }} 
-              className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800"
-              title="Variante Aleatória"
-            >
-              <Shuffle size={14} />
-            </button>
             <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800">
               <X size={14} />
             </button>

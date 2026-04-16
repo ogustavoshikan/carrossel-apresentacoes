@@ -39,6 +39,13 @@ import { ListVariantPopover } from './ListVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
+import { COVER_VARIANT_META } from '../slides/cover-variants';
+import { SPLIT_VARIANT_META } from '../slides/split-variants';
+import { BIGNUMBER_VARIANT_META } from '../slides/bignumber-variants';
+import { QUOTE_VARIANT_META } from '../slides/quote-variants';
+import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
+import { CTA_VARIANT_META } from '../slides/cta-variants';
+import { LIST_VARIANT_META } from '../slides/list-variants';
 
 /**
  * VisualPreview — Grid horizontal de cards visuais com controles por slide.
@@ -114,6 +121,51 @@ export default function VisualPreview({
           setFavoritedIndices(prev => ({ ...prev, [index]: false }));
         }, 2000);
       }
+    }
+  };
+
+  const handleRandomVariant = (index, layout) => {
+    let metas = [];
+    let handler = null;
+
+    switch (layout) {
+      case 'cover':
+        metas = COVER_VARIANT_META;
+        handler = onCoverVariantChange;
+        break;
+      case 'content-split':
+        metas = SPLIT_VARIANT_META;
+        handler = onSplitVariantChange;
+        break;
+      case 'big-number':
+        metas = BIGNUMBER_VARIANT_META;
+        handler = onBigNumberVariantChange;
+        break;
+      case 'quote':
+        metas = QUOTE_VARIANT_META;
+        handler = onQuoteVariantChange;
+        break;
+      case 'comparison':
+        metas = COMPARISON_VARIANT_META;
+        handler = onComparisonVariantChange;
+        break;
+      case 'cta':
+        metas = CTA_VARIANT_META;
+        handler = onCtaVariantChange;
+        break;
+      case 'list':
+        metas = LIST_VARIANT_META;
+        handler = onListVariantChange;
+        break;
+      default:
+        return;
+    }
+
+    if (handler && metas.length > 0) {
+      const randomIndex = Math.floor(Math.random() * metas.length);
+      const variantId = metas[randomIndex].id;
+      handler(index, variantId);
+      handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
     }
   };
 
@@ -277,15 +329,26 @@ export default function VisualPreview({
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
+                    {/* Botão Aleatório (Shuffle) fora do popover */}
+                    {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list'].includes(slide.layout) && (
+                      <Tooltip text="Variante Aleatória">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide.layout); }}
+                          className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"
+                        >
+                          <Shuffle size={18} />
+                        </button>
+                      </Tooltip>
+                    )}
+
                     {/* Trocar Variante — apenas para slides cover */}
                     {slide.layout === 'cover' && onCoverVariantChange && (
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -307,9 +370,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -331,9 +393,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -355,9 +416,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -379,9 +439,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -403,9 +462,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (
@@ -427,9 +485,8 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-1.5"
+                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
-                          <Shuffle size={14} />
                           Variante
                         </button>
                         {openVariantIndex === index && (

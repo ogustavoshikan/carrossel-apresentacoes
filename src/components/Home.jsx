@@ -131,7 +131,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           </div>
 
           {/* Mantra & Hero CTA */}
-          <section className="relative w-full rounded-[2rem] bg-gradient-to-br to-[#050505] border border-[#FFFFFF]/10 overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
+          <section className="relative w-full rounded-[2rem] bg-[#00000075] border border-[#FFFFFF]/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
             {/* Efeitos decorativos do Hero */}
             <div
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-150"
@@ -211,7 +211,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 >
                   {/* Card 4:5 Container */}
                   <div
-                    className="relative aspect-[4/5] rounded-3xl border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
+                    className="relative aspect-[4/5] rounded-3xl bg-[#00000075] backdrop-blur-md border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
                     style={{ borderColor: hoveredCard === idx ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)' }}
                   >
                     
@@ -276,10 +276,10 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 onMouseLeave={() => setCreateCardHovered(false)}
               >
                  <div
-                   className="relative aspect-[4/5] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center gap-4 transition-all duration-150 mb-6"
+                   className="relative aspect-[4/5] rounded-3xl bg-[#00000075] backdrop-blur-md border-2 border-dashed flex flex-col items-center justify-center gap-4 transition-all duration-150 mb-6"
                    style={{
                      borderColor: createCardHovered ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)',
-                     backgroundColor: createCardHovered ? hexToRgba(brandColor, 0.05) : 'transparent',
+                     backgroundColor: createCardHovered ? hexToRgba(brandColor, 0.05) : '#00000075',
                    }}
                  >
                     <div

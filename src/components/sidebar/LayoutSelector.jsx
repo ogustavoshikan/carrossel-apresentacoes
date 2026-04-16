@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Sparkles, SlidersHorizontal, Plus, Star, X, Type } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { Sparkles, SlidersHorizontal, Plus, Star, X, Type, Shuffle } from 'lucide-react';
 import { LAYOUT_META } from '../../lib/layout-templates';
 
 /**
@@ -97,13 +97,61 @@ const MIOLO_LAYOUTS = LAYOUT_META.filter((l) => !FIXED_LAYOUTS.includes(l.key));
  *  - slideCount {number} — total de slides a gerar
  *  - brandColor {string} — cor primária
  */
+/**
+ * Gera distribuição balanceada e aleatória — espelho da função em ai.js,
+ * usada aqui para mostrar a prévia visual ao usuário.
+ */
+function buildAutoLayoutDistribution(mioloCount) {
+  if (mioloCount <= 0) return {};
+  const pool = [
+    'content-split',
+    'content-split',
+    'big-number',
+    'quote',
+    'list',
+    'comparison',
+  ];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const result = {};
+  for (let i = 0; i < mioloCount; i++) {
+    const key = pool[i % pool.length];
+    result[key] = (result[key] || 0) + 1;
+  }
+  return result;
+}
+
 export default function LayoutSelector({ layoutSelection, setLayoutSelection, slideCount, brandColor, favorites = [], onUseFavorite, onRemoveFavorite, onInjectSlide, isInjecting }) {
   const [directLayout, setDirectLayout] = useState('content-split');
   const [directText, setDirectText] = useState('');
   const isManual = layoutSelection.mode === 'manual';
+  const isAutoMode = layoutSelection.mode === 'auto' || !layoutSelection.mode || layoutSelection.mode === 'ai';
 
   // Total de slides do miolo (sem cover e cta)
   const mioloCount = Math.max(0, slideCount - 2);
+
+  // Gera/re-gera a distribuição automática
+  const handleShuffleAuto = useCallback(() => {
+    const dist = buildAutoLayoutDistribution(mioloCount);
+    setLayoutSelection((prev) => ({ ...prev, mode: 'auto', layouts: dist }));
+  }, [mioloCount, setLayoutSelection]);
+
+  // Ao entrar no modo auto pela primeira vez, gera a distribuição
+  const handleSetAutoMode = useCallback(() => {
+    const dist = buildAutoLayoutDistribution(mioloCount);
+    setLayoutSelection({ mode: 'auto', layouts: dist });
+  }, [mioloCount, setLayoutSelection]);
+
+  // Sincroniza a distribuição automática ao montar (modo ai/auto com layouts vazio)
+  // ou quando slideCount muda enquanto em modo auto
+  React.useEffect(() => {
+    if (isAutoMode && mioloCount > 0 && Object.keys(layoutSelection.layouts || {}).length === 0) {
+      const dist = buildAutoLayoutDistribution(mioloCount);
+      setLayoutSelection((prev) => ({ ...prev, mode: 'auto', layouts: dist }));
+    }
+  }, [mioloCount]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Soma dos layouts selecionados
   const totalSelected = Object.values(layoutSelection.layouts || {}).reduce((a, b) => a + b, 0);
@@ -124,18 +172,18 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
 
   return (
     <div className="flex flex-col gap-3">
-      {/* Toggle: IA vs Manual */}
+      {/* Toggle: Auto / Manual / Direto / Favs */}
       <div className="grid grid-cols-4 gap-1 p-1 bg-surface-input rounded-xl border border-border-subtle">
         <button
-          onClick={() => setMode('ai')}
+          onClick={handleSetAutoMode}
           className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 py-2 rounded-lg text-[8px] sm:text-[9px] font-bold uppercase tracking-wider transition-all border ${
-            layoutSelection.mode === 'ai'
+            isAutoMode
               ? 'bg-surface-card text-white shadow border-border-hover'
               : 'text-zinc-500 hover:text-zinc-300 border-transparent'
           }`}
         >
           <Sparkles className="w-3 h-3 shrink-0" />
-          <span className="truncate">IA Decide</span>
+          <span className="truncate">Auto</span>
         </button>
         <button
           onClick={() => setMode('manual')}
@@ -172,11 +220,56 @@ export default function LayoutSelector({ layoutSelection, setLayoutSelection, sl
         </button>
       </div>
 
-      {/* Modo IA — mensagem informativa */}
-      {layoutSelection.mode === 'ai' && (
-        <p className="text-[10px] text-zinc-500 text-center leading-relaxed px-1">
-          A IA selecionará os melhores layouts para o seu briefing.
-        </p>
+      {/* Modo Auto — prévia visual da distribuição */}
+      {isAutoMode && (
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center justify-between px-0.5">
+            <p className="text-[10px] text-zinc-500 leading-relaxed">
+              Distribuição gerada para <span className="text-zinc-300 font-bold">{mioloCount}</span> slide{mioloCount !== 1 ? 's' : ''} do miolo.
+            </p>
+            <button
+              onClick={handleShuffleAuto}
+              title="Regerar distribuição"
+              className="flex items-center gap-1 px-2 py-1 rounded-lg bg-surface-input border border-border-subtle hover:border-border-hover text-zinc-400 hover:text-white transition-colors text-[9px] font-bold uppercase tracking-wider shrink-0"
+            >
+              <Shuffle className="w-3 h-3" />
+              <span>Regerar</span>
+            </button>
+          </div>
+
+          {/* Cards visuais dos layouts sorteados */}
+          {mioloCount > 0 ? (
+            <div className="grid grid-cols-3 gap-1.5">
+              {Object.entries(layoutSelection.layouts || {}).filter(([, qty]) => qty > 0).map(([key, qty]) => {
+                const meta = LAYOUT_META.find((m) => m.key === key);
+                return (
+                  <div
+                    key={key}
+                    className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-surface-input border border-border-subtle"
+                  >
+                    <div className="w-7 h-9 shrink-0 opacity-80">{LAYOUT_ICONS[key]}</div>
+                    <span className="text-[8px] font-bold uppercase tracking-widest text-zinc-300 text-center leading-tight">
+                      {meta?.label || key}
+                    </span>
+                    <span
+                      className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md"
+                      style={{ color: brandColor, backgroundColor: `${brandColor}20` }}
+                    >
+                      {qty}x
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-[10px] text-zinc-600 text-center py-2">
+              Aumente o número de slides para ver a distribuição.
+            </p>
+          )}
+          <p className="text-[9px] text-zinc-600 text-center leading-relaxed">
+            A IA adaptará o conteúdo de cada slide ao layout sorteado. Use “Regerar” para variar a combinação.
+          </p>
+        </div>
       )}
 
       {/* Modo Manual — grid de layouts */}

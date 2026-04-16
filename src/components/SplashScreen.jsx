@@ -26,7 +26,7 @@ export default function SplashScreen({ onComplete }) {
       <div className="splash-logo-wrap">
         <div className="splash-icon">CS</div>
         <div className="splash-brand">
-          <div className="splash-brand-main"><span>Carrossel</span> Studio</div>
+          <div className="splash-brand-main">Carrossel <span>Studio</span></div>
           <div className="splash-brand-sub">Sistema inteligente de carrosséis</div>
         </div>
       </div>

@@ -16,9 +16,6 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick }) => (
     onClick={onClick}
     className="group flex flex-col items-center justify-center w-full relative py-3 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
   >
-    {isActive && (
-      <div className="absolute left-2 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#DE1E4D] rounded-full shadow-[0_0_15px_#DE1E4D] z-10" />
-    )}
     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150
       ${isActive 
         ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-[#FFFFFF] shadow-lg border border-[#DE1E4D]/30' 
@@ -26,9 +23,7 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick }) => (
     `}>
       <Icon size={20} strokeWidth={isActive ? 2 : 1.5} />
     </div>
-    <span className={`text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase
-      ${isActive ? 'text-[#DE1E4D]' : 'text-[#FFFFFF]/30 group-hover:text-[#FFFFFF]/60'}
-    `}>
+    <span className="text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase text-[#FFFFFF]">
       {label}
     </span>
   </button>
