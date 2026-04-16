@@ -28,7 +28,6 @@ import {
   Trash2,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
-import LayoutSelector from './LayoutSelector';
 
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
@@ -163,33 +162,6 @@ export default function ConfigSidebar({
           </header>
 
           <div className="h-px bg-surface-input/50 w-full" />
-
-          {/* Seção: Layout */}
-          <section className="space-y-4">
-             <div className="flex items-center gap-2 mb-2">
-                <LayoutTemplate size={14} className="text-[#DE1E4D]" />
-                <h4 className="text-[10px] font-bold tracking-[0.1em] text-white/60 uppercase">Configuração de Layout</h4>
-                </div>
-
-                <div className="bg-surface-input/50 border border-white/5 rounded-2xl p-5 space-y-6">
-                <div>
-                   <label className="alice-label !text-[9px]">Variante do Layout</label>                   <div className="grid grid-cols-2 gap-3 mt-2">
-                      <LayoutSelector 
-                         layoutKey={slide.layout}
-                         slideIndex={selectedElement.slideIndex}
-                         slides={slides}
-                         onCoverVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, coverVariantIndex: v} : s))}
-                         onSplitVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, splitVariantIndex: v} : s))}
-                         onBigNumberVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, bigNumberVariantIndex: v} : s))}
-                         onQuoteVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, quoteVariantIndex: v} : s))}
-                         onComparisonVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, comparisonVariantIndex: v} : s))}
-                         onCtaVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, ctaVariantIndex: v} : s))}
-                         onListVariantChange={(idx, v) => setSlides(prev => prev.map((s, i) => i === idx ? {...s, listVariantIndex: v} : s))}
-                      />
-                   </div>
-                </div>
-             </div>
-          </section>
 
           {/* Botões de Ação do Slide */}
           <div className="grid grid-cols-2 gap-3 pt-6">

@@ -123,11 +123,11 @@ function buildAutoLayoutDistribution(mioloCount) {
   return result;
 }
 
-export default function LayoutSelector({ layoutSelection, setLayoutSelection, slideCount, brandColor, favorites = [], onUseFavorite, onRemoveFavorite, onInjectSlide, isInjecting }) {
+export default function LayoutSelector({ layoutSelection = {}, setLayoutSelection, slideCount, brandColor, favorites = [], onUseFavorite, onRemoveFavorite, onInjectSlide, isInjecting }) {
   const [directLayout, setDirectLayout] = useState('content-split');
   const [directText, setDirectText] = useState('');
-  const isManual = layoutSelection.mode === 'manual';
-  const isAutoMode = layoutSelection.mode === 'auto' || !layoutSelection.mode || layoutSelection.mode === 'ai';
+  const isManual = layoutSelection?.mode === 'manual';
+  const isAutoMode = layoutSelection?.mode === 'auto' || !layoutSelection?.mode || layoutSelection?.mode === 'ai';
 
   // Total de slides do miolo (sem cover e cta)
   const mioloCount = Math.max(0, slideCount - 2);

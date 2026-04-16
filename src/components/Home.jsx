@@ -122,7 +122,10 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
 
           {/* Imposing Title */}
           <div className="w-full relative">
-            <h1 className="text-[50px] md:text-[70px] font-black text-[#FFFFFF] tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl">
+            <h1 
+              className="text-[50px] md:text-[70px] font-black text-[#FFFFFF] tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl"
+              style={{ textShadow: `0 0 30px ${hexToRgba(brandColor, 0.3)}` }}
+            >
               CARROSSEL <span style={{ color: brandColor }}>STUDIO</span>.
             </h1>
             <div className="mt-6 flex items-center gap-4 border-b border-[#FFFFFF]/10 pb-8">

@@ -19,17 +19,75 @@ function buildContextBlock(ctx = {}) {
   return `\n\nCONTEXTO DA MARCA (use para personalizar e enriquecer o conteúdo):\n${lines.join('\n')}`;
 }
 
+/**
+ * Gera uma distribuição balanceada e aleatória de layouts para o miolo.
+ * Garante variedade real a cada geração no modo automático.
+ */
+function buildAutoLayoutDistribution(mioloCount) {
+  if (mioloCount <= 0) return {};
+
+  // Pool base: content-split pode aparecer um pouco mais por ser versátil,
+  // mas todos os outros devem aparecer ao menos 1x num carrossel típico.
+  const pool = [
+    'content-split',
+    'content-split',
+    'big-number',
+    'quote',
+    'list',
+    'comparison',
+  ];
+
+  // Embaralha o pool (Fisher-Yates) para variar entre gerações
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  // Preenche até mioloCount, ciclando pelo pool embaralhado
+  const result = {};
+  for (let i = 0; i < mioloCount; i++) {
+    const key = pool[i % pool.length];
+    result[key] = (result[key] || 0) + 1;
+  }
+
+  return result;
+}
+
 export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}) {
 
-  // Instrução adicional de layouts (apenas no modo manual)
+  // Instrução adicional de layouts
   let layoutInstruction = '';
+  const mioloCount = Math.max(0, slideCount - 2);
+
   if (layoutSelection?.mode === 'manual' && Object.keys(layoutSelection.layouts || {}).length > 0) {
+    // Modo Manual: distribuição definida explicitamente pelo usuário
     const entries = Object.entries(layoutSelection.layouts)
       .filter(([, qty]) => qty > 0)
       .map(([key, qty]) => `${qty}x ${key}`)
       .join(', ');
     if (entries) {
       layoutInstruction = `\n\nDISTRIBUIÇÃO OBRIGATÓRIA DE LAYOUTS PARA OS SLIDES DO MIOLO (slides 2 até ${slideCount - 1}): ${entries}. Siga rigorosamente esta distribuição — o slide 1 SEMPRE será "cover" e o último SEMPRE será "cta", mas os slides do miolo DEVEM usar exatamente esses layouts na quantidade indicada.`;
+    }
+  } else if (layoutSelection?.mode === 'auto' && Object.keys(layoutSelection.layouts || {}).length > 0) {
+    // Modo Auto: distribuição gerada pelo sistema (Smart), passada como sugestão forte
+    const entries = Object.entries(layoutSelection.layouts)
+      .filter(([, qty]) => qty > 0)
+      .map(([key, qty]) => `${qty}x ${key}`)
+      .join(', ');
+    if (entries) {
+      layoutInstruction = `\n\nDISTRIBUIÇÃO SUGERIDA DE LAYOUTS PARA OS SLIDES DO MIOLO (slides 2 até ${slideCount - 1}): ${entries}. Siga esta distribuição como referência — o slide 1 SEMPRE será "cover" e o último SEMPRE será "cta". Adapte o conteúdo de cada slide ao layout indicado.`;
+    }
+  } else if (!layoutSelection?.mode || layoutSelection?.mode === 'ai') {
+    // Modo IA puro: geramos uma distribuição automática aqui para garantir variedade
+    if (mioloCount >= 2) {
+      const autoDist = buildAutoLayoutDistribution(mioloCount);
+      const entries = Object.entries(autoDist)
+        .filter(([, qty]) => qty > 0)
+        .map(([key, qty]) => `${qty}x ${key}`)
+        .join(', ');
+      if (entries) {
+        layoutInstruction = `\n\nDISTRIBUIÇÃO SUGERIDA DE LAYOUTS PARA OS SLIDES DO MIOLO (slides 2 até ${slideCount - 1}): ${entries}. Siga esta distribuição — adapte o conteúdo de cada slide ao layout indicado da forma mais coerente com o tema.`;
+      }
     }
   }
 
@@ -50,7 +108,13 @@ Você DEVE categorizar rigorosamente cada slide usando UM destes 7 layouts:
 Regras Estruturais Obrigatórias:
 - Slide 1: "cover".
 - Slide ${slideCount}: "cta".
-- Use "comparison", "list", "quote", "big-number" e "content-split" para os slides do miolo.
+- Use "comparison", "list", "quote", "big-number" e "content-split" para os slides do miolo. NUNCA repita o mesmo layout mais de 2 vezes seguidas. Use SEMPRE no mínimo 3 tipos diferentes de layout no miolo.
+- CRITÉRIO SEMÂNTICO — escolha o layout mais adequado ao conteúdo de CADA slide:
+  * "content-split" → quando há uma dica, passo, conceito, argumento ou benefício que se apoia em imagem.
+  * "big-number" → quando existe uma estatística, dado numérico, porcentagem, ranking ou resultado poderoso.
+  * "quote" → quando há uma frase forte, depoimento, citação de especialista, provérbio ou princípio marcante.
+  * "comparison" → quando é possível contrastar o método ou produto com o padrão de mercado (Antes/Depois, Correto/Errado, Comum/Premium).
+  * "list" → quando o conteúdo é uma sequência de passos, benefícios ou itens paralelos (máximo 3 itens).
 - Não coloque aspas no título da 'quote', o layout já tem.
 - Você agora é um Diretor de Arte especialista em CONFEITARIA E GASTRONOMIA DE LUXO.
 - No campo 'imageUrl', use EXCLUSIVAMENTE um destes IDs do Unsplash para garantir qualidade (escolha o mais próximo do tema):
