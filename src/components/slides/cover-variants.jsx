@@ -1189,7 +1189,7 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
       <div className="absolute top-1/2 left-[10%] -translate-y-1/2 z-20 w-[80%]">
-        <SmartField field="texto_apoio" {...sp} className="mb-4">
+        <SmartField field="texto_apoio" {...sp} className="mb-4 ml-[7px] mt-[-45px]">
           <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-outfit font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded">
             {slideData.texto_apoio}
           </TextWrapper>
