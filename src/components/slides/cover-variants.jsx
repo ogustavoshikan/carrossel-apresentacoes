@@ -832,8 +832,8 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
 
   return (
     <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
-      <div className="flex-1 flex flex-col relative overflow-hidden bg-[#020202]">
-        <div className="w-full h-[65%] shrink-0 bg-zinc-300 relative border-b border-zinc-300">
+      <div className="flex-1 flex flex-col relative bg-[#020202]">
+        <div className="w-full h-[65%] shrink-0 bg-zinc-300 relative border-b border-zinc-300 overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-center text-center p-6 bg-white relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">

@@ -88,6 +88,24 @@ export function useDragResize(slides, setSlides) {
           innerTextChild.style.maxWidth = 'none';
         }
 
+        // --- COMPENSAÇÃO DE ALINHAMENTO (UX Fix) ---
+        // Se o elemento estiver dentro de um flexbox centralizado (ex: items-center ou justify-center), 
+        // aumentar a largura empurra a borda esquerda e a direita ao mesmo tempo. 
+        // Para garantir que o redimensionador estique "apenas para a direita" (mantendo a esquerda imóvel),
+        // aplicamos metade do delta na translação de X.
+        const parent = targetElement.parentElement;
+        if (parent) {
+          const pStyle = window.getComputedStyle(parent);
+          const isFlexColCenter = pStyle.display === 'flex' && pStyle.flexDirection.includes('column') && pStyle.alignItems === 'center';
+          const isFlexRowCenter = pStyle.display === 'flex' && pStyle.flexDirection.includes('row') && pStyle.justifyContent === 'center';
+          
+          if (isFlexColCenter || isFlexRowCenter) {
+            const widthDiff = newWidth - actionInfo.origWidth;
+            currentX = actionInfo.origX + (widthDiff / 2);
+            targetElement.style.transform = `translate(${currentX}px, ${actionInfo.origY}px) scale(${actionInfo.origScale}) rotate(${actionInfo.origRotation || 0}deg)`;
+          }
+        }
+
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
           metricsTag.innerText = `[ W:${Math.round(newWidth)}px ]`;
