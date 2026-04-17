@@ -702,11 +702,11 @@ export function SplitVariant11(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
       <div className="w-full shrink-0" style={{ height: '3px' }} />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative border border-black/5 mt-4">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative z-0 border border-black/5 mt-4">
          <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
-      <div className="flex-1 flex flex-col min-h-0 bg-white p-6 rounded-tr-[2.5rem] -mt-10 relative z-10 shadow-[0_-15px_30px_rgba(0,0,0,0.06)] border-t border-r border-white">
+      <div className="flex-1 flex flex-col min-h-0 bg-white p-6 rounded-tr-[2.5rem] -mt-10 relative z-[70] shadow-[0_-15px_30px_rgba(0,0,0,0.06)] border-t border-r border-white">
         <div className="flex items-center gap-2 mb-3 mt-1 shrink-0">
           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: brandColor }} />
           <SmartField field="tag" {...sp}>
@@ -1027,7 +1027,12 @@ export function SplitVariant17(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative justify-center bg-[#1A1A1A]">
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative justify-center bg-black">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
       <div className="relative z-30 opacity-90 mix-blend-difference">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
