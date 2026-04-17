@@ -110,7 +110,7 @@ export function CoverVariant1({ data, index, brandColor, titleScale, textScale, 
       </div>
 
       <div className="flex-1 mt-[55%] p-10 flex flex-col justify-between relative" style={{ backgroundColor: brandColor }}>
-        <div className="absolute -top-32 left-10">
+        <div className="absolute top-[12px] left-10">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
