@@ -764,7 +764,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
           </div>
         </div>
       </div>
-      <div className="absolute top-[58%] left-6 -translate-y-1/2 z-30 w-[85%]">
+      <div className="absolute top-[calc(58%+90px)] left-6 -translate-y-1/2 z-30 w-[85%]">
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
