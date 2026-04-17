@@ -88,7 +88,7 @@ export default function SlideCover({
         className="flex-1 mt-[55%] p-10 flex flex-col justify-between relative"
         style={{ backgroundColor: brandColor }}
       >
-        <div className="absolute -top-24 left-10">
+        <div className="absolute -top-[31px] left-10">
           <SmartElement
             slideIndex={index}
             field="titulo"
