@@ -472,10 +472,17 @@ export function SplitVariant7(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full bg-[#0A0A0A] flex flex-col p-10 justify-center items-center relative overflow-hidden">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+    <div className="w-full h-full bg-black flex flex-col p-10 justify-center items-center relative overflow-hidden">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
       
-      <div className="relative w-full max-w-[440px] mt-12">
+      <div className="relative w-full max-w-[440px] mt-12 z-20">
         {/* Card Principal */}
         <div className="bg-white rounded-[2.5rem] p-12 shadow-2xl relative z-0">
           <SmartField field="tag" {...sp} className="mb-6">
