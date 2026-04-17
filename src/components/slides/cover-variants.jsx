@@ -633,9 +633,14 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#0A0A0A] flex flex-col items-center justify-center p-12 overflow-hidden text-center">
+    <div className="relative w-full h-full bg-black flex flex-col items-center justify-center p-12 overflow-hidden text-center">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-full h-full opacity-20 blur-[100px] pointer-events-none" style={{ backgroundColor: brandColor }} />
+      <div className="absolute top-0 right-0 w-full h-full z-0 opacity-20 blur-[100px] pointer-events-none" style={{ backgroundColor: brandColor }} />
       
       <div className="relative z-10 w-full aspect-square bg-white p-6 shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-sm flex flex-col">
         <div className="flex-1 overflow-hidden relative">
@@ -1486,7 +1491,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
             <div className="w-1.5 h-1.5 rounded-full mt-2 shrink-0" style={{ backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
               <TextWrapper {...tw} as="p" field="tag" className="text-zinc-600 leading-snug font-medium font-outfit" style={{ fontSize: `${14 * sText}px` }}>
-                {slideData.tag}
+                {slideData.tag || 'Sua Tag Aqui'}
               </TextWrapper>
             </SmartField>
           </div>
@@ -1497,7 +1502,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
           </SmartField>
         </div>
       </div>
-      <div className="absolute bottom-8 left-8 flex items-center gap-2">
+      <div className="absolute bottom-8 right-8 flex items-center gap-2">
         <span className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit">Arraste</span>
         <ArrowRight className="w-4 h-4 text-zinc-500" />
       </div>
