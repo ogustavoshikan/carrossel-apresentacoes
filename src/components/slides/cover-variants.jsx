@@ -1125,9 +1125,9 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
         <div className="flex items-center gap-4">
-          <div className="w-8 h-1 bg-white" />
+          <div className="w-8 h-1 bg-white shrink-0" />
           <SmartField field="texto_apoio" {...sp} className="shrink-0">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-white tracking-[0.3em] text-[10px] font-bold uppercase">
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-white tracking-[0.3em] text-[10px] font-bold uppercase max-w-[260px]">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
