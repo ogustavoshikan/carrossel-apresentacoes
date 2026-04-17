@@ -111,7 +111,7 @@ export default function SlideList({
               >
                 0{i + 1}
               </div>
-              <div className="flex-1 border-b border-white/10 pb-4">
+              <div className="flex-1 pb-4" style={{ borderBottom: `1px solid ${brandColor}40` }}>
                 <h4
                   contentEditable
                   suppressContentEditableWarning

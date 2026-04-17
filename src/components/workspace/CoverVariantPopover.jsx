@@ -348,6 +348,93 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 28: Right Image Text Left
+    28: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-white relative">
+        <div className="w-[60%] h-full p-2 flex flex-col justify-center z-10">
+          <div className="w-[80%] h-[4px] bg-zinc-800 rounded-full mb-1.5" />
+          <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="absolute right-0 top-0 w-[45%] h-full bg-zinc-200 z-0">
+          <div className="w-full h-full" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    // 29: Framed Left Image
+    29: (
+      <div className="w-full h-full flex p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-white relative">
+        <div className="w-[50%] h-full pb-2">
+          <div className="w-full h-full rounded-sm" style={{ background: img }} />
+        </div>
+        <div className="w-[50%] h-full flex flex-col justify-center">
+          <div className="w-[90%] h-[4px] bg-zinc-800 rounded-full mb-2" />
+          <div className="flex items-center gap-1 mb-1">
+            <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+            <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+          </div>
+          <div className="w-[75%] h-[2px] bg-zinc-800 rounded-full mt-1" />
+        </div>
+      </div>
+    ),
+    // 30: Social Icons Overlay
+    30: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-white relative">
+        <div className="w-[30%] h-full" style={{ background: img }} />
+        <div className="w-[70%] h-full flex flex-col p-1.5 justify-between">
+          <div className="flex-1 flex flex-col justify-center items-center">
+            <div className="w-[80%] h-[4px] bg-zinc-800 rounded-full mb-2" />
+            <div className="w-[70%] h-[2px] bg-zinc-400 rounded-full" />
+            <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full mt-0.5" />
+          </div>
+          <div className="w-full flex justify-end gap-0.5 mt-auto pb-0.5 pr-0.5">
+            <div className="w-1.5 h-1.5 rounded-full border border-zinc-300" />
+            <div className="w-1.5 h-1.5 rounded-full border border-zinc-300" />
+            <div className="w-1.5 h-1.5 rounded-full border border-zinc-300" />
+          </div>
+        </div>
+      </div>
+    ),
+    // 31: List Bullet Stars
+    31: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-white">
+        <div className="w-[55%] h-full p-1.5 flex flex-col justify-center z-10">
+          <div className="w-[85%] h-[4px] rounded-full mb-2" style={{ background: accent }} />
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center gap-1">
+              <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+              <div className="w-[70%] h-[1.5px] bg-zinc-600 rounded-full" />
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+              <div className="w-[80%] h-[1.5px] bg-zinc-600 rounded-full" />
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+              <div className="w-[60%] h-[1.5px] bg-zinc-600 rounded-full" />
+            </div>
+          </div>
+        </div>
+        <div className="w-[45%] h-full" style={{ background: img }} />
+      </div>
+    ),
+    // 32: Repeated Text Background
+    32: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white relative p-1">
+        <div className="absolute inset-0 opacity-20 flex flex-col gap-0.5 p-1">
+          <div className="w-[90%] mx-auto h-[2px] rounded-full" style={{ background: accent }} />
+          <div className="w-[90%] mx-auto h-[2px] rounded-full" style={{ background: accent }} />
+          <div className="w-[90%] mx-auto h-[2px] rounded-full" style={{ background: accent }} />
+          <div className="w-[90%] mx-auto h-[2px] rounded-full" style={{ background: accent }} />
+        </div>
+        <div className="mt-auto h-[60%] w-full rounded-t-md rounded-b-sm relative shadow-sm border-[1.5px] border-white z-10">
+           <div className="absolute inset-0 rounded-[1px]" style={{ background: img }} />
+        </div>
+        <div className="w-[90%] mx-auto h-[8px] bg-white/90 rounded-sm shadow-sm relative z-20 -mt-1 flex items-center justify-between px-1">
+           <div className="w-[50%] h-[1.5px] bg-zinc-800 rounded-full" />
+           <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
   };
 
   return (
