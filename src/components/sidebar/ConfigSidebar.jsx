@@ -257,7 +257,7 @@ export default function ConfigSidebar({
               )}
             </div>
 
-            {['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button'].map(key => {
+            {['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].map(key => {
               if (slide[key] === undefined) return null;
               return (
                 <div key={key} className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-3">
@@ -976,12 +976,12 @@ export default function ConfigSidebar({
               </div>
               <textarea 
                 value={slide[selectedElement.field] || ''}
-                disabled={!Object.keys(slide).includes(selectedElement.field)}
+                disabled={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field)}
                 onChange={(e) => {
                   setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
                 }}
-                className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!Object.keys(slide).includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
-                placeholder={!Object.keys(slide).includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : ''}
+                className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
               />
             </div>
         </div>
