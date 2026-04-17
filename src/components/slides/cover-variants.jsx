@@ -1362,7 +1362,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
       </div>
       <div className="relative z-10 w-full h-full p-8 flex flex-col justify-between">
         <div className="flex justify-between items-center w-full">
-          <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center shadow-lg">
+          <div className="text-white flex items-center justify-center">
             <Sparkles className="w-4 h-4 fill-current" />
           </div>
           <SmartField field="badge_text" {...sp}>
@@ -1377,7 +1377,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
         </div>
         <div className="flex flex-col items-end text-right mt-auto mb-10">
           <SmartField field="texto_apoio" {...sp} className="mb-2">
-            <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-zinc-500 font-bold tracking-[0.3em] uppercase text-[10px]">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-zinc-900 bg-[#dBdBdB] px-2 py-0.5 rounded-[2px] font-bold tracking-[0.3em] uppercase text-[10px]">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1391,7 +1391,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
           <span className="font-outfit font-bold tracking-widest text-[9px] uppercase" style={{ color: brandColor }}>
             @{brandHandle || 'studio'}
           </span>
-          <div className="flex-1 h-px bg-zinc-300" />
+          <div className="flex-1" />
           <SmartField field="contexto_dado" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
