@@ -1574,7 +1574,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
         <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase absolute top-6 left-6 font-outfit">
           @{brandHandle || 'studio'}
         </span>
-        <SmartField field="titulo" {...sp} className="mb-6 mt-6 shrink-0">
+        <SmartField field="titulo" {...sp} className="mb-6 mt-6 shrink-0 relative top-[96px]">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-[0.9] tracking-tighter uppercase font-outfit" style={{ color: brandColor, fontSize: `${32 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
