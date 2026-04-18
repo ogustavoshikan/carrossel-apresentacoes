@@ -1193,13 +1193,13 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
       <div className="w-[55%] h-full shrink-0 relative bg-zinc-800 z-0">
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
-      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 z-20 w-[80%]">
-        <SmartField field="texto_apoio" {...sp} className="mb-4 ml-[7px] mt-[-45px]">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-outfit font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded">
+      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 mt-[-10px] z-20 w-[80%] translate-x-[7px]">
+        <SmartField field="texto_apoio" {...sp} className="mb-4 mt-[-48px]">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-outfit font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded whitespace-pre-line max-w-[420px]">
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
-        <SmartField field="titulo" {...sp}>
+        <SmartField field="titulo" {...sp} className="-translate-y-[5px]">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.9] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${64 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
@@ -1288,7 +1288,7 @@ export function CoverVariant25({ data, index, brandColor, brandHandle, titleScal
           </SmartField>
         </div>
         <div className="flex justify-center items-center w-full">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white backdrop-blur-md border border-white/10">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-md border border-white/10 shadow-lg" style={{ backgroundColor: brandColor }}>
             <ArrowRight className="w-4 h-4" />
           </div>
         </div>
@@ -1448,9 +1448,12 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
           </SmartField>
         </div>
       </div>
-      <div className="absolute bottom-6 left-6 flex items-center gap-2 z-20">
-        <span className="font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a] font-outfit">Arraste para o lado e descubra</span>
-        <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
+      <div className="absolute bottom-6 left-6 flex flex-col z-20 font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a] font-outfit">
+        <span>Arraste para o lado</span>
+        <div className="flex items-center gap-1">
+          <span>e descubra</span>
+          <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
+        </div>
       </div>
       <div className="absolute right-0 top-0 w-[45%] h-full bg-zinc-200 z-0 overflow-hidden shadow-[-10px_0_30px_rgba(0,0,0,0.1)]">
         <ImageBg data={data} className="absolute inset-0" />
