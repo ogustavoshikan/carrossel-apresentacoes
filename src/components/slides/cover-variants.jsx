@@ -1490,8 +1490,8 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
-          <div className="flex gap-2 items-start mb-6">
-            <div className="w-1.5 h-1.5 rounded-full mt-2 shrink-0" style={{ backgroundColor: brandColor }} />
+          <div className="flex gap-2 items-center mb-6">
+            <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
               <TextWrapper {...tw} as="p" field="tag" className="text-zinc-600 leading-snug font-medium font-outfit" style={{ fontSize: `${14 * sText}px` }}>
                 {slideData.tag || 'Sua Tag Aqui'}
