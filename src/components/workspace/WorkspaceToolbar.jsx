@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-  Ruler,
+  Eye,
+  FileText,
+  Zap,
   Download,
   Copy,
   CheckCircle2,
@@ -24,82 +26,96 @@ export default function WorkspaceToolbar({
   brandColor,
 }) {
   return (
-    <div className="flex flex-col xl:flex-row gap-4 justify-between items-start xl:items-center bg-surface-card border border-border-subtle p-4 rounded-2xl shadow-xl z-20 relative">
-      <div className="flex flex-wrap items-center gap-4 w-full xl:w-auto">
-        <span className="text-white font-outfit font-black tracking-widest bg-surface-input px-4 py-2 rounded-lg text-label-xs uppercase border border-border-hover">
-          {slides.length} Slides
+    <div className="relative mt-2 z-20 flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/5 p-2 rounded-full shadow-2xl w-full font-sans">
+      
+      {/* Esquerda: Badge Metadados */}
+      <div className="flex-1 flex justify-start pl-2">
+        <span className="flex items-center justify-center text-[11px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full tracking-wide">
+          {slides.length} {slides.length === 1 ? 'Slide' : 'Slides'}
         </span>
-
-        <div className="flex bg-surface-input rounded-xl p-1 border border-border-subtle">
-          <button
-            onClick={() => setViewMode('visual')}
-            className={`alice-tab ${viewMode === 'visual' ? 'alice-tab-active' : 'alice-tab-inactive'}`}
-          >
-            Preview Final
-          </button>
-          <button
-            onClick={() => setViewMode('text')}
-            className={`alice-tab ${viewMode === 'text' ? 'alice-tab-active' : 'alice-tab-inactive'}`}
-          >
-            Estrutura/Texto
-          </button>
-        </div>
-
-        {viewMode === 'visual' && (
-          <div className="flex bg-surface-input rounded-xl p-1 border border-border-subtle ml-auto xl:ml-0">
-            <button
-              onClick={() => setShowMetrics(!showMetrics)}
-              className={`alice-tab flex items-center gap-1.5 ${
-                showMetrics ? '' : 'bg-transparent alice-tab-inactive border border-transparent'
-              }`}
-              style={
-                showMetrics
-                  ? {
-                      backgroundColor: `${brandColor}20`,
-                      borderColor: `${brandColor}50`,
-                      color: brandColor,
-                    }
-                  : {}
-              }
-              title="Mostrar dimensões reais para padronização"
-            >
-              <Ruler className="w-3.5 h-3.5" /> Raio-X
-            </button>
-          </div>
-        )}
       </div>
 
-      <div className="flex flex-wrap gap-2 w-full xl:w-auto">
+      {/* Centro: Controles de visualização */}
+      <div className="flex-[2] sm:flex-1 flex justify-center shrink-0">
+        <div className="flex items-center bg-white/5 p-1 rounded-full border border-white/5">
+          <button
+            onClick={() => { setViewMode('visual'); setShowMetrics(false); }}
+            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+              viewMode === 'visual' && !showMetrics
+                ? 'bg-white/10 text-white shadow-sm'
+                : 'text-zinc-500 hover:text-zinc-300'
+            }`}
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline-block">Preview Final</span>
+          </button>
+
+          <button
+            onClick={() => setViewMode('text')}
+            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+              viewMode === 'text'
+                ? 'bg-white/10 text-white shadow-sm'
+                : 'text-zinc-500 hover:text-zinc-300'
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline-block">Estrutura</span>
+          </button>
+
+          <button
+            onClick={() => { setViewMode('visual'); setShowMetrics(true); }}
+            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+              viewMode === 'visual' && showMetrics
+                ? 'text-white shadow-sm'
+                : 'text-zinc-500 hover:text-zinc-300'
+            }`}
+            style={
+              viewMode === 'visual' && showMetrics
+                ? { backgroundColor: `${brandColor}30`, color: brandColor }
+                : {}
+            }
+          >
+            <Zap className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline-block">Raio-X</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Direita: Ações de saída e utilitários */}
+      <div className="flex-1 flex justify-end gap-1 sm:gap-2 pr-1 shrink-0">
+        <button
+          onClick={onCopyAll}
+          className="flex items-center justify-center gap-2 text-[11px] font-medium bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 py-1.5 px-2 sm:px-3 rounded-full transition-colors border border-transparent hover:border-white/5"
+        >
+          {copiedIndex === 'all' ? (
+            <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
+          ) : (
+            <Copy className="w-3.5 h-3.5" />
+          )}
+          <span className="hidden sm:inline-block">
+            {copiedIndex === 'all' ? 'Copiado' : 'Copiar'}
+          </span>
+        </button>
+
         {viewMode === 'visual' && slides.length > 0 && (
           <button
             onClick={onExportAll}
             disabled={isExporting}
-            className="flex-1 xl:flex-none flex items-center justify-center gap-2 text-label-xs uppercase text-white py-2.5 px-6 rounded-xl transition-all disabled:opacity-50 font-black whitespace-nowrap shadow-xl hover:brightness-110"
+            className="flex items-center justify-center gap-2 text-[11px] font-bold text-white py-1.5 px-3 sm:px-4 rounded-full transition-all disabled:opacity-50 hover:brightness-110 shadow-lg"
             style={{ backgroundColor: brandColor }}
           >
             {isExporting ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
             ) : (
-              <Download className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
             )}
-            {isExporting ? 'Exporting...' : 'Export High-Res'}
+            <span className="hidden sm:inline-block">
+              {isExporting ? 'Exportando' : 'Export'}
+            </span>
           </button>
         )}
-        <button
-          onClick={onCopyAll}
-          className="flex-1 xl:flex-none flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input hover:bg-surface-input/50 text-white py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap border border-border-hover font-bold"
-        >
-          {copiedIndex === 'all' ? (
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-          ) : (
-            <Copy className="w-4 h-4" />
-          )}
-          {copiedIndex === 'all' ? 'Copiado!' : 'Copiar Textos'}
-        </button>
       </div>
     </div>
   );
 }
-
-
 

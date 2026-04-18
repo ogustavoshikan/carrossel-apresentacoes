@@ -697,7 +697,7 @@ export default function App() {
 
               {/* Workspace */}
               <main 
-                className="flex-1 bg-[#0a0a0a] relative flex flex-col p-4 md:p-8 overflow-y-auto overflow-x-hidden custom-scrollbar"
+                className="flex-1 bg-[#0a0a0a] relative flex flex-col px-4 md:px-8 pb-4 md:pb-8 pt-0 overflow-y-auto overflow-x-hidden custom-scrollbar"
                 onClick={() => setSelectedElement(null)}
               >
                 <SettingsModal 
@@ -717,7 +717,7 @@ export default function App() {
                 ) : isGenerating ? (
                   <LoadingState brandColor={gradientColor1} />
                 ) : (
-                  <div className="space-y-6 max-w-full">
+                  <div className="space-y-3 max-w-full">
                     <WorkspaceToolbar
                       slides={slides}
                       viewMode={viewMode}

@@ -220,7 +220,7 @@ export default function VisualPreview({
 
       <div
         ref={scrollRef}
-        className="flex gap-10 overflow-x-auto pb-12 pt-8 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar relative"
+        className="flex gap-10 overflow-x-auto pb-12 pt-2 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar relative"
       >
 
       {slides.map((slide, index) => (
