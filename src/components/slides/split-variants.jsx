@@ -478,11 +478,11 @@ export function SplitVariant7(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
-      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
       
-      <div className="relative w-full max-w-[440px] mt-12 z-20">
+      <div className="relative w-full max-w-[440px] z-20">
         {/* Card Principal */}
         <div className="bg-white rounded-[2.5rem] p-12 shadow-2xl relative z-0">
           <SmartField field="tag" {...sp} className="mb-6">
@@ -1040,7 +1040,7 @@ export function SplitVariant17(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
-      <div className="relative z-30 opacity-90 mix-blend-difference">
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
       
