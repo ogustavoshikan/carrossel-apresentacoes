@@ -47,7 +47,7 @@ export default function App() {
   const [loadingImages, setLoadingImages] = useState({});
   const [slideCount, setSlideCount] = useState(SLIDE_COUNT_RANGE.default);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+
   const [selectedElement, setSelectedElement] = useState(null);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
@@ -607,31 +607,7 @@ export default function App() {
               @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
             `}</style>
 
-            {/* NAVBAR (Studio Only) */}
-            <div className={`transition-all duration-150 ease-in-out origin-top border-b border-[#FFFFFF]/5 bg-[#000000]/80 backdrop-blur-3xl z-[100] relative flex flex-col ${isNavbarOpen ? 'h-20' : 'h-0 overflow-hidden border-transparent'}`}>
-              <nav className="h-20 px-8 flex flex-wrap items-center justify-between shrink-0">
-                <div className="flex items-center gap-8">
-                  <div className="flex items-center gap-4 group cursor-pointer" onClick={() => setView('home')}>
-                    <div className="flex flex-col">
-                      <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">
-                        Carrossel <span style={{ color: gradientColor1 }}>Studio</span>
-                      </span>
-                      <span className="text-[10px] font-bold text-zinc-500 tracking-widest mt-1 uppercase">
-                        Sistema inteligente para criação de carrosséis de alta performance
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </div>
 
-            {/* NAVBAR TOGGLE BUTTON */}
-            <button 
-              onClick={() => setIsNavbarOpen(!isNavbarOpen)}
-              className="absolute top-0 right-1/2 translate-x-1/2 lg:right-10 lg:translate-x-0 z-[110] bg-surface-card/90 border border-border-subtle border-t-0 rounded-b-xl px-4 py-1.5 text-zinc-500 hover:text-white transition-colors shadow-lg backdrop-blur-md"
-            >
-              {isNavbarOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
 
             {/* STUDIO WORKSPACE LAYOUT */}
             <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative group/layout">
