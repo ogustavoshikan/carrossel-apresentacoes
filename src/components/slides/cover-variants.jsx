@@ -796,7 +796,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
   return (
     <div className="w-full h-full flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
-        <div className="w-12 h-1 bg-surface-input/300 mb-6 shrink-0" />
+        <div className="w-12 h-1.5 bg-white/50 mb-8 shrink-0" />
         <SmartField field="titulo" {...sp} className="mb-4 w-full shrink-0">
           <h2
             contentEditable suppressContentEditableWarning
@@ -907,14 +907,14 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
           <span className="font-outfit font-bold tracking-widest text-[9px] text-white/70 uppercase">
             {brandHandle || '@studio'}
           </span>
-          <div className="flex items-center gap-1 text-white">
+          <div className="flex items-center gap-1 text-[#b5adae]">
             <SmartField field="cta_text" {...sp}>
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[9px] uppercase tracking-widest outline-none"
+                className="inline-block font-outfit font-bold text-[9px] uppercase tracking-widest outline-none -translate-y-[2px]"
               >
-                {data.cta_text || 'Swipe'}
+                {data.cta_text || 'Arrasta'}
               </span>
             </SmartField>
             <ChevronRight className="w-3 h-3" />
