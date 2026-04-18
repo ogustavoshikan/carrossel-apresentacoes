@@ -253,9 +253,11 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
 
   return (
     <div className="relative w-full h-full bg-[#E5E5E5] flex flex-col overflow-hidden p-4">
-      <div className="flex-1 border-[12px] border-white bg-black relative flex flex-col overflow-hidden">
-        <ImageBg data={data} className="absolute inset-0 opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
+      <div className="flex-1 border-[12px] border-white bg-black relative flex flex-col">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <ImageBg data={data} className="absolute inset-0 opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
+        </div>
 
         <div className="relative z-10 px-10 pb-10 pt-24 flex-1 flex flex-col justify-between items-center text-center">
           <div>
