@@ -92,6 +92,7 @@ export default function VisualPreview({
   slideCounterPosition,
 }) {
   const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
   const [openVariantIndex, setOpenVariantIndex] = useState(-1);
   const [favoritedIndices, setFavoritedIndices] = useState({});
@@ -169,10 +170,16 @@ export default function VisualPreview({
     }
   };
 
-  const scrollLeft = () => scrollRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
-  const scrollRight = () => scrollRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
-  const [showLeftNav, setShowLeftNav] = React.useState(false);
-  const [showRightNav, setShowRightNav] = React.useState(false);
+  const scrollLeftNav = () => scrollRef.current?.scrollBy({ left: -(SLIDE_DIMENSIONS.width + 40), behavior: 'smooth' });
+  const scrollRightNav = () => scrollRef.current?.scrollBy({ left: (SLIDE_DIMENSIONS.width + 40), behavior: 'smooth' });
+  
+  const handleScroll = (e) => {
+    const slideWidth = SLIDE_DIMENSIONS.width + 40; // 40px is gap-10
+    const newIndex = Math.round(e.target.scrollLeft / slideWidth);
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < slides.length) {
+      setActiveIndex(newIndex);
+    }
+  };
 
   return (
     <div className="relative w-full">
@@ -184,42 +191,41 @@ export default function VisualPreview({
         </div>
       </div>
 
-      {/* Zona de hover esquerda */}
-      <div
-        className="absolute left-0 z-50 pointer-events-auto"
-        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 - 140, width: 100, height: 280 }}
-        onMouseEnter={() => setShowLeftNav(true)}
-        onMouseLeave={() => setShowLeftNav(false)}
-      >
-        <button
-          onClick={scrollLeft}
-          className={`absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white transition-opacity shadow-2xl ${
-            showLeftNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-      </div>
+      {/* Navegação: Floating Dock Minimalista */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[150] pointer-events-auto">
+        <div className="flex items-center gap-4 px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-white/10 shadow-2xl">
+          <button
+            onClick={scrollLeftNav}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
 
-      {/* Zona de hover direita */}
-      <div
-        className="absolute right-0 z-50 pointer-events-auto"
-        style={{ top: 32 + SLIDE_DIMENSIONS.height / 2 - 140, width: 100, height: 280 }}
-        onMouseEnter={() => setShowRightNav(true)}
-        onMouseLeave={() => setShowRightNav(false)}
-      >
-        <button
-          onClick={scrollRight}
-          className={`absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-surface-card border border-border-subtle rounded-full flex items-center justify-center text-white transition-opacity shadow-2xl ${
-            showRightNav ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+          <div className="flex items-center gap-2">
+            {slides.map((_, i) => (
+              <div
+                key={i}
+                className={`transition-all duration-300 rounded-full ${
+                  i === activeIndex
+                    ? 'w-6 h-2 bg-rose-500'
+                    : 'w-2 h-2 bg-zinc-700'
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={scrollRightNav}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
       <div
         ref={scrollRef}
+        onScroll={handleScroll}
         className="flex gap-10 overflow-x-auto pb-12 pt-2 px-4 snap-x snap-mandatory items-start min-h-[600px] custom-scrollbar relative"
       >
 
