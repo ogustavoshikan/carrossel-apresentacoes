@@ -532,10 +532,12 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
 
       {/* White Card */}
       <div
-        className="relative z-10 bg-white text-black p-10 rounded-[2rem] w-full overflow-hidden border-2"
+        className="relative z-10 bg-white text-black p-10 rounded-[2rem] w-full border-2"
         style={{ borderColor: brandColor, boxShadow: `0 30px 60px ${brandColor}33` }}
       >
-        <ImageBg data={data} className="absolute inset-0 opacity-15" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[inherit]">
+          <ImageBg data={data} className="absolute inset-0 opacity-15" />
+        </div>
 
         <div className="relative z-10">
           <div className="mb-6">
@@ -1225,8 +1227,10 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
-      <div className="flex-1 border-2 flex flex-col p-6 relative overflow-hidden" style={{ borderColor: brandColor }}>
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
+      <div className="flex-1 border-2 flex flex-col p-6 relative" style={{ borderColor: brandColor }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
+        </div>
         <div className="flex justify-between items-center mb-auto relative z-10 shrink-0">
           <div className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-outfit font-bold text-xs" style={{ borderColor: brandColor, color: brandColor }}>01</div>
           <SmartField field="badge_text" {...sp}>
