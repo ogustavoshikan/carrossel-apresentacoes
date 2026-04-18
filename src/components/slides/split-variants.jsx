@@ -313,7 +313,7 @@ export function SplitVariant4({
 
               />
 
-      <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-4 pt-12 overflow-hidden">
+      <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-4 pt-12">
         {/* Card Titulo — topo full width */}
         <div className="col-span-2 row-span-1 bg-[#0A0A0A] rounded-3xl p-6 border border-white/5 flex flex-col justify-center">
           <SmartField field="tag" {...sp} className="mb-2">
@@ -1297,9 +1297,9 @@ export function SplitVariant22(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-[#FAFAFA] relative">
+    <div className="w-full h-full flex bg-[#FAFAFA] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showSlideCounter={false} />
-      <div className="w-14 h-full shrink-0 flex flex-col items-center py-6 shadow-xl z-20" style={{ backgroundColor: brandColor }}>
+      <div className="w-14 h-full shrink-0 flex flex-col items-center py-6 shadow-xl z-10" style={{ backgroundColor: brandColor }}>
         <span className="font-outfit font-black text-[10px] transform -rotate-90 origin-center whitespace-nowrap mt-20 tracking-[0.3em] text-white uppercase">
           {data.tag || 'VOL 09'}
         </span>
@@ -1309,7 +1309,7 @@ export function SplitVariant22(props) {
         </span>
       </div>
       
-      <div className="flex-1 flex flex-col h-full p-6 relative z-10 pb-8">
+      <div className="flex-1 flex flex-col h-full p-6 relative z-20 pb-8">
         
         <div className="flex-1 min-h-0 flex flex-col justify-center mb-6 pl-2">
           <SmartField field="titulo" {...sp} className="mb-3">
