@@ -1141,7 +1141,7 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 22 — Header Minimal
 // Header padrão + título gigante centrado com glow lateral
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant22({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
+export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const bgBase = '#ffffff';
@@ -1149,9 +1149,9 @@ export function CoverVariant22({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden" style={{ backgroundColor: bgBase }}>
-      <SlideHeader currentIndex={slideData.slide || index + 1} total={slideCount} />
-      <div className="flex-1 flex flex-col justify-center relative">
+    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <div className="flex-1 flex flex-col justify-center relative mt-4">
         <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-6 z-10">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase break-words" style={{ fontSize: `${80 * sTitle}px` }}>
