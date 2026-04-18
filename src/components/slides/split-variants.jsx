@@ -81,7 +81,7 @@ export function SplitVariant1({
 
               />
 
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Imagem arredondada */}
         <SmartField field="imagem" {...sp}
           className="relative w-full h-48 shrink-0 rounded-[2rem] overflow-hidden mb-4 ring-1 ring-white/10 shadow-2xl"
@@ -90,7 +90,7 @@ export function SplitVariant1({
         </SmartField>
 
         {/* Tag + título + texto */}
-        <div className="flex-1 overflow-hidden flex flex-col">
+        <div className="flex-1 flex flex-col">
           <div className="flex items-center gap-2 mb-2 shrink-0">
             <div className="h-[2px] w-8" style={{ backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
@@ -118,7 +118,7 @@ export function SplitVariant1({
             </h2>
           </SmartField>
 
-          <SmartField field="texto_apoio" {...sp} className="min-h-0 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp} className="min-h-0">
             <p
               contentEditable
               suppressContentEditableWarning
