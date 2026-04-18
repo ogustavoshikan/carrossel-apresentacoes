@@ -225,14 +225,22 @@ export default function App() {
     setSelectedElement(null);
   }, []);
 
-  const handleAddSlide = useCallback((layoutType, insertIndex) => {
+  const handleAddSlide = useCallback((layoutType, insertIndex, variantIndex = 0) => {
     setSlides(prev => {
-      const newSlide = createSlideFromTemplate(layoutType, insertIndex + 1);
-      if (!newSlide) return prev;
-      const newSlides = [...prev];
-      // insertIndex aponta para a posição APÓS o slide de referência
-      newSlides.splice(insertIndex, 0, newSlide);
-      // Re-indexar todos os slides
+      const currentSlides = Array.isArray(prev) ? prev : [];
+      // Se não houver slides, o insertIndex deve ser obrigatoriamente 0
+      const targetIndex = currentSlides.length === 0 ? 0 : insertIndex;
+      const newSlide = createSlideFromTemplate(layoutType, targetIndex + 1, variantIndex);
+      
+      if (!newSlide) return currentSlides;
+      
+      const newSlides = [...currentSlides];
+      // Garante que o index de inserção não ultrapasse o tamanho do array
+      const finalIndex = Math.min(Math.max(0, targetIndex), newSlides.length);
+      
+      newSlides.splice(finalIndex, 0, newSlide);
+      
+      // Re-indexar todos os slides para manter a ordem correta na propriedade 'slide'
       return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
     });
     setSelectedElement(null);
@@ -668,6 +676,7 @@ export default function App() {
                   onRemoveFavorite={handleRemoveFavorite}
                   onInjectSlide={handleInjectSlide}
                   isInjecting={isInjecting}
+                  onAddSlide={handleAddSlide}
                   showSlideCounter={showSlideCounter}
                   setShowSlideCounter={setShowSlideCounter}
                   slideCounterPosition={slideCounterPosition}

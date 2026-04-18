@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 import LayoutSelector from './LayoutSelector';
+import DesignLibrary from './DesignLibrary';
 
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
@@ -105,6 +106,7 @@ export default function ConfigSidebar({
   onRemoveFavorite,
   onInjectSlide,
   isInjecting,
+  onAddSlide,
   showSlideCounter,
   setShowSlideCounter,
   slideCounterPosition,
@@ -998,24 +1000,15 @@ export default function ConfigSidebar({
         <div className="flex items-center gap-1 p-2 bg-surface-dark/40 border-b border-white/5 shrink-0">
           {[
             { id: 'ajustes', label: 'Direção', icon: Settings2 },
-            { id: 'layouts', label: 'Layouts', icon: LayoutTemplate },
+            { id: 'designs', label: 'Designs', icon: LayoutTemplate },
             { id: 'autopost', label: 'Post', icon: Sparkles },
-            { id: 'midia', label: 'Mídia', icon: ImageIcon },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
-                onClick={() => {
-                  if (tab.id === 'autopost') {
-                    onComingSoon(Sparkles, 'Auto-Post');
-                  } else if (tab.id === 'midia') {
-                    onComingSoon(ImageIcon, 'Mídia Assets');
-                  } else {
-                    setActiveTab(tab.id);
-                  }
-                }}
+                onClick={() => setActiveTab(tab.id)}
                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl outline-none ring-0 border-none transition-none
                   ${isActive 
                     ? 'bg-[#1A1A1A] text-white border border-white/10' 
@@ -1378,22 +1371,44 @@ export default function ConfigSidebar({
             </>
           )}
 
-          {activeTab === 'layouts' && (
-             <div className="space-y-4">
-               {/* Briefing sincronizado */}
-               <div className="space-y-2">
-                 <label className="alice-section-title">
-                   <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
-                   Briefing
-                 </label>
-                 <textarea
-                   className="alice-textarea h-28"
-                   placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
-                   value={theme}
-                   onChange={(e) => setTheme(e.target.value)}
-                 />
+          {activeTab === 'designs' && (
+             <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-col gap-1 px-1">
+                   <h4 className="text-[11px] font-black uppercase tracking-widest text-white/40">Biblioteca de Designs</h4>
+                   <p className="text-[9px] text-zinc-500 leading-relaxed font-medium">Escolha um estilo para injetar diretamente ao fim do carrossel.</p>
+                </div>
+                <DesignLibrary 
+                  onAddSlide={onAddSlide}
+                  brandColor={gradientColor1}
+                  slidesCount={slides.length}
+                />
+             </div>
+          )}
+
+          {activeTab === 'autopost' && (
+             <div className="space-y-6 animate-fade-in">
+               <div className="space-y-4">
+                  <div className="flex flex-col gap-1 px-1">
+                    <h4 className="text-[11px] font-black uppercase tracking-widest text-white/40">Estratégia do Post</h4>
+                    <p className="text-[9px] text-zinc-500 leading-relaxed font-medium">Defina o briefing e a distribuição dos layouts para geração via IA.</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="alice-section-title">
+                      <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
+                      Briefing
+                    </label>
+                    <textarea
+                      className="alice-textarea h-32"
+                      placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
+                      value={theme}
+                      onChange={(e) => setTheme(e.target.value)}
+                    />
+                  </div>
                </div>
+
                <div className="h-px bg-surface-input/50 w-full" />
+
                {setLayoutSelection && (
                  <CollapsibleSection title="DISTRIBUIÇÃO DE LAYOUTS" defaultOpen={true}>
                    <LayoutSelector
@@ -1409,30 +1424,6 @@ export default function ConfigSidebar({
                    />
                  </CollapsibleSection>
                )}
-             </div>
-          )}
-
-          {activeTab === 'autopost' && (
-             <div className="flex-1 h-full min-h-[300px] flex flex-col items-center justify-center p-8 text-center animate-fade-in">
-                <div className="w-16 h-16 bg-surface-input/30 border border-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                   <Sparkles className="w-6 h-6 text-[#DE1E4D]" />
-                </div>
-                <h4 className="text-lg font-black text-white tracking-tighter uppercase mb-2">Auto-Post System</h4>
-                <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[200px]">
-                  Agendamento inteligente e publicação direta em breve.
-                </p>
-             </div>
-          )}
-
-          {activeTab === 'midia' && (
-             <div className="flex-1 h-full min-h-[300px] flex flex-col items-center justify-center p-8 text-center animate-fade-in">
-                <div className="w-16 h-16 bg-surface-input/30 border border-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                   <ImageIcon className="w-6 h-6 text-[#DE1E4D]" />
-                </div>
-                <h4 className="text-lg font-black text-white tracking-tighter uppercase mb-2">Media Assets</h4>
-                <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[200px]">
-                  Biblioteca de recursos e uploads globais em breve.
-                </p>
              </div>
           )}
         </div>
