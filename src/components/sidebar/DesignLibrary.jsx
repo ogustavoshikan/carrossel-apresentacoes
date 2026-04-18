@@ -92,21 +92,26 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
 
       {/* Grid de Variantes (2 Colunas) */}
       <div className="grid grid-cols-2 gap-4 pb-4">
-        {variants.map((variant) => (
+        {variants.map((variant, index) => (
           <div
             key={variant.id}
             onClick={() => onAddSlide(selectedTheme, slidesCount, variant.id)}
             className="group relative flex flex-col bg-surface-dark border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all cursor-pointer active:scale-95 shadow-xl"
           >
             {/* Área da Miniatura */}
-            <div className="aspect-[4/5] flex items-center justify-center p-5 bg-black/40 group-hover:bg-black/20 transition-colors">
-               <div className="w-20 h-28 transform group-hover:scale-110 group-hover:-rotate-2 transition-all duration-300 shadow-2xl">
+            <div className="aspect-[4/5] flex items-center justify-center p-2 bg-black/40 group-hover:bg-black/20 transition-colors">
+               <div className="w-32 h-40 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-300 shadow-2xl">
                   <DesignThumbnail theme={selectedTheme} variantId={variant.id} brandColor={brandColor} />
                </div>
             </div>
             
-            {/* Label da Variante */}
-            <div className="p-2.5 border-t border-white/5 bg-zinc-900/50 backdrop-blur-sm">
+            {/* Label da Variante + Index */}
+            <div className="p-2.5 border-t border-white/5 bg-zinc-900/50 backdrop-blur-sm relative">
+               {/* Index Badge (#00, #01...) */}
+               <span className="absolute left-2.5 bottom-2.5 text-[12px] italic font-black text-white/30 group-hover:text-white/60 transition-colors">
+                  #{String(index).padStart(2, '0')}
+               </span>
+               
                <span className="text-[9px] uppercase text-zinc-500 tracking-[0.15em] font-black block text-center truncate group-hover:text-white transition-colors">
                   {variant.name || `Variante ${variant.id}`}
                </span>
