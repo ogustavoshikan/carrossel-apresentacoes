@@ -90,10 +90,10 @@ export const LAYOUT_ICONS = {
 export const LAYOUT_TEMPLATES = {
   cover: {
     layout: 'cover',
-    titulo: 'TÍTULO\nDE IMPACTO',
+    titulo: 'TÍTULO DE\nIMPACTO',
     texto_apoio: 'Subtítulo descritivo e convidativo',
     sugestao_visual: 'Imagem de destaque do produto',
-    imageUrl: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate.jpg',
     tag: '',
     items: [],
   },
@@ -209,11 +209,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
 /** Lista dos 7 layouts com metadados de exibição */
 export const LAYOUT_META = [
-  { key: 'cover',         label: 'Capa',           description: 'Slide de abertura com imagem de fundo' },
-  { key: 'content-split', label: 'Conteúdo',        description: 'Imagem + tag + título + texto' },
-  { key: 'big-number',    label: 'Número de Impacto', description: 'Estatística ou dado de destaque' },
-  { key: 'quote',         label: 'Citação',         description: 'Frase de impacto com autor' },
-  { key: 'comparison',    label: 'Comparação',      description: 'Mercado vs Marca em tabela' },
-  { key: 'list',          label: 'Lista',           description: 'Lista estruturada com bullets' },
-  { key: 'cta',           label: 'CTA',             description: 'Call to action — slide de fechamento' },
+  { key: 'cover', label: 'Capa', description: 'Slide de abertura com imagem de fundo' },
+  { key: 'content-split', label: 'Conteúdo', description: 'Imagem + tag + título + texto' },
+  { key: 'big-number', label: 'Número de Impacto', description: 'Estatística ou dado de destaque' },
+  { key: 'quote', label: 'Citação', description: 'Frase de impacto com autor' },
+  { key: 'comparison', label: 'Comparação', description: 'Mercado vs Marca em tabela' },
+  { key: 'list', label: 'Lista', description: 'Lista estruturada com bullets' },
+  { key: 'cta', label: 'CTA', description: 'Call to action — slide de fechamento' },
 ];

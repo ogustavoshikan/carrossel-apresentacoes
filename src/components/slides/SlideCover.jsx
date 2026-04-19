@@ -23,6 +23,7 @@ export default function SlideCover({
   onSelectElement,
   showBrandHandle,
   slideCount,
+  isVerified,
 }) {
   // Delegação para variante visual (1-22)
   let variantIndex = data.coverVariantIndex || 0;
@@ -44,6 +45,7 @@ export default function SlideCover({
         brandColor={brandColor}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        isVerified={isVerified}
         titleScale={titleScale}
         textScale={textScale}
         showMetrics={showMetrics}
