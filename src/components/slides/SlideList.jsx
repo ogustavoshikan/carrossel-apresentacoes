@@ -69,8 +69,8 @@ export default function SlideList({
         slideCounterPosition={slideCounterPosition}
 
               />
-      <div className="flex-1 flex flex-col justify-center pt-2">
-        <div className="flex items-center gap-5 mb-10 shrink-0">
+      <div className="flex-1 flex flex-col justify-center pt-12">
+        <div className="flex items-center gap-5 mt-3 mb-7 shrink-0">
           <div
             className="w-12 h-12 border rounded-[1rem] flex items-center justify-center shrink-0 pointer-events-none"
             style={{
@@ -112,14 +112,6 @@ export default function SlideList({
                 0{i + 1}
               </div>
               <div className="flex-1 pb-4" style={{ borderBottom: `1px solid ${brandColor}40` }}>
-                <h4
-                  contentEditable
-                  suppressContentEditableWarning
-                  onBlur={(e) => onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                  className="font-outfit font-bold text-white text-[14px] uppercase tracking-[0.2em] mb-2 outline-none block line-clamp-1"
-                >
-                  {item.label}
-                </h4>
                 <p
                   contentEditable
                   suppressContentEditableWarning
