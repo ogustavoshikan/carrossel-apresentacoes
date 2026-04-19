@@ -179,7 +179,7 @@ function QuoteVariant5({ data, index, brandHandle, brandAvatar, brandColor, titl
         </SmartElement>
         
         <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-          <div className="w-8 h-8 rounded-full bg-zinc-800 shrink-0" style={{ backgroundColor: brandColor }} />
+          <div className="w-5 h-5 rounded-full bg-zinc-800 shrink-0" style={{ backgroundColor: brandColor }} />
           <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10 flex-1">
             <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-bold text-xs tracking-widest uppercase text-white outline-none block truncate">{data.texto_apoio}</span>
           </SmartElement>
