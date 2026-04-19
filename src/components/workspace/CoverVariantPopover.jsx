@@ -501,6 +501,50 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 39: Side Strip
+    39: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-zinc-900">
+        <div className="flex-1 opacity-40" style={{ background: img }} />
+        <div className="w-3 h-full shrink-0 flex items-center justify-center" style={{ background: accent }}>
+           <div className="w-[1.5px] h-[70%] bg-white/40 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 40: Floating Card Center
+    40: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative bg-white">
+        <div className="h-[65%] w-full" style={{ background: img }} />
+        <div className="flex-1 w-full bg-zinc-900" />
+        <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[80%] h-[40%] bg-white/90 rounded-md shadow-sm border border-white/50 p-1 flex flex-col justify-center gap-1">
+           <div className="w-[70%] h-[3px] bg-black rounded-full" />
+           <div className="w-[50%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 41: Slanted Banner
+    41: (
+      <div className="w-full h-full rounded-[3px] overflow-hidden relative grayscale" style={{ background: img }}>
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute top-4 -left-2 w-[120%] h-6 bg-zinc-900 border-y-[1.5px] shadow-md -rotate-6 flex items-center px-4" style={{ borderColor: accent }}>
+           <div className="w-[60%] h-[3px] bg-white rounded-full" />
+        </div>
+        <div className="absolute bottom-1 left-1.5 w-8 h-3 bg-zinc-900 border-l-[2px]" style={{ borderColor: accent }} />
+      </div>
+    ),
+    // 42: Upper Frame Title
+    42: (
+      <div className="w-full h-full p-1 bg-white flex flex-col gap-1 rounded-[3px] overflow-hidden">
+        <div className="flex-1 rounded-sm relative overflow-hidden" style={{ background: img }}>
+           <div className="absolute top-0 left-0 w-full h-6 bg-black/40 p-1">
+              <div className="w-[60%] h-[2.5px] bg-white rounded-full" />
+           </div>
+        </div>
+        <div className="h-4 w-full flex items-center justify-between px-1">
+           <div className="w-4 h-[1px] bg-zinc-200" />
+           <div className="w-3 h-3 rounded-full border border-zinc-200" />
+        </div>
+      </div>
+    ),
   };
 
   return (

@@ -1920,6 +1920,153 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 39 — Side Strip
+// Imagem lateral com faixa de marca e título centrado
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant39({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex overflow-hidden bg-zinc-900">
+      <div className="flex-1 relative h-full flex flex-col justify-center p-8 min-w-0">
+        <div className="absolute inset-0 z-0">
+          <ImageBg data={data} className="absolute inset-0 opacity-40 mix-blend-luminosity" />
+        </div>
+        <div className="relative z-10 w-full">
+          <SmartField field="titulo" {...sp} className="w-full mb-4">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${48 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="texto_apoio" {...sp} className="w-[90%]">
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-400 font-outfit font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+              {slideData.texto_apoio}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+      <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{ backgroundColor: brandColor }}>
+        <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap">
+          <span className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white">Arraste para o lado e descubra</span>
+          <ArrowRight className="w-4 h-4 text-white" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 40 — Floating Card Center
+// Imagem superior e card flutuante centralizado
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
+      <div className="h-[65%] w-full relative shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+      <div className="flex-1 w-full bg-zinc-900 shrink-0" />
+      <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[85%] bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/50 z-10">
+        <SmartField field="titulo" {...sp} className="mb-2">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontSize: `${32 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-600 font-outfit font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+      <div className="absolute bottom-6 right-6 flex items-center gap-2 z-20 text-white shrink-0">
+        <span className="font-outfit font-bold text-[10px] uppercase tracking-widest">Arraste</span>
+        <ArrowRight className="w-4 h-4" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 41 — Slanted Banner
+// Faixa diagonal sobre imagem grayscale
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-200">
+      <div className="absolute inset-0 z-0">
+        <ImageBg data={data} className="absolute inset-0 grayscale opacity-80" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-black/30" />
+      <div className="absolute top-16 -left-8 w-[120%] -rotate-6 bg-[#1a1a1a] py-6 px-12 z-10 shadow-2xl border-y-4" style={{ borderColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none uppercase tracking-tighter" style={{ fontSize: `${42 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full p-8 z-20 flex justify-between items-end">
+        <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0" style={{ borderColor: brandColor }}>
+          <span className="font-outfit font-black text-[11px] uppercase tracking-widest text-white whitespace-nowrap">Arraste para o lado e descubra</span>
+          <ArrowRight className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 42 — Upper Frame Title
+// Título superior emoldurado e rodapé branco minimalista
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant42({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-4 bg-white flex flex-col relative overflow-hidden">
+      <div className="flex-1 w-full bg-zinc-100 relative overflow-hidden rounded-t-lg">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute top-0 left-0 w-full p-6 bg-gradient-to-b from-black/60 to-transparent z-10">
+          <SmartField field="titulo" {...sp}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none uppercase tracking-tighter drop-shadow-lg" style={{ fontSize: `${38 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+      <div className="h-20 w-full flex items-center justify-between px-2 shrink-0 bg-white z-20">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden pr-4 min-w-0">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-800 font-outfit font-bold uppercase tracking-widest text-[9px] truncate">
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+        <div className="flex items-center gap-2 shrink-0 px-4 py-2 rounded-full border border-zinc-200 shadow-sm whitespace-nowrap">
+          <span className="font-outfit font-black text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a]">Arraste</span>
+          <ArrowRight className="w-3 h-3 text-[#1a1a1a] shrink-0" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -1959,6 +2106,10 @@ export const COVER_VARIANT_COMPONENTS = {
   36: CoverVariant36,
   37: CoverVariant37,
   38: CoverVariant38,
+  39: CoverVariant39,
+  40: CoverVariant40,
+  41: CoverVariant41,
+  42: CoverVariant42,
 };
 
 export const COVER_VARIANT_META = [
@@ -2001,6 +2152,10 @@ export const COVER_VARIANT_META = [
   { id: 36, name: 'Magazine Split', description: 'Texto à esquerda e imagem à direita estilo revista' },
   { id: 37, name: 'Modern Frame', description: 'Fundo colorido com card de imagem central' },
   { id: 38, name: 'Gradient Bottom', description: 'Imagem full com gradient e tags inferiores' },
+  { id: 39, name: 'Side Strip', description: 'Imagem lateral com faixa de marca vertical' },
+  { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado' },
+  { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale' },
+  { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista' },
 ];
 
 
