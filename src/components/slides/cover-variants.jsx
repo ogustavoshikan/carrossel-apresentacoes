@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image as ImageIcon, ArrowRight, BadgeCheck, ChevronRight, Sparkles, Heart, MessageCircle, Send, Bookmark, Star, Store } from 'lucide-react';
+import { Image as ImageIcon, ArrowRight, ArrowUp, BadgeCheck, ChevronRight, Sparkles, Heart, MessageCircle, Send, Bookmark, Star, Store } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
@@ -1735,6 +1735,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
           brandAvatar={brandAvatar}
           brandColor={brandColor}
           isVerified={isVerified}
+          showSlideCounter={false}
           dark 
         />
         <div className="flex-1 flex flex-col justify-center items-center text-center mt-12">
@@ -1787,7 +1788,7 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="absolute bottom-[35%] right-8 z-20 flex items-center gap-4">
+      <div className="absolute bottom-[calc(35%+4px)] right-8 z-20 flex items-center gap-4">
         <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white drop-shadow-md">DESLIZE</span>
         <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-white border-2 border-white" style={{ backgroundColor: brandColor }}>
           <ArrowRight className="w-6 h-6" />
@@ -1953,7 +1954,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
       <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{ backgroundColor: brandColor }}>
         <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap">
           <span className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white">Arraste para o lado e descubra</span>
-          <ArrowRight className="w-4 h-4 text-white" />
+          <ArrowUp className="w-4 h-4 text-white" />
         </div>
       </div>
     </div>
@@ -1976,7 +1977,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
       <div className="h-[65%] w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
-      <div className="flex-1 w-full bg-zinc-900 shrink-0" />
+      <div className="flex-1 w-full shrink-0" style={{ backgroundColor: brandColor }} />
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[85%] bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/50 z-10">
         <SmartField field="titulo" {...sp} className="mb-2">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontSize: `${32 * sTitle}px` }}>
@@ -2120,6 +2121,7 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
+        showSlideCounter={false}
       />
       
       <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full border-8 border-white/60 shadow-xl overflow-hidden bg-zinc-100 z-0">
@@ -2173,7 +2175,7 @@ export function CoverVariant45(props) {
       </div>
 
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showSlideCounter={false} />
       </div>
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
@@ -2218,7 +2220,7 @@ export function CoverVariant46(props) {
       </div>
 
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showSlideCounter={false} />
       </div>
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
