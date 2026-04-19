@@ -569,6 +569,34 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 45: Vertical Mirror CTA
+    45: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden relative p-0.5 gap-0.5" style={{ background: dark }}>
+        <div className="flex-1 h-full rounded-sm" style={{ background: img }} />
+        <div className="flex-1 h-full rounded-sm" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-3 rounded-full shadow-lg flex items-center justify-center px-1" style={{ background: accent }}>
+           <div className="w-full h-[1.5px] bg-white rounded-full" />
+        </div>
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[80%] h-3 bg-zinc-900 rounded-full flex items-center justify-between px-1 border border-zinc-700">
+           <div className="w-[60%] h-[1px] bg-white/60" />
+           <div className="w-1.5 h-1.5 border-t border-r border-white rotate-45 scale-[0.6]" />
+        </div>
+      </div>
+    ),
+    // 46: Horizontal Mirror CTA
+    46: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative p-0.5 gap-0.5" style={{ background: dark }}>
+        <div className="flex-1 w-full rounded-sm" style={{ background: img }} />
+        <div className="flex-1 w-full rounded-sm" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-3 rounded-full shadow-lg flex items-center justify-center px-1" style={{ background: accent }}>
+           <div className="w-full h-[1.5px] bg-white rounded-full" />
+        </div>
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[80%] h-3 bg-zinc-900 rounded-full flex items-center justify-between px-1 border border-zinc-700">
+           <div className="w-[60%] h-[1px] bg-white/60" />
+           <div className="w-1.5 h-1.5 border-t border-r border-white rotate-45 scale-[0.6]" />
+        </div>
+      </div>
+    ),
   };
 
   return (

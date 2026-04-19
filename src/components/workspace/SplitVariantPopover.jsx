@@ -352,6 +352,68 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 27: Grid Mirror 4-Way
+    27: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-0.5 gap-0.5" style={{ background: dark }}>
+        <div className="grid grid-cols-2 grid-rows-2 w-full h-full gap-0.5">
+          <div style={{ background: img }} />
+          <div style={{ background: img }} />
+          <div style={{ background: img }} />
+          <div style={{ background: img }} />
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-4 rounded-full border border-white/20 shadow-lg flex items-center justify-center px-1" style={{ background: accent }}>
+           <div className="w-full h-[2px] bg-white/80 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 28: Split Side Mirror
+    28: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden relative" style={{ background: dark }}>
+        <div className="w-1/2 h-full border-r border-white/5" style={{ background: img }} />
+        <div className="w-1/2 h-full" style={{ background: img }} />
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-[80%] h-[45%] bg-white/95 rounded-md p-1 flex flex-col gap-0.5 justify-center">
+           <div className="w-[30%] h-[1px]" style={{ background: accent }} />
+           <div className="w-full h-[2.5px] bg-zinc-800 rounded-full" />
+           <div className="w-[80%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 29: Horizontal Mirror Strip
+    29: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative" style={{ background: dark }}>
+        <div className="h-1/2 w-full border-b border-white/5" style={{ background: img }} />
+        <div className="h-1/2 w-full" style={{ background: img }} />
+        <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 h-4 border-y border-white flex items-center justify-center" style={{ background: accent }}>
+           <div className="w-[70%] h-[2.5px] bg-white rounded-full" />
+        </div>
+        <div className="absolute bottom-1 right-1 w-[45%] h-[25%] bg-white/95 rounded-sm p-1 flex items-center">
+           <div className="w-full h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 30: Vertical Mirror Pill
+    30: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden relative p-0.5 gap-0.5" style={{ background: dark }}>
+        <div className="flex-1 h-full rounded-sm" style={{ background: img }} />
+        <div className="flex-1 h-full rounded-sm" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-4 rounded-full border border-white/20 shadow-lg flex items-center justify-center px-1" style={{ background: accent }}>
+           <div className="w-full h-[2px] bg-white/80 rounded-full" />
+        </div>
+        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[50%] h-2 bg-white/90 rounded-full flex items-center justify-center">
+           <div className="w-[60%] h-[1px] bg-zinc-800 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 31: Horizontal Mirror Pill
+    31: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative p-0.5 gap-0.5" style={{ background: dark }}>
+        <div className="flex-1 w-full rounded-sm" style={{ background: img }} />
+        <div className="flex-1 w-full rounded-sm" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-4 rounded-full border border-white/20 shadow-lg flex items-center justify-center px-1" style={{ background: accent }}>
+           <div className="w-full h-[2px] bg-white/80 rounded-full" />
+        </div>
+      </div>
+    ),
   };
 
   return (

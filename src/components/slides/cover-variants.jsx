@@ -2152,6 +2152,96 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 45 — Vertical Mirror CTA
+// Split vertical com CTA de arraste
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant45(props) {
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-100">
+      <div className="grid grid-cols-2 w-full h-full gap-1 z-0">
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+        </div>
+      </div>
+
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
+        <span className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase">Arraste para o lado e descubra</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 46 — Horizontal Mirror CTA
+// Split horizontal com CTA de arraste
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant46(props) {
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-100">
+      <div className="grid grid-rows-2 w-full h-full gap-1 z-0">
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+        </div>
+      </div>
+
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
+        <span className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase">Arraste para o lado e descubra</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -2197,6 +2287,8 @@ export const COVER_VARIANT_COMPONENTS = {
   42: CoverVariant42,
   43: CoverVariant43,
   44: CoverVariant44,
+  45: CoverVariant45,
+  46: CoverVariant46,
 };
 
 export const COVER_VARIANT_META = [
@@ -2245,6 +2337,8 @@ export const COVER_VARIANT_META = [
   { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista' },
   { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central' },
   { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante' },
+  { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste' },
+  { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste' },
 ];
 
 

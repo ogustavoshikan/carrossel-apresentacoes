@@ -1579,6 +1579,274 @@ export function SplitVariant26(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 27 — Grid Mirror 4-Way
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant27(props) {
+  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-100">
+      <div className="grid grid-cols-2 grid-rows-2 w-full h-full gap-1 z-0">
+        {[
+          { style: {} },
+          { style: { transform: 'scaleX(-1)' } },
+          { style: { transform: 'scaleY(-1)' } },
+          { style: { transform: 'scale(-1)' } }
+        ].map((eff, i) => (
+          <div key={i} className="bg-zinc-800 overflow-hidden relative">
+            <ImageBg data={data} className="absolute inset-0" style={eff.style} />
+          </div>
+        ))}
+      </div>
+      
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-lg z-10 border border-zinc-200">
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-zinc-800 font-bold text-[10px] tracking-widest uppercase outline-none"
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 28 — Split Side Mirror
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant28(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex relative overflow-hidden bg-zinc-900">
+      <div className="w-1/2 h-full relative overflow-hidden">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+      <div className="w-1/2 h-full relative overflow-hidden border-l border-white/10">
+        <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+      </div>
+      
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-2xl flex flex-col items-center text-center z-10 border border-white/50">
+        <SmartField field="tag" {...sp} className="mb-2">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none"
+            style={{ color: brandColor }}
+          >
+            {data.tag || 'EXCLUSIVE'}
+          </span>
+        </SmartField>
+        <SmartField field="titulo" {...sp} className="mb-2 w-full">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[#1a1a1a] leading-tight outline-none break-words"
+            style={{ fontSize: `${24 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-zinc-600 leading-snug font-medium outline-none"
+            style={{ fontSize: `${13 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 29 — Horizontal Mirror Strip
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant29(props) {
+  const { data, index, slideCount, brandColor, brandHandle, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900">
+      <div className="w-full h-1/2 relative overflow-hidden">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+      <div className="w-full h-1/2 relative overflow-hidden border-t border-white/10">
+        <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+      </div>
+
+      <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 p-6 z-10 shadow-2xl flex flex-col items-center text-center border-y-[6px] border-white" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tight uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded-md text-white text-[9px] font-bold tracking-widest z-20 font-outfit uppercase">
+        @{brandHandle || 'ALICESTUDIO'}
+      </div>
+
+      <div className="absolute bottom-6 right-6 max-w-[55%] bg-white/95 backdrop-blur-md px-4 py-3 rounded-xl shadow-2xl z-20 border border-white/50">
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-zinc-800 font-bold text-[11px] leading-snug outline-none"
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+      
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showBrandHandle={false} />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 30 — Vertical Mirror Pill
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant30(props) {
+  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-100">
+      <div className="grid grid-cols-2 w-full h-full gap-1 z-0">
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+        </div>
+      </div>
+
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-lg z-10 border border-zinc-200">
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-[#1a1a1a] font-bold text-[10px] tracking-widest uppercase outline-none"
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 31 — Horizontal Mirror Pill
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant31(props) {
+  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-zinc-100">
+      <div className="grid grid-rows-2 w-full h-full gap-1 z-0">
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div className="bg-zinc-800 overflow-hidden relative">
+          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+        </div>
+      </div>
+
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
+         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+        <SmartField field="titulo" {...sp}>
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            style={{ fontSize: `${32 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-6 py-2 rounded-full shadow-lg z-10 border border-zinc-200">
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-[#1a1a1a] font-bold text-[10px] tracking-widest uppercase outline-none"
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -1608,6 +1876,11 @@ export const SPLIT_VARIANT_COMPONENTS = {
   24: SplitVariant24,
   25: SplitVariant25,
   26: SplitVariant26,
+  27: SplitVariant27,
+  28: SplitVariant28,
+  29: SplitVariant29,
+  30: SplitVariant30,
+  31: SplitVariant31,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -1637,6 +1910,11 @@ export const SPLIT_VARIANT_META = [
   { id: 24, name: 'Center Arch Bottom', description: 'Arco invertido centralizado' },
   { id: 25, name: 'Dark Gradient Bottom', description: 'Bordas e gradiente inferior em foto' },
   { id: 26, name: 'Float Color Circle', description: 'Círculo de cor e text frame na direita superior' },
+  { id: 27, name: 'Grid Mirror', description: 'Grid 2x2 com espelhamento 4-way' },
+  { id: 28, name: 'Split Side Mirror', description: 'Split vertical em 2 lados espelhados' },
+  { id: 29, name: 'Horizontal Strip', description: 'Split horizontal com fita central' },
+  { id: 30, name: 'Vertical Mirror Pill', description: '2 colunas verticais com título central pill' },
+  { id: 31, name: 'Horizontal Mirror Pill', description: '2 linhas horizontais com título central pill' },
 ];
 
 
