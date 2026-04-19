@@ -983,10 +983,10 @@ export function SplitVariant16(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
       <div className="w-full h-[45%] shrink-0 relative mb-8 mt-4">
-        <SmartField field="imagem" {...sp} className="absolute inset-0 bg-zinc-300 rounded-br-[80px] rounded-tl-xl overflow-hidden shadow-lg z-10 border-4 border-white">
+        <div className="absolute -bottom-3 -right-3 w-24 h-24 rounded-br-[90px] z-0" style={{ backgroundColor: brandColor }} />
+        <SmartField field="imagem" {...sp} className="relative w-full h-full bg-zinc-300 rounded-br-[80px] rounded-tl-xl overflow-hidden shadow-lg z-10 border-4 border-white">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
-        <div className="absolute bottom-[-10px] right-[-10px] w-24 h-24 rounded-br-[90px] z-0" style={{ backgroundColor: brandColor }} />
       </div>
       
       <div className="flex-1 flex flex-col min-h-0 pl-2">
