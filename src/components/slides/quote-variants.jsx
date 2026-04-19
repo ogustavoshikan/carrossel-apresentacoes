@@ -291,8 +291,8 @@ function QuoteVariant9({ data, index, brandHandle, brandAvatar, brandColor, titl
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-12 justify-center relative overflow-hidden text-center">
-      <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
-      <div className="absolute inset-0 bg-black/70 z-[0]" />
+      <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} className="opacity-40 blur-md scale-110" />
+      
       
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
         <BrandTag handle={brandHandle} brandAvatar={brandAvatar} color={brandColor} />
