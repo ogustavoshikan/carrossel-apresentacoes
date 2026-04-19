@@ -415,8 +415,8 @@ export function ComparisonVariant7(props) {
               const left = leftItems[i];
               const right = rightItems[i];
               return (
-                <div key={i} className="flex border-b border-white/5 last:border-0 items-stretch h-1/3 min-h-[60px]">
-                  <div className="w-1/2 p-2 px-4 text-center flex items-center justify-center gap-2 bg-black/40">
+                <div key={i} className="flex border-b border-white/5 last:border-0 items-stretch h-1/3 min-h-[60px] bg-black/40">
+                  <div className="w-1/2 p-2 px-4 text-center flex items-center justify-center gap-2">
                     {left && (
                       <>
                         <X className="w-4 h-4 text-zinc-600 shrink-0" />
