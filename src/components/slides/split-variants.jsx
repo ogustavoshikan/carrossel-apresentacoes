@@ -29,15 +29,21 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
 }
 
 // ─── Helper: ImageBg ────────────────────────────────────────
-function ImageBg({ data, className = '', style = {}, children }) {
-  if (data.imageUrl) {
+// Aceita props explícitas (imageUrl, imagePosition, imageScale) ou
+// faz fallback para data.imageUrl para compatibilidade retroativa.
+function ImageBg({ data, imageUrl, imagePosition, imageScale, className = '', style = {}, children }) {
+  const url = imageUrl !== undefined ? imageUrl : data?.imageUrl;
+  const pos = imagePosition !== undefined ? imagePosition : (data?.imagePosition ?? 50);
+  const scale = imageScale !== undefined ? imageScale : (data?.imageScale ?? 1);
+
+  if (url) {
     return (
       <div
         className={`bg-cover ${className}`}
         style={{
-          backgroundImage: `url(${data.imageUrl})`,
-          backgroundPosition: `center ${data.imagePosition ?? 50}%`,
-          transform: `scale(${data.imageScale ?? 1})`,
+          backgroundImage: `url(${url})`,
+          backgroundPosition: `center ${pos}%`,
+          transform: `scale(${scale})`,
           transformOrigin: 'center center',
           ...style,
         }}
@@ -1576,27 +1582,38 @@ export function SplitVariant26(props) {
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 27 — Grid Mirror 4-Way
+// Grid 2×2 com 4 imagens independentes (slots 1–4)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant27(props) {
   const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
+  // Cada quadrante usa seu próprio slot, com fallback para imageUrl
+  const slots = [
+    { imageUrl: data.imageUrl,  imagePosition: data.imagePosition,  imageScale: data.imageScale },
+    { imageUrl: data.imageUrl2 || data.imageUrl, imagePosition: data.imagePosition2 ?? data.imagePosition, imageScale: data.imageScale2 ?? data.imageScale },
+    { imageUrl: data.imageUrl3 || data.imageUrl, imagePosition: data.imagePosition3 ?? data.imagePosition, imageScale: data.imageScale3 ?? data.imageScale },
+    { imageUrl: data.imageUrl4 || data.imageUrl, imagePosition: data.imagePosition4 ?? data.imagePosition, imageScale: data.imageScale4 ?? data.imageScale },
+  ];
+  const transforms = [{}, {}, {}, {}];
+
   return (
     <div className="w-full h-full relative overflow-hidden bg-zinc-100">
       <div className="grid grid-cols-2 grid-rows-2 w-full h-full gap-1 z-0">
-        {[
-          { style: {} },
-          { style: { transform: 'scaleX(-1)' } },
-          { style: { transform: 'scaleY(-1)' } },
-          { style: { transform: 'scale(-1)' } }
-        ].map((eff, i) => (
+        {slots.map((slot, i) => (
           <div key={i} className="bg-zinc-800 overflow-hidden relative">
-            <ImageBg data={data} className="absolute inset-0" style={eff.style} />
+            <ImageBg
+              imageUrl={slot.imageUrl}
+              imagePosition={slot.imagePosition}
+              imageScale={slot.imageScale}
+              className="absolute inset-0"
+              style={transforms[i]}
+            />
           </div>
         ))}
       </div>
-      
+
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{ backgroundColor: brandColor }}>
@@ -1629,6 +1646,7 @@ export function SplitVariant27(props) {
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 28 — Split Side Mirror
+// 2 colunas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant28(props) {
   const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
@@ -1636,13 +1654,22 @@ export function SplitVariant28(props) {
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
+  const img2 = data.imageUrl2 || data.imageUrl;
+  const pos2 = data.imagePosition2 ?? data.imagePosition;
+  const scale2 = data.imageScale2 ?? data.imageScale;
+
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-zinc-900">
       <div className="w-1/2 h-full relative overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="w-1/2 h-full relative overflow-hidden border-l border-white/10">
-        <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+        <ImageBg
+          imageUrl={img2}
+          imagePosition={pos2}
+          imageScale={scale2}
+          className="absolute inset-0"
+        />
       </div>
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
@@ -1685,11 +1712,16 @@ export function SplitVariant28(props) {
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 29 — Horizontal Mirror Strip
+// 2 linhas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant29(props) {
   const { data, index, slideCount, brandColor, brandHandle, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const img2 = data.imageUrl2 || data.imageUrl;
+  const pos2 = data.imagePosition2 ?? data.imagePosition;
+  const scale2 = data.imageScale2 ?? data.imageScale;
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900">
@@ -1697,7 +1729,12 @@ export function SplitVariant29(props) {
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="w-full h-1/2 relative overflow-hidden border-t border-white/10">
-        <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+        <ImageBg
+          imageUrl={img2}
+          imagePosition={pos2}
+          imageScale={scale2}
+          className="absolute inset-0"
+        />
       </div>
 
       <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 p-6 z-10 shadow-2xl flex flex-col items-center text-center border-y-[6px] border-white" style={{ backgroundColor: brandColor }}>
@@ -1732,11 +1769,16 @@ export function SplitVariant29(props) {
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 30 — Vertical Mirror Pill
+// 2 colunas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant30(props) {
   const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const img2 = data.imageUrl2 || data.imageUrl;
+  const pos2 = data.imagePosition2 ?? data.imagePosition;
+  const scale2 = data.imageScale2 ?? data.imageScale;
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-zinc-100">
@@ -1745,7 +1787,12 @@ export function SplitVariant30(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-zinc-800 overflow-hidden relative">
-          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+          <ImageBg
+            imageUrl={img2}
+            imagePosition={pos2}
+            imageScale={scale2}
+            className="absolute inset-0"
+          />
         </div>
       </div>
 
@@ -1781,11 +1828,16 @@ export function SplitVariant30(props) {
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 31 — Horizontal Mirror Pill
+// 2 linhas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant31(props) {
   const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const img2 = data.imageUrl2 || data.imageUrl;
+  const pos2 = data.imagePosition2 ?? data.imagePosition;
+  const scale2 = data.imageScale2 ?? data.imageScale;
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-zinc-100">
@@ -1794,7 +1846,12 @@ export function SplitVariant31(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-zinc-800 overflow-hidden relative">
-          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+          <ImageBg
+            imageUrl={img2}
+            imagePosition={pos2}
+            imageScale={scale2}
+            className="absolute inset-0"
+          />
         </div>
       </div>
 

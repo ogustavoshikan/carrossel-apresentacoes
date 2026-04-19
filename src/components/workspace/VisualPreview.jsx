@@ -517,69 +517,101 @@ export default function VisualPreview({
             </div>
 
             {/* Elemento 4: Painel de Sliders (Y, Escala, Reset) */}
-            {(slide.imageUrl || Object.keys(slide.positions || {}).length > 0) && (
-              <div className="bg-[#0f0f0f] border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
-                {slide.imageUrl && (
-                  <>
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
-                        <span className="text-[10px] text-zinc-600 font-mono">{slide.imagePosition ?? 50}%</span>
-                      </div>
-                      <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        value={slide.imagePosition ?? 50}
-                        onChange={(e) => onImagePosition(index, e.target.value)}
-                        className="alice-range"
-                      />
-                    </div>
-                    
-                    <div className="w-full h-px bg-surface-input/30" />
+            {(() => {
+              // Detectar quantos slots de imagem o variant usa
+              const MULTI_IMAGE_SLOTS = {
+                'content-split': { 27: 4, 28: 2, 29: 2, 30: 2, 31: 2 },
+              };
+              const variantKey = slide.layout === 'content-split' ? (slide.splitVariantIndex || 0) : 0;
+              const totalSlots = MULTI_IMAGE_SLOTS[slide.layout]?.[variantKey] || 1;
 
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <label className="text-xs font-medium text-zinc-400 mb-0">Tamanho da Imagem (Escala)</label>
-                        <span className="text-[10px] text-zinc-600 font-mono">{slide.imageScale ?? 1}x</span>
-                      </div>
-                      <input
-                        type="range"
-                        min="1"
-                        max="3"
-                        step="0.05"
-                        value={slide.imageScale ?? 1}
-                        onChange={(e) => onImageScale(index, e.target.value)}
-                        className="alice-range"
-                      />
-                    </div>
+              const urlFor = (s) => s === 1 ? 'imageUrl' : `imageUrl${s}`;
+              const posFor = (s) => s === 1 ? 'imagePosition' : `imagePosition${s}`;
+              const scaleFor = (s) => s === 1 ? 'imageScale' : `imageScale${s}`;
+              const slotLabels = ['Principal', '2ª Imagem', '3ª Imagem', '4ª Imagem'];
 
-                    {onRemoveImage && (
+              // Verificar se tem pelo menos uma imagem ativa
+              const hasAnyImage = Array.from({ length: totalSlots }, (_, i) => slide[urlFor(i + 1)]).some(Boolean);
+              const hasPositions = Object.keys(slide.positions || {}).length > 0;
+
+              if (!hasAnyImage && !hasPositions) return null;
+
+              return (
+                <div className="bg-[#0f0f0f] border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
+                  {Array.from({ length: totalSlots }, (_, idx) => {
+                    const slot = idx + 1;
+                    const imageUrl = slide[urlFor(slot)];
+                    if (!imageUrl) return null;
+                    const imagePosition = slide[posFor(slot)] ?? 50;
+                    const imageScale = slide[scaleFor(slot)] ?? 1;
+                    const label = totalSlots > 1 ? slotLabels[idx] : null;
+
+                    return (
+                      <div key={slot} className={slot > 1 ? 'border-t border-zinc-800/60 pt-4' : ''}>
+                        {label && (
+                          <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 block mb-3">{label}</span>
+                        )}
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
+                            <span className="text-[10px] text-zinc-600 font-mono">{imagePosition}%</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={imagePosition}
+                            onChange={(e) => onImagePosition(index, e.target.value, slot)}
+                            className="alice-range"
+                          />
+                        </div>
+
+                        <div className="w-full h-px bg-surface-input/30 my-2" />
+
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <label className="text-xs font-medium text-zinc-400 mb-0">Tamanho da Imagem (Escala)</label>
+                            <span className="text-[10px] text-zinc-600 font-mono">{imageScale}x</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="1"
+                            max="3"
+                            step="0.05"
+                            value={imageScale}
+                            onChange={(e) => onImageScale(index, e.target.value, slot)}
+                            className="alice-range"
+                          />
+                        </div>
+
+                        {onRemoveImage && (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onRemoveImage(index, slot); }}
+                            className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-2"
+                          >
+                            <X size={12} />
+                            Remover {label || 'Imagem'}
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })}
+
+                  {/* Resetar Posições */}
+                  {(hasPositions || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
+                    <div className={hasAnyImage ? "pt-2 border-t border-white/5" : ""}>
                       <button
-                        onClick={(e) => { e.stopPropagation(); onRemoveImage(index); }}
-                        className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-1"
+                        onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
+                        className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
                       >
-                        <X size={12} />
-                        Remover Imagem
+                        <RotateCcw size={12} />
+                        Resetar Posições
                       </button>
-                    )}
-                  </>
-                )}
-
-                {/* Resetar Posições */}
-                {(Object.keys(slide.positions || {}).length > 0 || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
-                  <div className={slide.imageUrl ? "pt-2 border-t border-white/5" : ""}>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
-                      className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
-                    >
-                      <RotateCcw size={12} />
-                      Resetar Posições
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
           </div>
         </div>
         

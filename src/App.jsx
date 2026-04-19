@@ -259,12 +259,14 @@ export default function App() {
     );
   }, []);
 
-  const handleImageUpload = useCallback((index, event) => {
+  const handleImageUpload = useCallback((index, event, slot = 1) => {
     const file = event.target.files[0];
     if (!file) return;
-    const imageUrl = URL.createObjectURL(file);
+    const objectUrl = URL.createObjectURL(file);
+    const urlField = slot === 1 ? 'imageUrl' : `imageUrl${slot}`;
+    const posField = slot === 1 ? 'imagePosition' : `imagePosition${slot}`;
     setSlides((prev) =>
-      prev.map((s, i) => (i === index ? { ...s, imageUrl, imagePosition: 50 } : s))
+      prev.map((s, i) => (i === index ? { ...s, [urlField]: objectUrl, [posField]: 50 } : s))
     );
   }, []);
 
@@ -380,18 +382,23 @@ export default function App() {
     }
   }, []);
 
-  const handleImagePosition = useCallback((index, value) => {
-    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imagePosition: value } : s)));
+  const handleImagePosition = useCallback((index, value, slot = 1) => {
+    const field = slot === 1 ? 'imagePosition' : `imagePosition${slot}`;
+    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
   }, []);
 
-  const handleImageScale = useCallback((index, value) => {
-    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, imageScale: value } : s)));
+  const handleImageScale = useCallback((index, value, slot = 1) => {
+    const field = slot === 1 ? 'imageScale' : `imageScale${slot}`;
+    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
   }, []);
 
-  const handleRemoveImage = useCallback((index) => {
+  const handleRemoveImage = useCallback((index, slot = 1) => {
+    const urlField = slot === 1 ? 'imageUrl' : `imageUrl${slot}`;
+    const posField = slot === 1 ? 'imagePosition' : `imagePosition${slot}`;
+    const scaleField = slot === 1 ? 'imageScale' : `imageScale${slot}`;
     setSlides((prev) =>
       prev.map((s, i) =>
-        i === index ? { ...s, imageUrl: null, imagePosition: 50, imageScale: 1 } : s
+        i === index ? { ...s, [urlField]: null, [posField]: 50, [scaleField]: 1 } : s
       )
     );
   }, []);
@@ -438,10 +445,12 @@ export default function App() {
     ));
   }, []);
 
-  const handleImageFromUrl = useCallback((index, url) => {
+  const handleImageFromUrl = useCallback((index, url, slot = 1) => {
     if (!url) return;
+    const urlField = slot === 1 ? 'imageUrl' : `imageUrl${slot}`;
+    const posField = slot === 1 ? 'imagePosition' : `imagePosition${slot}`;
     setSlides((prev) =>
-      prev.map((s, i) => (i === index ? { ...s, imageUrl: url, imagePosition: 50 } : s))
+      prev.map((s, i) => (i === index ? { ...s, [urlField]: url, [posField]: 50 } : s))
     );
   }, []);
 
