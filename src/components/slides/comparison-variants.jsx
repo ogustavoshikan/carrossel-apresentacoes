@@ -57,7 +57,7 @@ export function ComparisonVariant1(props) {
 
               />
       
-      <div className="flex-1 flex flex-col justify-start pt-12 pb-8">
+      <div className="flex-1 flex flex-col justify-start pt-5 pb-8">
         <ComparisonTitle 
           data={data} index={index} scale={sTitle} 
           onActionStart={onActionStart} onTextChange={onTextChange} 
