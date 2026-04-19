@@ -426,7 +426,7 @@ export const VARIANT_THUMBNAILS = {
       <div className="w-full h-full flex rounded-[3px] overflow-hidden" style={{ background: '#EBE9E1' }}>
         <div className="w-[55%] p-1.5 flex flex-col justify-center gap-1">
           <div className="w-[85%] h-[3px] bg-black/80 rounded-full" />
-          <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+          <div className="w-[60%] h-[2.5px] bg-zinc-400 rounded-full" />
         </div>
         <div className="w-[45%]" style={{ background: img }} />
       </div>
@@ -490,6 +490,28 @@ export const VARIANT_THUMBNAILS = {
         <div className="h-4 w-full flex items-center justify-between px-1">
            <div className="w-4 h-[1px] bg-zinc-200" />
            <div className="w-3 h-3 rounded-full border border-zinc-200" />
+        </div>
+      </div>
+    ),
+    43: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col items-center justify-center p-1 bg-white rounded-[3px] overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10 flex flex-col gap-0.5 justify-center">
+           {[...Array(6)].map((_, i) => (
+             <div key={i} className="w-[120%] h-[2px]" style={{ background: accent }} />
+           ))}
+        </div>
+        <div className="w-[70%] h-[75%] rounded-md border-[1.5px] border-white shadow-md relative z-10" style={{ background: img }} />
+        <div className="absolute bottom-1 right-1 w-6 h-2 bg-white rounded-full border border-zinc-100 shadow-sm" />
+      </div>
+    ),
+    44: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-white rounded-[3px] overflow-hidden relative">
+        <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full opacity-40" style={{ background: img }} />
+        <div className="absolute top-4 -right-2 w-8 h-8 rounded-full opacity-60 shadow-sm" style={{ background: img }} />
+        <div className="absolute bottom-1 right-2 w-10 h-10 rounded-full shadow-md" style={{ background: img }} />
+        <div className="absolute bottom-6 left-1 w-[60%] flex flex-col gap-1 z-10">
+           <div className="w-[80%] h-[2.5px] bg-black rounded-full" />
+           <div className="w-[50%] h-[1.5px] bg-zinc-400 rounded-full" />
         </div>
       </div>
     ),

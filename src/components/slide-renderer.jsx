@@ -41,6 +41,8 @@ const LAYOUT_MAP = {
   'cover-40': SlideCover,
   'cover-41': SlideCover,
   'cover-42': SlideCover,
+  'cover-43': SlideCover,
+  'cover-44': SlideCover,
   'content-split': SlideContentSplit,
   'big-number': SlideBigNumber,
   'quote': SlideQuote,

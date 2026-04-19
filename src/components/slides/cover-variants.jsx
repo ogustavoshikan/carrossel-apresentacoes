@@ -2067,6 +2067,91 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 43 — Repeat Text Focus
+// Texto repetido ao fundo com card de imagem central e badge
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle }) {
+  const sTitle = titleScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden justify-center items-center p-6 bg-white">
+      <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-20 pointer-events-none select-none leading-[0.8] text-center overflow-hidden">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="font-outfit font-black uppercase whitespace-nowrap" style={{ color: brandColor, fontSize: `${70 * sTitle}px` }}>
+            {slideData.titulo}
+          </div>
+        ))}
+      </div>
+      <div className="relative z-10 w-[85%] aspect-[3/4] bg-zinc-200 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden border-[6px] border-white shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+      <div className="absolute bottom-8 right-8 bg-white px-5 py-2.5 rounded-full shadow-xl z-20 flex items-center gap-2 border border-zinc-100">
+        <span className="font-outfit font-bold text-[10px] tracking-widest uppercase" style={{ color: brandColor }}>
+          @{brandHandle ? brandHandle.replace('@','') : 'STUDIO'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 44 — Floating Bubbles
+// Bolhas flutuantes com imagem e texto lateral elegante
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant44({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified }) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const slideData = data;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-white">
+      <SlideHeader 
+        {...sp} 
+        slideIndex={index}
+        index={index + 1} 
+        total={slideCount} 
+        brandHandle={brandHandle}
+        brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+      />
+      
+      <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full border-8 border-white/60 shadow-xl overflow-hidden bg-zinc-100 z-0">
+        <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 50%' }} />
+      </div>
+      <div className="absolute top-[30%] -right-16 w-56 h-56 rounded-full border-[10px] border-white/60 shadow-2xl overflow-hidden bg-zinc-100 z-0">
+        <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 100%' }} />
+      </div>
+      <div className="absolute -bottom-20 right-4 w-64 h-64 rounded-full border-[12px] border-white/60 shadow-2xl overflow-hidden bg-zinc-100 z-0">
+        <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 0%' }} />
+      </div>
+      <div className="absolute -bottom-10 left-10 w-32 h-32 rounded-full border-4 border-white/60 shadow-lg overflow-hidden bg-zinc-100 opacity-60 blur-[1px] z-0">
+        <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 50%' }} />
+      </div>
+
+      <div className="absolute top-[40%] left-8 w-[70%] z-20">
+        <SmartField field="titulo" {...sp} className="mb-6">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-playfair font-medium leading-tight italic text-[#1a1a1a]" style={{ fontSize: `${36 * sTitle}px` }}>
+            {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit leading-snug font-medium text-zinc-500" style={{ fontSize: `${14 * sText}px` }}>
+            {slideData.texto_apoio}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -2110,6 +2195,8 @@ export const COVER_VARIANT_COMPONENTS = {
   40: CoverVariant40,
   41: CoverVariant41,
   42: CoverVariant42,
+  43: CoverVariant43,
+  44: CoverVariant44,
 };
 
 export const COVER_VARIANT_META = [
@@ -2156,6 +2243,8 @@ export const COVER_VARIANT_META = [
   { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado' },
   { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale' },
   { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista' },
+  { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central' },
+  { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante' },
 ];
 
 
