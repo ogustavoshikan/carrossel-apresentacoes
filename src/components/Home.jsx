@@ -77,7 +77,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   ];
 
   const recentProjects = [
-    { title: "Lançamento Dark", slides: 8, tag: "Template", delay: "0" },
+    { title: "Lançamento Dark", slides: 8, tag: "Template", delay: "0", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png" },
     { title: "Oferta Expressa", slides: 3, tag: "Recente", delay: "100" },
     { title: "Dicas de UX/UI", slides: 10, tag: "Conceito", delay: "200" },
     { title: "Manifesto da Marca", slides: 5, tag: "Rascunho", delay: "300" }
@@ -221,22 +221,36 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                     {/* Fake Slides flutuando dentro do card */}
                     <div className="absolute inset-0 flex items-center justify-center p-8 perspective-[1000px]">
                       {/* Slide Fundo */}
-                      <div className="absolute w-3/4 h-3/4 bg-[#1A1A1A] rounded-xl border border-[#FFFFFF]/5 shadow-xl -rotate-6 translate-x-4 opacity-50 group-hover:-rotate-12 group-hover:translate-x-8 transition-all duration-150" />
+                      <div className="absolute w-3/4 h-3/4 bg-[#1A1A1A] rounded-xl border border-[#FFFFFF]/5 shadow-xl -rotate-6 translate-x-4 opacity-50 group-hover:-rotate-12 group-hover:translate-x-8 transition-all duration-150 overflow-hidden">
+                        {item.imageBack && (
+                          <img src={item.imageBack} alt={`${item.title} Fundo`} className="w-full h-full object-cover" />
+                        )}
+                      </div>
                       
                       {/* Slide Meio */}
-                      <div className="absolute w-3/4 h-3/4 bg-[#222222] rounded-xl border border-[#FFFFFF]/10 shadow-xl rotate-3 -translate-x-2 opacity-80 group-hover:rotate-6 group-hover:-translate-x-6 transition-all duration-150" />
+                      <div className="absolute w-3/4 h-3/4 bg-[#222222] rounded-xl border border-[#FFFFFF]/10 shadow-xl rotate-3 -translate-x-2 opacity-80 group-hover:rotate-6 group-hover:-translate-x-6 transition-all duration-150 overflow-hidden">
+                        {item.imageMiddle && (
+                          <img src={item.imageMiddle} alt={`${item.title} Meio`} className="w-full h-full object-cover" />
+                        )}
+                      </div>
                       
                       {/* Slide Principal/Frente */}
-                      <div className="absolute w-3/4 h-3/4 bg-gradient-to-br from-[#333333] to-[#111111] rounded-xl border border-[#FFFFFF]/20 shadow-2xl z-10 flex flex-col p-4 group-hover:scale-105 transition-all duration-150">
-                        {/* Simulação de conteúdo do slide */}
-                        <div className="w-8 h-8 rounded-full mb-auto flex items-center justify-center" style={{ backgroundColor: hexToRgba(brandColor, 0.20) }}>
-                           <LayoutGrid size={12} style={{ color: brandColor }} />
-                        </div>
-                        <div className="space-y-2 w-full">
-                          <div className="h-2 w-3/4 bg-[#FFFFFF]/20 rounded-full" />
-                          <div className="h-2 w-1/2 bg-[#FFFFFF]/10 rounded-full" />
-                          <div className="h-8 w-full rounded-lg mt-4" style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.20)}` }} />
-                        </div>
+                      <div className={`absolute w-3/4 h-3/4 bg-gradient-to-br from-[#333333] to-[#111111] rounded-xl border border-[#FFFFFF]/20 shadow-2xl z-10 flex flex-col group-hover:scale-105 transition-all duration-150 overflow-hidden ${!item.image ? 'p-4' : ''}`}>
+                        {item.image ? (
+                          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                        ) : (
+                          <>
+                            {/* Simulação de conteúdo do slide */}
+                            <div className="w-8 h-8 rounded-full mb-auto flex items-center justify-center" style={{ backgroundColor: hexToRgba(brandColor, 0.20) }}>
+                               <LayoutGrid size={12} style={{ color: brandColor }} />
+                            </div>
+                            <div className="space-y-2 w-full">
+                              <div className="h-2 w-3/4 bg-[#FFFFFF]/20 rounded-full" />
+                              <div className="h-2 w-1/2 bg-[#FFFFFF]/10 rounded-full" />
+                              <div className="h-8 w-full rounded-lg mt-4" style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.20)}` }} />
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
 
