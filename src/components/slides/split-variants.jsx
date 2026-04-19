@@ -1475,13 +1475,13 @@ export function SplitVariant25(props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
       </SmartField>
       
-      <div className="relative z-20 p-6 mix-blend-difference pointer-events-none">
+      <div className="relative z-20 p-6 pointer-events-none">
           <div className="pointer-events-auto">
              <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
           </div>
       </div>
       
-      <div className="relative z-10 w-[85%] mx-auto mt-2 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 flex-1 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
+      <div className="relative z-10 w-[85%] mx-auto mt-8 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 flex-1 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
           <span
             contentEditable suppressContentEditableWarning
