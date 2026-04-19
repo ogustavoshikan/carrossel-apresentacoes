@@ -241,17 +241,20 @@ export function SplitVariant3({
 
       {/* Bloco superior: texto */}
       <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b border-white/10 shrink-0">
-        <SmartField field="tag" {...sp} className="mb-4">
-          <span
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] tracking-[0.4em] uppercase outline-none"
-            style={{ color: brandColor }}
-          >
-            {data.tag || 'TAG'}
-          </span>
-        </SmartField>
+        <div className="flex items-center gap-2 mb-4 shrink-0">
+          <div className="h-[2px] min-h-[2px] w-8 shrink-0" style={{ backgroundColor: brandColor }} />
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] tracking-[0.4em] uppercase outline-none"
+              style={{ color: brandColor }}
+            >
+              {data.tag || 'TAG'}
+            </span>
+          </SmartField>
+        </div>
 
         <SmartField field="titulo" {...sp} className="mb-4">
           <h2
@@ -548,7 +551,7 @@ export function SplitVariant8(props) {
       </SmartField>
 
       <div className="flex-1 flex flex-col min-h-0">
-        <div className="flex items-start gap-4 mb-4 shrink-0">
+        <div className="flex items-center gap-4 mb-4 shrink-0">
           <SmartField field="tag" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -646,7 +649,7 @@ export function SplitVariant10(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#E8E8E8] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="w-[90%] mx-auto bg-white p-3 shadow-xl flex flex-col shrink-0 mb-8 mt-4 rotate-[-2deg] border border-black/5 z-10">
+      <div className="w-[82%] mx-auto bg-white p-3 shadow-xl flex flex-col shrink-0 mb-4 mt-8 rotate-[-2deg] border border-black/5 z-10">
         <SmartField field="imagem" {...sp} className="w-full aspect-square relative mb-3 overflow-hidden bg-zinc-200">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -668,7 +671,7 @@ export function SplitVariant10(props) {
         </div>
       </div>
       
-      <div className="flex-1 flex flex-col min-h-0 px-4 mt-2">
+      <div className="flex-1 flex flex-col min-h-0 px-4 -mt-1">
         <SmartField field="titulo" {...sp} className="shrink-0 mb-3">
           <h2
             contentEditable suppressContentEditableWarning
