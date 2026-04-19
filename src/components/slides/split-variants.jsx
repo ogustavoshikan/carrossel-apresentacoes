@@ -1051,7 +1051,7 @@ export function SplitVariant17(props) {
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
-      <div className="w-[95%] mx-auto bg-white p-6 rounded-2xl relative z-20 shadow-2xl transform rotate-1 -mt-12 flex-1 flex flex-col min-h-0 mb-6">
+      <div className="w-[95%] mx-auto bg-white p-6 rounded-2xl relative z-20 shadow-2xl transform rotate-1 -mt-4 flex-1 flex flex-col min-h-0 mb-6">
         <div className="flex items-center gap-2 mb-3 shrink-0">
           <div className="w-2 h-2 rounded-full" style={{ backgroundColor: brandColor }} />
           <SmartField field="tag" {...sp}>
