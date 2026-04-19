@@ -81,7 +81,7 @@ export default function SlideContentSplit({
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'imagem'}
           onSelectElement={onSelectElement}
-          className="relative w-full h-60 rounded-slide-inner overflow-hidden mb-8 ring-1 ring-white/10 shadow-2xl"
+          className="relative w-full h-60 rounded-slide-inner overflow-hidden mb-6 ring-1 ring-white/10 shadow-2xl"
         >
           {data.imageUrl ? (
             <div

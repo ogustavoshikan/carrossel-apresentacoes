@@ -551,7 +551,7 @@ export function SplitVariant8(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="w-full shrink-0" style={{ height: '3px' }} />
+      <div className="w-full shrink-0" style={{ height: '13px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-2xl overflow-hidden shadow-lg mb-6 shrink-0 bg-zinc-300 relative border border-black/5 mt-4">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
@@ -717,7 +717,7 @@ export function SplitVariant11(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="w-full shrink-0" style={{ height: '3px' }} />
+      <div className="w-full shrink-0" style={{ height: '13px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative z-0 border border-black/5 mt-4">
          <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
@@ -819,7 +819,7 @@ export function SplitVariant13(props) {
     <div className="w-full h-full relative overflow-hidden bg-white">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="absolute inset-0 p-6 flex flex-col border-8" style={{ borderColor: brandColor }}>
-        <div className="flex justify-between items-end mb-4 shrink-0 mt-4">
+        <div className="flex justify-between items-end mb-4 shrink-0 mt-[26px]">
           <SmartField field="titulo" {...sp} className="flex-1 min-w-0">
           <h2
             contentEditable suppressContentEditableWarning
@@ -932,11 +932,11 @@ export function SplitVariant15(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-zinc-300 rounded-t-[100px] rounded-b-xl overflow-hidden shadow-lg mb-6 mt-4 relative shrink-0">
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-zinc-300 rounded-t-[100px] rounded-b-xl overflow-hidden shadow-lg mb-6 mt-[26px] relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
-      <div className="flex-1 flex flex-col items-center text-center min-h-0">
+      <div className="flex-1 flex flex-col items-center text-center min-h-0 pt-[10px]">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
           <span
             contentEditable suppressContentEditableWarning
@@ -988,14 +988,14 @@ export function SplitVariant16(props) {
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="w-full h-[45%] shrink-0 relative mb-8 mt-4">
+      <div className="w-full h-[45%] shrink-0 relative mb-8 mt-[26px]">
         <div className="absolute -bottom-3 -right-3 w-24 h-24 rounded-br-[90px] z-0" style={{ backgroundColor: brandColor }} />
         <SmartField field="imagem" {...sp} className="relative w-full h-full bg-zinc-300 rounded-br-[80px] rounded-tl-xl overflow-hidden shadow-lg z-10 border-4 border-white">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
       
-      <div className="flex-1 flex flex-col min-h-0 pl-2">
+      <div className="flex-1 flex flex-col min-h-0 pl-2 pt-[10px]">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
           <span
              contentEditable suppressContentEditableWarning
@@ -1053,7 +1053,7 @@ export function SplitVariant17(props) {
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
       
-      <SmartField field="imagem" {...sp} className="w-[90%] h-[40%] mx-auto bg-zinc-300 rounded-2xl relative z-10 shadow-2xl transform -rotate-3 shrink-0 border border-zinc-700 mt-4 overflow-hidden">
+      <SmartField field="imagem" {...sp} className="w-[90%] h-[40%] mx-auto bg-zinc-300 rounded-2xl relative z-10 shadow-2xl transform -rotate-3 shrink-0 border border-zinc-700 mt-[26px] overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
@@ -1475,15 +1475,17 @@ export function SplitVariant25(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA]">
-      <SmartField field="imagem" {...sp} className="w-full h-[65%] absolute bottom-0 left-0 bg-zinc-900 z-0 border-t border-black/10">
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black">
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full bg-zinc-900 z-0">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
       </SmartField>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
       
-      <div className="relative z-10 w-[85%] mx-auto mt-8 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 flex-1 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
+      <div className="relative z-10 w-[85%] mx-auto my-auto bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
           <span
             contentEditable suppressContentEditableWarning
@@ -1517,8 +1519,6 @@ export function SplitVariant25(props) {
           </p>
         </SmartField>
       </div>
-      
-      <div className="h-[40%] pointer-events-none shrink-0" />
     </div>
   );
 }
