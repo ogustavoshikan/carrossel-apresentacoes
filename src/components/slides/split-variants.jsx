@@ -1153,7 +1153,7 @@ export function SplitVariant19(props) {
       
       <div className="flex-1 flex flex-col min-h-0 justify-center pb-4 mt-6">
         <div className="flex items-center gap-3 mb-3 shrink-0">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="tag" {...sp} className="-translate-y-[2px]">
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
@@ -1256,12 +1256,11 @@ export function SplitVariant21(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-[#FAFAFA]">
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="absolute inset-0 p-6 flex flex-col z-10">
-        <div className="flex-1 flex flex-col z-20 min-h-0 pt-10">
-          <SmartField field="titulo" {...sp} className="mb-4 w-[80%]">
+      <div className="flex-1 flex flex-col z-10 min-h-0 pt-12">
+        <SmartField field="titulo" {...sp} className="mb-4 w-[80%]">
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
@@ -1284,9 +1283,10 @@ export function SplitVariant21(props) {
         </SmartField>
       </div>
       
-      <SmartField field="imagem" {...sp} className="absolute bottom-6 right-6 w-[55%] h-[40%] rounded-xl overflow-hidden shadow-2xl bg-zinc-300 z-10 border-4 border-white">
-        <ImageBg data={data} className="absolute inset-0" />
-      </SmartField>
+      <div className="absolute bottom-6 right-6 w-[55%] h-[40%] z-0">
+        <SmartField field="imagem" {...sp} className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-300 border-4 border-white">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
       </div>
     </div>
   );
