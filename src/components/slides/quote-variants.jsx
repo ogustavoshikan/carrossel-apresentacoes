@@ -9,11 +9,11 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
  * ─────────────────────────────────────────────────────────────────
  */
 
-function ImageBg({ imageUrl, imagePosition, imageScale, rounded = '' }) {
+function ImageBg({ imageUrl, imagePosition, imageScale, className = '' }) {
   if (!imageUrl) return null;
   return (
     <div
-      className={`absolute inset-0 bg-cover bg-no-repeat ${rounded}`}
+      className={`absolute inset-0 bg-cover bg-no-repeat ${className}`}
       style={{
         backgroundImage: `url('${imageUrl}')`,
         backgroundPosition: `center ${imagePosition ?? 50}%`,
@@ -51,7 +51,7 @@ function QuoteVariant1({ data, index, brandHandle, brandAvatar, brandColor, titl
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-16 justify-center relative overflow-hidden">
-      <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
+      <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} className="opacity-40 blur-md scale-110" />
       
       <div className="absolute left-0 top-1/4 bottom-1/4 w-3 rounded-r-xl" style={{ backgroundColor: brandColor }} />
       

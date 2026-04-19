@@ -59,8 +59,8 @@ export function ListVariant1(props) {
             <div key={i} className="flex gap-6 items-start group">
               <div className="font-outfit font-black text-base opacity-30 mt-1 pointer-events-none" style={{ color: brandColor }}>0{i + 1}</div>
               <div className="flex-1 border-b border-white/5 pb-4">
-                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[14px] uppercase tracking-widest mb-1 outline-none line-clamp-1">{item.label}</h4>
-                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-snug outline-none line-clamp-2">{item.text}</p>
+
+                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-snug outline-none line-clamp-2 mt-1">{item.text}</p>
               </div>
             </div>
           ))}
