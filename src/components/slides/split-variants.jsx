@@ -1475,11 +1475,7 @@ export function SplitVariant25(props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
       </SmartField>
       
-      <div className="relative z-20 p-6 pointer-events-none">
-          <div className="pointer-events-auto">
-             <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-          </div>
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
       <div className="relative z-10 w-[85%] mx-auto mt-8 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 flex-1 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
@@ -1601,9 +1597,7 @@ export function SplitVariant27(props) {
         ))}
       </div>
       
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
@@ -1651,9 +1645,7 @@ export function SplitVariant28(props) {
         <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
       </div>
       
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-2xl flex flex-col items-center text-center z-10 border border-white/50">
         <SmartField field="tag" {...sp} className="mb-2">
@@ -1721,10 +1713,6 @@ export function SplitVariant29(props) {
         </SmartField>
       </div>
 
-      <div className="absolute top-4 left-4 bg-black/60 backdrop-blur px-3 py-1 rounded-md text-white text-[9px] font-bold tracking-widest z-20 font-outfit uppercase">
-        @{brandHandle || 'ALICESTUDIO'}
-      </div>
-
       <div className="absolute bottom-6 right-6 max-w-[55%] bg-white/95 backdrop-blur-md px-4 py-3 rounded-xl shadow-2xl z-20 border border-white/50">
         <SmartField field="texto_apoio" {...sp}>
           <p
@@ -1737,9 +1725,7 @@ export function SplitVariant29(props) {
         </SmartField>
       </div>
       
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showBrandHandle={false} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
     </div>
   );
 }
@@ -1763,9 +1749,7 @@ export function SplitVariant30(props) {
         </div>
       </div>
 
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
@@ -1814,9 +1798,7 @@ export function SplitVariant31(props) {
         </div>
       </div>
 
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
