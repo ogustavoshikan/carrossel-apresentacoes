@@ -1,11 +1,28 @@
 import React from 'react';
-import { CheckCircle2, Star } from 'lucide-react';
+import { CheckCircle2, Star, Check } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
 // ==========================================
 // HELPERS
 // ==========================================
+
+const SmartEl = SmartElement;
+
+function TextWrapper({ field, index, onTextChange, as: Component = 'div', className, style, children, ...props }) {
+  return (
+    <Component
+      contentEditable
+      suppressContentEditableWarning
+      onBlur={(e) => onTextChange && onTextChange(index, field, e.currentTarget.innerText)}
+      className={`outline-none ${className || ''}`}
+      style={style}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+}
 
 const ListTitle = ({ data, index, scale, onActionStart, onTextChange, selectedElement, onSelectElement, align = 'text-left', color = 'text-white', wrapperClasses = 'mb-10 text-left shrink-0', className = '' }) => {
   return (
@@ -429,6 +446,701 @@ export function ListVariant13(props) {
   );
 }
 
+export function ListVariant14(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <div className="flex-1 flex flex-col min-h-0 pt-6">
+        <SmartEl index={index} field="tag" className="shrink-0">
+          <TextWrapper {...tw} as="span" field="tag" className="italic text-2xl mb-1 block font-playfair" style={{ color: brandColor }}>
+            {data.tag || 'Destaque'}
+          </TextWrapper>
+        </SmartEl>
+        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="flex-1 overflow-hidden flex flex-col gap-4 justify-center">
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="flex gap-3 items-start border-b border-zinc-300/50 pb-3 last:border-0 shrink-0">
+              <span className="font-bold text-lg mt-0.5 shrink-0 font-outfit" style={{ color: brandColor }}>
+                0{i + 1}.
+              </span>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-zinc-800 leading-snug flex-1 outline-none font-playfair" 
+                style={{ fontSize: `${15 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant15(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
+      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+      <div className="flex-1 flex flex-col min-h-0 pt-8">
+        <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="flex-1 overflow-hidden flex flex-col gap-0 px-4 relative justify-center">
+          <div className="absolute left-[27px] top-4 bottom-8 w-[2px] bg-white/20 z-0" />
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="flex gap-4 items-start pb-6 shrink-0 relative z-10">
+              <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 border-4 border-[#1a1a1a] text-[10px] font-bold font-outfit" style={{ backgroundColor: brandColor }}>
+                {i + 1}
+              </div>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-zinc-300 leading-snug flex-1 mt-0.5 outline-none font-playfair" 
+                style={{ fontSize: `${14 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant16(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <div className="flex-1 flex flex-col min-h-0 pt-8">
+        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="grid grid-cols-2 gap-3 flex-1 min-h-0 content-center">
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="bg-white rounded-xl p-4 shadow-sm flex flex-col border border-zinc-100 overflow-hidden">
+              <span className="text-xl opacity-20 font-black mb-1 shrink-0 font-outfit" style={{ color: brandColor }}>
+                0{i + 1}
+              </span>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-zinc-700 leading-tight flex-1 outline-none font-outfit" 
+                style={{ fontSize: `${14 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant17(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <div className="mt-8 mb-6 shrink-0">
+        <SmartEl index={index} field="titulo">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+      <div className="flex-1 flex flex-col justify-evenly min-h-0">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="flex gap-4 items-center relative pl-10 shrink-0">
+            <span className="absolute left-0 text-5xl font-black opacity-10 top-1/2 -translate-y-1/2 font-outfit" style={{ color: brandColor }}>
+              {i + 1}
+            </span>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-800 leading-snug font-medium z-10 outline-none font-playfair" 
+              style={{ fontSize: `${15 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant18(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
+      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+      <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
+          <Check className="w-6 h-6 text-white" />
+        </div>
+        <SmartEl index={index} field="titulo" className="flex-1">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+      <div className="flex-1 flex flex-col gap-4 min-h-0 justify-center">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="flex gap-4 items-start bg-zinc-800/50 p-5 rounded-xl border border-zinc-700/50 shrink-0">
+            <div className="w-6 h-6 rounded bg-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
+              <Check className="w-3.5 h-3.5 text-white" />
+            </div>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-300 leading-snug outline-none font-playfair" 
+              style={{ fontSize: `${14 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant19(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="flex-1 flex flex-col gap-4 justify-center min-h-0">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="bg-white border-l-4 p-5 shadow-sm shrink-0" style={{ borderColor: brandColor }}>
+            <p className="text-zinc-800 font-bold uppercase tracking-widest text-[11px] mb-1 font-outfit">
+              Item 0{i + 1}
+            </p>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-600 leading-snug outline-none font-playfair" 
+              style={{ fontSize: `${14 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant20(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50">
+      <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="flex-1 overflow-hidden flex flex-col justify-around relative pl-8">
+        <div className="absolute left-[13px] top-4 bottom-8 w-[2px] bg-zinc-200 z-0" />
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="flex gap-6 items-center relative z-10 shrink-0 py-2">
+            <div className="w-4 h-4 rounded-full border-4 shrink-0 bg-white" style={{ borderColor: brandColor }} />
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-800 leading-snug font-medium outline-none font-playfair" 
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant21(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <div className="flex-1 flex flex-col min-h-0 pt-8">
+        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="flex-1 flex flex-col gap-6 justify-center min-h-0">
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="flex gap-4 items-start shrink-0">
+              <div className="w-2 h-2 rounded-full mt-2.5 shrink-0" style={{ backgroundColor: brandColor }} />
+              <div className="flex flex-col gap-1 flex-1">
+                <p 
+                  contentEditable 
+                  suppressContentEditableWarning 
+                  onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                  className="text-zinc-800 leading-snug font-bold outline-none font-outfit" 
+                  style={{ fontSize: `${16 * sText}px` }}
+                >
+                  {item.text}
+                </p>
+                <div className="w-full h-[1px] bg-zinc-200" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant22(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex overflow-hidden bg-zinc-50">
+      <div className="w-[35%] h-full shrink-0 relative overflow-hidden bg-zinc-200">
+        <div className="absolute inset-0 bg-zinc-300 opacity-50" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+           <div className="w-32 h-32 rounded-full border-8 border-black" />
+        </div>
+      </div>
+      <div className="flex-1 p-10 flex flex-col min-h-0">
+        <SlideHeader {...props} index={index + 1} total={slideCount} />
+        <SmartEl index={index} field="titulo" className="mb-6 shrink-0 pt-8">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="flex-1 flex flex-col justify-center min-h-0">
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="flex gap-3 items-center border-b border-zinc-300/50 py-3 last:border-0 shrink-0">
+              <span className="font-bold text-lg shrink-0 font-outfit" style={{ color: brandColor }}>—</span>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-zinc-800 leading-snug font-medium flex-1 outline-none font-playfair" 
+                style={{ fontSize: `${15 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant23(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 pt-8">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="flex-1 flex flex-col gap-3 min-h-0 justify-center">
+        {items.slice(0, 4).map((item, i) => {
+          const isSelected = i === 1; // Destaque na segunda posição conforme documento
+          return (
+            <div 
+              key={i} 
+              className={`p-5 rounded-xl flex items-center shadow-sm shrink-0 border transition-all ${
+                isSelected ? 'text-white scale-105 z-10' : 'bg-white text-zinc-600 border-zinc-200'
+              }`}
+              style={isSelected ? { backgroundColor: brandColor, borderColor: brandColor } : {}}
+            >
+              <span className={`font-black text-xl mr-6 font-outfit ${isSelected ? 'opacity-50' : 'opacity-20'}`} style={!isSelected ? { color: brandColor } : {}}>
+                0{i + 1}
+              </span>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="leading-tight font-medium outline-none flex-1 font-playfair" 
+                style={{ fontSize: `${15 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant24(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50">
+      <SmartEl index={index} field="titulo" className="mb-10 shrink-0 text-right">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="flex-1 flex flex-col justify-center gap-6 min-h-0">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="flex flex-col shrink-0" style={{ paddingLeft: `${i * 1.5}rem` }}>
+            <div className="w-6 h-[2.5px] mb-2" style={{ backgroundColor: brandColor }} />
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-[#1a1a1a] font-bold leading-tight outline-none font-outfit" 
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant25(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
+      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="grid grid-cols-2 gap-5 flex-1 min-h-0 content-center">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center justify-center border border-zinc-100 transition-transform hover:scale-105">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-md font-outfit text-lg" style={{ backgroundColor: brandColor }}>
+              0{i + 1}
+            </div>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-700 leading-tight font-medium outline-none font-playfair" 
+              style={{ fontSize: `${14 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant26(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex overflow-hidden bg-zinc-50">
+      <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
+        <div>
+          <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+          <SmartEl index={index} field="tag" className="mt-12 mb-2">
+            <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 font-outfit">
+              {data.tag || 'Resumo'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl index={index} field="titulo">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+              {data.titulo}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="w-12 h-1 bg-white/30 rounded-full" />
+      </div>
+      <div className="w-[65%] h-full p-10 flex flex-col justify-center gap-6">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="flex flex-col border-b border-zinc-300 pb-4 last:border-0 shrink-0">
+            <span className="font-black text-xl mb-1 font-outfit" style={{ color: brandColor }}>
+              0{i + 1}
+            </span>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-800 leading-snug font-medium outline-none font-playfair" 
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant27(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+      <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
+        <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
+           <span className="text-zinc-400 font-outfit text-xs">Espaço para Imagem</span>
+        </div>
+        <div className="absolute top-6 left-6 right-6">
+          <SlideHeader {...props} index={index + 1} total={slideCount} />
+        </div>
+        <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/50">
+          <SmartEl index={index} field="titulo">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
+              {data.titulo}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+      <div className="flex-1 p-6 grid grid-cols-2 gap-4 min-h-0 bg-white content-center">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="bg-zinc-50 p-4 rounded-2xl border border-zinc-100 flex flex-col justify-center shadow-sm relative overflow-hidden shrink-0">
+            <div className="absolute -right-2 -bottom-2 font-black text-6xl opacity-5 font-outfit" style={{ color: brandColor }}>
+              {i + 1}
+            </div>
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-700 leading-snug font-medium relative z-10 outline-none font-playfair" 
+              style={{ fontSize: `${13 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant28(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white">
+      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+      <div className="pt-8">
+        <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+      <div className="flex-1 flex flex-col justify-center gap-6 min-h-0 pl-2">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="relative flex items-center shrink-0">
+            <span className="absolute -left-6 font-black text-7xl opacity-20 -translate-y-1 font-outfit" style={{ color: brandColor }}>
+              {i + 1}
+            </span>
+            <div className="relative z-10 bg-zinc-900/80 backdrop-blur p-4 rounded-xl border-l-4 shadow-xl w-full" style={{ borderColor: brandColor }}>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-zinc-200 leading-snug outline-none font-playfair" 
+                style={{ fontSize: `${14 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant29(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-zinc-800 opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
+      </div>
+      <div className="relative z-10 flex flex-col h-full pt-8">
+        <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+        <SmartEl index={index} field="titulo" className="mb-6 shrink-0 text-center mt-2">
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl font-outfit" style={{ fontSize: `${30 * sTitle}px` }}>
+            {data.titulo}
+          </TextWrapper>
+        </SmartEl>
+        <div className="flex-1 flex flex-col gap-3 min-h-0 justify-center">
+          {items.slice(0, 4).map((item, i) => (
+            <div key={i} className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex items-center gap-4 shrink-0">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 border border-white/30 font-outfit" style={{ backgroundColor: brandColor }}>
+                0{i + 1}
+              </div>
+              <p 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+                className="text-white/90 leading-snug font-medium outline-none font-playfair" 
+                style={{ fontSize: `${13 * sText}px` }}
+              >
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ListVariant30(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const items = data.items || [];
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50">
+      <div className="absolute top-6 left-6 right-6">
+        <SlideHeader {...props} index={index + 1} total={slideCount} />
+      </div>
+      <SmartEl index={index} field="tag" className="mb-2 shrink-0">
+        <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[10px] uppercase tracking-[0.2em] font-outfit" style={{ color: brandColor }}>
+          {data.tag || 'Destaque'}
+        </TextWrapper>
+      </SmartEl>
+      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
+        <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter font-outfit" style={{ fontSize: `${36 * sTitle}px` }}>
+          {data.titulo}
+        </TextWrapper>
+      </SmartEl>
+      <div className="w-full flex flex-col gap-3 min-h-0">
+        {items.slice(0, 4).map((item, i) => (
+          <div key={i} className="bg-white rounded-full px-6 py-4 flex items-center gap-4 shadow-sm border border-zinc-200 shrink-0 mx-2 hover:scale-[1.02] transition-transform group">
+            <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
+              className="text-zinc-800 leading-snug font-medium flex-1 outline-none font-playfair" 
+              style={{ fontSize: `${14 * sText}px` }}
+            >
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -447,6 +1159,23 @@ export const LIST_VARIANT_COMPONENTS = {
   11: ListVariant11,
   12: ListVariant12,
   13: ListVariant13,
+  14: ListVariant14,
+  15: ListVariant15,
+  16: ListVariant16,
+  17: ListVariant17,
+  18: ListVariant18,
+  19: ListVariant19,
+  20: ListVariant20,
+  21: ListVariant21,
+  22: ListVariant22,
+  23: ListVariant23,
+  24: ListVariant24,
+  25: ListVariant25,
+  26: ListVariant26,
+  27: ListVariant27,
+  28: ListVariant28,
+  29: ListVariant29,
+  30: ListVariant30,
 };
 
 export const LIST_VARIANT_META = [
@@ -464,5 +1193,22 @@ export const LIST_VARIANT_META = [
   { id: 11, nome: 'Badges', badge: 'PRO' },
   { id: 12, nome: 'Checklist Gold', badge: 'NEW' },
   { id: 13, nome: 'Step-by-Step', badge: 'NEW' },
+  { id: 14, nome: 'Premium Tag', badge: 'PREMIUM' },
+  { id: 15, nome: 'Dark Path', badge: 'PREMIUM' },
+  { id: 16, nome: 'Card Grid', badge: 'NEW' },
+  { id: 17, nome: 'Ghost Numbers', badge: null },
+  { id: 18, nome: 'Expert Checklist', badge: 'PRO' },
+  { id: 19, nome: 'Side Border', badge: null },
+  { id: 20, nome: 'Clean Timeline', badge: 'NEW' },
+  { id: 21, nome: 'Elegant List', badge: null },
+  { id: 22, nome: 'Split Abstract', badge: 'PRO' },
+  { id: 23, nome: 'Focus Highlight', badge: 'NEW' },
+  { id: 24, nome: 'Stepped Right', badge: null },
+  { id: 25, nome: 'Rounded Grid', badge: 'PRO' },
+  { id: 26, nome: 'Split Premium', badge: 'PREMIUM' },
+  { id: 27, nome: 'Gallery List', badge: 'PRO' },
+  { id: 28, nome: 'Dark Numbers', badge: 'PREMIUM' },
+  { id: 29, nome: 'Glass Cards', badge: 'NEW' },
+  { id: 30, nome: 'Pill Shape', badge: null },
 ];
 

@@ -182,6 +182,211 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            </div>
          ))}
       </div>
+    ),
+    // 14: Premium Tag
+    14: (
+      <div className="w-full h-full flex flex-col pt-1 px-1.5 gap-1 rounded-[3px] overflow-hidden bg-zinc-50">
+        <div className="w-3 h-1 rounded-full" style={{ background: accent }} />
+        <div className="w-[70%] h-1 bg-zinc-800 rounded-full" />
+        <div className="flex flex-col gap-1 mt-1">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex gap-1 items-center border-b border-zinc-200 pb-0.5">
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+              <div className="flex-1 h-[1px] bg-zinc-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+    // 15: Dark Path
+    15: (
+      <div className="w-full h-full flex flex-col pt-2 px-1.5 gap-2 rounded-[3px] overflow-hidden bg-zinc-900 relative">
+        <div className="absolute left-[7px] top-4 bottom-4 w-[0.5px] bg-white/20" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex gap-2 items-center relative z-10">
+            <div className="w-1.5 h-1.5 rounded-full border border-black" style={{ background: accent }} />
+            <div className="flex-1 h-[1px] bg-zinc-600" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 16: Card Grid
+    16: (
+      <div className="w-full h-full p-1 rounded-[3px] bg-zinc-100 grid grid-cols-2 gap-1 content-center">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="h-4 bg-white rounded-[1px] border border-zinc-200 p-0.5">
+            <div className="w-1.5 h-1.5 bg-zinc-200" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 17: Ghost Numbers
+    17: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-2 rounded-[3px] overflow-hidden bg-zinc-50 justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex gap-2 items-center relative">
+            <span className="text-[12px] font-black opacity-10" style={{ color: accent }}>{i+1}</span>
+            <div className="flex-1 h-[1px] bg-zinc-300" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 18: Expert Checklist
+    18: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-zinc-900 justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex gap-1.5 items-center bg-zinc-800 p-0.5 rounded-[1px] border border-zinc-700">
+            <div className="w-1.5 h-1.5 bg-zinc-600 rounded-[1px]" />
+            <div className="flex-1 h-[1px] bg-zinc-500" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 19: Side Border
+    19: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-zinc-50 justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex flex-col gap-0.5 bg-white border-l border-zinc-200 p-0.5" style={{ borderLeftColor: accent }}>
+            <div className="w-3 h-[0.5px] bg-zinc-400" />
+            <div className="w-5 h-[1px] bg-zinc-800" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 20: Clean Timeline
+    20: (
+      <div className="w-full h-full flex flex-col p-2 gap-2 rounded-[3px] overflow-hidden bg-zinc-50 relative justify-center">
+        <div className="absolute left-[10.5px] top-2 bottom-2 w-[0.5px] bg-zinc-200" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex gap-2 items-center relative z-10">
+            <div className="w-1.5 h-1.5 rounded-full border border-white" style={{ borderColor: accent }} />
+            <div className="flex-1 h-[1px] bg-zinc-400" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 21: Elegant List
+    21: (
+      <div className="w-full h-full flex flex-col p-2 gap-2 rounded-[3px] overflow-hidden bg-zinc-50 justify-center">
+        <div className="w-[60%] h-[1.5px] bg-zinc-800 mb-1" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex flex-col gap-1">
+            <div className="flex items-center gap-1.5">
+              <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+              <div className="flex-1 h-[1px] bg-zinc-300" />
+            </div>
+            <div className="w-full h-[0.5px] bg-zinc-200" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 22: Split Abstract
+    22: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-zinc-50">
+        <div className="w-[30%] h-full bg-zinc-200 flex items-center justify-center">
+           <div className="w-4 h-4 rounded-full border border-zinc-400" />
+        </div>
+        <div className="flex-1 flex flex-col p-1.5 justify-center gap-1.5">
+           {[...Array(3)].map((_, i) => (
+             <div key={i} className="flex items-center gap-1">
+               <div className="w-1.5 h-[0.5px] bg-zinc-400" style={{ background: accent }} />
+               <div className="flex-1 h-[1px] bg-zinc-300" />
+             </div>
+           ))}
+        </div>
+      </div>
+    ),
+    // 23: Focus Highlight
+    23: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1 rounded-[3px] overflow-hidden bg-zinc-50 justify-center">
+        <div className="h-3 bg-white border border-zinc-200 rounded-[2px]" />
+        <div className="h-4 rounded-[2px] flex items-center px-1 shadow-sm" style={{ background: accent }}>
+           <div className="w-full h-[1px] bg-white/40" />
+        </div>
+        <div className="h-3 bg-white border border-zinc-200 rounded-[2px]" />
+      </div>
+    ),
+    // 24: Stepped Right
+    24: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-zinc-50">
+        <div className="w-[40%] h-[1.5px] bg-zinc-800 self-end mb-1" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex flex-col gap-1" style={{ paddingLeft: `${i * 4}px` }}>
+            <div className="w-2 h-[1px]" style={{ background: accent }} />
+            <div className="w-5 h-[1px] bg-zinc-300" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 25: Rounded Grid
+    25: (
+      <div className="w-full h-full p-1 rounded-[3px] bg-zinc-50 grid grid-cols-2 gap-1 content-center">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="h-5 bg-white rounded-[4px] border border-zinc-100 flex flex-col items-center justify-center gap-1">
+            <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+            <div className="w-3 h-[0.5px] bg-zinc-200" />
+          </div>
+        ))}
+      </div>
+    ),
+    // 26: Split Premium
+    26: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-zinc-50">
+        <div className="w-[35%] h-full flex flex-col p-1 gap-1" style={{ background: accent }}>
+           <div className="w-2 h-[0.5px] bg-white/40" />
+           <div className="w-4 h-[1px] bg-white" />
+        </div>
+        <div className="flex-1 flex flex-col p-1.5 justify-center gap-1.5">
+           {[...Array(3)].map((_, i) => (
+             <div key={i} className="border-b border-zinc-200 pb-0.5">
+               <div className="w-2 h-[1px]" style={{ background: accent }} />
+             </div>
+           ))}
+        </div>
+      </div>
+    ),
+    // 27: Gallery List
+    27: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="h-[40%] bg-zinc-200" />
+        <div className="flex-1 p-1.5 grid grid-cols-2 gap-1 content-center">
+           {[...Array(4)].map((_, i) => (
+             <div key={i} className="h-4 bg-zinc-50 border border-zinc-100 rounded-[2px]" />
+           ))}
+        </div>
+      </div>
+    ),
+    // 28: Dark Numbers
+    28: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-black justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex gap-2 items-center">
+            <span className="text-[12px] font-black opacity-30" style={{ color: accent }}>{i+1}</span>
+            <div className="flex-1 h-[1.5px] bg-zinc-800 border-l border-white" style={{ borderLeftColor: accent }} />
+          </div>
+        ))}
+      </div>
+    ),
+    // 29: Glass Cards
+    29: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1 rounded-[3px] overflow-hidden bg-zinc-900 justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="h-4 bg-white/10 border border-white/20 rounded-[4px] flex items-center px-1">
+             <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+          </div>
+        ))}
+      </div>
+    ),
+    // 30: Pill Shape
+    30: (
+      <div className="w-full h-full flex flex-col p-1.5 gap-1 rounded-[3px] overflow-hidden bg-zinc-50 justify-center">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="h-4 bg-white border border-zinc-200 rounded-full flex items-center px-2 gap-1.5">
+             <div className="w-1 h-1 rounded-full" style={{ background: accent }} />
+             <div className="flex-1 h-[1px] bg-zinc-200" />
+          </div>
+        ))}
+      </div>
     )
   };
 
