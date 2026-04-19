@@ -624,22 +624,22 @@ export function ComparisonVariant11(props) {
         wrapperClasses="mb-12 shrink-0 mt-4 z-10" align="text-left" color="text-black"
       />
 
-      <div className="flex-1 flex flex-col justify-start space-y-8 pt-12 pb-12">
+      <div className="flex-1 flex flex-col justify-center space-y-4 pt-2 pb-6 overflow-visible">
         {Array.from({ length: rowCount }).map((_, i) => {
           const left = leftItems[i];
           const right = rightItems[i];
           return (
-            <div key={i} className="relative w-full border-b border-black/10 pb-4 pt-2 flex flex-col flex-shrink-0 mt-4">
+            <div key={i} className="relative w-full border-b border-black/10 pb-4 pt-4 flex flex-col flex-shrink-0 min-h-[4.5rem] justify-center">
               {left && (
-                <div className="w-full relative z-0 mb-[-0.5rem]">
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-outfit font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block w-full pr-8">
+                <div className="w-full relative z-0">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-outfit font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block w-[70%]">
                     {left.value}
                   </span>
                 </div>
               )}
               {right && (
-                <div className="w-full flex justify-end z-10 relative mt-2">
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair italic font-bold text-2xl transform -rotate-2 max-w-[85%] text-right bg-[#E5E5E5] pl-4" style={{ color: brandColor }}>
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-2/3 flex justify-end pointer-events-auto">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair italic font-bold text-2xl transform -rotate-2 text-right drop-shadow-sm pr-2" style={{ color: brandColor }}>
                     {right.value}
                   </span>
                 </div>
