@@ -114,7 +114,7 @@ export function ComparisonVariant13(props) {
       <div className="p-10 pb-2 shrink-0 text-center relative z-10 bg-white">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tighter uppercase mt-2 mb-2" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tighter uppercase mt-2 mb-2 translate-y-[6px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
           </TextWrapper>
         </SmartEl>
@@ -210,7 +210,7 @@ export function ComparisonVariant15(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden rounded-slide" style={{ backgroundColor: bgBase }}>
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
       <SmartEl {...sp} field="titulo" className="mb-8 shrink-0 text-center">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter relative top-[60px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
       </SmartEl>
@@ -403,7 +403,7 @@ export function ComparisonVariant19(props) {
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
       </div>
-      <SmartEl {...sp} field="titulo" className="absolute top-24 text-center w-full px-6">
+      <SmartEl {...sp} field="titulo" className="absolute top-[66px] text-center w-full px-6">
         <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-widest" style={{ fontFamily: titleFont, fontSize: `${22 * sTitle}px` }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
@@ -446,7 +446,7 @@ export function ComparisonVariant20(props) {
       <div className="p-10 shrink-0 relative z-10">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight tracking-tighter uppercase mt-2 mb-2 text-center" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight tracking-tighter uppercase mt-2 mb-2 text-center translate-y-[20px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
           </TextWrapper>
         </SmartEl>
@@ -487,7 +487,7 @@ export function ComparisonVariant21(props) {
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white p-10 rounded-slide">
       <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
       <SmartEl {...sp} field="titulo" className="mb-8 text-center shrink-0">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+        <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-tighter relative top-[60px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
       </SmartEl>
@@ -581,7 +581,7 @@ export function ComparisonVariant23(props) {
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
       </div>
-      <SmartEl {...sp} field="titulo" className="absolute top-24 text-center w-full px-6">
+      <SmartEl {...sp} field="titulo" className="absolute top-[46px] text-center w-full px-6">
         <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-widest" style={{ fontFamily: titleFont, fontSize: `${22 * sTitle}px`, color: brandColor }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
@@ -629,7 +629,7 @@ export function ComparisonVariant24(props) {
         <div className="absolute top-0 left-0 w-full p-10 z-50">
           <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} />
         </div>
-        <SmartEl {...sp} field="titulo" className="mb-12 text-center shrink-0 mt-8">
+        <SmartEl {...sp} field="titulo" className="mb-8 text-center shrink-0">
           <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
           </TextWrapper>
