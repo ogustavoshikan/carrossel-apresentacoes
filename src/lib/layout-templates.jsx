@@ -209,7 +209,12 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
 /** Lista dos 7 layouts com metadados de exibição */
 export const LAYOUT_META = [
-  { key: 'cover', label: 'Capa', description: 'Slide de abertura com imagem de fundo' },
+  { 
+    key: 'cover', 
+    label: 'Capa', 
+    description: 'Slide de abertura com imagem de fundo',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(14).png'
+  },
   { key: 'content-split', label: 'Conteúdo', description: 'Imagem + tag + título + texto' },
   { key: 'big-number', label: 'Número de Impacto', description: 'Estatística ou dado de destaque' },
   { key: 'quote', label: 'Citação', description: 'Frase de impacto com autor' },

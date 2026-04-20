@@ -61,20 +61,24 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
 
       {/* Grid dos layouts */}
       <div className="grid grid-cols-3 gap-2.5">
-        {LAYOUT_META.map(({ key, label, description }) => (
+        {LAYOUT_META.map((meta) => (
           <button
-            key={key}
-            onClick={() => handleSelect(key)}
-            title={description}
-            className="group flex flex-col items-center gap-2 p-2 rounded-xl border border-border-subtle hover:border-brand/60 bg-surface-input hover:bg-surface-input/50 transition-all duration-150 hover:scale-[1.03] active:scale-95"
+            key={meta.key}
+            onClick={() => handleSelect(meta.key)}
+            title={meta.description}
+            className="group flex flex-col items-center gap-2 p-2 rounded-xl border border-border-subtle hover:border-brand/60 bg-surface-input hover:bg-surface-input/50 transition-all duration-150 hover:scale-[1.03] active:scale-95 overflow-hidden"
           >
-            {/* Miniatura SVG */}
-            <div className="w-10 h-[50px] opacity-80 group-hover:opacity-100 transition-opacity">
-              {LAYOUT_ICONS[key]}
+            {/* Miniatura ou SVG */}
+            <div className="w-10 h-[50px] opacity-80 group-hover:opacity-100 transition-opacity overflow-hidden rounded-[3px]">
+              {meta.thumbnailUrl ? (
+                <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
+              ) : (
+                LAYOUT_ICONS[meta.key]
+              )}
             </div>
             {/* Label */}
             <span className="text-[10px] font-bold text-zinc-400 group-hover:text-white transition-colors text-center leading-tight">
-              {label}
+              {meta.label}
             </span>
           </button>
         ))}

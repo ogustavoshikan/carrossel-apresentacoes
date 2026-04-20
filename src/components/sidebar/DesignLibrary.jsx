@@ -73,8 +73,12 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
               }`}
               title={theme.label}
             >
-              <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
-                 {LAYOUT_ICONS[theme.key]}
+              <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
+                 {theme.thumbnailUrl ? (
+                   <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
+                 ) : (
+                   LAYOUT_ICONS[theme.key]
+                 )}
               </div>
               <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
                 {theme.label.split(' ')[0]}

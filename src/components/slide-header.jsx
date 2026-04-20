@@ -15,6 +15,7 @@ export default function SlideHeader({
   isVerified = false,
   dark = false,
   showSlideCounter = true,
+  counterBg,
   data,
   slideIndex,
   onActionStart,
@@ -94,6 +95,7 @@ export default function SlideHeader({
             ? 'bg-black/5 text-black border-black/10'
             : 'bg-surface-input/30 text-zinc-400 border-white/10'
         }`}
+        style={counterBg ? { backgroundColor: counterBg, borderColor: 'transparent' } : undefined}
       >
         {index} <span className="opacity-30 mx-1">/</span> {total}
       </div>

@@ -166,7 +166,13 @@ export default function LayoutSelector({ layoutSelection = {}, setLayoutSelectio
                     key={key}
                     className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-surface-input border border-border-subtle"
                   >
-                    <div className="w-7 h-9 shrink-0 opacity-80">{LAYOUT_ICONS[key]}</div>
+                    <div className="w-7 h-9 shrink-0 opacity-80 overflow-hidden rounded-[2px]">
+                      {meta?.thumbnailUrl ? (
+                        <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
+                      ) : (
+                        LAYOUT_ICONS[key]
+                      )}
+                    </div>
                     <span className="text-[8px] font-bold uppercase tracking-widest text-zinc-300 text-center leading-tight">
                       {meta?.label || key}
                     </span>
@@ -204,7 +210,16 @@ export default function LayoutSelector({ layoutSelection = {}, setLayoutSelectio
                 key={key}
                 className="flex-[0.5] flex flex-col items-center justify-between p-3 rounded-xl bg-white/3 border border-white/5 opacity-50"
               >
-                 <div className="w-8 h-10 shrink-0 mb-3">{LAYOUT_ICONS[key]}</div>
+                 <div className="w-8 h-10 shrink-0 mb-3 overflow-hidden rounded-[2px]">
+                    {(() => {
+                      const meta = LAYOUT_META.find(m => m.key === key);
+                      return meta?.thumbnailUrl ? (
+                        <img src={meta.thumbnailUrl} alt={label} className="w-full h-full object-cover" />
+                      ) : (
+                        LAYOUT_ICONS[key]
+                      );
+                    })()}
+                 </div>
                  <div className="text-center w-full">
                     <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">{label}</p>
                     <p className="text-[8px] text-zinc-600 mb-2">{desc}</p>
@@ -236,8 +251,12 @@ export default function LayoutSelector({ layoutSelection = {}, setLayoutSelectio
                   className="flex flex-col gap-3 p-3 rounded-xl bg-surface-input border border-border-subtle group hover:border-border-hover transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-10 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity">
-                      {LAYOUT_ICONS[key]}
+                    <div className="w-8 h-10 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity overflow-hidden rounded-[2px]">
+                      {LAYOUT_META.find(m => m.key === key)?.thumbnailUrl ? (
+                        <img src={LAYOUT_META.find(m => m.key === key).thumbnailUrl} alt={label} className="w-full h-full object-cover" />
+                      ) : (
+                        LAYOUT_ICONS[key]
+                      )}
                     </div>
                     <div className="flex-1 flex flex-col pt-0.5">
                       <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest leading-none mb-1.5">
@@ -322,14 +341,18 @@ export default function LayoutSelector({ layoutSelection = {}, setLayoutSelectio
                 <div key={meta.key} className="flex flex-col items-center gap-1">
                   <div
                     onClick={() => setDirectLayout(meta.key)}
-                    className={`w-full aspect-[3/4] rounded-lg p-3 flex items-center justify-center cursor-pointer transition-all border ${
+                    className={`w-full aspect-[3/4] rounded-lg p-3 flex items-center justify-center cursor-pointer transition-all border overflow-hidden ${
                       isSelected
                         ? 'bg-brand/10 border-brand/50 shadow-[0_0_15px_-3px_rgba(var(--brand-rgb),0.3)]'
                         : 'bg-surface-input border-border-subtle hover:border-white/20'
                     }`}
                   >
-                    <div className={`w-full h-full flex items-center justify-center opacity-80 ${isSelected ? 'opacity-100' : 'opacity-60'} transition-opacity`}>
-                       {Icon}
+                    <div className={`w-full h-full flex items-center justify-center opacity-80 ${isSelected ? 'opacity-100' : 'opacity-60'} transition-opacity overflow-hidden rounded-[2px]`}>
+                       {meta.thumbnailUrl ? (
+                         <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
+                       ) : (
+                         Icon
+                       )}
                     </div>
                   </div>
                   <span className={`text-[8px] uppercase tracking-widest font-bold truncate w-full text-center ${isSelected ? 'text-white' : 'text-zinc-500'}`}>
