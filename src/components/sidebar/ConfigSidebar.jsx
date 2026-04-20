@@ -749,7 +749,7 @@ export default function ConfigSidebar({
                         Cor do Texto
                       </span>
                     </label>
-                  <div className="flex items-center bg-surface-input rounded p-1 gap-1">
+                  <div className="relative flex items-center bg-surface-input rounded p-1 gap-1">
                     <label className="flex-shrink-0 cursor-pointer">
                       <input
                         type="color"
@@ -769,6 +769,15 @@ export default function ConfigSidebar({
                       onChange={(e) => updateProp('color', e.target.value)}
                       className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
                     />
+                    {pos.color && (
+                      <button
+                        onClick={() => updateProp('color', undefined)}
+                        title="Resetar cor do texto"
+                        className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-zinc-700 hover:bg-rose-500 border border-black/40 rounded-full flex items-center justify-center text-white shadow transition-colors z-10"
+                      >
+                        <X className="w-2 h-2" />
+                      </button>
+                    )}
                   </div>
                </div>
                <div>
@@ -784,7 +793,7 @@ export default function ConfigSidebar({
                         Cor do Fundo
                       </span>
                     </label>
-                  <div className="flex items-center bg-surface-input rounded p-1 gap-1">
+                  <div className="relative flex items-center bg-surface-input rounded p-1 gap-1">
                     <label className="flex-shrink-0 cursor-pointer">
                       <input
                         type="color"
@@ -804,6 +813,15 @@ export default function ConfigSidebar({
                       onChange={(e) => updateProp('bgColor', e.target.value)}
                       className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
                     />
+                    {pos.bgColor && (
+                      <button
+                        onClick={() => updateProp('bgColor', undefined)}
+                        title="Resetar cor do fundo"
+                        className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-zinc-700 hover:bg-rose-500 border border-black/40 rounded-full flex items-center justify-center text-white shadow transition-colors z-10"
+                      >
+                        <X className="w-2 h-2" />
+                      </button>
+                    )}
                   </div>
                </div>
              </div>
