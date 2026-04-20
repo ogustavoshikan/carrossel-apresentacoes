@@ -29,6 +29,7 @@ const Tooltip = ({ children, text }) => (
   </div>
 );
 import AddSlidePopover from './AddSlidePopover';
+import FavoritesPopover from './FavoritesPopover';
 import CoverVariantPopover from './CoverVariantPopover';
 import SplitVariantPopover from './SplitVariantPopover';
 import BigNumberVariantPopover from './BigNumberVariantPopover';
@@ -79,6 +80,8 @@ export default function VisualPreview({
   onSelectElement,
   onMoveSlide,
   onAddSlide,
+  onAddFavorite,
+  favorites = [],
   onCoverVariantChange,
   onSplitVariantChange,
   onBigNumberVariantChange,
@@ -94,6 +97,7 @@ export default function VisualPreview({
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
+  const [openFavIndex, setOpenFavIndex] = useState(-1);
   const [openVariantIndex, setOpenVariantIndex] = useState(-1);
   const [favoritedIndices, setFavoritedIndices] = useState({});
   const [toast, setToast] = useState(null);
@@ -619,17 +623,49 @@ export default function VisualPreview({
         {!isExporting && index < slides.length - 1 && onMoveSlide && (
              <div className="relative w-0 flex justify-center z-[100] -ml-1" style={{ marginTop: SLIDE_DIMENSIONS.height / 2 }}>
         <div className="absolute flex flex-col gap-2 -translate-y-1/2">
+           
+           {/* Botão Estrela para inserir favorito após este */}
+           {onAddFavorite && (
+             <div className="relative flex justify-center">
+               <Tooltip text="Inserir favorito aqui">
+                  <button
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      setOpenFavIndex(openFavIndex === index ? -1 : index);
+                      setOpenAddIndex(-1); // fecha o outro se aberto
+                    }}
+                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100 ${openFavIndex === index ? 'text-yellow-500 border-yellow-500/50 bg-yellow-500/5 opacity-100' : 'text-zinc-500 hover:text-yellow-500 hover:bg-yellow-500/5 hover:border-yellow-500/30'}`}
+                  >
+                    <Star className={`w-3.5 h-3.5 ${openFavIndex === index ? 'fill-yellow-500' : ''}`} />
+                  </button>
+               </Tooltip>
+               {openFavIndex === index && (
+                 <FavoritesPopover
+                   favorites={favorites}
+                   insertIndex={index + 1}
+                   onAddFavorite={onAddFavorite}
+                   onClose={() => setOpenFavIndex(-1)}
+                   brandColor={brandColor}
+                 />
+               )}
+             </div>
+           )}
 
            {/* Botão + para inserir slide após este */}
            {onAddSlide && (
              <div className="relative flex justify-center">
-               <button
-                 onClick={(e) => { e.stopPropagation(); setOpenAddIndex(openAddIndex === index ? -1 : index); }}
-                 className="w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-500 hover:text-white hover:bg-surface-input/50 hover:border-white/20 transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100"
-                 title="Inserir slide aqui"
-               >
-                 <Plus className="w-3.5 h-3.5" />
-               </button>
+               <Tooltip text="Inserir slide aqui">
+                  <button
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      setOpenAddIndex(openAddIndex === index ? -1 : index);
+                      setOpenFavIndex(-1); // fecha o outro se aberto
+                    }}
+                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100 ${openAddIndex === index ? 'text-white border-white/40 bg-white/5 opacity-100' : 'text-zinc-500 hover:text-white hover:bg-surface-input/50 hover:border-white/20'}`}
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+               </Tooltip>
                {openAddIndex === index && (
                  <AddSlidePopover
                    insertIndex={index + 1}

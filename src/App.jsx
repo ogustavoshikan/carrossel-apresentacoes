@@ -365,15 +365,23 @@ export default function App() {
   };
 
   const handleUseFavorite = useCallback((favoriteSlideData) => {
+     setSlides(prev => {
+        const newSlide = JSON.parse(JSON.stringify(favoriteSlideData));
+        const newSlides = [...prev, newSlide];
+        return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
+     });
+   }, []);
+
+   const handleInsertFavorite = useCallback((favoriteSlideData, insertIndex) => {
     setSlides(prev => {
-       const newSlide = JSON.parse(JSON.stringify(favoriteSlideData)); 
-       const newSlides = [...prev, newSlide];
+       const newSlide = JSON.parse(JSON.stringify(favoriteSlideData));
+       const newSlides = [...prev];
+       newSlides.splice(insertIndex, 0, newSlide);
        return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
     });
   }, []);
 
-  const handleRemoveFavorite = useCallback(async (id) => {
-    try {
+   const handleRemoveFavorite = useCallback(async (id) => {    try {
       await removeFavorite(id);
       const updated = await getFavorites();
       setFavorites(updated);
@@ -788,6 +796,8 @@ export default function App() {
                         onFavoriteSlide={handleFavoriteSlide}
                         onMoveSlide={handleMoveSlide}
                         onAddSlide={handleAddSlide}
+                        onAddFavorite={handleInsertFavorite}
+                        favorites={favorites}
                         onCoverVariantChange={handleCoverVariantChange}
                         onSplitVariantChange={handleSplitVariantChange}
                         onBigNumberVariantChange={handleBigNumberVariantChange}
