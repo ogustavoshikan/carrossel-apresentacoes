@@ -62,7 +62,7 @@ const hexToRgba = (hex, alpha) => {
  * @name HeroCarousel
  * @description Carrossel automático 3D premium para exibir designs recentes na Home.
  */
-const HeroCarousel = () => {
+const HeroCarousel = ({ brandColor = '#DE1E4D' }) => {
   const images = [
     "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png",
     "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png",
@@ -107,7 +107,7 @@ const HeroCarousel = () => {
           </div>
         );
       })}
-      <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full blur-[40px] pointer-events-none" style={{ backgroundColor: 'rgba(222,30,77,0.30)' }} />
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full blur-[40px] pointer-events-none" style={{ backgroundColor: hexToRgba(brandColor, 0.30) }} />
       <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] pointer-events-none" style={{ backgroundColor: 'rgba(255,255,255,0.10)' }} />
     </div>
   );
@@ -240,7 +240,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
 
               {/* Direita: Hero Carousel Automático 3D */}
               <div className="lg:col-span-5 flex justify-center w-full pr-8">
-                <HeroCarousel />
+                <HeroCarousel brandColor={brandColor} />
               </div>
 
             </div>
