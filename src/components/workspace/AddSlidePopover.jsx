@@ -37,7 +37,7 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
 
   function handleSelect(layoutKey) {
     onAddSlide(layoutKey, insertIndex);
-    onClose();
+    // onClose();
   }
 
   return (

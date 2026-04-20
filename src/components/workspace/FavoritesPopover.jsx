@@ -65,7 +65,7 @@ export default function FavoritesPopover({ favorites = [], insertIndex, onAddFav
               key={fav.id}
               onClick={() => {
                 onAddFavorite(fav.slideData, insertIndex);
-                onClose();
+                // onClose();
               }}
               className="group flex flex-col bg-surface-input border border-border-subtle rounded-xl overflow-hidden hover:border-brand/50 transition-all active:scale-95 text-left"
             >
