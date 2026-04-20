@@ -153,7 +153,12 @@ export default function ConfigSidebar({
 
           <header className="flex justify-between items-center mb-2">
             <div className="flex flex-col">
-              <span className="text-[10px] font-black tracking-[0.2em] text-[#DE1E4D] uppercase">Inspetor</span>
+              <span 
+                className="text-[10px] font-black tracking-[0.2em] uppercase"
+                style={{ color: gradientColor1 }}
+              >
+                Inspetor
+              </span>
               <h2 className="text-xl font-black text-white tracking-tighter uppercase leading-none">Slide <span className="text-white/40">#{selectedElement.slideIndex + 1}</span></h2>
             </div>
             <button 
@@ -1056,10 +1061,14 @@ export default function ConfigSidebar({
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl outline-none ring-0 border-none transition-none
                   ${isActive 
-                    ? 'bg-[#1A1A1A] text-white border border-white/10' 
+                    ? 'bg-[#1A1A1A] text-white border' 
                     : 'text-white/30 hover:text-white/60 hover:bg-[#111111]'}`}
+                style={isActive ? { borderColor: `${gradientColor1}40` } : {}}
               >
-                <Icon size={14} className={isActive ? 'text-[#DE1E4D]' : ''} />
+                <Icon 
+                  size={14} 
+                  style={isActive ? { color: gradientColor1 } : {}} 
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest">{tab.label}</span>
               </button>
             );
@@ -1113,7 +1122,8 @@ export default function ConfigSidebar({
                               e.stopPropagation();
                               setBrandAvatar(null);
                             }}
-                            className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#DE1E4D] border border-black/50 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-110 z-10"
+                            className="absolute -top-1.5 -right-1.5 w-5 h-5 border border-black/50 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-110 z-10"
+                            style={{ backgroundColor: gradientColor1 }}
                             title="Remover foto"
                           >
                             <X className="w-3 h-3" />
@@ -1514,7 +1524,10 @@ export default function ConfigSidebar({
               disabled={isGenerating}
               className="group relative w-full overflow-hidden bg-white text-black py-4 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] hover:scale-[1.02] active:scale-95 transition-all duration-150 shadow-[0_0_30px_rgba(255,255,255,0.1)] outline-none focus:outline-none focus-visible:outline-none"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#DE1E4D] to-[#8A1230] opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+              <div 
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150" 
+                style={{ background: `linear-gradient(to right, ${gradientColor1}, ${gradientColor1}CC)` }}
+              />
               <span className="relative z-10 flex items-center justify-center gap-3 group-hover:text-white transition-colors">
                 {isGenerating ? (
                   <>

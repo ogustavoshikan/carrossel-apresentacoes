@@ -11,16 +11,19 @@ import {
  * @name SidebarItem
  * @description Item individual da barra lateral com estados de hover e active premium.
  */
-const SidebarItem = ({ icon: Icon, label, isActive, onClick }) => (
+const SidebarItem = ({ icon: Icon, label, isActive, onClick, brandColor }) => (
   <button 
     onClick={onClick}
     className="group flex flex-col items-center justify-center w-full relative py-3 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
   >
-    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150
-      ${isActive 
-        ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-[#FFFFFF] shadow-lg border border-[#DE1E4D]/30' 
-        : 'bg-transparent text-[#FFFFFF]/40 hover:bg-surface-input/50 hover:text-[#FFFFFF] border border-transparent'}
-    `}>
+    <div 
+      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150
+        ${isActive 
+          ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-[#FFFFFF] shadow-lg border' 
+          : 'bg-transparent text-[#FFFFFF]/40 hover:bg-surface-input/50 hover:text-[#FFFFFF] border border-transparent'}
+      `}
+      style={isActive ? { borderColor: `${brandColor || '#DE1E4D'}4d` } : {}}
+    >
       <Icon size={20} strokeWidth={isActive ? 2 : 1.5} />
     </div>
     <span className="text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase text-[#FFFFFF]">
@@ -59,18 +62,21 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
           label="Início" 
           isActive={currentView === 'home'} 
           onClick={() => onNavigate('home')} 
+          brandColor={brandColor}
         />
         <SidebarItem 
           icon={LayoutGrid} 
           label="Studio" 
           isActive={currentView === 'studio'} 
           onClick={() => onNavigate('studio')} 
+          brandColor={brandColor}
         />
         <SidebarItem 
           icon={Sparkles} 
           label="Auto-Post" 
           isActive={currentView === 'autopost'} 
           onClick={() => onComingSoon(Sparkles, 'Auto-Post')} 
+          brandColor={brandColor}
         />
         
         <div className="w-8 h-px bg-gradient-to-r from-transparent via-[#FFFFFF]/10 to-transparent mx-auto my-4" />
@@ -80,6 +86,7 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
           label="Mídia" 
           isActive={currentView === 'media'} 
           onClick={() => onComingSoon(ImageIcon, 'Mídia Assets')} 
+          brandColor={brandColor}
         />
       </nav>
 
@@ -90,6 +97,7 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
           label="Ajustes" 
           isActive={false} 
           onClick={onOpenSettings} 
+          brandColor={brandColor}
         />
       </div>
     </aside>

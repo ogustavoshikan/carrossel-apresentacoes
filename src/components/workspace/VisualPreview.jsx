@@ -190,7 +190,7 @@ export default function VisualPreview({
       {/* Toast Notification Premium */}
       <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-150 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
         <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center gap-2 text-sm font-bold border border-white/20">
-          <CheckCircle2 size={16} className="text-[#DE1E4D]" />
+          <CheckCircle2 size={16} style={{ color: brandColor || '#DE1E4D' }} />
           <span>{toast}</span>
         </div>
       </div>
@@ -211,9 +211,10 @@ export default function VisualPreview({
                 key={i}
                 className={`transition-all duration-300 rounded-full ${
                   i === activeIndex
-                    ? 'w-6 h-2 bg-rose-500'
+                    ? 'w-6 h-2'
                     : 'w-2 h-2 bg-zinc-700'
                 }`}
+                style={i === activeIndex ? { backgroundColor: brandColor || '#F43F5E' } : {}}
               />
             ))}
           </div>
@@ -295,8 +296,12 @@ export default function VisualPreview({
             <button
               onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
               className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
+              style={{ '--brand-hover': brandColor || '#DE1E4D' }}
             >
-              <PenLine size={16} className="text-zinc-500 group-hover:text-[#DE1E4D] transition-colors" />
+              <PenLine 
+                size={16} 
+                className="text-zinc-500 group-hover:text-[var(--brand-hover)] transition-colors" 
+              />
               Editar Textos / Visual
             </button>
 
@@ -513,7 +518,14 @@ export default function VisualPreview({
                       </div>
                     )}
 
-                    <button onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} className="bg-[#DE1E4D] hover:bg-[#ff245a] hover:shadow-[0_0_20px_rgba(222,30,77,0.4)] text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2">
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} 
+                      className="text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2"
+                      style={{ 
+                        backgroundColor: brandColor || '#DE1E4D',
+                        boxShadow: `0 0 10px ${brandColor ? brandColor + '40' : 'rgba(222,30,77,0.2)'}`
+                      }}
+                    >
                       <Save size={16} />
                       Salvar
                     </button>
@@ -606,7 +618,12 @@ export default function VisualPreview({
                     <div className={hasAnyImage ? "pt-2 border-t border-white/5" : ""}>
                       <button
                         onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
-                        className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium text-[#DE1E4D] hover:text-white bg-[#DE1E4D]/10 hover:bg-[#DE1E4D] rounded-md transition-colors border border-[#DE1E4D]/20 active:scale-[0.98]"
+                        className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium rounded-md transition-colors border active:scale-[0.98]"
+                        style={{ 
+                          color: brandColor || '#DE1E4D',
+                          backgroundColor: `${brandColor || '#DE1E4D'}1a`,
+                          borderColor: `${brandColor || '#DE1E4D'}33`
+                        }}
                       >
                         <RotateCcw size={12} />
                         Resetar Posições
