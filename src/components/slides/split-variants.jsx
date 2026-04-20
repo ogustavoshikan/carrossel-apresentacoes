@@ -1475,49 +1475,51 @@ export function SplitVariant25(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black">
-      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full bg-zinc-900 z-0">
-        <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
-      </SmartField>
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] p-6">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       
-      <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
-      </div>
-      
-      <div className="relative z-10 w-[85%] mx-auto my-auto bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/50 min-h-[300px] max-h-[360px] flex flex-col justify-center text-center">
-        <SmartField field="tag" {...sp} className="mb-2 shrink-0">
-          <span
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[10px] uppercase tracking-widest outline-none"
-            style={{ color: brandColor }}
-          >
-            {data.tag || 'TAG'}
-          </span>
+      <div className="flex-1 flex flex-col justify-center items-center gap-4 mt-12">
+        {/* Card de Imagem (A "moldura" que o usuário mencionou) */}
+        <SmartField field="imagem" {...sp} className="w-[90%] h-[38%] rounded-3xl overflow-hidden shadow-xl bg-zinc-900 relative shrink-0 border-4 border-white">
+          <ImageBg data={data} className="absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
         </SmartField>
-        
-        <SmartField field="titulo" {...sp} className="mb-3 shrink-0 w-full">
-          <h2
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[#1a1a1a] leading-[1.1] outline-none break-words"
-            style={{ fontSize: `${24 * sTitle}px` }}
-          >
-            {data.titulo}
-          </h2>
-        </SmartField>
-        
-        <SmartField field="texto_apoio" {...sp} className="min-h-0">
-          <p
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-600 leading-snug outline-none"
-            style={{ fontSize: `${18 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartField>
+
+        {/* Card de Texto (O "retângulo flutuante" centralizado) */}
+        <div className="w-[90%] bg-white p-8 rounded-3xl shadow-2xl border border-zinc-100 flex flex-col justify-center text-center relative z-10">
+          <SmartField field="tag" {...sp} className="mb-2 shrink-0">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[10px] uppercase tracking-widest outline-none"
+              style={{ color: brandColor }}
+            >
+              {data.tag || 'TAG'}
+            </span>
+          </SmartField>
+          
+          <SmartField field="titulo" {...sp} className="mb-3 shrink-0 w-full">
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] leading-tight outline-none break-words"
+              style={{ fontSize: `${24 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+          
+          <SmartField field="texto_apoio" {...sp} className="min-h-0">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair text-zinc-600 leading-snug outline-none"
+              style={{ fontSize: `${18 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
       </div>
     </div>
   );
