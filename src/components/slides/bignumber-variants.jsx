@@ -10,8 +10,10 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 // ============================================================
 
 // ─── Helper: SmartField ──────────────────────────────────────
-function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, children }) {
-  const pos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, children, position }) {
+  const basePos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const pos = position ? { ...basePos, ...position } : basePos;
+  
   return (
     <SmartElement
       slideIndex={index}
@@ -414,14 +416,12 @@ export function BigNumberVariant6({ data, index, brandColor, brandHandle, showBr
       <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
 
       {/* Imagem de fundo com opacidade */}
-      <SmartField field="imagem" {...sp}
-        className="absolute top-0 right-0 w-full h-full pointer-events-none"
-      >
+      <div className="absolute inset-0 pointer-events-none">
         <ImageBg
           data={data}
           className="absolute inset-0 opacity-20"
         />
-      </SmartField>
+      </div>
 
       <div className="flex-1 flex flex-col justify-center relative z-10">
         {/* Badge circular + tag */}
@@ -575,7 +575,7 @@ export function BigNumberVariant8({ data, index, brandColor, brandHandle, showBr
       </div>
 
       {/* Contenúdo inferior */}
-      <div className="flex-1 flex flex-col justify-end pt-8 relative z-10">
+      <div className="flex-1 flex flex-col justify-end pt-8 relative z-10 -translate-y-[60px]">
         {/* Imagem */}
         <SmartField field="imagem" {...sp}
           className="w-[80%] h-56 rounded-2xl overflow-hidden relative shadow-2xl mb-8 border border-white/10"
@@ -628,8 +628,11 @@ export function BigNumberVariant9({ data, index, brandColor, brandHandle, showBr
         className="w-24 h-full flex items-center justify-center border-r border-white/5 shrink-0"
         style={{ backgroundColor: brandColor }}
       >
-        <SmartField field="titulo" {...sp}
-          className="transform -rotate-90 origin-center w-[500px] text-center"
+        <SmartField 
+          field="titulo" 
+          {...sp}
+          className="origin-center w-[500px] text-center"
+          position={{ ...data.positions?.titulo, rotation: 270 }}
         >
           <span
             contentEditable
@@ -693,7 +696,6 @@ export function BigNumberVariant10({ data, index, brandColor, brandHandle, showB
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 bg-[#050505]/50" />
       </SmartField>
 
       {/* Metade inferior — bloco de cor */}
@@ -715,7 +717,7 @@ export function BigNumberVariant10({ data, index, brandColor, brandHandle, showB
       </div>
 
       {/* Número sobreposto na junção */}
-      <div className="absolute top-1/2 left-10 -translate-y-1/2 z-10">
+      <div className="absolute top-1/2 left-10 -translate-y-1/2 z-50">
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable
