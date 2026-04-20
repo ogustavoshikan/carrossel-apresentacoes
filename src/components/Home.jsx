@@ -58,6 +58,61 @@ const hexToRgba = (hex, alpha) => {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
+/**
+ * @name HeroCarousel
+ * @description Carrossel automático 3D premium para exibir designs recentes na Home.
+ */
+const HeroCarousel = () => {
+  const images = [
+    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png",
+    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png",
+    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png"
+  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full max-w-[300px] lg:max-w-[340px] aspect-[4/5]" style={{ perspective: '1200px' }}>
+      {images.map((src, index) => {
+        let offset = index - activeIndex;
+        if (offset < 0) offset += images.length;
+
+        return (
+          <div
+            key={index}
+            className="absolute inset-0 rounded-[2rem] overflow-hidden border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] origin-bottom-right"
+            style={{
+              transform: `
+                translateX(${offset === 0 ? 0 : offset === 1 ? 40 : 20}px)
+                translateY(${offset === 0 ? 0 : offset === 1 ? -20 : -40}px)
+                translateZ(${offset * -100}px)
+                rotate(${offset === 0 ? 0 : offset === 1 ? 6 : -3}deg)
+              `,
+              zIndex: 30 - offset,
+              opacity: offset === 2 ? 0.4 : 1,
+              filter: `blur(${offset === 0 ? 0 : offset * 2}px)`
+            }}
+          >
+            <img src={src} alt={`Template Visual Preview ${index + 1}`} className="w-full h-full object-cover" />
+            <div
+              className="absolute inset-0 bg-black transition-opacity duration-1000"
+              style={{ opacity: offset === 0 ? 0 : 0.4 }}
+            />
+          </div>
+        );
+      })}
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full blur-[40px] pointer-events-none" style={{ backgroundColor: 'rgba(222,30,77,0.30)' }} />
+      <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-[40px] pointer-events-none" style={{ backgroundColor: 'rgba(255,255,255,0.10)' }} />
+    </div>
+  );
+};
+
 export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [galleryBtnHovered, setGalleryBtnHovered] = useState(false);
@@ -95,7 +150,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
 
       {/* Main Content */}
       <main className="flex-1 h-full overflow-y-auto overflow-x-hidden relative z-10 scroll-smooth">
-        <div className="min-h-full flex flex-col p-8 lg:p-12 xl:p-16 max-w-[1600px] mx-auto gap-12">
+        <div className="min-h-full flex flex-col pt-4 px-8 pb-8 lg:pt-6 lg:px-12 lg:pb-12 xl:pt-8 xl:px-16 xl:pb-16 max-w-[1600px] mx-auto gap-12">
           
           {/* Top Bar - Data & Status */}
           <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-fade-in-down">
@@ -133,52 +188,61 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
             </div>
           </div>
 
-          {/* Mantra & Hero CTA */}
-          <section className="relative w-full rounded-[2rem] bg-[#00000075] border border-[#FFFFFF]/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl">
+          {/* Mantra & Hero Carousel Section */}
+          <section className="relative w-full rounded-[2rem] bg-[#00000075] border border-[#FFFFFF]/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 shadow-2xl">
             {/* Efeitos decorativos do Hero */}
             <div
-              className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-150"
+              className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"
               style={{ background: `radial-gradient(circle, ${hexToRgba(brandColor, 0.20)} 0%, transparent 70%)` }}
             />
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
 
-            <div className="relative z-10 max-w-2xl">
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-8"
-                style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.30)}` }}
-              >
-                <Sparkles size={12} style={{ color: brandColor }} />
-                <span className="text-[9px] font-bold tracking-[0.2em] uppercase" style={{ color: brandColor }}>Mantra Operacional</span>
-              </div>
-              
-              <h3 className="text-4xl lg:text-5xl font-black text-[#FFFFFF] tracking-tighter uppercase leading-[1.1] mb-6">
-                Nunca Comece<br />
-                <span style={{ color: brandColor }}>Do Zero.</span>
-              </h3>
-              
-              <p className="text-[#FFFFFF]/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
-                Utilize os templates da marca, injete a inteligência artificial para adaptação de copy e pule direto para a finalização e exportação. <strong className="text-[#FFFFFF] font-medium">Produtividade é lucro.</strong>
-              </p>
-            </div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-            <div className="relative z-10 shrink-0 w-full lg:w-auto flex flex-col items-center gap-4">
-              <button 
-                onClick={onStartProject}
-                className="w-full lg:w-[280px] group/btn relative overflow-hidden bg-[#FFFFFF] text-[#000000] px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-3">
-                  <Play size={16} className="fill-black" />
-                  Novo Projeto no Studio
-                </span>
+              {/* Esquerda: Texto e Call to Action */}
+              <div className="lg:col-span-7 flex flex-col items-start">
                 <div
-                  className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0"
-                  style={{ backgroundColor: brandColor }}
-                />
-                <span className="absolute z-10 inset-0 flex items-center justify-center gap-3 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 text-white">
-                  <Play size={16} className="fill-white" />
-                  Iniciar Criação
-                </span>
-              </button>
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-8"
+                  style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.30)}` }}
+                >
+                  <Sparkles size={12} style={{ color: brandColor }} />
+                  <span className="text-[9px] font-bold tracking-[0.2em] uppercase" style={{ color: brandColor }}>Mantra Operacional</span>
+                </div>
+
+                <h3 className="text-4xl lg:text-5xl font-black text-[#FFFFFF] tracking-tighter uppercase leading-[1.1] mb-6">
+                  Nunca Comece<br />
+                  <span style={{ color: brandColor }}>Do Zero.</span>
+                </h3>
+
+                <p className="text-[#FFFFFF]/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
+                  Utilize os templates da marca, injete a inteligência artificial para adaptação de copy e pule direto para a finalização e exportação. <strong className="text-[#FFFFFF] font-medium">Produtividade é lucro.</strong>
+                </p>
+
+                {/* Botão reposicionado abaixo do texto */}
+                <button
+                  onClick={onStartProject}
+                  className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-[#FFFFFF] text-[#000000] px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    <Play size={16} className="fill-black" />
+                    Novo Projeto no Studio
+                  </span>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0"
+                    style={{ backgroundColor: brandColor }}
+                  />
+                  <span className="absolute z-10 inset-0 flex items-center justify-center gap-3 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 text-white">
+                    <Play size={16} className="fill-white" />
+                    Iniciar Criação
+                  </span>
+                </button>
+              </div>
+
+              {/* Direita: Hero Carousel Automático 3D */}
+              <div className="lg:col-span-5 flex justify-center w-full pr-8">
+                <HeroCarousel />
+              </div>
+
             </div>
           </section>
 
