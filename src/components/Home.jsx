@@ -223,18 +223,14 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                   onClick={onStartProject}
                   className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-[#FFFFFF] text-[#000000] px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-3">
-                    <Play size={16} className="fill-black" />
+                  <span className="relative z-10 flex items-center justify-center gap-3 group-hover/btn:text-white transition-colors duration-150">
+                    <Play size={16} className="fill-black group-hover/btn:fill-white transition-colors duration-150" />
                     Novo Projeto no Studio
                   </span>
                   <div
                     className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 z-0"
                     style={{ backgroundColor: brandColor }}
                   />
-                  <span className="absolute z-10 inset-0 flex items-center justify-center gap-3 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-150 text-white">
-                    <Play size={16} className="fill-white" />
-                    Iniciar Criação
-                  </span>
                 </button>
               </div>
 
