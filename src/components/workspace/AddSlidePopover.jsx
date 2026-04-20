@@ -60,24 +60,27 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
       </div>
 
       {/* Grid dos layouts */}
-      <div className="grid grid-cols-3 gap-2.5">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-6">
         {LAYOUT_META.map((meta) => (
           <button
             key={meta.key}
             onClick={() => handleSelect(meta.key)}
             title={meta.description}
-            className="group flex flex-col items-center gap-2 p-2 rounded-xl border border-border-subtle hover:border-brand/60 bg-surface-input hover:bg-surface-input/50 transition-all duration-150 hover:scale-[1.03] active:scale-95 overflow-hidden"
+            className="group flex flex-col items-center gap-2.5 transition-all active:scale-95"
           >
-            {/* Miniatura ou SVG */}
-            <div className="w-10 h-[50px] opacity-80 group-hover:opacity-100 transition-opacity overflow-hidden rounded-[3px]">
-              {meta.thumbnailUrl ? (
-                <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
-              ) : (
-                LAYOUT_ICONS[meta.key]
-              )}
+            {/* Card com Miniatura */}
+            <div className="w-full aspect-[4/5] flex items-center justify-center p-2 rounded-xl border border-border-subtle group-hover:border-brand/60 bg-surface-input group-hover:bg-surface-input/50 transition-all duration-150 group-hover:scale-[1.03] overflow-hidden shadow-lg">
+              <div className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity overflow-hidden rounded-[3px]">
+                {meta.thumbnailUrl ? (
+                  <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
+                ) : (
+                  LAYOUT_ICONS[meta.key]
+                )}
+              </div>
             </div>
-            {/* Label */}
-            <span className="text-[10px] font-bold text-zinc-400 group-hover:text-white transition-colors text-center leading-tight">
+
+            {/* Label - Agora fora do retângulo */}
+            <span className="text-[9px] font-black uppercase tracking-[0.15em] text-zinc-500 group-hover:text-white transition-colors text-center leading-tight">
               {meta.label}
             </span>
           </button>
