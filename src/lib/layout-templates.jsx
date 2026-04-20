@@ -215,10 +215,40 @@ export const LAYOUT_META = [
     description: 'Slide de abertura com imagem de fundo',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(14).png'
   },
-  { key: 'content-split', label: 'Conteúdo', description: 'Imagem + tag + título + texto' },
-  { key: 'big-number', label: 'Número de Impacto', description: 'Estatística ou dado de destaque' },
-  { key: 'quote', label: 'Citação', description: 'Frase de impacto com autor' },
-  { key: 'comparison', label: 'Comparação', description: 'Mercado vs Marca em tabela' },
-  { key: 'list', label: 'Lista', description: 'Lista estruturada com bullets' },
-  { key: 'cta', label: 'CTA', description: 'Call to action — slide de fechamento' },
+  { 
+    key: 'content-split', 
+    label: 'Conteúdo', 
+    description: 'Imagem + tag + título + texto',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_content-split.png'
+  },
+  { 
+    key: 'big-number', 
+    label: 'Número de Impacto', 
+    description: 'Estatística ou dado de destaque',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_big-number.png'
+  },
+  { 
+    key: 'quote', 
+    label: 'Citação', 
+    description: 'Frase de impacto com autor',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_quote.png'
+  },
+  { 
+    key: 'comparison', 
+    label: 'Comparação', 
+    description: 'Mercado vs Marca em tabela',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_comparison.png'
+  },
+  { 
+    key: 'list', 
+    label: 'Lista', 
+    description: 'Lista estruturada com bullets',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_List.png'
+  },
+  { 
+    key: 'cta', 
+    label: 'CTA', 
+    description: 'Call to action — slide de fechamento',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
 ];
