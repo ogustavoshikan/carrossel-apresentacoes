@@ -620,7 +620,7 @@ export default function VisualPreview({
         </div>
         
         {/* Controle de Reordenação + Botão Adicionar (Inter-Slides) */}
-        {!isExporting && index < slides.length - 1 && onMoveSlide && (
+        {!isExporting && onMoveSlide && (
              <div className="relative w-0 flex justify-center z-[100] -ml-1" style={{ marginTop: SLIDE_DIMENSIONS.height / 2 }}>
         <div className="absolute flex flex-col gap-2 -translate-y-1/2">
            
@@ -677,20 +677,25 @@ export default function VisualPreview({
              </div>
            )}
 
-           <button 
-             onClick={() => onMoveSlide(index + 1, index)} 
-             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
-             title="Mover slide para a Esquerda"
-           >
-             <ArrowLeft className="w-4 h-4" />
-           </button>
-           <button 
-             onClick={() => onMoveSlide(index, index + 1)} 
-             className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
-             title="Mover slide para a Direita"
-           >
-             <ArrowRight className="w-4 h-4" />
-           </button>
+           {/* Botões de Mover - Aparecem apenas se houver um próximo slide */}
+           {index < slides.length - 1 && (
+             <>
+               <button 
+                 onClick={() => onMoveSlide(index + 1, index)} 
+                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+                 title="Mover slide para a Esquerda"
+               >
+                 <ArrowLeft className="w-4 h-4" />
+               </button>
+               <button 
+                 onClick={() => onMoveSlide(index, index + 1)} 
+                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+                 title="Mover slide para a Direita"
+               >
+                 <ArrowRight className="w-4 h-4" />
+               </button>
+             </>
+           )}
         </div>
              </div>
           )}
