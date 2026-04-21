@@ -61,7 +61,7 @@ export function ListVariant1(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <div className="flex items-center gap-5 mb-10 shrink-0">
@@ -94,7 +94,7 @@ export function ListVariant2(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col pt-6 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-3 shrink-0 text-center w-full" />
@@ -121,7 +121,7 @@ export function ListVariant3(props) {
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
       <div className="absolute inset-0 bg-cover opacity-10 grayscale" style={{ backgroundImage: `url('${data.imageUrl || ''}')`, backgroundPosition: 'center 50%' }}></div>
       <div className="absolute inset-0 pointer-events-none z-[60]">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       </div>
       
       <div className="flex-1 flex flex-col justify-center pt-8 relative z-10 overflow-hidden">
@@ -148,7 +148,7 @@ export function ListVariant4(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-[60]"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} /></div>
+      <div className="absolute inset-0 pointer-events-none z-[60]"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} /></div>
       
       <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
@@ -180,7 +180,7 @@ export function ListVariant5(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 w-full" />
@@ -211,7 +211,7 @@ export function ListVariant6(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-8 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col pt-12 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
@@ -242,7 +242,7 @@ export function ListVariant7(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-4 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 0.85} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-3 shrink-0 w-full" />
@@ -275,7 +275,7 @@ export function ListVariant8(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
@@ -304,7 +304,7 @@ export function ListVariant9(props) {
       {data.imageUrl && (
         <div className="absolute inset-0 bg-cover blur-md scale-110" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
       )}
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col pt-12 overflow-hidden relative z-10">
         <ListTitle data={data} index={index} scale={sTitle} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-6 shrink-0 text-center w-full" />
@@ -330,7 +330,7 @@ export function ListVariant10(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 mt-8 w-full" />
       
@@ -359,7 +359,7 @@ export function ListVariant11(props) {
       {data.imageUrl && (
         <div className="absolute inset-0 bg-cover blur-md scale-110" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
       )}
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <ListTitle data={data} index={index} scale={sTitle * 1.25} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-4 shrink-0 mt-4 w-full relative z-10" />
       
@@ -392,7 +392,7 @@ export function ListVariant12(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
         <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-10 shrink-0 w-full" />
@@ -424,7 +424,7 @@ export function ListVariant13(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
         <ListTitle data={data} index={index} scale={sTitle * 1.2} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
@@ -447,7 +447,7 @@ export function ListVariant13(props) {
 }
 
 export function ListVariant14(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -455,7 +455,7 @@ export function ListVariant14(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-6">
         <SmartEl index={index} field="tag" className="shrink-0">
           <TextWrapper {...tw} as="span" field="tag" className="italic text-2xl mb-1 block font-playfair" style={{ color: brandColor }}>
@@ -491,7 +491,7 @@ export function ListVariant14(props) {
 }
 
 export function ListVariant15(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -499,7 +499,7 @@ export function ListVariant15(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
@@ -531,7 +531,7 @@ export function ListVariant15(props) {
 }
 
 export function ListVariant16(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -539,7 +539,7 @@ export function ListVariant16(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
@@ -570,7 +570,7 @@ export function ListVariant16(props) {
 }
 
 export function ListVariant17(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -578,7 +578,7 @@ export function ListVariant17(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="mt-8 mb-6 shrink-0">
         <SmartEl index={index} field="titulo">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
@@ -609,7 +609,7 @@ export function ListVariant17(props) {
 }
 
 export function ListVariant18(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -617,7 +617,7 @@ export function ListVariant18(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
           <Check className="w-6 h-6 text-white" />
@@ -651,7 +651,7 @@ export function ListVariant18(props) {
 }
 
 export function ListVariant19(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -659,7 +659,7 @@ export function ListVariant19(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
@@ -688,7 +688,7 @@ export function ListVariant19(props) {
 }
 
 export function ListVariant20(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -696,7 +696,7 @@ export function ListVariant20(props) {
 
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -724,7 +724,7 @@ export function ListVariant20(props) {
 }
 
 export function ListVariant21(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -732,7 +732,7 @@ export function ListVariant21(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
@@ -764,7 +764,7 @@ export function ListVariant21(props) {
 }
 
 export function ListVariant22(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -772,7 +772,7 @@ export function ListVariant22(props) {
 
   return (
     <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-[35%] h-full shrink-0 relative overflow-hidden bg-zinc-200">
         <div className="absolute inset-0 bg-zinc-300 opacity-50" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
         <div className="absolute inset-0 flex items-center justify-center opacity-20">
@@ -807,7 +807,7 @@ export function ListVariant22(props) {
 }
 
 export function ListVariant23(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -815,7 +815,7 @@ export function ListVariant23(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -853,7 +853,7 @@ export function ListVariant23(props) {
 }
 
 export function ListVariant24(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -861,7 +861,7 @@ export function ListVariant24(props) {
 
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="titulo" className="mb-10 shrink-0 text-right">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -888,7 +888,7 @@ export function ListVariant24(props) {
 }
 
 export function ListVariant25(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -896,7 +896,7 @@ export function ListVariant25(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
@@ -925,7 +925,7 @@ export function ListVariant25(props) {
 }
 
 export function ListVariant26(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -933,7 +933,7 @@ export function ListVariant26(props) {
 
   return (
     <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
         <div>
           <SmartEl index={index} field="tag" className="mt-12 mb-2">
@@ -972,7 +972,7 @@ export function ListVariant26(props) {
 }
 
 export function ListVariant27(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -980,7 +980,7 @@ export function ListVariant27(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
         <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
            <span className="text-zinc-400 font-outfit text-xs">Espaço para Imagem</span>
@@ -1016,7 +1016,7 @@ export function ListVariant27(props) {
 }
 
 export function ListVariant28(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1024,7 +1024,7 @@ export function ListVariant28(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="pt-8">
         <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
@@ -1057,7 +1057,7 @@ export function ListVariant28(props) {
 }
 
 export function ListVariant29(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1065,7 +1065,7 @@ export function ListVariant29(props) {
 
   return (
     <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-800 opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
@@ -1100,7 +1100,7 @@ export function ListVariant29(props) {
 }
 
 export function ListVariant30(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1108,7 +1108,7 @@ export function ListVariant30(props) {
 
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartEl index={index} field="tag" className="mb-2 shrink-0">
         <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[10px] uppercase tracking-[0.2em] font-outfit" style={{ color: brandColor }}>
           {data.tag || 'Destaque'}

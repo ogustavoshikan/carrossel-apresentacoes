@@ -67,8 +67,8 @@ export default function SlideList({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
       <div className="flex-1 flex flex-col justify-center pt-12">
         <div className="flex items-center gap-5 mt-3 mb-7 shrink-0">
           <div
