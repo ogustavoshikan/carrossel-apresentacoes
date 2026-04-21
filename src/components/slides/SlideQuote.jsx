@@ -118,8 +118,8 @@ export default function SlideQuote({
         dark
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
       <SlideFooterPlaceholder />
     </div>
   );

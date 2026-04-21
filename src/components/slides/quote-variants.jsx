@@ -66,7 +66,7 @@ function QuoteVariant1(props) {
         <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair italic text-zinc-500 outline-none block" style={{ fontSize: '20px' }}>{data.texto_apoio}</span>
       </SmartElement>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
     </div>
   );
 }
@@ -92,7 +92,7 @@ function QuoteVariant2(props) {
         <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-[14px] tracking-widest uppercase outline-none block" style={{ color: brandColor }}>{data.texto_apoio}</span>
       </SmartElement>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
     </div>
   );
 }
@@ -122,7 +122,7 @@ function QuoteVariant3(props) {
         <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair italic text-white/90 outline-none block" style={{ fontSize: '22px' }}>{data.texto_apoio}</span>
       </SmartElement>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandColor="rgba(255,255,255,0.7)" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandColor="rgba(255,255,255,0.7)" hideDot={true} />
     </div>
   );
 }
@@ -150,7 +150,7 @@ function QuoteVariant4(props) {
         </SmartElement>
       </div>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
     </div>
   );
 }
@@ -183,7 +183,7 @@ function QuoteVariant5(props) {
         </div>
       </div>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
     </div>
   );
 }
@@ -201,7 +201,7 @@ function QuoteVariant6(props) {
       
       <div className="absolute top-0 left-0 right-0 h-4 z-10" style={{ backgroundColor: brandColor }} />
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center relative z-10">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="mb-8">
@@ -227,7 +227,7 @@ function QuoteVariant7(props) {
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
       <div className="absolute inset-0 bg-black/60 z-[0]" />
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-full bg-white text-black p-10 border-4 border-zinc-700 shadow-[12px_12px_0_0_rgba(255,255,255,0.1)] relative z-10">
         <div className="absolute -top-5 -left-5 bg-black p-2 rounded-sm" style={{ backgroundColor: brandColor }}>
@@ -254,7 +254,7 @@ function QuoteVariant8(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex overflow-hidden relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-[20%] h-full flex items-center justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap w-[400px] text-center">
@@ -287,7 +287,7 @@ function QuoteVariant9(props) {
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} className="opacity-40 blur-md scale-110" />
       
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-10 relative z-10 w-full">
         <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-bold outline-none leading-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-zinc-500" style={{ fontSize: `${42 * tScale}px` }}>"{data.titulo}"</h2>
@@ -311,7 +311,7 @@ function QuoteVariant10(props) {
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
       <div className="absolute inset-0 bg-black/70 z-[0]" />
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-full bg-surface-input/30 backdrop-blur-md border border-white/10 rounded-3xl rounded-bl-none p-10 relative mb-6 shadow-xl z-10">
         <Quote className="absolute top-6 right-6 w-8 h-8 text-white/10 pointer-events-none" />
@@ -339,7 +339,7 @@ function QuoteVariant11(props) {
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
       <div className="absolute inset-0 bg-[#E5E5E5]/90 z-[0]" />
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[400px] font-playfair font-black text-black/5 pointer-events-none leading-none select-none z-0">"</div>
       
@@ -379,6 +379,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
         isVerified={isVerified} 
         showSlideCounter={showSlideCounter} 
         slideCounterPosition={slideCounterPosition} 
+        hideDot={true}
       />
 
       {/* Background Premium: Gradiente de profundidade com luz suave da cor da marca */}
