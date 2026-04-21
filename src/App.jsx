@@ -10,6 +10,7 @@ import { LAYOUT_META } from './lib/layout-templates';
 import { getFavorites, saveFavorite, removeFavorite } from './lib/favorites';
 
 // Componentes
+import { FloatingChat } from './components/FloatingChat';
 import ConfigSidebar from './components/sidebar/ConfigSidebar';
 import WorkspaceToolbar from './components/workspace/WorkspaceToolbar';
 import VisualPreview from './components/workspace/VisualPreview';
@@ -820,6 +821,9 @@ export default function App() {
           </div>
         )}
       </div>
+
+      {/* AI Assistant Chat */}
+      {view === 'studio' && <FloatingChat />}
     </div>
   );
 }

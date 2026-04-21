@@ -373,3 +373,70 @@ export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
     throw new Error('Provedor de IA não suportado para geração de imagem.');
   }
 }
+
+export async function generateChatMessage(message, history, provider, modelId, apiKey) {
+  const systemPrompt = `Você é o Assistente de IA da Alice Studio.
+Você auxilia criadores a elaborarem textos, copys para slides e imagens de alta qualidade.
+
+ESTILO DE ESCRITA:
+1. Seja direto, sofisticado e de alto valor.
+2. Use **negrito** para destacar palavras-chave, dados ou termos importantes.
+3. Utilize emojis de forma leve e estratégica para dar tom à conversa (ex: 🚀, 🌑, ✨, 🎯), sem exageros.
+4. Retorne APENAS texto legível (Markdown), nunca JSON puro.`;
+
+  if (provider === 'google') {
+    // Para o Gemini, o histórico usa 'user' e 'model'
+    const contents = history.map(msg => ({
+      role: msg.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: msg.content }]
+    }));
+    
+    // Adiciona a mensagem atual
+    contents.push({ role: 'user', parts: [{ text: message }] });
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId.replace('models/', '')}:generateContent?key=${apiKey}`;
+    const payload = {
+      contents,
+      systemInstruction: { parts: [{ text: systemPrompt }] },
+    };
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) throw new Error(`Falha na API Google: ${response.status}`);
+    const data = await response.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Erro: Resposta vazia da IA.";
+
+  } else if (provider === 'openai') {
+    // Para OpenAI, o histórico usa 'user' e 'assistant'
+    const messages = [
+      { role: "system", content: systemPrompt },
+      ...history.map(msg => ({
+        role: msg.role === 'assistant' ? 'assistant' : 'user',
+        content: msg.content
+      })),
+      { role: "user", content: message }
+    ];
+
+    const url = `https://api.openai.com/v1/chat/completions`;
+    const payload = {
+      model: modelId,
+      messages
+    };
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) throw new Error(`Falha na API OpenAI: ${response.status}`);
+    const data = await response.json();
+    return data.choices[0].message.content || "Erro: Resposta vazia da IA.";
+  } else {
+    throw new Error('Provedor de IA não suportado para o Chat.');
+  }
+}
