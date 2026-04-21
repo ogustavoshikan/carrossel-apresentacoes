@@ -104,7 +104,7 @@ export function SplitVariant1({
                 contentEditable
                 suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[11px] tracking-[0.4em] uppercase outline-none"
+                className="inline-block font-outfit font-bold text-[11px] tracking-[0.4em] uppercase outline-none -translate-y-[2px]"
                 style={{ color: brandColor }}
               >
                 {data.tag || 'TAG'}
@@ -129,7 +129,7 @@ export function SplitVariant1({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-400 outline-none leading-relaxed line-clamp-4"
+              className="font-playfair text-zinc-400 outline-none leading-relaxed line-clamp-8"
               style={{ fontSize: `${16 * sText}px` }}
             >
               {data.texto_apoio}
@@ -169,7 +169,7 @@ export function SplitVariant2({
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
           index={index + 1}
           total={slideCount}
-          brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+          brandHandle={brandHandle} showBrandHandle={false}
           brandColor={brandColor}
           isVerified={isVerified}
           showSlideCounter={showSlideCounter}
@@ -254,7 +254,7 @@ export function SplitVariant3({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] tracking-[0.4em] uppercase outline-none"
+              className="inline-block font-outfit font-bold text-[10px] tracking-[0.4em] uppercase outline-none -translate-y-[2px]"
               style={{ color: brandColor }}
             >
               {data.tag || 'TAG'}
@@ -1064,7 +1064,7 @@ export function SplitVariant17(props) {
             <span
                contentEditable suppressContentEditableWarning
                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-               className="font-outfit font-bold text-[10px] uppercase tracking-widest text-zinc-400 outline-none"
+               className="inline-block font-outfit font-bold text-[10px] uppercase tracking-widest text-zinc-400 outline-none -translate-y-[2px]"
             >
               {data.tag || 'TAG'}
             </span>
@@ -1478,7 +1478,7 @@ export function SplitVariant25(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] p-6">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
       
-      <div className="flex-1 flex flex-col justify-center items-center gap-4 mt-12">
+      <div className="flex-1 flex flex-col justify-start items-center gap-4 mt-12 pt-16">
         {/* Card de Imagem (A "moldura" que o usuário mencionou) */}
         <SmartField field="imagem" {...sp} className="w-[90%] h-[38%] rounded-3xl overflow-hidden shadow-xl bg-zinc-900 relative shrink-0 border-4 border-white">
           <ImageBg data={data} className="absolute inset-0" />
@@ -1513,7 +1513,7 @@ export function SplitVariant25(props) {
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-600 leading-snug outline-none"
+              className="font-playfair text-zinc-600 leading-snug outline-none line-clamp-3 overflow-hidden"
               style={{ fontSize: `${18 * sText}px` }}
             >
               {data.texto_apoio}

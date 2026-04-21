@@ -115,7 +115,7 @@ export default function SlideContentSplit({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-tag tracking-[0.4em] uppercase outline-none"
+              className="inline-block font-outfit font-bold text-tag tracking-[0.4em] uppercase outline-none -translate-y-[2px]"
               style={{ color: brandColor }}
             >
               {data.tag || 'TAG'}
@@ -157,7 +157,7 @@ export default function SlideContentSplit({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-400 outline-none antialiased line-clamp-3 overflow-hidden"
+            className="font-playfair text-zinc-400 outline-none antialiased line-clamp-3 overflow-hidden -translate-y-[2px]"
             style={{ fontSize: `${18 * sText}px`, lineHeight: 1.6 }}
           >
             {data.texto_apoio}
