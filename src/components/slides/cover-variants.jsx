@@ -75,19 +75,24 @@ function ImageBg({ data, className = '', style = {}, children }) {
 
 // ─── Helper: BrandTag ───────────────────────────────────────
 // Badge do handle de marca no topo do slide.
-function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor }) {
+function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, hideDot = false }) {
   if (showBrandHandle === false) return null;
   return (
     <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
       <div className="flex items-center gap-3">
         {brandAvatar ? (
           <img src={brandAvatar} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
-        ) : (
-          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }} />
-        )}
-        <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">
-          {brandHandle || '@studio'}
-        </span>
+        ) : !hideDot ? (
+          <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
+        ) : null}
+        <div className="flex items-center gap-1.5">
+          <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500 truncate">
+            {brandHandle ? (brandHandle.startsWith('@') ? brandHandle : `@${brandHandle}`) : '@studio'}
+          </span>
+          {isVerified && (
+            <BadgeCheck className="w-3.5 h-3.5 shrink-0" style={{ color: brandColor }} />
+          )}
+        </div>
       </div>
     </div>
   );
@@ -355,14 +360,21 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 6 — Arco
 // Imagem em container arch-shaped + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="relative w-full h-full bg-[#050505] flex flex-col overflow-hidden p-8 pt-20">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
 
       <div
         className="w-full h-1/2 rounded-t-full rounded-b-[2rem] overflow-hidden relative border-b-4"
