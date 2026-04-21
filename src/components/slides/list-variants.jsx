@@ -454,8 +454,8 @@ export function ListVariant14(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="flex-1 flex flex-col min-h-0 pt-6">
         <SmartEl index={index} field="tag" className="shrink-0">
           <TextWrapper {...tw} as="span" field="tag" className="italic text-2xl mb-1 block font-playfair" style={{ color: brandColor }}>
@@ -498,8 +498,8 @@ export function ListVariant15(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
-      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
@@ -538,8 +538,8 @@ export function ListVariant16(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
@@ -577,8 +577,8 @@ export function ListVariant17(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="mt-8 mb-6 shrink-0">
         <SmartEl index={index} field="titulo">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
@@ -616,8 +616,8 @@ export function ListVariant18(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
-      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
           <Check className="w-6 h-6 text-white" />
@@ -658,8 +658,8 @@ export function ListVariant19(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
@@ -695,7 +695,8 @@ export function ListVariant20(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50">
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -730,8 +731,8 @@ export function ListVariant21(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
@@ -770,7 +771,8 @@ export function ListVariant22(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-zinc-50">
+    <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="w-[35%] h-full shrink-0 relative overflow-hidden bg-zinc-200">
         <div className="absolute inset-0 bg-zinc-300 opacity-50" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
         <div className="absolute inset-0 flex items-center justify-center opacity-20">
@@ -778,7 +780,6 @@ export function ListVariant22(props) {
         </div>
       </div>
       <div className="flex-1 p-10 flex flex-col min-h-0">
-        <SlideHeader {...props} index={index + 1} total={slideCount} />
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0 pt-8">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
             {data.titulo}
@@ -813,8 +814,8 @@ export function ListVariant23(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -859,7 +860,8 @@ export function ListVariant24(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50">
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="titulo" className="mb-10 shrink-0 text-right">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
@@ -893,8 +895,8 @@ export function ListVariant25(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
@@ -930,10 +932,10 @@ export function ListVariant26(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-zinc-50">
+    <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
         <div>
-          <SlideHeader {...props} index={index + 1} total={slideCount} dark />
           <SmartEl index={index} field="tag" className="mt-12 mb-2">
             <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 font-outfit">
               {data.tag || 'Resumo'}
@@ -977,13 +979,11 @@ export function ListVariant27(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
         <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
            <span className="text-zinc-400 font-outfit text-xs">Espaço para Imagem</span>
-        </div>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} index={index + 1} total={slideCount} />
         </div>
         <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/50">
           <SmartEl index={index} field="titulo">
@@ -1023,8 +1023,8 @@ export function ListVariant28(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white">
-      <SlideHeader {...props} index={index + 1} total={slideCount} dark />
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="pt-8">
         <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
@@ -1065,12 +1065,12 @@ export function ListVariant29(props) {
 
   return (
     <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-800 opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
       </div>
       <div className="relative z-10 flex flex-col h-full pt-8">
-        <SlideHeader {...props} index={index + 1} total={slideCount} dark />
         <SmartEl index={index} field="titulo" className="mb-6 shrink-0 text-center mt-2">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl font-outfit" style={{ fontSize: `${30 * sTitle}px` }}>
             {data.titulo}
@@ -1107,10 +1107,8 @@ export function ListVariant30(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50">
-      <div className="absolute top-6 left-6 right-6">
-        <SlideHeader {...props} index={index + 1} total={slideCount} />
-      </div>
+    <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <SmartEl index={index} field="tag" className="mb-2 shrink-0">
         <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[10px] uppercase tracking-[0.2em] font-outfit" style={{ color: brandColor }}>
           {data.tag || 'Destaque'}
