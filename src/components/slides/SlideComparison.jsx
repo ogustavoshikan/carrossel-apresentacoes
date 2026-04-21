@@ -50,7 +50,7 @@ export default function SlideComparison(props) {
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
+        hideDot={true}
               />
       <div className="flex-1 flex flex-col justify-start pt-12 pb-8 min-h-0">
         <SmartElement
