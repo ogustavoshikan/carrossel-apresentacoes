@@ -59,39 +59,45 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
   return (
     <div className="flex flex-col gap-6 animate-in fade-in duration-300">
       {/* Seletor de Temas (7 Botões) */}
-      <div className="grid grid-cols-7 gap-1 bg-surface-dark/40 p-1.5 rounded-2xl border border-white/5 shadow-inner">
-        {LAYOUT_META.map((theme) => {
-          const isActive = selectedTheme === theme.key;
-          return (
-            <button
-              key={theme.key}
-              onClick={() => setSelectedTheme(theme.key)}
-              className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-all relative group ${
-                isActive 
-                  ? 'bg-zinc-800 text-white shadow-lg border border-white/10 ring-1 ring-white/5' 
-                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
-              }`}
-              title={theme.label}
-            >
-              <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
-                 {theme.thumbnailUrl ? (
-                   <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
-                 ) : (
-                   LAYOUT_ICONS[theme.key]
-                 )}
-              </div>
-              <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
-                {theme.label.split(' ')[0]}
-              </span>
-              {isActive && (
-                <div 
-                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]" 
-                  style={{ backgroundColor: brandColor }}
-                />
-              )}
-            </button>
-          );
-        })}
+      <div className="sticky top-[-24px] z-30 bg-[#000000]/95 backdrop-blur-xl py-3 -mx-6 px-6 border-b border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.8)]">
+        <div className="grid grid-cols-7 gap-1 bg-surface-dark/40 p-1.5 rounded-2xl border border-white/5 shadow-inner">
+          {LAYOUT_META.map((theme) => {
+            const isActive = selectedTheme === theme.key;
+            return (
+              <button
+                key={theme.key}
+                onClick={() => {
+                  setSelectedTheme(theme.key);
+                  const scrollContainer = document.getElementById('sidebar-scroll-container');
+                  if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-all relative group ${
+                  isActive 
+                    ? 'bg-zinc-800 text-white shadow-lg border border-white/10 ring-1 ring-white/5' 
+                    : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
+                }`}
+                title={theme.label}
+              >
+                <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
+                   {theme.thumbnailUrl ? (
+                     <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
+                   ) : (
+                     LAYOUT_ICONS[theme.key]
+                   )}
+                </div>
+                <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
+                  {theme.label.split(' ')[0]}
+                </span>
+                {isActive && (
+                  <div 
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]" 
+                    style={{ backgroundColor: brandColor }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Grid de Variantes (2 Colunas) */}

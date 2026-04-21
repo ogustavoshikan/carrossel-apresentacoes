@@ -26,6 +26,7 @@ import {
   RotateCcw,
   Copy,
   Trash2,
+  ArrowUp,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 import LayoutSelector from './LayoutSelector';
@@ -115,6 +116,23 @@ export default function ConfigSidebar({
   const isInspectorActive = !!selectedElement;
   const [activeTab, setActiveTab] = React.useState('ajustes');
   const savedSelection = useRef(null);
+
+  const scrollContainerRef = useRef(null);
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
+
+  const handleScroll = (e) => {
+    if (e.target.scrollTop > 300) {
+      setShowScrollTop(true);
+    } else {
+      setShowScrollTop(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // Salva a seleção nativa antes de qualquer clique roubar o foco do contentEditable
   const saveSelection = () => {
@@ -1075,7 +1093,12 @@ export default function ConfigSidebar({
           })}
         </div>
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8">
+        <div 
+          id="sidebar-scroll-container"
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+          className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8"
+        >
           {activeTab === 'ajustes' && (
             <>
               {/* === Section: Alice Setup === */}
@@ -1482,6 +1505,17 @@ export default function ConfigSidebar({
              </div>
           )}
         </div>
+
+          {/* Scroll to Top Button */}
+          {showScrollTop && (
+            <button
+              onClick={scrollToTop}
+              className="absolute bottom-[200px] right-6 w-8 h-8 bg-zinc-800/40 text-white/50 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/5 hover:bg-zinc-700/80 hover:text-white hover:scale-105 transition-all z-50 animate-in fade-in zoom-in"
+              title="Voltar ao topo"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          )}
 
         {/* Rodapé Fixo */}
         <div className="shrink-0 p-6 border-t border-white/5 bg-[#000000]/40 space-y-5 z-40">
