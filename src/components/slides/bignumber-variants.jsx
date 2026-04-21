@@ -56,24 +56,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
   );
 }
 
-// ─── Helper: BrandTag ───────────────────────────────────────
-function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor }) {
-  if (showBrandHandle === false) return null;
-  return (
-    <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-      <div className="flex items-center gap-3">
-        {brandAvatar ? (
-          <img src={brandAvatar} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
-        ) : (
-          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }} />
-        )}
-        <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">
-          {brandHandle || '@studio'}
-        </span>
-      </div>
-    </div>
-  );
-}
+// BrandTag removido — todas as variantes usam SlideHeader como referência padrão.
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 1 — Dark Stack
@@ -162,7 +145,7 @@ export function BigNumberVariant1({
 // VARIANTE 2 — Phantom Center
 // Número centralizado com ghost gigante atrás (sem imagem).
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -177,7 +160,15 @@ export function BigNumberVariant2({ data, index, brandColor, brandHandle, showBr
         {data.titulo}
       </div>
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Número colorido com glow */}
       <SmartField field="titulo" {...sp} className="relative z-10 mb-8">
@@ -228,7 +219,7 @@ export function BigNumberVariant2({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 3 — Color Block
 // Bloco colorido superior com número + área escura inferior com texto.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -280,7 +271,15 @@ export function BigNumberVariant3({ data, index, brandColor, brandHandle, showBr
       </div>
 
       {/* Brand tag no topo */}
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
     </div>
   );
 }
@@ -289,14 +288,22 @@ export function BigNumberVariant3({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 4 — Glass Card
 // Número outline sutil atrás + card glassmorphic centralizado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative items-center justify-center text-center">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Número outline fantasma */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center pointer-events-none">
@@ -342,14 +349,22 @@ export function BigNumberVariant4({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 5 — Side Panel
 // Número colorido à esquerda + painel de conteúdo à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full bg-[#080808] flex overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Número à esquerda */}
       <div className="w-1/2 h-full flex items-center justify-end p-6 relative z-10">
@@ -406,14 +421,22 @@ export function BigNumberVariant5({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 6 — Circle Badge
 // Número em círculo pequeno + tag + card de texto destacado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Imagem de fundo com opacidade */}
       <div className="absolute inset-0 pointer-events-none">
@@ -478,7 +501,7 @@ export function BigNumberVariant6({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 7 — Texture Fill
 // Número com fundo da imagem via background-clip + texto abaixo.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -501,7 +524,15 @@ export function BigNumberVariant7({ data, index, brandColor, brandHandle, showBr
 
   return (
     <div className="w-full h-full bg-[#020202] flex flex-col p-10 overflow-hidden relative justify-center items-center text-center">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Número com textura de imagem */}
       <SmartField field="titulo" {...sp} className="w-full mb-4">
@@ -547,14 +578,22 @@ export function BigNumberVariant7({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 8 — Outline Float
 // Número outline colorido flutuando + imagem + texto inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Número outline flutuando à direita */}
       <div className="absolute top-1/4 -right-10 z-20 pointer-events-none">
@@ -614,14 +653,22 @@ export function BigNumberVariant8({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 9 — Sidebar Ribbon
 // Faixa lateral colorida com número rotacionado + texto à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full bg-[#050505] flex overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Faixa lateral colorida */}
       <div
@@ -684,14 +731,22 @@ export function BigNumberVariant9({ data, index, brandColor, brandHandle, showBr
 // VARIANTE 10 — Magazine Split
 // Imagem superior semitransparente + número sobreposto + bloco de cor inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function BigNumberVariant10({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden relative">
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+      />
 
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0">
