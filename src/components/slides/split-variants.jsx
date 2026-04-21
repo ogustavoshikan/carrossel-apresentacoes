@@ -66,7 +66,7 @@ function ImageBg({ data, imageUrl, imagePosition, imageScale, className = '', st
 // Inspirado no layout do arquivo original (Variante 1).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant1({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -82,10 +82,11 @@ export function SplitVariant1({
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
+        brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
 
       <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Imagem arredondada */}
@@ -147,7 +148,7 @@ export function SplitVariant1({
 // Inspirado no layout do arquivo original (Variante 2).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant2({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -172,10 +173,11 @@ export function SplitVariant2({
           brandHandle={brandHandle} showBrandHandle={false}
           brandColor={brandColor}
           isVerified={isVerified}
+          brandAvatar={brandAvatar}
           showSlideCounter={showSlideCounter}
           slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
 
         <div className="mb-6 mt-10">
           <SmartField field="tag" {...sp}>
@@ -224,7 +226,7 @@ export function SplitVariant2({
 // Inspirado no layout do arquivo original (Variante 3).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant3({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -240,10 +242,11 @@ export function SplitVariant3({
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
+        brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
 
       {/* Bloco superior: texto */}
       <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b border-white/10 shrink-0">
@@ -301,7 +304,7 @@ export function SplitVariant3({
 // Inspirado no layout do arquivo original (Variante 4).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant4({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -317,10 +320,11 @@ export function SplitVariant4({
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
+        brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
-              />
+        hideDot={true}
+      />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-4 pt-12">
         {/* Card Titulo — topo full width */}
@@ -393,7 +397,7 @@ export function SplitVariant4({
 // Inspirado no layout do arquivo original (Variante 5).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant5({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified,
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
   selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
 }) {
@@ -409,8 +413,10 @@ export function SplitVariant5({
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor}
         isVerified={isVerified}
+        brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Bloco superior: título */}
@@ -475,7 +481,7 @@ export function SplitVariant5({
 // Card de texto central com imagem circular pequena sobreposta
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant7(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -488,7 +494,9 @@ export function SplitVariant7(props) {
         </div>
       )}
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       </div>
       
       <div className="relative w-full max-w-[440px] z-20">
@@ -542,14 +550,16 @@ export function SplitVariant7(props) {
 // Imagem superior rounded + header + conteúdo horizontal
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant8(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <div className="w-full shrink-0" style={{ height: '13px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-2xl overflow-hidden shadow-lg mb-6 shrink-0 bg-zinc-300 relative border border-black/5 mt-4">
@@ -601,14 +611,16 @@ export function SplitVariant8(props) {
 // Imagem oval superior com container glassmorphism logo abaixo
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant9(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#F4F4F5]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] mx-auto mt-6 rounded-[5rem] overflow-hidden shadow-2xl mb-8 shrink-0 bg-zinc-300 relative border-4 border-white">
         <ImageBg data={data} className="absolute inset-0" />
@@ -646,14 +658,16 @@ export function SplitVariant9(props) {
 // Layout minimalista com estilo polaroid inclinada
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant10(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
   
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#E8E8E8] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <div className="w-[82%] mx-auto bg-white p-3 shadow-xl flex flex-col shrink-0 mb-4 mt-8 rotate-[-2deg] border border-black/5 z-10">
         <SmartField field="imagem" {...sp} className="w-full aspect-square relative mb-3 overflow-hidden bg-zinc-200">
@@ -708,14 +722,16 @@ export function SplitVariant10(props) {
 // Imagem de fundo com card de texto subindo e sobrepondo
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant11(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <div className="w-full shrink-0" style={{ height: '13px' }} />
       <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative z-0 border border-black/5 mt-4">
@@ -767,14 +783,16 @@ export function SplitVariant11(props) {
 // Layout centralizado com círculo e foco na cor da marca
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant12(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden items-center text-white relative" style={{ backgroundColor: brandColor }}>
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <SmartField field="titulo" {...sp} className="mt-8 mb-6 w-full shrink-0">
         <h2
@@ -810,14 +828,16 @@ export function SplitVariant12(props) {
 // Layout com bordas grossas coloridas, imagem central retangular e tipografia limpa.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant13(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-white">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       <div className="absolute inset-0 p-6 flex flex-col border-8" style={{ borderColor: brandColor }}>
         <div className="flex justify-between items-end mb-4 shrink-0 mt-[26px]">
           <SmartField field="titulo" {...sp} className="flex-1 min-w-0">
@@ -867,14 +887,16 @@ export function SplitVariant13(props) {
 // Container flutuante offset com imagem estendida estilo magazine.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant14(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 pt-12 flex flex-col relative overflow-hidden bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} className="relative z-20" counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} className="relative z-20" counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <SmartField field="imagem" {...sp} className="w-[85%] h-[45%] bg-zinc-300 absolute top-20 right-6 rounded-3xl overflow-hidden shadow-xl border-4 border-white z-0 mt-2">
         <ImageBg data={data} className="absolute inset-0" />
@@ -923,14 +945,16 @@ export function SplitVariant14(props) {
 // Header arredondado de formato longo + texto centralizado.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant15(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-zinc-300 rounded-t-[100px] rounded-b-xl overflow-hidden shadow-lg mb-6 mt-[26px] relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
@@ -979,14 +1003,16 @@ export function SplitVariant15(props) {
 // Frame destacado na extremidade com decorativo colorido inferior direito.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant16(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <div className="w-full h-[45%] shrink-0 relative mb-8 mt-[26px]">
         <div className="absolute -bottom-3 -right-3 w-24 h-24 rounded-br-[90px] z-0" style={{ backgroundColor: brandColor }} />
@@ -1037,7 +1063,7 @@ export function SplitVariant16(props) {
 // Design levemente inclinado (-rotate) superpondo foto sobre fundo escuro.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant17(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1050,7 +1076,9 @@ export function SplitVariant17(props) {
         </div>
       )}
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference opacity-90">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       </div>
       
       <SmartField field="imagem" {...sp} className="w-[90%] h-[40%] mx-auto bg-zinc-300 rounded-2xl relative z-10 shadow-2xl transform -rotate-3 shrink-0 border border-zinc-700 mt-[26px] overflow-hidden">
@@ -1102,14 +1130,16 @@ export function SplitVariant17(props) {
 // Metade imagem total e metade texto contínuo no rodapé.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant18(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
       
       <div className="w-full h-[50%] shrink-0 relative border-b-8" style={{ borderColor: brandColor }}>
         <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-300 relative overflow-hidden">
@@ -1148,14 +1178,16 @@ export function SplitVariant18(props) {
 // VARIANTE 19 — Reverse Rounded
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant19(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       
       <div className="flex-1 flex flex-col min-h-0 justify-center pb-4 mt-6">
         <div className="flex items-center gap-3 mb-3 shrink-0">
@@ -1205,7 +1237,7 @@ export function SplitVariant19(props) {
 // VARIANTE 20 — Reverse Background
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant20(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1221,7 +1253,9 @@ export function SplitVariant20(props) {
       
       <div className="relative z-10 w-full p-6 flex flex-col h-full justify-between pointer-events-none">
         <div className="pointer-events-auto mix-blend-difference">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
         </div>
         
         <div className="bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/20 shrink-0 pointer-events-auto">
@@ -1256,14 +1290,16 @@ export function SplitVariant20(props) {
 // VARIANTE 21 — Float Bottom Right
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant21(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       
       <div className="flex-1 flex flex-col z-10 min-h-0 pt-12">
         <SmartField field="titulo" {...sp} className="mb-4 w-[80%]">
@@ -1302,14 +1338,16 @@ export function SplitVariant21(props) {
 // VARIANTE 22 — Vertical Bar
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant22(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       <div className="w-14 h-full shrink-0 flex flex-col items-center py-6 shadow-xl z-10" style={{ backgroundColor: brandColor }}>
         <span className="font-outfit font-black text-[10px] transform -rotate-90 origin-center whitespace-nowrap mt-20 tracking-[0.3em] text-white uppercase">
           {data.tag || 'VOL 09'}
@@ -1358,14 +1396,16 @@ export function SplitVariant22(props) {
 // VARIANTE 23 — Glass Offset Bottom
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant23(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       <div className="absolute inset-0 p-6 flex flex-col">
         <div className="relative z-10 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl w-[90%] border border-white/50 mb-auto mt-6 ml-auto shrink-0 flex flex-col">
           <SmartField field="tag" {...sp} className="mb-2 text-right">
@@ -1414,14 +1454,16 @@ export function SplitVariant23(props) {
 // VARIANTE 24 — Center Arch Bottom
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant24(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       
       <div className="flex-1 flex flex-col items-center text-center justify-center pt-8 pb-4 min-h-0">
         <SmartField field="tag" {...sp} className="mb-2 shrink-0">
@@ -1469,14 +1511,16 @@ export function SplitVariant24(props) {
 // VARIANTE 25 — Dark Gradient Bottom
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant25(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#FAFAFA] p-6">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       
       <div className="flex-1 flex flex-col justify-start items-center gap-4 mt-12 pt-16">
         {/* Card de Imagem (A "moldura" que o usuário mencionou) */}
@@ -1529,14 +1573,16 @@ export function SplitVariant25(props) {
 // VARIANTE 26 — Float Color Circle
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant26(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar} counterBg="#EDEDED"
+        hideDot={true}
+      />
       <div className="absolute inset-0 p-6 flex flex-col">
         <div className="absolute top-10 right-[-40px] w-64 h-64 rounded-full opacity-[0.06] z-0 pointer-events-none" style={{ backgroundColor: brandColor }} />
         
@@ -1587,7 +1633,7 @@ export function SplitVariant26(props) {
 // Grid 2×2 com 4 imagens independentes (slots 1–4)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant27(props) {
-  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1616,7 +1662,9 @@ export function SplitVariant27(props) {
         ))}
       </div>
 
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
@@ -1651,7 +1699,7 @@ export function SplitVariant27(props) {
 // 2 colunas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant28(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1674,7 +1722,9 @@ export function SplitVariant28(props) {
         />
       </div>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-2xl flex flex-col items-center text-center z-10 border border-white/50">
         <SmartField field="tag" {...sp} className="mb-2">
@@ -1717,7 +1767,7 @@ export function SplitVariant28(props) {
 // 2 linhas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant29(props) {
-  const { data, index, slideCount, brandColor, brandHandle, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1764,7 +1814,9 @@ export function SplitVariant29(props) {
         </SmartField>
       </div>
       
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
     </div>
   );
 }
@@ -1774,7 +1826,7 @@ export function SplitVariant29(props) {
 // 2 colunas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant30(props) {
-  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1798,7 +1850,9 @@ export function SplitVariant30(props) {
         </div>
       </div>
 
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
@@ -1833,7 +1887,7 @@ export function SplitVariant30(props) {
 // 2 linhas com 2 imagens independentes (slots 1 e 2)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant31(props) {
-  const { data, index, slideCount, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1857,7 +1911,9 @@ export function SplitVariant31(props) {
         </div>
       </div>
 
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
+        hideDot={true}
+      />
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>

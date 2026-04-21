@@ -70,7 +70,7 @@ export default function SlideContentSplit({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
+        hideDot={true}
               />
       <div className="flex-1 flex flex-col justify-center pt-6">
         <SmartElement
