@@ -416,7 +416,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 7 — Polaroid
 // Card estilo foto instantânea com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -424,7 +424,14 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
     <div className="relative w-full h-full bg-zinc-950 flex flex-col p-10 overflow-hidden items-center justify-center">
       <ImageBg data={data} className="absolute inset-0 opacity-20 blur-xl scale-110" />
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
 
       {/* Polaroid Card */}
       <div className="w-[85%] aspect-[3/4] bg-white p-4 rounded-xl shadow-2xl rotate-[-4deg] relative z-10 flex flex-col">
@@ -479,7 +486,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 8 — Acento Lateral
 // Texto centrado com borda lateral colorida
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -489,7 +496,14 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
       <ImageBg data={data} className="absolute inset-0 opacity-30 blur-lg scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
 
       <div className="relative z-10 mt-16">
         <div className="mb-6">
@@ -524,7 +538,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 9 — Spotlight Card
 // Fundo com texto watermark + card branco central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -540,7 +554,14 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
         ))}
       </div>
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
 
       {/* White Card */}
       <div
@@ -598,7 +619,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 10 — Bottom Minimal
 // Background desfocado + texto inferior centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -608,7 +629,14 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
       <ImageBg data={data} className="absolute inset-0 opacity-40 blur-md scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
 
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
 
       <div className="mt-auto relative z-20 p-10 pb-16 text-center">
         <div className="mb-4">
@@ -1157,7 +1185,7 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 22 — Header Minimal
 // Header padrão + título gigante centrado com glow lateral
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
+export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const bgBase = '#ffffff';
@@ -1166,7 +1194,14 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
 
   return (
     <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{ backgroundColor: bgBase }}>
-      <BrandTag brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} />
+      <BrandTag 
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} 
+        brandColor={brandColor} 
+        isVerified={isVerified}
+        hideDot={true}
+      />
       <div className="flex-1 flex flex-col justify-center relative mt-4">
         <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-6 z-10">
@@ -1748,6 +1783,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
           brandColor={brandColor}
           isVerified={isVerified}
           showSlideCounter={false}
+          hideDot={true}
           dark 
         />
         <div className="flex-1 flex flex-col justify-center items-center text-center mt-12">
@@ -2134,6 +2170,7 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={false}
+        hideDot={true}
       />
       
       <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full border-8 border-white/60 shadow-xl overflow-hidden bg-zinc-100 z-0">
@@ -2171,7 +2208,7 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
 // Split vertical com CTA de arraste
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant45(props) {
-  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -2187,7 +2224,18 @@ export function CoverVariant45(props) {
       </div>
 
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showSlideCounter={false} />
+         <SlideHeader 
+          {...props} 
+          slideIndex={index} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle}
+          brandAvatar={brandAvatar}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={false} 
+          hideDot={true}
+        />
       </div>
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
@@ -2216,7 +2264,7 @@ export function CoverVariant45(props) {
 // Split horizontal com CTA de arraste
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant46(props) {
-  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified } = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -2232,7 +2280,18 @@ export function CoverVariant46(props) {
       </div>
 
       <div className="absolute inset-0 z-30 pointer-events-none [&>*]:pointer-events-auto mix-blend-difference">
-         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} showSlideCounter={false} />
+         <SlideHeader 
+          {...props} 
+          slideIndex={index} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle}
+          brandAvatar={brandAvatar}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={false} 
+          hideDot={true}
+        />
       </div>
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>

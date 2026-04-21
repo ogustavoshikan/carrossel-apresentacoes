@@ -21,6 +21,7 @@ export default function SlideHeader({
   onActionStart,
   selectedElement,
   onSelectElement,
+  hideDot = false,
 }) {
   const handleAlign = data?.positions?.handle?.align || 'top-left';
   const counterAlign = data?.positions?.counter?.align || 'top-right';
@@ -56,25 +57,27 @@ export default function SlideHeader({
       <div className="flex items-center gap-3 select-none">
         {brandAvatar ? (
           <img src={brandAvatar} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
-        ) : (
+        ) : !hideDot ? (
           <div
             className={`w-2.5 h-2.5 rounded-full ${dark ? 'bg-black' : ''}`}
             style={{ backgroundColor: dark ? '#000' : brandColor }}
           />
-        )}
-        <span
-          className={`font-outfit font-black tracking-[0.25em] text-[10px] uppercase ${
-            dark ? 'text-black' : 'text-zinc-500'
-          }`}
-        >
-          @{brandHandle}
-        </span>
-        {isVerified && (
-          <BadgeCheck
-            className="w-3.5 h-3.5"
-            style={{ color: brandColor }}
-          />
-        )}
+        ) : null}
+        <div className="flex items-center gap-1.5">
+          <span
+            className={`font-outfit font-black tracking-[0.25em] text-[10px] uppercase ${
+              dark ? 'text-black' : 'text-zinc-500'
+            }`}
+          >
+            {brandHandle ? (brandHandle.startsWith('@') ? brandHandle : `@${brandHandle}`) : '@studio'}
+          </span>
+          {isVerified && (
+            <BadgeCheck
+              className="w-3.5 h-3.5 shrink-0"
+              style={{ color: brandColor }}
+            />
+          )}
+        </div>
       </div>
     </SmartElement>
   ) : null;
