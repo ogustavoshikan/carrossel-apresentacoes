@@ -71,7 +71,7 @@ export default function SlideBigNumber({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
+        hideDot={true}
               />
       <div className="flex-1 flex flex-col justify-center relative z-10 pt-6">
         <SmartElement

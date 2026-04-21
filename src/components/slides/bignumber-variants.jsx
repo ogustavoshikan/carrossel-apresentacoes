@@ -81,7 +81,7 @@ export function BigNumberVariant1({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
+        hideDot={true}
               />
 
       <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
@@ -168,6 +168,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Número colorido com glow */}
@@ -279,6 +280,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
     </div>
   );
@@ -303,6 +305,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Número outline fantasma */}
@@ -364,6 +367,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Número à esquerda */}
@@ -436,6 +440,7 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Imagem de fundo com opacidade */}
@@ -532,6 +537,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Número com textura de imagem */}
@@ -593,6 +599,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Número outline flutuando à direita */}
@@ -668,6 +675,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Faixa lateral colorida */}
@@ -746,6 +754,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
+        hideDot={true}
       />
 
       {/* Metade superior — imagem */}
@@ -826,7 +835,7 @@ export function BigNumberVariant11({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-
+        hideDot={true}
               />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 pt-16">
@@ -894,7 +903,7 @@ export function BigNumberVariant12(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex relative overflow-hidden p-12">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       
       {/* Background Decorativo */}
       <div className="absolute -bottom-20 -left-20 w-80 h-80 blur-[120px] opacity-20 rounded-full" style={{ backgroundColor: brandColor }} />
@@ -950,7 +959,7 @@ export function BigNumberVariant13(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center">
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
 
