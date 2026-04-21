@@ -22,6 +22,15 @@ export function FloatingChat() {
   const fullGreeting = "Como posso ajudar você hoje?";
   const messagesEndRef = useRef(null);
   const nodeRef = useRef(null);
+  const textareaRef = useRef(null);
+
+  // Auto-adjust textarea height
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 160)}px`;
+    }
+  }, [message]);
 
   // Typewriter effect for greeting
   useEffect(() => {
@@ -33,10 +42,10 @@ export function FloatingChat() {
         if (index < fullGreeting.length) {
           setDisplayText(fullGreeting.substring(0, index + 1));
           index++;
-          timeoutId = setTimeout(type, 30); // Faster greeting
+          timeoutId = setTimeout(type, 50);
         }
       };
-      timeoutId = setTimeout(type, 200);
+      timeoutId = setTimeout(type, 300);
     }
     return () => clearTimeout(timeoutId);
   }, [isOpen, messages.length]);
@@ -61,23 +70,15 @@ export function FloatingChat() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  // Ultra-Fast Streaming Effect — entrega por palavras/chunks
+  // Simulated Streaming Effect
   const simulateStreaming = (fullText, messageIndex) => {
+    let currentText = "";
     let charIndex = 0;
-    const speed = 12; // ms entre cada chunk
+    const speed = 5; 
 
     const stream = () => {
       if (charIndex < fullText.length) {
-        // Calcula tamanho do chunk baseado no comprimento total
-        // Textos curtos: ~4 chars | Médios: ~8 | Longos: ~15
-        const baseChunk = fullText.length > 800 ? 15 : fullText.length > 300 ? 8 : 4;
-        // Tenta quebrar no próximo espaço para não cortar palavras
-        let end = Math.min(charIndex + baseChunk, fullText.length);
-        if (end < fullText.length) {
-          const nextSpace = fullText.indexOf(' ', end);
-          if (nextSpace !== -1 && nextSpace - end < 10) end = nextSpace + 1;
-        }
-        const currentText = fullText.substring(0, end);
+        currentText += fullText[charIndex];
         setMessages(prev => {
           const updated = [...prev];
           if (updated[messageIndex]) {
@@ -85,7 +86,7 @@ export function FloatingChat() {
           }
           return updated;
         });
-        charIndex = end;
+        charIndex++;
         setTimeout(stream, speed);
       }
     };
@@ -152,8 +153,7 @@ export function FloatingChat() {
     );
   }
 
-  // Fonte do projeto — Outfit (importada no index.css)
-  const chatFontStack = '"Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+  const interFontStack = "'Inter', sans-serif";
 
   return (
     <Draggable 
@@ -167,14 +167,39 @@ export function FloatingChat() {
         ref={nodeRef}
         className="fixed bottom-6 right-6 z-[9999] will-change-transform transform-gpu"
         style={{ 
-          fontFamily: chatFontStack,
-          WebkitFontSmoothing: 'antialiased',
-          MozOsxFontSmoothing: 'grayscale'
+          fontFamily: interFontStack,
+          WebkitFontSmoothing: 'antialiased'
         }}
       >
+        <style>
+          {`
+            .ai-content p { margin-bottom: 0.5rem; }
+            .ai-content p:last-child { margin-bottom: 0; }
+            .ai-content ul { margin-bottom: 0.5rem; list-style-type: disc; padding-left: 1rem; }
+            .ai-content li { margin-bottom: 0.25rem; color: #d1d5db; }
+            .ai-content li strong { color: #ffffff; font-weight: 700; }
+            .ai-content em { color: #9ca3af; font-style: italic; display: block; margin-top: 0.1rem; }
+            
+            .thinking-dot {
+              width: 10px;
+              height: 10px;
+              background-color: #d4d4d8;
+              border-radius: 50%;
+              box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+              animation: pulse-dot 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+              display: inline-block;
+              margin-left: 4px;
+            }
+
+            @keyframes pulse-dot {
+              0%, 100% { transform: scale(0.7); opacity: 0.4; }
+              50% { transform: scale(1.1); opacity: 1; }
+            }
+          `}
+        </style>
+
         <div className="w-[340px] sm:w-[430px] bg-[#000000] border border-[#222222] rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea]">
           
-          {/* iOS Style Drag Handle Pill */}
           <div className={cn(
             "chat-pill absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 flex items-center justify-center z-20 group/pill transition-all",
             isDragging ? "cursor-grabbing" : "cursor-grab"
@@ -182,10 +207,9 @@ export function FloatingChat() {
             <div className="w-12 h-1.5 bg-zinc-800 rounded-full transition-colors group-hover/pill:bg-zinc-500" />
           </div>
 
-          {/* A. Minimalist Header */}
-          <div className="p-6 py-5 flex items-center justify-between select-none shrink-0 transition-all relative border-b border-white/5">
+          <div className="p-6 py-5 flex items-center justify-between select-none shrink-0 transition-all relative">
             <div className="flex items-center opacity-70 group-hover:opacity-100 transition-opacity">
-              <span className="text-[11px] font-black uppercase tracking-[0.25em] text-white">Carrossel AI</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">Carrossel AI</span>
             </div>
             
             <div className="flex items-center gap-3">
@@ -201,22 +225,20 @@ export function FloatingChat() {
             </div>
           </div>
 
-          {/* B. Content Area */}
-          <div className="flex-1 p-6 pt-4 overflow-y-auto custom-scrollbar flex flex-col gap-6">
+          <div className="flex-1 p-6 pt-2 overflow-y-auto custom-scrollbar flex flex-col gap-6">
             
-            {/* Empty State / Greeting */}
             {messages.length === 0 && (
               <div className="flex-1 flex flex-col items-center justify-center text-center animate-page-transition">
-                <h2 className="text-[26px] font-black text-white mb-8 min-h-[1.5em] leading-tight tracking-tight px-4">
+                <h2 className="text-2xl font-bold text-white mb-8 min-h-[1.5em] leading-tight tracking-tight">
                   {displayText}
-                  <span className="inline-block w-1.5 h-6 bg-[#ff0044] ml-1 animate-pulse align-middle" />
+                  <span className="inline-block w-1 h-6 bg-[#ff0044] ml-1 animate-pulse align-middle" />
                 </h2>
                 <div className="flex flex-col gap-3 w-full items-center px-4">
                   {suggestions.map((s, idx) => (
                     <button 
                       key={idx}
                       onClick={() => handleSubmit(null, s.text)}
-                      className="inline-flex items-center gap-3 bg-[#111111] hover:bg-[#1a1a1a] border border-[#222222] text-white/90 px-6 py-3.5 rounded-[32px] transition-all text-[14px] font-semibold group w-fit max-w-full whitespace-nowrap"
+                      className="inline-flex items-center gap-3 bg-[#111111] hover:bg-[#1a1a1a] border border-[#222222] text-white/90 px-6 py-3.5 rounded-[32px] transition-all text-[14px] font-medium group w-fit max-w-full whitespace-nowrap"
                     >
                       <span className="text-[#ff0044] group-hover:scale-110 transition-transform shrink-0">{s.icon}</span>
                       <span className="leading-tight">{s.text}</span>
@@ -226,7 +248,6 @@ export function FloatingChat() {
               </div>
             )}
 
-            {/* Message Flow */}
             {messages.map((msg, idx) => (
               <div 
                 key={idx} 
@@ -236,29 +257,23 @@ export function FloatingChat() {
                 )}
               >
                 {msg.role === 'user' ? (
-                  <div className="bg-[#1a1a1a] text-[#eff3f4] text-[15.6px] py-2.5 px-4 rounded-[18px] rounded-tr-none max-w-[85%] border border-[#222222] font-normal leading-snug">
+                  <div className="bg-[#1a1a1a] text-[#eff3f4] text-[15px] py-3 px-4 rounded-[20px] rounded-tr-none max-w-[85%] border border-[#222222] font-normal leading-relaxed">
                     {msg.content}
                   </div>
                 ) : (
                   <div className="flex flex-col gap-2 max-w-full">
-                    <div className="chat-ai-content text-[#e7e9ea] text-[15.6px] leading-[1.5] font-normal tracking-tight">
-                      <ReactMarkdown 
-                        components={{
-                          p: ({node, ...props}) => <p className="mb-1.5 last:mb-0" {...props} />,
-                          strong: ({node, ...props}) => <strong className="font-bold text-white" {...props} />,
-                          ul: ({node, ...props}) => <ul className="list-disc ml-5 mb-1.5" {...props} />,
-                          li: ({node, ...props}) => <li className="mb-0.5" {...props} />,
-                        }}
-                      >
+                    <div className="ai-content text-[#e7e9ea] text-[15px] leading-relaxed font-normal">
+                      <ReactMarkdown>
                         {msg.content}
                       </ReactMarkdown>
                     </div>
                     {/* Feedback Buttons */}
                     {msg.content && (
-                      <div className="flex items-center gap-4 py-1">
+                      <div className="flex items-center gap-[5px] py-1">
                         <button 
                           onClick={() => copyToClipboard(msg.content, idx)}
                           className="text-white/20 hover:text-[#ff0044] transition-colors p-1" 
+                          title="Copiar texto"
                         >
                           {copiedId === idx ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                         </button>
@@ -272,16 +287,14 @@ export function FloatingChat() {
             ))}
 
             {isLoading && (
-              <div className="flex items-center gap-3 text-white/50 text-[13px] animate-pulse py-2">
-                <Loader2 className="w-4 h-4 animate-spin text-[#ff0044]" />
-                Compondo...
+              <div className="flex items-center gap-3 text-white/50 text-[13px] py-2">
+                <span className="thinking-dot" />
               </div>
             )}
             
             <div ref={messagesEndRef} />
           </div>
 
-          {/* C. The Pill Input Area */}
           <div className="p-6 pt-2 shrink-0 flex flex-col items-center gap-4">
             <div className="w-full relative flex items-center group">
               <div className="absolute left-4 flex items-center">
@@ -291,11 +304,12 @@ export function FloatingChat() {
               </div>
 
               <textarea
+                ref={textareaRef}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Pergunte qualquer coisa..."
-                className="w-full bg-[#111111] border border-[#222222] text-[#eff3f4] text-[15.6px] py-4 pl-12 pr-14 rounded-[32px] focus:outline-none focus:border-[#333333] transition-all resize-none max-h-32 min-h-[56px] custom-scrollbar leading-tight placeholder-[#71767b]"
+                className="w-full bg-[#111111] border border-[#222222] text-[#eff3f4] text-[15px] py-4 pl-12 pr-14 rounded-[32px] focus:outline-none focus:border-[#333333] transition-all resize-none min-h-[56px] custom-scrollbar leading-tight placeholder-[#71767b]"
                 rows={1}
                 disabled={isLoading}
               />
