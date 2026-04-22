@@ -636,21 +636,12 @@ export function CTAVariant7(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden items-center justify-center">
-      <div className="absolute inset-0 opacity-25 blur-sm scale-105 pointer-events-none">
-        <ImageBg
-          data={data}
-          slideIndex={index}
-          imageUrl={data.imageUrl}
-          imagePosition={data.imagePosition}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
-          onSelectElement={onSelectElement}
-          className="w-full h-full grayscale"
-        />
-      </div>
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+    <div className="w-full h-full bg-black flex flex-col p-10 relative overflow-hidden items-center justify-center">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
 
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
         <div className="flex items-center gap-3">
@@ -661,7 +652,7 @@ export function CTAVariant7(props) {
         </div>
       </div>
       
-      <div className="w-full bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 pt-10 shadow-2xl relative mt-8 flex flex-col items-center text-center">
+      <div className="w-full bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 pt-10 shadow-2xl relative z-10 mt-8 flex flex-col items-center text-center">
         <Calendar 
           className="absolute -top-6 left-8 w-12 h-12 p-3 bg-black border border-white/10 rounded-xl pointer-events-none" 
           style={{ color: brandColor }} 
