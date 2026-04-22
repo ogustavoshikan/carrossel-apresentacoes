@@ -30,6 +30,7 @@ export default function App() {
   // ========================================
 
   const [view, setView] = useState('home'); // 'home' | 'studio' | 'coming-soon'
+  const [studioActiveTab, setStudioActiveTab] = useState('ajustes');
   const [theme, setTheme] = useState('');
   const [creativeContext, setCreativeContext] = useState(() => {
     try {
@@ -607,7 +608,13 @@ export default function App() {
       <div className="flex-1 flex flex-col overflow-hidden relative">
         {view === 'home' ? (
           <div key="home" className="flex-1 flex flex-col animate-page-transition h-full">
-            <Home onStartProject={() => setView('studio')} brandColor={gradientColor1} />
+            <Home 
+              onStartProject={(tab) => {
+                setView('studio');
+                setStudioActiveTab(typeof tab === 'string' ? tab : 'ajustes');
+              }} 
+              brandColor={gradientColor1} 
+            />
           </div>
         ) : view === 'coming-soon' ? (
           <ComingSoon 
@@ -644,6 +651,8 @@ export default function App() {
               >
                 <ConfigSidebar
                   width={sidebarWidth}
+                  activeTab={studioActiveTab}
+                  setActiveTab={setStudioActiveTab}
                   brandHandle={brandHandle}
                   setBrandHandle={setBrandHandle}
                   showBrandHandle={showBrandHandle}

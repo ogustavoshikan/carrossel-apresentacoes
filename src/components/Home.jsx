@@ -254,6 +254,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 style={{ color: galleryBtnHovered ? brandColor : 'rgba(255,255,255,0.40)' }}
                 onMouseEnter={() => setGalleryBtnHovered(true)}
                 onMouseLeave={() => setGalleryBtnHovered(false)}
+                onClick={() => onStartProject('designs')}
               >
                 Ver Galeria Completa
                 <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

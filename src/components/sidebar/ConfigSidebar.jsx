@@ -58,6 +58,8 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
  */
 export default function ConfigSidebar({
   width,
+  activeTab,
+  setActiveTab,
   brandHandle,
   setBrandHandle,
   brandAvatar,
@@ -114,7 +116,6 @@ export default function ConfigSidebar({
   setSlideCounterPosition,
 }) {
   const isInspectorActive = !!selectedElement;
-  const [activeTab, setActiveTab] = React.useState('ajustes');
   const savedSelection = useRef(null);
 
   const scrollContainerRef = useRef(null);
