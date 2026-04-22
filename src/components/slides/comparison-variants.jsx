@@ -207,7 +207,7 @@ export function ComparisonVariant15(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden rounded-slide" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-10 flex flex-col rounded-slide" style={{ backgroundColor: bgBase }}>
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
       <SmartEl {...sp} field="titulo" className="mb-8 shrink-0 text-center">
         <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter relative top-[60px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
@@ -219,7 +219,7 @@ export function ComparisonVariant15(props) {
           <div className="bg-red-500 rounded-full p-1.5 shrink-0 mt-1">
             <X className="w-4 h-4 text-white" />
           </div>
-          <SmartEl {...sp} field="tag" className="flex-1 overflow-hidden">
+          <SmartEl {...sp} field="tag" className="flex-1">
             <TextWrapper {...sp} as="p" field="tag" className="text-red-900 leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
@@ -229,7 +229,7 @@ export function ComparisonVariant15(props) {
           <div className="rounded-full p-1.5 shrink-0 mt-1" style={{ backgroundColor: gradientColor1 }}>
             <Check className="w-4 h-4 text-white" />
           </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1 overflow-hidden">
+          <SmartEl {...sp} field="texto_apoio" className="flex-1">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="leading-snug font-bold whitespace-pre-wrap" style={{ color: '#1a1a1a', fontFamily: textFont, fontSize: `${14 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
@@ -299,8 +299,10 @@ export function ComparisonVariant17(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-slide" style={{ backgroundColor: '#1a1a1a' }}>
-      <div className="absolute top-0 right-0 w-[150%] h-[150%] origin-top-right rotate-[-30deg] translate-x-[20%] translate-y-[-10%]" style={{ backgroundColor: gradientColor1 }} />
+    <div className="w-full h-full relative rounded-slide" style={{ backgroundColor: '#1a1a1a' }}>
+      <div className="absolute inset-0 overflow-hidden rounded-slide">
+        <div className="absolute top-0 right-0 w-[150%] h-[150%] origin-top-right rotate-[-30deg] translate-x-[20%] translate-y-[-10%]" style={{ backgroundColor: gradientColor1 }} />
+      </div>
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
       </div>
@@ -313,7 +315,7 @@ export function ComparisonVariant17(props) {
         <div className="flex w-full h-[60%] items-end pb-8">
           <div className="w-1/2 pr-6">
             <X className="w-6 h-6 text-white/50 mb-3" />
-            <SmartEl {...sp} field="tag" className="overflow-hidden">
+            <SmartEl {...sp} field="tag">
               <TextWrapper {...sp} as="p" field="tag" className="text-white/70 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
                 {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
               </TextWrapper>
@@ -321,7 +323,7 @@ export function ComparisonVariant17(props) {
           </div>
           <div className="w-1/2 pl-6">
             <Check className="w-6 h-6 text-white mb-3" />
-            <SmartEl {...sp} field="texto_apoio" className="overflow-hidden">
+            <SmartEl {...sp} field="texto_apoio">
               <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
                 {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
               </TextWrapper>
@@ -347,8 +349,8 @@ export function ComparisonVariant18(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full relative flex flex-col items-center justify-center p-6 bg-black overflow-hidden rounded-slide">
-      <div className="absolute inset-0 z-0">
+    <div className="w-full h-full relative flex flex-col items-center justify-center p-6 bg-black rounded-slide">
+      <div className="absolute inset-0 z-0 overflow-hidden rounded-slide">
         <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity blur-[3px] scale-110" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -365,7 +367,7 @@ export function ComparisonVariant18(props) {
           <div className="bg-red-500/20 p-2 rounded-full shrink-0">
             <X className="w-4 h-4 text-red-400" />
           </div>
-          <SmartEl {...sp} field="tag" className="flex-1 overflow-hidden">
+          <SmartEl {...sp} field="tag" className="flex-1">
             <TextWrapper {...sp} as="p" field="tag" className="text-white/80 leading-snug font-medium" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
@@ -375,7 +377,7 @@ export function ComparisonVariant18(props) {
           <div className="p-2 rounded-full shrink-0" style={{ backgroundColor: gradientColor1 }}>
             <Check className="w-4 h-4 text-white" />
           </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1 overflow-hidden">
+          <SmartEl {...sp} field="texto_apoio" className="flex-1">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] leading-snug font-bold" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
@@ -399,7 +401,7 @@ export function ComparisonVariant19(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center overflow-hidden relative rounded-slide" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex flex-col justify-center items-center relative rounded-slide" style={{ backgroundColor: bgBase }}>
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
       </div>
@@ -411,7 +413,7 @@ export function ComparisonVariant19(props) {
       <div className="flex w-full h-[50%] mt-20">
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center border-r border-zinc-300 min-h-0">
           <span className="font-black text-6xl text-zinc-300 mb-4 opacity-50 shrink-0" style={{ fontFamily: titleFont }}>X</span>
-          <SmartEl {...sp} field="tag" className="overflow-hidden">
+          <SmartEl {...sp} field="tag">
             <TextWrapper {...sp} as="p" field="tag" className="text-zinc-600 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
@@ -419,7 +421,7 @@ export function ComparisonVariant19(props) {
         </div>
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center min-h-0">
           <span className="font-black text-6xl mb-4 shadow-sm shrink-0" style={{ color: gradientColor1, fontFamily: titleFont }}>✓</span>
-          <SmartEl {...sp} field="texto_apoio" className="overflow-hidden">
+          <SmartEl {...sp} field="texto_apoio">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
@@ -442,7 +444,13 @@ export function ComparisonVariant20(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white rounded-slide">
+    <div className="w-full h-full flex flex-col bg-black text-white rounded-slide">
+      <div className="absolute inset-0 z-0 overflow-hidden rounded-slide">
+        <div className="flex w-full h-full">
+          <div className="w-1/2 h-full bg-[#0a0a0a]" />
+          <div className="w-1/2 h-full" style={{ backgroundColor: gradientColor1 }} />
+        </div>
+      </div>
       <div className="p-10 shrink-0 relative z-10">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
         <SmartEl {...sp} field="titulo">
@@ -451,18 +459,18 @@ export function ComparisonVariant20(props) {
           </TextWrapper>
         </SmartEl>
       </div>
-      <div className="flex-1 flex w-full relative z-0">
-        <div className="w-1/2 h-full bg-[#0a0a0a] p-6 pt-10 flex flex-col items-center">
+      <div className="flex-1 flex w-full relative z-10">
+        <div className="w-1/2 h-full p-6 pt-10 flex flex-col items-center">
           <X className="w-8 h-8 text-white/50 mb-6 shrink-0" />
-          <SmartEl {...sp} field="tag" className="flex-1 overflow-hidden w-full">
+          <SmartEl {...sp} field="tag" className="flex-1 w-full">
             <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap text-white/50" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-1/2 h-full p-6 pt-10 flex flex-col items-center" style={{ backgroundColor: gradientColor1 }}>
+        <div className="w-1/2 h-full p-6 pt-10 flex flex-col items-center">
           <Check className="w-8 h-8 text-white mb-6 shrink-0" />
-          <SmartEl {...sp} field="texto_apoio" className="flex-1 overflow-hidden w-full">
+          <SmartEl {...sp} field="texto_apoio" className="flex-1 w-full">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="leading-relaxed font-bold text-center whitespace-pre-wrap text-white" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
