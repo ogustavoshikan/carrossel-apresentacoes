@@ -9,7 +9,11 @@ Este guia estabelece os padrões obrigatórios para a criação de novas variant
 
 ## 1. Arquitetura de Variantes
 - **Localização:** Novos layouts devem ser adicionados como funções exportadas nos arquivos `src/components/slides/*-variants.jsx`.
-- **Mapeamento:** Toda nova variante deve ser registrada no objeto `*_VARIANT_COMPONENTS` e no array `*_VARIANT_META` para aparecer na Sidebar.
+- **Mapeamento e Interface (Obrigatório):** Toda nova variante deve ser registrada no objeto `*_VARIANT_COMPONENTS` e no array `*_VARIANT_META` para aparecer na Sidebar. 
+- **Representação Visual (Obrigatório):** Você deve obrigatoriamente adicionar a respectiva miniatura (mini-wireframe nativo) em dois locais:
+  1. No arquivo Popover correspondente (ex: `CoverVariantPopover.jsx`, `SplitVariantPopover.jsx`) para a troca rápida de variantes.
+  2. Na biblioteca centralizada `src/lib/variant-thumbnails.jsx` para que a variante apareça corretamente na aba **Designs** (Studio).
+- **Construção das Miniaturas:** Estas devem ser construídas usando flexbox/divs HTML nativos, adotando fielmente o escalonamento do layout real e utilizando a `brandColor` para o pre-visualização dinâmica.
 - **Dinamismo:** Utilize as props passadas (`brandHandle`, `brandColor`, `isVerified`, `slideCount`, etc.) para que o layout se adapte automaticamente às configurações da marca.
 
 ## 2. Segurança de Conteúdo (Anti-Overflow)

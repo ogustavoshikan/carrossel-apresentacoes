@@ -125,6 +125,11 @@ Regras Estruturais Obrigatórias:
 - É EXPRESSAMENTE PROIBIDO incluir batatas fritas, salgados, carnes ou qualquer item que não seja doce. Se o tema for brigadeiro e você colocar batata, você falhou na missão. Use o ID 'photo-1606313564200-e75d5e30476c' como prioridade máxima para temas de Brigadeiro.
 - O campo 'imageUrl' NUNCA deve ser vazio se o layout for 'cover', 'content-split' ou 'big-number'.
 
+VARIAÇÃO DE DESIGN E INTELIGÊNCIA DE LAYOUTS (OBRIGATÓRIO):
+Você DEVE retornar a chave "variante" (número inteiro) para CADA slide.
+- SE O USUÁRIO PEDIR uma variante pelo NOME (ex: "Diagonal Edge") ou NÚMERO (ex: "Variante 21"), você DEVE extrair o número e enviar ESTRITAMENTE ele na chave "variante" (ex: "variante": 21). A sua obediência a pedidos diretos de design é absoluta.
+- Se o usuário NÃO pedir, escolha de forma inteligente para variar o design, evite usar sempre 0. Limites máximos por layout: "cover" (46), "content-split" (30), "big-number" (13), "quote" (12), "comparison" (23), "list" (30), "cta" (18).
+
 LIMITES OBRIGATÓRIOS DE TEXTO (crítico para evitar overflow visual nos slides):
 - "cover": titulo máx 4 palavras (impacto direto, ex: "TOP 5 DOCES"), texto_apoio máx 12 palavras.
 - "content-split": tag máx 2 palavras, titulo máx 7 palavras (máx 2 linhas), texto_apoio máx 20 palavras (máx 3 linhas).
