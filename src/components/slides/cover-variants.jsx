@@ -1574,7 +1574,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
           </SmartField>
         </div>
       </div>
-      <div className="absolute bottom-8 right-8 flex items-center gap-2">
+      <div className="absolute bottom-8 right-8 flex items-center gap-2 -translate-y-[3px]">
         <SmartField field="cta_text" {...sp}>
           <span
             contentEditable suppressContentEditableWarning
@@ -1779,7 +1779,7 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
-        <div className="absolute bottom-6 right-6 flex items-center gap-1.5 z-20">
+        <div className="absolute bottom-6 right-6 flex items-center gap-1.5 z-20 -translate-y-[3px]">
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -1838,7 +1838,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="w-full flex justify-center pb-4">
+        <div className="w-full flex justify-center pb-4 -translate-y-[3px]">
           <div className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-full flex items-center gap-3">
             <SmartField field="cta_text" {...sp}>
               <span
@@ -1884,7 +1884,7 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="absolute bottom-[calc(35%+4px)] right-8 z-20 flex items-center gap-4">
+      <div className="absolute bottom-[calc(35%+4px)] right-8 z-20 flex items-center gap-4 -translate-y-[4px]">
         <SmartField field="cta_text" {...sp}>
           <span
             contentEditable suppressContentEditableWarning
@@ -1929,7 +1929,7 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="w-[45%] h-full relative z-0">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute bottom-6 -left-8 bg-white shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border border-zinc-100 z-20">
+        <div className="absolute bottom-6 -left-8 bg-white shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border border-zinc-100 z-20 -translate-y-[3px]">
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -1980,7 +1980,7 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="shrink-0 ml-4 flex items-center gap-2">
+        <div className="shrink-0 ml-4 flex items-center gap-2 -translate-y-[2px]">
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -2126,7 +2126,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="absolute bottom-6 right-6 flex items-center gap-2 z-20 text-white shrink-0">
+      <div className="absolute bottom-6 right-6 flex items-center gap-2 z-20 text-white shrink-0 -translate-y-[2px]">
         <SmartField field="cta_text" {...sp}>
           <span
             contentEditable suppressContentEditableWarning
@@ -2166,7 +2166,7 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
         </SmartField>
       </div>
       <div className="absolute bottom-0 left-0 w-full p-8 z-20 flex justify-between items-end">
-        <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0" style={{ borderColor: brandColor }}>
+        <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0 -translate-y-[2px]" style={{ borderColor: brandColor }}>
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -2211,7 +2211,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
-        <div className="flex items-center gap-2 shrink-0 px-4 py-2 rounded-full border border-zinc-200 shadow-sm whitespace-nowrap">
+        <div className="flex items-center gap-2 shrink-0 px-4 py-2 rounded-full border border-zinc-200 shadow-sm whitespace-nowrap -translate-y-[2px]">
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
