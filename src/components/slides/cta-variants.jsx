@@ -139,8 +139,13 @@ export function CTAVariant2(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#050505]">
-      <div className="h-1/2 w-full relative">
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="h-1/2 w-full relative z-10">
         <ImageBg
           slideIndex={index}
           imageUrl={data.imageUrl}
@@ -436,8 +441,13 @@ export function CTAVariant5(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 justify-center items-center relative overflow-hidden bg-zinc-900">
-      <div className="absolute inset-0 scale-110 opacity-60">
+    <div className="w-full h-full flex flex-col p-10 justify-center items-center relative overflow-hidden bg-black">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="absolute inset-0 scale-110 opacity-60 z-10">
         <ImageBg
           slideIndex={index}
           imageUrl={data.imageUrl}
@@ -979,8 +989,13 @@ export function CTAVariant12(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden bg-zinc-900" style={{ color: 'white' }}>
-      <div className="flex-1 flex flex-col justify-center items-center text-center">
+    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden bg-black" style={{ color: 'white' }}>
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
         <SmartElement
           slideIndex={index} field="titulo"
           position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
@@ -1081,9 +1096,14 @@ export function CTAVariant14(props) {
   const gradientColor2 = brandColor + 'CC';
 
   return (
-    <div className="w-full h-full p-6 flex flex-col justify-center items-center overflow-hidden text-white relative" style={{ backgroundColor: gradientColor2 }}>
-      <div className="absolute inset-4 border border-white/10 rounded-[40px] pointer-events-none" />
-      <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 shrink-0 relative pointer-events-none">
+    <div className="w-full h-full p-6 flex flex-col justify-center items-center overflow-hidden text-white relative bg-black">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="absolute inset-4 border border-white/10 rounded-[40px] pointer-events-none z-10" />
+      <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 shrink-0 relative z-10 pointer-events-none">
         <Store className="w-8 h-8 text-white" />
         <div className="absolute -inset-2 border border-dashed rounded-full" style={{ borderColor: gradientColor1 }} />
       </div>
@@ -1091,7 +1111,7 @@ export function CTAVariant14(props) {
         slideIndex={index} field="titulo"
         position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
         isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-        onSelectElement={onSelectElement} className="mb-4 w-full text-center shrink-0"
+        onSelectElement={onSelectElement} className="mb-4 w-full text-center shrink-0 relative z-10"
       >
         <h2 contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
@@ -1104,7 +1124,7 @@ export function CTAVariant14(props) {
         slideIndex={index} field="texto_apoio"
         position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
         isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-        onSelectElement={onSelectElement} className="mb-10 w-[85%] text-center shrink-0"
+        onSelectElement={onSelectElement} className="mb-10 w-[85%] text-center shrink-0 relative z-10"
       >
         <p contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -1113,7 +1133,7 @@ export function CTAVariant14(props) {
           {data.texto_apoio}
         </p>
       </SmartElement>
-      <div className="px-6 py-3 rounded-full text-xs font-outfit font-bold tracking-widest uppercase border border-white/20 bg-white/10 cursor-pointer shrink-0 pointer-events-none">Enviar Mensagem</div>
+      <div className="px-6 py-3 rounded-full text-xs font-outfit font-bold tracking-widest uppercase border border-white/20 bg-white/10 cursor-pointer shrink-0 pointer-events-none relative z-10">Enviar Mensagem</div>
     </div>
   );
 }
