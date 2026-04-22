@@ -74,7 +74,15 @@ export function ListVariant1(props) {
         <div className="space-y-6 flex-1 overflow-y-auto pr-2">
           {items.map((item, i) => (
             <div key={i} className="flex gap-6 items-start group">
-              <div className="font-outfit font-black text-base opacity-30 mt-1 pointer-events-none" style={{ color: brandColor }}>0{i + 1}</div>
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="font-outfit font-black text-base opacity-30 mt-1 outline-none" 
+                style={{ color: brandColor }}
+              >
+                {item.label || `0${i + 1}`}
+              </div>
               <div className="flex-1 border-b border-white/5 pb-4">
 
                 <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-snug outline-none line-clamp-2 mt-1">{item.text}</p>
@@ -192,7 +200,14 @@ export function ListVariant5(props) {
               <div key={i} className="relative w-full bg-zinc-900 border border-white/10 rounded-[1.5rem] p-5 shadow-2xl transition-all group" style={{ marginTop: isFirst ? '0px' : '-1rem', zIndex: 10 - i, transform: `scale(${1 - (i * 0.02)})` }}>
                 <div className="flex justify-between items-center mb-1">
                   <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[11px] uppercase tracking-widest outline-none line-clamp-1">{item.label}</h4>
-                  <span className="font-outfit font-black text-lg opacity-20 pointer-events-none">0{i + 1}</span>
+                  <span 
+                    contentEditable 
+                    suppressContentEditableWarning 
+                    onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                    className="font-outfit font-black text-lg opacity-20 outline-none"
+                  >
+                    {item.label || `0${i + 1}`}
+                  </span>
                 </div>
                 <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm outline-none line-clamp-2">{item.text}</p>
               </div>
@@ -283,8 +298,14 @@ export function ListVariant8(props) {
         <div className="flex-1 overflow-y-auto space-y-4 pr-1">
           {items.map((item, i) => (
             <div key={i} className="rounded-2xl p-5 relative flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
-              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-                <div className="absolute -right-4 -bottom-6 font-outfit font-black text-[100px] leading-none" style={{ color: brandColor, opacity: 0.15 }}>0{i + 1}</div>
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="absolute -right-4 -bottom-6 font-outfit font-black text-[100px] leading-none outline-none" 
+                style={{ color: brandColor, opacity: 0.15 }}
+              >
+                {item.label || `0${i + 1}`}
               </div>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-xs uppercase tracking-widest mb-1 relative z-10 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-300 text-sm relative z-10 outline-none line-clamp-2">{item.text}</p>
@@ -314,7 +335,15 @@ export function ListVariant9(props) {
         <div className="flex-1 grid grid-cols-2 gap-3 overflow-y-auto pr-1">
           {items.map((item, i) => (
             <div key={i} className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-5 border border-white/10 flex flex-col justify-center group">
-              <div className="w-6 h-6 rounded-full flex items-center justify-center font-outfit font-black text-[10px] text-white mb-3 shrink-0 pointer-events-none" style={{ backgroundColor: brandColor }}>{i + 1}</div>
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="w-6 h-6 rounded-full flex items-center justify-center font-outfit font-black text-[10px] text-white mb-3 shrink-0 outline-none" 
+                style={{ backgroundColor: brandColor }}
+              >
+                {item.label || `${i + 1}`}
+              </div>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest mb-1 leading-snug outline-none line-clamp-1">{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-[11px] line-clamp-3 outline-none">{item.text}</p>
             </div>
@@ -339,7 +368,15 @@ export function ListVariant10(props) {
       <div className="flex-1 flex flex-col space-y-4 pr-1 overflow-y-auto">
         {items.map((item, i) => (
           <div key={i} className="rounded-2xl p-4 shadow-lg flex items-center gap-4 group" style={{ marginLeft: `${Math.min(i * 15, 60)}px`, backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center font-outfit font-black text-xs shrink-0 pointer-events-none" style={{ color: brandColor, border: `1.5px solid ${brandColor}60`, backgroundColor: '#000000' }}>0{i + 1}</div>
+            <div 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="w-10 h-10 rounded-full flex items-center justify-center font-outfit font-black text-xs shrink-0 outline-none" 
+              style={{ color: brandColor, border: `1.5px solid ${brandColor}60`, backgroundColor: '#000000' }}
+            >
+              {item.label || `0${i + 1}`}
+            </div>
             <div className="flex-1">
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-[11px] uppercase tracking-widest mb-1 text-white outline-none line-clamp-1">{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-xs line-clamp-2 outline-none">{item.text}</p>
@@ -378,7 +415,7 @@ export function ListVariant11(props) {
         <div className="w-full mt-2 space-y-2">
           {items.map((item, i) => (
             <div key={`text-${i}`} className="w-full p-3 rounded-3xl group text-center" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
-              <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm italic outline-none line-clamp-2">"{item.text}"</p>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm italic outline-none line-clamp-2">{item.text}</p>
             </div>
           ))}
         </div>
@@ -435,7 +472,15 @@ export function ListVariant13(props) {
           {items.map((item, i) => (
             <div key={i} className="relative flex flex-col justify-center min-h-[60px] group">
               {/* Ajustado posicionamento para não cortar o número */}
-              <div className="absolute -left-4 -top-12 font-outfit font-black text-[100px] leading-none opacity-10 pointer-events-none select-none italic" style={{ color: brandColor }}>0{i + 1}</div>
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="absolute -left-4 -top-12 font-outfit font-black text-[100px] leading-none opacity-10 outline-none select-none italic" 
+                style={{ color: brandColor }}
+              >
+                {item.label || `0${i + 1}`}
+              </div>
               <div className="relative z-10 pl-12 border-l-2" style={{ borderColor: brandColor }}>
                 <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-lg uppercase tracking-tighter mb-1 outline-none line-clamp-1">{item.label}</h4>
                 <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-relaxed outline-none line-clamp-3 italic break-words max-w-[90%]">{item.text}</p>
@@ -449,7 +494,7 @@ export function ListVariant13(props) {
 }
 
 export function ListVariant14(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -459,12 +504,28 @@ export function ListVariant14(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-6">
-        <SmartEl index={index} field="tag" className="shrink-0">
-          <TextWrapper {...tw} as="span" field="tag" className="italic text-2xl mb-1 block font-playfair" style={{ color: brandColor }}>
-            {data.tag || 'Destaque'}
+        <SmartEl 
+          slideIndex={index} 
+          field="badge_text" 
+          position={data.positions?.badge_text || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'}
+          onSelectElement={onSelectElement}
+          className="shrink-0"
+        >
+          <TextWrapper {...tw} as="span" field="badge_text" className="italic text-2xl mb-1 block font-playfair" style={{ color: brandColor }}>
+            {data.badge_text || 'Destaque'}
           </TextWrapper>
         </SmartEl>
-        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-6 shrink-0"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -472,8 +533,14 @@ export function ListVariant14(props) {
         <div className="flex-1 overflow-hidden flex flex-col gap-4 justify-center">
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="flex gap-3 items-start border-b border-zinc-300/50 pb-3 last:border-0 shrink-0">
-              <span className="font-bold text-lg mt-0.5 shrink-0 font-outfit" style={{ color: brandColor }}>
-                0{i + 1}.
+              <span 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="font-bold text-lg mt-0.5 shrink-0 font-outfit outline-none" 
+                style={{ color: brandColor }}
+              >
+                {item.label || `0${i + 1}.`}
               </span>
               <p 
                 contentEditable 
@@ -493,7 +560,7 @@ export function ListVariant14(props) {
 }
 
 export function ListVariant15(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -503,7 +570,15 @@ export function ListVariant15(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
-        <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-8 shrink-0 text-center"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight tracking-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -512,8 +587,14 @@ export function ListVariant15(props) {
           <div className="absolute left-[27px] top-4 bottom-8 w-[2px] bg-white/20 z-0" />
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="flex gap-4 items-start pb-6 shrink-0 relative z-10">
-              <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 border-4 border-[#1a1a1a] text-[10px] font-bold font-outfit" style={{ backgroundColor: brandColor }}>
-                {i + 1}
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 border-4 border-[#1a1a1a] text-[10px] font-bold font-outfit outline-none" 
+                style={{ backgroundColor: brandColor }}
+              >
+                {item.label || i + 1}
               </div>
               <p 
                 contentEditable 
@@ -533,7 +614,7 @@ export function ListVariant15(props) {
 }
 
 export function ListVariant16(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -543,7 +624,15 @@ export function ListVariant16(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
-        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-6 shrink-0"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -551,8 +640,14 @@ export function ListVariant16(props) {
         <div className="grid grid-cols-2 gap-3 flex-1 min-h-0 content-center">
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="bg-white rounded-xl p-4 shadow-sm flex flex-col border border-zinc-100 overflow-hidden">
-              <span className="text-xl opacity-20 font-black mb-1 shrink-0 font-outfit" style={{ color: brandColor }}>
-                0{i + 1}
+              <span 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="text-xl opacity-20 font-black mb-1 shrink-0 font-outfit outline-none" 
+                style={{ color: brandColor }}
+              >
+                {item.label || `0${i + 1}`}
               </span>
               <p 
                 contentEditable 
@@ -572,7 +667,7 @@ export function ListVariant16(props) {
 }
 
 export function ListVariant17(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -582,7 +677,14 @@ export function ListVariant17(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="mt-8 mb-6 shrink-0">
-        <SmartEl index={index} field="titulo">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -591,8 +693,14 @@ export function ListVariant17(props) {
       <div className="flex-1 flex flex-col justify-evenly min-h-0">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="flex gap-4 items-center relative pl-10 shrink-0">
-            <span className="absolute left-0 text-5xl font-black opacity-10 top-1/2 -translate-y-1/2 font-outfit" style={{ color: brandColor }}>
-              {i + 1}
+            <span 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="absolute left-0 text-5xl font-black opacity-10 top-1/2 -translate-y-1/2 font-outfit outline-none" 
+              style={{ color: brandColor }}
+            >
+              {item.label || i + 1}
             </span>
             <p 
               contentEditable 
@@ -611,7 +719,7 @@ export function ListVariant17(props) {
 }
 
 export function ListVariant18(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -624,7 +732,15 @@ export function ListVariant18(props) {
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
           <Check className="w-6 h-6 text-white" />
         </div>
-        <SmartEl index={index} field="titulo" className="flex-1">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="flex-1"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -653,7 +769,7 @@ export function ListVariant18(props) {
 }
 
 export function ListVariant19(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -662,7 +778,15 @@ export function ListVariant19(props) {
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-8 shrink-0 text-center pt-8"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
@@ -670,8 +794,13 @@ export function ListVariant19(props) {
       <div className="flex-1 flex flex-col gap-4 justify-center min-h-0">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="bg-white border-l-4 p-5 shadow-sm shrink-0" style={{ borderColor: brandColor }}>
-            <p className="text-zinc-800 font-bold uppercase tracking-widest text-[11px] mb-1 font-outfit">
-              Item 0{i + 1}
+            <p 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="text-zinc-800 font-bold uppercase tracking-widest text-[11px] mb-1 font-outfit outline-none"
+            >
+              {item.label || `Item 0${i + 1}`}
             </p>
             <p 
               contentEditable 
@@ -690,7 +819,7 @@ export function ListVariant19(props) {
 }
 
 export function ListVariant20(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -699,7 +828,15 @@ export function ListVariant20(props) {
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-8 shrink-0"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
@@ -726,7 +863,7 @@ export function ListVariant20(props) {
 }
 
 export function ListVariant21(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -736,7 +873,15 @@ export function ListVariant21(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
-        <SmartEl index={index} field="titulo" className="mb-6 shrink-0">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-6 shrink-0"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -766,7 +911,7 @@ export function ListVariant21(props) {
 }
 
 export function ListVariant22(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -782,7 +927,15 @@ export function ListVariant22(props) {
         </div>
       </div>
       <div className="flex-1 p-10 flex flex-col min-h-0">
-        <SmartEl index={index} field="titulo" className="mb-6 shrink-0 pt-8">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-6 shrink-0 pt-8"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -790,7 +943,15 @@ export function ListVariant22(props) {
         <div className="flex-1 flex flex-col justify-center min-h-0">
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="flex gap-3 items-center border-b border-zinc-300/50 py-3 last:border-0 shrink-0">
-              <span className="font-bold text-lg shrink-0 font-outfit" style={{ color: brandColor }}>—</span>
+              <span 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="font-bold text-lg shrink-0 font-outfit outline-none" 
+                style={{ color: brandColor }}
+              >
+                {item.label || '—'}
+              </span>
               <p 
                 contentEditable 
                 suppressContentEditableWarning 
@@ -809,7 +970,7 @@ export function ListVariant22(props) {
 }
 
 export function ListVariant23(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -818,7 +979,15 @@ export function ListVariant23(props) {
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 pt-8">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-8 shrink-0 pt-8"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
@@ -834,8 +1003,14 @@ export function ListVariant23(props) {
               }`}
               style={isSelected ? { backgroundColor: brandColor, borderColor: brandColor } : {}}
             >
-              <span className={`font-black text-xl mr-6 font-outfit ${isSelected ? 'opacity-50' : 'opacity-20'}`} style={!isSelected ? { color: brandColor } : {}}>
-                0{i + 1}
+              <span 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className={`font-black text-xl mr-6 font-outfit outline-none ${isSelected ? 'opacity-50' : 'opacity-20'}`} 
+                style={!isSelected ? { color: brandColor } : {}}
+              >
+                {item.label || `0${i + 1}`}
               </span>
               <p 
                 contentEditable 
@@ -855,7 +1030,7 @@ export function ListVariant23(props) {
 }
 
 export function ListVariant24(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -864,7 +1039,15 @@ export function ListVariant24(props) {
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="titulo" className="mb-10 shrink-0 text-right">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-10 shrink-0 text-right"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
@@ -890,7 +1073,7 @@ export function ListVariant24(props) {
 }
 
 export function ListVariant25(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -899,7 +1082,15 @@ export function ListVariant25(props) {
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center pt-8">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-8 shrink-0 text-center pt-8"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${28 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
@@ -907,8 +1098,14 @@ export function ListVariant25(props) {
       <div className="grid grid-cols-2 gap-5 flex-1 min-h-0 content-center">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center justify-center border border-zinc-100 transition-transform hover:scale-105">
-            <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-md font-outfit text-lg" style={{ backgroundColor: brandColor }}>
-              0{i + 1}
+            <div 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mb-4 shadow-md font-outfit text-lg outline-none" 
+              style={{ backgroundColor: brandColor }}
+            >
+              {item.label || `0${i + 1}`}
             </div>
             <p 
               contentEditable 
@@ -927,7 +1124,7 @@ export function ListVariant25(props) {
 }
 
 export function ListVariant26(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -938,12 +1135,27 @@ export function ListVariant26(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
         <div>
-          <SmartEl index={index} field="tag" className="mt-12 mb-2">
-            <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 font-outfit">
-              {data.tag || 'Resumo'}
+          <SmartEl 
+            slideIndex={index} 
+            field="badge_text" 
+            position={data.positions?.badge_text || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'}
+            onSelectElement={onSelectElement}
+            className="mt-12 mb-2"
+          >
+            <TextWrapper {...tw} as="span" field="badge_text" className="font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 font-outfit">
+              {data.badge_text || 'Resumo'}
             </TextWrapper>
           </SmartEl>
-          <SmartEl index={index} field="titulo">
+          <SmartEl 
+            slideIndex={index} 
+            field="titulo" 
+            position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
+          >
             <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
               {data.titulo}
             </TextWrapper>
@@ -954,8 +1166,14 @@ export function ListVariant26(props) {
       <div className="w-[65%] h-full p-10 flex flex-col justify-center gap-6">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="flex flex-col border-b border-zinc-300 pb-4 last:border-0 shrink-0">
-            <span className="font-black text-xl mb-1 font-outfit" style={{ color: brandColor }}>
-              0{i + 1}
+            <span 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="font-black text-xl mb-1 font-outfit outline-none" 
+              style={{ color: brandColor }}
+            >
+              {item.label || `0${i + 1}`}
             </span>
             <p 
               contentEditable 
@@ -974,7 +1192,7 @@ export function ListVariant26(props) {
 }
 
 export function ListVariant27(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -985,10 +1203,28 @@ export function ListVariant27(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
         <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
-           <span className="text-zinc-400 font-outfit text-xs">Espaço para Imagem</span>
+          <SmartEl 
+            slideIndex={index} 
+            field="studio_text" 
+            position={data.positions?.studio_text || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'}
+            onSelectElement={onSelectElement}
+          >
+            <TextWrapper {...tw} as="span" field="studio_text" className="text-zinc-400 font-outfit text-xs">
+              {data.studio_text || 'Espaço para Imagem'}
+            </TextWrapper>
+          </SmartEl>
         </div>
         <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/50">
-          <SmartEl index={index} field="titulo">
+          <SmartEl 
+            slideIndex={index} 
+            field="titulo" 
+            position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
+          >
             <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
               {data.titulo}
             </TextWrapper>
@@ -998,8 +1234,14 @@ export function ListVariant27(props) {
       <div className="flex-1 p-6 grid grid-cols-2 gap-4 min-h-0 bg-white content-center">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="bg-zinc-50 p-4 rounded-2xl border border-zinc-100 flex flex-col justify-center shadow-sm relative overflow-hidden shrink-0">
-            <div className="absolute -right-2 -bottom-2 font-black text-6xl opacity-5 font-outfit" style={{ color: brandColor }}>
-              {i + 1}
+            <div 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="absolute -right-2 -bottom-2 font-black text-6xl opacity-5 font-outfit outline-none" 
+              style={{ color: brandColor }}
+            >
+              {item.label || i + 1}
             </div>
             <p 
               contentEditable 
@@ -1018,7 +1260,7 @@ export function ListVariant27(props) {
 }
 
 export function ListVariant28(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1028,7 +1270,15 @@ export function ListVariant28(props) {
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
       <div className="pt-8">
-        <SmartEl index={index} field="titulo" className="mb-8 shrink-0">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-8 shrink-0"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -1037,8 +1287,14 @@ export function ListVariant28(props) {
       <div className="flex-1 flex flex-col justify-center gap-6 min-h-0 pl-2">
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="relative flex items-center shrink-0">
-            <span className="absolute -left-6 font-black text-7xl opacity-20 -translate-y-1 font-outfit" style={{ color: brandColor }}>
-              {i + 1}
+            <span 
+              contentEditable 
+              suppressContentEditableWarning 
+              onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+              className="absolute -left-6 font-black text-7xl opacity-20 -translate-y-1 font-outfit outline-none" 
+              style={{ color: brandColor }}
+            >
+              {item.label || i + 1}
             </span>
             <div className="relative z-10 bg-zinc-900/80 backdrop-blur p-4 rounded-xl border-l-4 shadow-xl w-full" style={{ borderColor: brandColor }}>
               <p 
@@ -1059,7 +1315,7 @@ export function ListVariant28(props) {
 }
 
 export function ListVariant29(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1073,7 +1329,15 @@ export function ListVariant29(props) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
       </div>
       <div className="relative z-10 flex flex-col h-full pt-8">
-        <SmartEl index={index} field="titulo" className="mb-6 shrink-0 text-center mt-2">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-6 shrink-0 text-center mt-2"
+        >
           <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl font-outfit" style={{ fontSize: `${30 * sTitle}px` }}>
             {data.titulo}
           </TextWrapper>
@@ -1081,8 +1345,14 @@ export function ListVariant29(props) {
         <div className="flex-1 flex flex-col gap-3 min-h-0 justify-center">
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex items-center gap-4 shrink-0">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 border border-white/30 font-outfit" style={{ backgroundColor: brandColor }}>
-                0{i + 1}
+              <div 
+                contentEditable 
+                suppressContentEditableWarning 
+                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
+                className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 border border-white/30 font-outfit outline-none" 
+                style={{ backgroundColor: brandColor }}
+              >
+                {item.label || `0${i + 1}`}
               </div>
               <p 
                 contentEditable 
@@ -1102,7 +1372,7 @@ export function ListVariant29(props) {
 }
 
 export function ListVariant30(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const items = data.items || [];
@@ -1111,12 +1381,28 @@ export function ListVariant30(props) {
   return (
     <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartEl index={index} field="tag" className="mb-2 shrink-0">
-        <TextWrapper {...tw} as="span" field="tag" className="font-bold text-[10px] uppercase tracking-[0.2em] font-outfit" style={{ color: brandColor }}>
-          {data.tag || 'Destaque'}
+      <SmartEl 
+        slideIndex={index} 
+        field="badge_text" 
+        position={data.positions?.badge_text || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'}
+        onSelectElement={onSelectElement}
+        className="mb-2 shrink-0"
+      >
+        <TextWrapper {...tw} as="span" field="badge_text" className="font-bold text-[10px] uppercase tracking-[0.2em] font-outfit" style={{ color: brandColor }}>
+          {data.badge_text || 'Destaque'}
         </TextWrapper>
       </SmartEl>
-      <SmartEl index={index} field="titulo" className="mb-8 shrink-0 text-center">
+      <SmartEl 
+        slideIndex={index} 
+        field="titulo" 
+        position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+        onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="mb-8 shrink-0 text-center"
+      >
         <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter font-outfit" style={{ fontSize: `${36 * sTitle}px` }}>
           {data.titulo}
         </TextWrapper>
