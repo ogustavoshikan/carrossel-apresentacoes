@@ -39,14 +39,6 @@ export default function App() {
       return {};
     }
   });
-  const [variantPreferences, setVariantPreferences] = useState(() => {
-    try {
-      const saved = localStorage.getItem('alice_variant_prefs');
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
-  });
   const [slides, setSlides] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
@@ -676,11 +668,6 @@ export default function App() {
                   setCreativeContext={(newCtx) => {
                     setCreativeContext(newCtx);
                     localStorage.setItem('alice_creative_context', JSON.stringify(newCtx));
-                  }}
-                  variantPreferences={variantPreferences}
-                  setVariantPreferences={(newPrefs) => {
-                    setVariantPreferences(newPrefs);
-                    localStorage.setItem('alice_variant_prefs', JSON.stringify(newPrefs));
                   }}
                   slideCount={slideCount}
                   setSlideCount={setSlideCount}
