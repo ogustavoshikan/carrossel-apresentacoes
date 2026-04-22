@@ -133,7 +133,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
 
   const recentProjects = [
     { title: "Lançamento Dark", slides: 8, tag: "Template", delay: "0", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png" },
-    { title: "Oferta Expressa", slides: 3, tag: "Recente", delay: "100" },
+    { title: "Oferta Expressa", slides: 3, tag: "Recente", delay: "100", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image3.png" },
     { title: "Dicas de UX/UI", slides: 10, tag: "Conceito", delay: "200" },
     { title: "Manifesto da Marca", slides: 5, tag: "Rascunho", delay: "300" }
   ];
