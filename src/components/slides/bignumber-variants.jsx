@@ -84,7 +84,7 @@ export function BigNumberVariant1({
         hideDot={true}
               />
 
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Número grande */}
         <SmartField field="titulo" {...sp} className="flex items-baseline mb-[-10px]">
           <span
