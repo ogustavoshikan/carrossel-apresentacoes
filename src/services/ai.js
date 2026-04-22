@@ -155,6 +155,7 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
             properties: {
               slide: { type: 'INTEGER' },
               layout: { type: 'STRING', enum: ['cover', 'content-split', 'big-number', 'quote', 'comparison', 'list', 'cta'] },
+              variante: { type: 'INTEGER' },
               titulo: { type: 'STRING' },
               texto_apoio: { type: 'STRING' },
               sugestao_visual: { type: 'STRING' },
@@ -173,7 +174,7 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
                 },
               },
             },
-            required: ['slide', 'layout', 'titulo', 'imageUrl'],
+            required: ['slide', 'layout', 'variante', 'titulo', 'imageUrl'],
           },
         },
       },
@@ -237,6 +238,18 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
     if (isImageLayout && (!s.imageUrl || s.imageUrl.length < 20 || !s.imageUrl.includes('unsplash'))) {
       s.imageUrl = 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080';
     }
+
+    // Mapeia a variante escolhida pela IA para a propriedade correta do frontend
+    if (s.variante !== undefined && s.variante !== null) {
+      if (s.layout === 'cover') s.coverVariantIndex = Number(s.variante);
+      else if (s.layout === 'content-split') s.splitVariantIndex = Number(s.variante);
+      else if (s.layout === 'big-number') s.bigNumberVariantIndex = Number(s.variante);
+      else if (s.layout === 'quote') s.quoteVariantIndex = Number(s.variante);
+      else if (s.layout === 'comparison') s.comparisonVariantIndex = Number(s.variante);
+      else if (s.layout === 'list') s.listVariantIndex = Number(s.variante);
+      else if (s.layout === 'cta') s.ctaVariantIndex = Number(s.variante);
+    }
+
     return s;
   });
 
@@ -448,4 +461,4 @@ DIRETRIZES RÍGIDAS DE FORMATAÇÃO (MARKDOWN):
   } else {
     throw new Error('Provedor de IA não suportado para o Chat.');
   }
-}
+}
