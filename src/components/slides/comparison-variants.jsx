@@ -140,7 +140,11 @@ export function ComparisonVariant13(props) {
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl font-black text-xs" style={{ fontFamily: titleFont, color: gradientColor1 }}>VS</div>
+        <SmartEl {...sp} field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl z-20">
+          <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-xs uppercase" style={{ fontFamily: titleFont, color: gradientColor1 }}>
+            {data.badge_text || 'VS'}
+          </TextWrapper>
+        </SmartEl>
       </div>
     </div>
   );
@@ -164,7 +168,11 @@ export function ComparisonVariant14(props) {
       <div className="h-1/2 w-full bg-zinc-900 p-8 flex flex-col justify-center text-center pb-12">
         <div className="flex items-center justify-center gap-2 mb-3">
           <X className="w-4 h-4 text-red-500 opacity-80" />
-          <span className="text-zinc-500 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>NÃO FAÇA ASSIM</span>
+          <SmartEl {...sp} field="badge_text">
+            <TextWrapper {...sp} as="span" field="badge_text" className="text-zinc-500 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
+              {data.badge_text || 'NÃO FAÇA ASSIM'}
+            </TextWrapper>
+          </SmartEl>
         </div>
         <SmartEl {...sp} field="tag">
           <TextWrapper {...sp} as="p" field="tag" className="text-white leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}>
@@ -175,7 +183,11 @@ export function ComparisonVariant14(props) {
       <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pt-12" style={{ backgroundColor: gradientColor1 }}>
         <div className="flex items-center justify-center gap-2 mb-3">
           <Check className="w-4 h-4 text-white opacity-80" />
-          <span className="text-white/70 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>FAÇA ASSIM</span>
+          <SmartEl {...sp} field="cta_text">
+            <TextWrapper {...sp} as="span" field="cta_text" className="text-white/70 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
+              {data.cta_text || 'FAÇA ASSIM'}
+            </TextWrapper>
+          </SmartEl>
         </div>
         <SmartEl {...sp} field="texto_apoio">
           <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}>
@@ -331,7 +343,11 @@ export function ComparisonVariant17(props) {
           </div>
         </div>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#1a1a1a] font-black px-4 py-2 rounded-full shadow-2xl z-20 border-4 border-[#1a1a1a]" style={{ fontFamily: titleFont }}>VS</div>
+      <SmartEl {...sp} field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#1a1a1a] font-black px-4 py-2 rounded-full shadow-2xl z-20 border-4 border-[#1a1a1a]">
+        <TextWrapper {...sp} as="div" field="badge_text" className="uppercase" style={{ fontFamily: titleFont }}>
+          {data.badge_text || 'VS'}
+        </TextWrapper>
+      </SmartEl>
     </div>
   );
 }
@@ -412,7 +428,11 @@ export function ComparisonVariant19(props) {
       </SmartEl>
       <div className="flex w-full h-[50%] mt-20">
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center border-r border-zinc-300 min-h-0">
-          <span className="font-black text-6xl text-zinc-300 mb-4 opacity-50 shrink-0" style={{ fontFamily: titleFont }}>X</span>
+          <SmartEl {...sp} field="badge_text" className="mb-4 shrink-0">
+            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-zinc-300 opacity-50 uppercase" style={{ fontFamily: titleFont }}>
+              {data.badge_text || 'X'}
+            </TextWrapper>
+          </SmartEl>
           <SmartEl {...sp} field="tag">
             <TextWrapper {...sp} as="p" field="tag" className="text-zinc-600 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
@@ -420,7 +440,11 @@ export function ComparisonVariant19(props) {
           </SmartEl>
         </div>
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center min-h-0">
-          <span className="font-black text-6xl mb-4 shadow-sm shrink-0" style={{ color: gradientColor1, fontFamily: titleFont }}>✓</span>
+          <SmartEl {...sp} field="cta_text" className="mb-4 shrink-0 shadow-sm">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: gradientColor1, fontFamily: titleFont }}>
+              {data.cta_text || '✓'}
+            </TextWrapper>
+          </SmartEl>
           <SmartEl {...sp} field="texto_apoio">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
@@ -564,9 +588,9 @@ export function ComparisonVariant22(props) {
         </div>
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-6 py-3 rounded-full shadow-2xl z-20 border border-[#333]">
-        <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-none text-center tracking-tighter uppercase" style={{ fontFamily: titleFont, fontSize: `${16 * sText}px` }}>
-            {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
+        <SmartEl {...sp} field="badge_text">
+          <TextWrapper {...sp} as="h2" field="badge_text" className="font-black text-white leading-none text-center tracking-tighter uppercase" style={{ fontFamily: titleFont, fontSize: `${16 * sText}px` }}>
+            {data.badge_text || 'VS'}
           </TextWrapper>
         </SmartEl>
       </div>
@@ -596,7 +620,11 @@ export function ComparisonVariant23(props) {
       </SmartEl>
       <div className="flex w-full h-[50%] mt-20">
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center border-r border-[#222] min-h-0">
-          <span className="font-black text-6xl text-[#222] mb-4 shrink-0" style={{ fontFamily: titleFont }}>X</span>
+          <SmartEl {...sp} field="badge_text" className="mb-4 shrink-0">
+            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-[#222] uppercase" style={{ fontFamily: titleFont }}>
+              {data.badge_text || 'X'}
+            </TextWrapper>
+          </SmartEl>
           <SmartEl {...sp} field="tag" className="overflow-hidden">
             <TextWrapper {...sp} as="p" field="tag" className="text-white/50 font-medium leading-snug whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
@@ -604,7 +632,11 @@ export function ComparisonVariant23(props) {
           </SmartEl>
         </div>
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center min-h-0">
-          <span className="font-black text-6xl mb-4 shrink-0 drop-shadow-lg" style={{ color: brandColor, fontFamily: titleFont }}>✓</span>
+          <SmartEl {...sp} field="cta_text" className="mb-4 shrink-0 drop-shadow-lg">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: brandColor, fontFamily: titleFont }}>
+              {data.cta_text || '✓'}
+            </TextWrapper>
+          </SmartEl>
           <SmartEl {...sp} field="texto_apoio" className="overflow-hidden">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
@@ -776,7 +808,17 @@ export function ComparisonVariant2(props) {
           ))}
         </div>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#020202] rounded-full flex items-center justify-center font-outfit font-black text-white border-4 border-[#020202] z-10 text-xs shrink-0">VS</div>
+      <SmartEl 
+        data={data} index={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#020202] rounded-full flex items-center justify-center font-outfit font-black text-white border-4 border-[#020202] z-10 shrink-0"
+      >
+        <TextWrapper 
+          field="badge_text" index={index} onTextChange={onTextChange}
+          as="div" className="text-xs uppercase"
+        >
+          {data.badge_text || 'VS'}
+        </TextWrapper>
+      </SmartEl>
       <div className="absolute top-0 left-0 w-full p-8">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
       </div>
