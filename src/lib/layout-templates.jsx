@@ -204,6 +204,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide[field] = variantIndex;
   }
 
+  // Pre-configura imagem de fundo para variantes específicas de CTA
+  if (layoutType === 'cta' && [0, 1, 2, 3, 4, 5].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.pexels.com/photos/9285189/pexels-photo-9285189.jpeg';
+  }
+
   return slide;
 }
 
