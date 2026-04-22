@@ -702,7 +702,7 @@ export function SplitVariant10(props) {
             {data.titulo}
           </h2>
         </SmartField>
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden">
+        <SmartField field="texto_apoio" {...sp} className="flex-1">
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
