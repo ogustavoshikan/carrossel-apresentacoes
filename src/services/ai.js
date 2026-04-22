@@ -53,7 +53,7 @@ function buildAutoLayoutDistribution(mioloCount) {
   return result;
 }
 
-export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}) {
+export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}, variantPreferences = {}) {
 
   // Instrução adicional de layouts
   let layoutInstruction = '';
@@ -240,14 +240,21 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
     }
 
     // Mapeia a variante escolhida pela IA para a propriedade correta do frontend
-    if (s.variante !== undefined && s.variante !== null) {
-      if (s.layout === 'cover') s.coverVariantIndex = Number(s.variante);
-      else if (s.layout === 'content-split') s.splitVariantIndex = Number(s.variante);
-      else if (s.layout === 'big-number') s.bigNumberVariantIndex = Number(s.variante);
-      else if (s.layout === 'quote') s.quoteVariantIndex = Number(s.variante);
-      else if (s.layout === 'comparison') s.comparisonVariantIndex = Number(s.variante);
-      else if (s.layout === 'list') s.listVariantIndex = Number(s.variante);
-      else if (s.layout === 'cta') s.ctaVariantIndex = Number(s.variante);
+    // Se o usuário tiver definido uma preferência na UI, ela sobrepõe a IA
+    if (s.layout === 'cover') {
+      s.coverVariantIndex = variantPreferences?.cover ? Number(variantPreferences.cover) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'content-split') {
+      s.splitVariantIndex = variantPreferences?.['content-split'] ? Number(variantPreferences['content-split']) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'big-number') {
+      s.bigNumberVariantIndex = variantPreferences?.['big-number'] ? Number(variantPreferences['big-number']) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'quote') {
+      s.quoteVariantIndex = variantPreferences?.quote ? Number(variantPreferences.quote) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'comparison') {
+      s.comparisonVariantIndex = variantPreferences?.comparison ? Number(variantPreferences.comparison) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'list') {
+      s.listVariantIndex = variantPreferences?.list ? Number(variantPreferences.list) : (s.variante ? Number(s.variante) : 0);
+    } else if (s.layout === 'cta') {
+      s.ctaVariantIndex = variantPreferences?.cta ? Number(variantPreferences.cta) : (s.variante ? Number(s.variante) : 0);
     }
 
     return s;

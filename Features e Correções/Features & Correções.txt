@@ -1,5 +1,0 @@
-1. No painel da lateral esquerda, quando clicarmos em "Auto-Post", deve aparecer "Em breve!" centralizado na tela como uma nova tela e não apenas uma notificação pequena.
-
-2. No painel da lateral esquerda, quando clicarmos em "Mídia", deve aparecer "Em breve!" centralizado na tela como uma nova tela e não apenas uma notificação pequena.
-
-3. Precisamos diminuir a velocidade dos efeitos e animações do app, para que ele fique mais leve e rápido. Não gosto de efeitos e animações que ultrapassem 150ms, mas também não gosto de efeitos e animações que sejam muito rápidos. Enfim, precisamos encontrar um equilíbrio entre os dois.

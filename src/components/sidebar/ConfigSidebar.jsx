@@ -81,6 +81,8 @@ export default function ConfigSidebar({
   setTheme,
   creativeContext = {},
   setCreativeContext,
+  variantPreferences = {},
+  setVariantPreferences,
   slideCount,
   setSlideCount,
   layoutSelection,
@@ -1011,8 +1013,6 @@ export default function ConfigSidebar({
                               positions: {
                                  ...(s.positions || {}),
                                  [cloneId]: { 
-                                     x: startX, 
-                                     y: startY + 60, 
                                      scale: (originalPos.scale || 1), 
                                      rotation: (originalPos.rotation || 0),
                                      ...originalPos, // keep color, italic, etc.
@@ -1428,6 +1428,46 @@ export default function ConfigSidebar({
                     value={creativeContext.chamadaAcao || ''}
                     onChange={(e) => setCreativeContext({ ...creativeContext, chamadaAcao: e.target.value })}
                   />
+                </div>
+              </CollapsibleSection>
+
+              <div className="h-px bg-surface-input/50 w-full" />
+
+              {/* === Section: Preferências de Design === */}
+              <CollapsibleSection title="PREFERÊNCIAS DE DESIGN (OPCIONAL)" defaultOpen={false}>
+                <p className="text-[9px] text-zinc-500 font-medium leading-relaxed -mt-1">
+                  Forçe a IA a utilizar um design específico inserindo o número da variante. Deixe em branco para o padrão.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="alice-label" title="0 a 46">Capa (0-46)</label>
+                    <input type="number" min="0" max="46" className="alice-input w-full" placeholder="Ex: 21" value={variantPreferences.cover ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, cover: e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 30">Split (0-30)</label>
+                    <input type="number" min="0" max="30" className="alice-input w-full" placeholder="Ex: 14" value={variantPreferences['content-split'] ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, 'content-split': e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 13">Big Num (0-13)</label>
+                    <input type="number" min="0" max="13" className="alice-input w-full" placeholder="Ex: 2" value={variantPreferences['big-number'] ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, 'big-number': e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 12">Quote (0-12)</label>
+                    <input type="number" min="0" max="12" className="alice-input w-full" placeholder="Ex: 5" value={variantPreferences.quote ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, quote: e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 23">Compar. (0-23)</label>
+                    <input type="number" min="0" max="23" className="alice-input w-full" placeholder="Ex: 10" value={variantPreferences.comparison ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, comparison: e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 30">Lista (0-30)</label>
+                    <input type="number" min="0" max="30" className="alice-input w-full" placeholder="Ex: 7" value={variantPreferences.list ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, list: e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="alice-label" title="0 a 18">CTA (0-18)</label>
+                    <input type="number" min="0" max="18" className="alice-input w-full" placeholder="Ex: 3" value={variantPreferences.cta ?? ''} onChange={(e) => setVariantPreferences({...variantPreferences, cta: e.target.value})} />
+                  </div>
                 </div>
               </CollapsibleSection>
 
