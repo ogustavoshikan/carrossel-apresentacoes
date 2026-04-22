@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Heart, Bookmark, Share2, Check, ArrowUpRight, Calendar, MousePointer2, Image as ImageIcon } from 'lucide-react';
+import { Zap, Heart, Bookmark, Share2, Check, ArrowUpRight, Calendar, MousePointer2, Image as ImageIcon, ArrowRight, Store, Share } from 'lucide-react';
 import SmartElement from '../smart-element';
 
 // ─── Helper: ImageBg ────────────────────────────────────────
@@ -814,6 +814,492 @@ export function CTAVariant8(props) {
 }
 
 // ==========================================
+// Variante 9: Arrow Solid
+// ==========================================
+export function CTAVariant9(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden" style={{ backgroundColor: gradientColor1, color: 'white' }}>
+      <div className="flex-1 flex flex-col justify-center items-center text-center">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-6 w-full shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[0.9] tracking-tighter uppercase outline-none"
+            style={{ fontSize: `${48 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="mb-8 w-full shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/90 font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center shrink-0 shadow-xl pointer-events-none">
+          <ArrowRight className="w-8 h-8" />
+        </div>
+      </div>
+      <div className="w-full text-center mt-auto shrink-0 pt-4 pointer-events-none">
+        <span className="font-outfit font-bold tracking-[0.2em] text-[10px] uppercase text-white/50">LINK NA BIO</span>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 10: Ghost Text
+// ==========================================
+export function CTAVariant10(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-black text-white justify-center items-center relative">
+      <SmartElement
+        slideIndex={index} field="titulo"
+        position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement}
+        className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none w-[120%] -left-[10%]"
+      >
+        <h2 contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black text-[120px] tracking-tighter uppercase text-center leading-[0.8] break-words outline-none"
+          style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>
+          {data.titulo}
+        </h2>
+      </SmartElement>
+      <div className="relative z-10 text-center max-w-[85%] flex flex-col items-center">
+        <div className="w-12 h-12 mb-6 rounded-full flex items-center justify-center shrink-0 pointer-events-none" style={{ backgroundColor: gradientColor1 }}>
+          <Bookmark className="w-6 h-6 text-white" fill="currentColor" />
+        </div>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-white font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="mt-8 border-b-2 border-white pb-1 font-outfit font-bold text-[10px] tracking-widest uppercase shrink-0 pointer-events-none">Salvar Post</div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 11: Profile Card
+// ==========================================
+export function CTAVariant11(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const bgBase = '#f4f4f5';
+  const imgUrl = data?.imageUrl;
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <div className="w-32 h-32 rounded-full overflow-hidden shadow-xl mb-6 bg-zinc-300 relative border-4 border-white shrink-0 pointer-events-none">
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        </div>
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-3 shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[#1a1a1a] leading-tight outline-none"
+            style={{ fontSize: `${28 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[85%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-zinc-600 leading-snug outline-none"
+            style={{ fontSize: `${14 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+      </div>
+      <div className="w-full pt-4 border-t border-zinc-300 flex justify-between items-center mt-auto shrink-0 pointer-events-none">
+        <span className="font-outfit font-bold tracking-widest text-[10px] text-zinc-500 uppercase">
+          {data.handle || '@SEUPERFIL'}
+        </span>
+        <div className="flex gap-3">
+          <Heart className="w-5 h-5 text-zinc-400" />
+          <Bookmark className="w-5 h-5 text-zinc-400" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 12: Dark Double CTA
+// ==========================================
+export function CTAVariant12(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden bg-zinc-900" style={{ color: 'white' }}>
+      <div className="flex-1 flex flex-col justify-center items-center text-center">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-4 w-full shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-tight outline-none"
+            style={{ fontSize: `${36 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="mb-10 w-[90%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-zinc-400 leading-relaxed outline-none"
+            style={{ fontSize: `${15 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="w-full flex flex-col gap-3 shrink-0 pointer-events-none">
+          <div className="w-full py-4 rounded-xl flex items-center justify-center gap-2 font-outfit font-bold uppercase tracking-widest text-xs" style={{ backgroundColor: gradientColor1 }}>
+            <Bookmark className="w-4 h-4" /> Salvar Post
+          </div>
+          <div className="w-full py-4 rounded-xl flex items-center justify-center gap-2 font-outfit font-bold uppercase tracking-widest text-xs border border-zinc-700 bg-zinc-800">
+            <Share className="w-4 h-4" /> Enviar Direct
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 13: Down Arrow Light
+// ==========================================
+export function CTAVariant13(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const bgBase = '#f4f4f5';
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <SmartElement
+        slideIndex={index} field="titulo"
+        position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement} className="mb-4 w-full text-center shrink-0"
+      >
+        <h2 contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black text-[#1a1a1a] leading-[1.1] tracking-tight uppercase outline-none"
+          style={{ fontSize: `${32 * sTitle}px` }}>
+          {data.titulo}
+        </h2>
+      </SmartElement>
+      <SmartElement
+        slideIndex={index} field="texto_apoio"
+        position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+        onSelectElement={onSelectElement} className="mb-10 w-[90%] text-center shrink-0"
+      >
+        <p contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none"
+          style={{ fontSize: `${16 * sText}px` }}>
+          {data.texto_apoio}
+        </p>
+      </SmartElement>
+      <div className="mt-4 flex flex-col items-center gap-4 shrink-0 pointer-events-none">
+        <span className="font-outfit font-bold tracking-[0.2em] text-[10px] text-zinc-400 uppercase">LINK NA BIO</span>
+        <div className="w-16 h-16 rounded-full flex items-center justify-center text-white shadow-xl" style={{ backgroundColor: gradientColor1 }}>
+          <ArrowRight className="w-8 h-8 rotate-90" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 14: Store Dashed Border
+// ==========================================
+export function CTAVariant14(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+  const gradientColor2 = brandColor + 'CC';
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col justify-center items-center overflow-hidden text-white relative" style={{ backgroundColor: gradientColor2 }}>
+      <div className="absolute inset-4 border border-white/10 rounded-[40px] pointer-events-none" />
+      <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 shrink-0 relative pointer-events-none">
+        <Store className="w-8 h-8 text-white" />
+        <div className="absolute -inset-2 border border-dashed rounded-full" style={{ borderColor: gradientColor1 }} />
+      </div>
+      <SmartElement
+        slideIndex={index} field="titulo"
+        position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement} className="mb-4 w-full text-center shrink-0"
+      >
+        <h2 contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black leading-[1.1] tracking-tight outline-none"
+          style={{ fontSize: `${28 * sTitle}px` }}>
+          {data.titulo}
+        </h2>
+      </SmartElement>
+      <SmartElement
+        slideIndex={index} field="texto_apoio"
+        position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+        onSelectElement={onSelectElement} className="mb-10 w-[85%] text-center shrink-0"
+      >
+        <p contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-outfit text-zinc-300 leading-relaxed outline-none"
+          style={{ fontSize: `${14 * sText}px` }}>
+          {data.texto_apoio}
+        </p>
+      </SmartElement>
+      <div className="px-6 py-3 rounded-full text-xs font-outfit font-bold tracking-widest uppercase border border-white/20 bg-white/10 cursor-pointer shrink-0 pointer-events-none">Enviar Mensagem</div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 15: Glassmorphism Card
+// ==========================================
+export function CTAVariant15(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative justify-end pb-12" style={{ backgroundColor: gradientColor1 }}>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-white/30 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-black/40 rounded-full blur-[80px] pointer-events-none" />
+      <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/30 p-8 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] text-white shrink-0">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-4 shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[1.1] tracking-tight outline-none"
+            style={{ fontSize: `${26 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="mb-8 shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-white/90 leading-relaxed outline-none"
+            style={{ fontSize: `${14 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="w-full h-12 bg-white text-[#1a1a1a] rounded-xl flex items-center justify-center font-outfit font-black uppercase tracking-[0.2em] text-xs shadow-lg shrink-0 pointer-events-none">Garantir Encomenda</div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 16: VIP Dashed Border
+// ==========================================
+export function CTAVariant16(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center overflow-hidden" style={{ backgroundColor: gradientColor1, color: 'white' }}>
+      <div className="w-full flex-1 border-2 border-dashed border-white/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center relative">
+        <div className="absolute top-1/2 -left-4 w-8 h-8 rounded-full pointer-events-none" style={{ backgroundColor: gradientColor1 }} />
+        <div className="absolute top-1/2 -right-4 w-8 h-8 rounded-full pointer-events-none" style={{ backgroundColor: gradientColor1 }} />
+        <Store className="w-10 h-10 mb-6 opacity-80 pointer-events-none" />
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-4 shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-tight uppercase tracking-widest outline-none"
+            style={{ fontSize: `${32 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="mb-8 shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit text-white/80 leading-relaxed font-medium outline-none"
+            style={{ fontSize: `${15 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="bg-white text-black px-6 py-2 rounded-full text-[10px] font-outfit font-bold uppercase tracking-widest mt-auto pointer-events-none">Acesso Vip</div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 17: Black Glow Button
+// ==========================================
+export function CTAVariant17(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center text-center overflow-hidden bg-black text-white">
+      <SmartElement
+        slideIndex={index} field="titulo"
+        position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+        onSelectElement={onSelectElement} className="mb-6 w-full shrink-0"
+      >
+        <h2 contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black leading-tight tracking-tight outline-none"
+          style={{ fontSize: `${38 * sTitle}px` }}>
+          {data.titulo}
+        </h2>
+      </SmartElement>
+      <SmartElement
+        slideIndex={index} field="texto_apoio"
+        position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+        isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+        onSelectElement={onSelectElement} className="mb-12 w-[85%] shrink-0"
+      >
+        <p contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-outfit text-zinc-500 leading-relaxed outline-none"
+          style={{ fontSize: `${15 * sText}px` }}>
+          {data.texto_apoio}
+        </p>
+      </SmartElement>
+      <div className="w-full max-w-[200px] h-14 rounded-full flex items-center justify-center font-outfit font-bold uppercase tracking-widest text-xs shrink-0 pointer-events-none"
+        style={{ backgroundColor: gradientColor1, boxShadow: `0 0 40px ${gradientColor1}80` }}>
+        Reservar Data
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 18: Polaroid Tilt
+// ==========================================
+export function CTAVariant18(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const gradientColor1 = brandColor;
+  const imgUrl = data?.imageUrl;
+
+  return (
+    <div className="w-full h-full p-6 flex flex-col items-center justify-center overflow-hidden relative" style={{ backgroundColor: gradientColor1 }}>
+      <div className="bg-white p-4 pb-6 shadow-2xl rotate-3 w-[85%] relative z-10 flex flex-col pointer-events-none">
+        <div className="w-full aspect-square bg-zinc-200 relative mb-4 border border-zinc-100">
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        </div>
+        <div className="flex justify-between items-center px-2">
+          <span className="font-outfit font-bold text-[#1a1a1a] text-xs uppercase tracking-widest">LINK NA BIO</span>
+          <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
+        </div>
+      </div>
+      <div className="absolute top-12 left-6 z-20 -rotate-6 w-[80%]">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-tight drop-shadow-lg outline-none"
+            style={{ fontSize: `${36 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
 // Export Map & Meta
 // ==========================================
 export const CTA_VARIANT_COMPONENTS = {
@@ -825,6 +1311,16 @@ export const CTA_VARIANT_COMPONENTS = {
   6: CTAVariant6,
   7: CTAVariant7,
   8: CTAVariant8,
+  9: CTAVariant9,
+  10: CTAVariant10,
+  11: CTAVariant11,
+  12: CTAVariant12,
+  13: CTAVariant13,
+  14: CTAVariant14,
+  15: CTAVariant15,
+  16: CTAVariant16,
+  17: CTAVariant17,
+  18: CTAVariant18,
 };
 
 export const CTA_VARIANT_META = [
@@ -836,7 +1332,20 @@ export const CTA_VARIANT_META = [
   { id: 5, title: 'Blur Tilt', desc: 'Efeito de desfoque e rotação suave' },
   { id: 6, title: 'Clean Typographic', desc: 'Layout minimalista puramente tipográfico' },
   { id: 7, title: 'App Interface', desc: 'Design lembrando uma interface de agendamento' },
-  { id: 8, title: 'Tech Start', desc: 'Visual mais dark com bordas tracejadas e gradiente' },
+  { id: 8, title: 'Tech Start', desc: 'Visual dark com bordas tracejadas e gradiente' },
+  { id: 9, title: 'Arrow Solid', desc: 'Fundo sólido com botão seta circular central' },
+  { id: 10, title: 'Ghost Text', desc: 'Título fantasma em fundo preto com ícone de salvar' },
+  { id: 11, title: 'Profile Card', desc: 'Card claro com foto de perfil e ícones sociais' },
+  { id: 12, title: 'Dark Double CTA', desc: 'Fundo escuro com dois botões de ação paralelos' },
+  { id: 13, title: 'Down Arrow Light', desc: 'Seta para baixo em fundo claro com link na bio' },
+  { id: 14, title: 'Store Dashed', desc: 'Ícone de loja com borda tracejada e botão outline' },
+  { id: 15, title: 'Glassmorphism Card', desc: 'Card glass com blur sobre fundo colorido' },
+  { id: 16, title: 'VIP Border', desc: 'Borda tracejada estilo ingresso com acesso VIP' },
+  { id: 17, title: 'Black Glow', desc: 'Fundo preto com botão brilhante da cor da marca' },
+  { id: 18, title: 'Polaroid Tilt', desc: 'Foto estilo polaroid inclinada sobre fundo colorido' },
 ];
+
+
+
 
 
