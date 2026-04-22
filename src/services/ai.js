@@ -239,36 +239,16 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
       s.imageUrl = 'https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080';
     }
 
-    // LIMITES DE VARIANTES
-    const MAX_VARIANTS = {
-      'cover': 46,
-      'content-split': 30,
-      'big-number': 13,
-      'quote': 12,
-      'comparison': 23,
-      'list': 30,
-      'cta': 18
-    };
-
-    // Mapeia a variante escolhida pela IA para a propriedade correta do frontend.
-    // Se a IA retornar 0 (viés comum por não enxergar os designs) ou omitir, forçamos a variedade aleatoriamente.
-    let varVal = (s.variante !== undefined && s.variante !== null) ? Number(s.variante) : 0;
-    
-    if (varVal === 0) {
-       const max = MAX_VARIANTS[s.layout] || 0;
-       if (max > 0) {
-         // Escolhe aleatoriamente entre 1 e o máximo (garante que não seja o 0 Original toda vez)
-         varVal = Math.floor(Math.random() * max) + 1;
-       }
+    // Mapeia a variante escolhida pela IA para a propriedade correta do frontend
+    if (s.variante !== undefined && s.variante !== null) {
+      if (s.layout === 'cover') s.coverVariantIndex = Number(s.variante);
+      else if (s.layout === 'content-split') s.splitVariantIndex = Number(s.variante);
+      else if (s.layout === 'big-number') s.bigNumberVariantIndex = Number(s.variante);
+      else if (s.layout === 'quote') s.quoteVariantIndex = Number(s.variante);
+      else if (s.layout === 'comparison') s.comparisonVariantIndex = Number(s.variante);
+      else if (s.layout === 'list') s.listVariantIndex = Number(s.variante);
+      else if (s.layout === 'cta') s.ctaVariantIndex = Number(s.variante);
     }
-
-    if (s.layout === 'cover') s.coverVariantIndex = varVal;
-    else if (s.layout === 'content-split') s.splitVariantIndex = varVal;
-    else if (s.layout === 'big-number') s.bigNumberVariantIndex = varVal;
-    else if (s.layout === 'quote') s.quoteVariantIndex = varVal;
-    else if (s.layout === 'comparison') s.comparisonVariantIndex = varVal;
-    else if (s.layout === 'list') s.listVariantIndex = varVal;
-    else if (s.layout === 'cta') s.ctaVariantIndex = varVal;
 
     return s;
   });
