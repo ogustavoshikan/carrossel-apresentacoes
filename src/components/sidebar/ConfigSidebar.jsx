@@ -451,6 +451,27 @@ export default function ConfigSidebar({
                 </p>
               </div>
 
+              <div className="mt-2 pt-4 border-t border-border-subtle">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block">Conteúdo</span>
+                  <button 
+                     onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
+                     className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors"
+                  >
+                     Ver Tudo
+                  </button>
+                </div>
+                <textarea 
+                  value={slide[selectedElement.field] || ''}
+                  disabled={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field)}
+                  onChange={(e) => {
+                    setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
+                  }}
+                  className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
+                />
+              </div>
+
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Posição X</span>
@@ -1032,27 +1053,6 @@ export default function ConfigSidebar({
                      </button>
                  )}
               </div>
-            </div>
-
-            <div className="mt-4 pt-4 border-t border-border-subtle">
-              <div className="flex justify-between items-center mb-3">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block">Conteúdo</span>
-                <button 
-                   onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
-                   className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors"
-                >
-                   Ver Tudo
-                </button>
-              </div>
-              <textarea 
-                value={slide[selectedElement.field] || ''}
-                disabled={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field)}
-                onChange={(e) => {
-                  setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
-                }}
-                className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
-                placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
-              />
             </div>
         </div>
       </aside>
