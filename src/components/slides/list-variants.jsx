@@ -118,13 +118,13 @@ export function ListVariant3(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-cover opacity-10 grayscale" style={{ backgroundImage: `url('${data.imageUrl || ''}')`, backgroundPosition: 'center 50%' }}></div>
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+      <div className="absolute inset-0 bg-cover opacity-10 grayscale overflow-hidden" style={{ backgroundImage: `url('${data.imageUrl || ''}')`, backgroundPosition: 'center 50%' }}></div>
       <div className="absolute inset-0 pointer-events-none z-[60]">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       </div>
       
-      <div className="flex-1 flex flex-col justify-center pt-8 relative z-10 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8 relative z-10">
         <ListTitle data={data} index={index} scale={sTitle * 1.2} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left drop-shadow-md" wrapperClasses="mb-10 shrink-0 w-full" />
         
         <div className="relative pl-6 border-l-2 flex-1 overflow-y-auto space-y-8" style={{ borderColor: `${brandColor}40` }}>
@@ -147,10 +147,10 @@ export function ListVariant4(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
       <div className="absolute inset-0 pointer-events-none z-[60]"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} /></div>
       
-      <div className="flex-1 flex flex-col justify-center pt-6 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-6">
         <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
         
         <div className="flex-1 overflow-y-auto flex flex-col justify-center items-center relative py-2 w-full">
@@ -179,10 +179,10 @@ export function ListVariant5(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 w-full" />
         
         <div className="relative flex-1 flex flex-col pt-2 pb-4 overflow-y-visible">
@@ -210,13 +210,13 @@ export function ListVariant6(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-8 relative overflow-hidden">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-8 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col pt-12 overflow-hidden">
+      <div className="flex-1 flex flex-col pt-12">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
         
-        <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-3 overflow-hidden">
+        <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-3">
           {items.map((item, i) => {
             const isFirst = i === 0;
             return (
@@ -241,13 +241,13 @@ export function ListVariant7(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col justify-center pt-4 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-4">
         <ListTitle data={data} index={index} scale={sTitle * 0.85} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-3 shrink-0 w-full" />
         
-        <div className="flex-1 overflow-hidden pr-2 relative flex flex-col justify-center">
+        <div className="flex-1 pr-2 relative flex flex-col justify-center">
           <div className="absolute top-0 bottom-0 left-4 w-1 bg-surface-input/30 pointer-events-none"></div>
           <div className="space-y-3 relative z-10 overflow-y-auto">
             {items.map((item, i) => (
@@ -274,16 +274,18 @@ export function ListVariant8(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
         
         <div className="flex-1 overflow-y-auto space-y-4 pr-1">
           {items.map((item, i) => (
-            <div key={i} className="rounded-2xl p-5 relative overflow-hidden flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
-              <div className="absolute -right-4 -bottom-6 font-outfit font-black text-[100px] leading-none pointer-events-none" style={{ color: brandColor, opacity: 0.15 }}>0{i + 1}</div>
+            <div key={i} className="rounded-2xl p-5 relative flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                <div className="absolute -right-4 -bottom-6 font-outfit font-black text-[100px] leading-none" style={{ color: brandColor, opacity: 0.15 }}>0{i + 1}</div>
+              </div>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-xs uppercase tracking-widest mb-1 relative z-10 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-300 text-sm relative z-10 outline-none line-clamp-2">{item.text}</p>
             </div>
@@ -300,13 +302,13 @@ export function ListVariant9(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-8 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-8 relative">
       {data.imageUrl && (
-        <div className="absolute inset-0 bg-cover blur-md scale-110" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
+        <div className="absolute inset-0 bg-cover blur-md scale-110 overflow-hidden" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
       )}
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col pt-12 overflow-hidden relative z-10">
+      <div className="flex-1 flex flex-col pt-12 relative z-10">
         <ListTitle data={data} index={index} scale={sTitle} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-6 shrink-0 text-center w-full" />
         
         <div className="flex-1 grid grid-cols-2 gap-3 overflow-y-auto pr-1">
@@ -391,15 +393,15 @@ export function ListVariant12(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-10 shrink-0 w-full" />
         
-        <div className="space-y-4 flex-1 overflow-hidden pr-2 flex flex-col justify-center">
+        <div className="space-y-4 flex-1 pr-2 flex flex-col justify-center">
           {items.map((item, i) => (
-            <div key={i} className="flex gap-5 items-center p-4 rounded-2xl transition-all group overflow-hidden" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+            <div key={i} className="flex gap-5 items-center p-4 rounded-2xl transition-all group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
               <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: `${brandColor}20`, border: `1px solid ${brandColor}40` }}>
                 <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
               </div>
