@@ -372,7 +372,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                     <span
                       className="text-xs font-bold uppercase tracking-widest transition-colors"
                       style={{ color: createCardHovered ? '#FFFFFF' : 'rgba(255,255,255,0.50)' }}
-                    >Criar Avulso</span>
+                    >Novo Carrossel</span>
                  </div>
               </div>
 
