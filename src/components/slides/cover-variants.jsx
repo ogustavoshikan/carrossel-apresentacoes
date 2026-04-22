@@ -1279,7 +1279,16 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
         </div>
         <div className="flex justify-between items-center mb-auto relative z-10 shrink-0">
-          <div className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-outfit font-bold text-xs" style={{ borderColor: brandColor, color: brandColor }}>01</div>
+          <SmartField field="slide_call" {...sp}>
+            <div
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
+              className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-outfit font-bold text-xs outline-none"
+              style={{ borderColor: brandColor, color: brandColor }}
+            >
+              {data.slide_call || '01'}
+            </div>
+          </SmartField>
           <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -1502,9 +1511,16 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
         </div>
       </div>
       <div className="absolute bottom-6 left-6 flex flex-col z-20 font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a] font-outfit">
-        <span>Arraste para o lado</span>
-        <div className="flex items-center gap-1">
-          <span>e descubra</span>
+        <SmartField field="cta_text" {...sp}>
+          <div
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="outline-none"
+          >
+            {data.cta_text || 'Arraste para o lado e descubra'}
+          </div>
+        </SmartField>
+        <div className="flex items-center gap-1 mt-1">
           <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
         </div>
       </div>
@@ -1559,7 +1575,15 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
         </div>
       </div>
       <div className="absolute bottom-8 right-8 flex items-center gap-2">
-        <span className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit">Arraste</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit outline-none"
+          >
+            {data.cta_text || 'Arraste'}
+          </span>
+        </SmartField>
         <ArrowRight className="w-4 h-4 text-zinc-500" />
       </div>
     </div>
@@ -1668,7 +1692,15 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
           </div>
         </div>
         <div className="mt-auto pt-4 flex items-center gap-2 shrink-0">
-          <span className="font-bold text-[9px] uppercase tracking-widest text-zinc-500 font-outfit">Arraste para o lado e descubra</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-bold text-[9px] uppercase tracking-widest text-zinc-500 font-outfit outline-none"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
           <ArrowRight className="w-3 h-3 text-zinc-500" />
         </div>
       </div>
@@ -1748,7 +1780,15 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
         <div className="absolute bottom-6 right-6 flex items-center gap-1.5 z-20">
-          <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white">ARRASTA</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none"
+            >
+              {data.cta_text || 'ARRASTA'}
+            </span>
+          </SmartField>
           <ArrowRight className="w-3.5 h-3.5 text-white" />
         </div>
       </div>
@@ -1800,7 +1840,15 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
         </div>
         <div className="w-full flex justify-center pb-4">
           <div className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-full flex items-center gap-3">
-            <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white">Arraste para o lado e descubra</span>
+            <SmartField field="cta_text" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none"
+              >
+                {data.cta_text || 'Arraste para o lado e descubra'}
+              </span>
+            </SmartField>
             <ArrowRight className="w-4 h-4 text-white" />
           </div>
         </div>
@@ -1837,7 +1885,15 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
         </SmartField>
       </div>
       <div className="absolute bottom-[calc(35%+4px)] right-8 z-20 flex items-center gap-4">
-        <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white drop-shadow-md">DESLIZE</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white drop-shadow-md outline-none"
+          >
+            {data.cta_text || 'DESLIZE'}
+          </span>
+        </SmartField>
         <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-white border-2 border-white" style={{ backgroundColor: brandColor }}>
           <ArrowRight className="w-6 h-6" />
         </div>
@@ -1874,7 +1930,15 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
       <div className="w-[45%] h-full relative z-0">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-6 -left-8 bg-white shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border border-zinc-100 z-20">
-          <span className="font-outfit font-bold text-[9px] uppercase tracking-widest text-[#1a1a1a]">CONFIRA AQUI</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[9px] uppercase tracking-widest text-[#1a1a1a] outline-none"
+            >
+              {data.cta_text || 'CONFIRA AQUI'}
+            </span>
+          </SmartField>
           <ArrowRight className="w-3 h-3 text-[#1a1a1a]" />
         </div>
       </div>
@@ -1917,7 +1981,15 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
           </SmartField>
         </div>
         <div className="shrink-0 ml-4 flex items-center gap-2">
-          <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white">VER MAIS</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none"
+            >
+              {data.cta_text || 'VER MAIS'}
+            </span>
+          </SmartField>
           <div className="bg-white text-black w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
             <ArrowRight className="w-4 h-4" />
           </div>
@@ -1962,7 +2034,15 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
         </SmartField>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-2.5 rounded-full flex items-center gap-3 z-20 shadow-2xl shrink-0">
-        <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap">Arraste para o lado e descubra</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none"
+          >
+            {data.cta_text || 'Arraste para o lado e descubra'}
+          </span>
+        </SmartField>
         <ArrowRight className="w-4 h-4 text-white shrink-0" />
       </div>
     </div>
@@ -2001,7 +2081,15 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{ backgroundColor: brandColor }}>
         <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap">
-          <span className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white">Arraste para o lado e descubra</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white outline-none"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
           <ArrowUp className="w-4 h-4 text-white" />
         </div>
       </div>
@@ -2039,7 +2127,15 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
         </SmartField>
       </div>
       <div className="absolute bottom-6 right-6 flex items-center gap-2 z-20 text-white shrink-0">
-        <span className="font-outfit font-bold text-[10px] uppercase tracking-widest">Arraste</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none"
+          >
+            {data.cta_text || 'Arraste'}
+          </span>
+        </SmartField>
         <ArrowRight className="w-4 h-4" />
       </div>
     </div>
@@ -2071,7 +2167,15 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="absolute bottom-0 left-0 w-full p-8 z-20 flex justify-between items-end">
         <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0" style={{ borderColor: brandColor }}>
-          <span className="font-outfit font-black text-[11px] uppercase tracking-widest text-white whitespace-nowrap">Arraste para o lado e descubra</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[11px] uppercase tracking-widest text-white whitespace-nowrap outline-none"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
           <ArrowRight className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
         </div>
       </div>
@@ -2108,7 +2212,15 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
         <div className="flex items-center gap-2 shrink-0 px-4 py-2 rounded-full border border-zinc-200 shadow-sm whitespace-nowrap">
-          <span className="font-outfit font-black text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a]">Arraste</span>
+          <SmartField field="cta_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a] outline-none"
+            >
+              {data.cta_text || 'Arraste'}
+            </span>
+          </SmartField>
           <ArrowRight className="w-3 h-3 text-[#1a1a1a] shrink-0" />
         </div>
       </div>
@@ -2252,7 +2364,15 @@ export function CoverVariant45(props) {
       </div>
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
-        <span className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase">Arraste para o lado e descubra</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none"
+          >
+            {data.cta_text || 'Arraste para o lado e descubra'}
+          </span>
+        </SmartField>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </div>
     </div>
@@ -2308,7 +2428,15 @@ export function CoverVariant46(props) {
       </div>
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
-        <span className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase">Arraste para o lado e descubra</span>
+        <SmartField field="cta_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none"
+          >
+            {data.cta_text || 'Arraste para o lado e descubra'}
+          </span>
+        </SmartField>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </div>
     </div>
