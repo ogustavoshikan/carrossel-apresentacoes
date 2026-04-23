@@ -32,6 +32,7 @@ export default function App() {
   const [view, setView] = useState('home'); // 'home' | 'studio' | 'coming-soon'
   const [studioActiveTab, setStudioActiveTab] = useState('ajustes');
   const [theme, setTheme] = useState('');
+  const [contextUrls, setContextUrls] = useState([]);
   const [creativeContext, setCreativeContext] = useState(() => {
     try {
       const saved = localStorage.getItem('alice_creative_context');
@@ -53,7 +54,6 @@ export default function App() {
   const [selectedElement, setSelectedElement] = useState(null);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
-  // Seleção de layouts (Fase 4)
   const [layoutSelection, setLayoutSelection] = useState({
     mode: 'ai', // 'ai' | 'manual'
     layouts: {}, // { 'content-split': 2, 'big-number': 1, ... }
@@ -66,6 +66,18 @@ export default function App() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    // Configurações padrão para Geração de Imagem via OpenRouter
+    if (!localStorage.getItem('alice_image_model_provider')) {
+      localStorage.setItem('alice_image_model_provider', 'openrouter');
+      localStorage.setItem('alice_image_model_id', 'google/gemini-2.5-flash-image');
+    }
+
+    // Configurações padrão para Texto via OpenRouter (Gemini Flash Lite Free)
+    if (!localStorage.getItem('alice_text_model_provider')) {
+      localStorage.setItem('alice_text_model_provider', 'openrouter');
+      localStorage.setItem('alice_text_model_id', 'google/gemini-2.0-flash-lite:free');
+    }
+
     getFavorites().then(setFavorites).catch(console.error);
   }, []);
   
@@ -524,9 +536,37 @@ export default function App() {
 
     try {
       const parsedSlides = await generateCarouselContent(
-        theme, slideCount, textProvider, textModel, apiKey, layoutSelection, creativeContext
+        theme, slideCount, textProvider, textModel, apiKey, layoutSelection, creativeContext, contextUrls
       );
-      setSlides(parsedSlides);
+      
+      // Geração Automática de Imagens via IA (se configurado)
+      const imageProvider = localStorage.getItem('alice_image_model_provider');
+      const imageModel = localStorage.getItem('alice_image_model_id');
+      const imageApiKey = localStorage.getItem(`alice_${imageProvider}_api_key`);
+
+      if (imageProvider && imageModel && imageApiKey && imageProvider !== 'unsplash') {
+        setSlides(parsedSlides); // Mostra o texto primeiro
+        
+        const slidesWithAIImages = await Promise.all(parsedSlides.map(async (s, idx) => {
+          const isImageLayout = ['cover', 'content-split', 'big-number'].includes(s.layout);
+          if (isImageLayout && s.sugestao_visual) {
+            try {
+              setLoadingImages(prev => ({ ...prev, [idx]: true }));
+              const aiImageUrl = await generateImageWithAI(s.sugestao_visual, imageProvider, imageModel, imageApiKey);
+              return { ...s, imageUrl: aiImageUrl };
+            } catch (err) {
+              console.error(`Erro na imagem do slide ${idx}:`, err);
+              return s;
+            } finally {
+              setLoadingImages(prev => ({ ...prev, [idx]: false }));
+            }
+          }
+          return s;
+        }));
+        setSlides(slidesWithAIImages);
+      } else {
+        setSlides(parsedSlides);
+      }
     } catch (err) {
       console.error(err);
       setError('Deu ruim na geração. Alice cansou, tente de novo.');
@@ -673,6 +713,8 @@ export default function App() {
                   setImageBorderRadius={setImageBorderRadius}
                   theme={theme}
                   setTheme={setTheme}
+                  contextUrls={contextUrls}
+                  setContextUrls={setContextUrls}
                   creativeContext={creativeContext}
                   setCreativeContext={(newCtx) => {
                     setCreativeContext(newCtx);

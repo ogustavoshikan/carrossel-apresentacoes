@@ -53,7 +53,7 @@ function buildAutoLayoutDistribution(mioloCount) {
   return result;
 }
 
-export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}) {
+export async function generateCarouselContent(theme, slideCount, provider, modelId, apiKey, layoutSelection = null, creativeContext = {}, contextUrls = []) {
 
   // Instrução adicional de layouts
   let layoutInstruction = '';
@@ -92,6 +92,14 @@ export async function generateCarouselContent(theme, slideCount, provider, model
   }
 
   const systemPrompt = `Você é um diretor de arte e copywriter de elite (Alice Studio) focado em criar conteúdo premium, irônico e de alta conversão.
+O usuário vai te dar um tema e possivelmente URLs de contexto. 
+
+REGRAS DE CONTEXTO (URLS):
+- Se URLs forem fornecidas no "Contexto Adicional", elas são sua FONTE PRIMÁRIA DE VERDADE. 
+- Ignore o conhecimento genérico se ele contradizer o conteúdo dos links.
+- Extraia dados reais, fatos, preços ou nuances dos links para compor o copy.
+- No campo 'referencia_contexto', cite brevemente qual URL ou info você usou como base para aquele slide (ex: "Info extraída do Artigo X").
+
 O usuário vai te dar um tema. Crie EXATAMENTE ${slideCount} slides.
 
 A linguagem DEVE ser: sofisticada, ácida, direta e gerar alto valor percebido. Escreva em Português do Brasil IMPECÁVEL.
@@ -144,7 +152,11 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
   if (provider === 'google') {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelId.replace('models/', '')}:generateContent?key=${apiKey}`;
     const payload = {
-      contents: [{ parts: [{ text: `Tema/Texto Base: ${theme}` }] }],
+      contents: [{ 
+        parts: [{ 
+          text: `Tema/Texto Base: ${theme}${contextUrls.length > 0 ? `\n\nContexto Adicional (URLs): ${contextUrls.join(', ')}` : ''}` 
+        }] 
+      }],
       systemInstruction: { parts: [{ text: finalSystemPrompt }] },
       generationConfig: {
         responseMimeType: 'application/json',
@@ -158,6 +170,7 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
               variante: { type: 'INTEGER' },
               titulo: { type: 'STRING' },
               texto_apoio: { type: 'STRING' },
+              referencia_contexto: { type: 'STRING' },
               sugestao_visual: { type: 'STRING' },
               imageUrl: { type: 'STRING' },
               tag: { type: 'STRING' },
@@ -174,11 +187,16 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
                 },
               },
             },
-            required: ['slide', 'layout', 'variante', 'titulo', 'imageUrl'],
+            required: ['slide', 'layout', 'variante', 'titulo', 'imageUrl', 'referencia_contexto'],
           },
         },
       },
     };
+
+    // Ativa a ferramenta URL Context se houver URLs
+    if (contextUrls.length > 0) {
+      payload.tools = [{ url_context: {} }];
+    }
 
     let retries = 5;
     let delay = 1000;
@@ -190,6 +208,15 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
       });
       if (response.ok) {
         const data = await response.json();
+        
+        // Log de depuração para verificar se o Gemini acessou as URLs
+        if (data.usageMetadata || data.url_context_metadata) {
+          console.log('[Alice AI] Context Stats:', {
+            tokens: data.usageMetadata,
+            urls: data.url_context_metadata
+          });
+        }
+
         rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
         break;
       }
@@ -348,7 +375,64 @@ Para 'imageUrl', use um ID do Unsplash (ex: photo-1551024506-0bccd828d307 ou pho
 }
 
 export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
-  if (provider === 'google') {
+  if (provider === 'openrouter') {
+    const url = `https://openrouter.ai/api/v1/chat/completions`;
+    
+    // Payload base
+    const payload = {
+      model: modelId,
+      messages: [{ role: "user", content: prompt }]
+    };
+
+    // Gemini 2.x no OpenRouter EXIGE modalidades. Outros modelos podem falhar com elas.
+    if (modelId.toLowerCase().includes('gemini')) {
+      payload.modalities = ["image", "text"];
+      payload.image_config = { aspect_ratio: "1:1" };
+    }
+
+    console.log(`[Alice AI] Solicitando imagem ao OpenRouter (${modelId})...`);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': window.location.origin,
+        'X-Title': 'Alice Studio'
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('[Alice AI] Erro OpenRouter:', errorData);
+      throw new Error(`Falha na API OpenRouter: ${response.status} - ${errorData.error?.message || 'Erro desconhecido'}`);
+    }
+
+    const data = await response.json();
+    const assistantMessage = data.choices[0]?.message;
+
+    if (!assistantMessage) throw new Error('Resposta inválida do OpenRouter.');
+
+    // 1. Tenta extrair do array 'images' (Padrão Multimodal/Gemini)
+    if (assistantMessage.images && assistantMessage.images.length > 0) {
+      return assistantMessage.images[0].image_url.url;
+    } 
+    
+    // 2. Tenta extrair base64 direto do content (Comum em modelos Flux/Riverflow no OpenRouter)
+    if (assistantMessage.content) {
+      // Procura por data:image/...;base64,...
+      const base64Match = assistantMessage.content.match(/data:image\/[a-zA-Z]*;base64,[^"'\s\)]+/);
+      if (base64Match) return base64Match[0];
+      
+      // Procura por uma URL pura no conteúdo
+      const urlMatch = assistantMessage.content.match(/https?:\/\/[^\s"']+\.(png|jpg|jpeg|webp)/i);
+      if (urlMatch) return urlMatch[0];
+    }
+
+    throw new Error('A IA não retornou um formato de imagem reconhecido.');
+
+  } else if (provider === 'google') {
     const safeModelId = modelId.includes('imagen') ? modelId.replace('models/', '') : 'imagen-4.0-generate-001';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${safeModelId}:predict?key=${apiKey}`;
     const payload = {

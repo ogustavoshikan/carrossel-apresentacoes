@@ -5,6 +5,7 @@ import {
   LayoutTemplate,
   Lightbulb,
   BadgeCheck,
+  Link,
   Loader2,
   Send,
   AlertCircle,
@@ -81,6 +82,8 @@ export default function ConfigSidebar({
   // Prompt state
   theme,
   setTheme,
+  contextUrls = [],
+  setContextUrls,
   creativeContext = {},
   setCreativeContext,
   slideCount,
@@ -1447,6 +1450,63 @@ export default function ConfigSidebar({
                   onChange={(e) => setTheme(e.target.value)}
                 />
               </div>
+
+              {/* === Section: URL Context (Gemini) === */}
+              <div className="space-y-4">
+                <label className="alice-section-title">
+                  <Link className="w-4 h-4" style={{ color: gradientColor1 }} />
+                  Contexto de URL
+                </label>
+                <p className="text-[9px] text-zinc-500 leading-relaxed font-medium -mt-2">
+                  Adicione links (sites, artigos, PDFs públicos) para que a IA use como referência. Máx 20.
+                </p>
+                
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    className="alice-input flex-1 text-xs"
+                    placeholder="Cole a URL aqui..."
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        const url = e.target.value.trim();
+                        if (url && contextUrls.length < 20) {
+                          setContextUrls([...contextUrls, url]);
+                          e.target.value = '';
+                        }
+                      }
+                    }}
+                  />
+                  <button 
+                    className="p-2 bg-surface-input/50 rounded-lg hover:bg-surface-input transition-colors"
+                    onClick={(e) => {
+                      const input = e.currentTarget.previousSibling;
+                      const url = input.value.trim();
+                      if (url && contextUrls.length < 20) {
+                        setContextUrls([...contextUrls, url]);
+                        input.value = '';
+                      }
+                    }}
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {contextUrls.length > 0 && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {contextUrls.map((url, i) => (
+                      <div key={i} className="flex items-center gap-2 bg-surface-input/40 border border-white/5 px-2 py-1 rounded-lg text-[9px] text-zinc-400 group/url">
+                        <span className="max-w-[120px] truncate">{url}</span>
+                        <button 
+                          onClick={() => setContextUrls(contextUrls.filter((_, idx) => idx !== i))}
+                          className="text-zinc-600 hover:text-rose-400 transition-colors"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </>
           )}
 
@@ -1483,6 +1543,63 @@ export default function ConfigSidebar({
                       value={theme}
                       onChange={(e) => setTheme(e.target.value)}
                     />
+                  </div>
+
+                  {/* === Section: URL Context (Gemini) === */}
+                  <div className="space-y-4">
+                    <label className="alice-section-title">
+                      <Link className="w-4 h-4" style={{ color: gradientColor1 }} />
+                      Contexto de URL
+                    </label>
+                    <p className="text-[9px] text-zinc-500 leading-relaxed font-medium -mt-2">
+                      Adicione links (sites, artigos, PDFs públicos) para que a IA use como referência. Máx 20.
+                    </p>
+                    
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        className="alice-input flex-1 text-xs"
+                        placeholder="Cole a URL aqui..."
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            const url = e.target.value.trim();
+                            if (url && contextUrls.length < 20) {
+                              setContextUrls([...contextUrls, url]);
+                              e.target.value = '';
+                            }
+                          }
+                        }}
+                      />
+                      <button 
+                        className="p-2 bg-surface-input/50 rounded-lg hover:bg-surface-input transition-colors"
+                        onClick={(e) => {
+                          const input = e.currentTarget.previousSibling;
+                          const url = input.value.trim();
+                          if (url && contextUrls.length < 20) {
+                            setContextUrls([...contextUrls, url]);
+                            input.value = '';
+                          }
+                        }}
+                      >
+                        <Send className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {contextUrls.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {contextUrls.map((url, i) => (
+                          <div key={i} className="flex items-center gap-2 bg-surface-input/40 border border-white/5 px-2 py-1 rounded-lg text-[9px] text-zinc-400 group/url">
+                            <span className="max-w-[120px] truncate">{url}</span>
+                            <button 
+                              onClick={() => setContextUrls(contextUrls.filter((_, idx) => idx !== i))}
+                              className="text-zinc-600 hover:text-rose-400 transition-colors"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                </div>
 

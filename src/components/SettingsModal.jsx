@@ -5,6 +5,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
   const [tab, setTab] = useState('google');
   const [googleKey, setGoogleKey] = useState('');
   const [openaiKey, setOpenaiKey] = useState('');
+  const [openrouterKey, setOpenrouterKey] = useState('');
   const [unsplashKey, setUnsplashKey] = useState('');
   const [pexelsKey, setPexelsKey] = useState('');
   const [pixabayKey, setPixabayKey] = useState('');
@@ -12,6 +13,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
   const [isVerifyingGoogle, setIsVerifyingGoogle] = useState(false);
   const [isVerifyingOpenAI, setIsVerifyingOpenAI] = useState(false);
+  const [isVerifyingOpenRouter, setIsVerifyingOpenRouter] = useState(false);
   
   // Models list
   const [textModels, setTextModels] = useState([]);
@@ -27,11 +29,16 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
     if (isOpen) {
       setGoogleKey(localStorage.getItem('alice_google_api_key') || '');
       setOpenaiKey(localStorage.getItem('alice_openai_api_key') || '');
+      setOpenrouterKey(localStorage.getItem('alice_openrouter_api_key') || '');
       setUnsplashKey(localStorage.getItem('alice_unsplash_api_key') || '');
       setPexelsKey(localStorage.getItem('alice_pexels_api_key') || '');
       setPixabayKey(localStorage.getItem('alice_pixabay_api_key') || '');
-      setTextModels(JSON.parse(localStorage.getItem('alice_available_text_models') || '[]'));
-      setImageModels(JSON.parse(localStorage.getItem('alice_available_image_models') || '[]'));
+      
+      const savedTextModels = JSON.parse(localStorage.getItem('alice_available_text_models') || '[]');
+      const savedImageModels = JSON.parse(localStorage.getItem('alice_available_image_models') || '[]');
+      
+      setTextModels(savedTextModels);
+      setImageModels(savedImageModels);
       setSelectedTextModel(localStorage.getItem('alice_text_model_id') || '');
       setSelectedTextProvider(localStorage.getItem('alice_text_model_provider') || '');
       setSelectedImageModel(localStorage.getItem('alice_image_model_id') || '');
@@ -41,6 +48,42 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
   }, [isOpen]);
 
   if (!isOpen) return null;
+
+  const verifyOpenRouter = async () => {
+    setIsVerifyingOpenRouter(true);
+    try {
+      const res = await fetch(`https://openrouter.ai/api/v1/models`, {
+        headers: {
+          'Authorization': `Bearer ${openrouterKey}`
+        }
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      
+      // Keywords para identificar modelos de imagem no mar de modelos do OpenRouter
+      const imageKeywords = ['image', 'flux', 'diffusion', 'dall-e', 'midjourney', 'riverflow', 'sdxl', 'imagen', 'video', 'kling', 'luma'];
+      
+      const allModels = data.data.map(m => ({ id: m.id, provider: 'openrouter' }));
+      
+      const oText = allModels; // Texto aceita tudo
+      const oImage = allModels.filter(m => 
+        imageKeywords.some(kw => m.id.toLowerCase().includes(kw))
+      );
+      
+      // Garante que os modelos essenciais estejam lá caso o filtro falhe por nomes exóticos
+      if (!oImage.find(m => m.id.includes('gemini-2.5-flash-image'))) {
+        oImage.push({ id: 'google/gemini-2.5-flash-image', provider: 'openrouter' });
+      }
+
+      setTextModels(prev => [...prev.filter(m => m.provider !== 'openrouter'), ...oText]);
+      setImageModels(prev => [...prev.filter(m => m.provider !== 'openrouter'), ...oImage]);
+      alert(`Sucesso! ${allModels.length} modelos encontrados.`);
+    } catch(e) {
+      alert('Erro ao validar chave OpenRouter.');
+    } finally {
+      setIsVerifyingOpenRouter(false);
+    }
+  };
 
   const verifyGoogle = async () => {
     setIsVerifyingGoogle(true);
@@ -89,6 +132,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
   const handleSave = () => {
     localStorage.setItem('alice_google_api_key', googleKey.trim());
     localStorage.setItem('alice_openai_api_key', openaiKey.trim());
+    localStorage.setItem('alice_openrouter_api_key', openrouterKey.trim());
     localStorage.setItem('alice_unsplash_api_key', unsplashKey.trim());
     localStorage.setItem('alice_pexels_api_key', pexelsKey.trim());
     localStorage.setItem('alice_pixabay_api_key', pixabayKey.trim());
@@ -109,18 +153,26 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
   const handleTextModelChange = (val) => {
     setSelectedTextModel(val);
     const found = textModels.find(m => m.id === val);
-    if (found) setSelectedTextProvider(found.provider);
+    if (found) {
+      setSelectedTextProvider(found.provider);
+    } else if (val.includes('/')) {
+      setSelectedTextProvider('openrouter');
+    }
   };
 
   const handleImageModelChange = (val) => {
     setSelectedImageModel(val);
     const found = imageModels.find(m => m.id === val);
-    if (found) setSelectedImageProvider(found.provider);
+    if (found) {
+      setSelectedImageProvider(found.provider);
+    } else if (val.includes('/')) {
+      setSelectedImageProvider('openrouter');
+    }
   };
 
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-surface-dark border border-border-subtle rounded-2xl w-full max-w-xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
+      <div className="bg-surface-dark border border-border-subtle rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[95vh]">
         
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border-subtle shrink-0">
@@ -155,6 +207,13 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             onClick={() => setTab('openai')}
           >
             OpenAI
+          </button>
+          <button 
+            className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'openrouter' ? 'text-white border-b-2' : 'text-zinc-500'}`}
+            style={{ borderColor: tab === 'openrouter' ? brandColor : 'transparent' }}
+            onClick={() => setTab('openrouter')}
+          >
+            OpenRouter
           </button>
           <button 
             className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'unsplash' ? 'text-white border-b-2' : 'text-zinc-500'}`}
@@ -292,6 +351,28 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             </div>
           )}
 
+          {tab === 'openrouter' && (
+            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
+              <label className="alice-label flex items-center gap-2">
+                <Key className="w-3 h-3" /> OpenRouter API Key
+              </label>
+              <input
+                type="password"
+                value={openrouterKey}
+                onChange={(e) => setOpenrouterKey(e.target.value)}
+                className="alice-input w-full"
+                placeholder="sk-or-v1-..."
+              />
+              <button
+                onClick={verifyOpenRouter}
+                disabled={!openrouterKey || isVerifyingOpenRouter}
+                className="w-full alice-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
+              >
+                {isVerifyingOpenRouter ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verificar & Listar Modelos'}
+              </button>
+            </div>
+          )}
+
           {tab === 'unsplash' && (
             <div className="space-y-6 animate-in fade-in zoom-in-95 duration-150 p-1">
               {/* Unsplash */}
@@ -355,7 +436,14 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="alice-label">Modelo para Texto (Copy)</label>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="alice-label">Modelo para Texto (Copy)</label>
+                  {selectedTextProvider && (
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400 font-bold uppercase tracking-widest">
+                      {selectedTextProvider}
+                    </span>
+                  )}
+                </div>
                 <input 
                   list="text-models-list" 
                   value={selectedTextModel} 
@@ -369,7 +457,14 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
               </div>
 
               <div>
-                <label className="alice-label">Modelo para Imagem (Visual)</label>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="alice-label">Modelo para Imagem (Visual)</label>
+                  {selectedImageProvider && (
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400 font-bold uppercase tracking-widest">
+                      {selectedImageProvider}
+                    </span>
+                  )}
+                </div>
                 <input 
                   list="image-models-list" 
                   value={selectedImageModel} 
