@@ -804,7 +804,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white leading-none mt-[1px] outline-none"
+                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white leading-none outline-none inline-block -translate-y-[3px]"
               >
                 {data.cta_text || 'Deslize'}
               </span>
@@ -2541,8 +2541,3 @@ export const COVER_VARIANT_META = [
   { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste' },
   { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste' },
 ];
-
-
-
-
-
