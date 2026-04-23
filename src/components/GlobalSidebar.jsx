@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../lib/utils';
 import { 
   Home as HomeIcon,
   LayoutGrid,
@@ -16,17 +17,18 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick, brandColor }) => (
     onClick={onClick}
     className="group flex flex-col items-center justify-center w-full relative py-3 outline-none focus:outline-none focus:ring-0 focus-visible:outline-none"
   >
-    <div 
-      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150
-        ${isActive 
-          ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-[#FFFFFF] shadow-lg border' 
-          : 'bg-transparent text-[#FFFFFF]/40 hover:bg-surface-input/50 hover:text-[#FFFFFF] border border-transparent'}
-      `}
+  <div 
+      className={cn(
+        'w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150',
+        isActive
+          ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-white shadow-lg border'
+          : 'bg-transparent text-white/40 hover:bg-surface-input/50 hover:text-white border border-transparent'
+      )}
       style={isActive ? { borderColor: `${brandColor || '#DE1E4D'}4d` } : {}}
     >
       <Icon size={20} strokeWidth={isActive ? 2 : 1.5} />
     </div>
-    <span className="text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase text-[#FFFFFF]">
+    <span className="text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase text-white">
       {label}
     </span>
   </button>
@@ -79,7 +81,7 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
           brandColor={brandColor}
         />
         
-        <div className="w-8 h-px bg-gradient-to-r from-transparent via-[#FFFFFF]/10 to-transparent mx-auto my-4" />
+        <div className="w-8 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-auto my-4" />
         
         <SidebarItem 
           icon={ImageIcon} 

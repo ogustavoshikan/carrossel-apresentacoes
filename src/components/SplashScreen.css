@@ -24,8 +24,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(222,30,77,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(222,30,77,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(from var(--color-brand) r g b / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(from var(--color-brand) r g b / 0.06) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridPulse 3s ease-in-out infinite;
 }
@@ -40,7 +40,7 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(222,30,77,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-brand-glow) 0%, transparent 70%);
   animation: glowPulse 2.5s ease-in-out infinite;
 }
 
@@ -67,7 +67,7 @@
 .splash-icon {
   width: 76px;
   height: 76px;
-  background: #DE1E4D;
+  background: var(--color-brand);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@
 }
 
 .splash-brand-main span {
-  color: #DE1E4D;
+  color: var(--color-brand);
 }
 
 .splash-brand-sub {
@@ -160,8 +160,8 @@
 .slide-card:nth-child(3) {
   width: 58px;
   height: 76px;
-  border-color: #DE1E4D;
-  box-shadow: 0 0 0 1px #DE1E4D, 0 8px 24px rgba(222,30,77,0.3);
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 1px var(--color-brand), 0 8px 24px var(--color-brand-glow);
   margin-top: -4px;
 }
 
@@ -171,7 +171,7 @@
   left: 0;
   right: 0;
   height: 28px;
-  background: #DE1E4D;
+  background: var(--color-brand);
 }
 
 .slide-card:nth-child(1) .slide-accent { background: #1e1e2e; height: 20px; }
@@ -211,7 +211,7 @@
 
 .loader-bar {
   height: 100%;
-  background: #DE1E4D;
+  background: var(--color-brand);
   border-radius: 99px;
   animation: loaderLoop 2s ease-in-out infinite;
 }

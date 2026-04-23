@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../../lib/utils';
 import {
   Eye,
   FileText,
@@ -40,11 +41,12 @@ export default function WorkspaceToolbar({
         <div className="flex items-center bg-white/5 p-1 rounded-full border border-white/5">
           <button
             onClick={() => { setViewMode('visual'); setShowMetrics(false); }}
-            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+            className={cn(
+              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'visual' && !showMetrics
                 ? 'bg-white/10 text-white shadow-sm'
                 : 'text-zinc-500 hover:text-zinc-300'
-            }`}
+            )}
           >
             <Eye className="w-3.5 h-3.5" />
             <span className="hidden sm:inline-block">Preview Final</span>
@@ -52,11 +54,12 @@ export default function WorkspaceToolbar({
 
           <button
             onClick={() => setViewMode('text')}
-            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+            className={cn(
+              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'text'
                 ? 'bg-white/10 text-white shadow-sm'
                 : 'text-zinc-500 hover:text-zinc-300'
-            }`}
+            )}
           >
             <FileText className="w-3.5 h-3.5" />
             <span className="hidden sm:inline-block">Estrutura</span>
@@ -64,11 +67,12 @@ export default function WorkspaceToolbar({
 
           <button
             onClick={() => { setViewMode('visual'); setShowMetrics(true); }}
-            className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all ${
+            className={cn(
+              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'visual' && showMetrics
                 ? 'text-white shadow-sm'
                 : 'text-zinc-500 hover:text-zinc-300'
-            }`}
+            )}
             style={
               viewMode === 'visual' && showMetrics
                 ? { backgroundColor: `${brandColor}30`, color: brandColor }
