@@ -596,7 +596,7 @@ export function ListVariant15(props) {
         </div>
       )}
       <div className="relative z-30 opacity-90 mix-blend-difference w-full">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       </div>
       <div className="flex-1 flex flex-col min-h-0 pt-8 relative z-10">
         <SmartEl 
@@ -756,7 +756,7 @@ export function ListVariant18(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
           <Check className="w-6 h-6 text-white" />
@@ -1161,7 +1161,7 @@ export function ListVariant26(props) {
 
   return (
     <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
         <div>
           <SmartEl 
@@ -1297,7 +1297,7 @@ export function ListVariant28(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="pt-8">
         <SmartEl 
           slideIndex={index} 
