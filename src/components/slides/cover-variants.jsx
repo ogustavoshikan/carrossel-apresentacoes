@@ -2493,7 +2493,12 @@ export const COVER_VARIANT_COMPONENTS = {
 };
 
 export const COVER_VARIANT_META = [
-  { id: 0, name: 'Original', description: 'Layout padrão' },
+  { 
+    id: 0, 
+    name: 'Original', 
+    description: 'Layout padrão',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa_0.png'
+  },
   { id: 1, name: 'Color Split', description: 'Imagem + bloco de cor' },
   { id: 2, name: 'Cinemático', description: 'Full-bleed com gradient' },
   { id: 3, name: 'Blur Editorial', description: 'Fundo blur + barra de acento' },

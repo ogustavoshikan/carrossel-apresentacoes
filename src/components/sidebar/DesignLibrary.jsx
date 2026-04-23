@@ -15,7 +15,18 @@ import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
  * DesignThumbnail — Renderiza o mini wireframe de uma variante específica.
  * Utiliza a biblioteca centralizada para garantir consistência em todos os layouts.
  */
-function DesignThumbnail({ theme, variantId, brandColor }) {
+function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
+  // Se houver uma URL de thumbnail real, prioriza ela
+  if (thumbnailUrl) {
+    return (
+      <img 
+        src={thumbnailUrl} 
+        alt={`Variante ${variantId}`} 
+        className="w-full h-full object-cover rounded-[3px]"
+      />
+    );
+  }
+
   const themeVariants = VARIANT_THUMBNAILS[theme];
   
   if (!themeVariants) {
@@ -111,7 +122,12 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
             {/* Área da Miniatura */}
             <div className="aspect-[4/5] flex items-center justify-center p-2 bg-black/40 group-hover:bg-black/20 transition-colors">
                <div className="w-32 h-40 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-300 shadow-2xl">
-                  <DesignThumbnail theme={selectedTheme} variantId={variant.id} brandColor={brandColor} />
+                  <DesignThumbnail 
+                    theme={selectedTheme} 
+                    variantId={variant.id} 
+                    brandColor={brandColor} 
+                    thumbnailUrl={variant.thumbnailUrl}
+                  />
                </div>
             </div>
             
