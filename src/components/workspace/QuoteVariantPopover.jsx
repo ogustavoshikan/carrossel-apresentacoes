@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Shuffle } from 'lucide-react';
 import { QUOTE_VARIANT_META } from '../slides/quote-variants';
 import VariantPopoverHeader from './VariantPopoverHeader';
+import { cn } from '../../lib/utils';
 
 /**
  * QuoteVariantPopover — Grid visual com mini-wireframes de cada variante de quote.
@@ -205,9 +206,10 @@ export default function QuoteVariantPopover({ currentVariantIndex, onSelect, onC
                 brandColor={brandColor}
                 isSelected={currentVariantIndex === variant.id}
               />
-              <span className={`text-[8px] font-medium transition-colors leading-tight text-center ${
+              <span className={cn(
+                'text-[8px] font-medium transition-colors leading-tight text-center',
                 currentVariantIndex === variant.id ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
-              }`}>
+              )}>
                 {variant.name}
               </span>
             </button>

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { cn } from '../../lib/utils';
 import {
   Copy,
   CheckCircle2,
@@ -209,11 +210,10 @@ export default function VisualPreview({
             {slides.map((_, i) => (
               <div
                 key={i}
-                className={`transition-all duration-300 rounded-full ${
-                  i === activeIndex
-                    ? 'w-6 h-2'
-                    : 'w-2 h-2 bg-zinc-700'
-                }`}
+                className={cn(
+                  'transition-all duration-300 rounded-full',
+                  i === activeIndex ? 'w-6 h-2' : 'w-2 h-2 bg-zinc-700'
+                )}
                 style={i === activeIndex ? { backgroundColor: brandColor || '#F43F5E' } : {}}
               />
             ))}
@@ -280,7 +280,7 @@ export default function VisualPreview({
           </div>
 
           {/* Controls */}
-          <div className="bg-[#080808] border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
+          <div className="bg-surface-dark border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
             <div className="flex justify-between items-center mb-3">
                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
@@ -553,7 +553,7 @@ export default function VisualPreview({
               if (!hasAnyImage && !hasPositions) return null;
 
               return (
-                <div className="bg-[#0f0f0f] border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
+                <div className="bg-surface-dark border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
                   {Array.from({ length: totalSlots }, (_, idx) => {
                     const slot = idx + 1;
                     const imageUrl = slide[urlFor(slot)];

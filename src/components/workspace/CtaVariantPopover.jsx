@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Calendar, Shuffle } from 'lucide-react';
 import { CTA_VARIANT_META } from '../slides/cta-variants';
 import VariantPopoverHeader from './VariantPopoverHeader';
+import { cn } from '../../lib/utils';
 
 /**
  * CtaVariantPopover — Grid visual com mini-wireframes de cada variante de CTA.
@@ -184,9 +185,10 @@ export default function CtaVariantPopover({ currentVariantIndex, onSelect, onClo
                 brandColor={brandColor}
                 isSelected={currentVariantIndex === variant.id}
               />
-              <span className={`text-[8px] font-medium transition-colors leading-tight text-center ${
+              <span className={cn(
+                'text-[8px] font-medium transition-colors leading-tight text-center',
                 currentVariantIndex === variant.id ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
-              }`}>
+              )}>
                 {variant.title}
               </span>
             </button>

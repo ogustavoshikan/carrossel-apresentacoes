@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Shuffle } from 'lucide-react';
 import { BIGNUMBER_VARIANT_META } from '../slides/bignumber-variants';
 import VariantPopoverHeader from './VariantPopoverHeader';
+import { cn } from '../../lib/utils';
 
 /**
  * BigNumberVariantPopover — Grid visual com mini-wireframes de cada variante de big-number.
@@ -246,9 +247,10 @@ export default function BigNumberVariantPopover({ currentVariantIndex, onSelect,
                 brandColor={brandColor}
                 isSelected={currentVariantIndex === variant.id}
               />
-              <span className={`text-[8px] font-medium transition-colors leading-tight text-center ${
+              <span className={cn(
+                'text-[8px] font-medium transition-colors leading-tight text-center',
                 currentVariantIndex === variant.id ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
-              }`}>
+              )}>
                 {variant.name}
               </span>
             </button>

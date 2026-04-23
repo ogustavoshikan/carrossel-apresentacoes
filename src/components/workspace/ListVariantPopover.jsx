@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Shuffle } from 'lucide-react';
 import { LIST_VARIANT_META } from '../slides/list-variants';
 import VariantPopoverHeader from './VariantPopoverHeader';
+import { cn } from '../../lib/utils';
 
 function VariantThumbnail({ variantId, brandColor, isSelected }) {
   const accent = brandColor;
@@ -453,9 +454,10 @@ export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, bra
                 brandColor={brandColor}
                 isSelected={currentVariantIndex === variant.id}
               />
-              <span className={`text-[8px] font-medium transition-colors leading-tight text-center ${
+              <span className={cn(
+                'text-[8px] font-medium transition-colors leading-tight text-center',
                 currentVariantIndex === variant.id ? 'text-white' : 'text-zinc-600 group-hover:text-zinc-400'
-              }`}>
+              )}>
                 {variant.nome}
               </span>
             </button>
