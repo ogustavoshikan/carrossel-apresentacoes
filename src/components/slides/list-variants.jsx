@@ -3,6 +3,24 @@ import { CheckCircle2, Star, Check } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
+// ─── Helper: ImageBg ────────────────────────────────────────
+function ImageBg({ data, className = '', style = {}, children }) {
+  if (!data?.imageUrl) return null;
+  return (
+    <div 
+      className={`bg-cover bg-center transition-all duration-500 ${className}`}
+      style={{ 
+        backgroundImage: `url(${data.imageUrl})`,
+        backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+        transform: `scale(${(data.imageScale ?? 100) / 100})`,
+        ...style 
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 // ==========================================
 // HELPERS
 // ==========================================
@@ -394,11 +412,15 @@ export function ListVariant11(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-zinc-950 flex flex-col p-10 relative overflow-hidden items-center text-center">
+    <div className="w-full h-full bg-black flex flex-col p-10 relative overflow-hidden items-center text-center">
       {data.imageUrl && (
-        <div className="absolute inset-0 bg-cover blur-md scale-110" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
       )}
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
+      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
+      </div>
       
       <ListTitle data={data} index={index} scale={sTitle * 1.25} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-4 shrink-0 mt-4 w-full relative z-10" />
       
@@ -567,9 +589,16 @@ export function ListVariant15(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
-      <div className="flex-1 flex flex-col min-h-0 pt-8">
+    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+      </div>
+      <div className="flex-1 flex flex-col min-h-0 pt-8 relative z-10">
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
@@ -1322,8 +1351,15 @@ export function ListVariant29(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-zinc-900 text-white">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+    <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-black text-white">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+      )}
+      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
+      </div>
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-800 opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
