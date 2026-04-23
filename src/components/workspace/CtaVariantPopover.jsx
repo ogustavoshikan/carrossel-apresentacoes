@@ -129,11 +129,12 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
 
   return (
     <div
-      className={`relative w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0 ${
+      className={cn(
+        'relative w-11 h-14 rounded-md overflow-hidden transition-all duration-150 cursor-pointer ring-2 flex-shrink-0',
         isSelected
           ? 'ring-offset-1 ring-offset-zinc-950 scale-110'
           : 'ring-transparent hover:ring-zinc-600 hover:scale-105'
-      }`}
+      )}
       style={isSelected ? { '--tw-ring-color': accent } : {}}
     >
       {layouts[variantId]}
