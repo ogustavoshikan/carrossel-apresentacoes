@@ -22,6 +22,7 @@ O Alice Studio v3.2 é a evolução final de uma ferramenta pensada para diretor
 - **Framework**: [React 19](https://react.dev/) (Última versão, alta performance)
 - **Build Tool**: [Vite 6](https://vitejs.dev/)
 - **Estilização**: [Tailwind CSS 3.4](https://tailwindcss.com/) com tokens customizados.
+- **Utilitário de Classes**: `cn()` via `clsx` + `tailwind-merge` (padrão para classes condicionais).
 - **Ícones**: [Lucide React](https://lucide.dev/)
 - **Exportação**: `html-to-image` (Carregamento on-demand para performance)
 - **APIs de Imagem**: Unsplash, Pexels, Pixabay integrados.
@@ -51,13 +52,13 @@ O Alice Studio possui uma biblioteca vasta de designs pré-configurados. Cada la
 
 | Layout | Descrição | Variantes | Arquivo de Referência |
 | :--- | :--- | :---: | :--- |
-| **Cover** | Slide de abertura de alto impacto | **28** | `cover-variants.jsx` |
-| **Content Split** | Divisão imagem/texto informativa | **27** | `split-variants.jsx` |
-| **Big Number** | Foco em dados e estatísticas | **14** | `bignumber-variants.jsx` |
-| **Quote** | Citações e frases de autoridade | **13** | `quote-variants.jsx` |
-| **Comparison** | Tabela "Mercado vs Sua Marca" | **12** | `comparison-variants.jsx` |
-| **List** | Listas e benefícios estruturados | **14** | `list-variants.jsx` |
-| **CTA** | Call to Action (Fechamento) | **9** | `cta-variants.jsx` |
+| **Cover** | Slide de abertura de alto impacto | **46** | `cover-variants.jsx` |
+| **Content Split** | Divisão imagem/texto informativa | **30** | `split-variants.jsx` |
+| **List** | Listas e benefícios estruturados | **30** | `list-variants.jsx` |
+| **Comparison** | Tabela "Mercado vs Sua Marca" | **23** | `comparison-variants.jsx` |
+| **CTA** | Call to Action (Fechamento) | **18** | `cta-variants.jsx` |
+| **Big Number** | Foco em dados e estatísticas | **13** | `bignumber-variants.jsx` |
+| **Quote** | Citações e frases de autoridade | **12** | `quote-variants.jsx` |
 
 ---
 
