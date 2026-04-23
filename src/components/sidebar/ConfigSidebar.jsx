@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { cn } from '../../lib/utils';
 import {
   Settings,
   Settings2,
@@ -36,7 +37,7 @@ import DesignLibrary from './DesignLibrary';
 const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
   return (
-    <div className="bg-[#111111]/50 border border-white/5 rounded-2xl overflow-hidden mb-4 backdrop-blur-md transition-all duration-150">
+    <div className="bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden mb-4 backdrop-blur-md transition-all duration-150">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-4 bg-surface-input/30 hover:bg-surface-input transition-colors outline-none focus:outline-none focus-visible:outline-none"
@@ -170,7 +171,7 @@ export default function ConfigSidebar({
     if (!selectedElement.field) {
       return (
         <aside 
-          className="alice-sidebar-resizable h-full border-r border-white/5 bg-[#000000]/95 p-6 lg:p-8 flex flex-col gap-6 overflow-y-auto custom-scrollbar z-40 relative"
+          className="alice-sidebar-resizable h-full border-r border-white/5 bg-black/95 p-6 lg:p-8 flex flex-col gap-6 overflow-y-auto custom-scrollbar z-40 relative"
           style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
 
           <header className="flex justify-between items-center mb-2">
@@ -471,7 +472,10 @@ export default function ConfigSidebar({
                   onChange={(e) => {
                     setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
                   }}
-                  className={`alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white ${!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={cn(
+                    'alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white',
+                    !['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) && 'opacity-50 cursor-not-allowed'
+                  )}
                   placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
                 />
               </div>
@@ -611,9 +615,9 @@ export default function ConfigSidebar({
               {(() => {
                 const isSpecialElement = selectedElement.field === 'handle' || selectedElement.field === 'counter';
                 return (
-                  <div className={`mt-2 flex ${isSpecialElement ? 'gap-2' : ''}`}>
+                  <div className={cn('mt-2 flex', isSpecialElement && 'gap-2')}>
                     {/* Direcional Minimalista */}
-                    <div className={`bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3 ${isSpecialElement ? 'flex-1' : 'w-full'}`}>
+                    <div className={cn('bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3', isSpecialElement ? 'flex-1' : 'w-full')}>
                       <div className="flex items-center justify-between w-full px-1">
                         <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">{isSpecialElement ? 'Direcional' : 'Direcional Minimalista'}</span>
                         <button
@@ -683,19 +687,22 @@ export default function ConfigSidebar({
                                const key = selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter';
                                setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? { ...s, [key]: !s[key] } : s));
                              }}
-                             className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
-                               !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
-                             }`}
-                             style={{ '--toggle-active': gradientColor1 }}
+                             className={cn(
+                                'relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none',
+                                !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
+                              )}
+                              style={{ '--toggle-active': gradientColor1 }}
                            >
                              <span
-                               className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
+                               className={cn(
+                                 'pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out',
                                  !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'translate-x-4' : 'translate-x-0'
-                               }`}
-                             />                           </button>
+                               )}
+                             />
+                           </button>
                         </div>
 
-                        <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
+                        <div className="bg-zinc-900 px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
                           <div className="flex items-center justify-between w-full px-1">
                             <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição</span>
                           </div>
@@ -711,15 +718,16 @@ export default function ConfigSidebar({
                                 <button
                                   key={alignKey}
                                   onClick={() => updateProp('align', alignKey)}
-                                  className={`w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none ${
+                                  className={cn(
+                                    'w-8 h-8 rounded-lg flex justify-center items-center transition-all outline-none',
                                     isActive
                                       ? 'border border-opacity-50 shadow-[0_0_15px_rgba(0,0,0,0.3)]'
-                                      : 'bg-surface-input/50 border border-transparent hover:bg-surface-input'
-                                  }`}
+                                      : 'bg-zinc-900/50 border border-transparent hover:bg-zinc-900'
+                                  )}
                                   style={isActive ? { borderColor: gradientColor1, backgroundColor: `${gradientColor1}15` } : {}}
                                 >
                                   <div 
-                                    className={`w-1.5 h-1.5 rounded-full ${isActive ? 'shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-zinc-600'}`}
+                                    className={cn('w-1.5 h-1.5 rounded-full', isActive ? 'shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-zinc-600')}
                                     style={isActive ? { backgroundColor: gradientColor1 } : {}}
                                   />
                                 </button>
@@ -741,28 +749,28 @@ export default function ConfigSidebar({
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('bold', () => updateProp('bold', !pos.bold))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.bold ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={cn('flex-1 py-2 rounded flex justify-center items-center transition-all border', pos.bold ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300')}
                 >
                   <Bold className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('italic', () => updateProp('italic', !pos.italic))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.italic ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={cn('flex-1 py-2 rounded flex justify-center items-center transition-all border', pos.italic ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300')}
                 >
                   <Italic className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('underline', () => updateProp('underline', !pos.underline))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.underline ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={cn('flex-1 py-2 rounded flex justify-center items-center transition-all border', pos.underline ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300')}
                 >
                   <Underline className="w-4 h-4" />
                 </button>
                 <button 
                   onMouseDown={(e) => { e.preventDefault(); saveSelection(); }}
                   onClick={() => applyRichFormat('strikeThrough', () => updateProp('uppercase', !pos.uppercase))}
-                  className={`flex-1 py-2 rounded flex justify-center items-center transition-all border ${pos.uppercase ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300'}`}
+                  className={cn('flex-1 py-2 rounded flex justify-center items-center transition-all border', pos.uppercase ? 'bg-surface-input border-white/20 text-white' : 'bg-surface-input border-transparent text-zinc-500 hover:text-zinc-300')}
                 >
                   <Type className="w-4 h-4" />
                 </button>
@@ -773,7 +781,7 @@ export default function ConfigSidebar({
                   <button 
                     key={align}
                     onClick={() => updateProp('align', align)}
-                    className={`flex-1 py-1.5 rounded flex justify-center items-center transition-all ${pos.align === align || (!pos.align && align === 'left') ? 'bg-zinc-700 text-white shadow' : 'text-zinc-500 hover:text-zinc-300'}`}
+                    className={cn('flex-1 py-1.5 rounded flex justify-center items-center transition-all', pos.align === align || (!pos.align && align === 'left') ? 'bg-zinc-700 text-white shadow' : 'text-zinc-500 hover:text-zinc-300')}
                   >
                     {align === 'left' && <AlignLeft className="w-3.5 h-3.5" />}
                     {align === 'center' && <AlignCenter className="w-3.5 h-3.5" />}
@@ -1063,7 +1071,7 @@ export default function ConfigSidebar({
     );
   }
   return (
-    <div className="flex h-full alice-sidebar-resizable border-r border-white/5 bg-[#000000]/95 z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
+    <div className="flex h-full alice-sidebar-resizable border-r border-white/5 bg-black/95 z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
       
       {/* Content Panel */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative">
@@ -1081,10 +1089,12 @@ export default function ConfigSidebar({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl outline-none ring-0 border-none transition-none
-                  ${isActive 
-                    ? 'bg-[#1A1A1A] text-white border' 
-                    : 'text-white/30 hover:text-white/60 hover:bg-[#111111]'}`}
+                className={cn(
+                  'flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl outline-none ring-0 border-none transition-none',
+                  isActive
+                    ? 'bg-zinc-900 text-white border'
+                    : 'text-white/30 hover:text-white/60 hover:bg-zinc-900/80'
+                )}
                 style={isActive ? { borderColor: `${gradientColor1}40` } : {}}
               >
                 <Icon 
@@ -1167,11 +1177,12 @@ export default function ConfigSidebar({
                       />
                       <button
                         onClick={() => setShowBrandHandle(!showBrandHandle)}
-                        className={`h-[48px] px-4 rounded-xl border text-[10px] uppercase tracking-widest font-black transition-all flex items-center justify-center shrink-0 ${
+                        className={cn(
+                          'h-[48px] px-4 rounded-xl border text-[10px] uppercase tracking-widest font-black transition-all flex items-center justify-center shrink-0',
                           showBrandHandle
                             ? 'bg-surface-input border-white/10 text-white'
                             : 'bg-surface-input/30 border-white/5 text-white/20'
-                        }`}
+                        )}
                         style={
                           showBrandHandle
                             ? {
@@ -1197,15 +1208,17 @@ export default function ConfigSidebar({
                         role="switch"
                         aria-checked={isVerified}
                         onClick={() => setIsVerified(!isVerified)}
-                        className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
+                        className={cn(
+                          'relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none',
                           isVerified ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
-                        }`}
+                        )}
                         style={{ '--toggle-active': gradientColor1 }}
                       >
                         <span
-                          className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
+                          className={cn(
+                            'pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out',
                             isVerified ? 'translate-x-4' : 'translate-x-0'
-                          }`}
+                          )}
                         />
                       </button>
                     </div>
@@ -1219,15 +1232,17 @@ export default function ConfigSidebar({
                         role="switch"
                         aria-checked={showSlideCounter}
                         onClick={() => setShowSlideCounter(!showSlideCounter)}
-                        className={`relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none ${
+                        className={cn(
+                          'relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none',
                           showSlideCounter ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
-                        }`}
+                        )}
                         style={{ '--toggle-active': gradientColor1 }}
                       >
                         <span
-                          className={`pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out ${
+                          className={cn(
+                            'pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out',
                             showSlideCounter ? 'translate-x-4' : 'translate-x-0'
-                          }`}
+                          )}
                         />
                       </button>
                     </div>
