@@ -257,9 +257,11 @@ function QuoteVariant8(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-[20%] h-full flex items-center justify-center relative z-10" style={{ backgroundColor: brandColor }}>
-        <div className="transform -rotate-90 origin-center whitespace-nowrap w-[400px] text-center">
-            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="inline-block relative z-10">
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-black tracking-[0.2em] uppercase outline-none inline-block text-lg">{data.texto_apoio}</span>
+        <div className="transform -rotate-90 origin-center whitespace-nowrap w-max min-w-max text-center">
+            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="inline-block relative z-10 whitespace-nowrap">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-black tracking-[0.2em] uppercase outline-none inline-block text-lg whitespace-nowrap">
+                {data.texto_apoio}
+              </span>
             </SmartElement>
         </div>
       </div>
