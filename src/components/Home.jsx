@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { cn } from '../lib/utils';
 import { 
   Home as HomeIcon,
   LayoutGrid,
@@ -44,7 +45,7 @@ const Typewriter = ({ phrases, brandColor }) => {
       <span className="font-bold text-sm tracking-widest uppercase" style={{ color: brandColor }}>
         {phrases[index].substring(0, subIndex)}
       </span>
-      <span className="ml-1 w-[2px] h-4 bg-[#FFFFFF] animate-pulse" />
+      <span className="ml-1 w-[2px] h-4 bg-white animate-pulse" />
     </span>
   );
 };
@@ -139,7 +140,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   ];
 
   return (
-    <div className="flex-1 flex flex-col bg-[#050505] text-[#FFFFFF] font-sans selection:bg-[#DE1E4D]/30 relative w-full overflow-hidden">
+    <div className="flex-1 flex flex-col bg-zinc-950 text-white font-sans selection:bg-[color:var(--color-brand)]/30 relative w-full overflow-hidden">
 
 
       
@@ -156,20 +157,20 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-fade-in-down">
             <div className="flex items-center gap-6">
               <div>
-                <p className="text-[#FFFFFF]/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-1">
+                <p className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase mb-1">
                   {currentTime.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}
                 </p>
-                <h2 className="text-[#FFFFFF]/90 text-sm font-medium tracking-wide">
-                  Bem-vindo de volta, <span className="text-[#FFFFFF] font-bold">Criador.</span>
+                <h2 className="text-white/90 text-sm font-medium tracking-wide">
+                  Bem-vindo de volta, <span className="text-white font-bold">Criador.</span>
                 </h2>
               </div>
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 px-4 py-2 bg-[#111111]/80 backdrop-blur-md border border-[#FFFFFF]/10 rounded-full shadow-inner">
+              <div className="flex items-center gap-3 px-4 py-2 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-full shadow-inner">
                 <Activity size={14} className="animate-pulse" style={{ color: brandColor }} />
-                <span className="text-[10px] font-bold tracking-widest text-[#FFFFFF]/70 uppercase">Sistema Operacional</span>
-                <div className="h-4 w-px bg-[#FFFFFF]/20" />
+                <span className="text-[10px] font-bold tracking-widest text-white/70 uppercase">Sistema Operacional</span>
+                <div className="h-4 w-px bg-white/20" />
                 <span className="text-[10px] font-black" style={{ color: brandColor }}>TM</span>
               </div>
             </div>
@@ -178,18 +179,18 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           {/* Imposing Title */}
           <div className="w-full relative">
             <h1 
-              className="text-[50px] md:text-[70px] font-black text-[#FFFFFF] tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl"
+              className="text-[50px] md:text-[70px] font-black text-white tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl"
               style={{ textShadow: `0 0 30px ${hexToRgba(brandColor, 0.3)}` }}
             >
               CARROSSEL <span style={{ color: brandColor }}>STUDIO</span>.
             </h1>
-            <div className="mt-6 flex items-center gap-4 border-b border-[#FFFFFF]/10 pb-8">
+            <div className="mt-6 flex items-center gap-4 border-b border-white/10 pb-8">
                <Typewriter phrases={internalSlogans} brandColor={brandColor} />
             </div>
           </div>
 
           {/* Mantra & Hero Carousel Section */}
-          <section className="relative w-full rounded-[2rem] bg-[#00000075] border border-[#FFFFFF]/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 shadow-2xl">
+          <section className="relative w-full rounded-[2rem] bg-black/50 border border-white/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 shadow-2xl">
             {/* Efeitos decorativos do Hero */}
             <div
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"
@@ -209,19 +210,19 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                   <span className="text-[9px] font-bold tracking-[0.2em] uppercase" style={{ color: brandColor }}>Mantra Operacional</span>
                 </div>
 
-                <h3 className="text-4xl lg:text-5xl font-black text-[#FFFFFF] tracking-tighter uppercase leading-[1.1] mb-6">
+                <h3 className="text-4xl lg:text-5xl font-black text-white tracking-tighter uppercase leading-[1.1] mb-6">
                   Nunca Comece<br />
                   <span style={{ color: brandColor }}>Do Zero.</span>
                 </h3>
 
-                <p className="text-[#FFFFFF]/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
-                  Utilize os templates da marca, injete a inteligência artificial para adaptação de copy e pule direto para a finalização e exportação. <strong className="text-[#FFFFFF] font-medium">Produtividade é lucro.</strong>
+                <p className="text-white/50 text-base lg:text-lg font-light leading-relaxed max-w-xl">
+                  Utilize os templates da marca, injete a inteligência artificial para adaptação de copy e pule direto para a finalização e exportação. <strong className="text-white font-medium">Produtividade é lucro.</strong>
                 </p>
 
                 {/* Botão reposicionado abaixo do texto */}
                 <button
                   onClick={onStartProject}
-                  className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-[#FFFFFF] text-[#000000] px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                  className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3 group-hover/btn:text-white transition-colors duration-150">
                     <Play size={16} className="fill-black group-hover/btn:fill-white transition-colors duration-150" />
@@ -244,10 +245,10 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
 
           {/* Showcase / Projetos Recentes (Visual Cards) */}
           <section className="space-y-8">
-            <div className="flex justify-between items-end px-2 border-b border-[#FFFFFF]/5 pb-4">
+            <div className="flex justify-between items-end px-2 border-b border-white/5 pb-4">
               <div>
-                <h3 className="text-2xl font-black text-[#FFFFFF] tracking-tighter uppercase">Capacidade <span style={{ color: brandColor }}>Criativa</span></h3>
-                <p className="text-[#FFFFFF]/40 text-xs mt-1 font-light">Explorador de templates e designs recentes.</p>
+                <h3 className="text-2xl font-black text-white tracking-tighter uppercase">Capacidade <span style={{ color: brandColor }}>Criativa</span></h3>
+                <p className="text-white/40 text-xs mt-1 font-light">Explorador de templates e designs recentes.</p>
               </div>
               <button
                 className="group flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest transition-colors"
@@ -275,7 +276,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 >
                   {/* Card 4:5 Container */}
                   <div
-                    className="relative aspect-[4/5] rounded-3xl bg-[#00000075] backdrop-blur-md border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
+                    className="relative aspect-[4/5] rounded-3xl bg-black/50 backdrop-blur-md border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
                     style={{ borderColor: hoveredCard === idx ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)' }}
                   >
                     
@@ -296,7 +297,10 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                       </div>
                       
                       {/* Slide Principal/Frente */}
-                      <div className={`absolute w-3/4 h-3/4 bg-gradient-to-br from-[#333333] to-[#111111] rounded-xl border border-[#FFFFFF]/20 shadow-2xl z-10 flex flex-col group-hover:scale-105 transition-all duration-150 overflow-hidden ${!item.image ? 'p-4' : ''}`}>
+                      <div className={cn(
+                        'absolute w-3/4 h-3/4 bg-gradient-to-br from-zinc-700 to-zinc-900 rounded-xl border border-white/20 shadow-2xl z-10 flex flex-col group-hover:scale-105 transition-all duration-150 overflow-hidden',
+                        !item.image && 'p-4'
+                      )}>
                         {item.image ? (
                           <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                         ) : (
@@ -306,8 +310,8 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                                <LayoutGrid size={12} style={{ color: brandColor }} />
                             </div>
                             <div className="space-y-2 w-full">
-                              <div className="h-2 w-3/4 bg-[#FFFFFF]/20 rounded-full" />
-                              <div className="h-2 w-1/2 bg-[#FFFFFF]/10 rounded-full" />
+                              <div className="h-2 w-3/4 bg-white/20 rounded-full" />
+                              <div className="h-2 w-1/2 bg-white/10 rounded-full" />
                               <div className="h-8 w-full rounded-lg mt-4" style={{ backgroundColor: hexToRgba(brandColor, 0.10), border: `1px solid ${hexToRgba(brandColor, 0.20)}` }} />
                             </div>
                           </>
@@ -324,7 +328,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                       }}
                     >
                       <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-150">
-                        <button className="w-full py-3 bg-[#FFFFFF] text-[#000000] rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2">
+                        <button className="w-full py-3 bg-white text-black rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2">
                           <Plus size={14} /> Abrir no Studio
                         </button>
                       </div>
@@ -334,12 +338,12 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                   {/* Info do Card */}
                   <div className="flex justify-between items-start px-2">
                     <div>
-                      <h4 className="text-[#FFFFFF] font-bold text-base tracking-tight mb-1">{item.title}</h4>
-                      <p className="text-[#FFFFFF]/40 text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+                      <h4 className="text-white font-bold text-base tracking-tight mb-1">{item.title}</h4>
+                      <p className="text-white/40 text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
                         <Layers size={10} /> {item.slides} Slides
                       </p>
                     </div>
-                    <span className="px-2 py-1 rounded bg-[#222222] border border-[#FFFFFF]/5 text-[9px] font-bold uppercase tracking-wider text-[#FFFFFF]/60">
+                    <span className="px-2 py-1 rounded bg-zinc-900 border border-white/5 text-[9px] font-bold uppercase tracking-wider text-white/60">
                       {item.tag}
                     </span>
                   </div>
@@ -354,7 +358,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 onMouseLeave={() => setCreateCardHovered(false)}
               >
                  <div
-                   className="relative aspect-[4/5] rounded-3xl bg-[#00000075] backdrop-blur-md border-2 border-dashed flex flex-col items-center justify-center gap-4 transition-all duration-150 mb-6"
+                   className="relative aspect-[4/5] rounded-3xl bg-black/50 backdrop-blur-md border-2 border-dashed flex flex-col items-center justify-center gap-4 transition-all duration-150 mb-6"
                    style={{
                      borderColor: createCardHovered ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)',
                      backgroundColor: createCardHovered ? hexToRgba(brandColor, 0.05) : '#00000075',
@@ -367,7 +371,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                         transform: createCardHovered ? 'scale(1.1)' : 'scale(1)',
                       }}
                     >
-                      <Plus size={24} className="text-[#FFFFFF]" />
+                      <Plus size={24} className="text-white" />
                     </div>
                     <span
                       className="text-xs font-bold uppercase tracking-widest transition-colors"

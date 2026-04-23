@@ -145,10 +145,10 @@ export function FloatingChat() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-[#ff0044] hover:bg-[#ff1a57] text-white rounded-full shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#ff0044] focus:ring-offset-2 z-[9999] flex items-center justify-center group"
+        className="fixed bottom-6 right-6 p-4 bg-rose-600 hover:bg-rose-500 text-white rounded-full shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 z-[9999] flex items-center justify-center group"
       >
         <MessageSquare className="w-6 h-6" />
-        <span className="absolute -top-10 right-0 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-[#222222] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Assistente IA</span>
+        <span className="absolute -top-10 right-0 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Assistente IA</span>
       </button>
     );
   }
@@ -198,7 +198,7 @@ export function FloatingChat() {
           `}
         </style>
 
-        <div className="w-[340px] sm:w-[430px] bg-[#000000] border border-[#222222] rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea]">
+        <div className="w-[340px] sm:w-[430px] bg-black border border-zinc-800 rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea]">
           
           <div className={cn(
             "chat-pill absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 flex items-center justify-center z-20 group/pill transition-all",
@@ -231,16 +231,16 @@ export function FloatingChat() {
               <div className="flex-1 flex flex-col items-center justify-center text-center animate-page-transition">
                 <h2 className="text-2xl font-bold text-white mb-8 min-h-[1.5em] leading-tight tracking-tight">
                   {displayText}
-                  <span className="inline-block w-1 h-6 bg-[#ff0044] ml-1 animate-pulse align-middle" />
+                  <span className="inline-block w-1 h-6 bg-rose-600 ml-1 animate-pulse align-middle" />
                 </h2>
                 <div className="flex flex-col gap-3 w-full items-center px-4">
                   {suggestions.map((s, idx) => (
                     <button 
                       key={idx}
                       onClick={() => handleSubmit(null, s.text)}
-                      className="inline-flex items-center gap-3 bg-[#111111] hover:bg-[#1a1a1a] border border-[#222222] text-white/90 px-6 py-3.5 rounded-[32px] transition-all text-[14px] font-medium group w-fit max-w-full whitespace-nowrap"
+                    className="inline-flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white/90 px-6 py-3.5 rounded-[32px] transition-all text-[14px] font-medium group w-fit max-w-full whitespace-nowrap"
                     >
-                      <span className="text-[#ff0044] group-hover:scale-110 transition-transform shrink-0">{s.icon}</span>
+                      <span className="text-rose-600 group-hover:scale-110 transition-transform shrink-0">{s.icon}</span>
                       <span className="leading-tight">{s.text}</span>
                     </button>
                   ))}
@@ -257,7 +257,7 @@ export function FloatingChat() {
                 )}
               >
                 {msg.role === 'user' ? (
-                  <div className="bg-[#1a1a1a] text-[#eff3f4] text-[15px] py-3 px-4 rounded-[20px] rounded-tr-none max-w-[85%] border border-[#222222] font-normal leading-relaxed">
+                  <div className="bg-zinc-900 text-[#eff3f4] text-[15px] py-3 px-4 rounded-[20px] rounded-tr-none max-w-[85%] border border-zinc-800 font-normal leading-relaxed">
                     {msg.content}
                   </div>
                 ) : (
@@ -272,13 +272,13 @@ export function FloatingChat() {
                       <div className="flex items-center gap-[5px] py-1">
                         <button 
                           onClick={() => copyToClipboard(msg.content, idx)}
-                          className="text-white/20 hover:text-[#ff0044] transition-colors p-1" 
+                          className="text-white/20 hover:text-rose-600 transition-colors p-1" 
                           title="Copiar texto"
                         >
                           {copiedId === idx ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                         </button>
-                        <button className="text-white/20 hover:text-[#ff0044] transition-colors p-1"><ThumbsUp className="w-3.5 h-3.5" /></button>
-                        <button className="text-white/20 hover:text-[#ff0044] transition-colors p-1"><ThumbsDown className="w-3.5 h-3.5" /></button>
+                        <button className="text-white/20 hover:text-rose-600 transition-colors p-1"><ThumbsUp className="w-3.5 h-3.5" /></button>
+                        <button className="text-white/20 hover:text-rose-600 transition-colors p-1"><ThumbsDown className="w-3.5 h-3.5" /></button>
                       </div>
                     )}
                   </div>
@@ -309,7 +309,7 @@ export function FloatingChat() {
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Pergunte qualquer coisa..."
-                className="w-full bg-[#111111] border border-[#222222] text-[#eff3f4] text-[15px] py-4 pl-12 pr-14 rounded-[32px] focus:outline-none focus:border-[#333333] transition-all resize-none min-h-[56px] custom-scrollbar leading-tight placeholder-[#71767b]"
+                className="w-full bg-zinc-900 border border-zinc-800 text-[#eff3f4] text-[15px] py-4 pl-12 pr-14 rounded-[32px] focus:outline-none focus:border-zinc-700 transition-all resize-none min-h-[56px] custom-scrollbar leading-tight placeholder-[#71767b]"
                 rows={1}
                 disabled={isLoading}
               />
@@ -331,7 +331,7 @@ export function FloatingChat() {
           </div>
 
           {error && (
-            <div className="absolute bottom-24 left-6 right-6 bg-[#ff0044] text-white text-[11px] font-bold uppercase p-3 rounded-xl border border-white/20 text-center shadow-2xl animate-page-transition z-[10000]">
+            <div className="absolute bottom-24 left-6 right-6 bg-rose-600 text-white text-[11px] font-bold uppercase p-3 rounded-xl border border-white/20 text-center shadow-2xl animate-page-transition z-[10000]">
               {error}
             </div>
           )}
