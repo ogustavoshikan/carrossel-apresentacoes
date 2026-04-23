@@ -136,8 +136,8 @@ export const LAYOUT_TEMPLATES = {
     imageUrl: '',
     tag: '',
     items: [
-      { label: 'Mercado', value: 'Qualidade comum', highlight: false },
-      { label: 'Nós', value: 'Excelência garantida', highlight: true },
+      { label: 'O COMUM', value: 'Usa achocolatado cheio de açúcar e gordura vegetal hidrogenada.', highlight: false },
+      { label: 'O PREMIUM', value: 'Usa cacau 100% belga e manteiga de verdade, derretendo na boca.', highlight: true },
       { label: 'Mercado', value: 'Ingredientes genéricos', highlight: false },
       { label: 'Nós', value: 'Ingredientes premium', highlight: true },
     ],

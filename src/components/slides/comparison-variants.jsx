@@ -119,32 +119,39 @@ export function ComparisonVariant13(props) {
           </TextWrapper>
         </SmartEl>
       </div>
-      <div className="flex-1 flex w-full relative z-0">
-        <div className="w-1/2 h-full bg-zinc-900 p-6 pt-10 text-white flex flex-col">
+      <div className="flex-1 flex w-full relative z-0 items-stretch">
+        <div className="flex-1 p-6 pt-10 text-white flex flex-col items-center justify-start overflow-hidden" style={{ backgroundColor: '#000000' }}>
           <div className="w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center mb-6 shrink-0 mx-auto">
             <X className="w-4 h-4" />
           </div>
-          <SmartEl {...sp} field="tag" className="flex-1 overflow-hidden">
-            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-              {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
+          <SmartEl {...sp} field="tag" className="w-full flex-1 min-h-0">
+            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap px-4" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+              {data.tag || (data.items?.[0]?.value && data.items?.[0]?.value !== 'Qualidade comum' ? data.items[0].value : 'O COMUM\nUsa achocolatado cheio de açúcar e gordura vegetal hidrogenada.')}
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-1/2 h-full p-6 pt-10 text-white flex flex-col" style={{ backgroundColor: gradientColor1 }}>
+        
+        <div className="flex-1 p-6 pt-10 text-white flex flex-col items-center justify-start overflow-hidden" style={{ backgroundColor: gradientColor1 }}>
           <div className="w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center mb-6 shrink-0 mx-auto">
             <Check className="w-4 h-4" />
           </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1 overflow-hidden">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="leading-relaxed font-medium text-center whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-              {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
+          <SmartEl {...sp} field="texto_apoio" className="w-full flex-1 min-h-0">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="leading-relaxed font-medium text-center whitespace-pre-wrap px-4" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+              {data.texto_apoio || (data.items?.[1]?.value && data.items?.[1]?.value !== 'Excelência garantida' ? data.items[1].value : 'O PREMIUM\nUsa cacau 100% belga e manteiga de verdade, derretendo na boca.')}
             </TextWrapper>
           </SmartEl>
         </div>
-        <SmartEl {...sp} field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl z-20">
-          <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-xs uppercase" style={{ fontFamily: titleFont, color: gradientColor1 }}>
-            {data.badge_text || 'VS'}
-          </TextWrapper>
-        </SmartEl>
+
+        {/* Badge VS Centralizado de forma robusta */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+          <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
+            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/20">
+              <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-sm uppercase tracking-tighter" style={{ fontFamily: titleFont, color: gradientColor1 }}>
+                {data.badge_text || 'VS'}
+              </TextWrapper>
+            </div>
+          </SmartEl>
+        </div>
       </div>
     </div>
   );
@@ -157,6 +164,7 @@ export function ComparisonVariant13(props) {
 export function ComparisonVariant14(props) {
   const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
   const sText = textScale / 100;
+  const sTitle = titleScale / 100;
   const gradientColor1 = brandColor;
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
@@ -165,9 +173,9 @@ export function ComparisonVariant14(props) {
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
       </div>
-      <div className="h-1/2 w-full bg-zinc-900 p-8 flex flex-col justify-center text-center pb-12">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <X className="w-4 h-4 text-red-500 opacity-80" />
+      <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pb-12" style={{ backgroundColor: '#000000' }}>
+        <div className="flex items-center justify-center gap-2 mb-3 mt-4">
+          <X className="w-4 h-4 text-red-500" />
           <SmartEl {...sp} field="badge_text">
             <TextWrapper {...sp} as="span" field="badge_text" className="text-zinc-500 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
               {data.badge_text || 'NÃO FAÇA ASSIM'}
@@ -175,14 +183,14 @@ export function ComparisonVariant14(props) {
           </SmartEl>
         </div>
         <SmartEl {...sp} field="tag">
-          <TextWrapper {...sp} as="p" field="tag" className="text-white leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}>
-            {data.tag || (data.items?.[0]?.value) || 'DESCRIÇÃO DO PROBLEMA OU ESTADO ATUAL'}
+          <TextWrapper {...sp} as="p" field="tag" className="text-white leading-snug font-medium whitespace-pre-wrap px-10" style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}>
+            {data.tag || (data.items?.[0]?.value && data.items?.[0]?.value !== 'Qualidade comum' ? data.items[0].value : 'EXPECTATIVA\nBolo perfeitamente reto, com andares alinhados e firmes.')}
           </TextWrapper>
         </SmartEl>
       </div>
       <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pt-12" style={{ backgroundColor: gradientColor1 }}>
         <div className="flex items-center justify-center gap-2 mb-3">
-          <Check className="w-4 h-4 text-white opacity-80" />
+          <Check className="w-4 h-4 text-white" />
           <SmartEl {...sp} field="cta_text">
             <TextWrapper {...sp} as="span" field="cta_text" className="text-white/70 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
               {data.cta_text || 'FAÇA ASSIM'}
@@ -190,15 +198,15 @@ export function ComparisonVariant14(props) {
           </SmartEl>
         </div>
         <SmartEl {...sp} field="texto_apoio">
-          <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}>
-            {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
+          <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white leading-snug font-medium whitespace-pre-wrap px-10" style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio || (data.items?.[1]?.value && data.items?.[1]?.value !== 'Excelência garantida' ? data.items[1].value : 'REALIDADE\nBolo torto e instável se não usar a estrutura interna correta.')}
           </TextWrapper>
         </SmartEl>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-8 py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-10 w-[85%] border-4 border-zinc-900 flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-20 w-[85%] border-4 border-black/10 flex items-center justify-center">
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none text-center tracking-tighter uppercase" style={{ fontFamily: titleFont, fontSize: `${18 * sText}px` }}>
-            {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none text-center tracking-tighter uppercase whitespace-pre-wrap" style={{ fontFamily: titleFont, fontSize: `${18 * sTitle}px` }}>
+            {data.titulo || 'EXPECTATIVA VS\nREALIDADE'}
           </TextWrapper>
         </SmartEl>
       </div>
