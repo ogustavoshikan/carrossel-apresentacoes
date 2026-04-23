@@ -1486,12 +1486,16 @@ export const VARIANT_THUMBNAILS = {
            <div className="w-2 h-2 rounded-[2px]" style={{ background: accent }} />
            <div className="w-[60%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
          </div>
+         <div className="flex gap-1 items-start">
+           <div className="w-2 h-2 rounded-[2px]" style={{ background: accent }} />
+           <div className="w-[75%] h-[1.5px] bg-surface-input/300 rounded-full mt-0.5" />
+         </div>
       </div>
     ),
     1: ({ brandColor: accent }) => (
       <div className="w-full h-full flex flex-col pt-1.5 px-1.5 gap-[2px] rounded-[3px] overflow-hidden bg-[#050505]">
          <div className="w-[60%] h-[2.5px] bg-white rounded-full mb-1" />
-         {[...Array(3)].map((_, i) => (
+         {[...Array(4)].map((_, i) => (
            <div key={i} className="flex gap-1 items-center border-b border-white/10 pb-[1px]">
              <div className="w-1.5 h-2 bg-white/20 rounded-[1px]" />
              <div className="flex-1 h-[1.5px] bg-surface-input/300 rounded-full" />

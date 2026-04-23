@@ -154,6 +154,7 @@ export const LAYOUT_TEMPLATES = {
       { label: '01', text: 'Primeiro benefício de destaque' },
       { label: '02', text: 'Segundo benefício importante' },
       { label: '03', text: 'Terceiro diferencial exclusivo' },
+      { label: '04', text: 'Quarto item de texto' },
     ],
   },
 
