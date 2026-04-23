@@ -2033,12 +2033,12 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-2.5 rounded-full flex items-center gap-3 z-20 shadow-2xl shrink-0">
-        <SmartField field="cta_text" {...sp}>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-2.5 rounded-full flex items-center gap-3 z-20 shadow-2xl shrink-0 w-max whitespace-nowrap">
+        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none"
+            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
@@ -2080,12 +2080,12 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
         </div>
       </div>
       <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{ backgroundColor: brandColor }}>
-        <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap">
-          <SmartField field="cta_text" {...sp}>
+        <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap w-max min-w-max">
+          <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white outline-none"
+              className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white outline-none whitespace-nowrap"
             >
               {data.cta_text || 'Arraste para o lado e descubra'}
             </span>
@@ -2363,12 +2363,12 @@ export function CoverVariant45(props) {
         </SmartField>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
-        <SmartField field="cta_text" {...sp}>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-8 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700 w-max whitespace-nowrap">
+        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none"
+            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
@@ -2427,12 +2427,12 @@ export function CoverVariant46(props) {
         </SmartField>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-6 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700">
-        <SmartField field="cta_text" {...sp}>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-8 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700 w-max whitespace-nowrap">
+        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none"
+            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
