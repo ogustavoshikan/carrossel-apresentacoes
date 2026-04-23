@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import { X, Shuffle } from 'lucide-react';
+import { Shuffle } from 'lucide-react';
 import { QUOTE_VARIANT_META } from '../slides/quote-variants';
+import VariantPopoverHeader from './VariantPopoverHeader';
 
 /**
  * QuoteVariantPopover — Grid visual com mini-wireframes de cada variante de quote.
@@ -182,21 +183,11 @@ export default function QuoteVariantPopover({ currentVariantIndex, onSelect, onC
     >
       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
         {/* Header */}
-        <div className="flex items-center justify-between mb-3 relative">
-          <div className="flex items-center gap-2 pr-12">
-            <h4 className="text-[11px] font-outfit font-black uppercase tracking-widest text-zinc-400">
-              Variante Quote
-            </h4>
-            <span className="text-[10px] font-mono text-zinc-600 truncate max-w-[120px]">
-              {QUOTE_VARIANT_META.find(v => v.id === currentVariantIndex)?.name || 'Desconhecida'}
-            </span>
-          </div>
-          <div className="absolute -right-2 -top-2 flex items-center gap-0.5">
-            <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="text-zinc-500 hover:text-white transition-colors p-1 rounded-md hover:bg-zinc-800">
-              <X size={14} />
-            </button>
-          </div>
-        </div>
+        <VariantPopoverHeader
+          label="Variante Quote"
+          activeLabel={QUOTE_VARIANT_META.find(v => v.id === currentVariantIndex)?.name || 'Desconhecida'}
+          onClose={onClose}
+        />
 
         {/* Grid de variantes com Scroll */}
         <div className="grid grid-cols-4 gap-2.5 max-h-[320px] overflow-y-auto pr-1.5 custom-scrollbar">
