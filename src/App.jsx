@@ -72,7 +72,7 @@ export default function App() {
   const [favoritePrompt, setFavoritePrompt] = useState({ isOpen: false, slideIndex: null, defaultName: '', resolve: null });
   const [isVerified, setIsVerified] = useState(BRAND_DEFAULTS.isVerified);
   const [gradientColor1, setGradientColor1] = useState(BRAND_DEFAULTS.gradientColor1);
-  const [titleSizeScale, setTitleSizeScale] = useState(70);
+  const [titleSizeScale, setTitleSizeScale] = useState(65);
   const [textSizeScale, setTextSizeScale] = useState(70);
   const [cardBorderRadius, setCardBorderRadius] = useState(0);
   const [imageBorderRadius, setImageBorderRadius] = useState(40);

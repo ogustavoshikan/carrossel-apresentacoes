@@ -1515,9 +1515,9 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
           <div
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="outline-none"
+            className="outline-none whitespace-pre-line"
           >
-            {data.cta_text || 'Arraste para o lado e descubra'}
+            {data.cta_text || 'Arraste para o lado\ne descubra'}
           </div>
         </SmartField>
         <div className="flex items-center gap-1 mt-1">
@@ -1574,12 +1574,12 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
           </SmartField>
         </div>
       </div>
-      <div className="absolute bottom-8 right-8 flex items-center gap-2 -translate-y-[3px]">
+      <div className="absolute bottom-8 right-8 flex items-center gap-2">
         <SmartField field="cta_text" {...sp}>
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit outline-none"
+            className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit outline-none inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste'}
           </span>
@@ -1779,12 +1779,12 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
-        <div className="absolute bottom-6 right-6 flex items-center gap-1.5 z-20 -translate-y-[3px]">
+        <div className="absolute bottom-6 right-6 flex items-center gap-1.5 z-20">
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none"
+              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[3px]"
             >
               {data.cta_text || 'ARRASTA'}
             </span>
@@ -1838,13 +1838,13 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="w-full flex justify-center pb-4 -translate-y-[3px]">
+        <div className="w-full flex justify-center pb-4">
           <div className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-full flex items-center gap-3">
             <SmartField field="cta_text" {...sp}>
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none"
+                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[2px]"
               >
                 {data.cta_text || 'Arraste para o lado e descubra'}
               </span>
