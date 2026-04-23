@@ -367,7 +367,7 @@ export function ListVariant10(props) {
       
       <div className="flex-1 flex flex-col space-y-4 pr-1 overflow-y-auto">
         {items.map((item, i) => (
-          <div key={i} className="rounded-2xl p-4 shadow-lg flex items-center gap-4 group" style={{ marginLeft: `${Math.min(i * 15, 60)}px`, backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+          <div key={i} className="rounded-2xl p-4 shadow-lg flex items-center gap-4 group" style={{ marginLeft: `${Math.min(i * 15, 60)}px`, backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
             <div 
               contentEditable 
               suppressContentEditableWarning 
@@ -438,7 +438,7 @@ export function ListVariant12(props) {
         
         <div className="space-y-4 flex-1 pr-2 flex flex-col justify-center">
           {items.map((item, i) => (
-            <div key={i} className="flex gap-5 items-center p-4 rounded-2xl transition-all group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+            <div key={i} className="flex gap-5 items-center p-4 rounded-2xl transition-all group" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
               <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg" style={{ backgroundColor: `${brandColor}20`, border: `1px solid ${brandColor}40` }}>
                 <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
               </div>
