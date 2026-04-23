@@ -109,7 +109,7 @@ export function ListVariant2(props) {
         
         <div className="grid grid-cols-1 gap-2 flex-1 overflow-hidden flex flex-col justify-center">
           {items.map((item, i) => (
-            <div key={i} className="p-3 rounded-r-2xl shadow-xl flex flex-col justify-center group" style={{ backgroundColor: `${brandColor}15`, borderLeft: `4px solid ${brandColor}`, border: `1px solid ${brandColor}40`, borderLeftWidth: '4px', borderLeftColor: brandColor }}>
+            <div key={i} className="p-3 rounded-r-2xl shadow-xl flex flex-col justify-center group" style={{ backgroundColor: '#000000', borderLeft: `4px solid ${brandColor}`, border: `1px solid ${brandColor}40`, borderLeftWidth: '4px', borderLeftColor: brandColor }}>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-[11px] uppercase tracking-widest mb-1 outline-none line-clamp-1">{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-xs line-clamp-2 outline-none">{item.text}</p>
             </div>
@@ -167,7 +167,7 @@ export function ListVariant4(props) {
             const isLeft = i % 2 === 0;
             return (
               <div key={i} className={`w-full flex items-center mb-2 last:mb-0 relative z-10 group ${isLeft ? 'justify-start' : 'justify-end'}`}>
-                <div className={`w-[45%] p-3 rounded-2xl shadow-xl ${isLeft ? 'text-right' : 'text-left'}`} style={{ backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40`, border: `1px solid ${brandColor}40` }}>
+                <div className={`w-[45%] p-3 rounded-2xl shadow-xl ${isLeft ? 'text-right' : 'text-left'}`} style={{ backgroundColor: '#000000', borderColor: `${brandColor}40`, border: `1px solid ${brandColor}40` }}>
                   <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[9px] uppercase tracking-widest mb-1 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
                   <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-[11px] leading-snug outline-none line-clamp-3">{item.text}</p>
                 </div>
@@ -270,7 +270,7 @@ export function ListVariant7(props) {
                 <div className="w-8 h-8 rounded-full bg-black border-4 border-[#050505] flex items-center justify-center shrink-0 z-10 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                   <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }}></div>
                 </div>
-                <div className="p-2.5 rounded-xl flex-1" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+                <div className="p-2.5 rounded-xl flex-1" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
                   <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[11px] uppercase tracking-widest mb-1 outline-none line-clamp-1">{item.label}</h4>
                   <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-xs line-clamp-2 outline-none">{item.text}</p>
                 </div>
@@ -297,7 +297,7 @@ export function ListVariant8(props) {
         
         <div className="flex-1 overflow-y-auto space-y-4 pr-1">
           {items.map((item, i) => (
-            <div key={i} className="rounded-2xl p-5 relative flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+            <div key={i} className="rounded-2xl p-5 relative flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
               <div 
                 contentEditable 
                 suppressContentEditableWarning 
@@ -414,7 +414,7 @@ export function ListVariant11(props) {
         
         <div className="w-full mt-2 space-y-2">
           {items.map((item, i) => (
-            <div key={`text-${i}`} className="w-full p-3 rounded-3xl group text-center" style={{ backgroundColor: `${brandColor}15`, border: `1px solid ${brandColor}40` }}>
+            <div key={`text-${i}`} className="w-full p-3 rounded-3xl group text-center" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm italic outline-none line-clamp-2">{item.text}</p>
             </div>
           ))}
