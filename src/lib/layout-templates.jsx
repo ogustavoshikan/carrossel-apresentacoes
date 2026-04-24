@@ -6,7 +6,7 @@ import React from 'react';
 export const LAYOUT_ICONS = {
   cover: (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="4" y="4" width="32" height="24" rx="2" fill="#2a2a4e" />
       <rect x="8" y="32" width="24" height="4" rx="1" fill="#5b5bdb" />
       <rect x="12" y="39" width="16" height="2.5" rx="1" fill="#3a3a5e" />
@@ -15,7 +15,7 @@ export const LAYOUT_ICONS = {
   ),
   'content-split': (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="4" y="4" width="32" height="20" rx="2" fill="#2a2a4e" />
       <rect x="6" y="28" width="10" height="2.5" rx="1" fill="#5b5bdb" />
       <rect x="4" y="33" width="32" height="3" rx="1" fill="#3a3a5e" />
@@ -25,7 +25,7 @@ export const LAYOUT_ICONS = {
   ),
   'big-number': (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="4" y="4" width="32" height="14" rx="2" fill="#2a2a4e" />
       <rect x="8" y="22" width="24" height="12" rx="2" fill="#5b5bdb" opacity="0.4" />
       <rect x="12" y="25" width="16" height="6" rx="1" fill="#5b5bdb" />
@@ -35,7 +35,7 @@ export const LAYOUT_ICONS = {
   ),
   quote: (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <text x="7" y="22" fontSize="18" fill="#5b5bdb" fontFamily="serif">"</text>
       <rect x="8" y="24" width="24" height="2.5" rx="1" fill="#4a4a7e" />
       <rect x="8" y="29" width="20" height="2.5" rx="1" fill="#4a4a7e" />
@@ -45,7 +45,7 @@ export const LAYOUT_ICONS = {
   ),
   comparison: (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="4" y="6" width="32" height="3" rx="1" fill="#5b5bdb" />
       <rect x="4" y="14" width="32" height="6" rx="1" fill="#2a2a4e" />
       <rect x="4" y="22" width="32" height="6" rx="1" fill="#3b1f3b" />
@@ -57,7 +57,7 @@ export const LAYOUT_ICONS = {
   ),
   list: (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="4" y="5" width="24" height="3" rx="1" fill="#5b5bdb" />
       <circle cx="8" cy="17" r="2.5" fill="#5b5bdb" />
       <rect x="13" y="15.5" width="22" height="2" rx="1" fill="#3a3a5e" />
@@ -71,7 +71,7 @@ export const LAYOUT_ICONS = {
   ),
   cta: (
     <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
-      <rect width="40" height="50" rx="3" fill="#1a1a2e" />
+      <rect width="40" height="50" fill="#1a1a2e" />
       <rect x="8" y="8" width="24" height="4" rx="1" fill="#5b5bdb" />
       <rect x="4" y="16" width="32" height="2.5" rx="1" fill="#3a3a5e" />
       <rect x="6" y="21" width="28" height="2.5" rx="1" fill="#3a3a5e" />

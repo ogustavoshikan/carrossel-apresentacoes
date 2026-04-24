@@ -2194,9 +2194,11 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-4 bg-white flex flex-col relative overflow-hidden">
-      <div className="flex-1 w-full bg-zinc-100 relative overflow-hidden rounded-t-lg">
-        <ImageBg data={data} className="absolute inset-0" />
+    <div className="w-full h-full p-4 bg-white flex flex-col relative">
+      <div className="flex-1 w-full bg-zinc-100 relative rounded-t-lg">
+        <div className="absolute inset-0 overflow-hidden rounded-t-lg">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
         <div className="absolute top-0 left-0 w-full p-6 bg-gradient-to-b from-black/60 to-transparent z-10">
           <SmartField field="titulo" {...sp}>
             <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none uppercase tracking-tighter drop-shadow-lg" style={{ fontSize: `${38 * sTitle}px` }}>
@@ -2206,7 +2208,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
         </div>
       </div>
       <div className="h-20 w-full flex items-center justify-between px-2 shrink-0 bg-white z-20">
-        <SmartField field="texto_apoio" {...sp} className="flex-1 overflow-hidden pr-4 min-w-0">
+        <SmartField field="texto_apoio" {...sp} className="flex-1 pr-4 min-w-0">
           <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-800 font-outfit font-bold uppercase tracking-widest text-[9px] truncate">
             {slideData.texto_apoio}
           </TextWrapper>

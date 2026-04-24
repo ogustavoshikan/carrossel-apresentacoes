@@ -69,8 +69,8 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
             className="group flex flex-col items-center gap-2.5 transition-all active:scale-95"
           >
             {/* Card com Miniatura */}
-            <div className="w-full aspect-[4/5] flex items-center justify-center p-2 rounded-xl border border-border-subtle group-hover:border-brand/60 bg-surface-input group-hover:bg-surface-input/50 transition-all duration-150 group-hover:scale-[1.03] overflow-hidden shadow-lg">
-              <div className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity overflow-hidden rounded-[3px]">
+            <div className="w-full aspect-[4/5] relative border border-border-subtle group-hover:border-brand/60 bg-surface-input group-hover:bg-surface-input/50 transition-all duration-150 group-hover:scale-[1.03] overflow-hidden shadow-lg rounded-xl">
+              <div className="w-full h-full opacity-80 group-hover:opacity-100 transition-opacity overflow-hidden">
                 {meta.thumbnailUrl ? (
                   <img src={meta.thumbnailUrl} alt={meta.label} className="w-full h-full object-cover" />
                 ) : (
@@ -78,7 +78,6 @@ export default function AddSlidePopover({ insertIndex, onAddSlide, onClose, bran
                 )}
               </div>
             </div>
-
             {/* Label - Agora fora do retângulo */}
             <span className="text-[9px] font-black uppercase tracking-[0.15em] text-zinc-500 group-hover:text-white transition-colors text-center leading-tight">
               {meta.label}
