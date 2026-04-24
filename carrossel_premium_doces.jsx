@@ -48,9 +48,9 @@ export default function App() {
     // Drag, Resize & Edit State
     const [actionInfo, setActionInfo] = useState(null);
 
-    // Brand Customization State (Alice System Defaults)
+    // Brand Customization State (Carrossel Studio Defaults)
     const [brandHandle, setBrandHandle] = useState('TIAJOANABRIGADEIROS');
-    const [brandWebsite, setBrandWebsite] = useState('Alice System v3.2');
+    const [brandWebsite, setBrandWebsite] = useState('Carrossel Studio v3.2');
     const [profilePic, setProfilePic] = useState(null);
     const [innerLogo, setInnerLogo] = useState(null);
     const [isVerified, setIsVerified] = useState(true);
@@ -371,7 +371,7 @@ export default function App() {
 
         } catch (err) {
             console.error(err);
-            setError("Deu ruim na geração. Alice cansou, tente de novo.");
+            setError("Deu ruim na geração. O Studio cansou, tente de novo.");
         } finally {
             setIsGenerating(false);
         }
@@ -1117,7 +1117,7 @@ export default function App() {
                     <div className="flex items-center gap-4 group cursor-pointer">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white" style={{ backgroundColor: gradientColor1, boxShadow: `0 0 20px ${gradientColor1}40` }}>A</div>
                         <div className="flex flex-col">
-                            <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">Alice <span style={{ color: gradientColor1 }}>Studio</span></span>
+                            <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">Carrossel <span style={{ color: gradientColor1 }}>Studio</span></span>
                             <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">v3.2 Final</span>
                         </div>
                     </div>
@@ -1139,7 +1139,7 @@ export default function App() {
                     <div className="space-y-6">
                         <h3 className="text-[11px] font-black text-zinc-500 tracking-[0.3em] uppercase flex items-center gap-2">
                             <Settings2 className="w-4 h-4" style={{ color: gradientColor1 }} />
-                            Alice Setup
+                            CS Setup
                         </h3>
 
                         <div className="space-y-4">
@@ -1179,7 +1179,7 @@ export default function App() {
                                 </div>
                                 <div>
                                     <label className="block text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-2">Fontes Extras</label>
-                                    <button onClick={() => alert('As fontes primárias da Alice (Outfit/Playfair) já estão otimizadas para conversão. Não estrague meu design, Mr. Gustavo.')} className="w-full h-[38px] bg-[#0A0A0A] border border-white/10 rounded-lg text-[10px] uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
+                                    <button onClick={() => alert('As fontes primárias do Carrossel Studio (Outfit/Playfair) já estão otimizadas para conversão. Não estrague meu design, Mr. Gustavo.')} className="w-full h-[38px] bg-[#0A0A0A] border border-white/10 rounded-lg text-[10px] uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
                                         Bloqueado
                                     </button>
                                 </div>
@@ -1268,7 +1268,7 @@ export default function App() {
                     ) : isGenerating ? (
                         <div className="flex-1 flex flex-col items-center justify-center border border-white/5 rounded-3xl bg-[#050505] shadow-inner">
                             <Loader2 className="w-12 h-12 animate-spin mb-6" style={{ color: gradientColor1 }} />
-                            <p className="font-outfit text-zinc-500 text-xs uppercase tracking-widest animate-pulse font-black">Alice is writing...</p>
+                            <p className="font-outfit text-zinc-500 text-xs uppercase tracking-widest animate-pulse font-black">Studio is writing...</p>
                         </div>
                     ) : (
                         <div className="space-y-6 max-w-full">
@@ -1376,7 +1376,7 @@ export default function App() {
                                                 {slide.items && (
                                                     <div className="p-4 border border-white/5 rounded-xl bg-[#0A0A0A]/50">
                                                         <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mb-3 block">Itens do Slide (Visualmente Editáveis)</span>
-                                                        <p className="text-xs text-zinc-600 font-mono">Dica da Alice: Para arrays/listas complexas, altere os textos diretamente no modo "Preview Final" clicando neles. É mais seguro.</p>
+                                                        <p className="text-xs text-zinc-600 font-mono">Dica do Studio: Para arrays/listas complexas, altere os textos diretamente no modo "Preview Final" clicando neles. É mais seguro.</p>
                                                     </div>
                                                 )}
                                             </div>
