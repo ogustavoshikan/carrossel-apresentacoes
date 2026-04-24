@@ -961,7 +961,7 @@ export function ComparisonVariant5(props) {
   const highlightItems = items.filter(it => it.highlight);
 
   const mercadoLabel = normalItems[0]?.label || 'Mercado';
-  const brandLabel = highlightItems[0]?.label || brandHandle || 'Alice Standard';
+  const brandLabel = highlightItems[0]?.label || brandHandle || 'Carrossel Standard';
 
   return (
     <div className="w-full h-full bg-[#E5E5E5] flex flex-col p-10 pb-10 relative text-black rounded-slide">
@@ -1060,7 +1060,7 @@ export function ComparisonVariant7(props) {
   const rowCount = 3;
   
   const mercadoLabel = leftItems[0]?.label || 'Mercado';
-  const brandLabel = rightItems[0]?.label || brandHandle || 'Alice';
+  const brandLabel = rightItems[0]?.label || brandHandle || 'Carrossel';
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
@@ -1221,7 +1221,7 @@ export function ComparisonVariant10(props) {
   const highlightItems = items.filter(it => it.highlight);
   
   const mercadoLabel = normalItems[0]?.label || 'Mercado';
-  const brandLabel = highlightItems[0]?.label || brandHandle || 'Alice Mode';
+  const brandLabel = highlightItems[0]?.label || brandHandle || 'Carrossel Mode';
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 pb-10 relative items-center text-center rounded-slide">

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ========================================
-   ALICE STUDIO — DESIGN TOKENS (CSS)
+   CARROSSEL STUDIO — DESIGN TOKENS (CSS)
    ======================================== */
 
 :root {
@@ -109,68 +109,68 @@ body {
 
 @layer components {
   /* Input base do Carrossel Studio */
-  .alice-input {
+  .cs-input {
     @apply w-full bg-surface-input border border-border-subtle rounded-[5px] px-3 py-2.5 text-xs text-zinc-200 focus:outline-none transition-colors;
   }
 
-  .alice-input:focus {
+  .cs-input:focus {
     border-color: var(--color-brand);
   }
 
   /* Textarea base */
-  .alice-textarea {
+  .cs-textarea {
     @apply w-full min-h-[120px] bg-surface-input border border-border-subtle rounded-xl p-4 text-zinc-200 placeholder-zinc-700 focus:outline-none transition-all resize-y text-xs font-playfair italic;
   }
 
-  .alice-textarea::-webkit-resizer {
+  .cs-textarea::-webkit-resizer {
     background: transparent;
   }
 
-  .alice-textarea::-webkit-scrollbar-corner {
+  .cs-textarea::-webkit-scrollbar-corner {
     background: transparent;
   }
 
-  .alice-textarea::-webkit-scrollbar {
+  .cs-textarea::-webkit-scrollbar {
     width: 6px;
   }
 
-  .alice-textarea::-webkit-scrollbar-track {
+  .cs-textarea::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 0 12px 12px 0;
   }
 
-  .alice-textarea::-webkit-scrollbar-thumb {
+  .cs-textarea::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
   }
 
-  .alice-textarea::-webkit-scrollbar-thumb:hover {
+  .cs-textarea::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.2);
   }
 
-  .alice-textarea:focus {
+  .cs-textarea:focus {
     border-color: var(--color-brand);
     box-shadow: 0 0 0 1px var(--color-brand);
     outline: none;
   }
 
   /* Label padrão uppercase */
-  .alice-label {
+  .cs-label {
     @apply block text-[9px] text-zinc-500 font-bold uppercase tracking-widest mb-2;
   }
 
   /* Section header padrão */
-  .alice-section-title {
+  .cs-section-title {
     @apply text-label-sm text-zinc-500 uppercase flex items-center gap-2;
   }
 
   /* Range slider padrão */
-  .alice-range {
+  .cs-range {
     @apply w-full h-[4px] bg-zinc-800 rounded-lg appearance-none cursor-pointer;
     accent-color: var(--color-brand);
   }
 
-  .alice-range::-webkit-slider-thumb {
+  .cs-range::-webkit-slider-thumb {
     appearance: none;
     width: 14px;
     height: 14px;
@@ -179,7 +179,7 @@ body {
     cursor: pointer;
   }
 
-  .alice-range::-moz-range-thumb {
+  .cs-range::-moz-range-thumb {
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -189,31 +189,31 @@ body {
   }
 
   /* Card wrapper */
-  .alice-card {
+  .cs-card {
     @apply bg-surface-card border border-border-subtle rounded-2xl overflow-hidden shadow-2xl;
   }
 
   /* Botão primário */
-  .alice-btn-primary {
+  .cs-btn-primary {
     @apply w-full text-white font-outfit font-black text-[11px] tracking-widest uppercase py-4 rounded-[8px] flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:brightness-110;
     background-color: var(--color-brand);
   }
 
   /* Botão ghost */
-  .alice-btn-ghost {
+  .cs-btn-ghost {
     @apply flex items-center justify-center gap-2 text-label-xs uppercase bg-surface-input/50 hover:bg-surface-input text-zinc-400 py-2 px-4 rounded-lg transition-colors font-bold cursor-pointer border border-border-hover;
   }
 
   /* Toolbar tab */
-  .alice-tab {
+  .cs-tab {
     @apply px-4 py-2 text-label-xs uppercase font-bold rounded-lg transition-colors;
   }
 
-  .alice-tab-active {
+  .cs-tab-active {
     @apply bg-surface-input text-white border border-white/10;
   }
 
-  .alice-tab-inactive {
+  .cs-tab-inactive {
     @apply text-zinc-600 hover:text-zinc-300;
   }
 
@@ -227,34 +227,34 @@ body {
     animation: fade-in-up 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  .alice-resize-handle {
+  .cs-resize-handle {
     @apply hidden lg:flex w-1 bg-transparent transition-all cursor-col-resize items-center justify-center z-50 relative;
   }
 
-  .alice-resize-handle-active {
+  .cs-resize-handle-active {
     @apply bg-zinc-800 w-1.5 !important;
   }
 
   /* Botão de Colapsar Sidebar */
-  .alice-collapse-btn {
+  .cs-collapse-btn {
     @apply hidden lg:flex absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-[110] w-6 h-10 bg-surface-dark border border-white/10 rounded-lg items-center justify-center text-white transition-all shadow-lg cursor-pointer;
   }
 
-  .alice-collapse-btn:hover {
+  .cs-collapse-btn:hover {
     @apply bg-zinc-800 border-white/20 scale-110;
   }
 
-  .alice-collapse-btn.collapsed {
+  .cs-collapse-btn.collapsed {
     @apply translate-x-0 rounded-l-none;
   }
 
   /* Sidebar Resizable support */
-  .alice-sidebar-resizable {
+  .cs-sidebar-resizable {
     @apply w-full transition-[width] duration-150;
   }
 
   @screen lg {
-    .alice-sidebar-resizable {
+    .cs-sidebar-resizable {
       width: var(--sidebar-width, 384px);
     }
   }

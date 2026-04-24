@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import ReactMarkdown from 'react-markdown';
 import { 
@@ -98,9 +98,9 @@ export function FloatingChat() {
     const textToSend = textOverride || message;
     if (!textToSend.trim() || isLoading) return;
 
-    const provider = localStorage.getItem('alice_text_model_provider');
-    const modelId = localStorage.getItem('alice_text_model_id');
-    const apiKey = localStorage.getItem(`alice_${provider}_api_key`);
+    const provider = localStorage.getItem('cs_text_model_provider');
+    const modelId = localStorage.getItem('cs_text_model_id');
+    const apiKey = localStorage.getItem(`cs_${provider}_api_key`);
 
     if (!provider || !modelId || !apiKey) {
       setError("Configure seu provedor e chave de API de texto (engrenagem no menu principal) antes de usar o chat.");

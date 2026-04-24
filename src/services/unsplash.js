@@ -1,7 +1,7 @@
 /**
- * ALICE STUDIO — SERVIÇO UNSPLASH
+ * CARROSSEL STUDIO — SERVIÇO UNSPLASH
  * Busca imagens via Unsplash API (https://unsplash.com/developers).
- * Requer chave de API armazenada como `alice_unsplash_api_key` no localStorage.
+ * Requer chave de API armazenada como `cs_unsplash_api_key` no localStorage.
  */
 
 const UNSPLASH_API_URL = 'https://api.unsplash.com';
@@ -42,7 +42,7 @@ export async function searchUnsplashPhotos(query, apiKey, page = 1, perPage = 20
     regularUrl: photo.urls.regular,
     alt: photo.alt_description || photo.description || query,
     photographer: photo.user?.name || 'Unknown',
-    photographerUrl: `${photo.user?.links?.html}?utm_source=alice_studio&utm_medium=referral`,
-    unsplashUrl: `${photo.links?.html}?utm_source=alice_studio&utm_medium=referral`,
+    photographerUrl: `${photo.user?.links?.html}?utm_source=carrossel_studio&utm_medium=referral`,
+    unsplashUrl: `${photo.links?.html}?utm_source=carrossel_studio&utm_medium=referral`,
   }));
 }

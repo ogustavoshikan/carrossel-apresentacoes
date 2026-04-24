@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+﻿import React, { useRef, useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 import {
   Copy,
@@ -578,7 +578,7 @@ export default function VisualPreview({
                             max="100"
                             value={imagePosition}
                             onChange={(e) => onImagePosition(index, e.target.value, slot)}
-                            className="alice-range"
+                            className="cs-range"
                           />
                         </div>
 
@@ -596,7 +596,7 @@ export default function VisualPreview({
                             step="0.05"
                             value={imageScale}
                             onChange={(e) => onImageScale(index, e.target.value, slot)}
-                            className="alice-range"
+                            className="cs-range"
                           />
                         </div>
 

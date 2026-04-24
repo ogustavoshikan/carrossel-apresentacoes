@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+﻿import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown, Image as ImageIcon } from 'lucide-react';
 import { searchUnsplashPhotos } from '../../services/unsplash';
 import { searchPexelsPhotos } from '../../services/pexels';
@@ -77,7 +77,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
     if (!trimmed) return;
 
     const currentProvider = provider;
-    const apiKey = localStorage.getItem(`alice_${currentProvider}_api_key`);
+    const apiKey = localStorage.getItem(`cs_${currentProvider}_api_key`);
     
     if (!apiKey) {
       setSearchError(`Chave ${currentProvider.toUpperCase()} não configurada.`);
@@ -159,7 +159,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
       ) : (
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"
+          className="cs-btn-ghost w-full py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"
         >
           <Upload className="w-4 h-4" />
           Foto
@@ -239,7 +239,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
                   onChange={(e) => { setUrlInput(e.target.value); setUrlError(''); }}
                   onKeyDown={(e) => e.key === 'Enter' && handleUrlConfirm()}
                   placeholder="https://exemplo.com/imagem.jpg"
-                  className="alice-input flex-1 text-xs"
+                  className="cs-input flex-1 text-xs"
                   autoFocus
                 />
                 <button
@@ -284,7 +284,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleSearchKeyDown}
                   placeholder={`Buscar no ${PROVIDERS.find(p => p.id === provider).name}...`}
-                  className="alice-input flex-1 text-xs"
+                  className="cs-input flex-1 text-xs"
                   autoFocus
                 />
                 <button

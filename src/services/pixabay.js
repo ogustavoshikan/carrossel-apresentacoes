@@ -1,7 +1,7 @@
 /**
- * ALICE STUDIO — SERVIÇO PIXABAY
+ * CARROSSEL STUDIO — SERVIÇO PIXABAY
  * Busca imagens via Pixabay API (https://pixabay.com/api/docs/).
- * Requer chave de API armazenada como `alice_pixabay_api_key` no localStorage.
+ * Requer chave de API armazenada como `cs_pixabay_api_key` no localStorage.
  */
 
 const PIXABAY_API_URL = 'https://pixabay.com/api/';
@@ -44,8 +44,8 @@ export async function searchPixabayPhotos(query, apiKey, page = 1, perPage = 20)
     regularUrl: photo.largeImageURL || photo.webformatURL,
     alt: query,
     photographer: photo.user || 'Unknown',
-    photographerUrl: `https://pixabay.com/users/${photo.user}-${photo.user_id}/?utm_source=alice_studio&utm_medium=referral`,
-    sourceUrl: `${photo.pageURL}?utm_source=alice_studio&utm_medium=referral`,
+    photographerUrl: `https://pixabay.com/users/${photo.user}-${photo.user_id}/?utm_source=carrossel_studio&utm_medium=referral`,
+    sourceUrl: `${photo.pageURL}?utm_source=carrossel_studio&utm_medium=referral`,
     provider: 'pixabay',
   }));
 }

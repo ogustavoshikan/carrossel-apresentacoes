@@ -136,7 +136,7 @@ export function LoadingState({ brandColor = '#DE1E40' }) {
         </div>
       </div>
 
-      <div className="gen-label">Alice is writing</div>
+      <div className="gen-label">Studio is writing</div>
       <div className="gen-status">
         <span>{text}</span>
         <span className="gen-cursor"></span>

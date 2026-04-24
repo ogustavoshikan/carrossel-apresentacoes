@@ -1,5 +1,5 @@
 /**
- * ALICE STUDIO — SERVIÇO DE EXPORTAÇÃO
+ * CARROSSEL STUDIO — SERVIÇO DE EXPORTAÇÃO
  * Exportação de slides para PNG via html-to-image.
  */
 

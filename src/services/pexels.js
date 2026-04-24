@@ -1,7 +1,7 @@
 /**
- * ALICE STUDIO — SERVIÇO PEXELS
+ * CARROSSEL STUDIO — SERVIÇO PEXELS
  * Busca imagens via Pexels API (https://www.pexels.com/api/).
- * Requer chave de API armazenada como `alice_pexels_api_key` no localStorage.
+ * Requer chave de API armazenada como `cs_pexels_api_key` no localStorage.
  */
 
 const PEXELS_API_URL = 'https://api.pexels.com/v1';
@@ -40,8 +40,8 @@ export async function searchPexelsPhotos(query, apiKey, page = 1, perPage = 20) 
     regularUrl: photo.src.large2x,
     alt: photo.alt || query,
     photographer: photo.photographer || 'Unknown',
-    photographerUrl: `${photo.photographer_url}?utm_source=alice_studio&utm_medium=referral`,
-    sourceUrl: `${photo.url}?utm_source=alice_studio&utm_medium=referral`,
+    photographerUrl: `${photo.photographer_url}?utm_source=carrossel_studio&utm_medium=referral`,
+    sourceUrl: `${photo.url}?utm_source=carrossel_studio&utm_medium=referral`,
     provider: 'pexels',
   }));
 }

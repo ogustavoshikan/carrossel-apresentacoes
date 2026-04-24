@@ -82,7 +82,7 @@ export const LAYOUT_ICONS = {
 };
 
 /**
- * ALICE STUDIO — TEMPLATES DE LAYOUT
+ * CARROSSEL STUDIO — TEMPLATES DE LAYOUT
  * Templates padrão para inserção manual de slides no canvas.
  * Campos obrigatórios de cada layout, pré-preenchidos com placeholders.
  */

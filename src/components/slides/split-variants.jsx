@@ -4,7 +4,7 @@ import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 
 // ============================================================
-// ALICE STUDIO — SPLIT VARIANTS (1-5)
+// CARROSSEL STUDIO — SPLIT VARIANTS (1-5)
 // Cada variante recebe as mesmas props do SlideContentSplit e
 // renderiza um layout visual diferente, preservando dados dinâmicos.
 // ============================================================

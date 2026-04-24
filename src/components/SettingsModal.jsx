@@ -27,22 +27,22 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
   useEffect(() => {
     if (isOpen) {
-      setGoogleKey(localStorage.getItem('alice_google_api_key') || '');
-      setOpenaiKey(localStorage.getItem('alice_openai_api_key') || '');
-      setOpenrouterKey(localStorage.getItem('alice_openrouter_api_key') || '');
-      setUnsplashKey(localStorage.getItem('alice_unsplash_api_key') || '');
-      setPexelsKey(localStorage.getItem('alice_pexels_api_key') || '');
-      setPixabayKey(localStorage.getItem('alice_pixabay_api_key') || '');
+      setGoogleKey(localStorage.getItem('cs_google_api_key') || '');
+      setOpenaiKey(localStorage.getItem('cs_openai_api_key') || '');
+      setOpenrouterKey(localStorage.getItem('cs_openrouter_api_key') || '');
+      setUnsplashKey(localStorage.getItem('cs_unsplash_api_key') || '');
+      setPexelsKey(localStorage.getItem('cs_pexels_api_key') || '');
+      setPixabayKey(localStorage.getItem('cs_pixabay_api_key') || '');
       
-      const savedTextModels = JSON.parse(localStorage.getItem('alice_available_text_models') || '[]');
-      const savedImageModels = JSON.parse(localStorage.getItem('alice_available_image_models') || '[]');
+      const savedTextModels = JSON.parse(localStorage.getItem('cs_available_text_models') || '[]');
+      const savedImageModels = JSON.parse(localStorage.getItem('cs_available_image_models') || '[]');
       
       setTextModels(savedTextModels);
       setImageModels(savedImageModels);
-      setSelectedTextModel(localStorage.getItem('alice_text_model_id') || '');
-      setSelectedTextProvider(localStorage.getItem('alice_text_model_provider') || '');
-      setSelectedImageModel(localStorage.getItem('alice_image_model_id') || '');
-      setSelectedImageProvider(localStorage.getItem('alice_image_model_provider') || '');
+      setSelectedTextModel(localStorage.getItem('cs_text_model_id') || '');
+      setSelectedTextProvider(localStorage.getItem('cs_text_model_provider') || '');
+      setSelectedImageModel(localStorage.getItem('cs_image_model_id') || '');
+      setSelectedImageProvider(localStorage.getItem('cs_image_model_provider') || '');
       setSaved(false);
     }
   }, [isOpen]);
@@ -130,18 +130,18 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
   };
 
   const handleSave = () => {
-    localStorage.setItem('alice_google_api_key', googleKey.trim());
-    localStorage.setItem('alice_openai_api_key', openaiKey.trim());
-    localStorage.setItem('alice_openrouter_api_key', openrouterKey.trim());
-    localStorage.setItem('alice_unsplash_api_key', unsplashKey.trim());
-    localStorage.setItem('alice_pexels_api_key', pexelsKey.trim());
-    localStorage.setItem('alice_pixabay_api_key', pixabayKey.trim());
-    localStorage.setItem('alice_available_text_models', JSON.stringify(textModels));
-    localStorage.setItem('alice_available_image_models', JSON.stringify(imageModels));
-    localStorage.setItem('alice_text_model_id', selectedTextModel);
-    localStorage.setItem('alice_text_model_provider', selectedTextProvider);
-    localStorage.setItem('alice_image_model_id', selectedImageModel);
-    localStorage.setItem('alice_image_model_provider', selectedImageProvider);
+    localStorage.setItem('cs_google_api_key', googleKey.trim());
+    localStorage.setItem('cs_openai_api_key', openaiKey.trim());
+    localStorage.setItem('cs_openrouter_api_key', openrouterKey.trim());
+    localStorage.setItem('cs_unsplash_api_key', unsplashKey.trim());
+    localStorage.setItem('cs_pexels_api_key', pexelsKey.trim());
+    localStorage.setItem('cs_pixabay_api_key', pixabayKey.trim());
+    localStorage.setItem('cs_available_text_models', JSON.stringify(textModels));
+    localStorage.setItem('cs_available_image_models', JSON.stringify(imageModels));
+    localStorage.setItem('cs_text_model_id', selectedTextModel);
+    localStorage.setItem('cs_text_model_provider', selectedTextProvider);
+    localStorage.setItem('cs_image_model_id', selectedImageModel);
+    localStorage.setItem('cs_image_model_provider', selectedImageProvider);
     
     setSaved(true);
     setTimeout(() => {
@@ -237,7 +237,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
           <div className="space-y-6 animate-in fade-in zoom-in-95 duration-150">
             {/* Cor Destaque */}
             <div>
-              <label className="alice-label">Cor Destaque</label>
+              <label className="cs-label">Cor Destaque</label>
               <p className="text-xs text-zinc-500 font-mono mb-3">Cor principal da marca. Usada nos destaques, borders e acentos dos slides.</p>
               <div className="flex gap-3 items-center bg-surface-input border border-border-subtle p-2 rounded-lg">
                 <input
@@ -250,7 +250,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
               </div>
             </div>
             <div>
-              <label className="alice-label">Logo / Foto do Perfil</label>
+              <label className="cs-label">Logo / Foto do Perfil</label>
               <p className="text-xs text-zinc-500 font-mono mb-4">Aparece na navbar. Se vazia, exibe o ícone padrão de confeitaria.</p>
               {appLogoUrl ? (
                 <div className="space-y-3">
@@ -309,20 +309,20 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
         {tab === 'google' && (
             <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
-              <label className="alice-label flex items-center gap-2">
+              <label className="cs-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> Google Gemini API Key
               </label>
               <input
                 type="password"
                 value={googleKey}
                 onChange={(e) => setGoogleKey(e.target.value)}
-                className="alice-input w-full"
+                className="cs-input w-full"
                 placeholder="AIzaSy..."
               />
               <button
                 onClick={verifyGoogle}
                 disabled={!googleKey || isVerifyingGoogle}
-                className="w-full alice-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
+                className="w-full cs-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
               >
                 {isVerifyingGoogle ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verificar & Listar Modelos'}
               </button>
@@ -331,20 +331,20 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
           {tab === 'openai' && (
             <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
-              <label className="alice-label flex items-center gap-2">
+              <label className="cs-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> OpenAI API Key
               </label>
               <input
                 type="password"
                 value={openaiKey}
                 onChange={(e) => setOpenaiKey(e.target.value)}
-                className="alice-input w-full"
+                className="cs-input w-full"
                 placeholder="sk-proj-..."
               />
               <button
                 onClick={verifyOpenAI}
                 disabled={!openaiKey || isVerifyingOpenAI}
-                className="w-full alice-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
+                className="w-full cs-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
               >
                 {isVerifyingOpenAI ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verificar & Listar Modelos'}
               </button>
@@ -353,20 +353,20 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
           {tab === 'openrouter' && (
             <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
-              <label className="alice-label flex items-center gap-2">
+              <label className="cs-label flex items-center gap-2">
                 <Key className="w-3 h-3" /> OpenRouter API Key
               </label>
               <input
                 type="password"
                 value={openrouterKey}
                 onChange={(e) => setOpenrouterKey(e.target.value)}
-                className="alice-input w-full"
+                className="cs-input w-full"
                 placeholder="sk-or-v1-..."
               />
               <button
                 onClick={verifyOpenRouter}
                 disabled={!openrouterKey || isVerifyingOpenRouter}
-                className="w-full alice-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
+                className="w-full cs-btn-secondary py-2 flex justify-center mt-2 border border-border-subtle"
               >
                 {isVerifyingOpenRouter ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verificar & Listar Modelos'}
               </button>
@@ -377,42 +377,42 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             <div className="space-y-6 animate-in fade-in zoom-in-95 duration-150 p-1">
               {/* Unsplash */}
               <div className="space-y-3">
-                <label className="alice-label flex items-center gap-2">
+                <label className="cs-label flex items-center gap-2">
                   <Camera className="w-3 h-3" /> Unsplash Access Key
                 </label>
                 <input
                   type="password"
                   value={unsplashKey}
                   onChange={(e) => setUnsplashKey(e.target.value)}
-                  className="alice-input w-full"
+                  className="cs-input w-full"
                   placeholder="Paste Unsplash key..."
                 />
               </div>
 
               {/* Pexels */}
               <div className="space-y-3">
-                <label className="alice-label flex items-center gap-2 text-emerald-500">
+                <label className="cs-label flex items-center gap-2 text-emerald-500">
                   <ImageIcon className="w-3 h-3" /> Pexels API Key
                 </label>
                 <input
                   type="password"
                   value={pexelsKey}
                   onChange={(e) => setPexelsKey(e.target.value)}
-                  className="alice-input w-full"
+                  className="cs-input w-full"
                   placeholder="Paste Pexels key..."
                 />
               </div>
 
               {/* Pixabay */}
               <div className="space-y-3">
-                <label className="alice-label flex items-center gap-2 text-cyan-500">
+                <label className="cs-label flex items-center gap-2 text-cyan-500">
                   <ImageIcon className="w-3 h-3" /> Pixabay API Key
                 </label>
                 <input
                   type="password"
                   value={pixabayKey}
                   onChange={(e) => setPixabayKey(e.target.value)}
-                  className="alice-input w-full"
+                  className="cs-input w-full"
                   placeholder="Paste Pixabay key..."
                 />
               </div>
@@ -437,7 +437,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <div className="flex justify-between items-center mb-1">
-                  <label className="alice-label">Modelo para Texto (Copy)</label>
+                  <label className="cs-label">Modelo para Texto (Copy)</label>
                   {selectedTextProvider && (
                     <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400 font-bold uppercase tracking-widest">
                       {selectedTextProvider}
@@ -448,7 +448,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
                   list="text-models-list" 
                   value={selectedTextModel} 
                   onChange={e => handleTextModelChange(e.target.value)} 
-                  className="alice-input w-full text-xs"
+                  className="cs-input w-full text-xs"
                   placeholder="Selecione ou digite..."
                 />
                 <datalist id="text-models-list">
@@ -458,7 +458,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
 
               <div>
                 <div className="flex justify-between items-center mb-1">
-                  <label className="alice-label">Modelo para Imagem (Visual)</label>
+                  <label className="cs-label">Modelo para Imagem (Visual)</label>
                   {selectedImageProvider && (
                     <span className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-zinc-400 font-bold uppercase tracking-widest">
                       {selectedImageProvider}
@@ -469,7 +469,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
                   list="image-models-list" 
                   value={selectedImageModel} 
                   onChange={e => handleImageModelChange(e.target.value)} 
-                  className="alice-input w-full text-xs"
+                  className="cs-input w-full text-xs"
                   placeholder="Selecione ou digite..."
                 />
                 <datalist id="image-models-list">

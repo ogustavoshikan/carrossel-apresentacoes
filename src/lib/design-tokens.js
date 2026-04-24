@@ -1,5 +1,5 @@
 /**
- * ALICE STUDIO — DESIGN TOKENS (JS)
+ * CARROSSEL STUDIO — DESIGN TOKENS (JS)
  * Valores de referência para uso em componentes.
  * Não substitui o Tailwind — complementa com constantes JS.
  */
@@ -19,7 +19,7 @@ export const FONT_OPTIONS = [
 /** Defaults do brand */
 export const BRAND_DEFAULTS = {
   handle: 'TIAJOANABRIGADEIROS',
-  website: 'Alice System v3.2',
+  website: 'Carrossel Studio v3.2',
   gradientColor1: '#DE1E4D',
   gradientColor2: '#FFFFFF',
   titleFont: 'Outfit',

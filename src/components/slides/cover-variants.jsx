@@ -4,7 +4,7 @@ import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
 // ============================================================
-// ALICE STUDIO — COVER VARIANTS (1-22)
+// CARROSSEL STUDIO — COVER VARIANTS (1-22)
 // Cada variante recebe as mesmas props do SlideCover e renderiza
 // um layout visual diferente, preservando dados dinâmicos.
 // ============================================================

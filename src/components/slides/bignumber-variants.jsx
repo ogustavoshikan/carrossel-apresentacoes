@@ -4,7 +4,7 @@ import SmartElement from '../smart-element';
 import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 
 // ============================================================
-// ALICE STUDIO — BIG-NUMBER VARIANTS (1-11)
+// CARROSSEL STUDIO — BIG-NUMBER VARIANTS (1-11)
 // Cada variante recebe as mesmas props do SlideBigNumber e
 // renderiza um layout visual diferente, preservando dados dinâmicos.
 // ============================================================

@@ -171,7 +171,7 @@ export default function ConfigSidebar({
     if (!selectedElement.field) {
       return (
         <aside 
-          className="alice-sidebar-resizable h-full border-r border-white/5 bg-black/95 p-6 lg:p-8 flex flex-col gap-6 overflow-y-auto custom-scrollbar z-40 relative"
+          className="cs-sidebar-resizable h-full border-r border-white/5 bg-black/95 p-6 lg:p-8 flex flex-col gap-6 overflow-y-auto custom-scrollbar z-40 relative"
           style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
 
           <header className="flex justify-between items-center mb-2">
@@ -279,7 +279,7 @@ export default function ConfigSidebar({
                             <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição Y</span>
                             <span className="text-[9px] font-mono text-zinc-500">{currentPos}%</span>
                           </div>
-                          <input type="range" min="0" max="100" value={currentPos} onChange={(e) => onImagePosition(selectedElement.slideIndex, e.target.value, slot)} className="alice-range w-full" />
+                          <input type="range" min="0" max="100" value={currentPos} onChange={(e) => onImagePosition(selectedElement.slideIndex, e.target.value, slot)} className="cs-range w-full" />
                         </div>
                         {onImageScale && (
                           <div className="space-y-2">
@@ -287,7 +287,7 @@ export default function ConfigSidebar({
                               <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
                               <span className="text-[9px] font-mono text-zinc-500">{currentScale}x</span>
                             </div>
-                            <input type="range" min="1" max="3" step="0.05" value={currentScale} onChange={(e) => onImageScale(selectedElement.slideIndex, e.target.value, slot)} className="alice-range w-full" />
+                            <input type="range" min="1" max="3" step="0.05" value={currentScale} onChange={(e) => onImageScale(selectedElement.slideIndex, e.target.value, slot)} className="cs-range w-full" />
                           </div>
                         )}
                         {onRemoveImage && (
@@ -332,7 +332,7 @@ export default function ConfigSidebar({
                     onChange={(e) => {
                       setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [key]: e.target.value} : s));
                     }}
-                    className="alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-zinc-200"
+                    className="cs-textarea min-h-20 w-full p-3 font-outfit text-sm text-zinc-200"
                   />
                 </div>
               );
@@ -348,7 +348,7 @@ export default function ConfigSidebar({
                       newItems[idx].label = e.target.value;
                       setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, items: newItems} : s));
                     }}
-                    className="alice-input font-bold"
+                    className="cs-input font-bold"
                  />
                  <textarea 
                     value={item.text || ''}
@@ -357,7 +357,7 @@ export default function ConfigSidebar({
                       newItems[idx].text = e.target.value;
                       setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, items: newItems} : s));
                     }}
-                    className="alice-textarea min-h-20 w-full p-3 font-playfair text-sm text-zinc-300 italic"
+                    className="cs-textarea min-h-20 w-full p-3 font-playfair text-sm text-zinc-300 italic"
                  />
               </div>
             ))}
@@ -420,7 +420,7 @@ export default function ConfigSidebar({
 
     return (
       <aside 
-        className="alice-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
+        className="cs-sidebar-resizable h-full border-r border-border-subtle bg-surface-dark p-6 lg:p-8 flex flex-col gap-8 overflow-y-auto custom-scrollbar z-40 relative"
         style={{ '--sidebar-width': `${width}px` }}
       >
         <div className="flex items-center gap-3 underline-offset-4 decoration-white/20 mb-[-1rem]">
@@ -446,7 +446,7 @@ export default function ConfigSidebar({
               <div className="flex flex-col gap-2">
                 <button
                    onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
-                   className="alice-btn-ghost w-full py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
+                   className="cs-btn-ghost w-full py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
                 >
                   <Settings2 className="w-4 h-4" />
                   Editar 
@@ -473,7 +473,7 @@ export default function ConfigSidebar({
                     setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: e.target.value} : s));
                   }}
                   className={cn(
-                    'alice-textarea min-h-20 w-full p-3 font-outfit text-sm text-white',
+                    'cs-textarea min-h-20 w-full p-3 font-outfit text-sm text-white',
                     !['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) && 'opacity-50 cursor-not-allowed'
                   )}
                   placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
@@ -522,7 +522,7 @@ export default function ConfigSidebar({
                     step="any"
                     value={pos?.x || 0}
                     onChange={(e) => updateProp('x', Math.round(Number(e.target.value)))}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
               </div>
 
@@ -568,7 +568,7 @@ export default function ConfigSidebar({
                     step="any"
                     value={pos?.y || 0}
                     onChange={(e) => updateProp('y', Math.round(Number(e.target.value)))}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
               </div>
 
@@ -609,7 +609,7 @@ export default function ConfigSidebar({
                    step="any"
                    value={pos.scale || 1}
                    onChange={(e) => updateProp('scale', parseFloat(e.target.value))}
-                   className="alice-range w-full"
+                   className="cs-range w-full"
                 />
               </div>
               {(() => {
@@ -920,7 +920,7 @@ export default function ConfigSidebar({
                      step="any"
                      value={pos.lineHeight !== undefined ? pos.lineHeight : 1.0}
                      onChange={(e) => updateProp('lineHeight', parseFloat(e.target.value))}
-                     className="alice-range w-full"
+                     className="cs-range w-full"
                   />
                 </div>
 
@@ -961,7 +961,7 @@ export default function ConfigSidebar({
                      step="any"
                      value={pos.letterSpacing || 0}
                      onChange={(e) => updateProp('letterSpacing', parseFloat(e.target.value))}
-                     className="alice-range w-full"
+                     className="cs-range w-full"
                   />
                 </div>
               </div>
@@ -1071,7 +1071,7 @@ export default function ConfigSidebar({
     );
   }
   return (
-    <div className="flex h-full alice-sidebar-resizable border-r border-white/5 bg-black/95 z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
+    <div className="flex h-full cs-sidebar-resizable border-r border-white/5 bg-black/95 z-40 relative" style={{ '--sidebar-width': `${width}px`, width: `${width}px` }}>
       
       {/* Content Panel */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative">
@@ -1115,7 +1115,7 @@ export default function ConfigSidebar({
         >
           {activeTab === 'ajustes' && (
             <>
-              {/* === Section: Alice Setup === */}
+              {/* === Section: CS Setup === */}
               <h3 className="text-[10px] font-black tracking-[0.3em] uppercase text-white/20 flex items-center gap-2 mb-2">
                 <Settings2 className="w-3.5 h-3.5" style={{ color: gradientColor1 }} />
                 Direção Criativa
@@ -1172,7 +1172,7 @@ export default function ConfigSidebar({
                         type="text"
                         value={brandHandle}
                         onChange={(e) => setBrandHandle(e.target.value)}
-                        className="alice-input flex-1 min-w-0 !rounded-xl !border-white/5 !bg-surface-input"
+                        className="cs-input flex-1 min-w-0 !rounded-xl !border-white/5 !bg-surface-input"
                         placeholder="@seuhandle"
                       />
                       <button
@@ -1256,7 +1256,7 @@ export default function ConfigSidebar({
                     <select
                       value={titleFont}
                       onChange={(e) => setTitleFont(e.target.value)}
-                      className="alice-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-xs py-[0.675rem] w-full"
                     >
                       {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
                     </select>
@@ -1266,7 +1266,7 @@ export default function ConfigSidebar({
                     <select
                       value={textFont}
                       onChange={(e) => setTextFont(e.target.value)}
-                      className="alice-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-xs py-[0.675rem] w-full"
                     >
                       {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
                     </select>
@@ -1277,7 +1277,7 @@ export default function ConfigSidebar({
               <CollapsibleSection title="TAMANHO TÍTULO A BORDAS" defaultOpen={false}>
                 {/* Scale: Título */}
                 <div>
-                  <label className="alice-label flex items-center justify-between w-full">
+                  <label className="cs-label flex items-center justify-between w-full">
                     <span>Tamanho Título: {titleSizeScale}%</span>
                     <div className="group relative cursor-help">
                       <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
@@ -1292,13 +1292,13 @@ export default function ConfigSidebar({
                     max={FONT_SCALE_RANGE.max}
                     value={titleSizeScale}
                     onChange={(e) => setTitleSizeScale(e.target.value)}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
                 </div>
 
                 {/* Scale: Texto */}
                 <div>
-                  <label className="alice-label flex items-center justify-between w-full">
+                  <label className="cs-label flex items-center justify-between w-full">
                     <span>Tamanho Texto: {textSizeScale}%</span>
                     <div className="group relative cursor-help">
                       <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
@@ -1313,13 +1313,13 @@ export default function ConfigSidebar({
                     max={FONT_SCALE_RANGE.max}
                     value={textSizeScale}
                     onChange={(e) => setTextSizeScale(e.target.value)}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
                 </div>
 
                 {/* Scale: Border Radius */}
                 <div>
-                  <label className="alice-label flex items-center justify-between w-full">
+                  <label className="cs-label flex items-center justify-between w-full">
                     <span>Bordas do Card: {cardBorderRadius}px</span>
                     <div className="group relative cursor-help">
                       <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
@@ -1334,12 +1334,12 @@ export default function ConfigSidebar({
                     max="40"
                     value={cardBorderRadius}
                     onChange={(e) => setCardBorderRadius(Number(e.target.value))}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
                 </div>
 
                 <div>
-                  <label className="alice-label flex items-center justify-between w-full">
+                  <label className="cs-label flex items-center justify-between w-full">
                     <span>Bordas Internas: {imageBorderRadius}px</span>
                     <div className="group relative cursor-help">
                       <Info className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
@@ -1354,7 +1354,7 @@ export default function ConfigSidebar({
                     max="80"
                     value={imageBorderRadius}
                     onChange={(e) => setImageBorderRadius(Number(e.target.value))}
-                    className="alice-range w-full"
+                    className="cs-range w-full"
                   />
                 </div>
               </CollapsibleSection>
@@ -1369,10 +1369,10 @@ export default function ConfigSidebar({
 
                 {/* Público-alvo */}
                 <div>
-                  <label className="alice-label">Público-alvo</label>
+                  <label className="cs-label">Público-alvo</label>
                   <input
                     type="text"
-                    className="alice-input w-full"
+                    className="cs-input w-full"
                     placeholder="Ex: Mães, presentes corporativos..."
                     value={creativeContext.publicoAlvo || ''}
                     onChange={(e) => setCreativeContext({ ...creativeContext, publicoAlvo: e.target.value })}
@@ -1381,10 +1381,10 @@ export default function ConfigSidebar({
 
                 {/* Faixa Etária */}
                 <div>
-                  <label className="alice-label">Faixa Etária</label>
+                  <label className="cs-label">Faixa Etária</label>
                   <input
                     type="text"
-                    className="alice-input w-full"
+                    className="cs-input w-full"
                     placeholder="Ex: 25–45 anos"
                     value={creativeContext.faixaEtaria || ''}
                     onChange={(e) => setCreativeContext({ ...creativeContext, faixaEtaria: e.target.value })}
@@ -1396,7 +1396,7 @@ export default function ConfigSidebar({
                   <div>
                     <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tom de Voz</label>
                     <select
-                      className="alice-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-xs py-[0.675rem] w-full"
                       value={creativeContext.tom || ''}
                       onChange={(e) => setCreativeContext({ ...creativeContext, tom: e.target.value })}
                     >
@@ -1412,7 +1412,7 @@ export default function ConfigSidebar({
                   <div>
                     <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Objetivo</label>
                     <select
-                      className="alice-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-xs py-[0.675rem] w-full"
                       value={creativeContext.objetivo || ''}
                       onChange={(e) => setCreativeContext({ ...creativeContext, objetivo: e.target.value })}
                     >
@@ -1428,9 +1428,9 @@ export default function ConfigSidebar({
 
                 {/* Diferenciais */}
                 <div>
-                  <label className="alice-label">Diferenciais da Marca</label>
+                  <label className="cs-label">Diferenciais da Marca</label>
                   <textarea
-                    className="alice-textarea h-16"
+                    className="cs-textarea h-16"
                     placeholder="Ex: Ingredientes premium, embalagem artesanal, produção limitada..."
                     value={creativeContext.diferenciais || ''}
                     onChange={(e) => setCreativeContext({ ...creativeContext, diferenciais: e.target.value })}
@@ -1439,10 +1439,10 @@ export default function ConfigSidebar({
 
                 {/* CTA */}
                 <div>
-                  <label className="alice-label">Call to Action</label>
+                  <label className="cs-label">Call to Action</label>
                   <input
                     type="text"
-                    className="alice-input w-full"
+                    className="cs-input w-full"
                     placeholder="Ex: Mande mensagem para encomendar"
                     value={creativeContext.chamadaAcao || ''}
                     onChange={(e) => setCreativeContext({ ...creativeContext, chamadaAcao: e.target.value })}
@@ -1454,12 +1454,12 @@ export default function ConfigSidebar({
 
               {/* === Section: Master Prompt === */}
               <div className="space-y-4">
-                <label className="alice-section-title">
+                <label className="cs-section-title">
                   <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
                   Briefing
                 </label>
                 <textarea
-                  className="alice-textarea h-32"
+                  className="cs-textarea h-32"
                   placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
                   value={theme}
                   onChange={(e) => setTheme(e.target.value)}
@@ -1468,7 +1468,7 @@ export default function ConfigSidebar({
 
               {/* === Section: URL Context (Gemini) === */}
               <div className="space-y-4">
-                <label className="alice-section-title">
+                <label className="cs-section-title">
                   <Link className="w-4 h-4" style={{ color: gradientColor1 }} />
                   Contexto de URL
                 </label>
@@ -1479,7 +1479,7 @@ export default function ConfigSidebar({
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    className="alice-input flex-1 text-xs"
+                    className="cs-input flex-1 text-xs"
                     placeholder="Cole a URL aqui..."
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
@@ -1548,12 +1548,12 @@ export default function ConfigSidebar({
                   </div>
 
                   <div className="space-y-2">
-                    <label className="alice-section-title">
+                    <label className="cs-section-title">
                       <Lightbulb className="w-4 h-4" style={{ color: gradientColor1 }} />
                       Briefing
                     </label>
                     <textarea
-                      className="alice-textarea h-32"
+                      className="cs-textarea h-32"
                       placeholder="Descreva a estratégia. Ex: 5 motivos polêmicos sobre a confeitaria gourmet tradicional..."
                       value={theme}
                       onChange={(e) => setTheme(e.target.value)}
@@ -1562,7 +1562,7 @@ export default function ConfigSidebar({
 
                   {/* === Section: URL Context (Gemini) === */}
                   <div className="space-y-4">
-                    <label className="alice-section-title">
+                    <label className="cs-section-title">
                       <Link className="w-4 h-4" style={{ color: gradientColor1 }} />
                       Contexto de URL
                     </label>
@@ -1573,7 +1573,7 @@ export default function ConfigSidebar({
                     <div className="flex gap-2">
                       <input
                         type="text"
-                        className="alice-input flex-1 text-xs"
+                        className="cs-input flex-1 text-xs"
                         placeholder="Cole a URL aqui..."
                         onKeyDown={(e) => {
                           if (e.key === 'Enter') {
@@ -1673,7 +1673,7 @@ export default function ConfigSidebar({
                 max={SLIDE_COUNT_RANGE.max}
                 value={slideCount}
                 onChange={(e) => setSlideCount(parseInt(e.target.value))}
-                className="alice-range w-full"
+                className="cs-range w-full"
               />
             </div>
 

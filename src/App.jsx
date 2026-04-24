@@ -35,7 +35,7 @@ export default function App() {
   const [contextUrls, setContextUrls] = useState([]);
   const [creativeContext, setCreativeContext] = useState(() => {
     try {
-      const saved = localStorage.getItem('alice_creative_context');
+      const saved = localStorage.getItem('cs_creative_context');
       return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
@@ -67,15 +67,15 @@ export default function App() {
 
   useEffect(() => {
     // Configurações padrão para Geração de Imagem via OpenRouter
-    if (!localStorage.getItem('alice_image_model_provider')) {
-      localStorage.setItem('alice_image_model_provider', 'openrouter');
-      localStorage.setItem('alice_image_model_id', 'google/gemini-2.5-flash-image');
+    if (!localStorage.getItem('cs_image_model_provider')) {
+      localStorage.setItem('cs_image_model_provider', 'openrouter');
+      localStorage.setItem('cs_image_model_id', 'google/gemini-2.5-flash-image');
     }
 
     // Configurações padrão para Texto via OpenRouter (Gemini Flash Lite Free)
-    if (!localStorage.getItem('alice_text_model_provider')) {
-      localStorage.setItem('alice_text_model_provider', 'openrouter');
-      localStorage.setItem('alice_text_model_id', 'google/gemini-2.0-flash-lite:free');
+    if (!localStorage.getItem('cs_text_model_provider')) {
+      localStorage.setItem('cs_text_model_provider', 'openrouter');
+      localStorage.setItem('cs_text_model_id', 'google/gemini-2.0-flash-lite:free');
     }
 
     getFavorites().then(setFavorites).catch(console.error);
@@ -91,7 +91,7 @@ export default function App() {
   const [isExporting, setIsExporting] = useState(false);
   const [titleFont, setTitleFont] = useState(BRAND_DEFAULTS.titleFont);
   const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
-  const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('alice_app_logo') || '');
+  const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('cs_app_logo') || '');
 
   // Contador de slides
   const [showSlideCounter, setShowSlideCounter] = useState(true);
@@ -291,8 +291,8 @@ export default function App() {
     setError('');
     
     // get API details via same schema as handleGenerate
-    const provider = localStorage.getItem('alice_text_model_provider');
-    const modelId = localStorage.getItem('alice_text_model_id');
+    const provider = localStorage.getItem('cs_text_model_provider');
+    const modelId = localStorage.getItem('cs_text_model_id');
 
     if (!provider || !modelId) {
       setError('Erro: Configure um modelo de Texto para Injeção (Engrenagem superior).');
@@ -300,7 +300,7 @@ export default function App() {
       return;
     }
 
-    const apiKey = localStorage.getItem(`alice_${provider}_api_key`);
+    const apiKey = localStorage.getItem(`cs_${provider}_api_key`);
     if (!apiKey) {
       setError(`Chave da API ausente para o provedor ${provider}. Verifique as configurações.`);
       setIsInjecting(false);
@@ -480,8 +480,8 @@ export default function App() {
     async (index, prompt) => {
       setLoadingImages((prev) => ({ ...prev, [index]: true }));
       try {
-        const imageProvider = localStorage.getItem('alice_image_model_provider');
-        const imageModel = localStorage.getItem('alice_image_model_id');
+        const imageProvider = localStorage.getItem('cs_image_model_provider');
+        const imageModel = localStorage.getItem('cs_image_model_id');
         
         if (!imageProvider || !imageModel) {
           setError('Erro: Configure um modelo de Imagem para prosseguir.');
@@ -489,7 +489,7 @@ export default function App() {
           return;
         }
         
-        const apiKey = localStorage.getItem(`alice_${imageProvider}_api_key`);
+        const apiKey = localStorage.getItem(`cs_${imageProvider}_api_key`);
         if (!apiKey) {
           setError(`Erro: Chave API ausente para o provedor ${imageProvider}.`);
           setLoadingImages((prev) => ({ ...prev, [index]: false }));
@@ -516,15 +516,15 @@ export default function App() {
       return;
     }
 
-    const textProvider = localStorage.getItem('alice_text_model_provider');
-    const textModel = localStorage.getItem('alice_text_model_id');
+    const textProvider = localStorage.getItem('cs_text_model_provider');
+    const textModel = localStorage.getItem('cs_text_model_id');
 
     if (!textProvider || !textModel) {
       setError('Erro: Configure um modelo de Texto para prosseguir.');
       return;
     }
     
-    const apiKey = localStorage.getItem(`alice_${textProvider}_api_key`);
+    const apiKey = localStorage.getItem(`cs_${textProvider}_api_key`);
     if (!apiKey) {
       setError(`Erro: Chave API ausente para o provedor ${textProvider}.`);
       return;
@@ -540,9 +540,9 @@ export default function App() {
       );
       
       // Geração Automática de Imagens via IA (se configurado)
-      const imageProvider = localStorage.getItem('alice_image_model_provider');
-      const imageModel = localStorage.getItem('alice_image_model_id');
-      const imageApiKey = localStorage.getItem(`alice_${imageProvider}_api_key`);
+      const imageProvider = localStorage.getItem('cs_image_model_provider');
+      const imageModel = localStorage.getItem('cs_image_model_id');
+      const imageApiKey = localStorage.getItem(`cs_${imageProvider}_api_key`);
 
       if (imageProvider && imageModel && imageApiKey && imageProvider !== 'unsplash') {
         setSlides(parsedSlides); // Mostra o texto primeiro
@@ -569,7 +569,7 @@ export default function App() {
       }
     } catch (err) {
       console.error(err);
-      setError('Deu ruim na geração. Alice cansou, tente de novo.');
+      setError('Deu ruim na geração. O Studio cansou, tente de novo.');
     } finally {
       setIsGenerating(false);
     }
@@ -718,7 +718,7 @@ export default function App() {
                   creativeContext={creativeContext}
                   setCreativeContext={(newCtx) => {
                     setCreativeContext(newCtx);
-                    localStorage.setItem('alice_creative_context', JSON.stringify(newCtx));
+                    localStorage.setItem('cs_creative_context', JSON.stringify(newCtx));
                   }}
                   slideCount={slideCount}
                   setSlideCount={setSlideCount}
@@ -757,7 +757,7 @@ export default function App() {
               {/* Toggle Sidebar Button */}
               <button
                 onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-                className={`alice-collapse-btn opacity-0 group-hover/layout:opacity-100 transition-opacity duration-150 ${isSidebarCollapsed ? 'collapsed opacity-100' : ''}`}
+                className={`cs-collapse-btn opacity-0 group-hover/layout:opacity-100 transition-opacity duration-150 ${isSidebarCollapsed ? 'collapsed opacity-100' : ''}`}
                 style={{ 
                   left: isSidebarCollapsed ? '0' : `${sidebarWidth}px`,
                 }}
@@ -769,7 +769,7 @@ export default function App() {
               {/* Resize Handle */}
               <div 
                 onMouseDown={() => !isSidebarCollapsed && setIsResizingSidebar(true)}
-                className={`alice-resize-handle group ${isResizingSidebar ? 'alice-resize-handle-active' : ''} ${isSidebarCollapsed ? 'pointer-events-none opacity-0' : ''}`}
+                className={`cs-resize-handle group ${isResizingSidebar ? 'cs-resize-handle-active' : ''} ${isSidebarCollapsed ? 'pointer-events-none opacity-0' : ''}`}
                 style={{ '--color-handle': isResizingSidebar ? gradientColor1 : undefined }}
               />
 
@@ -786,8 +786,8 @@ export default function App() {
                   appLogoUrl={appLogoUrl}
                   onLogoChange={(url) => {
                     setAppLogoUrl(url);
-                    if (url) localStorage.setItem('alice_app_logo', url);
-                    else localStorage.removeItem('alice_app_logo');
+                    if (url) localStorage.setItem('cs_app_logo', url);
+                    else localStorage.removeItem('cs_app_logo');
                   }}
                 />
                 {slides.length === 0 && !isGenerating ? (

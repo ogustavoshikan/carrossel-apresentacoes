@@ -1,9 +1,9 @@
 /**
- * ALICE STUDIO — Módulo de Favoritos (IndexedDB)
+ * CARROSSEL STUDIO — Módulo de Favoritos (IndexedDB)
  * Armazena slides e imagens em alta qualidade no navegador usando IndexedDB.
  */
 
-const DB_NAME = 'AliceStudioDB';
+const DB_NAME = 'CarrosselStudioDB';
 const DB_VERSION = 1;
 const STORE_NAME = 'favorite_slides';
 

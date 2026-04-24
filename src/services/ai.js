@@ -1,5 +1,5 @@
 /**
- * ALICE STUDIO — SERVIÇOS DE IA
+ * CARROSSEL STUDIO — SERVIÇOS DE IA
  * Geração de carrossel e imagens via Gemini/OpenAI API.
  */
 
@@ -211,7 +211,7 @@ Estes limites são INEGOCIÁVEIS. Se ultrapassar, corte e reescreva com mais obj
         
         // Log de depuração para verificar se o Gemini acessou as URLs
         if (data.usageMetadata || data.url_context_metadata) {
-          console.log('[Alice AI] Context Stats:', {
+          console.log('[CS] Context Stats:', {
             tokens: data.usageMetadata,
             urls: data.url_context_metadata
           });
@@ -390,7 +390,7 @@ export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
       payload.image_config = { aspect_ratio: "1:1" };
     }
 
-    console.log(`[Alice AI] Solicitando imagem ao OpenRouter (${modelId})...`);
+    console.log(`[CS] Solicitando imagem ao OpenRouter (${modelId})...`);
 
     const response = await fetch(url, {
       method: 'POST',
@@ -405,7 +405,7 @@ export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('[Alice AI] Erro OpenRouter:', errorData);
+      console.error('[CS] Erro OpenRouter:', errorData);
       throw new Error(`Falha na API OpenRouter: ${response.status} - ${errorData.error?.message || 'Erro desconhecido'}`);
     }
 

@@ -2572,7 +2572,7 @@ export function CTAVariant36(props) {
           <div className="flex flex-col">
             <span className="font-outfit font-bold text-[10px] tracking-widest uppercase text-white/60">CRIADOR</span>
             <span className="font-outfit font-black text-xs text-white truncate w-24">
-              @{brandHandle?.toUpperCase() || 'ALICESTUDIO'}
+              @{brandHandle?.toUpperCase() || 'CARROSSEL'}
             </span>
           </div>
         </div>
@@ -2693,7 +2693,7 @@ export function CTAVariant38(props) {
           </div>
         </div>
         <span className="bg-black text-white px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] mb-6 shadow-md font-outfit">
-          @{brandHandle?.toUpperCase() || 'ALICESTUDIO'}
+          @{brandHandle?.toUpperCase() || 'CARROSSEL'}
         </span>
         <SmartElement
           slideIndex={index}
@@ -2771,7 +2771,7 @@ export function CTAVariant39(props) {
           </div>
         </div>
         <span className="font-outfit font-bold text-[10px] uppercase tracking-[0.3em] mb-4 text-white/70">
-          @{brandHandle?.toUpperCase() || 'ALICESTUDIO'}
+          @{brandHandle?.toUpperCase() || 'CARROSSEL'}
         </span>
         <SmartElement
           slideIndex={index}
@@ -2855,7 +2855,7 @@ export function CTAVariant40(props) {
           <div className="flex flex-col">
             <span className="font-outfit font-bold text-[10px] tracking-widest uppercase text-white/60 mb-1">CRIADOR</span>
             <span className="font-outfit font-black text-lg text-white">
-              @{brandHandle?.toUpperCase() || 'ALICESTUDIO'}
+              @{brandHandle?.toUpperCase() || 'CARROSSEL'}
             </span>
           </div>
         </div>
