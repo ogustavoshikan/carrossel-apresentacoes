@@ -697,7 +697,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
               onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)}
               className="font-playfair italic text-zinc-400 text-[10px] tracking-widest uppercase outline-none"
             >
-              {data.studio_text || 'Alice Studio Premium Editorial'}
+              {data.studio_text || 'Carrossel Studio Premium Editorial'}
             </span>
           </SmartField>
         </div>

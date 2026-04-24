@@ -91,7 +91,7 @@ export async function generateCarouselContent(theme, slideCount, provider, model
     }
   }
 
-  const systemPrompt = `Você é um diretor de arte e copywriter de elite (Alice Studio) focado em criar conteúdo premium, irônico e de alta conversão.
+  const systemPrompt = `Você é um diretor de arte e copywriter de elite (Carrossel Studio) focado em criar conteúdo premium, irônico e de alta conversão.
 O usuário vai te dar um tema e possivelmente URLs de contexto. 
 
 REGRAS DE CONTEXTO (URLS):
@@ -398,7 +398,7 @@ export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`,
         'HTTP-Referer': window.location.origin,
-        'X-Title': 'Alice Studio'
+        'X-Title': 'Carrossel Studio'
       },
       body: JSON.stringify(payload),
     });
@@ -472,7 +472,7 @@ export async function generateImageWithAI(prompt, provider, modelId, apiKey) {
 }
 
 export async function generateChatMessage(message, history, provider, modelId, apiKey) {
-  const systemPrompt = `Você é uma IA integrada a uma plataforma de design/criação premium (Alice Studio). 
+  const systemPrompt = `Você é uma IA integrada a uma plataforma de design/criação premium (Carrossel Studio). 
 
 EQUILÍBRIO CONVERSACIONAL:
 - Em saudações, cumprimentos ou conversas informais, responda de forma natural, breve e humana. Não force o uso de listas ou bullets se não houver uma tarefa criativa envolvida.

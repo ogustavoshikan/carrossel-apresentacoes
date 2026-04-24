@@ -108,7 +108,7 @@ body {
    ======================================== */
 
 @layer components {
-  /* Input base do Alice Studio */
+  /* Input base do Carrossel Studio */
   .alice-input {
     @apply w-full bg-surface-input border border-border-subtle rounded-[5px] px-3 py-2.5 text-xs text-zinc-200 focus:outline-none transition-colors;
   }

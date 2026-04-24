@@ -276,7 +276,7 @@ export default function App() {
         const apiKey = "";
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
-        const systemPrompt = `Você é um diretor de arte e copywriter de elite (Alice Studio) focado em criar conteúdo premium, irônico e de alta conversão.
+        const systemPrompt = `Você é um diretor de arte e copywriter de elite (Carrossel Studio) focado em criar conteúdo premium, irônico e de alta conversão.
         O usuário vai te dar um tema. Crie EXATAMENTE ${slideCount} slides.
         
         A linguagem DEVE ser: sofisticada, ácida, direta e gerar alto valor percebido. Escreva em Português do Brasil IMPECÁVEL.

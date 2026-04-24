@@ -36,7 +36,7 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick, brandColor }) => (
 
 /**
  * @name GlobalSidebar
- * @description Barra lateral principal do ecossistema Alice Studio.
+ * @description Barra lateral principal do ecossistema Carrossel Studio.
  */
 const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, appLogoUrl, brandColor }) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Mini wireframes SVG — reutilizados em diversos componentes do Alice Studio.
+ * Mini wireframes SVG — reutilizados em diversos componentes do Carrossel Studio.
  */
 export const LAYOUT_ICONS = {
   cover: (
@@ -189,7 +189,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide: slideNumber,
   };
 
-  // Mapeia o layout para o campo de variante correspondente no Alice Studio
+  // Mapeia o layout para o campo de variante correspondente no Carrossel Studio
   const variantFields = {
     'cover': 'coverVariantIndex',
     'content-split': 'splitVariantIndex',

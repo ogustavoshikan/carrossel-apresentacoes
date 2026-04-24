@@ -55,8 +55,8 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
 };
 
 /**
- * ConfigSidebar — Sidebar de configurações do Alice Studio.
- * Contém: Alice Setup (handle, cor, verificado, fontes) + Master Prompt + geração.
+ * ConfigSidebar — Sidebar de configurações do Carrossel Studio.
+ * Contém: Carrossel Setup (handle, cor, verificado, fontes) + Master Prompt + geração.
  */
 export default function ConfigSidebar({
   width,

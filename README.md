@@ -1,12 +1,12 @@
-# Alice Studio — v3.2 Final 🎨✨
+# Carrossel Studio — v3.2 Final 🎨✨
 
-**Alice Studio** é um editor premium de carrosséis para Instagram, focado em alta conversão e design de elite. Desenvolvido para transformar temas e ideias em narrativas visuais sofisticadas através de Inteligência Artificial generativa.
+**Carrossel Studio** é um editor premium de carrosséis para Instagram, focado em alta conversão e design de elite. Desenvolvido para transformar temas e ideias em narrativas visuais sofisticadas através de Inteligência Artificial generativa.
 
 ---
 
-## 🚀 O que é o Alice Studio?
+## 🚀 O que é o Carrossel Studio?
 
-O Alice Studio v3.2 é a evolução final de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
+O Carrossel Studio v3.2 é a evolução final de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
 
 ### Principais Diferenciais:
 - **IA Generativa Dual**: Suporte nativo para **Google Gemini** e **OpenAI (GPT-4o)** para textos, e **Imagen/DALL-E** para imagens.
@@ -48,7 +48,7 @@ src/
 
 ## 💎 Inventário de Layouts e Variantes
 
-O Alice Studio possui uma biblioteca vasta de designs pré-configurados. Cada layout principal possui múltiplas variantes que podem ser alternadas instantaneamente.
+O Carrossel Studio possui uma biblioteca vasta de designs pré-configurados. Cada layout principal possui múltiplas variantes que podem ser alternadas instantaneamente.
 
 | Layout | Descrição | Variantes | Arquivo de Referência |
 | :--- | :--- | :---: | :--- |
@@ -99,4 +99,4 @@ O Alice Studio possui uma biblioteca vasta de designs pré-configurados. Cada la
 
 ---
 
-Desenvolvido com ❤️ por **Alice Studio Team**.
+Desenvolvido com ❤️ por **Carrossel Studio Team**.
