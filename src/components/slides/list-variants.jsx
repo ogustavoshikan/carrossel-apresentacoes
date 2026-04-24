@@ -78,7 +78,7 @@ export function ListVariant1(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -119,7 +119,7 @@ export function ListVariant2(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col pt-6">
@@ -144,11 +144,9 @@ export function ListVariant3(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <div className="absolute inset-0 bg-cover opacity-10 grayscale overflow-hidden" style={{ backgroundImage: `url('${data.imageUrl || ''}')`, backgroundPosition: 'center 50%' }}></div>
-      <div className="absolute inset-0 pointer-events-none z-[60]">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      </div>
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8 relative z-10">
         <ListTitle data={data} index={index} scale={sTitle * 1.2} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left drop-shadow-md" wrapperClasses="mb-10 shrink-0 w-full" />
@@ -173,8 +171,8 @@ export function ListVariant4(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
-      <div className="absolute inset-0 pointer-events-none z-[60]"><SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} /></div>
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-6">
         <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
@@ -205,7 +203,7 @@ export function ListVariant5(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -243,7 +241,7 @@ export function ListVariant6(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-8 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-8 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col pt-12">
@@ -274,7 +272,7 @@ export function ListVariant7(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-4">
@@ -307,7 +305,7 @@ export function ListVariant8(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -341,7 +339,7 @@ export function ListVariant9(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-8 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-8 relative">
       {data.imageUrl && (
         <div className="absolute inset-0 bg-cover blur-md scale-110 overflow-hidden" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
       )}
@@ -378,7 +376,7 @@ export function ListVariant10(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 mt-8 w-full" />
@@ -418,9 +416,7 @@ export function ListVariant11(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
-      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      </div>
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <ListTitle data={data} index={index} scale={sTitle * 1.25} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-4 shrink-0 mt-4 w-full relative z-10" />
       
@@ -452,7 +448,7 @@ export function ListVariant12(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -484,7 +480,7 @@ export function ListVariant13(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
+    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -595,9 +591,7 @@ export function ListVariant15(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
-      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col min-h-0 pt-8 relative z-10">
         <SmartEl 
           slideIndex={index} 
@@ -1357,9 +1351,7 @@ export function ListVariant29(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
-      <div className="relative z-30 opacity-90 mix-blend-difference w-full">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark hideDot={true} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-800 opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
