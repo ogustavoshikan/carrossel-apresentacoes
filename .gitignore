@@ -23,6 +23,13 @@ Thumbs.db
 .idea/
 *.swp
 
+# AI Instructions & Skills (Local)
+.agents/
+.agents - Copia/
+docs/guides/
+scratch/
+"Features e Correções/"
+
 # AIOX Local (AIOX)
 .aiox-core/local/
 .claude/settings.local.json
