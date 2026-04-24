@@ -57,7 +57,7 @@ export default function SlideList({
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}

@@ -78,10 +78,10 @@ export function ListVariant1(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col justify-center pt-8 overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center pt-8">
         <div className="flex items-center gap-5 mb-10 shrink-0">
           <div className="w-12 h-12 border rounded-[1rem] flex items-center justify-center shrink-0" style={{ backgroundColor: `${brandColor}15`, borderColor: `${brandColor}30` }}>
             <CheckCircle2 className="w-7 h-7" style={{ color: brandColor }} />
@@ -119,13 +119,13 @@ export function ListVariant2(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
-      <div className="flex-1 flex flex-col pt-6 overflow-hidden">
+      <div className="flex-1 flex flex-col pt-6">
         <ListTitle data={data} index={index} scale={sTitle} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-3 shrink-0 text-center w-full" />
         
-        <div className="grid grid-cols-1 gap-2 flex-1 overflow-hidden flex flex-col justify-center">
+        <div className="grid grid-cols-1 gap-2 flex-1 flex flex-col justify-center">
           {items.map((item, i) => (
             <div key={i} className="p-3 rounded-r-2xl shadow-xl flex flex-col justify-center group" style={{ backgroundColor: '#000000', borderLeft: `4px solid ${brandColor}`, border: `1px solid ${brandColor}40`, borderLeftWidth: '4px', borderLeftColor: brandColor }}>
               <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-[11px] uppercase tracking-widest mb-1 outline-none line-clamp-1">{item.label}</h4>
@@ -378,7 +378,7 @@ export function ListVariant10(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <ListTitle data={data} index={index} scale={sTitle * 1.1} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 mt-8 w-full" />
@@ -412,9 +412,9 @@ export function ListVariant11(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-black flex flex-col p-10 relative overflow-hidden items-center text-center">
+    <div className="w-full h-full bg-black flex flex-col p-10 relative items-center text-center">
       {data.imageUrl && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
@@ -424,7 +424,7 @@ export function ListVariant11(props) {
       
       <ListTitle data={data} index={index} scale={sTitle * 1.25} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-4 shrink-0 mt-4 w-full relative z-10" />
       
-      <div className="flex-1 flex flex-wrap content-start justify-center gap-2 overflow-hidden pt-2 w-full relative z-10">
+      <div className="flex-1 flex flex-wrap content-start justify-center gap-2 pt-2 w-full relative z-10">
         <div className="flex flex-wrap justify-center gap-2 mb-1">
           {items.map((item, i) => (
             <div key={`badge-${i}`} className="rounded-full px-4 py-2 flex items-center gap-3 shadow-lg group" style={{ backgroundColor: '#000000', border: '1px solid rgba(255,255,255,0.08)' }}>
@@ -484,7 +484,7 @@ export function ListVariant13(props) {
   const items = data.items || [{ label: 'Item', text: 'Text' }];
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative overflow-hidden">
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 relative">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center pt-8">
@@ -523,7 +523,7 @@ export function ListVariant14(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <div className="flex-1 flex flex-col min-h-0 pt-6">
         <SmartEl 
@@ -552,7 +552,7 @@ export function ListVariant14(props) {
             {data.titulo}
           </TextWrapper>
         </SmartEl>
-        <div className="flex-1 overflow-hidden flex flex-col gap-4 justify-center">
+        <div className="flex-1 flex flex-col gap-4 justify-center">
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="flex gap-3 items-start border-b border-zinc-300/50 pb-3 last:border-0 shrink-0">
               <span 
@@ -589,9 +589,9 @@ export function ListVariant15(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
+    <div className="w-full h-full p-10 flex flex-col bg-black text-white relative">
       {data.imageUrl && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
@@ -612,7 +612,7 @@ export function ListVariant15(props) {
             {data.titulo}
           </TextWrapper>
         </SmartEl>
-        <div className="flex-1 overflow-hidden flex flex-col gap-0 px-4 relative justify-center">
+        <div className="flex-1 flex flex-col gap-0 px-4 relative justify-center">
           <div className="absolute left-[27px] top-4 bottom-8 w-[2px] bg-white/20 z-0" />
           {items.slice(0, 4).map((item, i) => (
             <div key={i} className="flex gap-4 items-start pb-6 shrink-0 relative z-10">
@@ -650,7 +650,7 @@ export function ListVariant16(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl 
@@ -668,7 +668,7 @@ export function ListVariant16(props) {
         </SmartEl>
         <div className="grid grid-cols-2 gap-3 flex-1 min-h-0 content-center">
           {items.slice(0, 4).map((item, i) => (
-            <div key={i} className="bg-white rounded-xl p-4 shadow-sm flex flex-col border border-zinc-100 overflow-hidden">
+            <div key={i} className="bg-white rounded-xl p-4 shadow-sm flex flex-col border border-zinc-100">
               <span 
                 contentEditable 
                 suppressContentEditableWarning 
@@ -703,7 +703,7 @@ export function ListVariant17(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <div className="mt-8 mb-6 shrink-0">
         <SmartEl 
@@ -755,7 +755,7 @@ export function ListVariant18(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-900 text-white relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-900 text-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
         <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
@@ -805,7 +805,7 @@ export function ListVariant19(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
@@ -855,7 +855,7 @@ export function ListVariant20(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-12 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
@@ -870,7 +870,7 @@ export function ListVariant20(props) {
           {data.titulo}
         </TextWrapper>
       </SmartEl>
-      <div className="flex-1 overflow-hidden flex flex-col justify-around relative pl-8">
+      <div className="flex-1 flex flex-col justify-around relative pl-8">
         <div className="absolute left-[13px] top-4 bottom-8 w-[2px] bg-zinc-200 z-0" />
         {items.slice(0, 4).map((item, i) => (
           <div key={i} className="flex gap-6 items-center relative z-10 shrink-0 py-2">
@@ -899,7 +899,7 @@ export function ListVariant21(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl 
@@ -947,7 +947,7 @@ export function ListVariant22(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full flex bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <div className="w-[35%] h-full shrink-0 relative overflow-hidden bg-zinc-200">
         <div className="absolute inset-0 bg-zinc-300 opacity-50" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
@@ -1006,7 +1006,7 @@ export function ListVariant23(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
@@ -1066,7 +1066,7 @@ export function ListVariant24(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-12 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
@@ -1109,7 +1109,7 @@ export function ListVariant25(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
@@ -1160,7 +1160,7 @@ export function ListVariant26(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-zinc-50 relative">
+    <div className="w-full h-full flex bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
         <div>
@@ -1228,7 +1228,7 @@ export function ListVariant27(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
+    <div className="w-full h-full flex flex-col bg-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
         <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
@@ -1262,7 +1262,7 @@ export function ListVariant27(props) {
       </div>
       <div className="flex-1 p-6 grid grid-cols-2 gap-4 min-h-0 bg-white content-center">
         {items.slice(0, 4).map((item, i) => (
-          <div key={i} className="bg-zinc-50 p-4 rounded-2xl border border-zinc-100 flex flex-col justify-center shadow-sm relative overflow-hidden shrink-0">
+          <div key={i} className="bg-zinc-50 p-4 rounded-2xl border border-zinc-100 flex flex-col justify-center shadow-sm relative shrink-0">
             <div 
               contentEditable 
               suppressContentEditableWarning 
@@ -1296,7 +1296,7 @@ export function ListVariant28(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-10 flex flex-col overflow-hidden bg-black text-white relative">
+    <div className="w-full h-full p-10 flex flex-col bg-black text-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="pt-8">
         <SmartEl 
@@ -1351,9 +1351,9 @@ export function ListVariant29(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full relative p-10 flex flex-col overflow-hidden bg-black text-white">
+    <div className="w-full h-full relative p-10 flex flex-col bg-black text-white">
       {data.imageUrl && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       )}
@@ -1415,7 +1415,7 @@ export function ListVariant30(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-12 flex flex-col overflow-hidden items-center justify-center bg-zinc-50 relative">
+    <div className="w-full h-full p-12 flex flex-col items-center justify-center bg-zinc-50 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
       <SmartEl 
         slideIndex={index} 
