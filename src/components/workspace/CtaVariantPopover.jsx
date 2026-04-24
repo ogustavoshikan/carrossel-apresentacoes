@@ -287,6 +287,86 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 26: Modern Split Actions
+    26: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="h-[65%] flex flex-col justify-center px-1 gap-0.5">
+          <div className="w-[80%] h-[2px] bg-zinc-900 rounded-full" />
+          <div className="w-[50%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="flex-1 bg-zinc-950 border-t-[1.5px] flex items-center justify-around px-0.5" style={{ borderColor: accent }}>
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
+          <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 27: Glass Floating
+    27: (
+      <div className="w-full h-full flex flex-col p-1 relative overflow-hidden bg-zinc-900 justify-between">
+        <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[70%] rotate-[-10deg] opacity-80" style={{ background: accent }} />
+        <div className="relative z-10 w-[70%] h-[2px] bg-white rounded-full mt-2" />
+        <div className="relative z-10 w-[90%] h-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-sm self-end flex items-center justify-between px-1">
+           <div className="w-1 h-1 rounded-full bg-white/40" />
+           <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+        </div>
+      </div>
+    ),
+    // 28: Tilted Card
+    28: (
+      <div className="w-full h-full flex flex-col items-center justify-center rounded-[3px] overflow-hidden bg-zinc-950 p-1 relative">
+        <div className="w-[80%] aspect-[4/5] rounded-[3px] rotate-6 absolute" style={{ background: accent }} />
+        <div className="w-[80%] aspect-[4/5] rounded-[3px] bg-zinc-900 border border-zinc-700 relative flex flex-col p-0.5 gap-0.5">
+          <div className="w-[80%] h-[1.5px] bg-white/90 rounded-full" />
+          <div className="mt-auto flex gap-0.5 justify-end">
+            <div className="w-1.5 h-1.5 rounded-[1px]" style={{ background: accent }} />
+          </div>
+        </div>
+      </div>
+    ),
+    // 29: Bold Frame
+    29: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-zinc-950 p-0.5 border-[3px]" style={{ borderColor: accent }}>
+        <div className="flex-1 flex flex-col justify-center items-center gap-0.5">
+          <div className="w-[70%] h-[2px] bg-white rounded-full" />
+          <div className="w-[50%] h-[1px] bg-zinc-500 rounded-full" />
+        </div>
+        <div className="flex justify-end px-0.5 pb-0.5">
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 30: Corner Glow
+    30: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-zinc-950 p-1 relative">
+        <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full opacity-60" style={{ background: accent }} />
+        <div className="relative z-10 w-[70%] h-[3px] bg-white rounded-full mt-2" />
+        <div className="mt-auto w-[80%] h-3 bg-zinc-900 border border-zinc-800 rounded-sm flex items-center justify-between px-1 relative z-10">
+           <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+        </div>
+      </div>
+    ),
+    // 31: Floating Bar
+    31: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative">
+        <div className="h-[60%] w-full" style={{ background: accent }} />
+        <div className="h-[40%] w-full bg-[#111]" />
+        <div className="absolute top-[60%] left-0.5 right-0.5 -translate-y-1/2 h-3 bg-white rounded-sm shadow-md flex items-center justify-between px-0.5">
+           <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 32: Centered Impact
+    32: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-[#050505] p-1">
+        <div className="flex-1 rounded-lg flex flex-col justify-center items-center gap-0.5 p-0.5" style={{ background: accent }}>
+          <div className="w-[80%] h-[2px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1px] bg-white/60 rounded-full" />
+        </div>
+        <div className="flex justify-end pt-0.5 px-0.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-white/10" />
+        </div>
+      </div>
+    ),
   };
 
   return (
