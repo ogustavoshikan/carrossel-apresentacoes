@@ -64,39 +64,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
          ))}
       </div>
     ),
-    // 4: Timeline
-    4: (
-      <div className="w-full h-full flex flex-col justify-center relative rounded-[3px] bg-[#080808] p-1 gap-1">
-         <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/20" />
-         {[...Array(3)].map((_, i) => {
-           const isLeft = i % 2 === 0;
-           return (
-             <div key={i} className={`flex w-full items-center ${isLeft ? 'justify-start' : 'justify-end'} relative`}>
-               <div className={`w-[45%] h-[6px] bg-[#0A0A0A] rounded-[2px] border border-white/10`} />
-               <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full border-[1px] border-black" style={{ background: accent }} />
-             </div>
-           );
-         })}
-      </div>
-    ),
-    // 5: Stacked
-    5: (
-      <div className="w-full h-full flex flex-col justify-end pt-2 pb-1 px-1 rounded-[3px] bg-[#050505] relative">
-         <div className="absolute top-2 w-[85%] left-1/2 -translate-x-1/2 h-[12px] bg-zinc-800 rounded-sm scale-90" />
-         <div className="absolute top-4 w-[90%] left-1/2 -translate-x-1/2 h-[14px] bg-zinc-800 rounded-sm scale-95" />
-         <div className="relative w-full h-[18px] bg-zinc-800 rounded-sm border border-white/20 shadow-xl" />
-      </div>
-    ),
-    // 6: Bento Grid
-    6: (
-      <div className="w-full h-full rounded-[3px] bg-[#080808] p-1 flex flex-col">
-         <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-[2px]">
-           <div className="col-span-2 row-span-2 bg-zinc-800 rounded-[2px]" />
-           <div className="col-span-1 row-span-1 bg-zinc-800 rounded-[2px]" />
-           <div className="col-span-1 row-span-1 bg-zinc-800 rounded-[2px]" />
-         </div>
-      </div>
-    ),
     // 7: Line Connect
     7: (
       <div className="w-full h-full flex flex-col justify-center relative rounded-[3px] bg-[#050505] p-1 gap-1 pl-2.5">
@@ -120,18 +87,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
               <div className="absolute -right-1 -bottom-1 w-4 h-4 bg-white/20 rounded-full" />
            </div>
          ))}
-      </div>
-    ),
-    // 9: Grid Mode
-    9: (
-      <div className="w-full h-full flex flex-col justify-center rounded-[3px] bg-[#050505] p-1">
-         <div className="grid grid-cols-2 gap-1 w-full relative">
-           {[...Array(4)].map((_, i) => (
-             <div key={i} className="h-[12px] bg-zinc-800 rounded-[2px] flex items-center p-[1px]">
-                <div className="w-1.5 h-1.5 rounded-full ml-[1px]" style={{ background: accent }} />
-             </div>
-           ))}
-         </div>
       </div>
     ),
     // 10: Staggered
@@ -233,17 +188,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
           <div key={i} className="flex gap-2 items-center relative">
             <span className="text-[12px] font-black opacity-10" style={{ color: accent }}>{i+1}</span>
             <div className="flex-1 h-[1px] bg-zinc-300" />
-          </div>
-        ))}
-      </div>
-    ),
-    // 18: Expert Checklist
-    18: (
-      <div className="w-full h-full flex flex-col p-1.5 gap-1.5 rounded-[3px] overflow-hidden bg-zinc-900 justify-center">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="flex gap-1.5 items-center bg-zinc-800 p-0.5 rounded-[1px] border border-zinc-700">
-            <div className="w-1.5 h-1.5 bg-zinc-600 rounded-[1px]" />
-            <div className="flex-1 h-[1px] bg-zinc-500" />
           </div>
         ))}
       </div>

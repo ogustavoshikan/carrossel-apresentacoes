@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Star, Check } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 
@@ -165,106 +165,11 @@ export function ListVariant3(props) {
   );
 }
 
-export function ListVariant4(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [{ label: 'Item', text: 'Text' }];
 
-  return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col justify-center pt-6">
-        <ListTitle data={data} index={index} scale={sTitle * 0.8} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center border-b border-white/10 pb-3 inline-block" wrapperClasses="mb-3 shrink-0 text-center w-full flex justify-center" />
-        
-        <div className="flex-1 overflow-y-auto flex flex-col justify-center items-center relative py-2 w-full">
-          <div className="absolute top-0 bottom-0 w-px bg-surface-input/30 left-1/2 -translate-x-1/2 pointer-events-none"></div>
-          {items.map((item, i) => {
-            const isLeft = i % 2 === 0;
-            return (
-              <div key={i} className={`w-full flex items-center mb-2 last:mb-0 relative z-10 group ${isLeft ? 'justify-start' : 'justify-end'}`}>
-                <div className={`w-[45%] p-3 rounded-2xl shadow-xl ${isLeft ? 'text-right' : 'text-left'}`} style={{ backgroundColor: '#000000', borderColor: `${brandColor}40`, border: `1px solid ${brandColor}40` }}>
-                  <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[9px] uppercase tracking-widest mb-1 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
-                  <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-[11px] leading-snug outline-none line-clamp-3">{item.text}</p>
-                </div>
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full border-2 border-[#080808]" style={{ backgroundColor: brandColor }}></div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
 
-export function ListVariant5(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [{ label: 'Item', text: 'Text' }];
 
-  return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 relative">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col justify-center pt-8">
-        <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-8 shrink-0 w-full" />
-        
-        <div className="relative flex-1 flex flex-col pt-2 pb-4 overflow-y-visible">
-          {items.map((item, i) => {
-            const isFirst = i === 0;
-            return (
-              <div key={i} className="relative w-full bg-zinc-900 border border-white/10 rounded-[1.5rem] p-5 shadow-2xl transition-all group" style={{ marginTop: isFirst ? '0px' : '-1rem', zIndex: 10 - i, transform: `scale(${1 - (i * 0.02)})` }}>
-                <div className="flex justify-between items-center mb-1">
-                  <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[11px] uppercase tracking-widest outline-none line-clamp-1">{item.label}</h4>
-                  <span 
-                    contentEditable 
-                    suppressContentEditableWarning 
-                    onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                    className="font-outfit font-black text-lg opacity-20 outline-none"
-                  >
-                    {item.label || `0${i + 1}`}
-                  </span>
-                </div>
-                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm outline-none line-clamp-2">{item.text}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
 
-export function ListVariant6(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [{ label: 'Item', text: 'Text' }];
 
-  return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-8 relative">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col pt-12">
-        <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
-        
-        <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-3">
-          {items.map((item, i) => {
-            const isFirst = i === 0;
-            return (
-              <div key={i} className={`bg-zinc-900 rounded-[1.5rem] p-5 flex flex-col justify-between border border-white/5 hover:border-white/20 transition-all group ${isFirst ? 'col-span-2 row-span-2 bg-gradient-to-br from-zinc-900 to-black' : 'col-span-1 row-span-1'}`}>
-                <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-3 h-3 fill-current" style={{ color: brandColor }} />
-                  <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className={`font-outfit font-bold text-white uppercase tracking-widest outline-none line-clamp-1 ${isFirst ? 'text-xs' : 'text-[9px]'}`}>{item.label}</h4>
-                </div>
-                <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className={`font-playfair text-zinc-400 leading-relaxed outline-none ${isFirst ? 'text-base line-clamp-4' : 'text-xs line-clamp-3'}`}>{item.text}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function ListVariant7(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
@@ -333,42 +238,7 @@ export function ListVariant8(props) {
   );
 }
 
-export function ListVariant9(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [{ label: 'Item', text: 'Text' }];
 
-  return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-8 relative">
-      {data.imageUrl && (
-        <div className="absolute inset-0 bg-cover blur-md scale-110 overflow-hidden" style={{ backgroundImage: `url(${data.imageUrl})`, backgroundPosition: `center ${data.imagePosition ?? 50}%`, opacity: 0.4 }} />
-      )}
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={slideCount} brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified} showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col pt-12 relative z-10">
-        <ListTitle data={data} index={index} scale={sTitle} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-center" wrapperClasses="mb-6 shrink-0 text-center w-full" />
-        
-        <div className="flex-1 grid grid-cols-2 gap-3 overflow-y-auto pr-1">
-          {items.map((item, i) => (
-            <div key={i} className="bg-gradient-to-br from-zinc-900 to-black rounded-2xl p-5 border border-white/10 flex flex-col justify-center group">
-              <div 
-                contentEditable 
-                suppressContentEditableWarning 
-                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                className="w-6 h-6 rounded-full flex items-center justify-center font-outfit font-black text-[10px] text-white mb-3 shrink-0 outline-none" 
-                style={{ backgroundColor: brandColor }}
-              >
-                {item.label || `${i + 1}`}
-              </div>
-              <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest mb-1 leading-snug outline-none line-clamp-1">{item.label}</h4>
-              <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-[11px] line-clamp-3 outline-none">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function ListVariant10(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
@@ -741,55 +611,7 @@ export function ListVariant17(props) {
   );
 }
 
-export function ListVariant18(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const items = data.items || [];
-  const tw = { index, onTextChange };
 
-  return (
-    <div className="w-full h-full p-10 flex flex-col bg-zinc-900 text-white relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex items-center gap-4 mb-8 shrink-0 pt-8">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/10 shrink-0">
-          <Check className="w-6 h-6 text-white" />
-        </div>
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="flex-1"
-        >
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-tight font-outfit" style={{ fontSize: `${24 * sTitle}px` }}>
-            {data.titulo}
-          </TextWrapper>
-        </SmartEl>
-      </div>
-      <div className="flex-1 flex flex-col gap-4 min-h-0 justify-center">
-        {items.slice(0, 4).map((item, i) => (
-          <div key={i} className="flex gap-4 items-start bg-zinc-800/50 p-5 rounded-xl border border-zinc-700/50 shrink-0">
-            <div className="w-6 h-6 rounded bg-zinc-700 flex items-center justify-center shrink-0 mt-0.5">
-              <Check className="w-3.5 h-3.5 text-white" />
-            </div>
-            <p 
-              contentEditable 
-              suppressContentEditableWarning 
-              onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
-              className="text-zinc-300 leading-snug outline-none font-playfair" 
-              style={{ fontSize: `${14 * sText}px` }}
-            >
-              {item.text}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function ListVariant19(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement } = props;
@@ -1463,12 +1285,8 @@ export const LIST_VARIANT_COMPONENTS = {
   1: ListVariant1,
   2: ListVariant2,
   3: ListVariant3,
-  4: ListVariant4,
-  5: ListVariant5,
-  6: ListVariant6,
   7: ListVariant7,
   8: ListVariant8,
-  9: ListVariant9,
   10: ListVariant10,
   11: ListVariant11,
   12: ListVariant12,
@@ -1477,7 +1295,6 @@ export const LIST_VARIANT_COMPONENTS = {
   15: ListVariant15,
   16: ListVariant16,
   17: ListVariant17,
-  18: ListVariant18,
   19: ListVariant19,
   20: ListVariant20,
   21: ListVariant21,
@@ -1497,12 +1314,8 @@ export const LIST_VARIANT_META = [
   { id: 1, nome: 'Dark Check', badge: null },
   { id: 2, nome: 'Side Bar', badge: null },
   { id: 3, nome: 'Bullet Minimal', badge: null },
-  { id: 4, nome: 'Timeline', badge: 'PRO' },
-  { id: 5, nome: 'Stacked', badge: null },
-  { id: 6, nome: 'Bento Grid', badge: 'PRO' },
   { id: 7, nome: 'Line Connect', badge: null },
   { id: 8, nome: 'Big Numbers', badge: null },
-  { id: 9, nome: 'Grid Mode', badge: null },
   { id: 10, nome: 'Staggered', badge: null },
   { id: 11, nome: 'Badges', badge: 'PRO' },
   { id: 12, nome: 'Checklist Gold', badge: 'NEW' },
@@ -1511,7 +1324,6 @@ export const LIST_VARIANT_META = [
   { id: 15, nome: 'Dark Path', badge: 'PREMIUM' },
   { id: 16, nome: 'Card Grid', badge: 'NEW' },
   { id: 17, nome: 'Ghost Numbers', badge: null },
-  { id: 18, nome: 'Expert Checklist', badge: 'PRO' },
   { id: 19, nome: 'Side Border', badge: null },
   { id: 20, nome: 'Clean Timeline', badge: 'NEW' },
   { id: 21, nome: 'Elegant List', badge: null },
