@@ -22,7 +22,7 @@ function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
       <img 
         src={thumbnailUrl} 
         alt={`Variante ${variantId}`} 
-        className="w-full h-full object-cover rounded-[3px]"
+        className="w-full h-full object-cover"
       />
     );
   }
@@ -31,7 +31,7 @@ function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
   
   if (!themeVariants) {
     return (
-      <div className="w-full h-full flex items-center justify-center bg-zinc-900 rounded-[3px]">
+      <div className="w-full h-full flex items-center justify-center bg-zinc-900">
          <div className="w-4 h-4 border border-zinc-700 rounded" />
       </div>
     );
@@ -45,7 +45,7 @@ function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
 
   // Fallback para quando a variante específica não tem um wireframe (usa o ícone do tema)
   return (
-    <div className="w-full h-full flex items-center justify-center bg-zinc-900/50 rounded-[3px] p-4 opacity-20">
+    <div className="w-full h-full flex items-center justify-center bg-zinc-900/50 p-4 opacity-20">
        {LAYOUT_ICONS[theme]}
     </div>
   );
@@ -120,8 +120,8 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
             className="group relative flex flex-col bg-surface-dark border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all cursor-pointer active:scale-95 shadow-xl"
           >
             {/* Área da Miniatura */}
-            <div className="aspect-[4/5] flex items-center justify-center p-2 bg-black/40 group-hover:bg-black/20 transition-colors">
-               <div className="w-32 h-40 transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-300 shadow-2xl">
+            <div className="aspect-[4/5] relative bg-black/40 group-hover:bg-black/20 transition-colors overflow-hidden">
+               <div className="w-full h-full transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-300">
                   <DesignThumbnail 
                     theme={selectedTheme} 
                     variantId={variant.id} 
