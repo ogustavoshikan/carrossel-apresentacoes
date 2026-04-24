@@ -1,6 +1,7 @@
 import React from 'react';
-import { Zap, Heart, Bookmark, Share2, Check, ArrowUpRight, Calendar, MousePointer2, Image as ImageIcon, ArrowRight, Store, Share } from 'lucide-react';
+import { Zap, Heart, Bookmark, Share2, Check, ArrowUpRight, Calendar, MousePointer2, Image as ImageIcon, ArrowRight, Store, Share, MessageCircle, Send } from 'lucide-react';
 import SmartElement from '../smart-element';
+import SlideHeader from '../slide-header';
 
 // ─── Helper: ImageBg ────────────────────────────────────────
 // Renderiza o background de imagem ou placeholder.
@@ -1311,6 +1312,426 @@ export function CTAVariant18(props) {
 }
 
 // ==========================================
+// Variante 19: Social Blur Footer
+// ==========================================
+export function CTAVariant19(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{ backgroundColor: brandColor, color: 'white' }}>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      <div className="flex-1 flex flex-col justify-center items-center text-center">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="w-full mb-6 shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[0.9] tracking-tighter uppercase outline-none"
+            style={{ fontSize: `${48 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[85%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/90 font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+      </div>
+      <div className="w-full bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-4 flex justify-between items-center shadow-lg mt-auto shrink-0 pointer-events-none">
+        <div className="flex gap-6 pl-4">
+          <Heart className="w-7 h-7 text-white" />
+          <MessageCircle className="w-7 h-7 text-white" />
+          <Send className="w-7 h-7 text-white" />
+        </div>
+        <div className="pr-4 border-l border-white/20 pl-4">
+          <Bookmark className="w-7 h-7 text-white" fill="currentColor" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 20: Floating Polaroid
+// ==========================================
+export function CTAVariant20(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-zinc-200 overflow-hidden relative">
+      <div className="absolute top-6 left-6 right-6">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+      <div className="w-[90%] bg-white p-4 pb-8 shadow-[0_20px_50px_rgba(0,0,0,0.2)] rotate-2 border border-white relative z-10 flex flex-col mt-8">
+        <div className="w-full aspect-square relative mb-6 p-8 flex flex-col justify-center items-center text-center shadow-inner rounded-md" style={{ backgroundColor: brandColor }}>
+          <SmartElement
+            slideIndex={index} field="titulo"
+            position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement} className="w-full shrink-0 mb-4"
+          >
+            <h2 contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-white leading-tight uppercase tracking-tighter outline-none"
+              style={{ fontSize: `${36 * sTitle}px` }}>
+              {data.titulo}
+            </h2>
+          </SmartElement>
+          <SmartElement
+            slideIndex={index} field="texto_apoio"
+            position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement} className="w-[95%] shrink-0"
+          >
+            <p contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-white/90 font-medium leading-snug outline-none"
+              style={{ fontSize: `${14 * sText}px` }}>
+              {data.texto_apoio}
+            </p>
+          </SmartElement>
+        </div>
+        <div className="flex justify-between items-center px-4 w-full pointer-events-none">
+          <div className="flex gap-5">
+            <Heart className="w-6 h-6 text-zinc-400" />
+            <MessageCircle className="w-6 h-6 text-zinc-400" />
+            <Send className="w-6 h-6 text-zinc-400" />
+          </div>
+          <Bookmark className="w-6 h-6" style={{ color: brandColor }} fill="currentColor" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 21: Dark Bookmark Focus
+// ==========================================
+export function CTAVariant21(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-black/20 rounded-full blur-[80px] pointer-events-none z-0" />
+      <div className="relative z-10">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+      <div className="flex-1 flex flex-col justify-center items-start relative z-10">
+        <div className="bg-[#1a1a1a] text-white p-4 rounded-full mb-8 shadow-xl inline-flex pointer-events-none">
+          <Bookmark className="w-8 h-8" fill="currentColor" />
+        </div>
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="w-full shrink-0 mb-4"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-[0.85] uppercase tracking-tighter outline-none"
+            style={{ fontSize: `${52 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[85%] shrink-0 mb-12"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/80 font-medium leading-snug outline-none"
+            style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="flex gap-4 items-center w-full mt-auto pointer-events-none">
+          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+            <Heart className="w-6 h-6 text-white" />
+          </div>
+          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+            <MessageCircle className="w-6 h-6 text-white" />
+          </div>
+          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+            <Send className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 22: Editorial Side Sidebar
+// ==========================================
+export function CTAVariant22(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="w-full h-full flex overflow-hidden bg-white">
+      <div className="flex-1 p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="w-full shrink-0 mb-6 mt-10"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-[0.9] uppercase tracking-tighter outline-none"
+            style={{ fontSize: `${46 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[90%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-white/90 font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${15 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+        <div className="mt-auto pt-8 pointer-events-none">
+          <span className="text-white/60 font-outfit font-bold uppercase tracking-widest text-[9px]">NÃO ESQUEÇA DE SALVAR</span>
+        </div>
+      </div>
+      <div className="w-20 shrink-0 h-full flex flex-col items-center justify-center gap-8 bg-zinc-950 py-8 relative z-20 shadow-[-10px_0_30px_rgba(0,0,0,0.3)] pointer-events-none">
+        <Heart className="w-7 h-7 text-white opacity-80" />
+        <MessageCircle className="w-7 h-7 text-white opacity-80" />
+        <Send className="w-7 h-7 text-white opacity-80" />
+        <div className="w-8 h-[2px] bg-white/20 my-2" />
+        <Bookmark className="w-7 h-7 text-white opacity-100" fill="currentColor" />
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 23: Bento Social Grid
+// ==========================================
+export function CTAVariant23(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col justify-between bg-zinc-100 relative overflow-hidden">
+      <div className="relative z-10">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+      <div className="flex flex-col mt-4 mb-auto w-[90%] z-10">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="mb-4 w-full shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[#1a1a1a] leading-none uppercase tracking-tighter outline-none"
+            style={{ fontSize: `${48 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[85%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-zinc-600 font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${15 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+      </div>
+      <div className="flex justify-between items-end mt-auto w-full z-10 pointer-events-none">
+        <div className="flex items-center gap-2 mb-2 bg-[#1a1a1a] text-white px-5 py-2.5 rounded-full shadow-lg">
+          <span className="font-outfit font-bold text-[10px] tracking-widest uppercase">Arraste</span>
+          <ArrowRight className="w-3 h-3" />
+        </div>
+        <div className="grid grid-cols-2 gap-3 shrink-0">
+          <div className="w-14 h-14 rounded-2xl bg-white shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-zinc-200 flex items-center justify-center">
+            <Heart className="w-6 h-6 text-zinc-400" />
+          </div>
+          <div className="w-14 h-14 rounded-2xl bg-white shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-zinc-200 flex items-center justify-center">
+            <MessageCircle className="w-6 h-6 text-zinc-400" />
+          </div>
+          <div className="w-14 h-14 rounded-2xl bg-white shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-zinc-200 flex items-center justify-center">
+            <Send className="w-6 h-6 text-zinc-400" />
+          </div>
+          <div className="w-14 h-14 rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.2)] flex items-center justify-center" style={{ backgroundColor: brandColor }}>
+            <Bookmark className="w-6 h-6 text-white" fill="currentColor" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 24: Cinema Overlay Action
+// ==========================================
+export function CTAVariant24(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const imgUrl = data?.imageUrl;
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-black">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+      <div className="relative z-10 w-full h-full flex flex-col justify-between p-8 pb-12">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+        <div className="flex-1 flex flex-col justify-end pb-8">
+          <SmartElement
+            slideIndex={index} field="titulo"
+            position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement} className="w-full mb-3 shrink-0"
+          >
+            <h2 contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-white leading-none uppercase tracking-tighter drop-shadow-xl outline-none"
+              style={{ fontSize: `${46 * sTitle}px` }}>
+              {data.titulo}
+            </h2>
+          </SmartElement>
+          <SmartElement
+            slideIndex={index} field="texto_apoio"
+            position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement} className="w-[85%] shrink-0"
+          >
+            <p contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-white/90 font-medium leading-relaxed drop-shadow-md outline-none"
+              style={{ fontSize: `${15 * sText}px` }}>
+              {data.texto_apoio}
+            </p>
+          </SmartElement>
+        </div>
+      </div>
+      <div className="absolute bottom-8 left-[-10%] right-[-10%] h-24 bg-white/10 backdrop-blur-xl border-y border-white/20 rotate-[-3deg] z-20 flex items-center justify-center gap-8 shadow-[0_20px_40px_rgba(0,0,0,0.5)] pointer-events-none">
+        <div className="flex items-center gap-8 rotate-[3deg]">
+          <Heart className="w-7 h-7 text-white opacity-80" />
+          <MessageCircle className="w-7 h-7 text-white opacity-80" />
+          <Send className="w-7 h-7 text-white opacity-80" />
+          <div className="w-px h-8 bg-white/30 mx-2" />
+          <Bookmark className="w-8 h-8 opacity-100 drop-shadow-lg" style={{ color: brandColor }} fill="currentColor" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// Variante 25: Giant Icon Watermark
+// ==========================================
+export function CTAVariant25(props) {
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const bgBase = '#FFFFFF';
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center pointer-events-none z-0 opacity-[0.04]">
+        <Bookmark className="w-[400px] h-[400px]" style={{ color: brandColor }} fill="currentColor" />
+      </div>
+      <div className="relative z-10">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      </div>
+      <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10 mt-8 mb-4">
+        <SmartElement
+          slideIndex={index} field="titulo"
+          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement} className="w-full mb-6 shrink-0"
+        >
+          <h2 contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black leading-[0.9] uppercase tracking-tighter text-[#1a1a1a] outline-none"
+            style={{ fontSize: `${52 * sTitle}px` }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+        <SmartElement
+          slideIndex={index} field="texto_apoio"
+          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement} className="w-[90%] shrink-0"
+        >
+          <p contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-zinc-600 font-medium leading-relaxed outline-none"
+            style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio}
+          </p>
+        </SmartElement>
+      </div>
+      <div className="w-full bg-[#1a1a1a] rounded-3xl p-5 flex justify-between items-center relative z-20 shadow-2xl mt-auto pointer-events-none">
+        <div className="flex gap-4 pl-2">
+          <div className="p-2 rounded-full bg-white/10">
+            <Heart className="w-5 h-5 text-white" />
+          </div>
+          <div className="p-2 rounded-full bg-white/10">
+            <MessageCircle className="w-5 h-5 text-white" />
+          </div>
+          <div className="p-2 rounded-full bg-white/10">
+            <Send className="w-5 h-5 text-white" />
+          </div>
+        </div>
+        <div className="flex items-center gap-3 pr-2 border-l border-white/20 pl-4">
+          <span className="font-outfit font-bold text-[9px] uppercase tracking-widest text-white/50">SALVAR</span>
+          <div className="p-2 rounded-full bg-white text-black shadow-lg">
+            <Bookmark className="w-5 h-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
 // Export Map & Meta
 // ==========================================
 export const CTA_VARIANT_COMPONENTS = {
@@ -1332,28 +1753,42 @@ export const CTA_VARIANT_COMPONENTS = {
   16: CTAVariant16,
   17: CTAVariant17,
   18: CTAVariant18,
+  19: CTAVariant19,
+  20: CTAVariant20,
+  21: CTAVariant21,
+  22: CTAVariant22,
+  23: CTAVariant23,
+  24: CTAVariant24,
+  25: CTAVariant25,
 };
 
 export const CTA_VARIANT_META = [
-  { id: 0, title: 'Classic (Original)', desc: 'Layout padrão com ícone Zap' },
-  { id: 1, title: 'Minimal', desc: 'Focado no texto e inicial' },
-  { id: 2, title: 'Split Image', desc: 'Metade imagem, metade call to action' },
-  { id: 3, title: 'Neon Glow', desc: 'Fundo escuro com brilho neon' },
-  { id: 4, title: 'Ticket Card', desc: 'Card destacado estilo ticket picotado' },
-  { id: 5, title: 'Blur Tilt', desc: 'Efeito de desfoque e rotação suave' },
-  { id: 6, title: 'Clean Typographic', desc: 'Layout minimalista puramente tipográfico' },
-  { id: 7, title: 'App Interface', desc: 'Design lembrando uma interface de agendamento' },
-  { id: 8, title: 'Tech Start', desc: 'Visual dark com bordas tracejadas e gradiente' },
-  { id: 9, title: 'Arrow Solid', desc: 'Fundo sólido com botão seta circular central' },
-  { id: 10, title: 'Ghost Text', desc: 'Título fantasma em fundo preto com ícone de salvar' },
-  { id: 11, title: 'Profile Card', desc: 'Card claro com foto de perfil e ícones sociais' },
-  { id: 12, title: 'Dark Double CTA', desc: 'Fundo escuro com dois botões de ação paralelos' },
-  { id: 13, title: 'Down Arrow Light', desc: 'Seta para baixo em fundo claro com link na bio' },
-  { id: 14, title: 'Store Dashed', desc: 'Ícone de loja com borda tracejada e botão outline' },
-  { id: 15, title: 'Glassmorphism Card', desc: 'Card glass com blur sobre fundo colorido' },
-  { id: 16, title: 'VIP Border', desc: 'Borda tracejada estilo ingresso com acesso VIP' },
-  { id: 17, title: 'Black Glow', desc: 'Fundo preto com botão brilhante da cor da marca' },
-  { id: 18, title: 'Polaroid Tilt', desc: 'Foto estilo polaroid inclinada sobre fundo colorido' },
+  { id: 0, name: 'Classic (Original)', title: 'Classic (Original)', description: 'Layout padrão com ícone Zap', desc: 'Layout padrão com ícone Zap' },
+  { id: 1, name: 'Minimal', title: 'Minimal', description: 'Focado no texto e inicial', desc: 'Focado no texto e inicial' },
+  { id: 2, name: 'Split Image', title: 'Split Image', description: 'Metade imagem, metade call to action', desc: 'Metade imagem, metade call to action' },
+  { id: 3, name: 'Neon Glow', title: 'Neon Glow', description: 'Fundo escuro com brilho neon', desc: 'Fundo escuro com brilho neon' },
+  { id: 4, name: 'Ticket Card', title: 'Ticket Card', description: 'Card destacado estilo ticket picotado', desc: 'Card destacado estilo ticket picotado' },
+  { id: 5, name: 'Blur Tilt', title: 'Blur Tilt', description: 'Efeito de desfoque e rotação suave', desc: 'Efeito de desfoque e rotação suave' },
+  { id: 6, name: 'Clean Typographic', title: 'Clean Typographic', description: 'Layout minimalista puramente tipográfico', desc: 'Layout minimalista puramente tipográfico' },
+  { id: 7, name: 'App Interface', title: 'App Interface', description: 'Design lembrando uma interface de agendamento', desc: 'Design lembrando uma interface de agendamento' },
+  { id: 8, name: 'Tech Start', title: 'Tech Start', description: 'Visual dark com bordas tracejadas e gradiente', desc: 'Visual dark com bordas tracejadas e gradiente' },
+  { id: 9, name: 'Arrow Solid', title: 'Arrow Solid', description: 'Fundo sólido com botão seta circular central', desc: 'Fundo sólido com botão seta circular central' },
+  { id: 10, name: 'Ghost Text', title: 'Ghost Text', description: 'Título fantasma em fundo preto com ícone de salvar', desc: 'Título fantasma em fundo preto com ícone de salvar' },
+  { id: 11, name: 'Profile Card', title: 'Profile Card', description: 'Card claro com foto de perfil e ícones sociais', desc: 'Card claro com foto de perfil e ícones sociais' },
+  { id: 12, name: 'Dark Double CTA', title: 'Dark Double CTA', description: 'Fundo escuro com dois botões de ação paralelos', desc: 'Fundo escuro com dois botões de ação paralelos' },
+  { id: 13, name: 'Down Arrow Light', title: 'Down Arrow Light', description: 'Seta para baixo em fundo claro com link na bio', desc: 'Seta para baixo em fundo claro com link na bio' },
+  { id: 14, name: 'Store Dashed', title: 'Store Dashed', description: 'Ícone de loja com borda tracejada e botão outline', desc: 'Ícone de loja com borda tracejada e botão outline' },
+  { id: 15, name: 'Glassmorphism Card', title: 'Glassmorphism Card', description: 'Card glass com blur sobre fundo colorido', desc: 'Card glass com blur sobre fundo colorido' },
+  { id: 16, name: 'VIP Border', title: 'VIP Border', description: 'Borda tracejada estilo ingresso com acesso VIP', desc: 'Borda tracejada estilo ingresso com acesso VIP' },
+  { id: 17, name: 'Black Glow', title: 'Black Glow', description: 'Fundo preto com botão brilhante da cor da marca', desc: 'Fundo preto com botão brilhante da cor da marca' },
+  { id: 18, name: 'Polaroid Tilt', title: 'Polaroid Tilt', description: 'Foto estilo polaroid inclinada sobre fundo colorido', desc: 'Foto estilo polaroid inclinada sobre fundo colorido' },
+  { id: 19, name: 'Social Blur', title: 'Social Blur', description: 'Rodapé com blur e ícones sociais destacados', desc: 'Rodapé com blur e ícones sociais destacados' },
+  { id: 20, name: 'Floating Polaroid', title: 'Floating Polaroid', description: 'Card polaroid rotacionado sobre fundo claro', desc: 'Card polaroid rotacionado sobre fundo claro' },
+  { id: 21, name: 'Bookmark Focus', title: 'Bookmark Focus', description: 'Destaque no ícone de salvar com fundo escuro', desc: 'Destaque no ícone de salvar com fundo escuro' },
+  { id: 22, name: 'Editorial Side', title: 'Editorial Side', description: 'Layout de revista com barra lateral de ações', desc: 'Layout de revista com barra lateral de ações' },
+  { id: 23, name: 'Bento Grid', title: 'Bento Grid', description: 'Grade estilo bento com ações e botão de arraste', desc: 'Grade estilo bento com ações e botão de arraste' },
+  { id: 24, name: 'Cinema Overlay', title: 'Cinema Overlay', description: 'Overlay cinematográfico sobre imagem de fundo', desc: 'Overlay cinematográfico sobre imagem de fundo' },
+  { id: 25, name: 'Giant Watermark', title: 'Giant Watermark', description: 'Marca d\'água gigante com ícone de salvar ao fundo', desc: 'Marca d\'água gigante com ícone de salvar ao fundo' },
 ];
 
 
