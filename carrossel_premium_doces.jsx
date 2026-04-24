@@ -447,7 +447,7 @@ export default function App() {
         );
     };
 
-    // ALICE STUDIO SLIDE HEADERS & FOOTERS
+    // CARROSSEL STUDIO SLIDE HEADERS & FOOTERS
     const SlideHeader = ({ index, total, dark = false }) => (
         <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
             <div className="flex items-center gap-3">
@@ -1111,7 +1111,7 @@ export default function App() {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #18181b; border-radius: 20px; }
       `}</style>
 
-            {/* ALICE STUDIO HEADER */}
+            {/* CARROSSEL STUDIO HEADER */}
             <nav className="h-20 border-b border-white/5 bg-[#080808]/80 backdrop-blur-3xl px-8 flex flex-wrap items-center justify-between z-[100] relative">
                 <div className="flex items-center gap-8">
                     <div className="flex items-center gap-4 group cursor-pointer">
