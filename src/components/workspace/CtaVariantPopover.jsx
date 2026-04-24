@@ -367,6 +367,73 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 33: Sidebar Glossy
+    33: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-black relative">
+        <div className="flex-1 opacity-20" style={{ background: accent }} />
+        <div className="w-[25%] h-full bg-white/10 border-l border-white/20 flex flex-col items-center justify-center gap-1.5">
+          <div className="w-1 h-1 rounded-full bg-white/40" />
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+        <div className="absolute left-1 top-1/2 -translate-y-1/2 w-[60%] flex flex-col gap-1">
+          <div className="w-full h-[2px] bg-white rounded-full" />
+          <div className="w-[70%] h-[1px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 34: Floating Capsule
+    34: (
+      <div className="w-full h-full flex flex-col items-center justify-center rounded-[3px] overflow-hidden relative bg-zinc-900">
+        <div className="flex flex-col items-center gap-1">
+          <div className="w-6 h-[2px] bg-white rounded-full" />
+          <div className="w-4 h-[1px] bg-white/60 rounded-full" />
+        </div>
+        <div className="absolute bottom-1 w-[70%] h-2.5 bg-white/90 rounded-full flex items-center justify-around px-1">
+           <div className="w-1 h-1 rounded-full bg-zinc-400" />
+           <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 35: Bottom Dock
+    35: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative bg-zinc-800">
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+        <div className="absolute bottom-1 left-1 right-1 h-4 bg-zinc-900 border border-white/10 rounded-md flex justify-between items-center px-1">
+           <div className="w-1 h-1 rounded-sm bg-white/10" />
+           <div className="w-2.5 h-2.5 rounded-sm shadow-md" style={{ background: accent }} />
+        </div>
+        <div className="absolute top-[45%] left-1.5 w-[70%] flex flex-col gap-1">
+          <div className="w-full h-[2px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 36: Creator Bar
+    36: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative bg-zinc-900">
+        <div className="mt-auto p-1.5 flex flex-col items-center gap-1">
+          <div className="w-[80%] h-[2px] bg-white rounded-full shadow-lg" />
+          <div className="w-[60%] h-[1px] bg-white/60 rounded-full mb-3" />
+        </div>
+        <div className="absolute bottom-1 left-1 right-1 h-3.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center px-1 shadow-lg">
+           <div className="w-2 h-2 rounded-full border border-white/40 shrink-0" style={{ background: accent }} />
+           <div className="flex-1" />
+           <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    // 37: Split Modern
+    37: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-[#EBE9E1]">
+        <div className="h-[40%] bg-zinc-400" />
+        <div className="flex-1 bg-black p-1 flex flex-col justify-end relative">
+          <div className="w-[80%] h-[2px] bg-white rounded-full mb-0.5" />
+          <div className="w-[50%] h-[1px] bg-zinc-500 rounded-full mb-1" />
+          <div className="absolute top-0 right-1 w-3 h-3 rounded-sm border -translate-y-1/2 rotate-3" style={{ background: accent, borderColor: 'white' }} />
+        </div>
+      </div>
+    ),
+
   };
 
   return (
