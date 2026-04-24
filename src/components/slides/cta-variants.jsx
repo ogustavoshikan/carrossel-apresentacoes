@@ -2186,8 +2186,8 @@ export function CTAVariant32(props) {
   return (
     <div className="w-full h-full flex flex-col p-6 bg-[#050505] text-white">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
-      <div className="flex-1 mt-4 mb-4 rounded-[40px] flex flex-col p-8 justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden" style={{ backgroundColor: brandColor }}>
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
+      <div className="flex-1 mt-4 mb-4 rounded-[40px] flex flex-col p-8 justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative" style={{ backgroundColor: brandColor }}>
+        <div className="absolute inset-0 bg-black/10 mix-blend-overlay overflow-hidden rounded-[40px]" />
         <SmartElement
           slideIndex={index}
           field="titulo"
@@ -2343,8 +2343,8 @@ export function CTAVariant34(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-black text-white">
-      <div className="absolute inset-0 z-0">
+    <div className="w-full h-full relative bg-black text-white">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <ImageBg
           data={data}
           slideIndex={index}
@@ -2508,8 +2508,8 @@ export function CTAVariant36(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-black text-white">
-      <div className="absolute inset-0 z-0">
+    <div className="w-full h-full relative bg-black text-white">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <ImageBg
           data={data}
           slideIndex={index}
@@ -3047,7 +3047,7 @@ export function CTAVariant42(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
           onSelectElement={onSelectElement}
-          className="w-[90%] mx-auto shrink-0 text-center mb-10 flex-1 overflow-hidden"
+          className="w-[90%] mx-auto shrink-0 text-center mb-10 flex-1"
         >
           <p
             contentEditable
