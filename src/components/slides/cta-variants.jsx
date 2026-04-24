@@ -43,7 +43,7 @@ export function CTAVariant1(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-16 items-center justify-center text-center relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col p-16 items-center justify-center text-center relative">
       <div className="absolute inset-0 opacity-40 blur-md scale-110 pointer-events-none">
         <ImageBg
           data={data}
@@ -140,7 +140,7 @@ export function CTAVariant2(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black">
+    <div className="w-full h-full flex flex-col relative bg-black">
       {data.imageUrl && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
           <ImageBg data={data} className="absolute inset-0" />
@@ -236,7 +236,7 @@ export function CTAVariant3(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 relative overflow-hidden bg-[#020202] justify-center items-center text-center">
+    <div className="w-full h-full flex flex-col p-10 relative bg-[#020202] justify-center items-center text-center">
       <div className="absolute inset-0 opacity-40 blur-xl scale-110 pointer-events-none">
         <ImageBg
           data={data}
@@ -328,7 +328,7 @@ export function CTAVariant4(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col justify-center items-center p-8 relative overflow-hidden">
+    <div className="w-full h-full bg-[#050505] flex flex-col justify-center items-center p-8 relative">
       <div className="absolute inset-0 opacity-40 blur-lg scale-110 pointer-events-none">
         <ImageBg
           data={data}
@@ -442,7 +442,7 @@ export function CTAVariant5(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 justify-center items-center relative overflow-hidden bg-black">
+    <div className="w-full h-full flex flex-col p-10 justify-center items-center relative bg-black">
       {data.imageUrl && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
           <ImageBg data={data} className="absolute inset-0" />
@@ -537,7 +537,7 @@ export function CTAVariant6(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-[#020202] flex flex-col p-10 relative overflow-hidden justify-between text-center">
+    <div className="w-full h-full bg-[#020202] flex flex-col p-10 relative justify-between text-center">
       <div className="absolute inset-0 opacity-30 blur-md scale-110 pointer-events-none">
         <ImageBg
           data={data}
@@ -637,7 +637,7 @@ export function CTAVariant7(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-black flex flex-col p-10 relative overflow-hidden items-center justify-center">
+    <div className="w-full h-full bg-black flex flex-col p-10 relative items-center justify-center">
       {data.imageUrl && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
           <ImageBg data={data} className="absolute inset-0" />
@@ -736,7 +736,7 @@ export function CTAVariant8(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-black flex flex-col p-12 relative overflow-hidden justify-center text-center font-mono border-4 border-solid" style={{ borderColor: 'transparent' /* Pode ser atualizada dinamicamente com brandColor dependendo da estética */ }}>
+    <div className="w-full h-full bg-black flex flex-col p-12 relative justify-center text-center font-mono border-4 border-solid" style={{ borderColor: 'transparent' /* Pode ser atualizada dinamicamente com brandColor dependendo da estética */ }}>
       <div className="absolute inset-0 opacity-20 grayscale pointer-events-none">
         <ImageBg
           data={data}
@@ -826,7 +826,7 @@ export function CTAVariant9(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden" style={{ backgroundColor: gradientColor1, color: 'white' }}>
+    <div className="w-full h-full p-8 flex flex-col justify-center" style={{ backgroundColor: gradientColor1, color: 'white' }}>
       <div className="flex-1 flex flex-col justify-center items-center text-center">
         <SmartElement
           slideIndex={index} field="titulo"
@@ -875,7 +875,7 @@ export function CTAVariant10(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-black text-white justify-center items-center relative">
+    <div className="w-full h-full p-6 flex flex-col bg-black text-white justify-center items-center relative">
       <SmartElement
         slideIndex={index} field="titulo"
         position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
@@ -925,7 +925,7 @@ export function CTAVariant11(props) {
   const imgUrl = data?.imageUrl;
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-6 flex flex-col" style={{ backgroundColor: bgBase }}>
       <div className="flex-1 flex flex-col items-center justify-center text-center">
         <div className="w-32 h-32 rounded-full overflow-hidden shadow-xl mb-6 bg-zinc-300 relative border-4 border-white shrink-0 pointer-events-none">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
@@ -981,7 +981,7 @@ export function CTAVariant12(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center overflow-hidden bg-black" style={{ color: 'white' }}>
+    <div className="w-full h-full p-8 flex flex-col justify-center bg-black" style={{ color: 'white' }}>
       {data.imageUrl && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
           <ImageBg data={data} className="absolute inset-0" />
@@ -1039,7 +1039,7 @@ export function CTAVariant13(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center items-center overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center" style={{ backgroundColor: bgBase }}>
       <SmartElement
         slideIndex={index} field="titulo"
         position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
@@ -1088,7 +1088,7 @@ export function CTAVariant14(props) {
   const gradientColor2 = brandColor + 'CC';
 
   return (
-    <div className="w-full h-full p-6 flex flex-col justify-center items-center overflow-hidden text-white relative bg-black">
+    <div className="w-full h-full p-6 flex flex-col justify-center items-center text-white relative bg-black">
       {data.imageUrl && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
           <ImageBg data={data} className="absolute inset-0" />
@@ -1141,7 +1141,7 @@ export function CTAVariant15(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden relative justify-end pb-12" style={{ backgroundColor: gradientColor1 }}>
+    <div className="w-full h-full p-6 flex flex-col relative justify-end pb-12" style={{ backgroundColor: gradientColor1 }}>
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-white/30 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-black/40 rounded-full blur-[80px] pointer-events-none" />
       <div className="relative z-10 bg-white/10 backdrop-blur-md border border-white/30 p-8 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] text-white shrink-0">
@@ -1188,7 +1188,7 @@ export function CTAVariant16(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center items-center overflow-hidden" style={{ backgroundColor: gradientColor1, color: 'white' }}>
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center" style={{ backgroundColor: gradientColor1, color: 'white' }}>
       <div className="w-full flex-1 border-2 border-dashed border-white/50 rounded-2xl p-6 flex flex-col items-center justify-center text-center relative">
         <div className="absolute top-1/2 -left-4 w-8 h-8 rounded-full pointer-events-none" style={{ backgroundColor: gradientColor1 }} />
         <div className="absolute top-1/2 -right-4 w-8 h-8 rounded-full pointer-events-none" style={{ backgroundColor: gradientColor1 }} />
@@ -1236,7 +1236,7 @@ export function CTAVariant17(props) {
   const gradientColor1 = brandColor;
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-center items-center text-center overflow-hidden bg-black text-white">
+    <div className="w-full h-full p-8 flex flex-col justify-center items-center text-center bg-black text-white">
       <SmartElement
         slideIndex={index} field="titulo"
         position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
@@ -1282,7 +1282,7 @@ export function CTAVariant18(props) {
   const imgUrl = data?.imageUrl;
 
   return (
-    <div className="w-full h-full p-6 flex flex-col items-center justify-center overflow-hidden relative" style={{ backgroundColor: gradientColor1 }}>
+    <div className="w-full h-full p-6 flex flex-col items-center justify-center relative" style={{ backgroundColor: gradientColor1 }}>
       <div className="bg-white p-4 pb-6 shadow-2xl rotate-3 w-[85%] relative z-10 flex flex-col pointer-events-none">
         <div className="w-full aspect-square bg-zinc-200 relative mb-4 border border-zinc-100">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
@@ -1321,7 +1321,7 @@ export function CTAVariant19(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{ backgroundColor: brandColor, color: 'white' }}>
+    <div className="w-full h-full flex flex-col p-8 relative" style={{ backgroundColor: brandColor, color: 'white' }}>
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       <div className="flex-1 flex flex-col justify-center items-center text-center">
         <SmartElement
@@ -1375,7 +1375,7 @@ export function CTAVariant20(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-zinc-200 overflow-hidden relative">
+    <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-zinc-200 relative">
       <div className="absolute top-6 left-6 right-6">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
@@ -1431,7 +1431,7 @@ export function CTAVariant21(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full p-8 flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full p-8 flex flex-col relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-black/20 rounded-full blur-[80px] pointer-events-none z-0" />
       <div className="relative z-10">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
@@ -1492,7 +1492,7 @@ export function CTAVariant22(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-white">
+    <div className="w-full h-full flex bg-white relative">
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
         <SmartElement
@@ -1546,7 +1546,7 @@ export function CTAVariant23(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-between bg-zinc-100 relative overflow-hidden">
+    <div className="w-full h-full p-8 flex flex-col justify-between bg-zinc-100 relative">
       <div className="relative z-10">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
       </div>
@@ -1613,7 +1613,7 @@ export function CTAVariant24(props) {
   const imgUrl = data?.imageUrl;
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-black">
+    <div className="w-full h-full relative bg-black">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         <div className="absolute inset-0 bg-black/40" />
@@ -1673,7 +1673,7 @@ export function CTAVariant25(props) {
   const bgBase = '#FFFFFF';
 
   return (
-    <div className="w-full h-full p-8 flex flex-col relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-8 flex flex-col relative" style={{ backgroundColor: bgBase }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center pointer-events-none z-0 opacity-[0.04]">
         <Bookmark className="w-[400px] h-[400px]" style={{ color: brandColor }} fill="currentColor" />
       </div>
@@ -1741,7 +1741,7 @@ export function CTAVariant26(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
+    <div className="w-full h-full flex flex-col relative bg-white">
       <div className="h-[65%] w-full p-8 flex flex-col justify-center relative z-10 shrink-0">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
         <SmartElement
@@ -1821,7 +1821,7 @@ export function CTAVariant27(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-[#111] text-white">
+    <div className="w-full h-full relative bg-[#111] text-white">
       <div className="absolute top-[-50%] left-[-20%] w-[150%] h-[120%] rotate-[-15deg] shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-0" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10 p-8 h-full flex flex-col justify-between">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
@@ -1891,7 +1891,7 @@ export function CTAVariant28(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-zinc-950 flex flex-col items-center justify-center p-8">
+    <div className="w-full h-full relative bg-zinc-950 flex flex-col items-center justify-center p-8">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] blur-[80px] opacity-60 z-0 pointer-events-none" style={{ backgroundColor: brandColor }} />
       <div className="absolute top-6 left-6 right-6 z-20">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
@@ -1969,7 +1969,7 @@ export function CTAVariant29(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-[#050505] text-white flex flex-col p-8 border-[16px]" style={{ borderColor: brandColor }}>
+    <div className="w-full h-full relative bg-[#050505] text-white flex flex-col p-8 border-[16px]" style={{ borderColor: brandColor }}>
       <div className="relative z-10">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       </div>
@@ -2040,7 +2040,7 @@ export function CTAVariant30(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-zinc-950 p-8 flex flex-col">
+    <div className="w-full h-full relative bg-zinc-950 p-8 flex flex-col">
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full z-0 shadow-[-20px_20px_60px_rgba(0,0,0,0.8)]" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10">
         <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
@@ -2112,7 +2112,7 @@ export function CTAVariant31(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden relative">
+    <div className="w-full h-full flex flex-col relative">
       <div className="h-[60%] w-full p-8 flex flex-col justify-end pb-12 relative z-0 shadow-2xl" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-6 left-6 right-6">
           <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
@@ -2184,7 +2184,7 @@ export function CTAVariant32(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-6 overflow-hidden bg-[#050505] text-white">
+    <div className="w-full h-full flex flex-col p-6 bg-[#050505] text-white">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
       <div className="flex-1 mt-4 mb-4 rounded-[40px] flex flex-col p-8 justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden" style={{ backgroundColor: brandColor }}>
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
@@ -2254,7 +2254,7 @@ export function CTAVariant33(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex relative overflow-hidden bg-black text-white">
+    <div className="w-full h-full flex relative bg-black text-white">
       <div className="absolute inset-0 z-0">
         <ImageBg
           data={data}
@@ -2421,7 +2421,7 @@ export function CTAVariant35(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-black flex flex-col text-white">
+    <div className="w-full h-full relative bg-black flex flex-col text-white">
       <div className="absolute inset-0 z-0">
         <ImageBg
           data={data}
@@ -2599,7 +2599,7 @@ export function CTAVariant37(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#EBE9E1]">
+    <div className="w-full h-full flex flex-col relative bg-[#EBE9E1]">
       <div className="h-[45%] w-full relative z-0">
         <ImageBg
           data={data}
@@ -2681,7 +2681,7 @@ export function CTAVariant38(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-6 overflow-hidden relative" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full flex flex-col p-6 relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-black/20 rounded-full blur-[60px] pointer-events-none z-0" />
       <div className="relative z-10">
         <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
@@ -2759,7 +2759,7 @@ export function CTAVariant39(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full flex flex-col p-8 relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
       <div className="relative z-10">
         <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
@@ -2840,7 +2840,7 @@ export function CTAVariant40(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden relative bg-white">
+    <div className="w-full h-full flex flex-col relative bg-white">
       <div className="absolute top-[-20%] left-[-20%] w-[140%] h-[80%] rotate-[-10deg] shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-0" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10 p-8 pb-0">
         <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
@@ -2923,7 +2923,7 @@ export function CTAVariant41(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black text-white">
+    <div className="w-full h-full flex flex-col relative bg-black text-white">
       <div className="h-[50%] w-full flex flex-col p-8 pb-16 relative z-0" style={{ backgroundColor: brandColor }}>
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
         <div className="relative z-10">
@@ -3001,7 +3001,7 @@ export function CTAVariant42(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative overflow-hidden bg-[#111] text-white flex flex-col">
+    <div className="w-full h-full relative text-white flex flex-col">
       <div className="h-[35%] w-full relative shrink-0">
         <ImageBg
           data={data}

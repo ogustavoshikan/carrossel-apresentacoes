@@ -37,7 +37,7 @@ export default function SlideCTA(props) {
 
   return (
     <div
-      className="w-full h-full flex flex-col p-16 items-center justify-center text-center text-white relative overflow-hidden"
+      className="w-full h-full flex flex-col p-16 items-center justify-center text-center text-white relative"
       style={{ backgroundColor: brandColor }}
     >
       {/* Background Image Setup */}
