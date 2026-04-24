@@ -526,8 +526,8 @@ export function ComparisonVariant21(props) {
   return (
     <div className="w-full h-full flex flex-col bg-black text-white p-10 rounded-slide">
       <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
-      <SmartEl {...sp} field="titulo" className="mb-8 text-center shrink-0">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-tighter relative top-[60px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+      <SmartEl {...sp} field="titulo" className="mt-[60px] mb-8 text-center shrink-0">
+        <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
       </SmartEl>
