@@ -93,7 +93,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'TÍTULO DE\nIMPACTO',
     texto_apoio: 'Subtítulo descritivo e convidativo',
     sugestao_visual: 'Imagem de destaque do produto',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate.jpg',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: '',
     items: [],
   },
@@ -103,7 +103,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'Título do Conteúdo',
     texto_apoio: 'Descrição detalhada e envolvente do conteúdo deste slide.',
     sugestao_visual: 'Foto do produto em destaque',
-    imageUrl: 'https://images.unsplash.com/photo-1578985543812-78c002c033b4?q=80&w=1080',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'DICA',
     items: [],
   },
@@ -207,7 +207,12 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
   // Pre-configura imagem de fundo para variantes específicas de CTA
   if (layoutType === 'cta' && [0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 14].includes(variantIndex)) {
-    slide.imageUrl = 'https://images.pexels.com/photos/9285189/pexels-photo-9285189.jpeg';
+    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+  }
+
+  // Pre-configura imagem de fundo para Split Variants (content-split)
+  if (layoutType === 'content-split') {
+    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
   return slide;
