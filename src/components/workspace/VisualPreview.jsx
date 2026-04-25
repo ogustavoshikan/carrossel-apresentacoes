@@ -460,7 +460,7 @@ export default function VisualPreview({
                         </button>
                         {openVariantIndex === index && (
                           <ComparisonVariantPopover
-                            currentVariantIndex={slide.comparisonVariantIndex || 0}
+                            currentVariantIndex={slide.comparisonVariantIndex || 1}
                             onSelect={(variantId) => {
                               onComparisonVariantChange(index, variantId);
                               handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);

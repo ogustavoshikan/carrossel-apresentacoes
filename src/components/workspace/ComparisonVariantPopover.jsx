@@ -14,21 +14,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
   const dark = '#18181b';
 
   const layouts = {
-    // 0: Original
-    0: (
-      <div className="w-full h-full flex flex-col pt-1.5 px-1.5 gap-1 rounded-[3px] overflow-hidden" style={{ background: '#1c1c1c' }}>
-         <div className="w-[60%] h-[2px] bg-white rounded-full" />
-         <div className="w-full mt-1 flex flex-col gap-1">
-           <div className="w-full p-0.5 rounded-[1px] bg-surface-input/30 flex justify-between">
-              <div className="w-1/2 h-[1px] bg-zinc-500 rounded-full" />
-           </div>
-           <div className="w-full p-0.5 rounded-[1px] flex justify-between shadow-[0_1px_2px_rgba(0,0,0,0.5)]" style={{ background: accent }}>
-              <div className="w-1/2 h-[1px] bg-white rounded-full" />
-              <div className="w-1.5 h-1.5 bg-white rounded-full" />
-           </div>
-         </div>
-      </div>
-    ),
     // 1: Variante 1
     1: (
       <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#050505' }}>
@@ -45,18 +30,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
          <div className="w-1/2 h-full bg-zinc-900 border-r border-black/20 p-1" />
          <div className="w-1/2 h-full p-1" style={{ background: accent }} />
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-black rounded-full" />
-      </div>
-    ),
-    // 3: Variante 3
-    3: (
-      <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#050505' }}>
-         <div className="w-full flex-1 bg-[#0A0A0A] border border-white/10 rounded-[4px] flex flex-col items-center justify-center gap-1">
-            <div className="w-full flex items-center justify-center gap-1 border-b border-white/5 pb-0.5">
-              <div className="w-2 h-[1px] bg-zinc-600 rounded-full" />
-              <div className="w-px h-2 bg-white/20" />
-              <div className="w-2 h-[1.5px] rounded-full" style={{ background: accent }} />
-            </div>
-         </div>
       </div>
     ),
     // 4: Variante 4
@@ -92,30 +65,6 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
            <div className="w-full flex">
              <div className="w-4 h-[1.5px] rounded-full" style={{ background: accent }} />
            </div>
-         </div>
-      </div>
-    ),
-    // 7: Variante 7
-    7: (
-      <div className="w-full h-full flex flex-col justify-center items-center rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#050505' }}>
-         <div className="w-full flex-1 border border-white/10 rounded-[3px] flex flex-col overflow-hidden">
-           <div className="flex h-1.5 bg-black/40">
-             <div className="w-1/2" />
-             <div className="w-1/2 border-l border-white/10" style={{ background: `${accent}20` }} />
-           </div>
-           <div className="flex h-2.5 border-b border-white/5">
-             <div className="w-1/2" />
-             <div className="w-1/2 border-l border-white/5 bg-[#0A0A0A]" />
-           </div>
-         </div>
-      </div>
-    ),
-    // 8: Variante 8
-    8: (
-      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: '#080808' }}>
-         <div className="relative flex-1 w-full mt-1">
-           <div className="absolute left-0 top-0 bottom-2 w-[70%] bg-zinc-900 border border-zinc-700 rounded-[3px]" />
-           <div className="absolute right-0 top-2 bottom-0 w-[70%] rounded-[3px]" style={{ background: accent }} />
          </div>
       </div>
     ),

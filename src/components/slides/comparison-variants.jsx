@@ -839,68 +839,6 @@ export function ComparisonVariant2(props) {
   );
 }
 
-export function ComparisonVariant3(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [];
-  const midPoint = Math.ceil(items.length / 2);
-  const leftItems = items.filter(it => !it.highlight);
-  const rightItems = items.filter(it => it.highlight);
-  // Match row by row
-  const rowCount = Math.max(leftItems.length, rightItems.length);
-
-  return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
-        <ComparisonTitle 
-          data={data} index={index} scale={sTitle} 
-          onActionStart={onActionStart} onTextChange={onTextChange} 
-          selectedElement={selectedElement} onSelectElement={onSelectElement}
-          wrapperClasses="mb-10 text-center shrink-0"
-        />
-
-        <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-2 flex-1 shadow-2xl flex flex-col justify-start">
-          {Array.from({ length: rowCount }).map((_, i) => {
-            const left = leftItems[i];
-            const right = rightItems[i];
-            const leftIndex = items.indexOf(left);
-            const rightIndex = items.indexOf(right);
-
-            return (
-              <div key={i} className="flex items-center justify-between py-3 border-b border-white/5 last:border-0 gap-4 shrink-0">
-                <div className="flex-1 text-right">
-                  {left && (
-                    <span 
-                      contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, leftIndex, 'value', e.currentTarget.innerText)}
-                      className="font-playfair text-zinc-500 text-sm"
-                    >
-                      {left.value}
-                    </span>
-                  )}
-                </div>
-                <div className="w-px h-8 bg-surface-input/30 shrink-0"></div>
-                <div className="flex-1 text-left">
-                  {right && (
-                    <span 
-                      contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, rightIndex, 'value', e.currentTarget.innerText)}
-                      className="font-outfit font-bold text-white text-base" style={{ color: brandColor }}
-                    >
-                      {right.value}
-                    </span>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
-
 export function ComparisonVariant4(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
@@ -1039,118 +977,6 @@ export function ComparisonVariant6(props) {
               </div>
             );
           })}
-        </div>
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
-
-export function ComparisonVariant7(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [];
-  
-  let leftItems = items.filter(it => !it.highlight);
-  let rightItems = items.filter(it => it.highlight);
-  while (leftItems.length < 3) leftItems.push({ label: 'Categoria', value: 'Comum' });
-  while (rightItems.length < 3) rightItems.push({ label: 'Categoria', value: 'Elite', highlight: true });
-  leftItems = leftItems.slice(0, 3);
-  rightItems = rightItems.slice(0, 3);
-  const rowCount = 3;
-  
-  const mercadoLabel = leftItems[0]?.label || 'Mercado';
-  const brandLabel = rightItems[0]?.label || brandHandle || 'Carrossel';
-
-  return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
-      
-      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
-        <ComparisonTitle 
-          data={data} index={index} scale={sTitle} 
-          onActionStart={onActionStart} onTextChange={onTextChange} 
-          selectedElement={selectedElement} onSelectElement={onSelectElement}
-          wrapperClasses="mb-8 text-center shrink-0"
-        />
-
-        <div className="flex-1 overflow-hidden text-sm border border-white/10 rounded-2xl bg-zinc-900/50 flex flex-col">
-          <div className="flex border-b border-white/10 bg-black/40 shrink-0">
-            <div contentEditable suppressContentEditableWarning className="w-1/2 p-4 text-center font-outfit font-bold text-[10px] uppercase tracking-widest text-zinc-500">{mercadoLabel}</div>
-            <div contentEditable suppressContentEditableWarning className="w-1/2 p-4 text-center font-outfit font-bold text-[10px] uppercase tracking-widest text-white border-l border-white/10" style={{ backgroundColor: `${brandColor}20`, color: brandColor }}>{brandLabel}</div>
-          </div>
-          <div className="overflow-hidden flex-1">
-            {Array.from({ length: rowCount }).map((_, i) => {
-              const left = leftItems[i];
-              const right = rightItems[i];
-              return (
-                <div key={i} className="flex border-b border-white/5 last:border-0 items-stretch h-1/3 min-h-[60px] bg-black/40">
-                  <div className="w-1/2 p-2 px-4 text-center flex items-center justify-center gap-2">
-                    {left && (
-                      <>
-                        <X className="w-4 h-4 text-zinc-600 shrink-0" />
-                        <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm">{left.value}</span>
-                      </>
-                    )}
-                  </div>
-                  <div className="w-1/2 p-2 px-4 text-center border-l border-white/5 flex items-center justify-center gap-2" style={{ backgroundColor: `${brandColor}20` }}>
-                    {right && (
-                      <>
-                        <CheckCircle2 className="w-4 h-4 shrink-0" style={{ color: brandColor }} />
-                        <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair font-bold text-white text-sm">{right.value}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
-
-export function ComparisonVariant8(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [];
-  const normalItems = items.filter(it => !it.highlight);
-  const highlightItems = items.filter(it => it.highlight);
-  const mercadoLabel = normalItems[0]?.label || 'Mercado';
-  const brandLabel = highlightItems[0]?.label || brandHandle || 'Padrão';
-
-  return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 pb-10 relative rounded-slide">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} />
-      
-      <ComparisonTitle 
-        data={data} index={index} scale={sTitle} 
-        onActionStart={onActionStart} onTextChange={onTextChange} 
-        selectedElement={selectedElement} onSelectElement={onSelectElement}
-        wrapperClasses="mb-6 shrink-0 mt-8 z-20" align="text-left"
-      />
-
-      <div className="flex-1 relative overflow-hidden mt-4">
-        <div className="absolute top-0 left-0 w-[85%] bottom-28 bg-zinc-900 border border-zinc-700 rounded-3xl p-6 shadow-md z-0 opacity-60 overflow-hidden">
-          <h4 contentEditable suppressContentEditableWarning className="font-outfit font-bold text-xs uppercase tracking-widest text-zinc-500 mb-4">{mercadoLabel}</h4>
-          <ul className="space-y-3">
-            {normalItems.map((item, i) => (
-              <li key={i} contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm">• {item.value}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="absolute top-28 right-0 w-[85%] bottom-0 rounded-3xl p-6 shadow-2xl z-10 flex flex-col" style={{ backgroundColor: brandColor }}>
-          <h4 contentEditable suppressContentEditableWarning className="font-outfit font-black text-xs uppercase tracking-widest text-black/50 mb-4 shrink-0">{brandLabel}</h4>
-          <ul className="space-y-4 overflow-hidden flex-1">
-            {highlightItems.map((item, i) => (
-              <li key={i} className="flex gap-2 items-start">
-                <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
-                <span className="font-playfair font-bold text-white text-base leading-snug">{item.value}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
       <SlideFooterPlaceholder />
@@ -1321,12 +1147,9 @@ export function ComparisonVariant11(props) {
 export const COMPARISON_VARIANT_COMPONENTS = {
   1: ComparisonVariant1,
   2: ComparisonVariant2,
-  3: ComparisonVariant3,
   4: ComparisonVariant4,
   5: ComparisonVariant5,
   6: ComparisonVariant6,
-  7: ComparisonVariant7,
-  8: ComparisonVariant8,
   9: ComparisonVariant9,
   10: ComparisonVariant10,
   11: ComparisonVariant11,
@@ -1345,15 +1168,11 @@ export const COMPARISON_VARIANT_COMPONENTS = {
 };
 
 export const COMPARISON_VARIANT_META = [
-  { id: 0, nome: 'Original', badge: 'Padrão' },
   { id: 1, nome: 'Elegante', badge: null },
   { id: 2, nome: 'Split View', badge: null },
-  { id: 3, nome: 'Tabela', badge: null },
   { id: 4, nome: 'Grid Mode', badge: null },
   { id: 5, nome: 'Cartões', badge: null },
   { id: 6, nome: 'Strike Bold', badge: null },
-  { id: 7, nome: 'Specs', badge: 'PRO' },
-  { id: 8, nome: 'Pop Out', badge: null },
   { id: 9, nome: 'Diagonal', badge: null },
   { id: 10, nome: 'Toggle', badge: null },
   { id: 11, nome: 'Correção', badge: 'PRO' },
