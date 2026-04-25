@@ -130,16 +130,16 @@ export const LAYOUT_TEMPLATES = {
 
   comparison: {
     layout: 'comparison',
-    titulo: 'A diferença que faz toda a diferença',
+    titulo: 'Qualidade Superior',
     texto_apoio: '',
     sugestao_visual: '',
     imageUrl: '',
     tag: '',
     items: [
-      { label: 'O COMUM', value: 'Usa achocolatado cheio de açúcar e gordura vegetal hidrogenada.', highlight: false },
-      { label: 'O PREMIUM', value: 'Usa cacau 100% belga e manteiga de verdade, derretendo na boca.', highlight: true },
-      { label: 'Mercado', value: 'Ingredientes genéricos', highlight: false },
-      { label: 'Nós', value: 'Ingredientes premium', highlight: true },
+      { label: 'O COMUM', value: 'Achocolatado com açúcar', highlight: false },
+      { label: 'O PREMIUM', value: 'Cacau 100% + manteiga', highlight: true },
+      { label: 'Mercado', value: 'Gordura hidrogenada', highlight: false },
+      { label: 'Nós', value: 'Sabor real de chocolate', highlight: true },
     ],
   },
 

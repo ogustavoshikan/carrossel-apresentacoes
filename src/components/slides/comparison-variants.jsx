@@ -714,10 +714,10 @@ export function ComparisonVariant1(props) {
     
     // Constrói a lista de 4 itens (Cinza, Destaque, Cinza, Destaque)
     const displayItems = [
-      { item: normalItems[0] || { label: 'Mercado', value: 'Padrão Comum', highlight: false }, originalIndex: items.indexOf(normalItems[0]) },
-      { item: highlightItems[0] || { label: 'Premium', value: 'Sua Solução Elite', highlight: true }, originalIndex: items.indexOf(highlightItems[0]) },
-      { item: normalItems[1] || { label: 'Mercado', value: 'Limitação do Setor', highlight: false }, originalIndex: items.indexOf(normalItems[1]) },
-      { item: highlightItems[1] || { label: 'Premium', value: 'Diferencial Exclusivo', highlight: true }, originalIndex: items.indexOf(highlightItems[1]) }
+      { item: normalItems[0] || { label: 'Mercado', value: 'Achocolatado com açúcar', highlight: false }, originalIndex: items.indexOf(normalItems[0]) },
+      { item: highlightItems[0] || { label: 'Premium', value: 'Cacau 100% + manteiga', highlight: true }, originalIndex: items.indexOf(highlightItems[0]) },
+      { item: normalItems[1] || { label: 'Mercado', value: 'Gordura hidrogenada', highlight: false }, originalIndex: items.indexOf(normalItems[1]) },
+      { item: highlightItems[1] || { label: 'Premium', value: 'Sabor real de chocolate', highlight: true }, originalIndex: items.indexOf(highlightItems[1]) }
     ];
 
   return (
@@ -908,8 +908,8 @@ export function ComparisonVariant4(props) {
   
   let baseNormal = items.filter(i => !i.highlight);
   let baseHighlight = items.filter(i => i.highlight);
-  while (baseNormal.length < 2) baseNormal.push({ label: 'Categoria', value: 'Texto comum' });
-  while (baseHighlight.length < 2) baseHighlight.push({ label: 'Destaque', value: 'Texto destaque', highlight: true });
+  while (baseNormal.length < 2) baseNormal.push({ label: 'Categoria', value: 'Comum' });
+  while (baseHighlight.length < 2) baseHighlight.push({ label: 'Destaque', value: 'Elite', highlight: true });
   const itemsDisp = [baseNormal[0], baseHighlight[0], baseNormal[1], baseHighlight[1]];
 
   return (
@@ -1053,8 +1053,8 @@ export function ComparisonVariant7(props) {
   
   let leftItems = items.filter(it => !it.highlight);
   let rightItems = items.filter(it => it.highlight);
-  while (leftItems.length < 3) leftItems.push({ label: 'Categoria', value: 'Adicione...' });
-  while (rightItems.length < 3) rightItems.push({ label: 'Categoria', value: 'Adicione...', highlight: true });
+  while (leftItems.length < 3) leftItems.push({ label: 'Categoria', value: 'Comum' });
+  while (rightItems.length < 3) rightItems.push({ label: 'Categoria', value: 'Elite', highlight: true });
   leftItems = leftItems.slice(0, 3);
   rightItems = rightItems.slice(0, 3);
   const rowCount = 3;
@@ -1266,7 +1266,7 @@ export function ComparisonVariant11(props) {
   
   let leftItems = items.filter(it => !it.highlight);
   let rightItems = items.filter(it => it.highlight);
-  while (leftItems.length < 3) leftItems.push({ label: 'Categoria', value: 'Falha Comum' });
+  while (leftItems.length < 3) leftItems.push({ label: 'Categoria', value: 'Falha' });
   while (rightItems.length < 3) rightItems.push({ label: 'Categoria', value: 'Solução', highlight: true });
   leftItems = leftItems.slice(0, 3);
   rightItems = rightItems.slice(0, 3);
