@@ -210,6 +210,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
+  // Pre-configura imagem de fundo para variantes específicas de Quote
+  if (layoutType === 'quote' && [1, 2, 4, 5, 6, 7, 8, 9, 10].includes(variantIndex)) {
+    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+  }
+
   // Pre-configura imagem de fundo para Split Variants (content-split)
   if (layoutType === 'content-split') {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
