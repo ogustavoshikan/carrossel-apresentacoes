@@ -1601,7 +1601,7 @@ export function CTAVariant25(props) {
           </p>
         </SmartElement>
       </div>
-      <div className="w-full bg-[#1a1a1a] rounded-3xl p-5 flex justify-between items-center relative z-20 shadow-2xl mt-auto pointer-events-none">
+      <div className="w-full rounded-3xl p-5 flex justify-between items-center relative z-20 shadow-2xl mt-auto pointer-events-none" style={{ backgroundColor: brandColor }}>
         <div className="flex gap-4 pl-2">
           <div className="p-2 rounded-full bg-white/10">
             <Heart className="w-5 h-5 text-white" />
@@ -1681,13 +1681,13 @@ export function CTAVariant26(props) {
       <div className="flex-1 w-full bg-zinc-950 p-8 flex flex-col justify-center relative z-20 border-t-[6px]" style={{ borderColor: brandColor }}>
         <div className="w-full flex justify-between items-center max-w-[85%] mx-auto">
           <div className="flex flex-col items-center gap-2 cursor-pointer group">
-            <div className="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-zinc-700 transition-colors">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-all" style={{ backgroundColor: brandColor }}>
               <Heart className="w-6 h-6 text-white" />
             </div>
             <span className="font-outfit font-bold text-[8px] tracking-[0.2em] uppercase text-zinc-500 group-hover:text-white transition-colors">Curta</span>
           </div>
           <div className="flex flex-col items-center gap-2 cursor-pointer group">
-            <div className="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center group-hover:bg-zinc-700 transition-colors">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-all" style={{ backgroundColor: brandColor }}>
               <MessageCircle className="w-6 h-6 text-white" />
             </div>
             <span className="font-outfit font-bold text-[8px] tracking-[0.2em] uppercase text-zinc-500 group-hover:text-white transition-colors">Comente</span>
@@ -1767,7 +1767,7 @@ export function CTAVariant27(props) {
             <Send className="w-6 h-6 text-white hover:scale-110 transition-transform cursor-pointer" />
           </div>
           <div className="w-px h-6 bg-white/30 mx-2" />
-          <Bookmark className="w-7 h-7 text-white hover:scale-110 transition-transform cursor-pointer" fill="currentColor" />
+          <Bookmark className="w-7 h-7 hover:scale-110 transition-transform cursor-pointer" style={{ color: brandColor }} fill="currentColor" />
         </div>
       </div>
     </div>
