@@ -113,7 +113,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: '100%',
     texto_apoio: 'Descrição do número de impacto e o que ele representa.',
     sugestao_visual: 'Imagem relacionada ao dado',
-    imageUrl: 'https://images.unsplash.com/photo-1532499016263-125a25e81196?q=80&w=1080',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'RESULTADO',
     items: [],
   },
@@ -163,7 +163,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'Pronto para experimentar?',
     texto_apoio: 'Não perca mais tempo. A qualidade que você merece está a um clique de distância.',
     sugestao_visual: '',
-    imageUrl: '',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'ENCOMENDAR',
     items: [],
   },
@@ -212,6 +212,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
   // Pre-configura imagem de fundo para Split Variants (content-split)
   if (layoutType === 'content-split') {
+    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+  }
+
+  // Pre-configura imagem de fundo para Big Number Variants
+  if (layoutType === 'big-number') {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
