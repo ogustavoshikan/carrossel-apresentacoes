@@ -37,13 +37,14 @@ export function ImageBg({ data, className = '', style = {}, slideIndex, imageUrl
 // Variante 1: Minimalista e Focada
 // ==========================================
 export function CTAVariant1(props) {
-  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle } = props;
+  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, slideCount } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-16 items-center justify-center text-center relative">
+      
       <div className="absolute inset-0 opacity-40 blur-md scale-110 pointer-events-none">
         <ImageBg
           data={data}
@@ -62,9 +63,7 @@ export function CTAVariant1(props) {
       <div className="w-24 h-24 rounded-full border-2 p-1 mb-8 shadow-[0_0_40px_rgba(0,0,0,0.5)] transition-shadow duration-150 hover:shadow-[0_0_60px_rgba(0,0,0,0.8)]" style={{ borderColor: brandColor }}>
         <div className="w-full h-full rounded-full bg-zinc-800 flex items-center justify-center overflow-hidden">
           <span className="font-outfit font-black text-2xl uppercase" style={{ color: brandColor }}>
-            {brandHandle?.[0] || 'A'}
-          </span>
-        </div>
+          </span>        </div>
       </div>
       
       <SmartElement
@@ -554,12 +553,6 @@ export function CTAVariant6(props) {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none" />
 
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }}></div>
-          <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">
-            {brandHandle || '@SEUPERFIL'}
-          </span>
-        </div>
       </div>
       
       <div className="flex-1 flex flex-col justify-center items-center mt-8">
@@ -645,12 +638,6 @@ export function CTAVariant7(props) {
       )}
 
       <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-        <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: brandColor }}></div>
-          <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500">
-             {brandHandle || '@SEUPERFIL'}
-          </span>
-        </div>
       </div>
       
       <div className="w-full bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 pt-10 shadow-2xl relative z-10 mt-8 flex flex-col items-center text-center">
@@ -959,7 +946,6 @@ export function CTAVariant11(props) {
       </div>
       <div className="w-full pt-4 border-t border-zinc-300 flex justify-between items-center mt-auto shrink-0 pointer-events-none">
         <span className="font-outfit font-bold tracking-widest text-[10px] text-zinc-500 uppercase">
-          {data.handle || '@SEUPERFIL'}
         </span>
         <div className="flex gap-3">
           <Heart className="w-5 h-5 text-zinc-400" />
@@ -1322,7 +1308,7 @@ export function CTAVariant19(props) {
 
   return (
     <div className="w-full h-full flex flex-col p-8 relative" style={{ backgroundColor: brandColor, color: 'white' }}>
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+      
       <div className="flex-1 flex flex-col justify-center items-center text-center">
         <SmartElement
           slideIndex={index} field="titulo"
@@ -1377,7 +1363,7 @@ export function CTAVariant20(props) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-zinc-200 relative">
       <div className="absolute top-6 left-6 right-6">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
       </div>
       <div className="w-[90%] bg-white p-4 pb-8 shadow-[0_20px_50px_rgba(0,0,0,0.2)] rotate-2 border border-white relative z-10 flex flex-col mt-8">
         <div className="w-full aspect-square relative mb-6 p-8 flex flex-col justify-center items-center text-center shadow-inner rounded-md" style={{ backgroundColor: brandColor }}>
@@ -1434,7 +1420,7 @@ export function CTAVariant21(props) {
     <div className="w-full h-full p-8 flex flex-col relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-black/20 rounded-full blur-[80px] pointer-events-none z-0" />
       <div className="relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
       </div>
       <div className="flex-1 flex flex-col justify-center items-start relative z-10">
         <div className="bg-[#1a1a1a] text-white p-4 rounded-full mb-8 shadow-xl inline-flex pointer-events-none">
@@ -1494,7 +1480,7 @@ export function CTAVariant22(props) {
   return (
     <div className="w-full h-full flex bg-white relative">
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
         <SmartElement
           slideIndex={index} field="titulo"
           position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
@@ -1548,7 +1534,7 @@ export function CTAVariant23(props) {
   return (
     <div className="w-full h-full p-8 flex flex-col justify-between bg-zinc-100 relative">
       <div className="relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
       </div>
       <div className="flex flex-col mt-4 mb-auto w-[90%] z-10">
         <SmartElement
@@ -1619,7 +1605,7 @@ export function CTAVariant24(props) {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="relative z-10 w-full h-full flex flex-col justify-between p-8 pb-12">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+        
         <div className="flex-1 flex flex-col justify-end pb-8">
           <SmartElement
             slideIndex={index} field="titulo"
@@ -1678,7 +1664,7 @@ export function CTAVariant25(props) {
         <Bookmark className="w-[400px] h-[400px]" style={{ color: brandColor }} fill="currentColor" />
       </div>
       <div className="relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
       </div>
       <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10 mt-8 mb-4">
         <SmartElement
@@ -1743,7 +1729,7 @@ export function CTAVariant26(props) {
   return (
     <div className="w-full h-full flex flex-col relative bg-white">
       <div className="h-[65%] w-full p-8 flex flex-col justify-center relative z-10 shrink-0">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
         <SmartElement
           slideIndex={index}
           field="titulo"
@@ -1824,7 +1810,7 @@ export function CTAVariant27(props) {
     <div className="w-full h-full relative bg-[#111] text-white">
       <div className="absolute top-[-50%] left-[-20%] w-[150%] h-[120%] rotate-[-15deg] shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-0" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10 p-8 h-full flex flex-col justify-between">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
         <div className="mt-8 mb-auto max-w-[90%]">
           <SmartElement
             slideIndex={index}
@@ -1894,7 +1880,7 @@ export function CTAVariant28(props) {
     <div className="w-full h-full relative bg-zinc-950 flex flex-col items-center justify-center p-8">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] blur-[80px] opacity-60 z-0 pointer-events-none" style={{ backgroundColor: brandColor }} />
       <div className="absolute top-6 left-6 right-6 z-20">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+        
       </div>
       <div className="w-[90%] aspect-[4/5] rounded-[30px] rotate-6 absolute z-10 shadow-2xl" style={{ backgroundColor: brandColor }} />
       <div className="w-[90%] aspect-[4/5] rounded-[30px] bg-zinc-900 border border-zinc-700 relative z-20 p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white mt-8">
@@ -1971,7 +1957,7 @@ export function CTAVariant29(props) {
   return (
     <div className="w-full h-full relative bg-[#050505] text-white flex flex-col p-8 border-[16px]" style={{ borderColor: brandColor }}>
       <div className="relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+        
       </div>
       <div className="flex-1 flex flex-col justify-center">
         <SmartElement
@@ -2043,7 +2029,7 @@ export function CTAVariant30(props) {
     <div className="w-full h-full relative bg-zinc-950 p-8 flex flex-col">
       <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full z-0 shadow-[-20px_20px_60px_rgba(0,0,0,0.8)]" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+        
       </div>
       <div className="flex-1 flex flex-col justify-center relative z-10 pr-12">
         <SmartElement
@@ -2115,7 +2101,7 @@ export function CTAVariant31(props) {
     <div className="w-full h-full flex flex-col relative">
       <div className="h-[60%] w-full p-8 flex flex-col justify-end pb-12 relative z-0 shadow-2xl" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} />
+          
         </div>
         <SmartElement
           slideIndex={index}
@@ -2185,7 +2171,7 @@ export function CTAVariant32(props) {
 
   return (
     <div className="w-full h-full flex flex-col p-6 bg-[#050505] text-white">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark />
+      
       <div className="flex-1 mt-4 mb-4 rounded-[40px] flex flex-col p-8 justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative" style={{ backgroundColor: brandColor }}>
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay overflow-hidden rounded-[40px]" />
         <SmartElement
@@ -2265,7 +2251,7 @@ export function CTAVariant33(props) {
       </div>
       <div className="w-[75%] h-full p-8 flex flex-col justify-center relative z-10 pr-6">
         <div className="absolute top-6 left-6">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+          
         </div>
         <SmartElement
           slideIndex={index}
@@ -2354,7 +2340,7 @@ export function CTAVariant34(props) {
       </div>
       <div className="relative z-10 flex flex-col h-full p-8 pb-32 justify-center text-center">
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+          
         </div>
         <SmartElement
           slideIndex={index}
@@ -2432,7 +2418,7 @@ export function CTAVariant35(props) {
       </div>
       <div className="relative z-10 flex-1 flex flex-col p-8 justify-end pb-24">
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+          
         </div>
         <SmartElement
           slideIndex={index}
@@ -2518,7 +2504,7 @@ export function CTAVariant36(props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/80" />
       </div>
       <div className="relative z-10 flex flex-col h-full p-8 pb-32 justify-between">
-        <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+        
         <div className="flex flex-col mt-auto text-center">
           <SmartElement
             slideIndex={index}
@@ -2572,7 +2558,6 @@ export function CTAVariant36(props) {
           <div className="flex flex-col">
             <span className="font-outfit font-bold text-[10px] tracking-widest uppercase text-white/60">CRIADOR</span>
             <span className="font-outfit font-black text-xs text-white truncate w-24">
-              @{brandHandle?.toUpperCase() || 'CARROSSEL'}
             </span>
           </div>
         </div>
@@ -2607,7 +2592,6 @@ export function CTAVariant37(props) {
           className="absolute inset-0"
         />
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} />
         </div>
       </div>
       <div className="h-[55%] w-full bg-black text-white p-8 flex flex-col justify-end pt-12 relative z-0 rounded-t-[40px] shadow-[0_-20px_40px_rgba(0,0,0,0.3)] -mt-6">
@@ -2684,7 +2668,7 @@ export function CTAVariant38(props) {
     <div className="w-full h-full flex flex-col p-6 relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-black/20 rounded-full blur-[60px] pointer-events-none z-0" />
       <div className="relative z-10">
-        <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+        
       </div>
       <div className="flex-1 bg-white rounded-3xl mt-4 p-6 flex flex-col items-center justify-center text-center shadow-2xl relative z-10">
         <div className="w-24 h-24 rounded-full border-[6px] border-white shadow-xl overflow-hidden mb-6 bg-zinc-200 -mt-16 ring-4 ring-black/5">
@@ -2692,9 +2676,7 @@ export function CTAVariant38(props) {
             <Store className="w-8 h-8 text-zinc-300" />
           </div>
         </div>
-        <span className="bg-black text-white px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] mb-6 shadow-md font-outfit">
-          @{brandHandle?.toUpperCase() || 'CARROSSEL'}
-        </span>
+
         <SmartElement
           slideIndex={index}
           field="titulo"
@@ -2762,7 +2744,7 @@ export function CTAVariant39(props) {
     <div className="w-full h-full flex flex-col p-8 relative" style={{ backgroundColor: brandColor }}>
       <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
       <div className="relative z-10">
-        <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+        
       </div>
       <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10 mt-8">
         <div className="w-28 h-28 rounded-full border-[8px] border-white/20 shadow-2xl overflow-hidden mb-6 relative">
@@ -2771,7 +2753,6 @@ export function CTAVariant39(props) {
           </div>
         </div>
         <span className="font-outfit font-bold text-[10px] uppercase tracking-[0.3em] mb-4 text-white/70">
-          @{brandHandle?.toUpperCase() || 'CARROSSEL'}
         </span>
         <SmartElement
           slideIndex={index}
@@ -2843,7 +2824,7 @@ export function CTAVariant40(props) {
     <div className="w-full h-full flex flex-col relative bg-white">
       <div className="absolute top-[-20%] left-[-20%] w-[140%] h-[80%] rotate-[-10deg] shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-0" style={{ backgroundColor: brandColor }} />
       <div className="relative z-10 p-8 pb-0">
-        <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+        
       </div>
       <div className="flex-1 flex flex-col p-8 justify-center relative z-10 text-white">
         <div className="flex items-center gap-5 mb-8">
@@ -2855,7 +2836,6 @@ export function CTAVariant40(props) {
           <div className="flex flex-col">
             <span className="font-outfit font-bold text-[10px] tracking-widest uppercase text-white/60 mb-1">CRIADOR</span>
             <span className="font-outfit font-black text-lg text-white">
-              @{brandHandle?.toUpperCase() || 'CARROSSEL'}
             </span>
           </div>
         </div>
@@ -2927,7 +2907,7 @@ export function CTAVariant41(props) {
       <div className="h-[50%] w-full flex flex-col p-8 pb-16 relative z-0" style={{ backgroundColor: brandColor }}>
         <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
         <div className="relative z-10">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+          
         </div>
         <SmartElement
           slideIndex={index}
@@ -3010,7 +2990,7 @@ export function CTAVariant42(props) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent" />
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} currentIndex={index + 1} total={slideCount} dark />
+          
         </div>
       </div>
       <div className="flex-1 w-full relative z-10 flex flex-col justify-end p-8 pb-12 rounded-t-[50px] shadow-[0_-20px_60px_rgba(0,0,0,0.5)] -mt-12 border-t-2 border-white/20" style={{ backgroundColor: brandColor }}>
