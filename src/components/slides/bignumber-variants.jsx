@@ -385,7 +385,10 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
       </div>
 
       {/* Painel direito */}
-      <div className="w-1/2 h-full flex flex-col items-start justify-center p-6 bg-zinc-900 border-l border-white/5">
+      <div 
+        className="w-1/2 h-full flex flex-col items-start justify-center p-6 border-l border-white/5"
+        style={{ backgroundColor: brandColor }}
+      >
         <SmartField field="tag" {...sp} className="mb-4">
           <span
             contentEditable
@@ -402,7 +405,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-400 outline-none text-left"
+            className="font-playfair text-white/90 outline-none text-left"
             style={{ fontSize: `${16 * sText}px` }}
           >
             {data.texto_apoio}
@@ -411,7 +414,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
 
         {/* Imagem reduzida */}
         <SmartField field="imagem" {...sp}
-          className="w-full h-28 rounded-2xl overflow-hidden relative"
+          className="w-full h-28 rounded-2xl overflow-hidden relative shadow-xl ring-1 ring-black/5"
         >
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
