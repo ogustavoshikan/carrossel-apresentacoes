@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon, Camera } from 'lucide-react';
+import { Settings, X, Key, Trash2, CheckCircle2, RefreshCw, AlertCircle, Upload, ImageIcon, Camera, Search } from 'lucide-react';
 
 export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColorChange, appLogoUrl, onLogoChange }) {
   const [tab, setTab] = useState('google');
   const [googleKey, setGoogleKey] = useState('');
   const [openaiKey, setOpenaiKey] = useState('');
   const [openrouterKey, setOpenrouterKey] = useState('');
+  const [serpapiKey, setSerpapiKey] = useState('');
   const [unsplashKey, setUnsplashKey] = useState('');
   const [pexelsKey, setPexelsKey] = useState('');
   const [pixabayKey, setPixabayKey] = useState('');
@@ -30,6 +31,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
       setGoogleKey(localStorage.getItem('cs_google_api_key') || '');
       setOpenaiKey(localStorage.getItem('cs_openai_api_key') || '');
       setOpenrouterKey(localStorage.getItem('cs_openrouter_api_key') || '');
+      setSerpapiKey(localStorage.getItem('cs_serpapi_api_key') || '');
       setUnsplashKey(localStorage.getItem('cs_unsplash_api_key') || '');
       setPexelsKey(localStorage.getItem('cs_pexels_api_key') || '');
       setPixabayKey(localStorage.getItem('cs_pixabay_api_key') || '');
@@ -133,6 +135,7 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
     localStorage.setItem('cs_google_api_key', googleKey.trim());
     localStorage.setItem('cs_openai_api_key', openaiKey.trim());
     localStorage.setItem('cs_openrouter_api_key', openrouterKey.trim());
+    localStorage.setItem('cs_serpapi_api_key', serpapiKey.trim());
     localStorage.setItem('cs_unsplash_api_key', unsplashKey.trim());
     localStorage.setItem('cs_pexels_api_key', pexelsKey.trim());
     localStorage.setItem('cs_pixabay_api_key', pixabayKey.trim());
@@ -214,6 +217,13 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
             onClick={() => setTab('openrouter')}
           >
             OpenRouter
+          </button>
+          <button 
+            className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'serpapi' ? 'text-white border-b-2' : 'text-zinc-500'}`}
+            style={{ borderColor: tab === 'serpapi' ? brandColor : 'transparent' }}
+            onClick={() => setTab('serpapi')}
+          >
+            Busca
           </button>
           <button 
             className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider transition-colors ${tab === 'unsplash' ? 'text-white border-b-2' : 'text-zinc-500'}`}
@@ -370,6 +380,29 @@ export default function SettingsModal({ isOpen, onClose, brandColor, onBrandColo
               >
                 {isVerifyingOpenRouter ? <RefreshCw className="w-4 h-4 animate-spin" /> : 'Verificar & Listar Modelos'}
               </button>
+            </div>
+          )}
+
+          {tab === 'serpapi' && (
+            <div className="space-y-4 animate-in fade-in zoom-in-95 duration-150">
+              <label className="cs-label flex items-center gap-2">
+                <Search className="w-3 h-3 text-blue-400" /> SerpApi Key
+              </label>
+              <input
+                type="password"
+                value={serpapiKey}
+                onChange={(e) => setSerpapiKey(e.target.value)}
+                className="cs-input w-full"
+                placeholder="Insira sua chave SerpApi..."
+              />
+              <div className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl space-y-2">
+                <p className="text-xs text-blue-200 leading-relaxed font-medium">
+                  A SerpApi permite que o chat pesquise no Google em tempo real.
+                </p>
+                <p className="text-[10px] text-blue-300/70 font-mono">
+                  Obtenha em: <a href="https://serpapi.com" target="_blank" className="underline hover:text-white">serpapi.com</a>
+                </p>
+              </div>
             </div>
           )}
 

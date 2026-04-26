@@ -545,4 +545,25 @@ DIRETRIZES RÍGIDAS DE FORMATAÇÃO (MARKDOWN):
   } else {
     throw new Error('Provedor de IA não suportado para o Chat.');
   }
+}
+
+export async function searchWebWithSerpApi(query, apiKey) {
+  if (!apiKey) return "Chave SerpApi não configurada.";
+  
+  try {
+    // Usando o proxy configurado no vite.config.js (/serpapi) para evitar CORS
+    const url = `/serpapi/search.json?q=${encodeURIComponent(query)}&api_key=${apiKey}&engine=google`;
+    const response = await fetch(url);
+    if (!response.ok) return "Erro ao acessar SerpApi.";
+    
+    const data = await response.json();
+    const results = data.organic_results?.slice(0, 3).map(r => 
+      `Título: ${r.title}\nLink: ${r.link}\nResumo: ${r.snippet}`
+    ).join('\n\n');
+    
+    return results || "Nenhum resultado encontrado.";
+  } catch (err) {
+    console.error('[SerpApi] Error:', err);
+    return "Falha na conexão com a busca web.";
+  }
 }

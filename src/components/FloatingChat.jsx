@@ -7,7 +7,7 @@ import {
   MessageSquareText, Search, Type, Copy, ThumbsUp, ThumbsDown, Check
 } from 'lucide-react';
 import { cn } from '../lib/utils';
-import { generateChatMessage } from '../services/ai';
+import { generateChatMessage, searchWebWithSerpApi } from '../services/ai';
 
 export function FloatingChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +18,29 @@ export function FloatingChat() {
   const [displayText, setDisplayText] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [copiedId, setCopiedId] = useState(null);
+
+  // Novos estados para Model Select e Search
+  const [availableModels, setAvailableModels] = useState([]);
+  const [selectedModel, setSelectedModel] = useState('');
+  const [searchEnabled, setSearchEnabled] = useState(false);
+
+  // Carrega configurações ao abrir o chat
+  useEffect(() => {
+    if (isOpen) {
+      const savedModels = JSON.parse(localStorage.getItem('cs_available_text_models') || '[]');
+      setAvailableModels(savedModels);
+      setSelectedModel(localStorage.getItem('cs_text_model_id') || '');
+    }
+  }, [isOpen]);
+
+  const handleModelChange = (id) => {
+    setSelectedModel(id);
+    const model = availableModels.find(m => m.id === id);
+    if (model) {
+      localStorage.setItem('cs_text_model_id', id);
+      localStorage.setItem('cs_text_model_provider', model.provider);
+    }
+  };
   
   const fullGreeting = "Como posso ajudar você hoje?";
   const messagesEndRef = useRef(null);
@@ -95,12 +118,13 @@ export function FloatingChat() {
 
   const handleSubmit = async (e, textOverride = null) => {
     if (e) e.preventDefault();
-    const textToSend = textOverride || message;
+    let textToSend = textOverride || message;
     if (!textToSend.trim() || isLoading) return;
 
     const provider = localStorage.getItem('cs_text_model_provider');
     const modelId = localStorage.getItem('cs_text_model_id');
     const apiKey = localStorage.getItem(`cs_${provider}_api_key`);
+    const serpapiKey = localStorage.getItem('cs_serpapi_api_key');
 
     if (!provider || !modelId || !apiKey) {
       setError("Configure seu provedor e chave de API de texto (engrenagem no menu principal) antes de usar o chat.");
@@ -115,6 +139,12 @@ export function FloatingChat() {
     setError(null);
 
     try {
+      // Se a busca web estiver ativa, buscamos contexto adicional
+      if (searchEnabled && serpapiKey) {
+        const searchResults = await searchWebWithSerpApi(textToSend, serpapiKey);
+        textToSend = `[RESULTADOS DA WEB]\n${searchResults}\n\n[INSTRUÇÃO]: Use os resultados acima como contexto para responder à seguinte mensagem do usuário: ${textToSend}`;
+      }
+
       const response = await generateChatMessage(textToSend, newMessages, provider, modelId, apiKey);
       const assistantMessageIndex = newMessages.length;
       setMessages([...newMessages, { role: 'assistant', content: '' }]);
@@ -208,8 +238,32 @@ export function FloatingChat() {
           </div>
 
           <div className="p-6 py-5 flex items-center justify-between select-none shrink-0 transition-all relative">
-            <div className="flex items-center opacity-70 group-hover:opacity-100 transition-opacity">
+            <div className="flex flex-col gap-1">
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">Carrossel AI</span>
+              <div className="flex items-center gap-2">
+                <select 
+                  value={selectedModel}
+                  onChange={(e) => handleModelChange(e.target.value)}
+                  className="bg-transparent text-[10px] text-zinc-500 hover:text-white border-none focus:ring-0 p-0 cursor-pointer outline-none max-w-[120px] truncate font-mono uppercase tracking-tighter"
+                >
+                  {availableModels.map(m => (
+                    <option key={m.id} value={m.id} className="bg-black text-white">
+                      {m.id.split('/').pop()}
+                    </option>
+                  ))}
+                </select>
+                <button 
+                  onClick={() => setSearchEnabled(!searchEnabled)}
+                  className={cn(
+                    "flex items-center gap-1 px-1.5 py-0.5 rounded-full border transition-all",
+                    searchEnabled ? "bg-blue-600/20 border-blue-500 text-blue-400" : "bg-transparent border-zinc-800 text-zinc-600 hover:text-zinc-400"
+                  )}
+                  title={searchEnabled ? "Busca Web Ativa" : "Ativar Busca Web"}
+                >
+                  <Search className="w-2.5 h-2.5" />
+                  <span className="text-[8px] font-bold uppercase tracking-tighter">Web</span>
+                </button>
+              </div>
             </div>
             
             <div className="flex items-center gap-3">
