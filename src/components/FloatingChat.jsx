@@ -229,7 +229,7 @@ export function FloatingChat() {
           `}
         </style>
 
-        <div className="w-[340px] sm:w-[430px] bg-black border border-zinc-800 rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea]">
+        <div className="w-[340px] sm:w-[430px] bg-black border border-zinc-800 rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea] antialiased">
           
           <div className={cn(
             "chat-pill absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 flex items-center justify-center z-20 group/pill transition-all",
@@ -269,10 +269,10 @@ export function FloatingChat() {
                     <button 
                       key={idx}
                       onClick={() => handleSubmit(null, s.text)}
-                    className="inline-flex items-center gap-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white/90 px-6 py-3.5 rounded-[32px] transition-all text-[14px] font-medium group w-fit max-w-full whitespace-nowrap"
+                      className="inline-flex items-center gap-3 bg-zinc-900/50 hover:bg-zinc-800/80 border border-zinc-800 text-zinc-300 px-4 py-3 rounded-2xl transition-colors text-sm font-medium w-full max-w-sm group whitespace-nowrap"
                     >
                       <span className="text-rose-600 group-hover:scale-110 transition-transform shrink-0">{s.icon}</span>
-                      <span className="leading-tight">{s.text}</span>
+                      <span className="leading-tight truncate">{s.text}</span>
                     </button>
                   ))}
                 </div>
@@ -288,12 +288,12 @@ export function FloatingChat() {
                 )}
               >
                 {msg.role === 'user' ? (
-                  <div className="bg-zinc-900 text-[#eff3f4] text-[15px] py-3 px-4 rounded-[20px] rounded-tr-none max-w-[85%] border border-zinc-800 font-normal leading-relaxed">
+                  <div className="bg-zinc-900 text-[#eff3f4] text-[15px] py-3 px-4 rounded-[20px] rounded-tr-none max-w-[85%] border border-zinc-800 font-medium leading-relaxed">
                     {msg.content}
                   </div>
                 ) : (
                   <div className="flex flex-col gap-2 max-w-full">
-                    <div className="ai-content text-[#e7e9ea] text-[15px] leading-relaxed font-normal">
+                    <div className="ai-content text-[#e7e9ea] text-[15px] leading-relaxed font-medium">
                       <ReactMarkdown>
                         {msg.content}
                       </ReactMarkdown>
