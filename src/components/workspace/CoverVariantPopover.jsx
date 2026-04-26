@@ -723,6 +723,76 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 57: Author Focus
+    57: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white relative">
+        <div className="p-1.5 flex flex-col gap-1 shrink-0">
+          <div className="flex items-center gap-1 mb-1">
+             <div className="w-2.5 h-2.5 rounded-full bg-zinc-200 overflow-hidden shrink-0 border-[0.5px]" style={{ borderColor: accent }}>
+               {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+             </div>
+             <div className="w-6 h-[2px] bg-zinc-400 rounded-full" />
+          </div>
+          <div className="w-[85%] h-[3px] bg-black/80 rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="flex-1 w-[90%] mx-auto bg-zinc-100 rounded-t-md opacity-30 mt-1" style={{ background: img }} />
+      </div>
+    ),
+    // 58: Author Clean
+    58: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative" style={{ background: accent }}>
+        <div className="flex-1 p-2 flex flex-col justify-center gap-1.5">
+          <div className="w-[85%] h-[3.5px] bg-white rounded-full" />
+          <div className="flex items-center gap-1 bg-white/10 p-0.5 rounded-full w-max border border-white/20">
+             <div className="w-2 h-2 rounded-full bg-white shrink-0" />
+             <div className="w-4 h-[1.5px] bg-white/60 rounded-full" />
+          </div>
+          <div className="w-[70%] h-[1.5px] bg-white/70 rounded-full" />
+        </div>
+        <div className="h-[40%] w-full opacity-40" style={{ background: img }} />
+      </div>
+    ),
+    // 59: Author Profile
+    59: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-[#1a1a1a] relative">
+        <div className="h-[45%] w-full opacity-30" style={{ background: img }} />
+        <div className="flex-1 p-2 flex flex-col relative z-10 -mt-3 gap-1">
+          <div className="w-4 h-4 rounded-full border border-white/20 bg-zinc-800 shrink-0 shadow-sm" style={{ borderColor: accent }}>
+            {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover rounded-full" />}
+          </div>
+          <div className="w-8 h-[2px] bg-white/40 rounded-full" />
+          <div className="w-full h-[3.5px] bg-white rounded-full" />
+          <div className="w-[70%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 60: Author Elegant
+    60: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white relative">
+        <div className="flex-1 p-2 flex flex-col gap-1.5 pt-4">
+          <div className="flex items-center gap-1">
+             <div className="w-2.5 h-2.5 rounded-full bg-zinc-200 shrink-0" />
+             <div className="w-5 h-[1.5px] bg-zinc-400 rounded-full" />
+          </div>
+          <div className="w-[90%] h-[3.5px] bg-black/80 rounded-full" />
+          <div className="w-[70%] h-[1.5px] bg-zinc-400 border-l-[1px] pl-1" style={{ borderColor: accent }} />
+        </div>
+        <div className="h-[35%] w-full opacity-20" style={{ background: img }} />
+      </div>
+    ),
+    // 61: Author Centered
+    61: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-black text-center items-center p-2 relative">
+        <div className="w-4 h-4 rounded-full border border-white/40 bg-zinc-800 shrink-0 mt-2 mb-1" style={{ borderColor: accent }}>
+            {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover rounded-full" />}
+        </div>
+        <div className="w-6 h-[1.5px] bg-white/40 rounded-full mb-1" />
+        <div className="w-[85%] h-[3.5px] bg-white rounded-full mb-1" />
+        <div className="w-[60%] h-[1.5px] bg-white/60 rounded-full" />
+        <div className="absolute bottom-0 left-0 w-full h-[40%] opacity-20" style={{ background: img }} />
+      </div>
+    ),
   };
 
   return (

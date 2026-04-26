@@ -3052,6 +3052,327 @@ export function CoverVariant56(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 57 — AUTHOR FOCUS
+// Layout focado no autor com imagem circular e card inferior
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant57(props) {
+  const { data, index, brandColor, brandHandle, brandAvatar, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-white text-[#1a1a1a]">
+        <div className="absolute top-8 left-8 right-8 z-20">
+            <SlideHeader {...props} index={index + 1} total={slideCount} />
+        </div>
+
+        <div className="flex flex-col p-10 pb-6 z-10 shrink-0 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-zinc-100 overflow-hidden shrink-0 border-2" style={{ borderColor: brandColor }}>
+                    <img src={brandAvatar || "https://i.pravatar.cc/150?u=bruna"} className="w-full h-full object-cover" alt="Author" />
+                </div>
+                <div className="flex flex-col">
+                    <span className="font-bold text-sm tracking-wide" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+                    <SmartField field="tag" {...sp}>
+                      <span 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                        className="text-[10px] text-zinc-500 font-medium outline-none" 
+                        style={{ fontFamily: textFont }}
+                      >
+                        {data.tag || 'ESPECIALISTA'}
+                      </span>
+                    </SmartField>
+                </div>
+            </div>
+            <div className="mb-4 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.9] tracking-tight text-[#1a1a1a] outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${48 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[85%] shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed text-zinc-600 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+
+        <div className="flex-1 w-[90%] mx-auto bg-zinc-100 rounded-t-[40px] relative overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+            <ImageBg data={data} className="absolute inset-0" />
+            <div className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl">
+                <ArrowRight className="w-5 h-5 text-black" />
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 58 — AUTHOR CLEAN
+// Layout minimalista com foco em cor e autor em destaque
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant58(props) {
+  const { data, index, brandColor, brandHandle, brandAvatar, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
+        <div className="flex-1 p-10 flex flex-col justify-center relative z-10 text-white">
+            <div className="absolute top-8 left-10">
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} />
+            </div>
+
+            <div className="mb-6 mt-8 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.85] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${54 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+
+            <div className="flex items-center gap-4 mb-6 bg-white/10 p-3 rounded-full w-max border border-white/20 shrink-0">
+                <div className="w-8 h-8 rounded-full bg-white overflow-hidden shrink-0">
+                    <img src={brandAvatar || "https://i.pravatar.cc/150?img=47"} className="w-full h-full object-cover" alt="Author" />
+                </div>
+                <div className="pr-4">
+                    <span className="font-bold text-xs tracking-wider uppercase text-white" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+                </div>
+            </div>
+
+            <div className="shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed text-white/90 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+        <div className="h-[40%] w-full relative z-0">
+            <ImageBg data={data} className="absolute inset-0" />
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 59 — AUTHOR PROFILE
+// Layout escuro com autor em destaque centralizado no card
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant59(props) {
+  const { data, index, brandColor, brandHandle, brandAvatar, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#1a1a1a]">
+        <div className="absolute top-8 left-8 right-8 z-20">
+            <SlideHeader dark {...props} index={index + 1} total={slideCount} />        
+        </div>
+        <div className="h-[45%] w-full relative z-0 shrink-0">
+            <ImageBg data={data} className="absolute inset-0" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
+        </div>
+        <div className="flex-1 flex flex-col p-10 relative z-10 -mt-20">
+            <div className="w-16 h-16 rounded-full border-4 overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: brandColor, backgroundColor: brandColor }}>
+                <img src={brandAvatar || "https://i.pravatar.cc/150?img=32"} className="w-full h-full object-cover" alt="Author" />  
+            </div>
+            <div className="mb-2 shrink-0">
+                <SmartField field="tag" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                    className="font-black text-xs tracking-widest text-white/60 uppercase outline-none" 
+                    style={{ fontFamily: titleFont }}
+                  >
+                    {data.tag || 'DICAS DA CHEF'}
+                  </span>
+                </SmartField>
+            </div>
+            <div className="mb-4 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.9] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${44 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed text-zinc-400 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 60 — AUTHOR ELEGANT
+// Layout elegante com borda de destaque e autor lateral
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant60(props) {
+  const { data, index, brandColor, brandHandle, brandAvatar, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-white text-[#1a1a1a]">
+        <div className="absolute top-8 left-8 right-8 z-20">
+            <SlideHeader {...props} index={index + 1} total={slideCount} />
+        </div>
+        <div className="flex-1 flex flex-col p-10 pt-16 z-10 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-zinc-200 overflow-hidden shrink-0">
+                    <img src={brandAvatar || "https://i.pravatar.cc/150?img=5"} className="w-full h-full object-cover" alt="Author" />
+                </div>
+                <div>
+                  <SmartField field="tag" {...sp}>
+                    <span 
+                      contentEditable suppressContentEditableWarning
+                      onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                      className="font-bold text-xs tracking-widest text-zinc-500 uppercase outline-none" 
+                      style={{ fontFamily: titleFont }}
+                    >
+                      {data.tag || 'NOVO'}
+                    </span>
+                  </SmartField>
+                </div>
+            </div>
+            <div className="mb-4 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.85] tracking-tighter uppercase outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${52 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[85%] border-l-2 pl-4 shrink-0" style={{ borderColor: brandColor }}>
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed text-zinc-600 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+        <div className="w-full h-[35%] relative z-0">
+            <ImageBg data={data} className="absolute inset-0" />
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 61 — AUTHOR CENTERED
+// Layout centralizado com autor no topo e fundo escuro
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant61(props) {
+  const { data, index, brandColor, brandHandle, brandAvatar, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black text-white text-center items-center p-10">
+        <div className="absolute top-8 left-8 right-8 z-20">
+            <SlideHeader dark {...props} index={index + 1} total={slideCount} />        
+        </div>
+        <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-6">
+            <img src={brandAvatar || "https://i.pravatar.cc/150?img=11"} className="w-full h-full object-cover" alt="Author" />      
+        </div>
+        <div className="mb-2 z-20 shrink-0">
+            <SmartField field="tag" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-black text-[10px] tracking-widest uppercase outline-none" 
+                style={{ color: brandColor, fontFamily: titleFont }}
+              >
+                {data.tag || 'MESTRE'}
+              </span>
+            </SmartField>
+        </div>
+        <div className="mb-4 z-20 w-[90%] shrink-0">
+            <SmartField field="titulo" {...sp}>
+              <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-black leading-[0.9] tracking-tighter uppercase drop-shadow-md outline-none whitespace-pre-line" 
+                style={{ fontFamily: titleFont, fontSize: `${46 * sTitle}px` }}
+              >
+                {data.titulo}
+              </h2>
+            </SmartField>
+        </div>
+        <div className="w-[80%] z-20 shrink-0">
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-medium leading-relaxed text-zinc-300 outline-none" 
+                style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+              >
+                {data.texto_apoio}
+              </p>
+            </SmartField>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-[40%] z-0">
+            <ImageBg data={data} className="absolute inset-0 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -3109,6 +3430,11 @@ export const COVER_VARIANT_COMPONENTS = {
   54: CoverVariant54,
   55: CoverVariant55,
   56: CoverVariant56,
+  57: CoverVariant57,
+  58: CoverVariant58,
+  59: CoverVariant59,
+  60: CoverVariant60,
+  61: CoverVariant61,
 };
 
 export const COVER_VARIANT_META = [
@@ -3174,4 +3500,9 @@ export const COVER_VARIANT_META = [
   { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa54.png' },
   { id: 55, name: 'Premium Edge', description: 'Barra lateral informativa e card de imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa55.png' },
   { id: 56, name: 'Split Typo Hero', description: 'Imagem superior e bloco informativo inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa56.png' },
+  { id: 57, name: 'Author Focus', description: 'Focado no autor com imagem circular e card', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa57.png' },
+  { id: 58, name: 'Author Clean', description: 'Minimalista com foco em cor e autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa58.png' },
+  { id: 59, name: 'Author Profile', description: 'Layout escuro com autor centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa59.png' },
+  { id: 60, name: 'Author Elegant', description: 'Elegante com borda e autor lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa60.png' },
+  { id: 61, name: 'Author Centered', description: 'Centralizado com autor no topo e fundo escuro', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa61.png' },
 ];
