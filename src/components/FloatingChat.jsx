@@ -326,7 +326,7 @@ export function FloatingChat() {
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-4 pb-6 bg-gradient-to-t from-[#121214] to-transparent shrink-0">
+          <div className="px-4 pt-4 pb-1 shrink-0">
             <div className="flex flex-col relative bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-[20px] focus-within:border-zinc-600 focus-within:ring-2 ring-zinc-800/50 transition-all shadow-lg">
               
               {/* Linha 1: Os botões de configurações */}
@@ -335,7 +335,7 @@ export function FloatingChat() {
                   <select 
                     value={selectedModel}
                     onChange={(e) => handleModelChange(e.target.value)}
-                    className="appearance-none flex items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 pl-1.5 py-1 pr-4 rounded-md text-[11px] font-medium transition-all cursor-pointer outline-none w-auto max-w-[85px] truncate"
+                    className="appearance-none flex items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 pl-1.5 py-1 pr-4 rounded-md text-[11px] uppercase font-medium transition-all cursor-pointer outline-none w-auto max-w-[70px] truncate"
                   >
                     {availableModels.map(m => (
                       <option key={m.id} value={m.id} className="bg-zinc-900 text-white">
@@ -389,7 +389,7 @@ export function FloatingChat() {
 
             </div>
             
-            <div className="text-center mt-4 text-[10px] text-zinc-600 font-medium">Shift + Enter para pular linha</div>
+            <div className="text-center mt-3 text-[10px] text-zinc-600 font-medium">Shift + Enter para pular linha</div>
           </div>
 
           {error && (
