@@ -134,7 +134,6 @@ export function BigNumberVariant1({
           className="w-full flex-1 min-h-[120px] rounded-[2rem] overflow-hidden relative shadow-2xl ring-1 ring-white/5"
         >
           <ImageBg data={data} className="absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
         </SmartField>
       </div>
     </div>

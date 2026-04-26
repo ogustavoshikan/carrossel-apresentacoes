@@ -166,7 +166,6 @@ export default function SlideBigNumber({
               <ImageIcon className="w-8 h-8 text-zinc-700" />
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
         </SmartElement>
       </div>
       <SlideFooterPlaceholder />
