@@ -103,7 +103,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'Título do Conteúdo',
     texto_apoio: 'Descrição detalhada e envolvente do conteúdo deste slide.',
     sugestao_visual: 'Foto do produto em destaque',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png',
     tag: 'DICA',
     items: [],
   },
@@ -217,7 +217,12 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
   // Pre-configura imagem de fundo para Split Variants (content-split)
   if (layoutType === 'content-split') {
-    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+    const splitIndicesToUpdate = [0, 1, 3, 7, 8, 9, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    if (splitIndicesToUpdate.includes(variantIndex)) {
+      slide.imageUrl = 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
+    } else {
+      slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+    }
   }
 
   // Pre-configura imagem de fundo para Big Number Variants
