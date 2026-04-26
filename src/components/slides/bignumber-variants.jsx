@@ -1028,20 +1028,90 @@ export const BIGNUMBER_VARIANT_COMPONENTS = {
 };
 
 export const BIGNUMBER_VARIANT_META = [
-  { id: 0,  name: 'Original',      description: 'Número + tag + texto + imagem inferior' },
-  { id: 1,  name: 'Dark Stack',    description: 'Número grande + tag pill + imagem arredondada' },
-  { id: 2,  name: 'Phantom',       description: 'Número central com ghost gigante atrás' },
-  { id: 3,  name: 'Color Block',   description: 'Bloco colorido superior + texto escuro abaixo' },
-  { id: 4,  name: 'Glass Card',    description: 'Número outline sutil + card glassmorphic' },
-  { id: 5,  name: 'Side Panel',    description: 'Número à esquerda + painel de texto' },
-  { id: 6,  name: 'Circle Badge',  description: 'Número em círculo + tag + card de texto' },
-  { id: 7,  name: 'Texture Fill',  description: 'Número preenchido com textura da imagem' },
-  { id: 8,  name: 'Outline Float', description: 'Número outline flutuando + imagem inferior' },
-  { id: 9,  name: 'Sidebar',       description: 'Faixa lateral colorida com número rotacionado' },
-  { id: 10, name: 'Magazine',      description: 'Imagem superior + número sobreposto + cor' },
-  { id: 11, name: 'Bento Grid',    description: 'Grid com número, tag e texto em cards' },
-  { id: 12, name: 'Glass List',    description: 'Número lateral + card glassmorphic vertical' },
-  { id: 13, name: 'Elegant Glow',  description: 'Número central branco com glow da marca' },
+  { 
+    id: 0, 
+    name: 'Original', 
+    description: 'Número + tag + texto + imagem inferior',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants0.png'
+  },
+  { 
+    id: 1, 
+    name: 'Dark Stack', 
+    description: 'Número grande + tag pill + imagem arredondada',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants1.png'
+  },
+  { 
+    id: 2, 
+    name: 'Phantom', 
+    description: 'Número central com ghost gigante atrás',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants2.png'
+  },
+  { 
+    id: 3, 
+    name: 'Color Block', 
+    description: 'Bloco colorido superior + texto escuro abaixo',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants3.png'
+  },
+  { 
+    id: 4, 
+    name: 'Glass Card', 
+    description: 'Número outline sutil + card glassmorphic',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants4.png'
+  },
+  { 
+    id: 5, 
+    name: 'Side Panel', 
+    description: 'Número à esquerda + painel de texto',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants5.png'
+  },
+  { 
+    id: 6, 
+    name: 'Circle Badge', 
+    description: 'Número em círculo + tag + card de texto',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants6.png'
+  },
+  { 
+    id: 7, 
+    name: 'Texture Fill', 
+    description: 'Número preenchido com textura da imagem',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants7.png'
+  },
+  { 
+    id: 8, 
+    name: 'Outline Float', 
+    description: 'Número outline flutuando + imagem inferior',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants8.png'
+  },
+  { 
+    id: 9, 
+    name: 'Sidebar', 
+    description: 'Faixa lateral colorida com número rotacionado',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants9.png'
+  },
+  { 
+    id: 10, 
+    name: 'Magazine', 
+    description: 'Imagem superior + número sobreposto + cor',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants10.png'
+  },
+  { 
+    id: 11, 
+    name: 'Bento Grid', 
+    description: 'Grid com número, tag e texto em cards',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants11.png'
+  },
+  { 
+    id: 12, 
+    name: 'Glass List', 
+    description: 'Número lateral + card glassmorphic vertical',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants12.png'
+  },
+  { 
+    id: 13, 
+    name: 'Elegant Glow', 
+    description: 'Número central branco com glow da marca',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants13.png'
+  },
 ];
 
 
