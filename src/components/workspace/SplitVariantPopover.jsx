@@ -43,7 +43,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
     ),
     // 2: Side Split — imagem lateral esquerda + texto direita
     2: (
-      <div className="w-full h-full flex rounded-[3px] overflow-hidden" style={{ background: dark }}>
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden" style={{ background: accent }}>
         <div className="w-[45%] h-full border-r border-white/10" style={{ background: img }} />
         <div className="flex-1 p-1.5 flex flex-col justify-center gap-1">
           <div className="w-[80%] h-[1.5px] rounded-full bg-white/20" />

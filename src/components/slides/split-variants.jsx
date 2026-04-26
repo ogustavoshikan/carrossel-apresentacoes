@@ -157,10 +157,10 @@ export function SplitVariant2({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full bg-[#050505] flex relative overflow-hidden">
+    <div className="w-full h-full flex relative overflow-hidden" style={{ backgroundColor: brandColor || '#050505' }}>
       {/* Imagem lateral esquerda */}
       <SmartField field="imagem" {...sp}
-        className="w-[45%] h-full relative border-r border-white/10 shadow-[20px_0_40px_rgba(0,0,0,0.5)] z-10"
+        className="w-[45%] h-full relative z-10"
       >
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
@@ -185,7 +185,8 @@ export function SplitVariant2({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="px-3 py-1 bg-surface-input/30 border border-white/10 rounded font-outfit text-[10px] tracking-widest text-zinc-400 outline-none inline-block"
+              className="px-3 py-1 border border-white/10 rounded font-outfit text-[10px] tracking-widest outline-none inline-block"
+              style={{ color: '#ffffff', backgroundColor: 'rgba(10, 10, 10, 0.15)' }}
             >
               {data.tag || 'TAG'}
             </span>
@@ -209,8 +210,8 @@ export function SplitVariant2({
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-400 outline-none leading-relaxed"
-            style={{ fontSize: `${14 * sText}px` }}
+            className="font-playfair font-bold outline-none leading-relaxed"
+            style={{ fontSize: `${14 * sText}px`, color: '#ffffff' }}
           >
             {data.texto_apoio}
           </p>
