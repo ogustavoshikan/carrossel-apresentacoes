@@ -27,7 +27,7 @@ export default function WorkspaceToolbar({
   brandColor,
 }) {
   return (
-    <div className="relative mt-2 z-20 flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/5 p-2 rounded-full shadow-2xl w-full font-sans">
+    <div className="relative mt-2 z-20 flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/5 p-2 rounded-full w-full font-sans">
       
       {/* Esquerda: Badge Metadados */}
       <div className="flex-1 flex justify-start pl-2">
@@ -44,7 +44,7 @@ export default function WorkspaceToolbar({
             className={cn(
               'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'visual' && !showMetrics
-                ? 'bg-white/10 text-white shadow-sm'
+                ? 'bg-white/10 text-white'
                 : 'text-zinc-500 hover:text-zinc-300'
             )}
           >
@@ -57,7 +57,7 @@ export default function WorkspaceToolbar({
             className={cn(
               'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'text'
-                ? 'bg-white/10 text-white shadow-sm'
+                ? 'bg-white/10 text-white'
                 : 'text-zinc-500 hover:text-zinc-300'
             )}
           >
@@ -70,7 +70,7 @@ export default function WorkspaceToolbar({
             className={cn(
               'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
               viewMode === 'visual' && showMetrics
-                ? 'text-white shadow-sm'
+                ? 'text-white'
                 : 'text-zinc-500 hover:text-zinc-300'
             )}
             style={
@@ -105,7 +105,7 @@ export default function WorkspaceToolbar({
           <button
             onClick={onExportAll}
             disabled={isExporting}
-            className="flex items-center justify-center gap-2 text-[11px] font-bold text-white py-1.5 px-3 sm:px-4 rounded-full transition-all disabled:opacity-50 hover:brightness-110 shadow-lg"
+            className="flex items-center justify-center gap-2 text-[11px] font-bold text-white py-1.5 px-3 sm:px-4 rounded-full transition-all disabled:opacity-50 hover:brightness-110"
             style={{ backgroundColor: brandColor }}
           >
             {isExporting ? (

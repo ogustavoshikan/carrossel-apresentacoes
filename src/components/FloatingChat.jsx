@@ -176,7 +176,7 @@ export function FloatingChat() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-rose-600 hover:bg-rose-500 text-white rounded-full shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 z-[9999] flex items-center justify-center group"
+        className="fixed bottom-6 right-6 p-4 bg-rose-600 hover:bg-rose-500 text-white rounded-full transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2 z-[9999] flex items-center justify-center group"
       >
         <MessageSquare className="w-6 h-6" />
         <span className="absolute -top-10 right-0 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-zinc-800 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">Assistente IA</span>
@@ -229,7 +229,7 @@ export function FloatingChat() {
           `}
         </style>
 
-        <div className="w-[340px] sm:w-[430px] bg-black border border-zinc-800 rounded-[20px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.8)] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea] antialiased">
+        <div className="w-[340px] sm:w-[430px] bg-black border border-zinc-800 rounded-[20px] flex flex-col h-[700px] max-h-[90vh] overflow-hidden animate-page-transition relative text-[#e7e9ea] antialiased">
           
           <div className={cn(
             "chat-pill absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 flex items-center justify-center z-20 group/pill transition-all",
@@ -327,7 +327,7 @@ export function FloatingChat() {
           </div>
 
           <div className="px-4 pt-4 pb-1 shrink-0">
-            <div className="flex flex-col relative bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-[20px] focus-within:border-zinc-600 focus-within:ring-2 ring-zinc-800/50 transition-all shadow-lg">
+            <div className="flex flex-col relative bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-[20px] focus-within:border-zinc-600 focus-within:ring-2 ring-zinc-800/50 transition-all">
               
               {/* Linha 1: Os botões de configurações */}
               <div className="flex items-center gap-2 px-2 pt-2 pb-1">
@@ -381,7 +381,7 @@ export function FloatingChat() {
                 <button 
                   onClick={handleSubmit}
                   disabled={!message.trim() || isLoading}
-                  className="p-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-xl transition-all shadow-sm ml-2 disabled:opacity-50 disabled:hover:bg-zinc-100 flex items-center justify-center shrink-0"
+                  className="p-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-xl transition-all ml-2 disabled:opacity-50 disabled:hover:bg-zinc-100 flex items-center justify-center shrink-0"
                 >
                   {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send size={16} />}
                 </button>
@@ -393,7 +393,7 @@ export function FloatingChat() {
           </div>
 
           {error && (
-            <div className="absolute bottom-24 left-6 right-6 bg-rose-600 text-white text-[11px] font-bold uppercase p-3 rounded-xl border border-white/20 text-center shadow-2xl animate-page-transition z-[10000]">
+            <div className="absolute bottom-24 left-6 right-6 bg-rose-600 text-white text-[11px] font-bold uppercase p-3 rounded-xl border border-white/20 text-center animate-page-transition z-[10000]">
               {error}
             </div>
           )}

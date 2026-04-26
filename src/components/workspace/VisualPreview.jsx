@@ -23,7 +23,7 @@ import {
 const Tooltip = ({ children, text }) => (
   <div className="group relative flex items-center justify-center">
     {children}
-    <div className="absolute -top-12 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-150 ease-out bg-zinc-100 text-zinc-900 font-medium text-xs px-2.5 py-1.5 rounded shadow-xl pointer-events-none whitespace-nowrap z-50">
+    <div className="absolute -top-12 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-150 ease-out bg-zinc-100 text-zinc-900 font-medium text-xs px-2.5 py-1.5 rounded pointer-events-none whitespace-nowrap z-50">
       {text}
       <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-zinc-100 rotate-45"></div>
     </div>
@@ -190,7 +190,7 @@ export default function VisualPreview({
     <div className="relative w-full">
       {/* Toast Notification Premium */}
       <div className={`fixed top-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-150 ease-out ${toast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-        <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center gap-2 text-sm font-bold border border-white/20">
+        <div className="bg-zinc-100 text-zinc-900 px-4 py-2.5 rounded-full flex items-center gap-2 text-sm font-bold border border-white/20">
           <CheckCircle2 size={16} style={{ color: brandColor || '#DE1E4D' }} />
           <span>{toast}</span>
         </div>
@@ -198,7 +198,7 @@ export default function VisualPreview({
 
       {/* Navegação: Floating Dock Minimalista */}
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[150] pointer-events-auto">
-        <div className="flex items-center gap-4 px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-white/10 shadow-2xl">
+        <div className="flex items-center gap-4 px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-white/10">
           <button
             onClick={scrollLeftNav}
             className="w-8 h-8 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
@@ -244,7 +244,7 @@ export default function VisualPreview({
           {onRemoveSlide && (
             <button
               onClick={() => onRemoveSlide(index)}
-              className="absolute -top-3 -right-3 z-50 w-8 h-8 bg-surface-dark border border-border-subtle hover:border-red-500/50 rounded-full flex items-center justify-center text-zinc-500 hover:text-red-400 hover:bg-red-500/10 opacity-0 group-hover/slide:opacity-100 transition-all shadow-xl"
+              className="absolute -top-3 -right-3 z-50 w-8 h-8 bg-surface-dark border border-border-subtle hover:border-red-500/50 rounded-full flex items-center justify-center text-zinc-500 hover:text-red-400 hover:bg-red-500/10 opacity-0 group-hover/slide:opacity-100 transition-all"
               title="Remover Slide"
             >
               <X className="w-4 h-4" />
@@ -255,7 +255,7 @@ export default function VisualPreview({
           <div
             id={`slide-card-${index}`}
             style={{ width: SLIDE_DIMENSIONS.width, height: SLIDE_DIMENSIONS.height }}
-            className="shadow-slide rounded-slide overflow-hidden shrink-0 bg-black ring-1 ring-white/10 relative"
+            className="rounded-slide overflow-hidden shrink-0 bg-black ring-1 ring-white/10 relative"
           >
             <SlideRenderer
               data={slide}
@@ -280,7 +280,7 @@ export default function VisualPreview({
           </div>
 
           {/* Controls */}
-          <div className="bg-surface-dark border border-zinc-800/60 rounded-xl p-4 shadow-lg flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
+          <div className="bg-surface-dark border border-zinc-800/60 rounded-xl p-4 flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
             <div className="flex justify-between items-center mb-3">
                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
                  Layout: {slide.layout}
@@ -522,8 +522,7 @@ export default function VisualPreview({
                       onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} 
                       className="text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2"
                       style={{ 
-                        backgroundColor: brandColor || '#DE1E4D',
-                        boxShadow: `0 0 10px ${brandColor ? brandColor + '40' : 'rgba(222,30,77,0.2)'}`
+                        backgroundColor: brandColor || '#DE1E4D'
                       }}
                     >
                       <Save size={16} />
@@ -651,7 +650,7 @@ export default function VisualPreview({
                       setOpenFavIndex(openFavIndex === index ? -1 : index);
                       setOpenAddIndex(-1); // fecha o outro se aberto
                     }}
-                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100 ${openFavIndex === index ? 'text-yellow-500 border-yellow-500/50 bg-yellow-500/5 opacity-100' : 'text-zinc-500 hover:text-yellow-500 hover:bg-yellow-500/5 hover:border-yellow-500/30'}`}
+                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all active:scale-95 opacity-30 hover:opacity-100 ${openFavIndex === index ? 'text-yellow-500 border-yellow-500/50 bg-yellow-500/5 opacity-100' : 'text-zinc-500 hover:text-yellow-500 hover:bg-yellow-500/5 hover:border-yellow-500/30'}`}
                   >
                     <Star className={`w-3.5 h-3.5 ${openFavIndex === index ? 'fill-yellow-500' : ''}`} />
                   </button>
@@ -678,7 +677,7 @@ export default function VisualPreview({
                       setOpenAddIndex(openAddIndex === index ? -1 : index);
                       setOpenFavIndex(-1); // fecha o outro se aberto
                     }}
-                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all shadow-xl active:scale-95 opacity-30 hover:opacity-100 ${openAddIndex === index ? 'text-white border-white/40 bg-white/5 opacity-100' : 'text-zinc-500 hover:text-white hover:bg-surface-input/50 hover:border-white/20'}`}
+                    className={`w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center transition-all active:scale-95 opacity-30 hover:opacity-100 ${openAddIndex === index ? 'text-white border-white/40 bg-white/5 opacity-100' : 'text-zinc-500 hover:text-white hover:bg-surface-input/50 hover:border-white/20'}`}
                   >
                     <Plus className="w-3.5 h-3.5" />
                   </button>
@@ -699,14 +698,14 @@ export default function VisualPreview({
              <>
                <button 
                  onClick={() => onMoveSlide(index + 1, index)} 
-                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
                  title="Mover slide para a Esquerda"
                >
                  <ArrowLeft className="w-4 h-4" />
                </button>
                <button 
                  onClick={() => onMoveSlide(index, index + 1)} 
-                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all shadow-xl active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
+                 className="w-10 h-10 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-zinc-400 hover:text-white hover:bg-surface-input/50 transition-all active:scale-95 hover:border-white/20 opacity-30 hover:opacity-100"
                  title="Mover slide para a Direita"
                >
                  <ArrowRight className="w-4 h-4" />
