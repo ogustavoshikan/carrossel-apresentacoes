@@ -486,13 +486,16 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
         </div>
 
         {/* Card de texto */}
-        <div className="bg-[#0A0A0A] p-8 rounded-3xl border border-white/10">
+        <div 
+          className="p-8 rounded-3xl border border-white/10 shadow-2xl"
+          style={{ backgroundColor: brandColor }}
+        >
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-300 outline-none"
+              className="font-playfair text-white outline-none"
               style={{ fontSize: `${20 * sText}px` }}
             >
               {data.texto_apoio}
