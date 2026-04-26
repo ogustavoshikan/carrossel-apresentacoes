@@ -2445,6 +2445,328 @@ export function CoverVariant46(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 47 — GIANT NUMBER BASE
+// Layout off-white com número gigante marca d'água e CTA circular
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant47(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: '#EBE9E1' }}>
+        {/* Detalhes Geométricos */}
+        <div className="absolute top-0 left-0 w-32 h-32 border-b-[3px] border-r-[3px] border-[#1a1a1a]/10 rounded-br-2xl pointer-events-none z-0"></div>
+        <div className="absolute top-6 left-6 w-2.5 h-2.5 bg-[#1a1a1a]/30 rounded-full z-0"></div>
+        <div className="absolute top-6 left-12 w-2.5 h-2.5 bg-[#1a1a1a]/30 rounded-full z-0"></div>
+        
+        <div className="absolute bottom-0 right-12 w-24 h-24 border-t-[3px] border-l-[3px] border-[#1a1a1a]/10 rounded-tl-2xl pointer-events-none z-0"></div>
+        <div className="absolute bottom-6 right-0 w-24 h-24 border-t-[3px] border-l-[3px] border-[#1a1a1a]/10 rounded-tl-2xl pointer-events-none z-0"></div>
+
+        <div className="absolute top-8 left-8 right-8 z-20">
+            <SlideHeader {...props} index={index + 1} total={slideCount} />
+        </div>
+
+        {/* Número Gigante Marca D'água */}
+        <div className="absolute -left-12 top-[12%] z-0 pointer-events-none">
+            <SmartField field="tag" {...sp}>
+              <div 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-black leading-none outline-none" 
+                style={{ fontFamily: titleFont, fontSize: '380px', color: brandColor, opacity: 0.15, WebkitTextStroke: `3px ${brandColor}` }}
+              >
+                {data.tag || '5'}
+              </div>
+            </SmartField>
+        </div>
+
+        <div className="relative z-10 flex-1 flex flex-col justify-center pl-[35%] pr-8 pt-10">
+            <div className="border-l-4 pl-6" style={{ borderColor: 'white' }}>
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black text-[#1a1a1a] leading-[0.95] tracking-tighter outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${40 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+                <SmartField field="texto_apoio" {...sp} className="mt-2">
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="text-[#1a1a1a]/80 font-semibold leading-snug outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+
+        {/* CTA Circular e Arraste */}
+        <div className="absolute bottom-12 right-12 flex items-center gap-4 z-20">
+            <div className="flex items-center gap-2">
+                <SmartField field="cta_text" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+                    className="font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a]/60 outline-none" 
+                    style={{ fontFamily: titleFont }}
+                  >
+                    {data.cta_text || 'ARRASTA'}
+                  </span>
+                </SmartField>
+            </div>
+            <div className="bg-[#1a1a1a] w-12 h-12 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform cursor-pointer">
+                <ArrowRight className="w-5 h-5 text-white" />
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 48 — SPLIT NUMBER DARK
+// Layout com fundo colorido, imagem superior e número gigante
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant48(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
+        <div className="absolute -top-12 -right-12 z-0 pointer-events-none">
+            <SmartField field="tag" {...sp}>
+              <div 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-black leading-none text-white/20 drop-shadow-xl outline-none" 
+                style={{ fontFamily: titleFont, fontSize: '350px' }}
+              >
+                {data.tag || '7'}
+              </div>
+            </SmartField>
+        </div>
+
+        <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <ImageBg data={data} className="absolute inset-0 opacity-80 mix-blend-luminosity" />
+            <div className="absolute top-6 left-6 right-6">
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} />    
+            </div>
+        </div>
+
+        <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+            <SmartField field="titulo" {...sp}>
+              <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-black text-white leading-[0.9] uppercase tracking-tighter drop-shadow-md outline-none whitespace-pre-line" 
+                style={{ fontFamily: titleFont, fontSize: `${42 * sTitle}px` }}
+              >
+                {data.titulo}
+              </h2>
+            </SmartField>
+            <SmartField field="texto_apoio" {...sp} className="mt-2">
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="text-white/90 font-medium leading-snug w-[85%] outline-none" 
+                style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+              >
+                {data.texto_apoio}
+              </p>
+            </SmartField>
+
+            <div className="absolute bottom-8 right-8 flex items-center gap-3 text-white">
+                <SmartField field="cta_text" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+                    className="font-bold text-[10px] uppercase tracking-widest outline-none" 
+                    style={{ fontFamily: titleFont }}
+                  >
+                    {data.cta_text || 'ARRASTA'}
+                  </span>
+                </SmartField>
+                <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm"><ArrowRight className="w-4 h-4" /></div>
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 49 — SPLIT VERT TYPO
+// Divisão vertical com imagem e número gigante blend mode
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant49(props) {
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex relative overflow-hidden">
+        <div className="w-1/2 h-full relative" style={{ backgroundColor: brandColor }}>
+             <div className="absolute top-8 left-8 z-20">
+               <span className="font-bold tracking-[0.15em] text-[10px] uppercase text-white/80" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+             </div>
+        </div>
+        <div className="w-1/2 h-full bg-zinc-950 relative">
+             <ImageBg data={data} className="absolute inset-0 opacity-40 mix-blend-luminosity" />
+             <div className="absolute top-8 right-8 z-20">
+               <span className="font-medium text-xs text-zinc-400" style={{ fontFamily: titleFont }}>{String(index + 1).padStart(2, '0')} / {slideCount}</span>
+             </div>
+        </div>
+
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-10 pointer-events-none mix-blend-difference">
+            <SmartField field="tag" {...sp}>
+              <div 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-black leading-none text-white drop-shadow-2xl outline-none" 
+                style={{ fontFamily: titleFont, fontSize: '320px' }}
+              >
+                {data.tag || '8'}
+              </div>
+            </SmartField>
+        </div>
+
+        <div className="absolute bottom-12 left-8 right-8 z-20 flex justify-between items-end mix-blend-difference text-white">
+             <div className="w-[60%]">
+                 <SmartField field="titulo" {...sp}>
+                   <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.9] tracking-tighter uppercase mb-2 outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${36 * sTitle}px` }}
+                   >
+                     {data.titulo}
+                   </h2>
+                 </SmartField>
+                 <SmartField field="texto_apoio" {...sp}>
+                   <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-snug opacity-80 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
+                   >
+                     {data.texto_apoio}
+                   </p>
+                 </SmartField>
+             </div>
+             <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center shrink-0"><ArrowRight className="w-5 h-5 text-white" /></div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 50 — MASSIVE TYPO FRAME
+// Moldura colorida com card de imagem e título de impacto
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant50(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full p-4 overflow-hidden relative" style={{ backgroundColor: brandColor }}>        
+        <div className="w-full h-full rounded-2xl flex flex-col overflow-hidden relative z-10 shadow-2xl bg-[#EBE9E1]">
+            <div className="p-8 pb-6 flex flex-col shrink-0">
+                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <div className="mt-4 mb-3">
+                    <SmartField field="titulo" {...sp}>
+                      <h2 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                        className="font-black leading-[0.9] tracking-tighter uppercase outline-none whitespace-pre-line" 
+                        style={{ color: brandColor, fontFamily: titleFont, fontSize: `${42 * sTitle}px` }}
+                      >
+                        {data.titulo}
+                      </h2>
+                    </SmartField>
+                </div>
+                <div className="w-16 h-1.5 rounded-full" style={{ backgroundColor: brandColor }}></div>
+            </div>
+
+            <div className="flex-1 w-full relative z-0">
+                <ImageBg data={data} className="absolute inset-0" />
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/50 shadow-xl">
+                    <SmartField field="texto_apoio" {...sp}>
+                      <p 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                        className="text-[#1a1a1a] font-bold leading-snug text-sm outline-none" 
+                        style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
+                      >
+                        {data.texto_apoio}
+                      </p>
+                    </SmartField>
+                </div>
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 51 — SOLID HALF BRAND
+// Meio a meio sólido com título vazado para fora
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant51(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex relative overflow-hidden bg-black">
+        <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center shadow-[20px_0_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+             <div className="absolute top-6 left-6">
+                <SlideHeader {...props} index={index + 1} total={slideCount} />
+             </div>
+             <div className="shrink-0 z-20 w-[180%]">
+                 <SmartField field="titulo" {...sp}>
+                   <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.9] tracking-tighter uppercase drop-shadow-2xl text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${44 * sTitle}px` }}
+                   >
+                    {data.titulo}
+                   </h2>
+                 </SmartField>
+             </div>
+        </div>
+        <div className="w-1/2 h-full relative z-0">
+            <ImageBg data={data} className="absolute inset-0 opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/30" />
+            <div className="absolute bottom-8 right-6 z-20 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-[140%] -translate-x-1/4 shadow-2xl">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-bold leading-snug text-white drop-shadow-md outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -2492,6 +2814,11 @@ export const COVER_VARIANT_COMPONENTS = {
   44: CoverVariant44,
   45: CoverVariant45,
   46: CoverVariant46,
+  47: CoverVariant47,
+  48: CoverVariant48,
+  49: CoverVariant49,
+  50: CoverVariant50,
+  51: CoverVariant51,
 };
 
 export const COVER_VARIANT_META = [
@@ -2547,4 +2874,9 @@ export const COVER_VARIANT_META = [
   { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa44.png' },
   { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa45.png' },
   { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa46.png' },
+  { id: 47, name: 'Giant Number Base', description: 'Off-white com número gigante marca d\'água', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa47.png' },
+  { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa48.png' },
+  { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa49.png' },
+  { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa50.png' },
+  { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa51.png' },
 ];

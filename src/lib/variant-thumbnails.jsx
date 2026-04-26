@@ -541,6 +541,72 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    47: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ background: '#EBE9E1' }}>
+        <div className="absolute top-0 left-0 w-4 h-4 border-b border-r border-black/10 rounded-br-[2px]" />
+        <div className="absolute bottom-0 right-4 w-4 h-4 border-t border-l border-black/10 rounded-tl-[2px]" />
+        <div className="absolute -left-1.5 top-[15%] font-black opacity-10" style={{ color: accent, fontSize: '30px' }}>5</div>
+        <div className="flex-1 flex flex-col justify-center pl-6 pr-1 gap-1">
+          <div className="border-l-[1.5px] border-white pl-1.5 flex flex-col gap-1">
+            <div className="w-[70%] h-[3px] bg-black/80 rounded-full" />
+            <div className="w-[50%] h-[1.5px] bg-black/40 rounded-full" />
+          </div>
+        </div>
+        <div className="absolute bottom-2 right-2 w-3 h-3 rounded-full bg-black flex items-center justify-center">
+          <div className="w-1 h-1 border-t border-r border-white rotate-45" />
+        </div>
+      </div>
+    ),
+    48: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden relative" style={{ background: accent }}>
+        <div className="absolute -top-1.5 -right-1.5 font-black text-white/20" style={{ fontSize: '28px' }}>7</div>
+        <div className="h-[45%] w-full border-b-[2px] border-white shadow-md" style={{ background: img }} />
+        <div className="flex-1 p-2 flex flex-col justify-center gap-1">
+          <div className="w-[85%] h-[3px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    49: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden relative">
+        <div className="w-1/2 h-full" style={{ background: accent }} />
+        <div className="w-1/2 h-full bg-zinc-950 opacity-40" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] font-black text-white mix-blend-difference" style={{ fontSize: '24px' }}>8</div>
+        <div className="absolute bottom-2 left-2 right-2 flex justify-between items-end mix-blend-difference">
+          <div className="flex flex-col gap-0.5">
+            <div className="w-8 h-[2.5px] bg-white rounded-full" />
+            <div className="w-6 h-[1.5px] bg-white/60 rounded-full" />
+          </div>
+          <div className="w-3 h-3 rounded-full border border-white" />
+        </div>
+      </div>
+    ),
+    50: ({ brandColor: accent }) => (
+      <div className="w-full h-full p-1 overflow-hidden relative" style={{ background: accent }}>
+        <div className="w-full h-full rounded-md bg-[#EBE9E1] flex flex-col overflow-hidden shadow-sm">
+          <div className="p-1.5 flex flex-col gap-1">
+            <div className="w-[60%] h-[3px] bg-black/80 rounded-full" />
+            <div className="w-4 h-[1px]" style={{ background: accent }} />
+          </div>
+          <div className="flex-1 w-full relative" style={{ background: img }}>
+            <div className="absolute bottom-1 left-1 right-1 bg-white/90 rounded-sm p-1">
+              <div className="w-[80%] h-[1px] bg-black/60 rounded-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    51: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-black relative">
+        <div className="w-1/2 h-full flex flex-col justify-center p-1.5 shadow-lg relative z-10" style={{ background: accent }}>
+          <div className="w-[160%] h-[4px] bg-white rounded-full drop-shadow-md" />
+        </div>
+        <div className="w-1/2 h-full opacity-60" style={{ background: img }} />
+        <div className="absolute bottom-1 right-1 w-[60%] h-3 bg-white/10 backdrop-blur-sm rounded-sm p-1 border border-white/10">
+          <div className="w-[80%] h-[1px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
   },
   'content-split': {
     0: ({ brandColor: accent }) => (
