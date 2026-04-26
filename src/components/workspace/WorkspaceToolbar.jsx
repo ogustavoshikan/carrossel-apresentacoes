@@ -30,63 +30,64 @@ export default function WorkspaceToolbar({
     <div className="relative mt-2 z-20 flex items-center justify-between bg-black border border-white/5 p-2 rounded-[20px] w-full font-sans">
       
       {/* Esquerda: Badge Metadados */}
-      <div className="flex-1 flex justify-start pl-2">
+      <div className="flex justify-start pl-2">
         <span className="flex items-center justify-center text-[11px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full tracking-wide">
           {slides.length} {slides.length === 1 ? 'Slide' : 'Slides'}
         </span>
       </div>
 
-      {/* Centro: Controles de visualização */}
-      <div className="flex-[2] sm:flex-1 flex justify-center shrink-0">
-        <div className="flex items-center bg-white/5 p-1 rounded-full border border-white/5">
-          <button
-            onClick={() => { setViewMode('visual'); setShowMetrics(false); }}
-            className={cn(
-              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
-              viewMode === 'visual' && !showMetrics
-                ? 'bg-white/10 text-white'
-                : 'text-zinc-500 hover:text-zinc-300'
-            )}
-          >
-            <Eye className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline-block">Preview Final</span>
-          </button>
+      {/* Direita: Controles e Ações */}
+      <div className="flex items-center gap-1 sm:gap-2 pr-1">
+        {/* Preview Final */}
+        <button
+          onClick={() => { setViewMode('visual'); setShowMetrics(false); }}
+          className={cn(
+            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            viewMode === 'visual' && !showMetrics
+              ? 'bg-white/10 text-white border-white/10'
+              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+          )}
+        >
+          <Eye className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline-block">Preview Final</span>
+        </button>
 
-          <button
-            onClick={() => setViewMode('text')}
-            className={cn(
-              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
-              viewMode === 'text'
-                ? 'bg-white/10 text-white'
-                : 'text-zinc-500 hover:text-zinc-300'
-            )}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline-block">Estrutura</span>
-          </button>
+        {/* Estrutura */}
+        <button
+          onClick={() => setViewMode('text')}
+          className={cn(
+            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            viewMode === 'text'
+              ? 'bg-white/10 text-white border-white/10'
+              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+          )}
+        >
+          <FileText className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline-block">Estrutura</span>
+        </button>
 
-          <button
-            onClick={() => { setViewMode('visual'); setShowMetrics(true); }}
-            className={cn(
-              'flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full text-[11px] font-medium transition-all',
-              viewMode === 'visual' && showMetrics
-                ? 'text-white'
-                : 'text-zinc-500 hover:text-zinc-300'
-            )}
-            style={
-              viewMode === 'visual' && showMetrics
-                ? { backgroundColor: `${brandColor}30`, color: brandColor }
-                : {}
-            }
-          >
-            <Zap className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline-block">Raio-X</span>
-          </button>
-        </div>
-      </div>
+        {/* Raio-X */}
+        <button
+          onClick={() => { setViewMode('visual'); setShowMetrics(true); }}
+          className={cn(
+            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            viewMode === 'visual' && showMetrics
+              ? 'border-transparent'
+              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+          )}
+          style={
+            viewMode === 'visual' && showMetrics
+              ? { backgroundColor: `${brandColor}20`, color: brandColor, borderColor: `${brandColor}30` }
+              : {}
+          }
+        >
+          <Zap className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline-block">Raio-X</span>
+        </button>
 
-      {/* Direita: Ações de saída e utilitários */}
-      <div className="flex-1 flex justify-end gap-1 sm:gap-2 pr-1 shrink-0">
+        <div className="w-px h-4 bg-white/10 mx-1"></div>
+
+        {/* Copiar */}
         <button
           onClick={onCopyAll}
           className="flex items-center justify-center gap-2 text-[11px] font-medium bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 py-1.5 px-2 sm:px-3 rounded-full transition-colors border border-transparent hover:border-white/5"
@@ -101,6 +102,7 @@ export default function WorkspaceToolbar({
           </span>
         </button>
 
+        {/* Export */}
         {viewMode === 'visual' && slides.length > 0 && (
           <button
             onClick={onExportAll}
