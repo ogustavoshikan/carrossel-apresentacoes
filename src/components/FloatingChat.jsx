@@ -1,10 +1,11 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 import ReactMarkdown from 'react-markdown';
 import { 
   MessageSquare, X, Minus, Move, Send, Loader2, 
   History, RotateCcw, Maximize2, Paperclip,
-  MessageSquareText, Search, Type, Copy, ThumbsUp, ThumbsDown, Check
+  MessageSquareText, Search, Type, Copy, ThumbsUp, ThumbsDown, Check,
+  ChevronDown, Globe
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { generateChatMessage, searchWebWithSerpApi } from '../services/ai';
@@ -240,30 +241,6 @@ export function FloatingChat() {
           <div className="p-6 py-5 flex items-center justify-between select-none shrink-0 transition-all relative">
             <div className="flex flex-col gap-1">
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">Carrossel AI</span>
-              <div className="flex items-center gap-2">
-                <select 
-                  value={selectedModel}
-                  onChange={(e) => handleModelChange(e.target.value)}
-                  className="bg-transparent text-[10px] text-zinc-500 hover:text-white border-none focus:ring-0 p-0 cursor-pointer outline-none max-w-[120px] truncate font-mono uppercase tracking-tighter"
-                >
-                  {availableModels.map(m => (
-                    <option key={m.id} value={m.id} className="bg-black text-white">
-                      {m.id.split('/').pop()}
-                    </option>
-                  ))}
-                </select>
-                <button 
-                  onClick={() => setSearchEnabled(!searchEnabled)}
-                  className={cn(
-                    "flex items-center gap-1 px-1.5 py-0.5 rounded-full border transition-all",
-                    searchEnabled ? "bg-blue-600/20 border-blue-500 text-blue-400" : "bg-transparent border-zinc-800 text-zinc-600 hover:text-zinc-400"
-                  )}
-                  title={searchEnabled ? "Busca Web Ativa" : "Ativar Busca Web"}
-                >
-                  <Search className="w-2.5 h-2.5" />
-                  <span className="text-[8px] font-bold uppercase tracking-tighter">Web</span>
-                </button>
-              </div>
             </div>
             
             <div className="flex items-center gap-3">
@@ -349,39 +326,70 @@ export function FloatingChat() {
             <div ref={messagesEndRef} />
           </div>
 
-          <div className="p-6 pt-2 shrink-0 flex flex-col items-center gap-4">
-            <div className="w-full relative flex items-center group">
-              <div className="absolute left-4 flex items-center">
-                <button className="p-1 text-white/40 hover:text-white transition-colors">
-                  <Paperclip className="w-4 h-4" />
+          <div className="p-4 pb-6 bg-gradient-to-t from-[#121214] to-transparent shrink-0">
+            <div className="flex flex-col relative bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-[20px] focus-within:border-zinc-600 focus-within:ring-2 ring-zinc-800/50 transition-all shadow-lg">
+              
+              {/* Linha 1: Os botões de configurações */}
+              <div className="flex items-center gap-2 px-2 pt-2 pb-1">
+                <div className="relative">
+                  <select 
+                    value={selectedModel}
+                    onChange={(e) => handleModelChange(e.target.value)}
+                    className="appearance-none flex items-center gap-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 pl-1.5 py-1 pr-4 rounded-md text-[11px] font-medium transition-all cursor-pointer outline-none w-auto max-w-[85px] truncate"
+                  >
+                    {availableModels.map(m => (
+                      <option key={m.id} value={m.id} className="bg-zinc-900 text-white">
+                        {m.id.split('/').pop()}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown size={12} className="text-zinc-500 absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none"/>
+                </div>
+                
+                <div className="h-4 w-px bg-zinc-800"></div>
+                
+                <button 
+                  onClick={() => setSearchEnabled(!searchEnabled)}
+                  className={cn(
+                    "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium transition-all",
+                    searchEnabled 
+                      ? "text-blue-400 bg-blue-500/10" 
+                      : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800"
+                  )}
+                >
+                  <Globe size={12} /> {searchEnabled ? 'Web Ativada' : 'Buscar na Web'}
                 </button>
               </div>
 
-              <textarea
-                ref={textareaRef}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Pergunte qualquer coisa..."
-                className="w-full bg-zinc-900 border border-zinc-800 text-[#eff3f4] text-[15px] py-4 pl-12 pr-14 rounded-[32px] focus:outline-none focus:border-zinc-700 transition-all resize-none min-h-[56px] custom-scrollbar leading-tight placeholder-[#71767b]"
-                rows={1}
-                disabled={isLoading}
-              />
-
-              <div className="absolute right-3 flex items-center">
+              {/* Linha 2: O Input de verdade (transparente e sem borda) */}
+              <div className="flex items-center px-1 pb-1">
+                <button className="p-2 text-zinc-500 hover:text-zinc-300 transition-colors">
+                  <Paperclip size={18} />
+                </button>
+                
+                <textarea
+                  ref={textareaRef}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Pergunte qualquer coisa..."
+                  className="flex-1 bg-transparent border-none outline-none text-zinc-200 text-[15px] px-2 placeholder:text-zinc-600 py-2 resize-none min-h-[40px] custom-scrollbar leading-tight"
+                  rows={1}
+                  disabled={isLoading}
+                />
+                
                 <button 
                   onClick={handleSubmit}
                   disabled={!message.trim() || isLoading}
-                  className="p-2.5 bg-white text-black rounded-full hover:scale-105 transition-transform shrink-0 shadow-lg disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center h-10 w-10"
+                  className="p-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-xl transition-all shadow-sm ml-2 disabled:opacity-50 disabled:hover:bg-zinc-100 flex items-center justify-center shrink-0"
                 >
-                  {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                  {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send size={16} />}
                 </button>
               </div>
+
             </div>
             
-            <div className="text-[11px] text-[#71767b] font-medium tracking-tight">
-               Shift + Enter para pular linha 🌑
-            </div>
+            <div className="text-center mt-4 text-[10px] text-zinc-600 font-medium">Shift + Enter para pular linha</div>
           </div>
 
           {error && (
