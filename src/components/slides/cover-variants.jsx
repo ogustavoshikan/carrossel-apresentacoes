@@ -2767,6 +2767,291 @@ export function CoverVariant51(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 52 — BRAND DOMINANCE
+// Layout com bloco de cor dominante e imagem em escala de cinza
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant52(props) {
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
+        <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)]" style={{ backgroundColor: brandColor }}>
+            <div className="absolute top-6 left-6 right-6">
+                <SlideHeader {...props} index={index + 1} total={slideCount} />
+            </div>
+
+            <div className="mb-3 shrink-0">
+                <SmartField field="tag" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                    className="font-black text-[12px] uppercase tracking-[0.3em] bg-white text-black px-4 py-1.5 rounded-full inline-block outline-none" 
+                    style={{ fontFamily: titleFont }}
+                  >
+                    {data.tag || 'IMPACTO'}
+                  </span>
+                </SmartField>
+            </div>
+            <div className="w-full mb-4 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.85] tracking-tighter uppercase drop-shadow-xl text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${52 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[90%] shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed drop-shadow-md text-white/90 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+
+        <div className="w-full h-[30%] relative z-0 border-t-[8px] border-[#111]">
+            <ImageBg data={data} className="absolute inset-0 grayscale opacity-80" />
+            <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-lg">
+                <SmartField field="cta_text" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+                    className="font-bold text-[10px] tracking-widest uppercase text-black outline-none" 
+                    style={{ fontFamily: titleFont }}
+                  >
+                    {data.cta_text || 'ARRASTA'}
+                  </span>
+                </SmartField>
+                <ArrowRight className="w-4 h-4 text-black" />
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 53 — SHARP HALF BLOCK
+// Layout dividido ao meio com bloco de cor sólido e botão flutuante
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant53(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
+        <div className="h-[50%] w-full flex flex-col justify-center p-8 pb-10 z-10" style={{ backgroundColor: brandColor }}>
+            <div className="absolute top-6 left-6 right-6">
+                <SlideHeader {...props} index={index + 1} total={slideCount} />
+            </div>
+
+            <div className="w-full mb-3 shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.85] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${46 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[90%] shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed text-white/90 outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+
+        <div className="h-[50%] w-full relative z-0">
+            <ImageBg data={data} className="absolute inset-0" />
+        </div>
+
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white z-20 hover:scale-105 transition-transform cursor-pointer">
+             <ArrowRight className="w-6 h-6" />
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 54 — BOLD BRAND FRAME
+// Moldura colorida lateral com título de alto impacto
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant54(props) {
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex relative overflow-hidden bg-white">
+        <div className="w-[35%] h-full relative z-0">
+            <ImageBg data={data} className="absolute inset-0" />
+            <div className="absolute inset-0 bg-black/10" />
+        </div>
+        <div className="flex-1 h-full flex flex-col p-10 relative z-10 shadow-[-20px_0_50px_rgba(0,0,0,0.3)]" style={{ backgroundColor: brandColor }}>
+            <div className="absolute top-6 left-10 right-10">
+                <SlideHeader {...props} index={index + 1} total={slideCount} />
+            </div>
+            <div className="flex-1 flex flex-col justify-center">
+                <div className="mb-6">
+                    <SmartField field="titulo" {...sp}>
+                      <h2 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                        className="font-black leading-[0.9] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
+                        style={{ fontFamily: titleFont, fontSize: `${48 * sTitle}px` }}
+                      >
+                        {data.titulo}
+                      </h2>
+                    </SmartField>
+                </div>
+                <div className="w-12 h-1 bg-white mb-6"></div>
+                <div>
+                    <SmartField field="texto_apoio" {...sp}>
+                      <p 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                        className="font-medium leading-relaxed text-white/90 outline-none" 
+                        style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
+                      >
+                        {data.texto_apoio}
+                      </p>
+                    </SmartField>
+                </div>
+            </div>
+            <div className="font-black text-white/30 text-[10px] tracking-widest uppercase mt-auto outline-none" style={{ fontFamily: titleFont }}>{brandHandle} © 2026</div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 55 — PREMIUM EDGE
+// Layout com barra lateral informativa e card de imagem inferior
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant55(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex relative overflow-hidden bg-white">
+        <div className="w-[15%] h-full flex flex-col items-center justify-between py-10 shrink-0" style={{ backgroundColor: brandColor }}>
+             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none" style={{ fontFamily: titleFont }}>PREMIUM STUDIO</span>
+             <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-lg">      
+                 <ArrowRight className="w-5 h-5" />
+             </div>
+        </div>
+        <div className="flex-1 flex flex-col p-10 relative">
+            <SlideHeader {...props} index={index + 1} total={slideCount} />
+            <div className="flex-1 flex flex-col justify-center">
+                <div className="mb-6">
+                    <SmartField field="titulo" {...sp}>
+                      <h2 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                        className="font-black leading-[0.85] tracking-tighter uppercase text-[#1a1a1a] outline-none whitespace-pre-line" 
+                        style={{ fontFamily: titleFont, fontSize: `${56 * sTitle}px` }}
+                      >
+                        {data.titulo}
+                      </h2>
+                    </SmartField>
+                </div>
+                <div className="w-[80%]">
+                    <SmartField field="texto_apoio" {...sp}>
+                      <p 
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                        className="font-medium leading-relaxed text-zinc-600 border-l-4 pl-6 outline-none" 
+                        style={{ borderColor: brandColor, fontFamily: textFont, fontSize: `${18 * sText}px` }}
+                      >
+                        {data.texto_apoio}
+                      </p>
+                    </SmartField>
+                </div>
+            </div>
+            <div className="w-full h-48 bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner">
+                <ImageBg data={data} className="absolute inset-0" />
+            </div>
+        </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 56 — SPLIT TYPO HERO
+// Layout com imagem superior e bloco de cor informativo
+// ═══════════════════════════════════════════════════════════
+export function CoverVariant56(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-[#1a1a1a]">
+        <div className="h-[55%] w-full relative z-0">
+            <ImageBg data={data} className="absolute inset-0" />
+            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute top-6 left-6 right-6">
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} />
+            </div>
+        </div>
+        <div className="flex-1 relative z-10 flex flex-col p-10 justify-center shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+            <div className="mb-4 mt-2">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.85] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${44 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[90%]">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-bold leading-relaxed text-white/80 uppercase tracking-widest outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
+        </div>
+    </div>
+  );
+}
+
 export const COVER_VARIANT_COMPONENTS = {
   1: CoverVariant1,
   2: CoverVariant2,
@@ -2819,6 +3104,11 @@ export const COVER_VARIANT_COMPONENTS = {
   49: CoverVariant49,
   50: CoverVariant50,
   51: CoverVariant51,
+  52: CoverVariant52,
+  53: CoverVariant53,
+  54: CoverVariant54,
+  55: CoverVariant55,
+  56: CoverVariant56,
 };
 
 export const COVER_VARIANT_META = [
@@ -2879,4 +3169,9 @@ export const COVER_VARIANT_META = [
   { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa49.png' },
   { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa50.png' },
   { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa51.png' },
+  { id: 52, name: 'Brand Dominance', description: 'Bloco de cor dominante e imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa52.png' },
+  { id: 53, name: 'Sharp Half Block', description: 'Divisão ao meio com bloco sólido e CTA', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa53.png' },
+  { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa54.png' },
+  { id: 55, name: 'Premium Edge', description: 'Barra lateral informativa e card de imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa55.png' },
+  { id: 56, name: 'Split Typo Hero', description: 'Imagem superior e bloco informativo inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa56.png' },
 ];
