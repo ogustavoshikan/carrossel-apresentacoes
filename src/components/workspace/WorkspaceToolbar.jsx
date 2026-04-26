@@ -27,7 +27,7 @@ export default function WorkspaceToolbar({
   brandColor,
 }) {
   return (
-    <div className="relative mt-2 z-20 flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/5 p-2 rounded-full w-full font-sans">
+    <div className="relative mt-2 z-20 flex items-center justify-between bg-black border border-white/5 p-2 rounded-[20px] w-full font-sans">
       
       {/* Esquerda: Badge Metadados */}
       <div className="flex-1 flex justify-start pl-2">
