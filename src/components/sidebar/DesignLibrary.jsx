@@ -84,7 +84,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
                 }}
                 className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-all relative group ${
                   isActive 
-                    ? 'bg-zinc-800 text-white shadow-lg border border-white/10 ring-1 ring-white/5' 
+                    ? 'bg-zinc-900 text-white shadow-lg border border-white/10 ring-1 ring-white/5' 
                     : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
                 }`}
                 title={theme.label}

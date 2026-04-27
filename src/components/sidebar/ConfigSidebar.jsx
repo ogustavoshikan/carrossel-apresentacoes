@@ -1097,10 +1097,6 @@ export default function ConfigSidebar({
                 )}
                 style={isActive ? { borderColor: `${gradientColor1}40` } : {}}
               >
-                <Icon 
-                  size={14} 
-                  style={isActive ? { color: gradientColor1 } : {}} 
-                />
                 <span className="text-[10px] font-black uppercase tracking-widest">{tab.label}</span>
               </button>
             );
