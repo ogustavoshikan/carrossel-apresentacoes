@@ -2535,7 +2535,7 @@ export function CoverVariant47(props) {
 // Layout com fundo colorido, imagem superior e número gigante
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant48(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2584,6 +2584,13 @@ export function CoverVariant48(props) {
                 </SmartField>
                 <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm"><ArrowRight className="w-4 h-4" /></div>
             </div>
+        </div>
+
+        <div 
+          className="absolute left-[32px] top-[274px] font-black text-white/30 text-[10px] tracking-widest uppercase outline-none" 
+          style={{ fontFamily: titleFont }}
+        >
+          {brandHandle} © 2026
         </div>
     </div>
   );
