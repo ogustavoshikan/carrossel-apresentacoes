@@ -4182,6 +4182,322 @@ export function SplitVariant70(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 71 — Author Bottom Image
+// Header + Avatar/Texto no topo + Imagem na base.
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant71(props) {
+  const { data, index, slideCount, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-50 relative">
+      <div className="absolute top-6 left-6 right-6 z-20">
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} hideDot={true} />
+      </div>
+      <div className="w-full h-[55%] flex flex-col p-8 pt-20 relative z-10">
+        <div className="flex items-center gap-3 mb-4 shrink-0">
+          <div className="w-12 h-12 rounded-full bg-zinc-300 overflow-hidden shrink-0 shadow-md border-2 border-white">
+            <img src={brandAvatar || "https://i.pravatar.cc/150?img=49"} className="w-full h-full object-cover" alt="Avatar"/>
+          </div>
+          <div className="flex flex-col">
+            <SmartField field="tag" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-black text-[#1a1a1a] uppercase text-[11px] tracking-wider font-outfit outline-none"
+              >
+                {data.tag || 'AUTHOR'}
+              </span>
+            </SmartField>
+            <span className="text-[10px] text-zinc-500 font-medium font-outfit">{brandHandle || '@username'}</span>
+          </div>
+        </div>
+        <div className="mb-3 shrink-0">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-black text-[#1a1a1a] leading-[0.9] tracking-tight uppercase font-outfit outline-none"
+              style={{ fontSize: `${38 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-zinc-600 leading-snug font-medium font-outfit outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+      <div className="flex-1 w-full relative z-0">
+        <SmartField field="imagem" {...sp} className="absolute inset-0">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 72 — Author Split Bottom
+// Header + Texto no topo + Imagem deslocada na base com avatar.
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant72(props) {
+  const { data, index, slideCount, brandHandle, brandColor, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white p-6 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
+      <div className="flex-1 flex flex-col pt-4 min-h-0 z-10">
+        <div className="mb-2">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-bold text-[10px] tracking-widest text-zinc-400 uppercase font-outfit outline-none"
+            >
+              {data.tag || brandHandle || '@SEUPERFIL'}
+            </span>
+          </SmartField>
+        </div>
+        <div className="mb-3 shrink-0">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-black leading-[0.85] tracking-tighter font-outfit outline-none"
+              style={{ color: brandColor, fontSize: `${42 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-[#1a1a1a] font-bold leading-snug font-outfit outline-none"
+              style={{ fontSize: `${15 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+      <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden shadow-2xl shrink-0 bg-zinc-200 relative ml-auto border-4 border-white mt-4">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border-2 border-white bg-white overflow-hidden shadow-lg">
+          <img src={brandAvatar || "https://i.pravatar.cc/150?img=16"} className="w-full h-full object-cover" alt="Avatar"/>
+        </div>
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 73 — Author Edge Bot
+// Texto sobre fundo de cor da marca + Imagem na base (45%).
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant73(props) {
+  const { data, index, slideCount, brandColor, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col p-8 pt-10 justify-center relative border-b-8 border-white" style={{ backgroundColor: brandColor }}>
+        <div className="absolute top-6 left-8 right-8">
+          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} hideDot={true} />
+        </div>
+        <div className="mb-3 mt-4 shrink-0">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-black text-white leading-none tracking-tight uppercase font-outfit outline-none"
+              style={{ fontSize: `${38 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-white/80 font-medium leading-snug font-outfit outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+        <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/20">
+          <div className="w-8 h-8 rounded-full bg-white overflow-hidden shrink-0">
+            <img src={brandAvatar || "https://i.pravatar.cc/150?img=22"} className="w-full h-full object-cover" alt="Avatar"/>
+          </div>
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-bold text-xs text-white uppercase tracking-widest font-outfit outline-none"
+            >
+              {data.tag || 'CHEF'}
+            </span>
+          </SmartField>
+        </div>
+      </div>
+      <div className="w-full h-[45%] shrink-0 relative bg-zinc-200">
+        <SmartField field="imagem" {...sp} className="absolute inset-0">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 74 — Author Badge Bottom
+// Texto no topo + Imagem na base com badge de autor flutuante.
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant74(props) {
+  const { data, index, slideCount, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
+      <div className="flex-1 flex flex-col p-8 pb-4 min-h-0 justify-center">
+        <div className="mb-2 shrink-0">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-bold text-[10px] tracking-widest text-zinc-400 uppercase font-outfit outline-none"
+            >
+              {data.tag || 'SEGREDO'}
+            </span>
+          </SmartField>
+        </div>
+        <div className="mb-3 shrink-0">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-black text-[#1a1a1a] leading-tight font-outfit outline-none"
+              style={{ fontSize: `${28 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-zinc-600 leading-relaxed font-medium font-outfit outline-none"
+              style={{ fontSize: `${15 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+      <div className="w-full h-[50%] shrink-0 relative bg-zinc-200 mt-2 z-0">
+        <div className="absolute -top-6 left-8 bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100 z-20">
+          <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden shrink-0">
+            <img src={brandAvatar || "https://i.pravatar.cc/150?img=12"} className="w-full h-full object-cover" alt="Avatar"/>
+          </div>
+          <span className="pr-3 font-black text-[10px] text-[#1a1a1a] uppercase tracking-wider font-outfit">{brandHandle || 'AUTHOR'}</span>
+        </div>
+        <SmartField field="imagem" {...sp} className="absolute inset-0">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 75 — Author Modern Reverse
+// Texto no topo com avatar + Imagem arredondada na base (45%).
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant75(props) {
+  const { data, index, slideCount, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-50 p-6">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
+      <div className="flex-1 flex flex-col pt-4 min-h-0">
+        <div className="flex items-center gap-3 mb-4 shrink-0">
+          <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden shadow-sm shrink-0">
+            <img src={brandAvatar || "https://i.pravatar.cc/150?img=47"} className="w-full h-full object-cover" alt="Avatar"/>
+          </div>
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-bold text-xs text-zinc-500 uppercase tracking-wide font-outfit outline-none"
+            >
+              {data.tag || 'MODERNO'}
+            </span>
+          </SmartField>
+        </div>
+        <div className="mb-2 shrink-0">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-black text-[#1a1a1a] leading-tight font-outfit outline-none"
+              style={{ fontSize: `${26 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-zinc-600 leading-relaxed font-medium font-outfit outline-none"
+              style={{ fontSize: `${14 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] rounded-[24px] overflow-hidden mt-4 shrink-0 relative bg-zinc-200 shadow-md">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -4255,6 +4571,11 @@ export const SPLIT_VARIANT_COMPONENTS = {
   68: SplitVariant68,
   69: SplitVariant69,
   70: SplitVariant70,
+  71: SplitVariant71,
+  72: SplitVariant72,
+  73: SplitVariant73,
+  74: SplitVariant74,
+  75: SplitVariant75,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -4328,6 +4649,11 @@ export const SPLIT_VARIANT_META = [
   { id: 68, name: 'Cinematic Base', description: 'Base fotográfica com tipografia editorial superior', thumbnailUrl: '' },
   { id: 69, name: 'Brutal Offset', description: 'Layout brutalista com janela de imagem deslocada', thumbnailUrl: '' },
   { id: 70, name: 'Clean Inject', description: 'Design limpo com injeção de cor na base técnica', thumbnailUrl: '' },
+  { id: 71, name: 'Author Bottom Image', description: 'Avatar e texto no topo com imagem na base', thumbnailUrl: '' },
+  { id: 72, name: 'Author Split Bottom', description: 'Texto no topo com imagem deslocada na base', thumbnailUrl: '' },
+  { id: 73, name: 'Author Edge Bot', description: 'Texto sobre cor da marca com imagem na base', thumbnailUrl: '' },
+  { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: '' },
+  { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: '' },
 ];
 
 

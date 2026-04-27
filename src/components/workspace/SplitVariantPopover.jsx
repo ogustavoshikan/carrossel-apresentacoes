@@ -874,6 +874,87 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
         </div>
       </div>
     ),
+    // 71: Author Bottom Image
+    71: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-50">
+        <div className="h-[55%] w-full p-1 flex flex-col gap-1 justify-center">
+          <div className="flex items-center gap-1 mb-0.5">
+            <div className="w-2 h-2 rounded-full bg-zinc-300 overflow-hidden shrink-0">
+               {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+            </div>
+            <div className="w-2.5 h-[0.5px] bg-zinc-400" />
+          </div>
+          <div className="w-[85%] h-[2px] bg-zinc-900 rounded-full" />
+          <div className="w-[65%] h-[1px] bg-zinc-500 rounded-full" />
+        </div>
+        <div className="flex-1 w-full" style={{ background: img }} />
+      </div>
+    ),
+    // 72: Author Split Bottom
+    72: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white p-1">
+        <div className="flex-1 flex flex-col justify-center gap-1">
+          <div className="w-[30%] h-[0.5px] bg-zinc-300" />
+          <div className="w-[80%] h-[2.5px] rounded-full" style={{ background: accent }} />
+          <div className="w-[60%] h-[1px] bg-zinc-800 rounded-full" />
+        </div>
+        <div className="h-[40%] w-[85%] ml-auto rounded-tl-lg rounded-br-lg relative border border-zinc-100" style={{ background: img }}>
+           <div className="absolute bottom-0.5 left-0.5 w-2 h-2 rounded-full bg-white border border-zinc-200 overflow-hidden">
+              {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+           </div>
+        </div>
+      </div>
+    ),
+    // 73: Author Edge Bot
+    73: (
+      <div className="w-full h-full flex flex-col overflow-hidden">
+        <div className="flex-1 w-full p-1 flex flex-col justify-center gap-1" style={{ background: accent }}>
+          <div className="w-[80%] h-[2px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1px] bg-white/60 rounded-full" />
+          <div className="flex items-center gap-1 mt-0.5">
+             <div className="w-1.5 h-1.5 rounded-full bg-white overflow-hidden shrink-0">
+                {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+             </div>
+             <div className="w-2 h-[0.5px] bg-white/40" />
+          </div>
+        </div>
+        <div className="h-[45%] w-full" style={{ background: img }} />
+      </div>
+    ),
+    // 74: Author Badge Bottom
+    74: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="flex-1 w-full p-1 flex flex-col justify-center gap-1">
+          <div className="w-[25%] h-[0.5px] bg-zinc-300" />
+          <div className="w-[80%] h-[2px] bg-zinc-900 rounded-full" />
+          <div className="w-[60%] h-[1px] bg-zinc-500 rounded-full" />
+        </div>
+        <div className="h-[50%] w-full relative" style={{ background: img }}>
+           <div className="absolute -top-1.5 left-1.5 bg-white p-0.5 rounded shadow-sm flex items-center gap-0.5">
+              <div className="w-2 h-2 rounded bg-zinc-200 overflow-hidden shrink-0">
+                 {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+              </div>
+              <div className="w-2 h-[1px] bg-zinc-400" />
+           </div>
+        </div>
+      </div>
+    ),
+    // 75: Author Modern Reverse
+    75: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-50 p-1">
+        <div className="flex items-center gap-1 mb-0.5">
+           <div className="w-2 h-2 rounded-full bg-zinc-300 overflow-hidden shrink-0">
+              {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+           </div>
+           <div className="w-2 h-[0.5px] bg-zinc-400" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-1 px-0.5">
+           <div className="w-[85%] h-[2px] bg-zinc-900 rounded-full" />
+           <div className="w-[65%] h-[1px] bg-zinc-500 rounded-full" />
+        </div>
+        <div className="h-[45%] w-full rounded-md mt-0.5" style={{ background: img }} />
+      </div>
+    ),
   };
 
   return (
