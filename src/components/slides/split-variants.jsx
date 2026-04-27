@@ -1958,13 +1958,11 @@ export function SplitVariant32(props) {
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white">
       <div className="w-full h-[50%] relative shrink-0 z-0">
         <ImageBg data={data} className="absolute inset-0 opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
         <div className="absolute top-6 left-6 right-6">
           <SlideHeader {...props} index={index + 1} total={slideCount} dark hideDot />
         </div>
       </div>
       <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.6)]" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-0 left-0 w-full h-2 bg-white/30"></div>
         <div className="mb-2 shrink-0">
           <SmartField field="tag" {...sp}>
             <span
@@ -2018,20 +2016,19 @@ export function SplitVariant33(props) {
   return (
     <div className="w-full h-full flex overflow-hidden bg-black text-white">
       <div className="w-[75%] h-full relative z-0 flex flex-col p-6">
-        <ImageBg data={data} className="absolute inset-0 opacity-50 grayscale" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent pointer-events-none" />
+        <ImageBg data={data} className="absolute inset-0" />
         <div className="relative z-10">
           <SlideHeader {...props} index={index + 1} total={slideCount} dark hideDot />
         </div>
 
-        <div className="mt-auto relative z-10 bg-[#111]/80 backdrop-blur-md p-5 rounded-2xl border border-white/10">
+        <div className="mt-auto relative z-10 p-5 rounded-2xl border border-white/10" style={{ backgroundColor: brandColor }}>
           <div className="mb-2 shrink-0">
             <SmartField field="titulo" {...sp}>
               <h2
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="font-outfit font-black leading-tight uppercase outline-none"
-                style={{ fontSize: `${22 * sTitle}px`, color: brandColor }}
+                className="font-outfit font-black leading-tight uppercase outline-none text-white"
+                style={{ fontSize: `${22 * sTitle}px` }}
               >
                 {data.titulo}
               </h2>
@@ -2042,7 +2039,7 @@ export function SplitVariant33(props) {
               <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-outfit font-medium leading-snug text-zinc-300 outline-none"
+                className="font-outfit font-medium leading-snug text-white/90 outline-none"
                 style={{ fontSize: `${13 * sText}px` }}
               >
                 {data.texto_apoio}
@@ -2051,13 +2048,13 @@ export function SplitVariant33(props) {
           </div>
         </div>
       </div>
-      <div className="w-[25%] h-full flex flex-col justify-center items-center shadow-[-20px_0_50px_rgba(0,0,0,0.6)] z-10" style={{ backgroundColor: brandColor }}>
+      <div className="w-[25%] h-full flex flex-col justify-center items-center z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform rotate-90 whitespace-nowrap">
           <SmartField field="tag" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-black uppercase tracking-widest text-[28px] text-white drop-shadow-md outline-none"
+              className="font-outfit font-black uppercase tracking-widest text-[28px] text-white outline-none"
             >
               {data.tag || '14'}
             </h2>
