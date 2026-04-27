@@ -3181,13 +3181,12 @@ export function CoverVariant59(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#1a1a1a]">
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-8 left-8 right-8 z-20">
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
         <div className="h-[45%] w-full relative z-0 shrink-0">
             <ImageBg data={data} className="absolute inset-0" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent" />
         </div>
         <div className="flex-1 flex flex-col p-10 relative z-10 -mt-20">
             <div className="w-16 h-16 rounded-full border-4 overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: brandColor, backgroundColor: brandColor }}>
@@ -3222,8 +3221,8 @@ export function CoverVariant59(props) {
                   <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-medium leading-relaxed text-zinc-400 outline-none" 
-                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+                    className="font-medium leading-relaxed outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#e8e8e8' }}
                   >
                     {data.texto_apoio}
                   </p>
