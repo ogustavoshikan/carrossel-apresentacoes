@@ -21,14 +21,16 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick, brandColor }) => (
       className={cn(
         'w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-150',
         isActive
-          ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-white shadow-lg border'
-          : 'bg-transparent text-white/40 hover:bg-surface-input/50 hover:text-white border border-transparent'
+          ? 'bg-gradient-to-br from-[#222222] to-[#111111] text-white shadow-lg border border-transparent'
+          : 'bg-transparent text-white/40 hover:bg-white/5 hover:text-white border border-transparent'
       )}
-      style={isActive ? { borderColor: `${brandColor || '#DE1E4D'}4d` } : {}}
     >
       <Icon size={20} strokeWidth={isActive ? 2 : 1.5} />
     </div>
-    <span className="text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase text-white">
+    <span className={cn(
+      "text-[9px] mt-2 font-bold tracking-[0.15em] transition-colors duration-150 uppercase",
+      isActive ? "text-white" : "text-white/40 group-hover:text-white"
+    )}>
       {label}
     </span>
   </button>
@@ -38,7 +40,7 @@ const SidebarItem = ({ icon: Icon, label, isActive, onClick, brandColor }) => (
  * @name GlobalSidebar
  * @description Barra lateral principal do ecossistema Carrossel Studio.
  */
-const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, appLogoUrl, brandColor }) => {
+const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, comingSoonData, appLogoUrl, brandColor }) => {
   return (
     <aside className="w-24 border-r border-[#FFFFFF]/5 bg-[#000000]/95 flex flex-col items-center justify-between py-8 z-[200] relative h-full shrink-0">
       {/* Logo / Home Trigger */}
@@ -76,7 +78,7 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
         <SidebarItem 
           icon={Sparkles} 
           label="Auto-Post" 
-          isActive={currentView === 'autopost'} 
+          isActive={currentView === 'autopost' || (currentView === 'coming-soon' && comingSoonData?.label === 'Auto-Post')} 
           onClick={() => onComingSoon(Sparkles, 'Auto-Post')} 
           brandColor={brandColor}
         />
@@ -86,7 +88,7 @@ const GlobalSidebar = ({ currentView, onNavigate, onOpenSettings, onComingSoon, 
         <SidebarItem 
           icon={ImageIcon} 
           label="Mídia" 
-          isActive={currentView === 'media'} 
+          isActive={currentView === 'media' || (currentView === 'coming-soon' && comingSoonData?.label === 'Mídia Assets')} 
           onClick={() => onComingSoon(ImageIcon, 'Mídia Assets')} 
           brandColor={brandColor}
         />

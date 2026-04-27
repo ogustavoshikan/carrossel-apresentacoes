@@ -640,6 +640,7 @@ export default function App() {
         onNavigate={setView} 
         onOpenSettings={() => setIsSettingsOpen(true)} 
         onComingSoon={handleComingSoon}
+        comingSoonData={comingSoonData}
         appLogoUrl={appLogoUrl}
         brandColor={gradientColor1}
       />
