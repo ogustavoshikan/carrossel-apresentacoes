@@ -2950,13 +2950,13 @@ export function CoverVariant55(props) {
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-white">
         <div className="w-[15%] h-full flex flex-col items-center justify-between py-10 shrink-0" style={{ backgroundColor: brandColor }}>
-             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none" style={{ fontFamily: titleFont }}>PREMIUM STUDIO</span>
+             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none mt-6" style={{ fontFamily: titleFont }}>PREMIUM STUDIO</span>
              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-lg">      
                  <ArrowRight className="w-5 h-5" />
              </div>
         </div>
         <div className="flex-1 flex flex-col p-10 relative">
-            <SlideHeader {...props} index={index + 1} total={slideCount} />
+            <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             <div className="flex-1 flex flex-col justify-center">
                 <div className="mb-6">
                     <SmartField field="titulo" {...sp}>
@@ -3313,16 +3313,16 @@ export function CoverVariant61(props) {
         <div className="absolute top-8 left-8 right-8 z-20">
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
-        <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-6">
+        <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-1">
             <img src={brandAvatar || "https://i.pravatar.cc/150?img=11"} className="w-full h-full object-cover" alt="Author" />      
         </div>
-        <div className="mb-2 z-20 shrink-0">
+        <div className="mb-[3px] z-20 shrink-0">
             <SmartField field="tag" {...sp}>
               <span 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
                 className="font-black text-[10px] tracking-widest uppercase outline-none" 
-                style={{ fontFamily: titleFont }}
+                style={{ fontFamily: titleFont, color: '#d4d4d4' }}
               >
                 {data.tag || 'MESTRE'}
               </span>
