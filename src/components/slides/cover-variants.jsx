@@ -2618,9 +2618,6 @@ export function CoverVariant49(props) {
         </div>
         <div className="w-1/2 h-full bg-zinc-950 relative">
              <ImageBg data={data} className="absolute inset-0 opacity-100" />
-             <div className="absolute top-8 right-8 z-20">
-               <span className="font-medium text-xs text-zinc-400" style={{ fontFamily: titleFont }}>{String(index + 1).padStart(2, '0')} / {slideCount}</span>
-             </div>
         </div>
 
         <div className="absolute bottom-12 left-8 right-8 z-20 flex justify-between items-end text-white">
