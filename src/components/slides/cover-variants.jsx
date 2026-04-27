@@ -2722,13 +2722,20 @@ export function CoverVariant50(props) {
 // Meio a meio sólido com título vazado para fora
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant51(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-black">
+        <div
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ fontFamily: titleFont, left: '25px', top: '25px' }}
+        >
+          {brandHandle} © 2026
+        </div>
+
         <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center shadow-[20px_0_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
              <div className="absolute top-6 left-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
@@ -2779,6 +2786,13 @@ export function CoverVariant52(props) {
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
+        <div
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ fontFamily: titleFont, left: '243px', top: '333px' }}
+        >
+          {brandHandle} © 2026
+        </div>
+
         <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
@@ -2847,13 +2861,20 @@ export function CoverVariant52(props) {
 // Layout dividido ao meio com bloco de cor sólido e botão flutuante
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant53(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
+        <div
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ fontFamily: titleFont, left: '12px', top: '232px' }}
+        >
+          {brandHandle} © 2026
+        </div>
+
         <div className="h-[50%] w-full flex flex-col justify-center p-8 pb-10 z-10" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
@@ -3008,13 +3029,20 @@ export function CoverVariant55(props) {
 // Layout com imagem superior e bloco de cor informativo
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant56(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-[#1a1a1a]">
+    <div className="w-full h-full flex flex-col overflow-hidden bg-[#1a1a1a] relative">
+        <div
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ fontFamily: titleFont, left: '20px', top: '285px' }}
+        >
+          {brandHandle} © 2026
+        </div>
+
         <div className="h-[55%] w-full relative z-0">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute inset-0 bg-black/10" />
