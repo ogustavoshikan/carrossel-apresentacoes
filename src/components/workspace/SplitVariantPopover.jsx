@@ -602,11 +602,70 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
       <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
         <div className="w-full h-[45%] shrink-0" style={{ background: img }} />
         <div className="flex-1 relative p-1.5 pt-3 bg-white rounded-t-xl -mt-2 shadow-lg flex flex-col gap-1">
-          <div className="absolute -top-3 left-2 w-4 h-4 rounded-full border-2 border-white bg-zinc-200 shadow-sm" />
+          <div className="absolute -top-3 left-2 w-4 h-4 rounded-full border-2 border-white bg-zinc-200 shadow-sm overflow-hidden">
+             {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+          </div>
           <div className="w-[30%] h-[1px] bg-zinc-400 mt-0.5" />
           <div className="w-[85%] h-[2.5px] bg-zinc-900 rounded-full" />
           <div className="w-[65%] h-[1.5px] bg-zinc-400 rounded-full" />
         </div>
+      </div>
+    ),
+    // 49: Hero Shot Profile
+    49: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-200">
+        <div className="h-[55%] w-full" style={{ background: img }} />
+        <div className="flex-1 p-1.5 pt-3 flex flex-col gap-1 relative border-t-[2px] border-white" style={{ background: accent }}>
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 rounded-full border border-white bg-zinc-200 overflow-hidden shrink-0">
+               {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+            </div>
+            <div className="w-4 h-[1px] bg-white/60" />
+          </div>
+          <div className="w-[80%] h-[2.5px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-white/40 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 50: Author Badge Top
+    50: (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
+        <div className="h-[55%] w-full" style={{ background: img }} />
+        <div className="absolute top-[48%] right-2 bg-white p-0.5 rounded shadow-sm border border-zinc-100 flex items-center gap-1 z-10">
+          <div className="w-3 h-3 rounded bg-zinc-200 overflow-hidden shrink-0">
+             {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+          </div>
+          <div className="w-3 h-[1.5px] bg-zinc-300" />
+        </div>
+        <div className="flex-1 p-1.5 pt-3 flex flex-col gap-1">
+          <div className="w-[80%] h-[2.5px] bg-zinc-900 rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 51: Author Minimal Split
+    51: (
+      <div className="w-full h-full flex flex-col p-2 overflow-hidden bg-zinc-50">
+        <div className="w-full h-[35%] rounded-md shadow-sm mb-2" style={{ background: img }} />
+        <div className="flex items-center gap-1 mb-1">
+          <div className="w-2.5 h-2.5 rounded-full border border-white bg-zinc-200 overflow-hidden shrink-0">
+             {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+          </div>
+          <div className="w-4 h-[1px] bg-zinc-300" />
+        </div>
+        <div className="w-[80%] h-[2.5px] bg-zinc-900 rounded-full" />
+        <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full mt-0.5" />
+      </div>
+    ),
+    // 52: Author Floating
+    52: (
+      <div className="w-full h-full flex flex-col items-center justify-center p-2 bg-zinc-900">
+        <div className="w-[75%] aspect-square rounded-lg border border-white/10 mb-2 relative" style={{ background: img }} />
+        <div className="w-3 h-3 rounded-full border border-white/20 bg-zinc-800 mb-1 shrink-0 overflow-hidden">
+           {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+        </div>
+        <div className="w-[60%] h-[2px] bg-white rounded-full mb-0.5" />
+        <div className="w-[40%] h-[1px] bg-zinc-500 rounded-full" />
       </div>
     ),
   };
