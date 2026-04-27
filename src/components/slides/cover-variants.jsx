@@ -2542,21 +2542,8 @@ export function CoverVariant48(props) {
 
   return (
     <div className="w-full h-full relative overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
-        <div className="absolute -top-12 -right-12 z-0 pointer-events-none">
-            <SmartField field="tag" {...sp}>
-              <div 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-black leading-none text-white/20 drop-shadow-xl outline-none" 
-                style={{ fontFamily: titleFont, fontSize: '350px' }}
-              >
-                {data.tag || '7'}
-              </div>
-            </SmartField>
-        </div>
-
-        <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <ImageBg data={data} className="absolute inset-0 opacity-80 mix-blend-luminosity" />
+        <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900">
+            <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />    
             </div>
@@ -2750,18 +2737,19 @@ export function CoverVariant51(props) {
         <div className="w-1/2 h-full relative z-0">
             <ImageBg data={data} className="absolute inset-0 opacity-80" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/30" />
-            <div className="absolute bottom-8 right-6 z-20 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-[140%] -translate-x-1/4 shadow-2xl">
-                <SmartField field="texto_apoio" {...sp}>
-                  <p 
-                    contentEditable suppressContentEditableWarning
-                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-bold leading-snug text-white drop-shadow-md outline-none" 
-                    style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}
-                  >
-                    {data.texto_apoio}
-                  </p>
-                </SmartField>
-            </div>
+        </div>
+
+        <div className="absolute bottom-8 right-6 z-30 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-[70%] shadow-2xl">
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-bold leading-snug text-white drop-shadow-md outline-none" 
+                style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}
+              >
+                {data.texto_apoio}
+              </p>
+            </SmartField>
         </div>
     </div>
   );
@@ -2823,7 +2811,7 @@ export function CoverVariant52(props) {
         </div>
 
         <div className="w-full h-[30%] relative z-0 border-t-[8px] border-[#111]">
-            <ImageBg data={data} className="absolute inset-0 grayscale opacity-80" />
+            <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-lg">
                 <SmartField field="cta_text" {...sp}>
                   <span 
