@@ -3309,7 +3309,7 @@ export function CoverVariant61(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-black text-white text-center items-center p-10">
+    <div className="w-full h-full flex flex-col relative overflow-hidden text-white text-center items-center p-10" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-8 left-8 right-8 z-20">
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
@@ -3322,7 +3322,7 @@ export function CoverVariant61(props) {
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
                 className="font-black text-[10px] tracking-widest uppercase outline-none" 
-                style={{ color: brandColor, fontFamily: titleFont }}
+                style={{ fontFamily: titleFont }}
               >
                 {data.tag || 'MESTRE'}
               </span>
@@ -3353,8 +3353,7 @@ export function CoverVariant61(props) {
             </SmartField>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-[40%] z-0">
-            <ImageBg data={data} className="absolute inset-0 opacity-60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+            <ImageBg data={data} className="absolute inset-0" />
         </div>
     </div>
   );

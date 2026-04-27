@@ -783,8 +783,8 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     ),
     // 61: Author Centered
     61: (
-      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-black text-center items-center p-2 relative">
-        <div className="w-4 h-4 rounded-full border border-white/40 bg-zinc-800 shrink-0 mt-2 mb-1" style={{ borderColor: accent }}>
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden text-center items-center p-2 relative" style={{ backgroundColor: accent }}>
+        <div className="w-4 h-4 rounded-full border border-white/40 bg-zinc-800 shrink-0 mt-2 mb-1">
             {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover rounded-full" />}
         </div>
         <div className="w-6 h-[1.5px] bg-white/40 rounded-full mb-1" />
