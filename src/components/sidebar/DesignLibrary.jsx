@@ -70,7 +70,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
   return (
     <div className="flex flex-col gap-6 animate-in fade-in duration-300">
       {/* Seletor de Temas (7 Botões) */}
-      <div className="sticky top-[-24px] z-30 bg-[#000000]/95 backdrop-blur-xl py-3 -mx-6 px-6 border-b border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.8)]">
+      <div className="sticky top-[-24px] z-30 bg-[#000000]/95 backdrop-blur-xl py-3 -mx-6 px-6 border-b border-white/5">
         <div className="grid grid-cols-7 gap-1 bg-surface-dark/40 p-1.5 rounded-2xl border border-white/5 shadow-inner">
           {LAYOUT_META.map((theme) => {
             const isActive = selectedTheme === theme.key;
@@ -82,9 +82,9 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
                   const scrollContainer = document.getElementById('sidebar-scroll-container');
                   if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-all relative group ${
+                className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-colors relative group outline-none select-none ${
                   isActive 
-                    ? 'bg-zinc-900 text-white shadow-lg border border-white/10 ring-1 ring-white/5' 
+                    ? 'bg-zinc-900 text-white' 
                     : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
                 }`}
                 title={theme.label}
