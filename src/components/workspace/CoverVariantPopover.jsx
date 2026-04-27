@@ -11,7 +11,7 @@ import { cn } from '../../lib/utils';
 
 // ─── Mini Wireframes ────────────────────────────────────────
 // Representações visuais abstratas de cada layout de capa.
-function VariantThumbnail({ variantId, brandColor, isSelected }) {
+function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
   const accent = brandColor;
   const img = '#3f3f46';
   const dark = '#18181b';
@@ -810,7 +810,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
   );
 }
 
-export default function CoverVariantPopover({ currentVariantIndex, onSelect, onClose, brandColor }) {
+export default function CoverVariantPopover({ currentVariantIndex, onSelect, onClose, brandColor, brandAvatar }) {
   const popoverRef = useRef(null);
 
   // Click outside → fecha
@@ -852,6 +852,7 @@ export default function CoverVariantPopover({ currentVariantIndex, onSelect, onC
               <VariantThumbnail
                 variantId={variant.id}
                 brandColor={brandColor}
+                brandAvatar={brandAvatar}
                 isSelected={currentVariantIndex === variant.id}
               />
               <span className={cn(

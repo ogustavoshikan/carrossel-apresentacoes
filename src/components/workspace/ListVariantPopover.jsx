@@ -4,7 +4,7 @@ import { LIST_VARIANT_META } from '../slides/list-variants';
 import VariantPopoverHeader from './VariantPopoverHeader';
 import { cn } from '../../lib/utils';
 
-function VariantThumbnail({ variantId, brandColor, isSelected }) {
+function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
   const accent = brandColor;
   
   const layouts = {
@@ -355,7 +355,7 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
   );
 }
 
-export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, brandColor }) {
+export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, brandColor, brandAvatar }) {
   const popoverRef = useRef(null);
 
   // Click outside to close
@@ -397,6 +397,7 @@ export function ListVariantPopover({ currentVariantIndex, onSelect, onClose, bra
               <VariantThumbnail
                 variantId={variant.id}
                 brandColor={brandColor}
+                brandAvatar={brandAvatar}
                 isSelected={currentVariantIndex === variant.id}
               />
               <span className={cn(

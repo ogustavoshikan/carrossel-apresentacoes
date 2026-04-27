@@ -1527,12 +1527,12 @@ export default function ConfigSidebar({
                    <h4 className="text-[11px] font-black uppercase tracking-widest text-white/40">Biblioteca de Designs</h4>
                    <p className="text-[9px] text-zinc-500 leading-relaxed font-medium">Escolha um estilo para injetar diretamente ao fim do carrossel.</p>
                 </div>
-                <DesignLibrary 
+                <DesignLibrary
                   onAddSlide={onAddSlide}
                   brandColor={gradientColor1}
+                  brandAvatar={brandAvatar}
                   slidesCount={slides.length}
-                />
-             </div>
+                />             </div>
           )}
 
           {activeTab === 'autopost' && (

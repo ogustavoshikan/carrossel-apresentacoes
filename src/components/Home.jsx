@@ -147,7 +147,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
       {/* Background Ambience */}
       <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] blur-[200px] pointer-events-none rounded-full" style={{ backgroundColor: hexToRgba(brandColor, 0.10) }} />
       <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] blur-[150px] pointer-events-none rounded-full" style={{ backgroundColor: hexToRgba(brandColor, 0.05) }} />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC42NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg==')] opacity-20 pointer-events-none mix-blend-overlay" />
 
       {/* Main Content */}
       <main className="flex-1 h-full overflow-y-auto overflow-x-hidden relative z-10 scroll-smooth">
@@ -196,7 +196,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"
               style={{ background: `radial-gradient(circle, ${hexToRgba(brandColor, 0.20)} 0%, transparent 70%)` }}
             />
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC42NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg==')] opacity-10 mix-blend-overlay pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 

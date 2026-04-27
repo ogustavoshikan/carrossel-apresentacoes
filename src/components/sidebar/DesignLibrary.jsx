@@ -15,20 +15,20 @@ import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
  * DesignThumbnail — Renderiza o mini wireframe de uma variante específica.
  * Utiliza a biblioteca centralizada para garantir consistência em todos os layouts.
  */
-function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
+function DesignThumbnail({ theme, variantId, brandColor, brandAvatar, thumbnailUrl }) {
   // Se houver uma URL de thumbnail real, prioriza ela
   if (thumbnailUrl) {
     return (
-      <img 
-        src={thumbnailUrl} 
-        alt={`Variante ${variantId}`} 
+      <img
+        src={thumbnailUrl}
+        alt={`Variante ${variantId}`}
         className="w-full h-full object-cover"
       />
     );
   }
 
   const themeVariants = VARIANT_THUMBNAILS[theme];
-  
+
   if (!themeVariants) {
     return (
       <div className="w-full h-full flex items-center justify-center bg-zinc-900">
@@ -40,7 +40,7 @@ function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
   const ThumbnailComponent = themeVariants[variantId];
 
   if (ThumbnailComponent) {
-    return <ThumbnailComponent brandColor={brandColor} />;
+    return <ThumbnailComponent brandColor={brandColor} brandAvatar={brandAvatar} />;
   }
 
   // Fallback para quando a variante específica não tem um wireframe (usa o ícone do tema)
@@ -51,9 +51,8 @@ function DesignThumbnail({ theme, variantId, brandColor, thumbnailUrl }) {
   );
 }
 
-export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
+export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, slidesCount }) {
   const [selectedTheme, setSelectedTheme] = useState('cover');
-
   // Mapeamento de metadados das variantes
   const THEME_METAS = {
     cover: COVER_VARIANT_META,
@@ -126,6 +125,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, slidesCount }) {
                     theme={selectedTheme} 
                     variantId={variant.id} 
                     brandColor={brandColor} 
+                    brandAvatar={brandAvatar}
                     thumbnailUrl={variant.thumbnailUrl}
                   />
                </div>

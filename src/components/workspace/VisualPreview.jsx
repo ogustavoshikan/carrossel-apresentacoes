@@ -375,6 +375,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -398,6 +399,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -421,6 +423,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -444,6 +447,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -467,6 +471,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -490,6 +495,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
@@ -513,6 +519,7 @@ export default function VisualPreview({
                             }}
                             onClose={() => setOpenVariantIndex(-1)}
                             brandColor={brandColor}
+                            brandAvatar={brandAvatar}
                           />
                         )}
                       </div>
