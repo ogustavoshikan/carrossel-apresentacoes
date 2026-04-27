@@ -416,6 +416,61 @@ function VariantThumbnail({ variantId, brandColor, isSelected }) {
         </div>
       </div>
     ),
+    // 32: Brand Base Split
+    32: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-black">
+        <div className="h-[45%]" style={{ background: img }} />
+        <div className="flex-1 p-1" style={{ background: accent }}>
+          <div className="w-[70%] h-[2.5px] bg-white rounded-full mb-1" />
+          <div className="w-full h-[0.5px] bg-white/40 mb-1" />
+          <div className="w-[50%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 33: Side Brand Panel
+    33: (
+      <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-black relative">
+        <div className="flex-1" style={{ background: img }} />
+        <div className="w-[25%] h-full flex flex-col items-center justify-center gap-1.5" style={{ background: accent }}>
+          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+          <div className="w-2.5 h-2.5 rounded-full bg-white shadow-sm" />
+        </div>
+        <div className="absolute left-1 bottom-1.5 w-[60%] h-4 bg-zinc-900/80 rounded-sm p-1">
+           <div className="w-full h-[1px] bg-white/40" />
+        </div>
+      </div>
+    ),
+    // 34: Brand Window
+    34: (
+      <div className="w-full h-full flex flex-col items-center justify-center rounded-[3px] overflow-hidden relative" style={{ background: accent }}>
+        <div className="w-[80%] h-[50%] rounded-md shadow-lg" style={{ background: img }} />
+        <div className="w-[60%] h-[2px] bg-white rounded-full mt-2" />
+        <div className="w-[40%] h-[1px] bg-white/60 rounded-full mt-0.5" />
+      </div>
+    ),
+    // 35: Brand Base Solid
+    35: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-black">
+        <div className="h-[50%]" style={{ background: img }} />
+        <div className="flex-1 flex flex-col justify-center p-1 gap-1" style={{ background: accent }}>
+          <div className="w-[80%] h-[2.5px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    // 36: Image In Brand
+    36: (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="h-[60%] p-1 flex flex-col gap-1" style={{ background: accent }}>
+           <div className="flex-1 w-full rounded-md" style={{ background: img }} />
+        </div>
+        <div className="flex-1 flex flex-col items-center justify-center gap-1">
+           <div className="w-[70%] h-[2px] rounded-full" style={{ background: accent }} />
+           <div className="w-[50%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
   };
 
   return (
