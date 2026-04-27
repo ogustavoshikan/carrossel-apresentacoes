@@ -3148,6 +3148,126 @@ export function SplitVariant52(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 53 — SHARP BRAND SPLIT
+// Divisão entre imagem e cor da marca com impacto visual.
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant53(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+      <div className="w-full h-[50%] relative shrink-0">
+        <SmartField field="imagem" {...sp} className="absolute inset-0">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+        <div className="absolute bottom-0 left-0 w-full h-1" style={{ backgroundColor: brandColor }}></div> 
+        <div className="absolute top-6 left-6 right-6">
+          <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
+        </div>
+      </div>
+      <div className="flex-1 p-8 flex flex-col justify-center relative text-zinc-900">
+        <div className="absolute top-0 left-8 -translate-y-1/2 px-4 py-1 text-white font-bold text-[10px] tracking-widest uppercase" style={{ backgroundColor: brandColor }}>
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="outline-none"
+            >
+              {data.tag || 'ESTRUTURA'}
+            </span>
+          </SmartField>
+        </div>
+        <div className="mb-4">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black leading-none tracking-tighter uppercase outline-none whitespace-pre-line"
+              style={{ fontSize: `${42 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div>
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-zinc-500 leading-relaxed font-bold outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 54 — MODERNIST TOP
+// Foco na imagem superior com base autoritária.
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant54(props) {
+  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full flex flex-col p-8 bg-zinc-50 overflow-hidden">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
+      <div className="flex items-center gap-4 mb-8 mt-4 shrink-0">
+        <div className="w-12 h-1" style={{ backgroundColor: brandColor }}></div>
+        <SmartField field="tag" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="font-outfit font-black text-[10px] tracking-[0.3em] uppercase text-zinc-400 outline-none"
+          >
+            {data.tag || 'DESIGN'}
+          </span>
+        </SmartField>
+      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[40%] bg-zinc-200 rounded-2xl overflow-hidden relative mb-8 shadow-inner shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
+      <div className="flex-1 flex flex-col">
+        <div className="mb-4">
+          <SmartField field="titulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-zinc-900 leading-[0.9] tracking-tighter uppercase outline-none whitespace-pre-line"
+              style={{ fontSize: `${38 * sTitle}px` }}
+            >
+              {data.titulo}
+            </h2>
+          </SmartField>
+        </div>
+        <div className="flex-1 overflow-hidden">
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none"
+              style={{ fontSize: `${17 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -3203,6 +3323,8 @@ export const SPLIT_VARIANT_COMPONENTS = {
   50: SplitVariant50,
   51: SplitVariant51,
   52: SplitVariant52,
+  53: SplitVariant53,
+  54: SplitVariant54,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -3258,6 +3380,8 @@ export const SPLIT_VARIANT_META = [
   { id: 50, name: 'Author Badge Top', description: 'Imagem de topo com badge de autor flutuante', thumbnailUrl: '' },
   { id: 51, name: 'Author Minimal Split', description: 'Imagem em card arredondado com avatar e tag minimalista', thumbnailUrl: '' },
   { id: 52, name: 'Author Floating', description: 'Imagem flutuante centralizada com avatar e texto em destaque', thumbnailUrl: '' },
+  { id: 53, name: 'Sharp Brand Split', description: 'Divisão precisa entre imagem e cor da marca', thumbnailUrl: '' },
+  { id: 54, name: 'Modernist Top', description: 'Design minimalista com foco na imagem superior', thumbnailUrl: '' },
 ];
 
 

@@ -1323,6 +1323,31 @@ export const VARIANT_THUMBNAILS = {
         <div className="w-[40%] h-[1px] bg-zinc-500 rounded-full" />
       </div>
     ),
+    53: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="h-1/2 w-full relative" style={{ background: img }}>
+           <div className="absolute bottom-0 left-0 w-full h-[2px]" style={{ background: accent }} />
+        </div>
+        <div className="flex-1 p-1.5 flex flex-col justify-center gap-1">
+          <div className="w-4 h-[2px] rounded-full mb-1" style={{ background: accent }} />
+          <div className="w-[80%] h-[3.5px] bg-zinc-800 rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    54: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col p-1.5 overflow-hidden bg-zinc-50">
+        <div className="flex items-center gap-1 mb-2">
+           <div className="w-3 h-[1.5px]" style={{ background: accent }} />
+           <div className="w-4 h-[1px] bg-zinc-300 rounded-full" />
+        </div>
+        <div className="w-full h-[35%] rounded-md mb-2" style={{ background: img }} />
+        <div className="flex flex-col gap-1">
+          <div className="w-[85%] h-[3px] bg-zinc-800 rounded-full" />
+          <div className="w-[65%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
   },
   'big-number': {
     0: ({ brandColor: accent }) => (
