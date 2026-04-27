@@ -1397,6 +1397,59 @@ export const VARIANT_THUMBNAILS = {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-md border-2 shadow-lg" style={{ background: dark, borderColor: accent }} />
       </div>
     ),
+    60: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="h-[55%] w-full p-2 flex flex-col justify-center gap-1 border-b-[2px] border-white" style={{ background: accent }}>
+          <div className="w-[80%] h-[3px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+        <div className="flex-1 w-full" style={{ background: img, opacity: 0.6 }} />
+      </div>
+    ),
+    61: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white p-2">
+        <div className="flex-1 flex flex-col gap-1.5 pt-2">
+          <div className="w-[70%] h-[4px] rounded-full" style={{ background: accent }} />
+          <div className="w-[50%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="h-[40%] w-full relative">
+          <div className="absolute bottom-0 right-0 w-[85%] h-[85%]" style={{ background: accent }} />
+          <div className="absolute top-0 left-0 w-[85%] h-[85%] border border-zinc-200" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    62: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="h-[40%] w-full p-2 flex flex-col justify-center" style={{ background: accent }}>
+          <div className="w-[80%] h-[3.5px] bg-white rounded-full" />
+        </div>
+        <div className="flex-1 p-2 flex flex-col gap-2">
+          <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+          <div className="flex-1 w-full rounded-md border border-zinc-100" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    63: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-white">
+        <div className="flex-1 h-full p-2 flex flex-col">
+          <div className="flex-1 w-full rounded-xl" style={{ background: img }} />
+        </div>
+        <div className="w-[45%] h-full p-2 flex flex-col justify-center gap-1.5" style={{ background: accent }}>
+          <div className="w-3 h-3 rounded-full bg-white/20 mb-1" />
+          <div className="w-full h-[3px] bg-white rounded-full" />
+          <div className="w-[70%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    64: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col p-2 overflow-hidden relative" style={{ background: accent }}>
+        <div className="flex-1 flex flex-col justify-center gap-2">
+          <div className="w-[90%] h-[4px] bg-white rounded-full shadow-sm" />
+          <div className="w-[60%] h-[2px] bg-white/60 rounded-full" />
+        </div>
+        <div className="h-[35%] w-full rounded-xl border-2 border-white/20 shadow-xl" style={{ background: img }} />
+      </div>
+    ),
   },
   'big-number': {
     0: ({ brandColor: accent }) => (
