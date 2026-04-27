@@ -56,7 +56,12 @@ export default function SlideHeader({
     >
       <div className="flex items-center gap-3 select-none">
         {brandAvatar ? (
-          <img src={brandAvatar} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+          <img 
+            src={brandAvatar} 
+            alt="avatar" 
+            className="w-6 h-6 rounded-full object-cover" 
+            crossOrigin="anonymous"
+          />
         ) : !hideDot ? (
           <div
             className={`w-2.5 h-2.5 rounded-full ${dark ? 'bg-black' : ''}`}

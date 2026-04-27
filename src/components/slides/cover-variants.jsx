@@ -3098,7 +3098,12 @@ export function CoverVariant57(props) {
         <div className="flex flex-col p-10 pb-6 z-10 shrink-0 mt-8">
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-zinc-100 overflow-hidden shrink-0 border-2" style={{ borderColor: brandColor }}>
-                    <img src={brandAvatar || "https://i.pravatar.cc/150?u=bruna"} className="w-full h-full object-cover" alt="Author" />
+                    <img 
+                      src={brandAvatar || "https://i.pravatar.cc/150?u=bruna"} 
+                      className="w-full h-full object-cover" 
+                      alt="Author" 
+                      crossOrigin="anonymous"
+                    />
                 </div>
                 <div className="flex flex-col">
                     <span className="font-bold text-sm tracking-wide" style={{ fontFamily: titleFont }}>{brandHandle}</span>

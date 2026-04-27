@@ -45,6 +45,11 @@ export async function exportAllToPNG(slides, brandHandle) {
       const dataUrl = await window.htmlToImage.toPng(element, {
         pixelRatio: 3,
         backgroundColor: '#020202',
+        filter: (node) => {
+          if (node.tagName === 'SCRIPT') return false;
+          if (node.tagName === 'LINK' && node.rel !== 'stylesheet') return false;
+          return true;
+        }
       });
 
       const link = document.createElement('a');
@@ -86,6 +91,12 @@ export async function exportSlideToPNG(i, brandHandle) {
     const dataUrl = await window.htmlToImage.toPng(element, {
       pixelRatio: 3,
       backgroundColor: '#020202',
+      filter: (node) => {
+        // Ignora scripts e links que não sejam de estilo para evitar processamento desnecessário
+        if (node.tagName === 'SCRIPT') return false;
+        if (node.tagName === 'LINK' && node.rel !== 'stylesheet') return false;
+        return true;
+      }
     });
 
     const safeHandle = brandHandle.replace('@', '');

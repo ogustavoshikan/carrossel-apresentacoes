@@ -141,6 +141,23 @@ export default function App() {
     };
   }, [isResizingSidebar]);
 
+  // Gerenciamento dinâmico de fontes (Google Fonts) com CORS
+  useEffect(() => {
+    const title = titleFont.replace(/ /g, '+');
+    const text = textFont.replace(/ /g, '+');
+    const url = `https://fonts.googleapis.com/css2?family=${title}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${text}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap`;
+    
+    let link = document.getElementById('dynamic-google-fonts');
+    if (!link) {
+      link = document.createElement('link');
+      link.id = 'dynamic-google-fonts';
+      link.rel = 'stylesheet';
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    }
+    link.href = url;
+  }, [titleFont, textFont]);
+
   // Teclado: Movimentação de elementos selecionados com as setas (2px por vez)
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -675,13 +692,6 @@ export default function App() {
               onCancel={cancelFavorite}
               brandColor={gradientColor1}
             />
-
-            {/* Google Fonts */}
-            <style>{`
-              @import url('https://fonts.googleapis.com/css2?family=${titleFont.replace(/ /g, '+')}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${textFont.replace(/ /g, '+')}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap');
-            `}</style>
-
-
 
             {/* STUDIO WORKSPACE LAYOUT */}
             <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative group/layout">
