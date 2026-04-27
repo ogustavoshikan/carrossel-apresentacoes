@@ -1201,6 +1201,75 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    43: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 gap-1" style={{ background: accent }}>
+        <div className="w-full h-[50%] bg-white p-0.5 rounded-lg flex items-center justify-center">
+          <div className="w-full h-full rounded-md" style={{ background: img }} />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-1">
+          <div className="w-[90%] h-[4px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    44: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="w-full h-[55%] shrink-0" style={{ background: img }} />
+        <div className="flex-1 p-1.5 flex flex-col justify-center gap-1 border-t-2" style={{ background: '#f4f4f5', borderColor: accent }}>
+           <div className="w-[80%] h-[3px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    45: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1.5 gap-1.5 bg-zinc-100">
+        <div className="w-full h-[45%] bg-white rounded-md border-2 p-0.5" style={{ borderColor: accent }}>
+          <div className="w-full h-full rounded-sm" style={{ background: img }} />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-1">
+          <div className="w-[85%] h-[3px] bg-zinc-900 rounded-full" />
+          <div className="w-[65%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    46: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-zinc-900 relative">
+        <div className="h-[60%] w-full" style={{ background: img }} />
+        <div className="absolute bottom-1 left-1 right-1 h-[45%] rounded-lg p-1 flex flex-col justify-center gap-1 border border-white/10" style={{ background: accent }}>
+          <div className="w-[80%] h-[2.5px] bg-white rounded-full" />
+          <div className="w-[60%] h-[1px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    47: ({ brandColor: accent, brandAvatar }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden p-1 bg-white">
+        <div className="w-full h-[50%] rounded-xl relative overflow-hidden mb-1" style={{ background: img }}>
+          <div className="absolute top-1 left-1 bg-white/90 rounded-full p-0.5 flex items-center gap-0.5">
+            <div className="w-2 h-2 rounded-full bg-zinc-300 overflow-hidden">
+               {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+            </div>
+            <div className="w-3 h-[1px] bg-zinc-400" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-1 px-0.5">
+          <div className="w-[90%] h-[2.5px] bg-zinc-900 rounded-full" />
+          <div className="w-[70%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    48: ({ brandColor: accent, brandAvatar }) => (
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-white">
+        <div className="w-full h-[45%] shrink-0" style={{ background: img }} />
+        <div className="flex-1 relative p-1.5 pt-3 bg-white rounded-t-xl -mt-2 shadow-lg flex flex-col gap-1">
+          <div className="absolute -top-3 left-2 w-4 h-4 rounded-full border-2 border-white bg-zinc-200 shadow-sm overflow-hidden">
+             {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
+          </div>
+          <div className="w-[30%] h-[1px] bg-zinc-400 mt-0.5" />
+          <div className="w-[85%] h-[2.5px] bg-zinc-900 rounded-full" />
+          <div className="w-[65%] h-[1.5px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
   },
   'big-number': {
     0: ({ brandColor: accent }) => (
