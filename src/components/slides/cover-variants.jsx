@@ -2609,8 +2609,11 @@ export function CoverVariant49(props) {
   return (
     <div className="w-full h-full flex relative overflow-hidden">
         <div className="w-1/2 h-full relative" style={{ backgroundColor: brandColor }}>
-             <div className="absolute top-8 left-8 z-20">
-               <span className="font-bold tracking-[0.15em] text-[10px] uppercase text-white/80" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+             <div 
+               className="absolute top-8 left-8 z-20 font-black text-white/30 text-[10px] tracking-widest uppercase outline-none" 
+               style={{ fontFamily: titleFont }}
+             >
+               {brandHandle} © 2026
              </div>
         </div>
         <div className="w-1/2 h-full bg-zinc-950 relative">
@@ -2620,21 +2623,20 @@ export function CoverVariant49(props) {
              </div>
         </div>
 
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-            <SmartField field="tag" {...sp}>
-              <div 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-black leading-none text-white drop-shadow-2xl outline-none" 
-                style={{ fontFamily: titleFont, fontSize: '320px' }}
-              >
-                {data.tag || '8'}
-              </div>
-            </SmartField>
-        </div>
-
         <div className="absolute bottom-12 left-8 right-8 z-20 flex justify-between items-end text-white">
-             <div className="w-[60%]">
+             <div className="w-[60%] flex flex-col items-start">
+                 <div className="mb-2 w-full flex justify-center -ml-8">
+                    <SmartField field="tag" {...sp}>
+                      <div
+                        contentEditable suppressContentEditableWarning
+                        onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                        className="font-black leading-none text-white outline-none text-center"
+                        style={{ fontFamily: titleFont, fontSize: `${190 * sTitle}px` }}
+                      >
+                        {data.tag || '8'}
+                      </div>
+                    </SmartField>
+                 </div>
                  <SmartField field="titulo" {...sp}>
                    <h2 
                     contentEditable suppressContentEditableWarning
@@ -2656,7 +2658,13 @@ export function CoverVariant49(props) {
                    </p>
                  </SmartField>
              </div>
-             <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center shrink-0"><ArrowRight className="w-5 h-5 text-white" /></div>
+
+             <div className="flex flex-col items-center gap-2">
+                 <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-white/10 backdrop-blur-sm">
+                    <ArrowRight className="w-5 h-5" />
+                 </div>
+                 <span className="text-[9px] font-bold uppercase tracking-widest opacity-60" style={{ fontFamily: titleFont }}>Arraste</span>
+             </div>
         </div>
     </div>
   );
