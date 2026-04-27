@@ -44,7 +44,7 @@ export default function WorkspaceToolbar({
           className={cn(
             'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
             viewMode === 'visual' && !showMetrics
-              ? 'bg-white/10 text-white border-white/10'
+              ? 'bg-zinc-900 text-white border-white/10'
               : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
           )}
         >
@@ -58,7 +58,7 @@ export default function WorkspaceToolbar({
           className={cn(
             'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
             viewMode === 'text'
-              ? 'bg-white/10 text-white border-white/10'
+              ? 'bg-zinc-900 text-white border-white/10'
               : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
           )}
         >
@@ -72,12 +72,12 @@ export default function WorkspaceToolbar({
           className={cn(
             'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
             viewMode === 'visual' && showMetrics
-              ? 'border-transparent'
+              ? 'bg-zinc-900 border-white/10'
               : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
           )}
           style={
             viewMode === 'visual' && showMetrics
-              ? { backgroundColor: `${brandColor}20`, color: brandColor, borderColor: `${brandColor}30` }
+              ? { color: brandColor }
               : {}
           }
         >

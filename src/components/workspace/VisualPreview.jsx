@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 import {
   Copy,
@@ -295,7 +295,7 @@ export default function VisualPreview({
 
             <button
               onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
-              className="w-full bg-zinc-800/40 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
+              className="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
               style={{ '--brand-hover': brandColor || '#DE1E4D' }}
             >
               <PenLine 
@@ -362,7 +362,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -385,7 +385,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -408,7 +408,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -431,7 +431,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -454,7 +454,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -477,7 +477,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -500,7 +500,7 @@ export default function VisualPreview({
                       <div className="relative">
                         <button
                           onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-800/60 hover:bg-zinc-700 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                         >
                           Variante
                         </button>
@@ -721,4 +721,3 @@ export default function VisualPreview({
     </div>
   );
 }
-
