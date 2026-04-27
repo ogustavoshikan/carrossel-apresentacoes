@@ -661,8 +661,8 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     // 51: Solid Half Brand
     51: (
       <div className="w-full h-full flex rounded-[3px] overflow-hidden bg-black relative">
-        <div className="w-1/2 h-full flex flex-col justify-center p-1.5 shadow-lg relative z-10" style={{ background: accent }}>
-          <div className="w-[160%] h-[4px] bg-white rounded-full drop-shadow-md" />
+        <div className="w-1/2 h-full flex flex-col justify-center p-1.5 relative z-10" style={{ background: accent }}>
+          <div className="w-[160%] h-[4px] bg-white rounded-full" />
         </div>
         <div className="w-1/2 h-full opacity-60" style={{ background: img }} />
         <div className="absolute bottom-1 right-1 w-[60%] h-3 bg-white/10 backdrop-blur-sm rounded-sm p-1 border border-white/10">

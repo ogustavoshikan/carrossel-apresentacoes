@@ -2736,7 +2736,7 @@ export function CoverVariant51(props) {
           {brandHandle} © 2026
         </div>
 
-        <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center shadow-[20px_0_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+        <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center" style={{ backgroundColor: brandColor }}>
              <div className="absolute top-6 left-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
              </div>
@@ -2745,7 +2745,7 @@ export function CoverVariant51(props) {
                    <h2 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                    className="font-black leading-[0.9] tracking-tighter uppercase drop-shadow-2xl text-white outline-none whitespace-pre-line" 
+                    className="font-black leading-[0.9] tracking-tighter uppercase text-white outline-none whitespace-pre-line" 
                     style={{ fontFamily: titleFont, fontSize: `${44 * sTitle}px` }}
                    >
                     {data.titulo}
@@ -2754,8 +2754,7 @@ export function CoverVariant51(props) {
              </div>
         </div>
         <div className="w-1/2 h-full relative z-0">
-            <ImageBg data={data} className="absolute inset-0 opacity-80" />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/30" />
+            <ImageBg data={data} className="absolute inset-0" />
         </div>
 
         <div className="absolute bottom-8 right-6 z-30 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-[70%] shadow-2xl">
