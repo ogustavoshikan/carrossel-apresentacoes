@@ -116,7 +116,7 @@ export default function WorkspaceToolbar({
               <Download className="w-3.5 h-3.5" />
             )}
             <span className="hidden sm:inline-block">
-              {isExporting ? 'Exportando' : 'Export'}
+              {isExporting ? 'Exportando' : 'Exportar'}
             </span>
           </button>
         )}
