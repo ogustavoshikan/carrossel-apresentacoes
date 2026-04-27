@@ -2576,7 +2576,7 @@ export function CoverVariant48(props) {
                   <span 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                    className="font-bold text-[10px] uppercase tracking-widest outline-none" 
+                    className="font-bold text-[10px] uppercase tracking-widest outline-none relative -top-[2px] left-[5px]" 
                     style={{ fontFamily: titleFont }}
                   >
                     {data.cta_text || 'ARRASTA'}
@@ -2607,13 +2607,13 @@ export function CoverVariant49(props) {
              </div>
         </div>
         <div className="w-1/2 h-full bg-zinc-950 relative">
-             <ImageBg data={data} className="absolute inset-0 opacity-40 mix-blend-luminosity" />
+             <ImageBg data={data} className="absolute inset-0 opacity-100" />
              <div className="absolute top-8 right-8 z-20">
                <span className="font-medium text-xs text-zinc-400" style={{ fontFamily: titleFont }}>{String(index + 1).padStart(2, '0')} / {slideCount}</span>
              </div>
         </div>
 
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-10 pointer-events-none mix-blend-difference">
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 z-10 pointer-events-none">
             <SmartField field="tag" {...sp}>
               <div 
                 contentEditable suppressContentEditableWarning
@@ -2626,7 +2626,7 @@ export function CoverVariant49(props) {
             </SmartField>
         </div>
 
-        <div className="absolute bottom-12 left-8 right-8 z-20 flex justify-between items-end mix-blend-difference text-white">
+        <div className="absolute bottom-12 left-8 right-8 z-20 flex justify-between items-end text-white">
              <div className="w-[60%]">
                  <SmartField field="titulo" {...sp}>
                    <h2 
@@ -2642,7 +2642,7 @@ export function CoverVariant49(props) {
                    <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-medium leading-snug opacity-80 outline-none" 
+                    className="font-medium leading-snug outline-none" 
                     style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
                    >
                      {data.texto_apoio}
@@ -2767,7 +2767,7 @@ export function CoverVariant52(props) {
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
-        <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)]" style={{ backgroundColor: brandColor }}>
+        <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
@@ -2810,14 +2810,14 @@ export function CoverVariant52(props) {
             </div>
         </div>
 
-        <div className="w-full h-[30%] relative z-0 border-t-[8px] border-[#111]">
+        <div className="w-full h-[30%] relative z-0 border-t-[8px] border-white">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-lg">
                 <SmartField field="cta_text" {...sp}>
                   <span 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                    className="font-bold text-[10px] tracking-widest uppercase text-black outline-none" 
+                    className="font-bold text-[10px] tracking-widest uppercase text-black outline-none relative -top-[2px]" 
                     style={{ fontFamily: titleFont }}
                   >
                     {data.cta_text || 'ARRASTA'}
@@ -2877,7 +2877,7 @@ export function CoverVariant53(props) {
             <ImageBg data={data} className="absolute inset-0" />
         </div>
 
-        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center shadow-xl border-4 border-white z-20 hover:scale-105 transition-transform cursor-pointer">
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center shadow-xl border-4 z-20 hover:scale-105 transition-transform cursor-pointer" style={{ borderColor: brandColor }}>
              <ArrowRight className="w-6 h-6" />
         </div>
     </div>
