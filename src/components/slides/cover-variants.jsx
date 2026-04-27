@@ -2558,7 +2558,7 @@ export function CoverVariant48(props) {
         <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <ImageBg data={data} className="absolute inset-0 opacity-80 mix-blend-luminosity" />
             <div className="absolute top-6 left-6 right-6">
-                <SlideHeader dark {...props} index={index + 1} total={slideCount} />    
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />    
             </div>
         </div>
 
@@ -2682,7 +2682,7 @@ export function CoverVariant50(props) {
     <div className="w-full h-full p-4 overflow-hidden relative" style={{ backgroundColor: brandColor }}>        
         <div className="w-full h-full rounded-2xl flex flex-col overflow-hidden relative z-10 shadow-2xl bg-[#EBE9E1]">
             <div className="p-8 pb-6 flex flex-col shrink-0">
-                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
                 <div className="mt-4 mb-3">
                     <SmartField field="titulo" {...sp}>
                       <h2 
@@ -2732,7 +2732,7 @@ export function CoverVariant51(props) {
     <div className="w-full h-full flex relative overflow-hidden bg-black">
         <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center shadow-[20px_0_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
              <div className="absolute top-6 left-6">
-                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
              </div>
              <div className="shrink-0 z-20 w-[180%]">
                  <SmartField field="titulo" {...sp}>
@@ -2781,7 +2781,7 @@ export function CoverVariant52(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
         <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)]" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
-                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
 
             <div className="mb-3 shrink-0">
@@ -2856,7 +2856,7 @@ export function CoverVariant53(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
         <div className="h-[50%] w-full flex flex-col justify-center p-8 pb-10 z-10" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
-                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
 
             <div className="w-full mb-3 shrink-0">
@@ -2914,7 +2914,7 @@ export function CoverVariant54(props) {
         </div>
         <div className="flex-1 h-full flex flex-col p-10 relative z-10 shadow-[-20px_0_50px_rgba(0,0,0,0.3)]" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-10 right-10">
-                <SlideHeader {...props} index={index + 1} total={slideCount} />
+                <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
             <div className="flex-1 flex flex-col justify-center">
                 <div className="mb-6">
@@ -3019,7 +3019,7 @@ export function CoverVariant56(props) {
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute inset-0 bg-black/10" />
             <div className="absolute top-6 left-6 right-6">
-                <SlideHeader dark {...props} index={index + 1} total={slideCount} />
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
         </div>
         <div className="flex-1 relative z-10 flex flex-col p-10 justify-center shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
@@ -3065,7 +3065,7 @@ export function CoverVariant57(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white text-[#1a1a1a]">
         <div className="absolute top-8 left-8 right-8 z-20">
-            <SlideHeader {...props} index={index + 1} total={slideCount} />
+            <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
         </div>
 
         <div className="flex flex-col p-10 pb-6 z-10 shrink-0 mt-8">
@@ -3137,7 +3137,7 @@ export function CoverVariant58(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
         <div className="flex-1 p-10 flex flex-col justify-center relative z-10 text-white">
             <div className="absolute top-8 left-10">
-                <SlideHeader dark {...props} index={index + 1} total={slideCount} />
+                <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
 
             <div className="mb-6 mt-8 shrink-0">
@@ -3195,7 +3195,7 @@ export function CoverVariant59(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#1a1a1a]">
         <div className="absolute top-8 left-8 right-8 z-20">
-            <SlideHeader dark {...props} index={index + 1} total={slideCount} />        
+            <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
         <div className="h-[45%] w-full relative z-0 shrink-0">
             <ImageBg data={data} className="absolute inset-0" />
@@ -3259,7 +3259,7 @@ export function CoverVariant60(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white text-[#1a1a1a]">
         <div className="absolute top-8 left-8 right-8 z-20">
-            <SlideHeader {...props} index={index + 1} total={slideCount} />
+            <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
         </div>
         <div className="flex-1 flex flex-col p-10 pt-16 z-10 mt-8">
             <div className="flex items-center gap-3 mb-6">
@@ -3324,7 +3324,7 @@ export function CoverVariant61(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-black text-white text-center items-center p-10">
         <div className="absolute top-8 left-8 right-8 z-20">
-            <SlideHeader dark {...props} index={index + 1} total={slideCount} />        
+            <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
         <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-6">
             <img src={brandAvatar || "https://i.pravatar.cc/150?img=11"} className="w-full h-full object-cover" alt="Author" />      
