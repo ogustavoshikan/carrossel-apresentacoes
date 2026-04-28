@@ -210,6 +210,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
+  // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
+  if ((layoutType === 'cover' || layoutType === 'cta') && [48, 49, 52, 53, 57, 58, 59, 60, 61].includes(variantIndex)) {
+    slide.imageUrl = 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
+  }
+
   // Pre-configura imagem de fundo para variantes específicas de Quote
   if (layoutType === 'quote' && [1, 2, 4, 5, 6, 7, 8, 9, 10].includes(variantIndex)) {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
