@@ -220,6 +220,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
+  // Pre-configura imagem de fundo para as variantes 55 e 56
+  if ((layoutType === 'cover' || layoutType === 'cta') && [55, 56].includes(variantIndex)) {
+    slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+  }
+
   // Pre-configura imagem de fundo para variantes específicas de Quote
   if (layoutType === 'quote' && [1, 2, 4, 5, 6, 7, 8, 9, 10].includes(variantIndex)) {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
