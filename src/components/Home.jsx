@@ -220,7 +220,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 {/* Botão reposicionado abaixo do texto */}
                 <button
                   onClick={onStartProject}
-                  className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                  className="mt-10 w-full lg:w-[280px] group/btn relative overflow-hidden bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all duration-150"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3 group-hover/btn:text-white transition-colors duration-150">
                     <Play size={16} className="fill-black group-hover/btn:fill-white transition-colors duration-150" />
