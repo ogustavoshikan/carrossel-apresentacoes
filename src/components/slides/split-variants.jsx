@@ -2563,14 +2563,14 @@ export function SplitVariant42(props) {
 // Moldura robusta com produto centralizado.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant43(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden p-8" style={{ backgroundColor: brandColor }}>
-      <SlideHeader {...props} index={index + 1} total={slideCount} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col mt-6">
         <div className="w-full h-[50%] bg-white p-3 rounded-[32px] shadow-2xl relative">
           <SmartField field="imagem" {...sp} className="w-full h-full rounded-[24px] overflow-hidden relative">
@@ -2613,7 +2613,7 @@ export function SplitVariant43(props) {
 // Imagem no topo com base de texto sólida.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant44(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2625,7 +2625,7 @@ export function SplitVariant44(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
         <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} index={index + 1} total={slideCount} />
+          <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
         </div>
       </div>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10 border-t-[16px] bg-zinc-50" style={{ borderColor: brandColor }}>
