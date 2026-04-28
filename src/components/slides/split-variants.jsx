@@ -2761,7 +2761,7 @@ export function SplitVariant47(props) {
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-white">
       <SlideHeader {...props} index={index + 1} total={slideCount} />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] rounded-[30px] overflow-hidden shadow-lg mb-6 shrink-0 relative">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] rounded-[30px] overflow-hidden shadow-lg mb-6 shrink-0 relative mt-[30px]">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-full flex items-center gap-2 shadow-lg">
           <div className="w-6 h-6 rounded-full bg-zinc-300 overflow-hidden shrink-0">
@@ -2826,8 +2826,8 @@ export function SplitVariant48(props) {
           <SlideHeader {...props} index={index + 1} total={slideCount} />
         </div>
       </SmartField>
-      <div className="flex-1 relative z-10 flex flex-col p-8 pt-10 mt-[-20px] bg-white rounded-t-[30px] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
-        <div className="absolute -top-8 left-8 w-16 h-16 rounded-full border-4 border-white bg-zinc-200 overflow-hidden shadow-xl shrink-0">
+      <div className="flex-1 relative z-40 flex flex-col p-8 pt-10 mt-[-20px] bg-white rounded-t-[30px] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+        <div className="absolute -top-8 left-8 w-16 h-16 rounded-full border-4 border-white bg-zinc-200 overflow-hidden shadow-xl shrink-0 z-50">
           {brandAvatar ? (
             <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
           ) : (
@@ -3017,7 +3017,7 @@ export function SplitVariant51(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-50 p-6">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
-      <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-[24px] overflow-hidden mb-5 shrink-0 relative bg-zinc-200 shadow-md mt-4">
+      <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-[24px] overflow-hidden mb-5 shrink-0 relative bg-zinc-200 shadow-md mt-[46px]">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex items-center gap-3 mb-4 shrink-0">
