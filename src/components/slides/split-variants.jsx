@@ -3314,15 +3314,13 @@ export function SplitVariant56(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full relative flex flex-col bg-zinc-900">
+    <div className="w-full h-full relative flex flex-col">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0 opacity-60" />
+          <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
-
-      <div className="relative z-10 w-[85%] bg-white rounded-br-[60px] p-8 pb-10 flex flex-col shadow-[20px_20px_60px_rgba(0,0,0,0.5)] border-b-[8px] border-r-[8px]" style={{ borderColor: brandColor }}>
-        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
+      <div className="relative z-10 w-[85%] bg-white rounded-br-[60px] p-8 pb-10 flex flex-col border-b-[8px] border-r-[8px]" style={{ borderColor: brandColor }}>        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
 
         <div className="mt-6 mb-4 shrink-0">
           <SmartField field="titulo" {...sp}>

@@ -3034,7 +3034,7 @@ export function CoverVariant56(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-[#1a1a1a] relative">
+    <div className="w-full h-full flex flex-col overflow-hidden relative">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
           style={{ fontFamily: titleFont, left: '20px', top: '285px' }}
@@ -3044,12 +3044,11 @@ export function CoverVariant56(props) {
 
         <div className="h-[55%] w-full relative z-0">
             <ImageBg data={data} className="absolute inset-0" />
-            <div className="absolute inset-0 bg-black/10" />
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
         </div>
-        <div className="flex-1 relative z-10 flex flex-col p-10 justify-center shadow-[0_-20px_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+        <div className="flex-1 relative z-10 flex flex-col p-10 justify-center" style={{ backgroundColor: brandColor }}>
             <div className="mb-4 mt-2">
                 <SmartField field="titulo" {...sp}>
                   <h2 

@@ -707,9 +707,9 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     ),
     // 56: Brand Card Overlay
     56: (
-      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-900 relative">
-        <div className="absolute inset-0 opacity-40" style={{ background: img }} />
-        <div className="relative z-10 w-[85%] h-[55%] bg-white rounded-br-xl p-1.5 flex flex-col gap-1 shadow-md border-b-2 border-r-2" style={{ borderColor: accent }}>
+      <div className="w-full h-full flex flex-col overflow-hidden relative">
+        <div className="absolute inset-0" style={{ background: img }} />
+        <div className="relative z-10 w-[85%] h-[55%] bg-white rounded-br-xl p-1.5 flex flex-col gap-1 border-b-2 border-r-2" style={{ borderColor: accent }}>
            <div className="w-[70%] h-[3px] rounded-full" style={{ background: accent }} />
            <div className="w-[90%] h-[1.5px] bg-zinc-800 rounded-full" />
         </div>

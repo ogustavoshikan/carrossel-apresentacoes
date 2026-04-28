@@ -715,9 +715,9 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     ),
     // 56: Split Typo Hero
     56: (
-      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden bg-[#1a1a1a] relative">
-        <div className="h-[55%] w-full opacity-50" style={{ background: img }} />
-        <div className="flex-1 p-1.5 flex flex-col justify-center gap-1.5 shadow-lg" style={{ background: accent }}>
+      <div className="w-full h-full flex flex-col rounded-[3px] overflow-hidden relative">
+        <div className="h-[55%] w-full" style={{ background: img }}></div>
+        <div className="flex-1 p-1.5 flex flex-col justify-center gap-1.5" style={{ background: accent }}>
           <div className="w-[85%] h-[3.5px] bg-white rounded-full" />
           <div className="w-[70%] h-[1.5px] bg-white/70 rounded-full" />
         </div>
