@@ -3020,7 +3020,7 @@ export function SplitVariant51(props) {
       <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-[24px] overflow-hidden mb-5 shrink-0 relative bg-zinc-200 shadow-md mt-[46px]">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
-      <div className="flex items-center gap-3 mb-4 shrink-0">
+      <div className="flex items-center gap-3 mb-4 shrink-0 mt-[30px]">
         <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden border border-white shadow-sm">
           {brandAvatar ? (
             <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
@@ -4066,7 +4066,7 @@ export function SplitVariant69(props) {
         </div>
       </div>
       
-      <div className="flex-1 w-full bg-zinc-900 rounded-[24px] overflow-hidden shadow-2xl relative translate-x-4 border-[6px] border-white/10">
+      <div className="flex-1 w-full bg-zinc-900 rounded-[24px] overflow-hidden shadow-2xl relative border-[6px] border-white/10">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4208,7 +4208,7 @@ export function SplitVariant72(props) {
   return (
     <div className="w-full h-full flex flex-col bg-white p-6 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex-1 flex flex-col pt-4 min-h-0 z-10">
+      <div className="flex-1 flex flex-col pt-4 min-h-0 z-10 mt-[35px]">
         <div className="mb-2">
           <SmartField field="tag" {...sp}>
             <span
@@ -4397,7 +4397,7 @@ export function SplitVariant75(props) {
   return (
     <div className="w-full h-full flex flex-col bg-zinc-50 p-6">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex-1 flex flex-col pt-4 min-h-0">
+      <div className="flex-1 flex flex-col pt-4 min-h-0 mt-[35px]">
         <div className="flex items-center gap-3 mb-4 shrink-0">
           <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden shadow-sm shrink-0">
             <img src={brandAvatar || "https://i.pravatar.cc/150?img=47"} className="w-full h-full object-cover" alt="Avatar"/>
