@@ -2268,10 +2268,8 @@ export function SplitVariant37(props) {
           </SmartField>
         </div>
       </div>
-      <div className="w-[60%] h-full relative z-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0 opacity-90" />
-        </SmartField>
+      <SmartField field="imagem" {...sp} className="w-[60%] h-full relative z-0">
+        <ImageBg data={data} className="absolute inset-0 opacity-90" />
         <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-white/50 max-w-[85%]">
           <SmartField field="texto_apoio" {...sp}>
             <p
@@ -2284,7 +2282,7 @@ export function SplitVariant37(props) {
             </p>
           </SmartField>
         </div>
-      </div>
+      </SmartField>
     </div>
   );
 }
@@ -2409,11 +2407,9 @@ export function SplitVariant40(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="w-full h-[65%] relative shrink-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[65%] relative shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10 border-t-[12px] border-white" style={{ backgroundColor: brandColor }}>
         <div className="mb-3 shrink-0">
           <SmartField field="titulo" {...sp}>
@@ -2516,11 +2512,9 @@ export function SplitVariant42(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="w-full h-[55%] relative shrink-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
       <div className="flex-1 w-full p-10 flex flex-col justify-center relative -mt-8 bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
         <div className="mb-4 shrink-0">
           <SmartField field="titulo" {...sp}>
@@ -2615,11 +2609,9 @@ export function SplitVariant44(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="w-full h-[55%] relative shrink-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10 border-t-[16px] bg-zinc-50" style={{ borderColor: brandColor }}>
         <div className="mb-4 mt-2 shrink-0">
           <SmartField field="titulo" {...sp}>
@@ -2663,11 +2655,9 @@ export function SplitVariant45(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden p-8 bg-zinc-100 relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="w-full h-[45%] bg-white rounded-2xl overflow-hidden shadow-xl mt-6 relative border-[8px]" style={{ borderColor: brandColor }}>
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-2xl overflow-hidden shadow-xl mt-6 relative border-[8px]" style={{ borderColor: brandColor }}>
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
       <div className="flex-1 flex flex-col justify-center py-8">
         <div className="mb-4">
           <SmartField field="titulo" {...sp}>
