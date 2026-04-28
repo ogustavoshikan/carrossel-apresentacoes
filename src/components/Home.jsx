@@ -179,8 +179,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           {/* Imposing Title */}
           <div className="w-full relative">
             <h1 
-              className="text-[50px] md:text-[70px] font-black text-white tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-2xl"
-              style={{ textShadow: `0 0 30px ${hexToRgba(brandColor, 0.3)}` }}
+              className="text-[50px] md:text-[70px] font-black text-white tracking-tighter uppercase leading-none whitespace-nowrap overflow-hidden text-ellipsis"
             >
               CARROSSEL <span style={{ color: brandColor }}>STUDIO</span>.
             </h1>
@@ -190,7 +189,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
           </div>
 
           {/* Mantra & Hero Carousel Section */}
-          <section className="relative w-full rounded-[2rem] bg-black/50 border border-white/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16 shadow-2xl">
+          <section className="relative w-full rounded-[2rem] bg-black/50 border border-white/10 backdrop-blur-md overflow-hidden group p-10 lg:p-16">
             {/* Efeitos decorativos do Hero */}
             <div
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-50 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"
@@ -276,7 +275,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                 >
                   {/* Card 4:5 Container */}
                   <div
-                    className="relative aspect-[4/5] rounded-3xl bg-black/50 backdrop-blur-md border overflow-hidden mb-6 transition-colors duration-150 shadow-2xl"
+                    className="relative aspect-[4/5] rounded-3xl bg-black/50 backdrop-blur-md border overflow-hidden mb-6 transition-colors duration-150"
                     style={{ borderColor: hoveredCard === idx ? hexToRgba(brandColor, 0.50) : 'rgba(255,255,255,0.10)' }}
                   >
                     
@@ -298,7 +297,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
                       
                       {/* Slide Principal/Frente */}
                       <div className={cn(
-                        'absolute w-3/4 h-3/4 bg-gradient-to-br from-zinc-700 to-zinc-900 rounded-xl border border-white/20 shadow-2xl z-10 flex flex-col group-hover:scale-105 transition-all duration-150 overflow-hidden',
+                        'absolute w-3/4 h-3/4 bg-gradient-to-br from-zinc-700 to-zinc-900 rounded-xl border border-white/20 z-10 flex flex-col group-hover:scale-105 transition-all duration-150 overflow-hidden',
                         !item.image && 'p-4'
                       )}>
                         {item.image ? (
