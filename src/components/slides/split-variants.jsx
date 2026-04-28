@@ -3135,15 +3135,13 @@ export function SplitVariant53(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white">
-      <div className="w-full h-[50%] relative shrink-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-        <div className="absolute bottom-0 left-0 w-full h-1" style={{ backgroundColor: brandColor }}></div> 
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] relative shrink-0">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-0 left-0 w-full h-1" style={{ backgroundColor: brandColor }}></div>
         <div className="absolute top-6 left-6 right-6">
           <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
         </div>
-      </div>
+      </SmartField>
       <div className="flex-1 p-8 flex flex-col justify-center relative text-zinc-900">
         <div className="absolute top-0 left-8 -translate-y-1/2 px-4 py-1 text-white font-bold text-[10px] tracking-widest uppercase" style={{ backgroundColor: brandColor }}>
           <SmartField field="tag" {...sp}>
@@ -3293,12 +3291,10 @@ export function SplitVariant55(props) {
             </p>
           </SmartField>
       </div>
-      <div className="w-full h-[45%] relative shrink-0 z-0 -mt-10">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0 opacity-80" />
-        </SmartField>
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] relative shrink-0 z-0 -mt-10">
+        <ImageBg data={data} className="absolute inset-0 opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent pointer-events-none" />
-      </div>
+      </SmartField>
     </div>
   );
 }
@@ -3316,7 +3312,7 @@ export function SplitVariant56(props) {
   return (
     <div className="w-full h-full relative flex flex-col">
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
