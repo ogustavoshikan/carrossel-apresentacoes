@@ -1986,7 +1986,7 @@ export function SplitVariant32(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2034,7 +2034,7 @@ export function SplitVariant33(props) {
               </h2>
             </SmartField>
           </div>
-          <div className="overflow-hidden">
+          <div>
             <SmartField field="texto_apoio" {...sp}>
               <p
                 contentEditable suppressContentEditableWarning
@@ -2102,7 +2102,7 @@ export function SplitVariant34(props) {
       </div>
 
       <div className="flex-1 bg-black/20 backdrop-blur-sm rounded-3xl p-5 border border-white/20 relative z-10">
-        <div className="w-full h-full overflow-hidden text-center flex items-center justify-center">
+        <div className="w-full h-full text-center flex items-center justify-center">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2161,7 +2161,7 @@ export function SplitVariant35(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2211,7 +2211,7 @@ export function SplitVariant36(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
+        <div>
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2321,7 +2321,7 @@ export function SplitVariant38(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2381,7 +2381,7 @@ export function SplitVariant39(props) {
               </h2>
             </SmartField>
           </div>
-          <div className="overflow-hidden">
+          <div>
             <SmartField field="texto_apoio" {...sp}>
               <p
                 contentEditable suppressContentEditableWarning
@@ -2432,7 +2432,7 @@ export function SplitVariant40(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2493,7 +2493,7 @@ export function SplitVariant41(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -2543,7 +2543,7 @@ export function SplitVariant42(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
+        <div>
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
