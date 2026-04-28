@@ -659,7 +659,7 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     ),
     // 52: Author Floating
     52: (
-      <div className="w-full h-full flex flex-col items-center justify-center p-2 bg-zinc-900">
+      <div className="w-full h-full flex flex-col items-center justify-center p-2" style={{ background: accent || '#18181b' }}>
         <div className="w-[75%] aspect-square rounded-lg border border-white/10 mb-2 relative" style={{ background: img }} />
         <div className="w-3 h-3 rounded-full border border-white/20 bg-zinc-800 mb-1 shrink-0 overflow-hidden">
            {brandAvatar && <img src={brandAvatar} className="w-full h-full object-cover" />}
@@ -684,7 +684,7 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
     // 54: Modernist Top
     54: (
       <div className="w-full h-full flex flex-col p-1.5 overflow-hidden bg-zinc-50">
-        <div className="flex items-center gap-1 mb-1.5">
+        <div className="flex items-center gap-1 mb-1.5 translate-y-[1px]">
            <div className="w-3 h-[1px]" style={{ background: accent }} />
            <div className="w-4 h-[0.5px] bg-zinc-300 rounded-full" />
         </div>
