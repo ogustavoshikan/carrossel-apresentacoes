@@ -2655,7 +2655,7 @@ export function SplitVariant45(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden p-8 bg-zinc-100 relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
-      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-2xl overflow-hidden shadow-xl mt-6 relative border-[8px]" style={{ borderColor: brandColor }}>
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-2xl overflow-hidden mt-6 relative border-[8px]" style={{ borderColor: brandColor }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 flex flex-col justify-center py-8">
@@ -2718,7 +2718,7 @@ export function SplitVariant46(props) {
       
       <div className="flex-1 pointer-events-none" />
 
-      <div className="relative z-20 flex flex-col p-8 justify-center mx-6 mb-8 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10" style={{ backgroundColor: brandColor }}>
+      <div className="relative z-20 flex flex-col p-8 justify-center mx-6 mb-8 rounded-[32px] border-4 border-white/10" style={{ backgroundColor: brandColor }}>
         <div className="mb-3">
           <SmartField field="titulo" {...sp}>
             <h2
