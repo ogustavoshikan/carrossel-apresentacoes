@@ -3638,12 +3638,12 @@ export function SplitVariant61(props) {
       </div>
 
       <div className="w-full h-[45%] relative z-0 shrink-0 mt-2">
-        <div className="absolute bottom-0 right-0 w-[90%] h-[90%] z-0 border-4 border-white shadow-lg overflow-hidden bg-zinc-200">
+        <div className="absolute bottom-0 right-0 w-[90%] h-[90%] z-0 border-4 border-white shadow-lg" style={{ backgroundColor: brandColor }}></div>
+        <div className="absolute top-0 left-0 w-[90%] h-[90%] z-10 border-4 border-white shadow-md overflow-hidden bg-zinc-200">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
         </div>
-        <div className="absolute top-0 left-0 w-[90%] h-[90%] z-10 border-4 border-white shadow-md" style={{ backgroundColor: brandColor }}></div>
       </div>
     </div>
   );
