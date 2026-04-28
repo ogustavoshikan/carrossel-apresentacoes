@@ -4067,7 +4067,7 @@ export function SplitVariant69(props) {
       </div>
       
       <div className="flex-1 w-full flex">
-        <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-900 rounded-[24px] overflow-hidden shadow-2xl relative border-[6px] border-white/10">
+        <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-900 rounded-[24px] overflow-hidden shadow-2xl relative border-[6px] border-white">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
@@ -4118,11 +4118,11 @@ export function SplitVariant70(props) {
         </div>
       </div>
       
-      <div className="h-[45%] w-full flex relative z-0 shrink-0">
-        <div className="absolute top-0 left-0 w-full h-4 z-20" style={{ backgroundColor: brandColor }}></div>
-        <SmartField field="imagem" {...sp} className="w-full h-full">
+      <div className="h-[45%] w-full relative z-0 shrink-0">
+        <SmartField field="imagem" {...sp} className="w-full h-full block">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
+        <div className="absolute top-0 left-0 w-full h-4 z-50" style={{ backgroundColor: brandColor }}></div>
       </div>
     </div>
   );
