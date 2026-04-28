@@ -10,6 +10,9 @@ import { cn } from '../../lib/utils';
 
 // ─── Mini Wireframes ────────────────────────────────────────
 function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
+  const meta = QUOTE_VARIANT_META.find(v => v.id === variantId);
+  const thumbnailUrl = meta?.thumbnailUrl;
+
   const accent = brandColor;
   const dark = '#18181b';
   const img = '#3f3f46';
@@ -158,7 +161,11 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
       )}
       style={isSelected ? { '--tw-ring-color': accent } : {}}
     >
-      {layouts[variantId]}
+      {thumbnailUrl ? (
+        <img src={thumbnailUrl} alt={`Variante ${variantId}`} className="w-full h-full object-cover rounded-[3px]" />
+      ) : (
+        layouts[variantId]
+      )}
     </div>
   );
 }
