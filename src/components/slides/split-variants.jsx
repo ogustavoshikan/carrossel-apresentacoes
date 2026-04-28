@@ -2709,7 +2709,6 @@ export function SplitVariant46(props) {
               <ImageIcon className="w-8 h-8 text-zinc-800" />
             </div>
           )}
-          <div className="absolute inset-0 bg-black/20" />
         </SmartField>
       </div>
 
@@ -2762,7 +2761,7 @@ export function SplitVariant47(props) {
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-white">
       <SlideHeader {...props} index={index + 1} total={slideCount} />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] rounded-[30px] overflow-hidden shadow-lg mb-6 shrink-0 relative bg-zinc-100">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] rounded-[30px] overflow-hidden shadow-lg mb-6 shrink-0 relative">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-full flex items-center gap-2 shadow-lg">
           <div className="w-6 h-6 rounded-full bg-zinc-300 overflow-hidden shrink-0">
@@ -2881,9 +2880,8 @@ export function SplitVariant49(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden">
-      <SmartField field="imagem" {...sp} className="w-full h-[55%] shrink-0 relative bg-zinc-200">
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] shrink-0 relative">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 shadow-[inset_0_20px_50px_rgba(0,0,0,0.3)] pointer-events-none" />
         <div className="absolute top-6 left-6 right-6">
           <SlideHeader {...props} dark index={index + 1} total={slideCount} hideDot />
         </div>
@@ -2950,7 +2948,7 @@ export function SplitVariant50(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-white">
-      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 z-0 bg-zinc-200">
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 z-0">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute top-6 left-6 right-6">
           <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
