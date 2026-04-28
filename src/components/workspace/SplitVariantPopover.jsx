@@ -767,8 +767,8 @@ function VariantThumbnail({ variantId, brandColor, brandAvatar, isSelected }) {
           <div className="w-[50%] h-[2px] bg-zinc-400 rounded-full" />
         </div>
         <div className="h-[40%] w-full relative">
-          <div className="absolute bottom-0 right-0 w-[85%] h-[85%]" style={{ background: accent }} />
-          <div className="absolute top-0 left-0 w-[85%] h-[85%] border border-zinc-200" style={{ background: img }} />
+          <div className="absolute bottom-0 right-0 w-[85%] h-[85%] border border-zinc-200" style={{ background: img }} />
+          <div className="absolute top-0 left-0 w-[85%] h-[85%]" style={{ background: accent }} />
         </div>
       </div>
     ),

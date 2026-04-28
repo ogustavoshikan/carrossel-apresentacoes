@@ -3396,10 +3396,8 @@ export function SplitVariant57(props) {
             </p>
           </SmartField>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0 opacity-90" />
-        </SmartField>
+      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
+        <ImageBg data={data} className="absolute inset-0 opacity-90" />
         <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
           <SmartField field="tag" {...sp}>
             <span
@@ -3411,7 +3409,7 @@ export function SplitVariant57(props) {
             </span>
           </SmartField>
         </div>
-      </div>
+      </SmartField>
     </div>
   );
 }
@@ -3467,11 +3465,9 @@ export function SplitVariant58(props) {
               </p>
             </SmartField>
         </div>
-        <div className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner overflow-hidden">
-          <SmartField field="imagem" {...sp} className="absolute inset-0">
-            <ImageBg data={data} className="absolute inset-0" />
-          </SmartField>
-        </div>
+        <SmartField field="imagem" {...sp} className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner overflow-hidden">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
       </div>
     </div>
   );
@@ -3516,11 +3512,9 @@ export function SplitVariant59(props) {
             </p>
           </SmartField>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0 opacity-70" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
+        <ImageBg data={data} className="absolute inset-0 opacity-70" />
+      </SmartField>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-6 py-4 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] z-20 border-[4px] rotate-3" style={{ borderColor: brandColor }}>
         <SmartField field="tag" {...sp}>
           <h2
@@ -3585,11 +3579,9 @@ export function SplitVariant60(props) {
             </p>
           </SmartField>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
-      </div>
+      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
+        <ImageBg data={data} className="absolute inset-0" />
+      </SmartField>
     </div>
   );
 }
@@ -3644,12 +3636,12 @@ export function SplitVariant61(props) {
       </div>
 
       <div className="w-full h-[45%] relative z-0 shrink-0 mt-2">
-        <div className="absolute bottom-0 right-0 w-[90%] h-[90%] z-0" style={{ backgroundColor: brandColor }}></div>
-        <div className="absolute top-0 left-0 w-[90%] h-[90%] bg-zinc-200 z-10 border-4 border-white shadow-lg overflow-hidden">
-          <SmartField field="imagem" {...sp} className="absolute inset-0">
+        <div className="absolute bottom-0 right-0 w-[90%] h-[90%] z-0 border-4 border-white shadow-lg overflow-hidden bg-zinc-200">
+          <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
         </div>
+        <div className="absolute top-0 left-0 w-[90%] h-[90%] z-10 border-4 border-white shadow-md" style={{ backgroundColor: brandColor }}></div>
       </div>
     </div>
   );
