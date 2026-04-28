@@ -3083,7 +3083,7 @@ export function SplitVariant52(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden items-center justify-center p-8 bg-zinc-900 text-white">
       <SlideHeader {...props} dark index={index + 1} total={slideCount} hideDot />
-      <SmartField field="imagem" {...sp} className="w-[85%] aspect-square max-h-[45%] rounded-[40px] bg-zinc-800 relative shadow-2xl mb-6 mt-8 border border-white/10 shrink-0 overflow-hidden">
+      <SmartField field="imagem" {...sp} className="w-[85%] aspect-square max-h-[45%] rounded-[40px] bg-zinc-800 relative mb-6 mt-8 border border-white/10 shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex flex-col items-center text-center flex-1 min-h-0">
