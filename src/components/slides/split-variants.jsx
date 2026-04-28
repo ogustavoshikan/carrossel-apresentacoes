@@ -3340,10 +3340,8 @@ export function SplitVariant57(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[60%] w-full p-8 flex flex-col justify-center relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} index={index + 1} total={slideCount} dark={false} hideDot={true} />
-        </div>
         <div className="mb-4 shrink-0 mt-4">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -3396,7 +3394,8 @@ export function SplitVariant58(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1]">
+    <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1] relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-16 h-full shrink-0 flex flex-col items-center justify-center py-6 z-20" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap">
           <SmartField field="tag" {...sp}>
@@ -3412,7 +3411,6 @@ export function SplitVariant58(props) {
       </div>
       <div className="flex-1 flex flex-col h-full relative z-10">
         <div className="h-[55%] flex flex-col justify-center p-8 bg-white min-h-0">
-          <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
           <div className="mb-3 shrink-0 mt-4">
             <SmartField field="titulo" {...sp}>
               <h2
@@ -3456,10 +3454,8 @@ export function SplitVariant59(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[50%] w-full p-8 flex flex-col justify-center text-center relative z-10" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} index={index + 1} total={slideCount} dark={false} hideDot={true} />
-        </div>
         <div className="mb-4 shrink-0 mt-6">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -3512,10 +3508,8 @@ export function SplitVariant60(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="h-[55%] w-full p-8 flex flex-col justify-center relative z-10 border-b-[6px] border-white" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-        </div>
         <div className="mb-3 shrink-0 mt-4">
           <SmartField field="tag" {...sp}>
             <span
@@ -3567,10 +3561,9 @@ export function SplitVariant61(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black p-6">
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black p-6 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-full flex-1 flex flex-col pt-2 relative z-10">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} />
-
         <div className="mb-2 shrink-0 mt-4">
           <SmartField field="tag" {...sp}>
             <span
@@ -3628,11 +3621,9 @@ export function SplitVariant62(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black">
+    <div className="w-full h-full flex flex-col overflow-hidden bg-white text-black relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-full h-[40%] flex flex-col justify-center p-8 relative z-10 shadow-lg" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-        </div>
         <div className="mt-6 shrink-0">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -3679,9 +3670,9 @@ export function SplitVariant63(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-white">
+    <div className="w-full h-full flex overflow-hidden bg-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 h-full flex flex-col p-8 relative">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} />
         <SmartField field="imagem" {...sp} className="flex-1 w-full rounded-3xl overflow-hidden shadow-2xl my-6 relative bg-zinc-200">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -3736,9 +3727,7 @@ export function SplitVariant64(props) {
 
   return (
     <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{ backgroundColor: brandColor }}>
-      <div className="relative z-10 shrink-0">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
 
       <div className="flex-1 flex flex-col justify-center my-6">
         <div className="mb-4">
@@ -3785,9 +3774,7 @@ export function SplitVariant65(props) {
 
   return (
     <div className="w-full h-full flex flex-col p-10 overflow-hidden relative bg-white">
-      <div className="relative z-20">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
         <div className="absolute inset-0 flex items-center justify-center -z-10 opacity-5 select-none pointer-events-none">
@@ -3842,12 +3829,9 @@ export function SplitVariant66(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex bg-white">
+    <div className="w-full h-full flex bg-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 h-full flex flex-col p-8 relative">
-        <div className="absolute top-6 left-8 right-8">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-        </div>
-        
         <div className="flex-1 flex flex-col justify-center">
           <div className="mb-4">
             <SmartField field="titulo" {...sp}>
@@ -3902,11 +3886,9 @@ export function SplitVariant67(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white">
+    <div className="w-full h-full flex flex-col bg-white relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-full h-[45%] p-8 flex flex-col justify-center relative shadow-2xl z-20 shrink-0" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-8 right-8">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} />
-        </div>
         <div className="mt-6">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -3954,11 +3936,9 @@ export function SplitVariant68(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white text-black">
+    <div className="w-full h-full flex flex-col bg-white text-black relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-full h-[45%] flex flex-col justify-center p-8 relative z-10 shadow-2xl bg-zinc-50 border-b-[16px] shrink-0" style={{ borderColor: brandColor }}>
-        <div className="absolute top-6 left-6 right-6">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-        </div>
         <div className="mt-6 shrink-0">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -4003,10 +3983,8 @@ export function SplitVariant69(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col p-8" style={{ backgroundColor: brandColor }}>
-      <div className="relative z-10 shrink-0">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} />
-      </div>
+    <div className="w-full h-full flex flex-col p-8 relative" style={{ backgroundColor: brandColor }}>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-full h-[40%] flex flex-col justify-center relative z-10 mt-2">
         <div className="mb-4">
@@ -4055,11 +4033,8 @@ export function SplitVariant70(props) {
 
   return (
     <div className="w-full h-full flex flex-col bg-zinc-50 relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 w-full flex flex-col p-10 justify-center z-10">
-        <div className="absolute top-8 left-10 right-10">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
-        </div>
-        
         <div className="mt-8 mb-4">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -4109,9 +4084,7 @@ export function SplitVariant71(props) {
 
   return (
     <div className="w-full h-full flex flex-col bg-zinc-50 relative">
-      <div className="absolute top-6 left-6 right-6 z-20">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} hideDot={true} />
-      </div>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-full h-[55%] flex flex-col p-8 pt-20 relative z-10">
         <div className="flex items-center gap-3 mb-4 shrink-0">
           <div className="w-12 h-12 rounded-full bg-zinc-300 overflow-hidden shrink-0 shadow-md border-2 border-white">
@@ -4235,12 +4208,10 @@ export function SplitVariant73(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col relative">
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col p-8 pt-10 justify-center relative border-b-8 border-white" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-6 left-8 right-8">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} hideDot={true} />
-        </div>
-        <div className="mb-3 mt-4 shrink-0">
+        <div className="mb-3 mt-8 shrink-0">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
@@ -4299,9 +4270,9 @@ export function SplitVariant74(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white">
+    <div className="w-full h-full flex flex-col bg-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex-1 flex flex-col p-8 pb-4 min-h-0 justify-center">
+      <div className="flex-1 flex flex-col p-8 pb-4 min-h-0 justify-center mt-6">
         <div className="mb-2 shrink-0">
           <SmartField field="tag" {...sp}>
             <span
@@ -4364,7 +4335,7 @@ export function SplitVariant75(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-zinc-50 p-6">
+    <div className="w-full h-full flex flex-col bg-zinc-50 p-6 relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col pt-4 min-h-0 mt-[35px]">
         <div className="flex items-center gap-3 mb-4 shrink-0">
