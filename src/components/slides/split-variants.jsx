@@ -3517,7 +3517,7 @@ export function SplitVariant59(props) {
       <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 opacity-70" />
       </SmartField>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-6 py-4 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] z-20 border-[4px] rotate-3" style={{ borderColor: brandColor }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-6 py-4 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] z-[70] border-[4px] rotate-3" style={{ borderColor: brandColor }}>
         <SmartField field="tag" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
