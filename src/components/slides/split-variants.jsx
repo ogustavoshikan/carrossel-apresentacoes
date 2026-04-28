@@ -3690,7 +3690,7 @@ export function SplitVariant62(props) {
             </p>
           </SmartField>
         </div>
-        <div className="w-full h-[50%] px-8 pb-8 flex">
+        <div className="w-full h-[50%] px-8 pb-8 flex" style={{ transform: 'translateY(55px)' }}>
           <SmartField field="imagem" {...sp} className="w-full h-full rounded-2xl overflow-hidden relative shadow-inner border-4 border-zinc-100 bg-zinc-200">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
@@ -3796,9 +3796,11 @@ export function SplitVariant64(props) {
           </SmartField>
       </div>
 
-      <SmartField field="imagem" {...sp} className="w-full h-[35%] bg-white rounded-[32px] shadow-2xl relative overflow-hidden shrink-0 border-4 border-white/20">
-        <ImageBg data={data} className="absolute inset-0" />
-      </SmartField>
+      <div className="w-full h-[35%] shrink-0 z-10 relative" style={{ transform: 'translateY(-30px)' }}>
+        <SmartField field="imagem" {...sp} className="w-full h-full bg-white rounded-[32px] shadow-2xl relative overflow-hidden border-4 border-white/20">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
     </div>
   );
 }
@@ -3871,10 +3873,10 @@ export function SplitVariant66(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex bg-[#1a1a1a]">
+    <div className="w-full h-full flex bg-white">
       <div className="flex-1 h-full flex flex-col p-8 relative">
         <div className="absolute top-6 left-8 right-8">
-          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={true} />
+          <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} dark={false} />
         </div>
         
         <div className="flex-1 flex flex-col justify-center">
@@ -3883,7 +3885,7 @@ export function SplitVariant66(props) {
               <h2
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="font-outfit font-black leading-none tracking-tighter uppercase text-white outline-none"
+                className="font-outfit font-black leading-none tracking-tighter uppercase text-[#1a1a1a] outline-none"
                 style={{ fontSize: `${38 * sTitle}px` }}
               >
                 {data.titulo}
@@ -3896,7 +3898,7 @@ export function SplitVariant66(props) {
               <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-outfit font-medium leading-relaxed text-zinc-400 border-l-4 pl-6 outline-none"
+                className="font-outfit font-medium leading-relaxed text-zinc-600 border-l-4 pl-6 outline-none"
                 style={{ borderColor: brandColor, fontSize: `${16 * sText}px` }}
               >
                 {data.texto_apoio}
@@ -3905,7 +3907,7 @@ export function SplitVariant66(props) {
           </div>
         </div>
         
-        <div className="w-full h-40 bg-zinc-800 rounded-2xl overflow-hidden relative border border-white/10 shrink-0">
+        <div className="w-full h-40 bg-zinc-100 rounded-2xl overflow-hidden relative border border-zinc-200 shrink-0">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
