@@ -3303,8 +3303,7 @@ export function SplitVariant55(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3314,7 +3313,6 @@ export function SplitVariant55(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
       <div className="w-full h-[45%] relative shrink-0 z-0 -mt-10">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
@@ -3337,8 +3335,8 @@ export function SplitVariant56(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full relative flex flex-col overflow-hidden bg-zinc-900">
-      <div className="absolute inset-0 z-0">
+    <div className="w-full h-full relative flex flex-col bg-zinc-900">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
           <ImageBg data={data} className="absolute inset-0 opacity-60" />
         </SmartField>
@@ -3359,8 +3357,7 @@ export function SplitVariant56(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3370,7 +3367,6 @@ export function SplitVariant56(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
 
       <div className="absolute bottom-6 right-6 z-10 flex flex-col items-end gap-2 text-white">
@@ -3416,8 +3412,7 @@ export function SplitVariant57(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3427,9 +3422,8 @@ export function SplitVariant57(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0">
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
           <ImageBg data={data} className="absolute inset-0 opacity-90" />
         </SmartField>
@@ -3489,8 +3483,7 @@ export function SplitVariant58(props) {
               </h2>
             </SmartField>
           </div>
-          <div className="overflow-hidden">
-            <SmartField field="texto_apoio" {...sp}>
+          <SmartField field="texto_apoio" {...sp}>
               <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3500,9 +3493,8 @@ export function SplitVariant58(props) {
                 {data.texto_apoio}
               </p>
             </SmartField>
-          </div>
         </div>
-        <div className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner">
+        <div className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner overflow-hidden">
           <SmartField field="imagem" {...sp} className="absolute inset-0">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
@@ -3540,8 +3532,7 @@ export function SplitVariant59(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="w-[90%] mx-auto overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp} className="w-[90%] mx-auto">
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3551,9 +3542,8 @@ export function SplitVariant59(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0">
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
           <ImageBg data={data} className="absolute inset-0 opacity-70" />
         </SmartField>
@@ -3611,8 +3601,7 @@ export function SplitVariant60(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3622,9 +3611,8 @@ export function SplitVariant60(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0">
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="absolute inset-0">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -3670,8 +3658,7 @@ export function SplitVariant61(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="w-[95%] overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp} className="w-[95%]">
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3681,7 +3668,6 @@ export function SplitVariant61(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
 
       <div className="w-full h-[45%] relative z-0 shrink-0 mt-2">
@@ -3725,8 +3711,7 @@ export function SplitVariant62(props) {
         </div>
       </div>
       <div className="flex-1 w-full p-8 flex flex-col relative">
-        <div className="mb-6 overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp} className="mb-6">
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3736,7 +3721,6 @@ export function SplitVariant62(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
         <div className="flex-1 w-full rounded-2xl overflow-hidden relative shadow-inner border-4 border-zinc-100 bg-zinc-200">
           <SmartField field="imagem" {...sp} className="absolute inset-0">
             <ImageBg data={data} className="absolute inset-0" />
@@ -3790,8 +3774,7 @@ export function SplitVariant63(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3801,7 +3784,6 @@ export function SplitVariant63(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
     </div>
   );
@@ -3835,8 +3817,7 @@ export function SplitVariant64(props) {
             </h2>
           </SmartField>
         </div>
-        <div className="overflow-hidden">
-          <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
@@ -3846,7 +3827,6 @@ export function SplitVariant64(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        </div>
       </div>
 
       <div className="w-full h-[35%] bg-white rounded-[32px] shadow-2xl relative overflow-hidden shrink-0 border-4 border-white/20">
