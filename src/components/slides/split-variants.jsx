@@ -1952,13 +1952,13 @@ export function SplitVariant32(props) {
       </div>
       <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="mb-2 shrink-0">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white/70 outline-none"
             >
-              {data.tag || '13'}
+              {data.badge_text || '13'}
             </span>
           </SmartField>
         </div>
@@ -2041,13 +2041,13 @@ export function SplitVariant33(props) {
       </div>
       <div className="w-[25%] h-full flex flex-col justify-center items-center z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform rotate-90 whitespace-nowrap">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-black uppercase tracking-widest text-[28px] text-white outline-none"
             >
-              {data.tag || '14'}
+              {data.badge_text || '14'}
             </h2>
           </SmartField>
         </div>
@@ -2126,13 +2126,13 @@ export function SplitVariant35(props) {
       </div>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="mb-2 shrink-0">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white/60 outline-none"
             >
-              {data.tag || '16'}
+              {data.badge_text || '16'}
             </span>
           </SmartField>
         </div>
@@ -2230,13 +2230,13 @@ export function SplitVariant37(props) {
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-[40%] h-full p-6 flex flex-col justify-center relative z-10 shadow-[10px_0_30px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
         <div className="mb-4 shrink-0">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white/70 outline-none"
             >
-              {data.tag || '19'}
+              {data.badge_text || '19'}
             </span>
           </SmartField>
         </div>
@@ -2338,14 +2338,14 @@ export function SplitVariant39(props) {
         </SmartField>
         <div className="w-[55%] h-full flex flex-col justify-center pr-2">
           <div className="mb-2 shrink-0">
-            <SmartField field="tag" {...sp}>
+            <SmartField field="badge_text" {...sp}>
               <span
                 contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                 className="font-outfit font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded text-white inline-block outline-none"
                 style={{ backgroundColor: brandColor }}
               >
-                {data.tag || '21'}
+                {data.badge_text || '21'}
               </span>
             </SmartField>
           </div>
@@ -2440,13 +2440,13 @@ export function SplitVariant41(props) {
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       <div className="w-[30%] h-full flex flex-col justify-center items-center p-6 shrink-0 relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap">
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-black text-4xl tracking-tighter text-white/30 uppercase outline-none"
             >
-              {data.tag || '23'}
+              {data.badge_text || '23'}
             </span>
           </SmartField>
         </div>
@@ -2856,13 +2856,13 @@ export function SplitVariant49(props) {
             )}
           </div>
           <div>
-            <SmartField field="tag" {...sp}>
+            <SmartField field="badge_text" {...sp}>
               <span
                 contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                 className="font-outfit font-bold text-xs text-white uppercase tracking-wider outline-none"
               >
-                {data.tag || 'CHEF'}
+                {data.badge_text || 'CHEF'}
               </span>
             </SmartField>
           </div>
@@ -2920,13 +2920,13 @@ export function SplitVariant50(props) {
             )}
           </div>
           <div className="pr-3">
-            <SmartField field="tag" {...sp}>
+            <SmartField field="badge_text" {...sp}>
               <span
                 contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                 className="font-outfit font-black text-[10px] text-white uppercase tracking-wider outline-none"
               >
-                {data.tag || 'TÉCNICA'}
+                {data.badge_text || 'TÉCNICA'}
               </span>
             </SmartField>
           </div>
@@ -2987,13 +2987,13 @@ export function SplitVariant51(props) {
           )}
         </div>
         <div>
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-outfit font-bold text-xs text-zinc-500 uppercase tracking-wide outline-none"
             >
-              {data.tag || 'BASTIDORES'}
+              {data.badge_text || 'BASTIDORES'}
             </span>
           </SmartField>
         </div>
@@ -3102,13 +3102,13 @@ export function SplitVariant53(props) {
       </div>
       <div className="flex-1 p-8 flex flex-col justify-center relative text-zinc-900 z-10">
         <div className="absolute top-0 left-8 -translate-y-1/2 px-4 py-1 text-white font-bold text-[10px] tracking-widest uppercase" style={{ backgroundColor: brandColor }}>
-          <SmartField field="tag" {...sp}>
+          <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="outline-none"
             >
-              {data.tag || 'ESTRUTURA'}
+              {data.badge_text || 'ESTRUTURA'}
             </span>
           </SmartField>
         </div>
