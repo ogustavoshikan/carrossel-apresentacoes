@@ -688,6 +688,27 @@ export default function ConfigSidebar({
                    className="cs-range w-full"
                 />
               </div>
+
+              {selectedElement.field === 'logo' && (
+                <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2 mt-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">Transparência</span>
+                    <span className="text-[10px] font-mono text-zinc-200">
+                      {Math.round((pos.opacity ?? 1) * 100)}%
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={pos.opacity ?? 1}
+                    onChange={(e) => updateProp('opacity', parseFloat(e.target.value))}
+                    className="cs-range w-full"
+                  />
+                </div>
+              )}
+
               {(() => {
                 const isSpecialElement = selectedElement.field === 'handle' || selectedElement.field === 'counter' || selectedElement.field === 'logo';
                 return (

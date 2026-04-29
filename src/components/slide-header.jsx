@@ -122,13 +122,16 @@ export default function SlideHeader({
     <SmartElement
       slideIndex={slideIndex}
       field="logo"
-      position={data?.positions?.logo || { x: 0, y: 0, scale: 1 }}
+      position={data?.positions?.logo || { x: 0, y: 0, scale: 1, opacity: 1 }}
       onActionStart={onActionStart}
       isSelected={isSelectedLogo}
       onSelectElement={onSelectElement}
       className={`pointer-events-auto ${isSelectedLogo ? 'z-[110]' : 'z-[100]'}`}
     >
-      <div className="flex items-center justify-center select-none">
+      <div 
+        className="flex items-center justify-center select-none"
+        style={{ opacity: data?.positions?.logo?.opacity ?? 1 }}
+      >
         <img 
           src={brandLogo} 
           alt="brand logo" 
