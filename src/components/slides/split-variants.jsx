@@ -3365,20 +3365,22 @@ export function SplitVariant57(props) {
             </p>
           </SmartField>
       </div>
-      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <ImageBg data={data} className="absolute inset-0 opacity-90" />
-        <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
-          <SmartField field="tag" {...sp}>
-            <span
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-bold text-[10px] uppercase tracking-widest text-white/80 outline-none"
-            >
-              {data.tag || '16'}
-            </span>
-          </SmartField>
-        </div>
-      </SmartField>
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          <ImageBg data={data} className="absolute inset-0 opacity-90" />
+          <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
+            <SmartField field="tag" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-bold text-[10px] uppercase tracking-widest text-white/80 outline-none"
+              >
+                {data.tag || '16'}
+              </span>
+            </SmartField>
+          </div>
+        </SmartField>
+      </div>
     </div>
   );
 }
@@ -3434,9 +3436,11 @@ export function SplitVariant58(props) {
               </p>
             </SmartField>
         </div>
-        <SmartField field="imagem" {...sp} className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner overflow-hidden">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
+        <div className="flex-1 w-full bg-zinc-300 relative shrink-0 border-t-4 border-white shadow-inner overflow-hidden flex">
+          <SmartField field="imagem" {...sp} className="w-full h-full">
+            <ImageBg data={data} className="absolute inset-0" />
+          </SmartField>
+        </div>
       </div>
     </div>
   );
@@ -3479,9 +3483,11 @@ export function SplitVariant59(props) {
             </p>
           </SmartField>
       </div>
-      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <ImageBg data={data} className="absolute inset-0 opacity-70" />
-      </SmartField>
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          <ImageBg data={data} className="absolute inset-0 opacity-70" />
+        </SmartField>
+      </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-6 py-4 rounded-3xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] z-[70] border-[4px] rotate-3" style={{ borderColor: brandColor }}>
         <SmartField field="tag" {...sp}>
           <h2
@@ -3544,9 +3550,11 @@ export function SplitVariant60(props) {
             </p>
           </SmartField>
       </div>
-      <SmartField field="imagem" {...sp} className="flex-1 w-full relative shrink-0 z-0 overflow-hidden">
-        <ImageBg data={data} className="absolute inset-0" />
-      </SmartField>
+      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
     </div>
   );
 }
@@ -3601,7 +3609,7 @@ export function SplitVariant61(props) {
 
       <div className="w-full h-[45%] relative z-0 shrink-0 mt-2">
         <div className="absolute bottom-0 right-0 w-[90%] h-[90%] z-0 border-4 border-white shadow-lg" style={{ backgroundColor: brandColor }}></div>
-        <div className="absolute top-0 left-0 w-[90%] h-[90%] z-10 border-4 border-white shadow-md overflow-hidden bg-zinc-200">
+        <div className="absolute top-0 left-0 w-[90%] h-[90%] z-10 border-4 border-white shadow-md overflow-hidden bg-zinc-200 flex">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
@@ -4128,8 +4136,8 @@ export function SplitVariant71(props) {
           </SmartField>
         </div>
       </div>
-      <div className="flex-1 w-full relative z-0">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
+      <div className="flex-1 w-full relative z-0 flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
@@ -4250,8 +4258,8 @@ export function SplitVariant73(props) {
           </SmartField>
         </div>
       </div>
-      <div className="w-full h-[45%] shrink-0 relative bg-zinc-200">
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
+      <div className="w-full h-[45%] shrink-0 relative bg-zinc-200 flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
@@ -4270,7 +4278,7 @@ export function SplitVariant74(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white relative">
+    <div className="w-full h-full flex flex-col bg-white relative overflow-visible">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <div className="flex-1 flex flex-col p-8 pb-4 min-h-0 justify-center mt-6">
         <div className="mb-2 shrink-0">
@@ -4310,15 +4318,19 @@ export function SplitVariant74(props) {
         </div>
       </div>
       <div className="w-full h-[50%] shrink-0 relative bg-zinc-200 mt-2 z-0">
-        <div className="absolute -top-6 left-8 bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100 z-20">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+      </div>
+
+      {/* Camada de Overlay para Elementos que devem flutuar sobre tudo */}
+      <div className="absolute inset-0 pointer-events-none z-[1000]">
+        <div className="absolute left-8 bottom-[calc(50%-20px-8px)] pointer-events-auto bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100">
           <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden shrink-0">
             <img src={brandAvatar || "https://i.pravatar.cc/150?img=12"} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
           <span className="pr-3 font-black text-[10px] text-[#1a1a1a] uppercase tracking-wider font-outfit">{brandHandle || 'AUTHOR'}</span>
         </div>
-        <SmartField field="imagem" {...sp} className="absolute inset-0">
-          <ImageBg data={data} className="absolute inset-0" />
-        </SmartField>
       </div>
     </div>
   );
