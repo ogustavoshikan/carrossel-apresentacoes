@@ -3564,7 +3564,8 @@ export function SplitVariant61(props) {
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[10px] uppercase tracking-widest text-zinc-400 outline-none"
+              className="font-outfit font-black text-[10px] uppercase tracking-widest outline-none"
+              style={{ color: brandColor }}
             >
               {data.tag || '21'}
             </span>
@@ -3576,7 +3577,7 @@ export function SplitVariant61(props) {
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-outfit font-black leading-[0.85] tracking-tighter uppercase outline-none"
-              style={{ color: brandColor, fontSize: `${44 * sTitle}px` }}
+              style={{ color: '#1A1A1A', fontSize: `${44 * sTitle}px` }}
             >
               {data.titulo}
             </h2>
