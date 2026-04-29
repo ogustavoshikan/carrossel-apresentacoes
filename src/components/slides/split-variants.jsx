@@ -2306,7 +2306,7 @@ export function SplitVariant38(props) {
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-medium leading-relaxed text-zinc-400 outline-none"
+              className="font-outfit font-medium leading-relaxed text-white outline-none"
               style={{ fontSize: `${15 * sText}px` }}
             >
               {data.texto_apoio}
@@ -2568,8 +2568,8 @@ export function SplitVariant43(props) {
               <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-outfit font-bold leading-tight text-white/70 uppercase tracking-widest outline-none"
-                style={{ fontSize: `${14 * sText}px` }}
+                className="font-outfit font-bold leading-tight uppercase tracking-widest outline-none"
+                style={{ fontSize: `${14 * sText}px`, color: '#ededed' }}
               >
                 {data.texto_apoio}
               </p>
@@ -3069,8 +3069,8 @@ export function SplitVariant52(props) {
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit text-zinc-400 leading-snug outline-none"
-              style={{ fontSize: `${14 * sText}px` }}
+              className="font-outfit leading-snug outline-none"
+              style={{ fontSize: `${14 * sText}px`, color: '#ededed' }}
             >
               {data.texto_apoio}
             </p>
@@ -3154,13 +3154,14 @@ export function SplitVariant54(props) {
   return (
     <div className="w-full h-full flex flex-col p-8 bg-zinc-50 overflow-hidden relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex items-center gap-4 mb-8 mt-4 shrink-0 translate-y-[7px]">
+      <div className="flex items-center gap-4 mb-8 mt-4 shrink-0">
         <div className="w-12 h-1" style={{ backgroundColor: brandColor }}></div>
         <SmartField field="tag" {...sp}>
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[10px] leading-none tracking-[0.3em] uppercase text-zinc-400 outline-none"
+            className="font-outfit font-black text-[10px] leading-none tracking-[0.3em] uppercase outline-none -translate-y-[2px] inline-block"
+            style={{ color: brandColor }}
           >
             {data.tag || 'DESIGN'}
           </span>
