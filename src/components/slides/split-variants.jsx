@@ -3349,21 +3349,21 @@ export function SplitVariant57(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
+        <div className="absolute bottom-0 right-8 translate-y-1/2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 z-50">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-bold text-[10px] uppercase tracking-widest text-white/80 outline-none"
+            >
+              {data.tag || '16'}
+            </span>
+          </SmartField>
+        </div>
       </div>
-      <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden flex">
-        <SmartField field="imagem" {...sp} className="w-full h-full">
+      <div className="flex-1 w-full relative shrink-0 z-0 flex">
+        <SmartField field="imagem" {...sp} className="w-full h-full relative overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
-          <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
-            <SmartField field="tag" {...sp}>
-              <span
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-bold text-[10px] uppercase tracking-widest text-white/80 outline-none"
-              >
-                {data.tag || '16'}
-              </span>
-            </SmartField>
-          </div>
         </SmartField>
       </div>
     </div>
