@@ -2967,7 +2967,7 @@ export function SplitVariant50(props) {
 // Imagem em card arredondado com avatar e tag minimalista.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant51(props) {
-  const { data, index, slideCount, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2991,7 +2991,8 @@ export function SplitVariant51(props) {
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-xs text-zinc-500 uppercase tracking-wide outline-none"
+              className="font-outfit font-bold text-xs uppercase tracking-wide outline-none"
+              style={{ color: brandColor }}
             >
               {data.badge_text || 'BASTIDORES'}
             </span>
@@ -3154,7 +3155,7 @@ export function SplitVariant54(props) {
   return (
     <div className="w-full h-full flex flex-col p-8 bg-zinc-50 overflow-hidden relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="flex items-center gap-4 mb-8 mt-4 shrink-0">
+      <div className="flex items-center gap-4 mb-8 mt-4 shrink-0" style={{ transform: 'translateY(10px)' }}>
         <div className="w-12 h-1" style={{ backgroundColor: brandColor }}></div>
         <SmartField field="tag" {...sp}>
           <span
@@ -3350,7 +3351,7 @@ export function SplitVariant57(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-        <div className="absolute bottom-0 right-8 translate-y-1/2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 z-50">
+        <div className="absolute bottom-0 right-8 translate-y-1/2 px-3 py-1.5 rounded-lg border border-white/20 z-50" style={{ backgroundColor: '#1A1A1A' }}>
           <SmartField field="tag" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
