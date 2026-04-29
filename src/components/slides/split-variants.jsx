@@ -3897,7 +3897,7 @@ export function SplitVariant67(props) {
       </div>
       
       <div className="flex-1 w-full p-10 flex flex-col justify-center relative z-10 bg-white">
-        <div className="mb-6">
+        <div className="mb-6 -translate-y-[20px]">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable suppressContentEditableWarning
@@ -3909,7 +3909,7 @@ export function SplitVariant67(props) {
             </p>
           </SmartField>
         </div>
-        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative shadow-lg border-2 border-zinc-50 shrink-0">
+        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative shadow-lg border-2 border-zinc-50 shrink-0 -translate-y-[15px]">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
