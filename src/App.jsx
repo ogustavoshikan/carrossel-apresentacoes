@@ -63,7 +63,17 @@ export default function App() {
   const [brandHandle, setBrandHandle] = useState(BRAND_DEFAULTS.handle);
   const [showBrandHandle, setShowBrandHandle] = useState(true);
   const [brandAvatar, setBrandAvatar] = useState(null);
+  const [brandLogo, setBrandLogo] = useState(() => localStorage.getItem('cs_brand_logo') || null);
+  const [showBrandLogo, setShowBrandLogo] = useState(true);
   const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    if (brandLogo) {
+      localStorage.setItem('cs_brand_logo', brandLogo);
+    } else {
+      localStorage.removeItem('cs_brand_logo');
+    }
+  }, [brandLogo]);
 
   useEffect(() => {
     // Configurações padrão para Geração de Imagem via OpenRouter
@@ -710,6 +720,10 @@ export default function App() {
                   setShowBrandHandle={setShowBrandHandle}
                   brandAvatar={brandAvatar}
                   setBrandAvatar={setBrandAvatar}
+                  brandLogo={brandLogo}
+                  setBrandLogo={setBrandLogo}
+                  showBrandLogo={showBrandLogo}
+                  setShowBrandLogo={setShowBrandLogo}
                   isVerified={isVerified}
                   setIsVerified={setIsVerified}
                   gradientColor1={gradientColor1}
@@ -838,6 +852,8 @@ export default function App() {
                         brandHandle={brandHandle}
                         showBrandHandle={showBrandHandle}
                         brandAvatar={brandAvatar}
+                        brandLogo={brandLogo}
+                        showBrandLogo={showBrandLogo}
                         brandColor={gradientColor1}
                         isVerified={isVerified}
                         titleScale={titleSizeScale}

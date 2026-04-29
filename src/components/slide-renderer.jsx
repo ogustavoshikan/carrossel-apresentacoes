@@ -59,6 +59,8 @@ export default function SlideRenderer({
   brandHandle,
   showBrandHandle,
   brandAvatar,
+  brandLogo,
+  showBrandLogo,
   brandColor,
   isVerified,
   titleScale,
@@ -84,6 +86,8 @@ export default function SlideRenderer({
         brandHandle={brandHandle}
         showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}

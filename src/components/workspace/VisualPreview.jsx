@@ -58,6 +58,8 @@ export default function VisualPreview({
   brandHandle,
   showBrandHandle,
   brandAvatar,
+  brandLogo,
+  showBrandLogo,
   brandColor,
   isVerified,
   titleScale,
@@ -264,6 +266,8 @@ export default function VisualPreview({
               brandHandle={brandHandle}
               showBrandHandle={showBrandHandle}
               brandAvatar={brandAvatar}
+              brandLogo={brandLogo}
+              showBrandLogo={showBrandLogo}
               brandColor={brandColor}
               isVerified={isVerified}
               titleScale={titleScale}

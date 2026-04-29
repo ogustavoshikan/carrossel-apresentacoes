@@ -31,6 +31,7 @@ import {
   ArrowUp,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
+import { CONTENT_LIBRARY } from '../../lib/content-library';
 import LayoutSelector from './LayoutSelector';
 import DesignLibrary from './DesignLibrary';
 
@@ -66,6 +67,10 @@ export default function ConfigSidebar({
   setBrandHandle,
   brandAvatar,
   setBrandAvatar,
+  brandLogo,
+  setBrandLogo,
+  showBrandLogo,
+  setShowBrandLogo,
   showBrandHandle,
   setShowBrandHandle,
   isVerified,
@@ -121,6 +126,8 @@ export default function ConfigSidebar({
 }) {
   const isInspectorActive = !!selectedElement;
   const savedSelection = useRef(null);
+  const [showContentLib, setShowContentLib] = React.useState(false);
+  const [activeNiche, setActiveNiche] = React.useState('confeitaria');
 
   const scrollContainerRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = React.useState(false);
@@ -459,12 +466,40 @@ export default function ConfigSidebar({
               <div className="mt-2 pt-4 border-t border-border-subtle">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block">Conteúdo</span>
-                  <button 
-                     onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
-                     className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors"
-                  >
-                     Ver Tudo
-                  </button>
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={async () => {
+                        if (!['titulo', 'texto_apoio', 'cta_text', 'citacao'].includes(selectedElement.field)) return;
+                        // Simulação de chamada de IA ou uso da biblioteca como fallback rápido
+                        const niche = 'confeitaria';
+                        const options = CONTENT_LIBRARY[niche]?.[selectedElement.field] || [];
+                        if (options.length > 0) {
+                          const random = options[Math.floor(Math.random() * options.length)];
+                          setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, [selectedElement.field]: random} : s));
+                        }
+                      }}
+                      className="text-[9px] uppercase tracking-widest font-bold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20"
+                    >
+                      <Sparkles className="w-3 h-3" /> IA
+                    </button>
+                    <button 
+                      onClick={() => setShowContentLib(!showContentLib)}
+                      className={cn(
+                        "text-[9px] uppercase tracking-widest font-bold transition-colors flex items-center gap-1 px-2 py-0.5 rounded border",
+                        showContentLib 
+                          ? "text-white bg-rose-500 border-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.3)]" 
+                          : "text-rose-400 hover:text-rose-300 bg-rose-500/10 border-rose-500/20"
+                      )}
+                    >
+                      <LayoutTemplate className="w-3 h-3" /> Lib
+                    </button>
+                    <button 
+                       onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null })}
+                       className="text-[9px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors"
+                    >
+                       Ver Tudo
+                    </button>
+                  </div>
                 </div>
                 <textarea 
                   value={slide[selectedElement.field] || ''}
@@ -478,6 +513,47 @@ export default function ConfigSidebar({
                   )}
                   placeholder={!['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].includes(selectedElement.field) ? 'Esse texto não é editável textualmente por aqui.' : 'Insira o texto...'}
                 />
+
+                {showContentLib && (
+                  <div className="bg-zinc-950 border border-rose-500/20 rounded-xl p-4 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[9px] uppercase font-black tracking-widest text-white/40">Biblioteca de Sugestões</span>
+                      <select 
+                        value={activeNiche}
+                        onChange={(e) => setActiveNiche(e.target.value)}
+                        className="bg-surface-input text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded border border-white/5 outline-none text-rose-400"
+                      >
+                        {Object.keys(CONTENT_LIBRARY).map(key => (
+                          <option key={key} value={key}>{CONTENT_LIBRARY[key].name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    <div className="max-h-[200px] overflow-y-auto custom-scrollbar flex flex-col gap-2 pr-1">
+                      {(CONTENT_LIBRARY[activeNiche]?.[selectedElement.field] || []).map((phrase, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setSlides(prev => prev.map((s, idx) => idx === selectedElement.slideIndex ? {...s, [selectedElement.field]: phrase} : s));
+                            setShowContentLib(false);
+                          }}
+                          className="text-left p-3 rounded-lg bg-surface-input/50 hover:bg-surface-input border border-white/5 hover:border-rose-500/30 transition-all group"
+                        >
+                          <p className="text-[11px] text-zinc-400 group-hover:text-white line-clamp-3 leading-relaxed">
+                            {phrase}
+                          </p>
+                        </button>
+                      ))}
+                      {(!(CONTENT_LIBRARY[activeNiche]?.[selectedElement.field]) || CONTENT_LIBRARY[activeNiche][selectedElement.field].length === 0) && (
+                        <div className="py-8 text-center">
+                          <p className="text-[9px] text-zinc-600 uppercase font-black tracking-widest opacity-50">
+                            Nenhuma frase disponível para "{selectedElement.field}" neste nicho.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="bg-surface-input px-3 py-2 rounded-lg space-y-2">
@@ -613,7 +689,7 @@ export default function ConfigSidebar({
                 />
               </div>
               {(() => {
-                const isSpecialElement = selectedElement.field === 'handle' || selectedElement.field === 'counter';
+                const isSpecialElement = selectedElement.field === 'handle' || selectedElement.field === 'counter' || selectedElement.field === 'logo';
                 return (
                   <div className={cn('mt-2 flex', isSpecialElement && 'gap-2')}>
                     {/* Direcional Minimalista */}
@@ -673,7 +749,7 @@ export default function ConfigSidebar({
                       </div>
                     </div>
 
-                    {/* Controle Grid 3x3 (apenas para Handle e Counter) */}
+                    {/* Controle Grid 3x3 (apenas para Handle, Counter e Logo) */}
                     {isSpecialElement && (
                       <div className="flex flex-col gap-2 flex-1">
                         <div className="bg-surface-input px-3 py-3 rounded-lg flex items-center justify-between">
@@ -682,21 +758,21 @@ export default function ConfigSidebar({
                            </span>
                            <button
                              role="switch"
-                             aria-checked={!slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter']}
+                             aria-checked={!slide[selectedElement.field === 'handle' ? 'hideHandle' : selectedElement.field === 'counter' ? 'hideCounter' : 'hideLogo']}
                              onClick={() => {
-                               const key = selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter';
+                               const key = selectedElement.field === 'handle' ? 'hideHandle' : selectedElement.field === 'counter' ? 'hideCounter' : 'hideLogo';
                                setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? { ...s, [key]: !s[key] } : s));
                              }}
                              className={cn(
                                 'relative inline-flex h-[18px] w-[34px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-150 ease-in-out focus:outline-none',
-                                !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
+                                !slide[selectedElement.field === 'handle' ? 'hideHandle' : selectedElement.field === 'counter' ? 'hideCounter' : 'hideLogo'] ? 'bg-[color:var(--toggle-active)]' : 'bg-zinc-700'
                               )}
                               style={{ '--toggle-active': gradientColor1 }}
                            >
                              <span
                                className={cn(
                                  'pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-none ring-0 transition duration-150 ease-in-out',
-                                 !slide[selectedElement.field === 'handle' ? 'hideHandle' : 'hideCounter'] ? 'translate-x-4' : 'translate-x-0'
+                                 !slide[selectedElement.field === 'handle' ? 'hideHandle' : selectedElement.field === 'counter' ? 'hideCounter' : 'hideLogo'] ? 'translate-x-4' : 'translate-x-0'
                                )}
                              />
                            </button>
@@ -712,7 +788,8 @@ export default function ConfigSidebar({
                               'center-left', 'center-center', 'center-right',
                               'bottom-left', 'bottom-center', 'bottom-right'
                             ].map(alignKey => {
-                              const currentAlign = pos.align || (selectedElement.field === 'handle' ? 'top-left' : 'top-right');
+                              const defaultAlignMap = { handle: 'top-left', counter: 'top-right', logo: 'top-center' };
+                              const currentAlign = pos.align || defaultAlignMap[selectedElement.field] || 'top-left';
                               const isActive = currentAlign === alignKey;
                               return (
                                 <button
@@ -1190,6 +1267,79 @@ export default function ConfigSidebar({
                         }
                       >
                         {showBrandHandle ? 'ON' : 'OFF'}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-bold tracking-widest text-white/40 uppercase mb-2 block">Logo Automática</label>
+                    <div className="flex gap-3 w-full">
+                      {/* Logo Uploader com botão limpar */}
+                      <div className="relative shrink-0">
+                        <label className="w-12 h-12 bg-surface-input border border-white/5 rounded-xl flex items-center justify-center cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group block">
+                          {brandLogo ? (
+                            <img src={brandLogo} alt="Logo" className="w-full h-full object-contain p-1" />
+                          ) : (
+                            <ImageIcon className="w-5 h-5 text-white/20" />
+                          )}
+                          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                            <Upload className="w-4 h-4 text-white" />
+                          </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                const reader = new FileReader();
+                                reader.onload = (ev) => setBrandLogo(ev.target.result);
+                                reader.readAsDataURL(file);
+                              }
+                            }}
+                          />
+                        </label>
+                        {brandLogo && (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setBrandLogo(null);
+                            }}
+                            className="absolute -top-1.5 -right-1.5 w-5 h-5 border border-black/50 rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-110 z-10"
+                            style={{ backgroundColor: gradientColor1 }}
+                            title="Remover logo"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        )}
+                      </div>
+                      
+                      <div className="flex-1 min-w-0 bg-surface-input rounded-xl border border-white/5 p-3 flex items-center">
+                         <span className="text-[10px] text-white/20 uppercase font-black tracking-widest truncate">
+                           {brandLogo ? 'Logo Carregada' : 'Adicione sua logo'}
+                         </span>
+                      </div>
+
+                      <button
+                        onClick={() => setShowBrandLogo(!showBrandLogo)}
+                        className={cn(
+                          'h-[48px] px-4 rounded-xl border text-[10px] uppercase tracking-widest font-black transition-all flex items-center justify-center shrink-0',
+                          showBrandLogo
+                            ? 'bg-surface-input border-white/10 text-white'
+                            : 'bg-surface-input/30 border-white/5 text-white/20'
+                        )}
+                        style={
+                          showBrandLogo
+                            ? {
+                                backgroundColor: `${gradientColor1}15`,
+                                borderColor: `${gradientColor1}30`,
+                                color: gradientColor1,
+                              }
+                            : {}
+                        }
+                      >
+                        {showBrandLogo ? 'ON' : 'OFF'}
                       </button>
                     </div>
                   </div>

@@ -25,6 +25,8 @@ export default function SlideQuote({
   showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
+  brandLogo,
+  showBrandLogo,
 }) {
   const variantIndex = data.quoteVariantIndex || 0;
 
@@ -38,6 +40,8 @@ export default function SlideQuote({
         slideCount={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -113,6 +117,8 @@ export default function SlideQuote({
         total={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         dark

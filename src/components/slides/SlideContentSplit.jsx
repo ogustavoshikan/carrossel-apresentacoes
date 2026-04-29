@@ -26,6 +26,8 @@ export default function SlideContentSplit({
   showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
+  brandLogo,
+  showBrandLogo,
 }) {
   // Delegação para variante visual (1-5)
   const variantIndex = data.splitVariantIndex || 0;
@@ -38,6 +40,8 @@ export default function SlideContentSplit({
         slideCount={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -66,6 +70,8 @@ export default function SlideContentSplit({
         total={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

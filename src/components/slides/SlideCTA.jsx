@@ -1,6 +1,7 @@
 import React from 'react';
 import { Zap, Heart, Bookmark, Share2 } from 'lucide-react';
 import SmartElement from '../smart-element';
+import SlideHeader from '../slide-header';
 import { CTA_VARIANT_COMPONENTS, ImageBg } from './cta-variants';
 
 /**
@@ -15,6 +16,7 @@ export default function SlideCTA(props) {
     brandHandle,
     brandAvatar,
     brandColor,
+    isVerified,
     titleScale,
     textScale,
     showMetrics,
@@ -22,6 +24,11 @@ export default function SlideCTA(props) {
     onTextChange,
     selectedElement,
     onSelectElement,
+    showBrandHandle,
+    showSlideCounter,
+    slideCounterPosition,
+    brandLogo,
+    showBrandLogo,
   } = props;
 
   // Se houver uma variante selecionada (> 0), usa o componente correspondente
@@ -40,6 +47,19 @@ export default function SlideCTA(props) {
       className="w-full h-full flex flex-col p-16 items-center justify-center text-center text-white relative"
       style={{ backgroundColor: brandColor }}
     >
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        showSlideCounter={showSlideCounter}
+        slideCounterPosition={slideCounterPosition}
+        hideDot={true}
+      />
       {/* Background Image Setup */}
       <div className="absolute inset-0 opacity-40 blur-md scale-110 pointer-events-none">
         <ImageBg

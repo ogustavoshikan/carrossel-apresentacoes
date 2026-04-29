@@ -11,6 +11,8 @@ export default function SlideHeader({
   brandHandle,
   showBrandHandle = true,
   brandAvatar,
+  brandLogo,
+  showBrandLogo = true,
   brandColor,
   isVerified = false,
   dark = false,
@@ -25,6 +27,7 @@ export default function SlideHeader({
 }) {
   const handleAlign = data?.positions?.handle?.align || 'top-left';
   const counterAlign = data?.positions?.counter?.align || 'top-right';
+  const logoAlign = data?.positions?.logo?.align || 'top-center';
 
   const getAlignClasses = (align) => {
     switch (align) {
@@ -43,6 +46,7 @@ export default function SlideHeader({
 
   const isSelectedHandle = selectedElement?.slideIndex === slideIndex && selectedElement?.field === 'handle';
   const isSelectedCounter = selectedElement?.slideIndex === slideIndex && selectedElement?.field === 'counter';
+  const isSelectedLogo = selectedElement?.slideIndex === slideIndex && selectedElement?.field === 'logo';
 
   const handleEl = (showBrandHandle && !data?.hideHandle) ? (
     <SmartElement
@@ -114,14 +118,40 @@ export default function SlideHeader({
     </SmartElement>
   ) : null;
 
+  const logoEl = (showBrandLogo && brandLogo && !data?.hideLogo) ? (
+    <SmartElement
+      slideIndex={slideIndex}
+      field="logo"
+      position={data?.positions?.logo || { x: 0, y: 0, scale: 1 }}
+      onActionStart={onActionStart}
+      isSelected={isSelectedLogo}
+      onSelectElement={onSelectElement}
+      className={`pointer-events-auto ${isSelectedLogo ? 'z-[110]' : 'z-[100]'}`}
+    >
+      <div className="flex items-center justify-center select-none">
+        <img 
+          src={brandLogo} 
+          alt="brand logo" 
+          className="max-w-[120px] max-h-[60px] object-contain drop-shadow-lg" 
+          crossOrigin="anonymous"
+        />
+      </div>
+    </SmartElement>
+  ) : null;
+
   return (
     <>
-      <div className={`absolute pointer-events-none flex w-max max-w-full ${getAlignClasses(handleAlign)} z-[55]`}>
+      <div className={`absolute pointer-events-none flex w-max max-w-full ${getAlignClasses(handleAlign)} z-[100]`}>
         {handleEl}
       </div>
       {counterEl && (
-        <div className={`absolute pointer-events-none flex w-max max-w-full ${getAlignClasses(counterAlign)} z-[55]`}>
+        <div className={`absolute pointer-events-none flex w-max max-w-full ${getAlignClasses(counterAlign)} z-[100]`}>
           {counterEl}
+        </div>
+      )}
+      {logoEl && (
+        <div className={`absolute pointer-events-none flex w-max max-w-full ${getAlignClasses(logoAlign)} z-[100]`}>
+          {logoEl}
         </div>
       )}
     </>

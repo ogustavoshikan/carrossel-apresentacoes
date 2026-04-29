@@ -26,6 +26,8 @@ export default function SlideList({
   showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
+  brandLogo,
+  showBrandLogo,
 }) {
   const variantIndex = data.listVariantIndex || 0;
 
@@ -38,6 +40,8 @@ export default function SlideList({
         slideCount={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -63,6 +67,8 @@ export default function SlideList({
         total={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

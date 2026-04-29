@@ -65,11 +65,9 @@ function ImageBg({ data, imageUrl, imagePosition, imageScale, className = '', st
 // Imagem arredondada no topo + tag + título + texto abaixo.
 // Inspirado no layout do arquivo original (Variante 1).
 // ═══════════════════════════════════════════════════════════
-export function SplitVariant1({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+export function SplitVariant1({ data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -85,8 +83,7 @@ export function SplitVariant1({
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Imagem arredondada */}
@@ -147,11 +144,9 @@ export function SplitVariant1({
 // Imagem lateral esquerda 45% + conteúdo de texto na direita 55%.
 // Inspirado no layout do arquivo original (Variante 2).
 // ═══════════════════════════════════════════════════════════
-export function SplitVariant2({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+export function SplitVariant2({ data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -176,8 +171,7 @@ export function SplitVariant2({
           brandAvatar={brandAvatar}
           showSlideCounter={showSlideCounter}
           slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
         <div className="mb-6 mt-10">
           <SmartField field="tag" {...sp}>
@@ -226,11 +220,9 @@ export function SplitVariant2({
 // Conteúdo de texto na metade superior + imagem na inferior.
 // Inspirado no layout do arquivo original (Variante 3).
 // ═══════════════════════════════════════════════════════════
-export function SplitVariant3({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+export function SplitVariant3({ data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -246,8 +238,7 @@ export function SplitVariant3({
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Bloco superior: texto */}
       <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b border-white/10 shrink-0">
@@ -304,11 +295,9 @@ export function SplitVariant3({
 // Grid 2×3 com card título (topo), card imagem e card texto.
 // Inspirado no layout do arquivo original (Variante 4).
 // ═══════════════════════════════════════════════════════════
-export function SplitVariant4({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+export function SplitVariant4({ data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -324,8 +313,7 @@ export function SplitVariant4({
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-3 gap-4 pt-12">
         {/* Card Titulo — topo full width */}
@@ -397,11 +385,9 @@ export function SplitVariant4({
 // Estilo brutalista: bordas grossas, alto contraste, preto/cinza.
 // Inspirado no layout do arquivo original (Variante 5).
 // ═══════════════════════════════════════════════════════════
-export function SplitVariant5({
-  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+export function SplitVariant5({ data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -417,8 +403,7 @@ export function SplitVariant5({
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Bloco superior: título */}
       <div className="absolute inset-0 flex flex-col border-8 border-black z-0 pointer-events-none [&>*]:pointer-events-auto">
@@ -2867,7 +2852,7 @@ export function SplitVariant49(props) {
             {brandAvatar ? (
               <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
             ) : (
-              <img src="https://i.pravatar.cc/150?img=5" className="w-full h-full object-cover" alt="Avatar" />
+              <img src="" className="w-full h-full object-cover" alt="Avatar" />
             )}
           </div>
           <div>
@@ -2929,9 +2914,9 @@ export function SplitVariant50(props) {
         <div className="absolute -bottom-6 right-8 bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100 z-20">
           <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden">
             {brandAvatar ? (
-              <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
+              <img src={brandAvatar} crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
             ) : (
-              <img src="https://i.pravatar.cc/150?img=12" className="w-full h-full object-cover" alt="Avatar" />
+              <img src="" crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
             )}
           </div>
           <div className="pr-3">
@@ -2996,9 +2981,9 @@ export function SplitVariant51(props) {
       <div className="flex items-center gap-3 mb-4 shrink-0 mt-[30px]">
         <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden border border-white shadow-sm">
           {brandAvatar ? (
-            <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
+            <img src={brandAvatar} crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
           ) : (
-            <img src="https://i.pravatar.cc/150?img=47" className="w-full h-full object-cover" alt="Avatar" />
+            <img src="" crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
           )}
         </div>
         <div>
@@ -3062,9 +3047,9 @@ export function SplitVariant52(props) {
       <div className="flex flex-col items-center text-center flex-1 min-h-0">
         <div className="w-10 h-10 rounded-full border-2 border-zinc-700 bg-zinc-800 overflow-hidden mb-3 shrink-0">
           {brandAvatar ? (
-            <img src={brandAvatar} className="w-full h-full object-cover" alt="Avatar" />
+            <img src={brandAvatar} crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
           ) : (
-            <img src="https://i.pravatar.cc/150?img=3" className="w-full h-full object-cover" alt="Avatar" />
+            <img src="" crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
           )}
         </div>
         <div className="mb-2 shrink-0">
@@ -3341,13 +3326,13 @@ export function SplitVariant57(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-black text-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="h-[60%] w-full p-8 flex flex-col justify-center relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+      <div className="h-[60%] w-full p-8 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="mb-4 shrink-0 mt-4">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-black leading-[0.95] tracking-tighter uppercase drop-shadow-md text-white outline-none"
+              className="font-black leading-[0.95] tracking-tighter uppercase text-white outline-none"
               style={{ fontSize: `${38 * sTitle}px` }}
             >
               {data.titulo}
@@ -3367,7 +3352,7 @@ export function SplitVariant57(props) {
       </div>
       <div className="flex-1 w-full relative shrink-0 z-0 overflow-hidden flex">
         <SmartField field="imagem" {...sp} className="w-full h-full">
-          <ImageBg data={data} className="absolute inset-0 opacity-90" />
+          <ImageBg data={data} className="absolute inset-0" />
           <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20">
             <SmartField field="tag" {...sp}>
               <span
@@ -4096,7 +4081,7 @@ export function SplitVariant71(props) {
       <div className="w-full h-[55%] flex flex-col p-8 pt-20 relative z-10">
         <div className="flex items-center gap-3 mb-4 shrink-0">
           <div className="w-12 h-12 rounded-full bg-zinc-300 overflow-hidden shrink-0 shadow-md border-2 border-white">
-            <img src={brandAvatar || "https://i.pravatar.cc/150?img=49"} className="w-full h-full object-cover" alt="Avatar"/>
+            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
           <div className="flex flex-col">
             <SmartField field="tag" {...sp}>
@@ -4198,7 +4183,7 @@ export function SplitVariant72(props) {
       <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden shadow-2xl shrink-0 bg-zinc-200 relative ml-auto border-4 border-white mt-4">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border-2 border-white bg-white overflow-hidden shadow-lg">
-          <img src={brandAvatar || "https://i.pravatar.cc/150?img=16"} className="w-full h-full object-cover" alt="Avatar"/>
+          <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
         </div>
       </SmartField>
     </div>
@@ -4245,7 +4230,7 @@ export function SplitVariant73(props) {
         </div>
         <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/20">
           <div className="w-8 h-8 rounded-full bg-white overflow-hidden shrink-0">
-            <img src={brandAvatar || "https://i.pravatar.cc/150?img=22"} className="w-full h-full object-cover" alt="Avatar"/>
+            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
           <SmartField field="tag" {...sp}>
             <span
@@ -4327,7 +4312,7 @@ export function SplitVariant74(props) {
       <div className="absolute inset-0 pointer-events-none z-[1000]">
         <div className="absolute left-8 bottom-[calc(50%-20px-8px)] pointer-events-auto bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100">
           <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden shrink-0">
-            <img src={brandAvatar || "https://i.pravatar.cc/150?img=12"} className="w-full h-full object-cover" alt="Avatar"/>
+            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
           <span className="pr-3 font-black text-[10px] text-[#1a1a1a] uppercase tracking-wider font-outfit">{brandHandle || 'AUTHOR'}</span>
         </div>
@@ -4352,7 +4337,7 @@ export function SplitVariant75(props) {
       <div className="flex-1 flex flex-col pt-4 min-h-0 mt-[35px]">
         <div className="flex items-center gap-3 mb-4 shrink-0">
           <div className="w-8 h-8 rounded-full bg-zinc-300 overflow-hidden shadow-sm shrink-0">
-            <img src={brandAvatar || "https://i.pravatar.cc/150?img=47"} className="w-full h-full object-cover" alt="Avatar"/>
+            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
           <SmartField field="tag" {...sp}>
             <span
@@ -4509,50 +4494,50 @@ export const SPLIT_VARIANT_META = [
   { id: 29, name: 'Horizontal Strip', description: 'Split horizontal com fita central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split29.png' },
   { id: 30, name: 'Vertical Mirror Pill', description: '2 colunas verticais com título central pill', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split30.png' },
   { id: 31, name: 'Horizontal Mirror Pill', description: '2 linhas horizontais com título central pill', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split31.png' },
-  { id: 32, name: 'Brand Base Split', description: 'Imagem superior 50% + base sólida da cor da marca 50%', thumbnailUrl: '' },
-  { id: 33, name: 'Side Brand Panel', description: 'Imagem lateral 75% + painel lateral da cor da marca 25%', thumbnailUrl: '' },
-  { id: 34, name: 'Brand Window', description: 'Imagem emoldurada em janela central sobre fundo de marca', thumbnailUrl: '' },
-  { id: 35, name: 'Brand Base Solid', description: 'Variante de contraste puro com base sólida da cor da marca', thumbnailUrl: '' },
-  { id: 36, name: 'Image In Brand', description: 'Imagem emoldurada por cor sólida com texto na base', thumbnailUrl: '' },
-  { id: 37, name: 'Corte Vertical', description: 'Bloco de cor esquerdo com impacto fotográfico', thumbnailUrl: '' },
-  { id: 38, name: 'Imagem no Topo', description: 'Corte horizontal perfeito entre imagem e fundo limpo', thumbnailUrl: '' },
-  { id: 39, name: 'Branco e Puro', description: 'Caixa branca rigorosa com imagem enquadrada', thumbnailUrl: '' },
-  { id: 40, name: 'Foco Superior', description: 'Foco superior com base sólida da marca', thumbnailUrl: '' },
-  { id: 41, name: 'Enquadramento', description: 'Lateral sólida de cor pura que emoldura o produto', thumbnailUrl: '' },
-  { id: 42, name: 'Geometria Pura', description: 'Intersecção entre imagem e identidade geométrica', thumbnailUrl: '' },
-  { id: 43, name: 'Massive Frame', description: 'Moldura robusta com produto centralizado', thumbnailUrl: '' },
-  { id: 44, name: 'Full Bleed Base', description: 'Imagem no topo com base de texto sólida', thumbnailUrl: '' },
-  { id: 45, name: 'Framed Hero', description: 'Imagem emoldurada no centro superior', thumbnailUrl: '' },
-  { id: 46, name: 'Card Ascend', description: 'Texto sobreposto à imagem com profundidade', thumbnailUrl: '' },
-  { id: 47, name: 'Author Top', description: 'Layout editorial com avatar e handle', thumbnailUrl: '' },
-  { id: 48, name: 'Profile Cover', description: 'Imagem de topo com avatar flutuante', thumbnailUrl: '' },
-  { id: 49, name: 'Hero Shot Profile', description: 'Imagem de topo com base na cor da marca e avatar', thumbnailUrl: '' },
-  { id: 50, name: 'Author Badge Top', description: 'Imagem de topo com badge de autor flutuante', thumbnailUrl: '' },
-  { id: 51, name: 'Author Minimal Split', description: 'Imagem em card arredondado com avatar e tag minimalista', thumbnailUrl: '' },
-  { id: 52, name: 'Author Floating', description: 'Imagem flutuante centralizada com avatar e texto em destaque', thumbnailUrl: '' },
-  { id: 53, name: 'Sharp Brand Split', description: 'Divisão precisa entre imagem e cor da marca', thumbnailUrl: '' },
-  { id: 54, name: 'Modernist Top', description: 'Design minimalista com foco na imagem superior', thumbnailUrl: '' },
-  { id: 55, name: 'Solid Brand Top', description: 'Bloco sólido de cor da marca no topo', thumbnailUrl: '' },
-  { id: 56, name: 'Brand Card Overlay', description: 'Cartão brutalista sobreposto a imagem', thumbnailUrl: '' },
-  { id: 57, name: 'Massive Brand Top', description: 'Topo massivo de cor da marca (60%)', thumbnailUrl: '' },
-  { id: 58, name: 'Brand Sidebar Reverse', description: 'Barra lateral sólida com conteúdo à direita', thumbnailUrl: '' },
-  { id: 59, name: 'Brand Stamp Drop', description: 'Topo de cor da marca com selo central', thumbnailUrl: '' },
-  { id: 60, name: 'Hard Solid Top', description: 'Fundo de cor sólida marcante com linha de corte exata', thumbnailUrl: '' },
-  { id: 61, name: 'Solid Rigid Drop', description: 'Estrutura rígida onde a tipografia engole a área nobre', thumbnailUrl: '' },
-  { id: 62, name: 'Brand Header Sharp', description: 'Topo massivo que garante a força da marca', thumbnailUrl: '' },
-  { id: 63, name: 'Inverted Brand Sidebar', description: 'Texto ancorado à direita em um bloco de cor impenetrável', thumbnailUrl: '' },
-  { id: 64, name: 'Block Text Brand', description: 'O conteúdo domina 80% da tela com janela técnica', thumbnailUrl: '' },
-  { id: 65, name: 'Floating Text Brand', description: 'O texto flutua com autoridade sobre um campo de cor puro', thumbnailUrl: '' },
-  { id: 66, name: 'Brand Pillar Text', description: 'O texto é ancorado por um pilar lateral de cor sólida', thumbnailUrl: '' },
-  { id: 67, name: 'Offset Brand Header', description: 'Cabeçalho massivo com deslocamento técnico', thumbnailUrl: '' },
-  { id: 68, name: 'Cinematic Base', description: 'Base fotográfica com tipografia editorial superior', thumbnailUrl: '' },
-  { id: 69, name: 'Brutal Offset', description: 'Layout brutalista com janela de imagem deslocada', thumbnailUrl: '' },
-  { id: 70, name: 'Clean Inject', description: 'Design limpo com injeção de cor na base técnica', thumbnailUrl: '' },
-  { id: 71, name: 'Author Bottom Image', description: 'Avatar e texto no topo com imagem na base', thumbnailUrl: '' },
-  { id: 72, name: 'Author Split Bottom', description: 'Texto no topo com imagem deslocada na base', thumbnailUrl: '' },
-  { id: 73, name: 'Author Edge Bot', description: 'Texto sobre cor da marca com imagem na base', thumbnailUrl: '' },
-  { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: '' },
-  { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: '' },
+  { id: 32, name: 'Brand Base Split', description: 'Imagem superior 50% + base sólida da cor da marca 50%', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split32.png' },
+  { id: 33, name: 'Side Brand Panel', description: 'Imagem lateral 75% + painel lateral da cor da marca 25%', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split33.png' },
+  { id: 34, name: 'Brand Window', description: 'Imagem emoldurada em janela central sobre fundo de marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split34.png' },
+  { id: 35, name: 'Brand Base Solid', description: 'Variante de contraste puro com base sólida da cor da marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split35.png' },
+  { id: 36, name: 'Image In Brand', description: 'Imagem emoldurada por cor sólida com texto na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split36.png' },
+  { id: 37, name: 'Corte Vertical', description: 'Bloco de cor esquerdo com impacto fotográfico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split37.png' },
+  { id: 38, name: 'Imagem no Topo', description: 'Corte horizontal perfeito entre imagem e fundo limpo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split38.png' },
+  { id: 39, name: 'Branco e Puro', description: 'Caixa branca rigorosa com imagem enquadrada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split39.png' },
+  { id: 40, name: 'Foco Superior', description: 'Foco superior com base sólida da marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split40.png' },
+  { id: 41, name: 'Enquadramento', description: 'Lateral sólida de cor pura que emoldura o produto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split41.png' },
+  { id: 42, name: 'Geometria Pura', description: 'Intersecção entre imagem e identidade geométrica', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split42.png' },
+  { id: 43, name: 'Massive Frame', description: 'Moldura robusta com produto centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split43.png' },
+  { id: 44, name: 'Full Bleed Base', description: 'Imagem no topo com base de texto sólida', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split44.png' },
+  { id: 45, name: 'Framed Hero', description: 'Imagem emoldurada no centro superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split45.png' },
+  { id: 46, name: 'Card Ascend', description: 'Texto sobreposto à imagem com profundidade', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split46.png' },
+  { id: 47, name: 'Author Top', description: 'Layout editorial com avatar e handle', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split47.png' },
+  { id: 48, name: 'Profile Cover', description: 'Imagem de topo com avatar flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split48.png' },
+  { id: 49, name: 'Hero Shot Profile', description: 'Imagem de topo com base na cor da marca e avatar', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split49.png' },
+  { id: 50, name: 'Author Badge Top', description: 'Imagem de topo com badge de autor flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split50.png' },
+  { id: 51, name: 'Author Minimal Split', description: 'Imagem em card arredondado com avatar e tag minimalista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split51.png' },
+  { id: 52, name: 'Author Floating', description: 'Imagem flutuante centralizada com avatar e texto em destaque', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split52.png' },
+  { id: 53, name: 'Sharp Brand Split', description: 'Divisão precisa entre imagem e cor da marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split53.png' },
+  { id: 54, name: 'Modernist Top', description: 'Design minimalista com foco na imagem superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split54.png' },
+  { id: 55, name: 'Solid Brand Top', description: 'Bloco sólido de cor da marca no topo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split55.png' },
+  { id: 56, name: 'Brand Card Overlay', description: 'Cartão brutalista sobreposto a imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split56.png' },
+  { id: 57, name: 'Massive Brand Top', description: 'Topo massivo de cor da marca (60%)', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split57.png' },
+  { id: 58, name: 'Brand Sidebar Reverse', description: 'Barra lateral sólida com conteúdo à direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split58.png' },
+  { id: 59, name: 'Brand Stamp Drop', description: 'Topo de cor da marca com selo central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split59.png' },
+  { id: 60, name: 'Hard Solid Top', description: 'Fundo de cor sólida marcante com linha de corte exata', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split60.png' },
+  { id: 61, name: 'Solid Rigid Drop', description: 'Estrutura rígida onde a tipografia engole a área nobre', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split61.png' },
+  { id: 62, name: 'Brand Header Sharp', description: 'Topo massivo que garante a força da marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split62.png' },
+  { id: 63, name: 'Inverted Brand Sidebar', description: 'Texto ancorado à direita em um bloco de cor impenetrável', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split63.png' },
+  { id: 64, name: 'Block Text Brand', description: 'O conteúdo domina 80% da tela com janela técnica', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split64.png' },
+  { id: 65, name: 'Floating Text Brand', description: 'O texto flutua com autoridade sobre um campo de cor puro', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split65.png' },
+  { id: 66, name: 'Brand Pillar Text', description: 'O texto é ancorado por um pilar lateral de cor sólida', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split66.png' },
+  { id: 67, name: 'Offset Brand Header', description: 'Cabeçalho massivo com deslocamento técnico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split67.png' },
+  { id: 68, name: 'Cinematic Base', description: 'Base fotográfica com tipografia editorial superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split68.png' },
+  { id: 69, name: 'Brutal Offset', description: 'Layout brutalista com janela de imagem deslocada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split69.png' },
+  { id: 70, name: 'Clean Inject', description: 'Design limpo com injeção de cor na base técnica', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split70.png' },
+  { id: 71, name: 'Author Bottom Image', description: 'Avatar e texto no topo com imagem na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split71.png' },
+  { id: 72, name: 'Author Split Bottom', description: 'Texto no topo com imagem deslocada na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split72.png' },
+  { id: 73, name: 'Author Edge Bot', description: 'Texto sobre cor da marca com imagem na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split73.png' },
+  { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split74.png' },
+  { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split75.png' },
 ];
 
 

@@ -62,11 +62,9 @@ function ImageBg({ data, className = '', style = {}, children }) {
 // VARIANTE 1 — Dark Stack
 // Número gigante + tag pill colorida + texto + imagem inferior arredondada.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant1({
-  data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
+export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -81,8 +79,7 @@ export function BigNumberVariant1({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-              />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Número grande */}
@@ -144,7 +141,7 @@ export function BigNumberVariant1({
 // VARIANTE 2 — Phantom Center
 // Número centralizado com ghost gigante atrás (sem imagem).
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -167,8 +164,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Número colorido com glow */}
       <SmartField field="titulo" {...sp} className="relative z-10 mb-8">
@@ -219,7 +215,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 3 — Color Block
 // Bloco colorido superior com número + área escura inferior com texto.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -279,8 +275,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
     </div>
   );
 }
@@ -289,7 +284,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 4 — Glass Card
 // Número outline sutil atrás + card glassmorphic centralizado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -304,8 +299,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Número outline fantasma */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center pointer-events-none">
@@ -351,7 +345,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 5 — Side Panel
 // Número colorido à esquerda + painel de conteúdo à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -366,8 +360,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Número à esquerda */}
       <div className="w-1/2 h-full flex items-center justify-end p-6 relative z-10">
@@ -427,7 +420,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 6 — Circle Badge
 // Número em círculo pequeno + tag + card de texto destacado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -442,8 +435,7 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Imagem de fundo com opacidade */}
       <div className="absolute inset-0 pointer-events-none">
@@ -511,7 +503,7 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 7 — Texture Fill
 // Número com fundo da imagem via background-clip + texto abaixo.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -542,8 +534,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Número com textura de imagem */}
       <SmartField field="titulo" {...sp} className="w-full mb-4">
@@ -589,7 +580,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 8 — Outline Float
 // Número outline colorido flutuando + imagem + texto inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -604,8 +595,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Número outline flutuando à direita */}
       <div className="absolute top-1/4 -right-10 z-20 pointer-events-none">
@@ -665,7 +655,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 9 — Sidebar Ribbon
 // Faixa lateral colorida com número rotacionado + texto à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -680,8 +670,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Faixa lateral colorida */}
       <div
@@ -744,7 +733,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 10 — Magazine Split
 // Imagem superior semitransparente + número sobreposto + bloco de cor inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant10({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition }) {
+export function BigNumberVariant10({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -759,8 +748,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0">
@@ -821,11 +809,9 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
 // VARIANTE 11 — Bento Grid
 // Grid 2×2 com número em card colorido + tag + texto em cards separados.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant11({
-  data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
+export function BigNumberVariant11({ data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition,
-}) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -840,8 +826,7 @@ export function BigNumberVariant11({
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true}
-              />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-4 pt-16">
         {/* Card número — topo full width */}

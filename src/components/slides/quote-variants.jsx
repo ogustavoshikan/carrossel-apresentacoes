@@ -366,8 +366,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col p-12 justify-center items-center relative overflow-hidden">
       {/* Cabeçalho Padronizado: Handle + Selo + Contador */}
-      <SlideHeader 
-        data={data} 
+      <SlideHeader data={data} 
         slideIndex={index} 
         onActionStart={onActionStart} 
         selectedElement={selectedElement} 
@@ -381,8 +380,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
         isVerified={isVerified} 
         showSlideCounter={showSlideCounter} 
         slideCounterPosition={slideCounterPosition} 
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Background Premium: Gradiente de profundidade com luz suave da cor da marca */}
       <div className="absolute inset-0 bg-neutral-950 z-[0]" />

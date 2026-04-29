@@ -27,6 +27,8 @@ export default function SlideBigNumber({
   showBrandHandle,
   showSlideCounter,
   slideCounterPosition,
+  brandLogo,
+  showBrandLogo,
 }) {
   // Delegação para variante visual (1-11)
   const variantIndex = data.bigNumberVariantIndex || 0;
@@ -39,6 +41,8 @@ export default function SlideBigNumber({
         slideCount={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         titleScale={titleScale}
@@ -67,6 +71,8 @@ export default function SlideBigNumber({
         total={slideCount}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         brandColor={brandColor}
         isVerified={isVerified}
         showSlideCounter={showSlideCounter}

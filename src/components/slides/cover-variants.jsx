@@ -75,26 +75,14 @@ function ImageBg({ data, className = '', style = {}, children }) {
 
 // ─── Helper: BrandTag ───────────────────────────────────────
 // Badge do handle de marca no topo do slide.
-function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, hideDot = false }) {
-  if (showBrandHandle === false) return null;
+function BrandTag(props) {
   return (
-    <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50 pointer-events-none">
-      <div className="flex items-center gap-3">
-        {brandAvatar ? (
-          <img src={brandAvatar} alt="avatar" className="w-5 h-5 rounded-full object-cover" />
-        ) : !hideDot ? (
-          <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
-        ) : null}
-        <div className="flex items-center gap-1.5">
-          <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500 truncate">
-            {brandHandle ? (brandHandle.startsWith('@') ? brandHandle : `@${brandHandle}`) : '@studio'}
-          </span>
-          {isVerified && (
-            <BadgeCheck className="w-3.5 h-3.5 shrink-0" style={{ color: brandColor }} />
-          )}
-        </div>
-      </div>
-    </div>
+    <SlideHeader 
+      {...props} 
+      index={(props.index || 0) + 1} 
+      total={props.slideCount} 
+      slideIndex={props.index}
+    />
   );
 }
 
@@ -102,13 +90,21 @@ function BrandTag({ brandHandle, showBrandHandle, brandAvatar, brandColor, isVer
 // VARIANTE 1 — Color Split
 // Imagem superior + bloco de cor inferior com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant1({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">
+      <SlideHeader 
+        data={data} slideIndex={index} index={index + 1} total={10} 
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle} 
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
       <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/10 to-transparent" />
@@ -150,7 +146,7 @@ export function CoverVariant1({ data, index, brandColor, titleScale, textScale, 
 // VARIANTE 2 — Cinemático
 // Imagem full-bleed com texto inferior e gradient
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -206,7 +202,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 3 — Blur Editorial
 // Background desfocado + barra de acento + border-left
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -251,7 +247,7 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 4 — Moldura Editorial
 // Background claro com moldura branca e estilo magazine
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -312,7 +308,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 5 — Rounded Split
 // Imagem superior + bloco de cor arredondado inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -360,21 +356,19 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 6 — Arco
 // Imagem em container arch-shaped + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
     <div className="relative w-full h-full bg-[#050505] flex flex-col overflow-hidden p-8 pt-20">
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div
         className="w-full h-1/2 rounded-t-full rounded-b-[2rem] overflow-hidden relative border-b-4"
@@ -416,7 +410,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 7 — Polaroid
 // Card estilo foto instantânea com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -424,14 +418,12 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
     <div className="relative w-full h-full bg-zinc-950 flex flex-col p-10 overflow-hidden items-center justify-center">
       <ImageBg data={data} className="absolute inset-0 opacity-20 blur-xl scale-110" />
 
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Polaroid Card */}
       <div className="w-[85%] aspect-[3/4] bg-white p-4 rounded-xl shadow-2xl rotate-[-4deg] relative z-10 flex flex-col">
@@ -486,7 +478,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 8 — Acento Lateral
 // Texto centrado com borda lateral colorida
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -496,14 +488,12 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
       <ImageBg data={data} className="absolute inset-0 opacity-30 blur-lg scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
 
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="relative z-10 mt-16">
         <div className="mb-6">
@@ -538,7 +528,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 9 — Spotlight Card
 // Fundo com texto watermark + card branco central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -554,14 +544,12 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
         ))}
       </div>
 
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* White Card */}
       <div
@@ -619,7 +607,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 10 — Bottom Minimal
 // Background desfocado + texto inferior centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -629,14 +617,12 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
       <ImageBg data={data} className="absolute inset-0 opacity-40 blur-md scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
 
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div className="mt-auto relative z-20 p-10 pb-16 text-center">
         <div className="mb-4">
@@ -671,7 +657,7 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
 // VARIANTE 11 — Luxury Frame
 // Imagem dentro de moldura com sombra profunda e título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant11({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant11({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -723,7 +709,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 12 — Diagonal Slice
 // Divisão diagonal dinâmica entre cor e imagem
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -773,7 +759,7 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 13 — Bold Overlay
 // Título sobreposto com mix-blend e badge de marca
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant13({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant13({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -833,7 +819,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 14 — Top Block
 // Título superior em bloco de cor com imagem inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant14({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant14({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -875,7 +861,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 15 — Center Card
 // Imagem superior e card centralizado com título
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant15({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant15({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -916,7 +902,7 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 16 — Bottom Gradient
 // Imagem full com gradient colorido e título centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant16({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant16({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -973,7 +959,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 17 — Minimal Side
 // Divisão lateral com título e imagem
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant17({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant17({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1033,7 +1019,7 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 18 — Glassmorphism Center
 // Card central com backdrop blur sobre imagem com glow
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant18({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant18({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1070,7 +1056,7 @@ export function CoverVariant18({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 19 — Arch Featured
 // Imagem em arco superior com badge central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant19({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant19({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1114,7 +1100,7 @@ export function CoverVariant19({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 20 — Rotating Polaroid
 // Foto rotacionada com padrão de fundo e badge flutuante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant20({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant20({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1150,7 +1136,7 @@ export function CoverVariant20({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 21 — Diagonal Edge
 // Imagem superior diagonal com título gigante inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant21({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant21({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1185,7 +1171,7 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 22 — Header Minimal
 // Header padrão + título gigante centrado com glow lateral
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount }) {
+export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const bgBase = '#ffffff';
@@ -1194,14 +1180,12 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
 
   return (
     <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{ backgroundColor: bgBase }}>
-      <BrandTag 
-        brandHandle={brandHandle} 
+      <BrandTag brandHandle={brandHandle} 
         showBrandHandle={showBrandHandle} 
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
-        hideDot={true}
-      />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
       <div className="flex-1 flex flex-col justify-center relative mt-4">
         <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-6 z-10">
@@ -1227,7 +1211,7 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
 // VARIANTE 23 — Vertical Split
 // Split vertical com handle rotacionado e imagem blend
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant23({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant23({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1264,7 +1248,7 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 24 — Grid Process
 // Estilo técnico com grid, badge numerado e imagem inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant24({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant24({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1319,7 +1303,7 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 25 — Frosted Float
 // Card com glassmorphism flutuando sobre imagem desfocada
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant25({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant25({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1363,7 +1347,7 @@ export function CoverVariant25({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 26 — Overlay Volume
 // Bloco superior de cor com blend e imagem inferior P&B
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant26({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant26({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1413,7 +1397,7 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 27 — Slanted New
 // Recorte diagonal superior com badge Sparkles e footer
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant27({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant27({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1481,7 +1465,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 28
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant28({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant28({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1534,7 +1518,7 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 29
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant29({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant29({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1593,7 +1577,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 30
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant30({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant30({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1640,7 +1624,7 @@ export function CoverVariant30({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 31
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant31({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant31({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1714,7 +1698,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 32
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant32({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant32({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1755,7 +1739,7 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 33 — Gradient Footer
 // Imagem superior + rodapé colorido com divisória
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant33({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant33({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1800,7 +1784,7 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 34 — Center Focus
 // Imagem full bg com opacity e gradient + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant34({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified }) {
+export function CoverVariant34({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1861,7 +1845,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 35 — Curve Card
 // Imagem superior + card branco inferior com topo arredondado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant35({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant35({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1906,7 +1890,7 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 36 — Magazine Split
 // Texto à esquerda e imagem à direita com botão flutuante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant36({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant36({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1950,7 +1934,7 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 37 — Modern Frame
 // Fundo colorido com card de imagem central e botões minimalistas
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant37({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle }) {
+export function CoverVariant37({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2003,7 +1987,7 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 38 — Gradient Bottom
 // Imagem full bleed com gradient inferior e tags/título alinhados
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant38({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant38({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2053,7 +2037,7 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 39 — Side Strip
 // Imagem lateral com faixa de marca e título centrado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant39({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant39({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2101,7 +2085,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 40 — Floating Card Center
 // Imagem superior e card flutuante centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2146,7 +2130,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 41 — Slanted Banner
 // Faixa diagonal sobre imagem grayscale
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2187,7 +2171,7 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 42 — Upper Frame Title
 // Título superior emoldurado e rodapé branco minimalista
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant42({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement }) {
+export function CoverVariant42({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2234,7 +2218,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 43 — Repeat Text Focus
 // Texto repetido ao fundo com card de imagem central e badge
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle }) {
+export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2265,7 +2249,7 @@ export function CoverVariant43({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 44 — Floating Bubbles
 // Bolhas flutuantes com imagem e texto lateral elegante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant44({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified }) {
+export function CoverVariant44({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo }) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -3098,7 +3082,7 @@ export function CoverVariant57(props) {
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-zinc-100 overflow-hidden shrink-0 border-2" style={{ borderColor: brandColor }}>
                     <img 
-                      src={brandAvatar || "https://i.pravatar.cc/150?u=bruna"} 
+                      src={brandAvatar || ""} 
                       className="w-full h-full object-cover" 
                       alt="Author" 
                       crossOrigin="anonymous"
@@ -3186,7 +3170,7 @@ export function CoverVariant58(props) {
 
             <div className="flex items-center gap-4 mb-6 bg-white/10 p-3 rounded-full w-max border border-white/20 shrink-0">
                 <div className="w-8 h-8 rounded-full bg-white overflow-hidden shrink-0">
-                    <img src={brandAvatar || "https://i.pravatar.cc/150?img=47"} className="w-full h-full object-cover" alt="Author" />
+                    <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />
                 </div>
                 <div className="pr-4">
                     <span className="font-bold text-xs tracking-wider uppercase text-white" style={{ fontFamily: titleFont }}>{brandHandle}</span>
@@ -3233,7 +3217,7 @@ export function CoverVariant59(props) {
         </div>
         <div className="flex-1 flex flex-col p-10 relative z-10 -mt-20">
             <div className="w-16 h-16 rounded-full border-4 overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: brandColor, backgroundColor: brandColor }}>
-                <img src={brandAvatar || "https://i.pravatar.cc/150?img=32"} className="w-full h-full object-cover" alt="Author" />  
+                <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />  
             </div>
             <div className="mb-2 shrink-0">
                 <SmartField field="tag" {...sp}>
@@ -3294,7 +3278,7 @@ export function CoverVariant60(props) {
         <div className="flex-1 flex flex-col p-10 pt-16 z-10 mt-8">
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-zinc-200 overflow-hidden shrink-0">
-                    <img src={brandAvatar || "https://i.pravatar.cc/150?img=5"} className="w-full h-full object-cover" alt="Author" />
+                    <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />
                 </div>
                 <div>
                   <SmartField field="tag" {...sp}>
@@ -3357,7 +3341,7 @@ export function CoverVariant61(props) {
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
         <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-1">
-            <img src={brandAvatar || "https://i.pravatar.cc/150?img=11"} className="w-full h-full object-cover" alt="Author" />      
+            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />      
         </div>
         <div className="mb-[3px] z-20 shrink-0">
             <SmartField field="tag" {...sp}>

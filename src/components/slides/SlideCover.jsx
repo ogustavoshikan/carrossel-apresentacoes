@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image as ImageIcon, ArrowRight } from 'lucide-react';
 import SmartElement from '../smart-element';
+import SlideHeader from '../slide-header';
 import { COVER_VARIANT_COMPONENTS } from './cover-variants';
 
 /**
@@ -24,6 +25,8 @@ export default function SlideCover({
   showBrandHandle,
   slideCount,
   isVerified,
+  brandLogo,
+  showBrandLogo,
 }) {
   // Delegação para variante visual (1-22)
   let variantIndex = data.coverVariantIndex || 0;
@@ -45,6 +48,8 @@ export default function SlideCover({
         brandColor={brandColor}
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         isVerified={isVerified}
         titleScale={titleScale}
         textScale={textScale}
@@ -65,6 +70,23 @@ export default function SlideCover({
 
   return (
     <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">
+      <SlideHeader 
+        data={data} 
+        slideIndex={index} 
+        onActionStart={onActionStart} 
+        selectedElement={selectedElement} 
+        onSelectElement={onSelectElement}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle} 
+        showBrandHandle={showBrandHandle}
+        brandAvatar={brandAvatar}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
+        brandColor={brandColor}
+        isVerified={isVerified}
+        hideDot={true}
+      />
       {/* Hero image top */}
       <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
         {data.imageUrl ? (
