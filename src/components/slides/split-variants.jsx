@@ -2901,7 +2901,7 @@ export function SplitVariant49(props) {
 // Imagem de topo com badge de autor flutuante na transição.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant50(props) {
-  const { data, index, slideCount, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2911,8 +2911,8 @@ export function SplitVariant50(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 z-0">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute -bottom-6 right-8 bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100 z-20">
-          <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden">
+        <div className="absolute -bottom-6 right-8 p-2 rounded-2xl shadow-xl flex items-center gap-3 z-20" style={{ backgroundColor: brandColor }}>
+          <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden border-2" style={{ borderColor: brandColor }}>
             {brandAvatar ? (
               <img src={brandAvatar} crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
             ) : (
@@ -2924,7 +2924,7 @@ export function SplitVariant50(props) {
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-outfit font-black text-[10px] text-[#1a1a1a] uppercase tracking-wider outline-none"
+                className="font-outfit font-black text-[10px] text-white uppercase tracking-wider outline-none"
               >
                 {data.tag || 'TÉCNICA'}
               </span>
@@ -4007,7 +4007,7 @@ export function SplitVariant69(props) {
       </div>
       
       <div className="flex-1 w-full flex">
-        <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-900 rounded-[24px] overflow-hidden shadow-2xl relative border-[6px] border-white">
+        <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-900 rounded-[24px] overflow-hidden relative border-[6px] border-white">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
@@ -4257,7 +4257,7 @@ export function SplitVariant73(props) {
 // Texto no topo + Imagem na base com badge de autor flutuante.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant74(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4310,11 +4310,11 @@ export function SplitVariant74(props) {
 
       {/* Camada de Overlay para Elementos que devem flutuar sobre tudo */}
       <div className="absolute inset-0 pointer-events-none z-[1000]">
-        <div className="absolute left-8 bottom-[calc(50%-20px-8px)] pointer-events-auto bg-white p-2 rounded-2xl shadow-xl flex items-center gap-3 border border-zinc-100">
-          <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden shrink-0">
+        <div className="absolute left-8 bottom-[calc(50%-20px-8px)] pointer-events-auto p-2 rounded-2xl shadow-xl flex items-center gap-3" style={{ backgroundColor: brandColor }}>
+          <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden shrink-0 border-2" style={{ borderColor: brandColor }}>
             <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
           </div>
-          <span className="pr-3 font-black text-[10px] text-[#1a1a1a] uppercase tracking-wider font-outfit">{brandHandle || 'AUTHOR'}</span>
+          <span className="pr-3 font-black text-[10px] text-white uppercase tracking-wider font-outfit">{brandHandle || 'AUTHOR'}</span>
         </div>
       </div>
     </div>
@@ -4536,7 +4536,7 @@ export const SPLIT_VARIANT_META = [
   { id: 71, name: 'Author Bottom Image', description: 'Avatar e texto no topo com imagem na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split71.png' },
   { id: 72, name: 'Author Split Bottom', description: 'Texto no topo com imagem deslocada na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split72.png' },
   { id: 73, name: 'Author Edge Bot', description: 'Texto sobre cor da marca com imagem na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split73.png' },
-  { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split74.png' },
+  { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split74-cop.png' },
   { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_split75.png' },
 ];
 
