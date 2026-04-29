@@ -993,6 +993,308 @@ export function BigNumberVariant13(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 14 — Texture Number Light
+// Número preenchido com imagem (bg-clip) em fundo claro + tag + texto.
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant14(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const numberStyle = data.imageUrl
+    ? {
+        fontSize: `${150 * sTitle}px`,
+        backgroundImage: `url(${data.imageUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        color: 'transparent',
+        WebkitTextStroke: '1px rgba(0, 0, 0, 0.1)',
+      }
+    : {
+        fontSize: `${150 * sTitle}px`,
+        color: brandColor,
+      };
+
+  return (
+    <div className="w-full h-full bg-zinc-100 flex flex-col p-10 overflow-hidden relative justify-center">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+
+      <SmartField field="titulo" {...sp} className="mb-4">
+        <span
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          style={numberStyle}
+        >
+          {data.titulo}
+        </span>
+      </SmartField>
+
+      <SmartField field="tag" {...sp} className="mb-4">
+        <span
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+          className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase text-black outline-none block"
+        >
+          {data.tag || 'RESULTADO'}
+        </span>
+      </SmartField>
+
+      <SmartField field="texto_apoio" {...sp}>
+        <p
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-playfair text-zinc-600 outline-none break-words max-w-full"
+          style={{ fontSize: `${20 * sText}px` }}
+        >
+          {data.texto_apoio}
+        </p>
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 15 — Dark Outline Float
+// Número outline colorido flutuando + card dark com imagem + texto.
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant15(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-[#080808] flex flex-col p-10 overflow-hidden relative justify-center items-center">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+
+      {/* Número outline flutuando centralizado */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none w-full text-center">
+        <SmartField field="titulo" {...sp}>
+          <span
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-transparent tracking-tighter leading-none outline-none"
+            style={{ fontSize: `${180 * sTitle}px`, WebkitTextStroke: `4px ${brandColor}` }}
+          >
+            {data.titulo}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Card escuro com imagem e texto */}
+      <div className="bg-[#050505] p-8 border border-white/10 z-10 mt-32 w-full shadow-2xl relative">
+        {/* Miniatura de imagem */}
+        <SmartField
+          field="imagem"
+          {...sp}
+          className="w-16 h-16 overflow-hidden mb-6 absolute -top-8 right-8 shadow-xl"
+        >
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartField>
+
+        <SmartField field="tag" {...sp} className="mb-4">
+          <span
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[10px] tracking-widest uppercase text-zinc-500 outline-none block"
+          >
+            {data.tag || 'RESULTADO'}
+          </span>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-white outline-none text-lg break-words max-w-full"
+            style={{ fontSize: `${18 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 16 — Light Color Drop
+// Fundo branco + número colorido em destaque + card de texto.
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant16(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-white flex flex-col p-10 relative overflow-hidden text-black">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+
+      <div className="flex-1 flex flex-col justify-center items-center">
+        <SmartField field="titulo" {...sp} className="mb-6 w-full text-center">
+          <span
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black tracking-tighter leading-none outline-none block text-center drop-shadow-sm"
+            style={{ fontSize: `${150 * sTitle}px`, color: brandColor }}
+          >
+            {data.titulo}
+          </span>
+        </SmartField>
+
+        <div className="bg-[#FAFAFA] border border-zinc-100 p-8 w-full text-center shadow-lg">
+          <SmartField field="tag" {...sp} className="mb-4">
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] tracking-widest uppercase text-zinc-400 outline-none block"
+            >
+              {data.tag || 'RESULTADO'}
+            </span>
+          </SmartField>
+
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair text-zinc-800 outline-none font-medium break-words max-w-full"
+              style={{ fontSize: `${18 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 17 — Ghost Watermark
+// Número watermark gigante semitransparente + tag pill colorida + número menor.
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant17(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-[#F9F9F9] flex flex-col p-10 relative overflow-hidden text-black">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+
+      {/* Watermark gigante decorativo */}
+      <div className="absolute top-1/4 -right-10 z-0 pointer-events-none opacity-5">
+        <span
+          className="font-outfit font-black tracking-tighter leading-none"
+          style={{ fontSize: `${220 * sTitle}px`, color: brandColor }}
+        >
+          {data.titulo}
+        </span>
+      </div>
+
+      <div className="flex-1 flex flex-col justify-end pt-8 relative z-10 pb-10">
+        <SmartField field="tag" {...sp} className="mb-4 self-start">
+          <span
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-white text-[10px] tracking-[0.3em] uppercase px-5 py-2 shadow-md outline-none inline-block"
+            style={{ backgroundColor: brandColor }}
+          >
+            {data.tag || 'RESULTADO'}
+          </span>
+        </SmartField>
+
+        <SmartField field="titulo" {...sp} className="mb-4">
+          <h2
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-zinc-900 tracking-tighter leading-none outline-none"
+            style={{ fontSize: `${90 * sTitle}px` }}
+          >
+            {data.titulo}
+          </h2>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp}>
+          <p
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair text-zinc-500 outline-none break-words max-w-full"
+            style={{ fontSize: `${20 * sText}px` }}
+          >
+            {data.texto_apoio}
+          </p>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 18 — Glow Centered
+// Número centralizado com glow colorido + tag pill frosted.
+// ═══════════════════════════════════════════════════════════
+export function BigNumberVariant18(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="w-full h-full bg-white flex flex-col items-center justify-center p-10 relative overflow-hidden text-center text-black">
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+
+      {/* Glow de fundo */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-10 blur-3xl pointer-events-none rounded-full"
+        style={{ backgroundColor: brandColor }}
+      />
+
+      <SmartField field="titulo" {...sp} className="relative z-10 mb-8">
+        <span
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          style={{ fontSize: `${130 * sTitle}px`, color: brandColor }}
+        >
+          {data.titulo}
+        </span>
+      </SmartField>
+
+      <SmartField field="tag" {...sp} className="relative z-10">
+        <span
+          contentEditable
+          suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+          className="font-outfit font-bold text-zinc-800 text-[12px] tracking-[0.4em] uppercase border border-zinc-200 px-8 py-3 bg-white/80 backdrop-blur-md shadow-sm outline-none inline-block"
+        >
+          {data.tag || 'RESULTADO'}
+        </span>
+      </SmartField>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -1010,6 +1312,11 @@ export const BIGNUMBER_VARIANT_COMPONENTS = {
   11: BigNumberVariant11,
   12: BigNumberVariant12,
   13: BigNumberVariant13,
+  14: BigNumberVariant14,
+  15: BigNumberVariant15,
+  16: BigNumberVariant16,
+  17: BigNumberVariant17,
+  18: BigNumberVariant18,
 };
 
 export const BIGNUMBER_VARIANT_META = [
@@ -1096,6 +1403,36 @@ export const BIGNUMBER_VARIANT_META = [
     name: 'Elegant Glow', 
     description: 'Número central branco com glow da marca',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants13.png'
+  },
+  {
+    id: 14,
+    name: 'Texture Number',
+    description: 'Número preenchido com textura de imagem em fundo claro',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants14.png'
+  },
+  {
+    id: 15,
+    name: 'Dark Outline Float',
+    description: 'Número outline flutuando + card escuro com imagem',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants15.png'
+  },
+  {
+    id: 16,
+    name: 'Light Color Drop',
+    description: 'Fundo branco + número colorido + card de texto',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants16.png'
+  },
+  {
+    id: 17,
+    name: 'Ghost Watermark',
+    description: 'Watermark gigante decorativo + tag pill + número menor',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants17.png'
+  },
+  {
+    id: 18,
+    name: 'Glow Centered',
+    description: 'Número centralizado com glow colorido + tag frosted',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants18.png'
   },
 ];
 
