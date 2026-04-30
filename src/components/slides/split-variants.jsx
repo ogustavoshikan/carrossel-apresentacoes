@@ -83,7 +83,10 @@ export function SplitVariant1({ data, index, slideCount, brandHandle, showBrandH
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#636363"
+        counterColor="#636363"
+        counterBg="#080808" />
 
       <div className="flex-1 flex flex-col justify-center pt-8">
         {/* Imagem arredondada */}
@@ -238,7 +241,10 @@ export function SplitVariant3({ data, index, slideCount, brandHandle, showBrandH
         brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
-        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#636363"
+        counterColor="#636363"
+        counterBg="#080808" />
 
       {/* Bloco superior: texto */}
       <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b border-white/10 shrink-0">

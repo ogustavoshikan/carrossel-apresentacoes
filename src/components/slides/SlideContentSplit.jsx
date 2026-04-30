@@ -77,6 +77,9 @@ export default function SlideContentSplit({
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
         hideDot={true}
+        handleColor="#636363"
+        counterColor="#636363"
+        counterBg="#080808"
               />
       <div className="flex-1 flex flex-col justify-center pt-6">
         <SmartElement
