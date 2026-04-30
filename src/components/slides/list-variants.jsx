@@ -5,14 +5,19 @@ import SlideHeader from '../slide-header';
 
 // ─── Helper: ImageBg ────────────────────────────────────────
 function ImageBg({ data, className = '', style = {}, children }) {
-  if (!data?.imageUrl) return null;
+  if (!data?.imageUrl) return children || null;
+  
+  // Normaliza a escala: aceita 1.5 ou 150
+  const rawScale = data.imageScale ?? 1;
+  const scale = rawScale > 5 ? rawScale / 100 : rawScale;
+  
   return (
     <div 
       className={`bg-cover bg-center transition-all duration-500 ${className}`}
       style={{ 
-        backgroundImage: `url(${data.imageUrl})`,
+        backgroundImage: `url("${data.imageUrl}")`,
         backgroundPosition: `center ${data.imagePosition ?? 50}%`,
-        transform: `scale(${(data.imageScale ?? 100) / 100})`,
+        transform: `scale(${scale})`,
         ...style 
       }}
     >
@@ -1046,22 +1051,36 @@ export function ListVariant27(props) {
   return (
     <div className="w-full h-full flex flex-col bg-white relative">
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="h-[40%] w-full relative shrink-0 bg-zinc-300">
-        <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
-          <SmartEl 
-            slideIndex={index} 
-            field="studio_text" 
-            position={data.positions?.studio_text || { x: 0, y: 0, scale: 1 }}
-            onActionStart={onActionStart}
-            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'}
-            onSelectElement={onSelectElement}
-          >
-            <TextWrapper {...tw} as="span" field="studio_text" className="text-zinc-400 font-outfit text-xs">
-              {data.studio_text || 'Espaço para Imagem'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-        <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/50">
+      <div className={`h-[40%] w-full relative shrink-0 overflow-hidden ${!data.imageUrl ? 'bg-zinc-300' : ''}`}>
+        <SmartEl 
+          slideIndex={index} 
+          field="imagem" 
+          position={data.positions?.imagem || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'imagem'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full"
+        >
+          <ImageBg data={data} className="absolute inset-0" />
+        </SmartEl>
+
+        {!data.imageUrl && (
+          <div className="absolute inset-0 bg-zinc-200 flex items-center justify-center">
+            <SmartEl 
+              slideIndex={index} 
+              field="studio_text" 
+              position={data.positions?.studio_text || { x: 0, y: 0, scale: 1 }}
+              onActionStart={onActionStart}
+              isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'}
+              onSelectElement={onSelectElement}
+            >
+              <TextWrapper {...tw} as="span" field="studio_text" className="text-zinc-400 font-outfit text-xs">
+                {data.studio_text || 'Espaço para Imagem'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        )}
+        <div className="absolute bottom-4 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl shadow-lg border border-white/50 z-20">
           <SmartEl 
             slideIndex={index} 
             field="titulo" 
