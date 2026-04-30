@@ -74,11 +74,9 @@ export default function SlideHeader({
         ) : null}
         <div className="flex items-center gap-1.5">
           <span
-            className={`font-outfit font-black tracking-[0.25em] text-[10px] uppercase flex items-center ${
-              dark ? 'text-black' : 'text-zinc-500'
-            }`}
+            className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase flex items-center"
           >
-            <span style={{ color: dark ? 'inherit' : '#71717a' }} className="mr-[1px]">@</span>
+            <span className="mr-[1px]">@</span>
             {brandHandle ? (brandHandle.startsWith('@') ? brandHandle.substring(1) : brandHandle) : 'studio'}
           </span>
           {isVerified && (
@@ -105,15 +103,14 @@ export default function SlideHeader({
       <div
         className={`font-outfit font-bold text-[11px] px-3 py-1.5 rounded-lg border backdrop-blur-xl select-none -translate-y-[8px] ${
           dark
-            ? 'bg-black/5 text-black border-black/10'
+            ? 'bg-black/5 border-black/10'
             : 'bg-surface-input/30 border-white/10'
         }`}
         style={{ 
-          color: dark ? 'inherit' : '#a1a1aa',
           ...(counterBg ? { backgroundColor: counterBg, borderColor: 'transparent' } : {})
         }}
       >
-        {index} <span className="opacity-30 mx-1" style={{ color: dark ? 'inherit' : '#71717a' }}>/</span> {total}
+        {index} <span className="opacity-30 mx-1">/</span> {total}
       </div>
     </SmartElement>
   ) : null;
