@@ -543,7 +543,7 @@ export function SplitVariant8(props) {
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       
@@ -604,7 +604,7 @@ export function SplitVariant9(props) {
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#F4F4F5]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       
@@ -651,7 +651,7 @@ export function SplitVariant10(props) {
   
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#E8E8E8] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       
@@ -715,7 +715,7 @@ export function SplitVariant11(props) {
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden relative bg-[#FAFAFA]">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       
@@ -821,7 +821,7 @@ export function SplitVariant13(props) {
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-white">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       <div className="absolute inset-0 p-6 flex flex-col border-8" style={{ borderColor: brandColor }}>
@@ -938,7 +938,7 @@ export function SplitVariant15(props) {
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       
@@ -996,7 +996,7 @@ export function SplitVariant16(props) {
 
   return (
     <div className="w-full h-full p-6 flex flex-col overflow-hidden bg-[#FAFAFA] relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" brandAvatar={brandAvatar}
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} counterBg="#EDEDED" handleColor="#1A1A1A" counterColor="#1A1A1A" brandAvatar={brandAvatar}
         hideDot={true}
       />
       

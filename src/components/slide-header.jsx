@@ -18,6 +18,8 @@ export default function SlideHeader({
   dark = false,
   showSlideCounter = true,
   counterBg,
+  handleColor,
+  counterColor,
   data,
   slideIndex,
   onActionStart,
@@ -75,6 +77,7 @@ export default function SlideHeader({
         <div className="flex items-center gap-1.5">
           <span
             className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase flex items-center"
+            style={handleColor ? { color: handleColor } : {}}
           >
             <span className="mr-[1px]">@</span>
             {brandHandle ? (brandHandle.startsWith('@') ? brandHandle.substring(1) : brandHandle) : 'studio'}
@@ -107,7 +110,8 @@ export default function SlideHeader({
             : 'bg-surface-input/30 border-white/10'
         }`}
         style={{ 
-          ...(counterBg ? { backgroundColor: counterBg, borderColor: 'transparent' } : {})
+          ...(counterBg ? { backgroundColor: counterBg, borderColor: 'transparent' } : {}),
+          ...(counterColor ? { color: counterColor } : {})
         }}
       >
         {index} <span className="opacity-30 mx-1">/</span> {total}
