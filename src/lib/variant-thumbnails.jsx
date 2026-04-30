@@ -3037,6 +3037,60 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+  },
 
+  sequence: {
+    0: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7]">
+        <div className="h-[45%] w-full relative flex flex-col justify-end p-1.5" style={{ background: accent }}>
+           <div className="w-[60%] h-[3px] bg-white rounded-full mb-1" />
+           <div className="w-full h-[1px] bg-white/30 absolute bottom-0 left-0" />
+           <div className="w-[40%] h-[1px] bg-white absolute bottom-0 left-0" />
+        </div>
+        <div className="flex-1 p-2 flex flex-col justify-center gap-1">
+           <div className="w-[85%] h-[2px] bg-zinc-400 rounded-full" />
+           <div className="w-[70%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    1: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-white">
+        <div className="flex-1 h-full p-2 flex flex-col justify-center gap-2">
+           <div className="w-[80%] h-[4px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="w-[22%] h-full relative" style={{ background: accent }}>
+           <div className="absolute top-4 left-1/2 -translate-x-1/2 w-4 h-[1px] bg-white/40" />
+           <div className="absolute top-1/2 left-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white border-2" style={{ borderColor: accent }} />
+        </div>
+      </div>
+    ),
+    2: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
+        <div className="absolute top-0 right-0 w-8 h-8 rounded-bl-xl shadow-lg" style={{ background: accent }}>
+           <div className="w-full h-full flex items-center justify-center">
+              <div className="w-4 h-4 rounded-sm bg-white/20" />
+           </div>
+        </div>
+        <div className="flex-1 p-2 flex flex-col justify-center gap-2 pt-8">
+           <div className="w-[80%] h-[4px] bg-white rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-600 rounded-full" />
+        </div>
+      </div>
+    ),
+    3: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7]">
+        <div className="flex-1 p-2 flex flex-col justify-center gap-2">
+           <div className="w-[80%] h-[4px] rounded-full" style={{ background: accent }} />
+           <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="h-[20%] w-full bg-[#111] flex items-end p-1.5 gap-1">
+           <div className="flex-1 h-1 rounded-full" style={{ background: accent }} />
+           <div className="flex-1 h-1 rounded-full bg-white/20" />
+           <div className="flex-1 h-1 rounded-full bg-white/20" />
+           <div className="flex-1 h-1 rounded-full bg-white/20" />
+        </div>
+      </div>
+    ),
   }
 };

@@ -79,6 +79,17 @@ export const LAYOUT_ICONS = {
       <rect x="12" y="36" width="16" height="3" rx="1" fill="#fff" opacity="0.7" />
     </svg>
   ),
+  sequence: (
+    <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
+      <rect width="40" height="50" fill="#1a1a2e" />
+      <rect x="4" y="38" width="32" height="2" rx="1" fill="#3a3a5e" />
+      <rect x="4" y="38" width="12" height="2" rx="1" fill="#5b5bdb" />
+      <rect x="4" y="10" width="24" height="5" rx="1" fill="#2a2a4e" />
+      <rect x="4" y="18" width="32" height="3" rx="1" fill="#5b5bdb" />
+      <rect x="4" y="24" width="28" height="2" rx="1" fill="#3a3a5e" />
+      <rect x="4" y="28" width="20" height="2" rx="1" fill="#3a3a5e" />
+    </svg>
+  ),
 };
 
 /**
@@ -167,6 +178,16 @@ export const LAYOUT_TEMPLATES = {
     tag: 'ENCOMENDAR',
     items: [],
   },
+
+  sequence: {
+    layout: 'sequence',
+    titulo: 'O PASSO\nPRINCIPAL',
+    texto_apoio: 'Descreva aqui o processo detalhado desta etapa da sua sequência.',
+    sugestao_visual: '',
+    imageUrl: '',
+    tag: 'PASSO A PASSO',
+    items: [],
+  },
 };
 
 /**
@@ -198,6 +219,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     'comparison': 'comparisonVariantIndex',
     'cta': 'ctaVariantIndex',
     'list': 'listVariantIndex',
+    'sequence': 'sequenceVariantIndex',
   };
 
   const field = variantFields[layoutType];
@@ -291,5 +313,11 @@ export const LAYOUT_META = [
     label: 'CTA', 
     description: 'Call to action — slide de fechamento',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  { 
+    key: 'sequence', 
+    label: 'Sequência', 
+    description: 'Passo a passo ou fluxo de conteúdo',
+    thumbnailUrl: ''
   },
 ];

@@ -8,6 +8,7 @@ import { QUOTE_VARIANT_META } from '../slides/quote-variants';
 import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
 import { CTA_VARIANT_META } from '../slides/cta-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
+import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
 
 import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
 
@@ -62,16 +63,22 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
     comparison: COMPARISON_VARIANT_META,
     cta: CTA_VARIANT_META,
     list: LIST_VARIANT_META,
+    sequence: SEQUENCE_VARIANT_META,
   };
 
   const variants = THEME_METAS[selectedTheme] || [];
 
+  // Divide os layouts em duas linhas (7 na primeira, o resto na segunda)
+  const firstRow = LAYOUT_META.slice(0, 7);
+  const secondRow = LAYOUT_META.slice(7);
+
   return (
     <div className="flex flex-col gap-6 animate-in fade-in duration-300">
-      {/* Seletor de Temas (7 Botões) */}
-      <div className="sticky top-[-24px] z-30 bg-[#000000]/95 backdrop-blur-xl py-3 -mx-6 px-6 border-b border-white/5">
+      {/* Seletor de Temas (Duas Linhas) */}
+      <div className="sticky top-[-24px] z-30 bg-[#000000]/95 backdrop-blur-xl py-3 -mx-6 px-6 border-b border-white/5 flex flex-col gap-2">
+        {/* Primeira Linha (7 Principais) */}
         <div className="grid grid-cols-7 gap-1 bg-surface-dark/40 p-1.5 rounded-2xl border border-white/5 shadow-inner">
-          {LAYOUT_META.map((theme) => {
+          {firstRow.map((theme) => {
             const isActive = selectedTheme === theme.key;
             return (
               <button
@@ -108,6 +115,52 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
             );
           })}
         </div>
+
+        {/* Segunda Linha (Novos Layouts) */}
+        {secondRow.length > 0 && (
+          <div className="grid grid-cols-7 gap-1 bg-surface-dark/40 p-1.5 rounded-2xl border border-white/5 shadow-inner">
+            {secondRow.map((theme) => {
+              const isActive = selectedTheme === theme.key;
+              return (
+                <button
+                  key={theme.key}
+                  onClick={() => {
+                    setSelectedTheme(theme.key);
+                    const scrollContainer = document.getElementById('sidebar-scroll-container');
+                    if (scrollContainer) scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`flex flex-col items-center justify-center py-2.5 rounded-xl transition-colors relative group outline-none select-none ${
+                    isActive 
+                      ? 'bg-zinc-900 text-white' 
+                      : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/5'
+                  }`}
+                  title={theme.label}
+                >
+                  <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
+                    {theme.thumbnailUrl ? (
+                      <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
+                    ) : (
+                      LAYOUT_ICONS[theme.key]
+                    )}
+                  </div>
+                  <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
+                    {theme.label.split(' ')[0]}
+                  </span>
+                  {isActive && (
+                    <div 
+                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.5)]" 
+                      style={{ backgroundColor: brandColor }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+            {/* Espaçadores para manter o grid alinhado se necessário */}
+            {Array.from({ length: 7 - secondRow.length }).map((_, i) => (
+              <div key={`spacer-${i}`} className="py-2.5" />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Grid de Variantes (2 Colunas) */}

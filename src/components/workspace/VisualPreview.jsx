@@ -38,6 +38,7 @@ import QuoteVariantPopover from './QuoteVariantPopover';
 import ComparisonVariantPopover from './ComparisonVariantPopover';
 import CtaVariantPopover from './CtaVariantPopover';
 import ListVariantPopover from './ListVariantPopover';
+import SequenceVariantPopover from './SequenceVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
@@ -48,6 +49,7 @@ import { QUOTE_VARIANT_META } from '../slides/quote-variants';
 import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
 import { CTA_VARIANT_META } from '../slides/cta-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
+import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
 
 /**
  * VisualPreview — Grid horizontal de cards visuais com controles por slide.
@@ -92,6 +94,7 @@ export default function VisualPreview({
   onComparisonVariantChange,
   onCtaVariantChange,
   onListVariantChange,
+  onSequenceVariantChange,
   isExporting,
   onRemoveImage,
   showSlideCounter,
@@ -164,6 +167,10 @@ export default function VisualPreview({
       case 'list':
         metas = LIST_VARIANT_META;
         handler = onListVariantChange;
+        break;
+      case 'sequence':
+        metas = SEQUENCE_VARIANT_META;
+        handler = onSequenceVariantChange;
         break;
       default:
         return;
@@ -350,7 +357,7 @@ export default function VisualPreview({
 
                   <div className="flex items-center gap-1.5">
                     {/* Botão Aleatório (Shuffle) fora do popover */}
-                    {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list'].includes(slide.layout) && (
+                    {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list', 'sequence'].includes(slide.layout) && (
                       <Tooltip text="Variante Aleatória">
                         <button
                           onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide.layout); }}
@@ -519,6 +526,30 @@ export default function VisualPreview({
                             currentVariantIndex={slide.listVariantIndex || 0}
                             onSelect={(variantId) => {
                               onListVariantChange(index, variantId);
+                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                            }}
+                            onClose={() => setOpenVariantIndex(-1)}
+                            brandColor={brandColor}
+                            brandAvatar={brandAvatar}
+                          />
+                        )}
+                      </div>
+                    )}
+
+                    {/* Trocar Variante — apenas para slides sequence */}
+                    {slide.layout === 'sequence' && onSequenceVariantChange && (
+                      <div className="relative">
+                        <button
+                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                        >
+                          Variante
+                        </button>
+                        {openVariantIndex === index && (
+                          <SequenceVariantPopover
+                            currentVariantIndex={slide.sequenceVariantIndex || 0}
+                            onSelect={(variantId) => {
+                              onSequenceVariantChange(index, variantId);
                               handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
                             }}
                             onClose={() => setOpenVariantIndex(-1)}

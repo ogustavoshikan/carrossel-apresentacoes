@@ -6,6 +6,7 @@ import SlideQuote from './slides/SlideQuote';
 import SlideComparison from './slides/SlideComparison';
 import SlideList from './slides/SlideList';
 import SlideCTA from './slides/SlideCTA';
+import SlideSequence from './slides/SlideSequence';
 
 /**
  * SlideRenderer — Mapeia o layout do slide para o componente correto.
@@ -49,6 +50,7 @@ const LAYOUT_MAP = {
   'comparison': SlideComparison,
   'list': SlideList,
   'cta': SlideCTA,
+  'sequence': SlideSequence,
 };
 
 

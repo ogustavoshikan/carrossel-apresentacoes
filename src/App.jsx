@@ -494,6 +494,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleSequenceVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, sequenceVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleImageFromUrl = useCallback((index, url, slot = 1) => {
     if (!url) return;
     const urlField = slot === 1 ? 'imageUrl' : `imageUrl${slot}`;
@@ -884,6 +890,7 @@ export default function App() {
                         onComparisonVariantChange={handleComparisonVariantChange}
                         onCtaVariantChange={handleCtaVariantChange}
                         onListVariantChange={handleListVariantChange}
+                        onSequenceVariantChange={handleSequenceVariantChange}
                         copiedIndex={copiedIndex}
                         selectedElement={selectedElement}
                         isExporting={isExporting}
