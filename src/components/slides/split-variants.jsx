@@ -2718,7 +2718,7 @@ export function SplitVariant44(props) {
 // Imagem emoldurada no centro superior.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant45(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2772,7 +2772,7 @@ export function SplitVariant45(props) {
 // Texto sobreposto à imagem com profundidade.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant46(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2838,7 +2838,7 @@ export function SplitVariant46(props) {
 // Layout editorial com avatar e handle do autor.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant47(props) {
-  const { data, index, slideCount, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2892,7 +2892,7 @@ export function SplitVariant47(props) {
 // Imagem de topo com avatar flutuante e container de texto.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant48(props) {
-  const { data, index, slideCount, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3237,7 +3237,7 @@ export function SplitVariant52(props) {
 // Divisão entre imagem e cor da marca com impacto visual.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant53(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3305,7 +3305,7 @@ export function SplitVariant53(props) {
 // Foco na imagem superior com base autoritária.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant54(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3372,7 +3372,7 @@ export function SplitVariant54(props) {
 // Bloco sólido de cor da marca no topo + imagem na base.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant55(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3436,7 +3436,7 @@ export function SplitVariant55(props) {
 // Cartão brutalista sobreposto a imagem de fundo.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant56(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3502,7 +3502,7 @@ export function SplitVariant56(props) {
 // Topo massivo de cor da marca (60%) + imagem na base.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant57(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3567,7 +3567,7 @@ export function SplitVariant57(props) {
 // Barra lateral sólida + conteúdo à direita (texto topo, imagem base).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant58(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3636,7 +3636,7 @@ export function SplitVariant58(props) {
 // Topo de cor da marca + selo central + imagem na base.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant59(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3700,7 +3700,7 @@ export function SplitVariant59(props) {
 // VARIANTE 60 — HARD SOLID TOP
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant60(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3764,7 +3764,7 @@ export function SplitVariant60(props) {
 // VARIANTE 61 — SOLID RIGID DROP
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant61(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3833,7 +3833,7 @@ export function SplitVariant61(props) {
 // VARIANTE 62 — BRAND HEADER SHARP
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant62(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3890,7 +3890,7 @@ export function SplitVariant62(props) {
 // VARIANTE 63 — INVERTED BRAND SIDEBAR
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant63(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -3954,7 +3954,7 @@ export function SplitVariant63(props) {
 // VARIANTE 64 — BLOCK TEXT BRAND
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant64(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4009,7 +4009,7 @@ export function SplitVariant64(props) {
 // VARIANTE 65 — FLOATING TEXT BRAND
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant65(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4073,7 +4073,7 @@ export function SplitVariant65(props) {
 // VARIANTE 66 — BRAND PILLAR TEXT
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant66(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4138,7 +4138,7 @@ export function SplitVariant66(props) {
 // VARIANTE 67 — OFFSET BRAND HEADER
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant67(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4196,7 +4196,7 @@ export function SplitVariant67(props) {
 // VARIANTE 68 — CINEMATIC BASE
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant68(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4251,7 +4251,7 @@ export function SplitVariant68(props) {
 // VARIANTE 69 — BRUTAL OFFSET
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant69(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4308,7 +4308,7 @@ export function SplitVariant69(props) {
 // VARIANTE 70 — CLEAN INJECT
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant70(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4367,7 +4367,7 @@ export function SplitVariant70(props) {
 // Header + Avatar/Texto no topo + Imagem na base.
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant71(props) {
-  const { data, index, slideCount, brandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -4655,7 +4655,7 @@ export function SplitVariant74(props) {
 // Texto no topo com avatar + Imagem arredondada na base (45%).
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant75(props) {
-  const { data, index, slideCount, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandAvatar, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
