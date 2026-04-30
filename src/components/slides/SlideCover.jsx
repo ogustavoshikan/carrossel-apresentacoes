@@ -79,7 +79,8 @@ export default function SlideCover({
         index={index + 1}
         total={slideCount}
         brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle}
+        showBrandHandle={false}
+        showSlideCounter={false}
         brandAvatar={brandAvatar}
         brandLogo={brandLogo}
         showBrandLogo={showBrandLogo}

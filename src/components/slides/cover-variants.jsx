@@ -99,7 +99,8 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
     <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">
       <SlideHeader 
         data={data} slideIndex={index} index={index + 1} total={10} 
-        brandHandle={brandHandle} showBrandHandle={showBrandHandle} 
+        brandHandle={brandHandle} showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
         brandLogo={brandLogo} showBrandLogo={showBrandLogo}
         onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
@@ -364,7 +365,8 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
   return (
     <div className="relative w-full h-full bg-[#050505] flex flex-col overflow-hidden p-8 pt-20">
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
@@ -419,7 +421,8 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
       <ImageBg data={data} className="absolute inset-0 opacity-20 blur-xl scale-110" />
 
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
@@ -489,7 +492,8 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
 
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
@@ -545,7 +549,8 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
       </div>
 
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
@@ -618,7 +623,8 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
 
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
