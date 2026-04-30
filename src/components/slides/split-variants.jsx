@@ -2376,7 +2376,7 @@ export function SplitVariant39(props) {
 
   return (
     <div className="w-full h-full flex flex-col p-6 overflow-hidden relative bg-white">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot handleColor="#1A1A1A" counterColor="#1A1A1A" counterBg="#EDEDED" />
 
       <div className="flex flex-1 mt-4 gap-4">
         <SmartField field="imagem" {...sp} className="w-[45%] h-[80%] rounded-[24px] overflow-hidden shadow-lg border-[4px] relative shrink-0 z-10 mt-10" style={{ borderColor: brandColor }}>
@@ -2499,6 +2499,9 @@ export function SplitVariant41(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <div className="w-[30%] h-full flex flex-col justify-center items-center p-6 shrink-0 relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap">
@@ -2733,6 +2736,9 @@ export function SplitVariant45(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-2xl overflow-hidden mt-6 relative border-[8px]" style={{ borderColor: brandColor }}>
         <ImageBg data={data} className="absolute inset-0" />
@@ -2853,6 +2859,9 @@ export function SplitVariant47(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <SmartField field="imagem" {...sp} className="w-full h-[50%] rounded-[30px] overflow-hidden shadow-lg mb-6 shrink-0 relative mt-[30px]">
         <ImageBg data={data} className="absolute inset-0" />
@@ -3116,6 +3125,9 @@ export function SplitVariant51(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-[24px] overflow-hidden mb-5 shrink-0 relative bg-zinc-200 shadow-md mt-[46px]">
         <ImageBg data={data} className="absolute inset-0" />
@@ -3320,6 +3332,9 @@ export function SplitVariant54(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <div className="flex items-center gap-4 mb-8 mt-4 shrink-0" style={{ transform: 'translateY(10px)' }}>
         <div className="w-12 h-1" style={{ backgroundColor: brandColor }}></div>
@@ -3582,6 +3597,9 @@ export function SplitVariant58(props) {
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         hideDot={true} 
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
       />
       <div className="w-16 h-full shrink-0 flex flex-col items-center justify-center py-6 z-20" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap">
