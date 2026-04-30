@@ -1187,7 +1187,8 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
   return (
     <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{ backgroundColor: bgBase }}>
       <BrandTag brandHandle={brandHandle} 
-        showBrandHandle={showBrandHandle} 
+        showBrandHandle={false} 
+        showSlideCounter={false}
         brandAvatar={brandAvatar} 
         brandColor={brandColor} 
         isVerified={isVerified}
@@ -1814,6 +1815,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
           isVerified={isVerified}
           brandLogo={brandLogo}
           showBrandLogo={showBrandLogo}
+          showBrandHandle={false}
           showSlideCounter={false}
           hideDot={true}
           dark 
@@ -2277,6 +2279,7 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
         isVerified={isVerified}
         brandLogo={brandLogo}
         showBrandLogo={showBrandLogo}
+        showBrandHandle={false}
         showSlideCounter={false}
         hideDot={true}
       />
@@ -2341,6 +2344,7 @@ export function CoverVariant45(props) {
           brandAvatar={brandAvatar}
           brandColor={brandColor}
           isVerified={isVerified}
+          showBrandHandle={false}
           showSlideCounter={false} 
           hideDot={true}
         />
@@ -2405,6 +2409,7 @@ export function CoverVariant46(props) {
           brandAvatar={brandAvatar}
           brandColor={brandColor}
           isVerified={isVerified}
+          showBrandHandle={false}
           showSlideCounter={false} 
           hideDot={true}
         />
