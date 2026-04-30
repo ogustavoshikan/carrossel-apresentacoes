@@ -37,7 +37,7 @@ import BigNumberVariantPopover from './BigNumberVariantPopover';
 import QuoteVariantPopover from './QuoteVariantPopover';
 import ComparisonVariantPopover from './ComparisonVariantPopover';
 import CtaVariantPopover from './CtaVariantPopover';
-import { ListVariantPopover } from './ListVariantPopover';
+import ListVariantPopover from './ListVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
