@@ -358,7 +358,7 @@ function QuoteVariant11(props) {
   );
 }
 
-function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showBrandHandle, showSlideCounter, slideCounterPosition }) {
+function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showBrandHandle, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;

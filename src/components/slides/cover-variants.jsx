@@ -1806,6 +1806,8 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
           brandAvatar={brandAvatar}
           brandColor={brandColor}
           isVerified={isVerified}
+          brandLogo={brandLogo}
+          showBrandLogo={showBrandLogo}
           showSlideCounter={false}
           hideDot={true}
           dark 
@@ -2267,6 +2269,8 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
         brandAvatar={brandAvatar}
         brandColor={brandColor}
         isVerified={isVerified}
+        brandLogo={brandLogo}
+        showBrandLogo={showBrandLogo}
         showSlideCounter={false}
         hideDot={true}
       />
