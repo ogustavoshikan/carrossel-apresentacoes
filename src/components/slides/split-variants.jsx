@@ -3796,6 +3796,9 @@ export function SplitVariant61(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="w-full flex-1 flex flex-col pt-2 relative z-10">
@@ -3922,6 +3925,9 @@ export function SplitVariant63(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="flex-1 h-full flex flex-col p-8 relative">
@@ -4228,6 +4234,9 @@ export function SplitVariant68(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="w-full h-[45%] flex flex-col justify-center p-8 relative z-10 bg-zinc-50 border-b-[16px] shrink-0" style={{ borderColor: brandColor }}>
@@ -4340,6 +4349,9 @@ export function SplitVariant70(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="flex-1 w-full flex flex-col p-10 justify-center z-10">
@@ -4399,6 +4411,9 @@ export function SplitVariant71(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="w-full h-[55%] flex flex-col p-8 pt-20 relative z-10">
@@ -4472,6 +4487,9 @@ export function SplitVariant72(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="flex-1 flex flex-col pt-4 min-h-0 z-10 mt-[35px]">
@@ -4610,6 +4628,9 @@ export function SplitVariant74(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="flex-1 flex flex-col p-8 pb-4 min-h-0 justify-center mt-6">
@@ -4687,6 +4708,9 @@ export function SplitVariant75(props) {
         total={slideCount} 
         brandAvatar={brandAvatar}
         brandColor={brandColor}
+        handleColor="#1A1A1A"
+        counterColor="#1A1A1A"
+        counterBg="#EDEDED"
         hideDot={true} 
       />
       <div className="flex-1 flex flex-col pt-4 min-h-0 mt-[35px]">
