@@ -1003,7 +1003,7 @@ export function SequenceVariant12(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${30 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -1022,7 +1022,7 @@ export function SequenceVariant12(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
-            style={{ fontSize: `${13 * sText}px` }}
+            style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -1086,7 +1086,7 @@ export function SequenceVariant13(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${38 * sTitle}px` }}
+            style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -1105,7 +1105,7 @@ export function SequenceVariant13(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/80 font-light leading-relaxed w-full font-playfair"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -1168,7 +1168,7 @@ export function SequenceVariant14(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${32 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -1187,7 +1187,7 @@ export function SequenceVariant14(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -1248,7 +1248,7 @@ export function SequenceVariant15(props) {
               as="h2" 
               field="titulo" 
               className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-              style={{ fontSize: `${28 * sTitle}px`, color: '#1a1a1a' }}
+              style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
             >
               {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
             </TextWrapper>
@@ -1267,7 +1267,7 @@ export function SequenceVariant15(props) {
               as="p" 
               field="texto_apoio" 
               className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
-              style={{ fontSize: `${13 * sText}px` }}
+              style={{ fontSize: `${21.43 * sText}px` }}
             >
               {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
             </TextWrapper>
@@ -1318,7 +1318,7 @@ export function SequenceVariant16(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${40 * sTitle}px` }}
+            style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
           </TextWrapper>
@@ -1337,7 +1337,7 @@ export function SequenceVariant16(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
-            style={{ fontSize: `${15 * sText}px` }}
+            style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
