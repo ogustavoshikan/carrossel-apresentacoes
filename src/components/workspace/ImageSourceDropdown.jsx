@@ -1,8 +1,9 @@
 ﻿import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown, Image as ImageIcon } from 'lucide-react';
+import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown, Image as ImageIcon, Sparkles, Wand2 } from 'lucide-react';
 import { searchUnsplashPhotos } from '../../services/unsplash';
 import { searchPexelsPhotos } from '../../services/pexels';
 import { searchPixabayPhotos } from '../../services/pixabay';
+import { generateImageWithAI } from '../../services/ai';
 
 /**
  * ImageSourceDropdown — Seletor de origem de imagem para slides.
@@ -15,9 +16,14 @@ import { searchPixabayPhotos } from '../../services/pixabay';
  */
 export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImageFromUrl, brandColor, variant }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'search'
+  const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'url' | 'search' | 'ai'
   const [urlInput, setUrlInput] = useState('');
   const [urlError, setUrlError] = useState('');
+
+  // AI Generation state
+  const [aiPrompt, setAiPrompt] = useState('');
+  const [isGeneratingAI, setIsGeneratingAI] = useState(false);
+  const [aiError, setAiError] = useState('');
 
   // Search state
   const [query, setQuery] = useState('');
@@ -50,6 +56,40 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
     setUrlInput('');
     setUrlError('');
     setSearchError('');
+    setAiError('');
+    setAiPrompt('');
+  };
+
+  // ── Tab: AI ───────────────────────────────────────────────────────────────
+
+  const handleGenerateAI = async () => {
+    const trimmed = aiPrompt.trim();
+    if (!trimmed) {
+      setAiError('Descreva a imagem que deseja gerar.');
+      return;
+    }
+
+    const modelId = localStorage.getItem('cs_image_model_id');
+    const provider = localStorage.getItem('cs_image_model_provider');
+    const apiKey = localStorage.getItem(`cs_${provider}_api_key`);
+
+    if (!modelId || !provider || !apiKey) {
+      setAiError('Configure o Modelo de Imagem em Ajustes.');
+      return;
+    }
+
+    setIsGeneratingAI(true);
+    setAiError('');
+
+    try {
+      const imageUrl = await generateImageWithAI(trimmed, provider, modelId, apiKey);
+      onImageFromUrl(slideIndex, imageUrl);
+      handleClose();
+    } catch (err) {
+      setAiError(err.message || 'Erro ao gerar imagem.');
+    } finally {
+      setIsGeneratingAI(false);
+    }
   };
 
   // ── Tab: URL ──────────────────────────────────────────────────────────────
@@ -191,6 +231,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
               { id: 'upload', icon: Upload, label: 'Computador' },
               { id: 'url',    icon: Link,   label: 'URL' },
               { id: 'search', icon: Camera, label: 'Buscar' },
+              { id: 'ai',     icon: Sparkles, label: 'IA' },
             ].map(({ id, icon: Icon, label }) => (
               <button
                 key={id}
@@ -205,6 +246,55 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
               </button>
             ))}
           </div>
+
+          {/* Tab: IA */}
+          {activeTab === 'ai' && (
+            <div className="p-4 flex flex-col gap-3 animate-in fade-in zoom-in-95 duration-150">
+              <div className="space-y-2">
+                <label className="text-[9px] uppercase font-black tracking-widest text-zinc-500 flex items-center gap-1.5">
+                  <Wand2 className="w-3 h-3" /> Prompt da Imagem
+                </label>
+                <textarea
+                  value={aiPrompt}
+                  onChange={(e) => { setAiPrompt(e.target.value); setAiError(''); }}
+                  placeholder="Ex: Um bolo de chocolate gourmet com gotas douradas, iluminação dramática, fundo escuro, 8k..."
+                  className="cs-input w-full text-xs min-h-[80px] py-2 resize-none"
+                  autoFocus
+                />
+              </div>
+              
+              <button
+                onClick={handleGenerateAI}
+                disabled={isGeneratingAI || !aiPrompt.trim()}
+                className="w-full py-2.5 rounded-lg text-[10px] font-black uppercase tracking-widest text-zinc-900 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-40 flex items-center justify-center gap-2"
+                style={{ backgroundColor: brandColor }}
+              >
+                {isGeneratingAI ? (
+                  <>
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    Gerando Arte...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Criar com IA
+                  </>
+                )}
+              </button>
+
+              {aiError && (
+                <p className="text-[10px] text-rose-400 font-mono text-center bg-rose-500/10 p-2 rounded border border-rose-500/20">
+                  {aiError}
+                </p>
+              )}
+
+              <div className="p-2.5 bg-surface-input/30 border border-white/5 rounded-lg">
+                <p className="text-[8px] text-zinc-500 font-mono leading-relaxed">
+                  Utiliza o modelo configurado em <strong>Ajustes &gt; Modelo para Imagem</strong>.
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Tab: Upload */}
           {activeTab === 'upload' && (
