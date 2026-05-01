@@ -254,9 +254,13 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
   // Pre-configura imagem de fundo para Split Variants (content-split)
   if (layoutType === 'content-split') {
-    const splitIndicesToUpdate = [0, 1, 3, 7, 8, 9, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+    const splitIndicesToUpdate = [0, 1, 3, 7, 8, 9, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 40, 42, 43, 44, 45, 48, 50, 51, 52, 54, 56, 57, 59, 60, 61, 67, 69, 70, 72, 74];
+    const newSpecialIndices = [36, 38, 41, 47, 53, 58, 62, 68, 71, 73, 77];
+
     if (splitIndicesToUpdate.includes(variantIndex)) {
       slide.imageUrl = 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
+    } else if (newSpecialIndices.includes(variantIndex)) {
+      slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
     } else {
       slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
     }
@@ -272,51 +276,51 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
 /** Lista dos 7 layouts com metadados de exibição */
 export const LAYOUT_META = [
-  { 
-    key: 'cover', 
-    label: 'Capa', 
+  {
+    key: 'cover',
+    label: 'Capa',
     description: 'Slide de abertura com imagem de fundo',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(14).png'
   },
-  { 
-    key: 'content-split', 
-    label: 'Conteúdo', 
+  {
+    key: 'content-split',
+    label: 'Conteúdo',
     description: 'Imagem + tag + título + texto',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_content-split.png'
   },
-  { 
-    key: 'big-number', 
-    label: 'Número de Impacto', 
+  {
+    key: 'big-number',
+    label: 'Número de Impacto',
     description: 'Estatística ou dado de destaque',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_big-number.png'
   },
-  { 
-    key: 'quote', 
-    label: 'Citação', 
+  {
+    key: 'quote',
+    label: 'Citação',
     description: 'Frase de impacto com autor',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_quote.png'
   },
-  { 
-    key: 'comparison', 
-    label: 'Comparação', 
+  {
+    key: 'comparison',
+    label: 'Comparação',
     description: 'Mercado vs Marca em tabela',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_comparison.png'
   },
-  { 
-    key: 'list', 
-    label: 'Lista', 
+  {
+    key: 'list',
+    label: 'Lista',
     description: 'Lista estruturada com bullets',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_List.png'
   },
-  { 
-    key: 'cta', 
-    label: 'CTA', 
+  {
+    key: 'cta',
+    label: 'CTA',
     description: 'Call to action — slide de fechamento',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
   },
-  { 
-    key: 'sequence', 
-    label: 'Sequência', 
+  {
+    key: 'sequence',
+    label: 'Sequência',
     description: 'Passo a passo ou fluxo de conteúdo',
     thumbnailUrl: ''
   },
