@@ -3290,5 +3290,43 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    19: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] relative">
+        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-20 text-4xl" style={{ color: accent }}>01</div>
+        <div className="flex-1 p-2 flex flex-col justify-center gap-2 relative z-10">
+           <div className="w-[60%] h-[4px] bg-zinc-900 rounded-full" />
+           <div className="w-[40%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
+    20: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] p-2">
+        <div className="flex justify-between items-start mb-8">
+           <div className="w-4 h-[1px] bg-zinc-300 rounded-full" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-2">
+           <div className="w-[80%] h-[4px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="absolute bottom-2 right-2 w-6 h-6 rounded-full border border-zinc-200 flex items-center justify-center">
+           <div className="w-3 h-3 rounded-full border-2" style={{ borderColor: accent }} />
+        </div>
+      </div>
+    ),
+    21: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="absolute top-0 left-0 w-full h-[1px]" style={{ background: accent }} />
+        <div className="w-full h-[50%] bg-zinc-100" />
+        <div className="flex-1 p-2 flex flex-col justify-end gap-2">
+           <div className="flex items-center gap-1">
+              <div className="w-2 h-[1px] bg-zinc-300" />
+              <div className="flex-1 h-[0.5px] bg-zinc-100" />
+              <div className="text-[10px] font-black" style={{ color: accent }}>01</div>
+           </div>
+           <div className="w-[80%] h-[3px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
   }
 };
