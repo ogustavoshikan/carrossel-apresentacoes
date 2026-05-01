@@ -89,19 +89,18 @@ export function ListVariant8(props) {
       <div className="flex-1 flex flex-col justify-center pt-8">
         <ListTitle data={data} index={index} scale={sTitle * 1.05} onActionStart={onActionStart} onTextChange={onTextChange} selectedElement={selectedElement} onSelectElement={onSelectElement} align="text-left" wrapperClasses="mb-6 shrink-0 w-full" />
         
-        <div className="flex-1 overflow-y-auto space-y-4 pr-1">
+        <div className="flex-1 overflow-hidden space-y-2 pr-1">
           {items.map((item, i) => (
-            <div key={i} className="rounded-2xl p-5 relative flex flex-col justify-center min-h-[90px] group" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
+            <div key={i} className="rounded-2xl p-4 relative flex flex-col justify-center min-h-[75px] group" style={{ backgroundColor: '#000000', border: `1px solid ${brandColor}40` }}>
               <div 
                 contentEditable 
                 suppressContentEditableWarning 
                 onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                className="absolute -right-4 -bottom-6 font-outfit font-black text-[100px] leading-none outline-none" 
+                className="absolute -right-4 -bottom-4 font-outfit font-black text-[80px] leading-none outline-none" 
                 style={{ color: brandColor, opacity: 0.15 }}
               >
                 {item.label || `0${i + 1}`}
               </div>
-              <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-xs uppercase tracking-widest mb-1 relative z-10 outline-none line-clamp-1" style={{ color: brandColor }}>{item.label}</h4>
               <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-300 text-sm relative z-10 outline-none line-clamp-2">{item.text}</p>
             </div>
           ))}
@@ -137,7 +136,6 @@ export function ListVariant13(props) {
                 {item.label || `0${i + 1}`}
               </div>
               <div className="relative z-10 pl-12 border-l-2" style={{ borderColor: brandColor }}>
-                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)} className="font-outfit font-black text-white text-lg uppercase tracking-tighter mb-1 outline-none line-clamp-1">{item.label}</h4>
                 <p contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)} className="font-playfair text-zinc-400 text-sm leading-relaxed outline-none line-clamp-3 italic break-words max-w-[90%]">{item.text}</p>
               </div>
             </div>
