@@ -209,7 +209,7 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="absolute bottom-full mb-2 left-0 z-[300] w-80 bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150"
+          className="absolute bottom-full mb-2 left-0 z-[300] w-[350px] bg-surface-dark border border-border-subtle rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-bottom-2 duration-150"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -229,9 +229,9 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
           <div className="flex gap-0 px-4 mt-3 border-b border-border-subtle">
             {[
               { id: 'upload', icon: Upload, label: 'Computador' },
+              { id: 'ai',     icon: Sparkles, label: 'IA' },
               { id: 'url',    icon: Link,   label: 'URL' },
               { id: 'search', icon: Camera, label: 'Buscar' },
-              { id: 'ai',     icon: Sparkles, label: 'IA' },
             ].map(({ id, icon: Icon, label }) => (
               <button
                 key={id}
