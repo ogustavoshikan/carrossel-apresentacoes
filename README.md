@@ -1,12 +1,12 @@
-# Carrossel Studio — v3.2 Final 🎨✨
+# Carrossel Studio — v4.0 Gold Edition 🎨✨
 
-**Carrossel Studio** é um editor premium de carrosséis para Instagram, focado em alta conversão e design de elite. Desenvolvido para transformar temas e ideias em narrativas visuais sofisticadas através de Inteligência Artificial generativa.
+**Carrossel Studio** é a ferramenta definitiva para criação de carrosséis premium para Instagram, focado em alta conversão e design de elite. Desenvolvido para transformar temas e ideias em narrativas visuais sofisticadas através de Inteligência Artificial generativa v4.0.
 
 ---
 
 ## 🚀 O que é o Carrossel Studio?
 
-O Carrossel Studio v3.2 é a evolução final de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
+O Carrossel Studio v4.0 é a evolução de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
 
 ### Principais Diferenciais:
 - **IA Generativa Dual**: Suporte nativo para **Google Gemini** e **OpenAI (GPT-4o)** para textos, e **Imagen/DALL-E** para imagens.
@@ -95,8 +95,8 @@ O Carrossel Studio possui uma biblioteca vasta de designs pré-configurados. Cad
 
 ## 📄 Notas de Legado
 
-- O arquivo `carrossel_premium_doces.jsx` na raiz é mantido apenas como referência histórica do monólito original que deu origem a esta arquitetura modular v3.2.
+- O arquivo `carrossel_premium_doces.jsx` na raiz é mantido apenas como referência histórica do monólito original que deu origem a esta arquitetura modular v4.0.
 
 ---
 
-Desenvolvido com ❤️ por **Carrossel Studio Team**.
+Desenvolvido com ❤️ pela **Equipe Carrossel Studio**.
