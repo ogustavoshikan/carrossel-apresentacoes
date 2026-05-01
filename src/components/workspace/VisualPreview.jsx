@@ -17,6 +17,8 @@ import {
   CopyPlus,
   Save,
   Shuffle,
+  LayoutGrid,
+  Type,
   Image as ImageIcon
 } from 'lucide-react';
 
@@ -102,6 +104,7 @@ export default function VisualPreview({
 }) {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isSimpleView, setIsSimpleView] = useState(true);
   const [openAddIndex, setOpenAddIndex] = useState(-1);
   const [openFavIndex, setOpenFavIndex] = useState(-1);
   const [openVariantIndex, setOpenVariantIndex] = useState(-1);
@@ -292,388 +295,479 @@ export default function VisualPreview({
 
           {/* Controls */}
           <div className="bg-surface-dark border border-zinc-800/60 rounded-xl p-4 flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
-            <div className="flex justify-between items-center mb-3">
-               <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
-                 Layout: {slide.layout}
-               </span>
-               <span
-                 id={`metrics-${index}`}
-                 className="text-[10px] font-mono text-emerald-500/80 tracking-wider transition-all"
-               >
-                 {/* O hook useDragResize irá injetar [ X Y W H ] aqui parando re-renders colaterais */}
-               </span>
+            <div className="flex justify-between items-center mb-4">
+               <div className="flex items-center gap-2">
+                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
+                   {slide.layout}
+                 </span>
+               </div>
+               
+               <div className="flex items-center gap-1 bg-surface-input p-0.5 rounded-lg border border-white/5">
+                  <button
+                    onClick={() => setIsSimpleView(true)}
+                    className={cn(
+                      "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
+                      isSimpleView 
+                        ? "bg-zinc-800 text-white shadow-sm" 
+                        : "text-zinc-500 hover:text-zinc-300"
+                    )}
+                  >
+                    <Type size={12} />
+                    Simples
+                  </button>
+                  <button
+                    onClick={() => setIsSimpleView(false)}
+                    className={cn(
+                      "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
+                      !isSimpleView 
+                        ? "bg-zinc-800 text-white shadow-sm" 
+                        : "text-zinc-500 hover:text-zinc-300"
+                    )}
+                  >
+                    <Settings2 size={12} />
+                    Avançado
+                  </button>
+               </div>
             </div>
 
-            <button
-              onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
-              className="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
-              style={{ '--brand-hover': brandColor || '#DE1E4D' }}
-            >
-              <PenLine 
-                size={16} 
-                className="text-zinc-500 group-hover:text-[var(--brand-hover)] transition-colors" 
-              />
-              Editar Textos / Visual
-            </button>
+            {isSimpleView ? (
+              <div className="space-y-4 animate-in fade-in slide-in-from-top-1 duration-200">
+                {/* Tag */}
+                {slide.tag !== undefined && (
+                  <div>
+                    <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Tag / Categoria</label>
+                    <input 
+                      type="text"
+                      value={slide.tag}
+                      onChange={(e) => onTextChange(index, 'tag', e.target.value)}
+                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors font-medium"
+                      placeholder="Tag..."
+                    />
+                  </div>
+                )}
+                
+                {/* Título */}
+                {slide.titulo !== undefined && (
+                  <div>
+                    <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Título / Headline</label>
+                    <textarea 
+                      value={slide.titulo}
+                      onChange={(e) => onTextChange(index, 'titulo', e.target.value)}
+                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-16 font-medium custom-scrollbar"
+                      placeholder="Título..."
+                    />
+                  </div>
+                )}
 
-            <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 mt-1">
-                  <div className="flex items-center gap-0.5">
-                    <Tooltip text="Alterar Foto">
+                {/* Texto de Apoio */}
+                {slide.texto_apoio !== undefined && (
+                  <div>
+                    <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Texto de Apoio</label>
+                    <textarea 
+                      value={slide.texto_apoio}
+                      onChange={(e) => onTextChange(index, 'texto_apoio', e.target.value)}
+                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-20 font-medium custom-scrollbar"
+                      placeholder="Texto de apoio..."
+                    />
+                  </div>
+                )}
+
+                {/* Footer Simplificado */}
+                <div className="flex items-center gap-2 pt-2 border-t border-zinc-800/50">
+                   <div className="flex-1">
                       <ImageSourceDropdown
                         slideIndex={index}
                         onImageUpload={onImageUpload}
                         onImageFromUrl={onImageFromUrl}
                         brandColor={brandColor}
-                        variant="icon"
+                        variant="full"
                       />
-                    </Tooltip>
-                    
-                    <Tooltip text="Copiar Textos">
-                      <button onClick={(e) => { e.stopPropagation(); onCopySlide(index); handleActionFeedback('Textos Copiados'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
-                        {copiedIndex === index ? <CheckCircle2 size={18} className="text-green-400" /> : <Copy size={18} />}
+                   </div>
+                   <Tooltip text="Exportar Slide">
+                    <button 
+                        onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} 
+                        className="w-12 h-12 rounded-xl text-white transition-all duration-150 active:scale-95 flex items-center justify-center shrink-0 shadow-lg"
+                        style={{ backgroundColor: brandColor || '#DE1E4D' }}
+                      >
+                        <Save size={20} />
                       </button>
-                    </Tooltip>
-                    
-                    {onDuplicateSlide && (
-                      <>
-                        <div className="w-px h-4 bg-zinc-800/80 mx-1"></div>
+                   </Tooltip>
+                </div>
+              </div>
+            ) : (
+              <div className="animate-in fade-in slide-in-from-bottom-1 duration-200">
+                <button
+                  onClick={(e) => { e.stopPropagation(); onSelectElement(index, null); handleActionFeedback('Abrindo Editor'); }}
+                  className="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 text-zinc-300 hover:text-white py-2.5 rounded-lg text-sm font-medium transition-all duration-150 active:scale-[0.98] flex justify-center items-center gap-2 group mb-3"
+                  style={{ '--brand-hover': brandColor || '#DE1E4D' }}
+                >
+                  <PenLine 
+                    size={16} 
+                    className="text-zinc-500 group-hover:text-[var(--brand-hover)] transition-colors" 
+                  />
+                  Editar Textos / Visual
+                </button>
+
+                <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50 mt-1">
+                      <div className="flex items-center gap-0.5">
+                        <Tooltip text="Alterar Foto">
+                          <ImageSourceDropdown
+                            slideIndex={index}
+                            onImageUpload={onImageUpload}
+                            onImageFromUrl={onImageFromUrl}
+                            brandColor={brandColor}
+                            variant="icon"
+                          />
+                        </Tooltip>
                         
-                        <Tooltip text="Duplicar Slide">
-                          <button onClick={(e) => { e.stopPropagation(); onDuplicateSlide(index); handleActionFeedback('Slide Duplicado'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
-                            <CopyPlus size={18} />
+                        <Tooltip text="Copiar Textos">
+                          <button onClick={(e) => { e.stopPropagation(); onCopySlide(index); handleActionFeedback('Textos Copiados'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
+                            {copiedIndex === index ? <CheckCircle2 size={18} className="text-green-400" /> : <Copy size={18} />}
                           </button>
                         </Tooltip>
-                      </>
-                    )}
-                    
-                    {onFavoriteSlide && (
-                      <Tooltip text={favoritedIndices[index] ? "Salvo!" : "Favoritar"}>
-                        <button onClick={(e) => { e.stopPropagation(); handleFavoriteClick(index); }} className={`p-2 rounded-md transition-all active:scale-90 ${favoritedIndices[index] ? 'text-amber-500 bg-amber-400/10' : 'text-zinc-400 hover:text-amber-400 hover:bg-amber-400/10'}`}>
-                          <Star size={18} />
-                        </button>
-                      </Tooltip>
-                    )}
-                  </div>
-
-                  <div className="flex items-center gap-1.5">
-                    {/* Botão Aleatório (Shuffle) fora do popover */}
-                    {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list', 'sequence'].includes(slide.layout) && (
-                      <Tooltip text="Variante Aleatória">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide.layout); }}
-                          className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"
-                        >
-                          <Shuffle size={18} />
-                        </button>
-                      </Tooltip>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides cover */}
-                    {slide.layout === 'cover' && onCoverVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <CoverVariantPopover
-                            currentVariantIndex={slide.coverVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onCoverVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
+                        
+                        {onDuplicateSlide && (
+                          <>
+                            <div className="w-px h-4 bg-zinc-800/80 mx-1"></div>
+                            
+                            <Tooltip text="Duplicar Slide">
+                              <button onClick={(e) => { e.stopPropagation(); onDuplicateSlide(index); handleActionFeedback('Slide Duplicado'); }} className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90">
+                                <CopyPlus size={18} />
+                              </button>
+                            </Tooltip>
+                          </>
+                        )}
+                        
+                        {onFavoriteSlide && (
+                          <Tooltip text={favoritedIndices[index] ? "Salvo!" : "Favoritar"}>
+                            <button onClick={(e) => { e.stopPropagation(); handleFavoriteClick(index); }} className={`p-2 rounded-md transition-all active:scale-90 ${favoritedIndices[index] ? 'text-amber-500 bg-amber-400/10' : 'text-zinc-400 hover:text-amber-400 hover:bg-amber-400/10'}`}>
+                              <Star size={18} />
+                            </button>
+                          </Tooltip>
                         )}
                       </div>
-                    )}
 
-                    {/* Trocar Variante — apenas para slides content-split */}
-                    {slide.layout === 'content-split' && onSplitVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <SplitVariantPopover
-                            currentVariantIndex={slide.splitVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onSplitVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
+                      <div className="flex items-center gap-1.5">
+                        {/* Botão Aleatório (Shuffle) fora do popover */}
+                        {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list', 'sequence'].includes(slide.layout) && (
+                          <Tooltip text="Variante Aleatória">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide.layout); }}
+                              className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"
+                            >
+                              <Shuffle size={18} />
+                            </button>
+                          </Tooltip>
                         )}
-                      </div>
-                    )}
 
-                    {/* Trocar Variante — apenas para slides big-number */}
-                    {slide.layout === 'big-number' && onBigNumberVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <BigNumberVariantPopover
-                            currentVariantIndex={slide.bigNumberVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onBigNumberVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides quote */}
-                    {slide.layout === 'quote' && onQuoteVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <QuoteVariantPopover
-                            currentVariantIndex={slide.quoteVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onQuoteVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides comparison */}
-                    {slide.layout === 'comparison' && onComparisonVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <ComparisonVariantPopover
-                            currentVariantIndex={slide.comparisonVariantIndex || 1}
-                            onSelect={(variantId) => {
-                              onComparisonVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides cta */}
-                    {slide.layout === 'cta' && onCtaVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <CtaVariantPopover
-                            currentVariantIndex={slide.ctaVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onCtaVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides list */}
-                    {slide.layout === 'list' && onListVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <ListVariantPopover
-                            currentVariantIndex={slide.listVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onListVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {/* Trocar Variante — apenas para slides sequence */}
-                    {slide.layout === 'sequence' && onSequenceVariantChange && (
-                      <div className="relative">
-                        <button
-                          onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
-                          className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
-                        >
-                          Variante
-                        </button>
-                        {openVariantIndex === index && (
-                          <SequenceVariantPopover
-                            currentVariantIndex={slide.sequenceVariantIndex || 0}
-                            onSelect={(variantId) => {
-                              onSequenceVariantChange(index, variantId);
-                              handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                            }}
-                            onClose={() => setOpenVariantIndex(-1)}
-                            brandColor={brandColor}
-                            brandAvatar={brandAvatar}
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} 
-                      className="text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2"
-                      style={{ 
-                        backgroundColor: brandColor || '#DE1E4D'
-                      }}
-                    >
-                      <Save size={16} />
-                      Salvar
-                    </button>
-                  </div>
-            </div>
-
-            {/* Elemento 4: Painel de Sliders (Y, Escala, Reset) */}
-            {(() => {
-              // Detectar quantos slots de imagem o variant usa
-              const MULTI_IMAGE_SLOTS = {
-                'content-split': { 27: 4, 28: 2, 29: 2, 30: 2, 31: 2 },
-              };
-              const variantKey = slide.layout === 'content-split' ? (slide.splitVariantIndex || 0) : 0;
-              const totalSlots = MULTI_IMAGE_SLOTS[slide.layout]?.[variantKey] || 1;
-
-              const urlFor = (s) => s === 1 ? 'imageUrl' : `imageUrl${s}`;
-              const posFor = (s) => s === 1 ? 'imagePosition' : `imagePosition${s}`;
-              const scaleFor = (s) => s === 1 ? 'imageScale' : `imageScale${s}`;
-              const slotLabels = ['Principal', '2ª Imagem', '3ª Imagem', '4ª Imagem'];
-
-              // Verificar se tem pelo menos uma imagem ativa
-              const hasAnyImage = Array.from({ length: totalSlots }, (_, i) => slide[urlFor(i + 1)]).some(Boolean);
-              const hasPositions = Object.keys(slide.positions || {}).length > 0;
-
-              if (!hasAnyImage && !hasPositions) return null;
-
-              return (
-                <div className="bg-surface-dark border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
-                  {Array.from({ length: totalSlots }, (_, idx) => {
-                    const slot = idx + 1;
-                    const imageUrl = slide[urlFor(slot)];
-                    if (!imageUrl) return null;
-                    const imagePosition = slide[posFor(slot)] ?? 50;
-                    const imageScale = slide[scaleFor(slot)] ?? 1;
-                    const label = totalSlots > 1 ? slotLabels[idx] : null;
-
-                    return (
-                      <div key={slot} className={slot > 1 ? 'border-t border-zinc-800/60 pt-4' : ''}>
-                        {label && (
-                          <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 block mb-3">{label}</span>
-                        )}
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
-                            <span className="text-[10px] text-zinc-600 font-mono">{imagePosition}%</span>
+                        {/* Trocar Variante — apenas para slides cover */}
+                        {slide.layout === 'cover' && onCoverVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <CoverVariantPopover
+                                currentVariantIndex={slide.coverVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onCoverVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
                           </div>
-                          <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={imagePosition}
-                            onChange={(e) => onImagePosition(index, e.target.value, slot)}
-                            className="cs-range"
-                          />
-                        </div>
-
-                        <div className="w-full h-px bg-surface-input/30 my-2" />
-
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <label className="text-xs font-medium text-zinc-400 mb-0">Tamanho da Imagem (Escala)</label>
-                            <span className="text-[10px] text-zinc-600 font-mono">{imageScale}x</span>
-                          </div>
-                          <input
-                            type="range"
-                            min="1"
-                            max="3"
-                            step="0.05"
-                            value={imageScale}
-                            onChange={(e) => onImageScale(index, e.target.value, slot)}
-                            className="cs-range"
-                          />
-                        </div>
-
-                        {onRemoveImage && (
-                          <button
-                            onClick={(e) => { e.stopPropagation(); onRemoveImage(index, slot); }}
-                            className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-2"
-                          >
-                            <X size={12} />
-                            Remover {label || 'Imagem'}
-                          </button>
                         )}
-                      </div>
-                    );
-                  })}
 
-                  {/* Resetar Posições */}
-                  {(hasPositions || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
-                    <div className={hasAnyImage ? "pt-2 border-t border-white/5" : ""}>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
-                        className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium rounded-md transition-colors border active:scale-[0.98]"
-                        style={{ 
-                          color: brandColor || '#DE1E4D',
-                          backgroundColor: `${brandColor || '#DE1E4D'}1a`,
-                          borderColor: `${brandColor || '#DE1E4D'}33`
-                        }}
-                      >
-                        <RotateCcw size={12} />
-                        Resetar Posições
-                      </button>
-                    </div>
-                  )}
+                        {/* Trocar Variante — apenas para slides content-split */}
+                        {slide.layout === 'content-split' && onSplitVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <SplitVariantPopover
+                                currentVariantIndex={slide.splitVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onSplitVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides big-number */}
+                        {slide.layout === 'big-number' && onBigNumberVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <BigNumberVariantPopover
+                                currentVariantIndex={slide.bigNumberVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onBigNumberVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides quote */}
+                        {slide.layout === 'quote' && onQuoteVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <QuoteVariantPopover
+                                currentVariantIndex={slide.quoteVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onQuoteVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides comparison */}
+                        {slide.layout === 'comparison' && onComparisonVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <ComparisonVariantPopover
+                                currentVariantIndex={slide.comparisonVariantIndex || 1}
+                                onSelect={(variantId) => {
+                                  onComparisonVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides cta */}
+                        {slide.layout === 'cta' && onCtaVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <CtaVariantPopover
+                                currentVariantIndex={slide.ctaVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onCtaVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides list */}
+                        {slide.layout === 'list' && onListVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <ListVariantPopover
+                                currentVariantIndex={slide.listVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onListVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides sequence */}
+                        {slide.layout === 'sequence' && onSequenceVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Variante
+                            </button>
+                            {openVariantIndex === index && (
+                              <SequenceVariantPopover
+                                currentVariantIndex={slide.sequenceVariantIndex || 0}
+                                onSelect={(variantId) => {
+                                  onSequenceVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); onExportSlide && onExportSlide(index); handleActionFeedback('Exportação Iniciada'); }} 
+                          className="text-white px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center gap-2"
+                          style={{ 
+                            backgroundColor: brandColor || '#DE1E4D'
+                          }}
+                        >
+                          <Save size={16} />
+                          Salvar
+                        </button>
+                      </div>
                 </div>
-              );
-            })()}
+
+                {/* Elemento 4: Painel de Sliders (Y, Escala, Reset) */}
+                {(() => {
+                  // Detectar quantos slots de imagem o variant usa
+                  const MULTI_IMAGE_SLOTS = {
+                    'content-split': { 27: 4, 28: 2, 29: 2, 30: 2, 31: 2 },
+                  };
+                  const variantKey = slide.layout === 'content-split' ? (slide.splitVariantIndex || 0) : 0;
+                  const totalSlots = MULTI_IMAGE_SLOTS[slide.layout]?.[variantKey] || 1;
+
+                  const urlFor = (s) => s === 1 ? 'imageUrl' : `imageUrl${s}`;
+                  const posFor = (s) => s === 1 ? 'imagePosition' : `imagePosition${s}`;
+                  const scaleFor = (s) => s === 1 ? 'imageScale' : `imageScale${s}`;
+                  const slotLabels = ['Principal', '2ª Imagem', '3ª Imagem', '4ª Imagem'];
+
+                  // Verificar se tem pelo menos uma imagem ativa
+                  const hasAnyImage = Array.from({ length: totalSlots }, (_, i) => slide[urlFor(i + 1)]).some(Boolean);
+                  const hasPositions = Object.keys(slide.positions || {}).length > 0;
+
+                  if (!hasAnyImage && !hasPositions) return null;
+
+                  return (
+                    <div className="bg-surface-dark border border-zinc-800/80 rounded-lg p-3 mt-4 relative space-y-4">
+                      {Array.from({ length: totalSlots }, (_, idx) => {
+                        const slot = idx + 1;
+                        const imageUrl = slide[urlFor(slot)];
+                        if (!imageUrl) return null;
+                        const imagePosition = slide[posFor(slot)] ?? 50;
+                        const imageScale = slide[scaleFor(slot)] ?? 1;
+                        const label = totalSlots > 1 ? slotLabels[idx] : null;
+
+                        return (
+                          <div key={slot} className={slot > 1 ? 'border-t border-zinc-800/60 pt-4' : ''}>
+                            {label && (
+                              <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 block mb-3">{label}</span>
+                            )}
+                            <div>
+                              <div className="flex justify-between items-center mb-2">
+                                <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
+                                <span className="text-[10px] text-zinc-600 font-mono">{imagePosition}%</span>
+                              </div>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value={imagePosition}
+                                onChange={(e) => onImagePosition(index, e.target.value, slot)}
+                                className="cs-range"
+                              />
+                            </div>
+
+                            <div className="w-full h-px bg-surface-input/30 my-2" />
+
+                            <div>
+                              <div className="flex justify-between items-center mb-2">
+                                <label className="text-xs font-medium text-zinc-400 mb-0">Tamanho da Imagem (Escala)</label>
+                                <span className="text-[10px] text-zinc-600 font-mono">{imageScale}x</span>
+                              </div>
+                              <input
+                                type="range"
+                                min="1"
+                                max="3"
+                                step="0.05"
+                                value={imageScale}
+                                onChange={(e) => onImageScale(index, e.target.value, slot)}
+                                className="cs-range"
+                              />
+                            </div>
+
+                            {onRemoveImage && (
+                              <button
+                                onClick={(e) => { e.stopPropagation(); onRemoveImage(index, slot); }}
+                                className="w-full py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5 mt-2"
+                              >
+                                <X size={12} />
+                                Remover {label || 'Imagem'}
+                              </button>
+                            )}
+                          </div>
+                        );
+                      })}
+
+                      {/* Resetar Posições */}
+                      {(hasPositions || (slide.imagePosition !== undefined && slide.imagePosition !== 50) || (slide.imageScale !== undefined && slide.imageScale !== 1)) && (
+                        <div className={hasAnyImage ? "pt-2 border-t border-white/5" : ""}>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
+                            className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-medium rounded-md transition-colors border active:scale-[0.98]"
+                            style={{ 
+                              color: brandColor || '#DE1E4D',
+                              backgroundColor: `${brandColor || '#DE1E4D'}1a`,
+                              borderColor: `${brandColor || '#DE1E4D'}33`
+                            }}
+                          >
+                            <RotateCcw size={12} />
+                            Resetar Posições
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
           </div>
         </div>
         
