@@ -50,7 +50,7 @@ export default function App() {
 
     // Brand Customization State (Carrossel Studio Defaults)
     const [brandHandle, setBrandHandle] = useState('TIAJOANABRIGADEIROS');
-    const [brandWebsite, setBrandWebsite] = useState('Carrossel Studio v3.2');
+    const [brandWebsite, setBrandWebsite] = useState('Carrossel Studio v4.0');
     const [profilePic, setProfilePic] = useState(null);
     const [innerLogo, setInnerLogo] = useState(null);
     const [isVerified, setIsVerified] = useState(true);
@@ -1115,10 +1115,10 @@ export default function App() {
             <nav className="h-20 border-b border-white/5 bg-[#080808]/80 backdrop-blur-3xl px-8 flex flex-wrap items-center justify-between z-[100] relative">
                 <div className="flex items-center gap-8">
                     <div className="flex items-center gap-4 group cursor-pointer">
-                        <div className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white" style={{ backgroundColor: gradientColor1, boxShadow: `0 0 20px ${gradientColor1}40` }}>A</div>
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center font-outfit font-black text-base transition-transform group-hover:rotate-6 text-white" style={{ backgroundColor: gradientColor1, boxShadow: `0 0 20px ${gradientColor1}40` }}>CS</div>
                         <div className="flex flex-col">
                             <span className="font-outfit font-black text-lg tracking-tighter leading-none uppercase text-white">Carrossel <span style={{ color: gradientColor1 }}>Studio</span></span>
-                            <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">v3.2 Final</span>
+                            <span className="text-[10px] font-bold text-zinc-500 tracking-[0.4em] mt-1 uppercase">v4.0 Gold</span>
                         </div>
                     </div>
                 </div>
