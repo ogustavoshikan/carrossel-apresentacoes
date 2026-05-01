@@ -3216,5 +3216,79 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    14: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-white">
+        <div className="w-full h-[50%] bg-zinc-100 relative">
+           <div className="absolute top-2 right-2 bg-black/40 px-1 rounded-sm">
+              <div className="w-4 h-[1px] bg-white/60" />
+           </div>
+        </div>
+        <div className="flex-1 flex overflow-hidden">
+           <div className="w-[30%] h-full bg-zinc-50 border-r border-zinc-100 flex items-center justify-center">
+              <div className="text-[18px] font-black" style={{ color: accent }}>01</div>
+           </div>
+           <div className="flex-1 p-2 flex flex-col justify-center gap-2">
+              <div className="w-[80%] h-[3px] bg-zinc-900 rounded-full" />
+              <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+           </div>
+        </div>
+      </div>
+    ),
+    15: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7]">
+        <div className="flex-1 p-2 flex flex-col gap-2">
+           <div className="w-4 h-1 bg-zinc-300 rounded-full" />
+           <div className="w-[80%] h-[4px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="h-[35%] w-full relative flex items-end justify-between p-2" style={{ background: accent }}>
+           <div className="absolute top-0 left-0 w-full h-[2px] bg-white/20">
+              <div className="w-[40%] h-full bg-white" />
+           </div>
+           <div className="w-4 h-1 bg-white/40 rounded-full" />
+           <div className="text-[24px] font-black text-white/40 leading-none">01</div>
+        </div>
+      </div>
+    ),
+    16: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
+        <div className="flex-1 p-2 flex flex-col gap-2">
+           <div className="w-4 h-1 bg-zinc-700 rounded-full" />
+           <div className="w-[80%] h-[4px] bg-white rounded-full" />
+           <div className="w-4 h-[1px] bg-zinc-800" />
+           <div className="w-[60%] h-[2px] bg-zinc-600 rounded-full" />
+        </div>
+        <div className="absolute bottom-0 right-0 w-10 h-10 rounded-tl-2xl flex flex-col items-center justify-center" style={{ background: accent }}>
+           <div className="text-[14px] font-black text-white">01</div>
+        </div>
+      </div>
+    ),
+    17: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-white">
+        <div className="w-[60%] h-full p-2 flex flex-col justify-center gap-2 border-r border-zinc-100">
+           <div className="w-4 h-1 bg-zinc-300 rounded-full" />
+           <div className="w-[90%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="w-[40%] h-full p-2 flex flex-col justify-between items-end" style={{ background: accent }}>
+           <div className="w-[80%] h-[3px] bg-white rounded-full" />
+           <div className="text-[28px] font-black text-white/40 leading-none">01</div>
+        </div>
+      </div>
+    ),
+    18: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#0A0A0A] relative">
+        <div className="w-full h-[50%] bg-zinc-800 relative">
+           <div className="absolute inset-0 bg-black/20" />
+           <div className="absolute top-2 left-2 w-4 h-1 bg-white/40 rounded-full" />
+        </div>
+        <div className="absolute top-1/2 left-4 -translate-y-1/2 w-6 h-6 rounded-full border-2 border-[#0A0A0A] flex items-center justify-center text-[10px] font-black text-white shadow-xl" style={{ background: accent }}>
+           01
+        </div>
+        <div className="flex-1 p-2 pt-6 flex flex-col justify-center gap-2">
+           <div className="w-[80%] h-[3px] bg-white rounded-full" />
+           <div className="w-[60%] h-[2px] bg-zinc-600 rounded-full" />
+        </div>
+      </div>
+    ),
   }
 };

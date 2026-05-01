@@ -1142,6 +1142,393 @@ export function SequenceVariant14(props) {
   );
 }
 
+/**
+ * COLEÇÃO: 15. The Magazine Bleed
+ */
+export function SequenceVariant15(props) {
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const step = index + 1;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col bg-white text-[#1a1a1a] relative overflow-hidden">
+      <div className="w-full h-[50%] relative z-0">
+        <ImageBg data={data} className="w-full h-full" />
+        <div className="absolute top-6 right-6 bg-black/50 backdrop-blur-md px-3 py-1">
+          <span className="font-bold tracking-[0.2em] text-[9px] text-white uppercase font-outfit select-none">
+            @{brandHandle}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex-1 flex flex-row z-10">
+        <div 
+          className="w-[30%] flex items-center justify-center border-r border-zinc-200 transition-colors duration-500 bg-zinc-50"
+          style={{ color: brandColor }}
+        >
+          <span className="font-black text-6xl leading-none font-outfit select-none">
+            0{step}
+          </span>
+        </div>
+
+        <div className="w-[70%] p-8 flex flex-col justify-center">
+          <SmartEl 
+            slideIndex={index} 
+            field="titulo" 
+            position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
+            className="mb-4"
+          >
+            <TextWrapper 
+              {...tw} 
+              as="h2" 
+              field="titulo" 
+              className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+              style={{ fontSize: `${28 * sTitle}px`, color: '#1a1a1a' }}
+            >
+              {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
+            </TextWrapper>
+          </SmartEl>
+
+          <SmartEl 
+            slideIndex={index} 
+            field="texto_apoio" 
+            position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement}
+          >
+            <TextWrapper 
+              {...tw} 
+              as="p" 
+              field="texto_apoio" 
+              className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+              style={{ fontSize: `${13 * sText}px` }}
+            >
+              {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * COLEÇÃO: 16. The Anchor Bottom
+ */
+export function SequenceVariant16(props) {
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const step = index + 1;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
+      <div className="flex-1 p-8 pt-12 flex flex-col justify-start">
+        <div className="absolute top-0 left-0 w-full">
+           <SlideHeader {...props} index={step} hideDot={true} />
+        </div>
+
+        <span className="font-bold tracking-[0.2em] text-[10px] text-zinc-400 uppercase mb-8 font-outfit select-none">
+          @{brandHandle}
+        </span>
+
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-4"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            style={{ fontSize: `${40 * sTitle}px` }}
+          >
+            {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
+          </TextWrapper>
+        </SmartEl>
+
+        <SmartEl 
+          slideIndex={index} 
+          field="texto_apoio" 
+          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
+        >
+          <TextWrapper 
+            {...tw} 
+            as="p" 
+            field="texto_apoio" 
+            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
+            style={{ fontSize: `${15 * sText}px` }}
+          >
+            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      <div className="w-full h-[35%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+        <div className="absolute top-0 left-0 h-[3px] bg-white/20 w-full z-0">
+          <div 
+            className="h-full bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+            style={{ width: `${(step / Math.max(slideCount, 1)) * 100}%` }}
+          />
+        </div>
+        
+        <div className="mt-auto flex justify-between items-end z-10 w-full">
+          <span className="font-bold tracking-widest text-[10px] text-white/60 uppercase mb-2 font-outfit select-none">
+            Fase Atual
+          </span>
+          <span className="font-light text-white/40 text-7xl tracking-tighter leading-none font-outfit select-none">
+            0{step}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * COLEÇÃO: 17. The Corner Bottom
+ */
+export function SequenceVariant17(props) {
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const step = index + 1;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
+      <div className="flex-1 p-10 pt-12 flex flex-col justify-start relative z-0">
+        <div className="absolute top-0 left-0 w-full">
+           <SlideHeader {...props} index={step} hideDot={true} brandColor="#ffffff" />
+        </div>
+
+        <span className="font-bold tracking-[0.2em] text-[10px] text-zinc-500 uppercase mb-10 font-outfit select-none">
+          @{brandHandle}
+        </span>
+
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-8"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            style={{ fontSize: `${44 * sTitle}px` }}
+          >
+            {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
+          </TextWrapper>
+        </SmartEl>
+
+        <div className="w-12 h-1 bg-zinc-800 mb-6 rounded-full" />
+
+        <SmartEl 
+          slideIndex={index} 
+          field="texto_apoio" 
+          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
+        >
+          <TextWrapper 
+            {...tw} 
+            as="p" 
+            field="texto_apoio" 
+            className="text-white/80 font-medium leading-relaxed w-[90%] font-playfair"
+            style={{ fontSize: `${15 * sText}px` }}
+          >
+            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      <div 
+        className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[40px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
+        style={{ backgroundColor: brandColor }}
+      >
+        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-outfit select-none">
+          PASSO
+        </span>
+        <span className="font-black text-5xl text-white leading-none font-outfit select-none">
+          0{step}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * COLEÇÃO: 18. The Split Bottom
+ */
+export function SequenceVariant18(props) {
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const step = index + 1;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
+      <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
+        <div className="absolute top-0 left-0 w-full">
+           <SlideHeader {...props} index={step} hideDot={true} />
+        </div>
+
+        <span className="font-bold tracking-[0.2em] text-[10px] text-zinc-400 uppercase mb-6 font-outfit select-none">
+          @{brandHandle}
+        </span>
+
+        <SmartEl 
+          slideIndex={index} 
+          field="texto_apoio" 
+          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
+        >
+          <TextWrapper 
+            {...tw} 
+            as="p" 
+            field="texto_apoio" 
+            className="text-zinc-700 font-medium leading-relaxed w-[95%] font-playfair"
+            style={{ fontSize: `${14 * sText}px` }}
+          >
+            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      <div 
+        className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 transition-colors duration-500"
+        style={{ backgroundColor: brandColor }}
+      >
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mt-4"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            style={{ fontSize: `${30 * sTitle}px` }}
+          >
+            {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
+          </TextWrapper>
+        </SmartEl>
+
+        <span className="font-black text-white/40 text-[90px] leading-[0.75] -mr-2 font-outfit select-none">
+          0{step}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * COLEÇÃO: 19. The Cinematic Panel
+ */
+export function SequenceVariant19(props) {
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const step = index + 1;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const tw = { index, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative bg-[#0A0A0A] text-white overflow-hidden">
+      <div className="w-full h-[50%] relative z-0">
+        <ImageBg data={data} className="w-full h-full">
+           <div className="absolute inset-0 bg-black/10" />
+        </ImageBg>
+        <div className="absolute top-8 left-8">
+          <span className="font-bold tracking-[0.2em] text-[10px] text-white/90 uppercase shadow-black drop-shadow-md font-outfit select-none">
+            @{brandHandle}
+          </span>
+        </div>
+      </div>
+
+      <div className="absolute top-[50%] left-8 -translate-y-1/2 z-20 flex items-center">
+        <div 
+          className="w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-colors duration-500 border-4 border-[#0A0A0A]"
+          style={{ backgroundColor: brandColor }}
+        >
+          <span className="font-black text-[16px] text-white font-outfit select-none">
+            0{step}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex-1 p-8 pt-12 flex flex-col justify-end relative z-10">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-4"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            style={{ fontSize: `${38 * sTitle}px` }}
+          >
+            {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
+          </TextWrapper>
+        </SmartEl>
+
+        <SmartEl 
+          slideIndex={index} 
+          field="texto_apoio" 
+          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+          onSelectElement={onSelectElement}
+        >
+          <TextWrapper 
+            {...tw} 
+            as="p" 
+            field="texto_apoio" 
+            className="text-white/80 font-light leading-relaxed w-full font-playfair"
+            style={{ fontSize: `${14 * sText}px` }}
+          >
+            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -1161,6 +1548,11 @@ export const SEQUENCE_VARIANT_COMPONENTS = {
   11: SequenceVariant12,
   12: SequenceVariant13,
   13: SequenceVariant14,
+  14: SequenceVariant15,
+  15: SequenceVariant16,
+  16: SequenceVariant17,
+  17: SequenceVariant18,
+  18: SequenceVariant19,
 };
 
 export const SEQUENCE_VARIANT_META = [
@@ -1178,4 +1570,9 @@ export const SEQUENCE_VARIANT_META = [
   { id: 11, name: 'Editorial Split', badge: 'NEW' },
   { id: 12, name: 'Cinematic Step', badge: 'NEW' },
   { id: 13, name: 'Image Frame', badge: 'NEW' },
+  { id: 14, name: 'Magazine Bleed', badge: 'NEW' },
+  { id: 15, name: 'Anchor Bottom', badge: 'NEW' },
+  { id: 16, name: 'Corner Bottom', badge: 'NEW' },
+  { id: 17, name: 'Split Bottom', badge: 'NEW' },
+  { id: 18, name: 'Cinematic Panel', badge: 'NEW' },
 ];
