@@ -564,9 +564,9 @@ export function SequenceVariant7(props) {
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor="#1a1a1a" 
+        counterColor="#ffffff" 
+        counterBg="rgb(10 10 10 / 0.3)" 
       />
       <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
         
@@ -1465,9 +1465,9 @@ export function SequenceVariant18(props) {
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor="#1a1a1a" 
+        counterColor="#ffffff" 
+        counterBg="rgb(10 10 10 / 0.3)" 
       />
       <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
         
