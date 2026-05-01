@@ -62,9 +62,9 @@ export function SequenceVariant1(props) {
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor="#ffffff" 
+        counterColor="#ffffff" 
+        counterBg="rgb(10 10 10 / 0.3)" 
       />
       <div className="w-full h-[45%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
         
@@ -145,9 +145,9 @@ export function SequenceVariant2(props) {
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor="#1a1a1a" 
+        counterColor="#ffffff" 
+        counterBg="rgb(10 10 10 / 0.3)" 
       />
       <div className="flex-1 h-full p-8 pr-12 flex flex-col justify-center relative z-0">
         
