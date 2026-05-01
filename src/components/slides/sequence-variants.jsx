@@ -75,7 +75,7 @@ export function SequenceVariant1(props) {
               as="h2" 
               field="titulo" 
               className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-              style={{ fontSize: `${40 * sTitle}px` }}
+              style={{ fontSize: `${69.23 * sTitle}px` }}
             >
               {data.titulo || 'PASSO\nDESCRIÇÃO'}
             </TextWrapper>
@@ -108,7 +108,7 @@ export function SequenceVariant1(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
-            style={{ fontSize: `${15 * sText}px` }}
+            style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O conteúdo detalhado do passo atual da sua sequência explicativa.'}
           </TextWrapper>
@@ -151,7 +151,7 @@ export function SequenceVariant2(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${42 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -170,7 +170,7 @@ export function SequenceVariant2(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'A descrição do processo ou etapa que está sendo apresentada neste slide.'}
           </TextWrapper>
@@ -244,7 +244,7 @@ export function SequenceVariant3(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${44 * sTitle}px` }}
+            style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'O PONTO\nPERFEITO'}
           </TextWrapper>
@@ -265,7 +265,7 @@ export function SequenceVariant3(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/80 font-medium leading-relaxed w-[90%] font-playfair"
-            style={{ fontSize: `${15 * sText}px` }}
+            style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'Explicação técnica ou teórica sobre esta fase específica do conteúdo.'}
           </TextWrapper>
@@ -310,7 +310,7 @@ export function SequenceVariant4(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${42 * sTitle}px`, color: brandColor }}
+            style={{ fontSize: `${69.23 * sTitle}px`, color: brandColor }}
           >
             {data.titulo || 'A EXPERIÊNCIA\nFINAL'}
           </TextWrapper>
@@ -329,7 +329,7 @@ export function SequenceVariant4(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O desfecho ou a conclusão da sequência, focando no resultado final.'}
           </TextWrapper>
@@ -406,7 +406,7 @@ export function SequenceVariant5(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${42 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -425,7 +425,7 @@ export function SequenceVariant5(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
-            style={{ fontSize: `${15 * sText}px` }}
+            style={{ fontSize: `${24.28 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -482,7 +482,7 @@ export function SequenceVariant6(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
-            style={{ fontSize: `${42 * sTitle}px` }}
+            style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -501,7 +501,7 @@ export function SequenceVariant6(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/80 font-medium leading-relaxed w-full font-playfair"
-            style={{ fontSize: `${15 * sText}px` }}
+            style={{ fontSize: `${22.85 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
