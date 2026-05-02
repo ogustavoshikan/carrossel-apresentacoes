@@ -742,9 +742,12 @@ export function ComparisonVariant1(props) {
               <div 
                 key={i} 
                 className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${
-                  item.highlight ? 'shadow-2xl' : 'bg-surface-input/30 border-white/5 opacity-50'
+                  item.highlight ? 'shadow-2xl' : 'border-white/5'
                 }`}
-                style={item.highlight ? { backgroundColor: `${brandColor}15`, borderColor: `${brandColor}40` } : {}}
+                style={item.highlight
+                  ? { backgroundColor: `${brandColor}4D`, borderColor: `${brandColor}40` }
+                  : { backgroundColor: 'rgb(10 10 10 / 90%)' }
+                }
               >
                 <div className="flex flex-col w-full">
                   <span 
@@ -756,7 +759,8 @@ export function ComparisonVariant1(props) {
                   </span>
                   <span 
                     contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'value', e.currentTarget.innerText)}
-                    className={`font-text text-base block truncate line-clamp-2 ${item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'}`}
+                    className={`font-text text-base block truncate line-clamp-2 font-bold`}
+                    style={{ color: item.highlight ? 'rgb(0 0 0)' : 'rgb(253 253 253)' }}
                   >
                     {item.value}
                   </span>
