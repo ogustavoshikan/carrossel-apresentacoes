@@ -2217,6 +2217,87 @@ export const VARIANT_THUMBNAILS = {
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full w-4 h-2.5 bg-zinc-900 rounded-[2px]" />
       </div>
+    ),
+    30: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col  overflow-hidden bg-white">
+        <div className="h-1/2 w-full flex items-center p-2 gap-2">
+           <div className="w-8 aspect-square rounded-md" style={{ background: img }} />
+           <div className="flex-1 flex flex-col gap-1">
+              <div className="w-8 h-[2px] bg-zinc-900 rounded-full" />
+              <div className="w-12 h-[1px] bg-zinc-400 rounded-full" />
+           </div>
+        </div>
+        <div className="h-1/2 w-full flex items-center p-2 gap-2" style={{ background: accent }}>
+           <div className="flex-1 flex flex-col gap-1 items-end">
+              <div className="w-8 h-[2px] bg-white rounded-full" />
+              <div className="w-12 h-[1px] bg-white/60 rounded-full" />
+           </div>
+           <div className="w-8 aspect-square rounded-md bg-black" style={{ background: img }} />
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-zinc-900 rounded-full border border-white" />
+      </div>
+    ),
+    31: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex  overflow-hidden bg-white">
+        <div className="w-1/2 h-full flex flex-col items-center p-2 gap-2 border-r border-zinc-100">
+           <div className="w-full aspect-square rounded-lg" style={{ background: img }} />
+           <div className="w-8 h-[2px] bg-zinc-900 rounded-full" />
+        </div>
+        <div className="w-1/2 h-full flex flex-col items-center p-2 gap-2" style={{ background: accent }}>
+           <div className="w-full aspect-square rounded-lg bg-black" style={{ background: img }} />
+           <div className="w-8 h-[2px] bg-white rounded-full" />
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-zinc-900 rounded-full border border-white" />
+      </div>
+    ),
+    32: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col  overflow-hidden bg-white">
+        <div className="h-1/2 w-full flex flex-col items-center p-2 justify-center">
+           <div className="w-10 aspect-square rounded-xl mb-1" style={{ background: img }} />
+           <div className="w-8 h-[2px] bg-zinc-900 rounded-full" />
+        </div>
+        <div className="h-1/2 w-full flex flex-col items-center p-2 justify-center" style={{ background: accent }}>
+           <div className="w-8 h-[2px] bg-white rounded-full mb-1" />
+           <div className="w-10 aspect-square rounded-xl bg-black" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    33: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col  overflow-hidden bg-white">
+        <div className="h-1/2 w-full flex items-center p-2 gap-2">
+           <div className="w-10 aspect-square rounded-xl" style={{ background: img }} />
+           <div className="flex-1 flex flex-col gap-1">
+              <div className="w-full h-[2px] bg-zinc-900 rounded-full" />
+              <div className="w-8 h-[1px] bg-zinc-400 rounded-full" />
+           </div>
+        </div>
+        <div className="h-1/2 w-full flex items-center p-2 gap-2" style={{ background: accent }}>
+           <div className="flex-1 flex flex-col gap-1 items-end">
+              <div className="w-full h-[2px] bg-white rounded-full" />
+              <div className="w-8 h-[1px] bg-white/60 rounded-full" />
+           </div>
+           <div className="w-10 aspect-square rounded-xl bg-black" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    34: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col  overflow-hidden bg-white">
+        <div className="h-1/2 w-full flex items-end p-2 gap-2">
+           <div className="w-10 aspect-square rounded-xl" style={{ background: img }} />
+           <div className="flex-1 flex flex-col gap-1 mb-1">
+              <div className="w-full h-[2px] bg-zinc-900 rounded-full" />
+              <div className="w-8 h-[1px] bg-zinc-400 rounded-full" />
+           </div>
+        </div>
+        <div className="h-1/2 w-full flex items-start p-2 gap-2" style={{ background: accent }}>
+           <div className="flex-1 flex flex-col gap-1 items-end mt-1">
+              <div className="w-full h-[2px] bg-white rounded-full" />
+              <div className="w-8 h-[1px] bg-white/60 rounded-full" />
+           </div>
+           <div className="w-10 aspect-square rounded-xl bg-black" style={{ background: img }} />
+        </div>
+        <div className="absolute top-1/2 left-2 -translate-y-1/2 w-4 h-2.5 bg-zinc-900 rounded-[2px]" />
+      </div>
     )
   },
   list: {
