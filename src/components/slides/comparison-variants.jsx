@@ -1140,6 +1140,354 @@ export function ComparisonVariant11(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 25 — Split Monolith Centered
+// Lado esquerdo liso, lado direito com background de imagem e mix-blend
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant25(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-row relative text-white bg-[#050505] overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+      </div>
+
+      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-0">
+        <SmartEl {...sp} field="tag">
+          <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-zinc-500 uppercase mb-4 block" style={{ fontFamily: textFont }}>
+            {data.tag || 'O COMUM'}
+          </TextWrapper>
+        </SmartEl>
+        <SmartEl {...sp} field="titulo_a">
+          <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-4 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
+            {data.titulo_a || data.titulo || 'TÍTULO A'}
+          </TextWrapper>
+        </SmartEl>
+        <SmartEl {...sp} field="texto_a">
+          <TextWrapper {...sp} as="p" field="texto_a" className="text-zinc-400 font-medium leading-relaxed pr-6" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-10 transition-colors duration-500 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style={{ backgroundImage: `url(${imgB})`, backgroundPosition: `center ${data.imagePosition2 ?? 50}%` }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--brandColor)] via-[var(--brandColor)] to-transparent opacity-80" style={{ '--brandColor': brandColor }}></div>
+        <div className="relative z-20">
+          <SmartEl {...sp} field="cta_text">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] text-white/70 uppercase mb-4 block drop-shadow-md" style={{ fontFamily: textFont }}>
+              {data.cta_text || 'O PREMIUM'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-4 leading-[0.9] text-white drop-shadow-xl" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
+              {data.titulo_b || 'TÍTULO B'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_b">
+            <TextWrapper {...sp} as="p" field="texto_b" className="text-white/90 font-medium leading-relaxed drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+              {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#050505] rounded-full w-14 h-14 flex items-center justify-center font-black text-sm z-30 shadow-2xl border-4 border-[#050505]">
+        <SmartEl {...sp} field="badge_text">
+          <TextWrapper {...sp} field="badge_text" style={{ fontFamily: titleFont }}>
+            {data.badge_text || 'VS'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 26 — Split Monolith Cards
+// Dois lados com cards de imagem no topo e textos na base
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant26(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgA = data.imageUrl;
+  const imgC = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-row relative text-white bg-[#050505] overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+      </div>
+
+      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-0">
+        <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden bg-zinc-900">
+          <ImageBg data={data} className="w-full h-full" />
+        </div>
+        <div className="absolute top-[252px] left-0 w-full flex justify-center z-20">
+          <SmartEl {...sp} field="tag">
+            <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-zinc-500 uppercase" style={{ fontFamily: textFont }}>
+              {data.tag || 'O COMUM'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="mt-auto">
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-4 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
+              {data.titulo_a || data.titulo || 'TÍTULO A'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_a">
+            <TextWrapper {...sp} as="p" field="texto_a" className="text-zinc-400 font-medium leading-relaxed pr-6" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+              {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10 transition-colors duration-500 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+        <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden shadow-2xl z-20 bg-black">
+          <ImageBg data={{ ...data, imageUrl: imgC, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        </div>
+        <div className="absolute top-[252px] left-0 w-full flex justify-center z-20">
+          <SmartEl {...sp} field="cta_text">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] text-white uppercase drop-shadow-md" style={{ fontFamily: textFont }}>
+              {data.cta_text || 'O PREMIUM'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="relative z-20 mt-auto">
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-4 leading-[0.9] text-white drop-shadow-xl" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
+              {data.titulo_b || 'TÍTULO B'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_b">
+            <TextWrapper {...sp} as="p" field="texto_b" className="text-white/90 font-medium leading-relaxed drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+              {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 27 — Vanguard Split
+// Divisão em cruz com imagens e textos alternados
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant27(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative bg-[#050505] text-white overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+      </div>
+
+      <div className="h-1/2 w-full flex flex-row border-b border-white/10 relative z-0">
+        <div className="w-1/2 h-full relative overflow-hidden bg-zinc-900 flex items-center justify-center">
+          <ImageBg data={data} className="w-full h-full" />
+        </div>
+        <div className="w-1/2 h-full p-8 pl-10 flex flex-col justify-center">
+          <SmartEl {...sp} field="tag">
+            <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-white/50 uppercase mb-2 block" style={{ fontFamily: textFont }}>
+              {data.tag || 'O COMUM'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-3 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+              {data.titulo_a || data.titulo || 'TÍTULO A'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_a">
+            <TextWrapper {...sp} as="p" field="texto_a" className="text-white/70 font-medium leading-relaxed pr-2" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+              {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      <div className="h-1/2 w-full flex flex-row transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
+        <div className="w-1/2 h-full p-8 pr-10 flex flex-col justify-center items-end text-right relative z-10">
+          <SmartEl {...sp} field="cta_text">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] text-white/80 uppercase mb-2 block" style={{ fontFamily: textFont }}>
+              {data.cta_text || 'O PREMIUM'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-3 leading-[0.9] text-white" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+              {data.titulo_b || 'TÍTULO B'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_b">
+            <TextWrapper {...sp} as="p" field="texto_b" className="text-white/90 font-medium leading-relaxed pl-2" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+              {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="w-1/2 h-full relative overflow-hidden bg-black flex items-center justify-center">
+          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 28 — Cinematic Duel
+// Divisão vertical com imagens de fundo e cards em glassmorphism
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant28(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgA = data.imageUrl;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative bg-black overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+      </div>
+
+      <div className="w-full h-1/2 relative flex flex-col justify-end p-8 pb-10 overflow-hidden bg-zinc-900">
+        <div className="absolute inset-0 z-0">
+          <ImageBg data={data} className="w-full h-full" />
+        </div>
+        <div className="relative z-10 w-[85%] bg-black/40 p-5 backdrop-blur-md rounded-2xl border border-white/10">
+          <SmartEl {...sp} field="tag">
+            <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[9px] text-white/80 uppercase mb-2 block" style={{ fontFamily: textFont }}>
+              {data.tag || 'O COMUM'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-2 leading-[0.9] text-white" style={{ fontFamily: titleFont, fontSize: `${32 * sTitle}px` }}>
+              {data.titulo_a || data.titulo || 'TÍTULO A'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_a">
+            <TextWrapper {...sp} as="p" field="texto_a" className="text-white font-medium leading-relaxed" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+              {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      <div className="w-full h-1/2 relative flex flex-col justify-end p-8 pb-10 overflow-hidden transition-colors duration-500 bg-zinc-900">
+        <div className="absolute inset-0 z-0">
+          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        </div>
+        <div className="relative z-10 w-[85%] ml-auto text-right flex flex-col items-end bg-black/40 p-5 backdrop-blur-md rounded-2xl border border-white/10">
+          <SmartEl {...sp} field="cta_text">
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[9px] text-white uppercase mb-2 block" style={{ fontFamily: textFont, color: brandColor }}>
+              {data.cta_text || 'O PREMIUM'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-2 leading-[0.9] text-white" style={{ fontFamily: titleFont, fontSize: `${32 * sTitle}px` }}>
+              {data.titulo_b || 'TÍTULO B'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_b">
+            <TextWrapper {...sp} as="p" field="texto_b" className="text-white font-medium leading-relaxed" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+              {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 29 — Rect Rivalry
+// Fundo claro com duas imagens quadradas lado a lado
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant29(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col relative bg-[#FDFBF7] text-[#1a1a1a] overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+      </div>
+
+      <div className="flex-1 flex flex-row items-center justify-center gap-4 px-6 mt-12 relative">
+        <div className="w-1/2 flex flex-col items-center">
+          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-sm bg-zinc-200 mb-6">
+            <ImageBg data={data} className="w-full h-full" />
+          </div>
+          <div className="text-center px-2">
+            <SmartEl {...sp} field="tag">
+              <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-zinc-400 uppercase mb-2 block" style={{ fontFamily: textFont }}>
+                {data.tag || 'O COMUM'}
+              </TextWrapper>
+            </SmartEl>
+            <SmartEl {...sp} field="titulo_a">
+              <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-2 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+                {data.titulo_a || data.titulo || 'TÍTULO A'}
+              </TextWrapper>
+            </SmartEl>
+            <SmartEl {...sp} field="texto_a">
+              <TextWrapper {...sp} as="p" field="texto_a" className="text-zinc-500 font-medium leading-relaxed" style={{ fontFamily: textFont, fontSize: `${11 * sText}px` }}>
+                {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        </div>
+
+        <div className="w-1/2 flex flex-col items-center">
+          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 mb-6 border-4" style={{ borderColor: brandColor }}>
+            <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+          </div>
+          <div className="text-center px-2">
+            <SmartEl {...sp} field="cta_text">
+              <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] uppercase mb-2 block" style={{ fontFamily: textFont, color: brandColor }}>
+                {data.cta_text || 'O PREMIUM'}
+              </TextWrapper>
+            </SmartEl>
+            <SmartEl {...sp} field="titulo_b">
+              <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-2 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+                {data.titulo_b || 'TÍTULO B'}
+              </TextWrapper>
+            </SmartEl>
+            <SmartEl {...sp} field="texto_b">
+              <TextWrapper {...sp} as="p" field="texto_b" className="text-zinc-500 font-bold leading-relaxed" style={{ fontFamily: textFont, fontSize: `${11 * sText}px` }}>
+                {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        </div>
+
+        <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-4 py-2 rounded-xl z-30 text-[10px] font-black shadow-lg" style={{ fontFamily: titleFont }}>
+          <SmartEl {...sp} field="badge_text">
+            <TextWrapper {...sp} field="badge_text" className="uppercase">
+              {data.badge_text || 'VS'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -1165,6 +1513,11 @@ export const COMPARISON_VARIANT_COMPONENTS = {
   22: ComparisonVariant22,
   23: ComparisonVariant23,
   24: ComparisonVariant24,
+  25: ComparisonVariant25,
+  26: ComparisonVariant26,
+  27: ComparisonVariant27,
+  28: ComparisonVariant28,
+  29: ComparisonVariant29,
 };
 
 export const COMPARISON_VARIANT_META = [
@@ -1188,6 +1541,11 @@ export const COMPARISON_VARIANT_META = [
   { id: 22, nome: 'Split Img', badge: 'NEW' },
   { id: 23, nome: 'Giant Check', badge: 'NEW' },
   { id: 24, nome: 'Min Accent', badge: 'NEW' },
+  { id: 25, nome: 'Split Mono', badge: 'NEW' },
+  { id: 26, nome: 'Mono Cards', badge: 'NEW' },
+  { id: 27, nome: 'Vanguard', badge: 'NEW' },
+  { id: 28, nome: 'Cinematic', badge: 'NEW' },
+  { id: 29, nome: 'Rect Rival', badge: 'NEW' },
 ];
 
 
