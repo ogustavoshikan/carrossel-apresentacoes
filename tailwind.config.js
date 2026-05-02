@@ -26,6 +26,9 @@ export default {
       fontFamily: {
         outfit: ['var(--font-title)', 'sans-serif'],
         playfair: ['var(--font-text)', 'serif'],
+        title: ['var(--font-title)', 'sans-serif'],
+        text: ['var(--font-text)', 'serif'],
+        tag: ['var(--font-tag)', 'sans-serif'],
       },
       borderRadius: {
         slide: 'var(--radius-slide, 2.5rem)',

@@ -90,7 +90,7 @@ function BrandTag(props) {
 // VARIANTE 1 — Color Split
 // Imagem superior + bloco de cor inferior com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -117,7 +117,7 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
+              className="font-title font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
               style={{ fontSize: `${85 * sTitle}px`, lineHeight: 0.85 }}
             >
               {data.titulo}
@@ -130,7 +130,7 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair italic text-white max-w-[320px] mb-6 outline-none"
+              className="font-text italic text-white max-w-[320px] mb-6 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
@@ -147,7 +147,7 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 2 — Cinemático
 // Imagem full-bleed com texto inferior e gradient
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -163,8 +163,8 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)}
-              className="text-[10px] font-outfit font-black tracking-[0.4em] uppercase outline-none block"
-              style={{ color: brandColor }}
+              className="text-[10px] font-title font-black tracking-[0.4em] uppercase outline-none block"
+              style={{fontFamily: textFont,  color: brandColor }}
             >
               {data.studio_text || 'STUDIO'}
             </span>
@@ -175,7 +175,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-outfit font-black tracking-tighter leading-[0.9] outline-none"
+            className="text-white font-title font-black tracking-tighter leading-[0.9] outline-none"
             style={{ fontSize: `${80 * sTitle}px` }}
           >
             {data.titulo}
@@ -187,7 +187,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-zinc-300 font-playfair italic outline-none"
+              className="text-zinc-300 font-text italic outline-none"
               style={{ fontSize: `${22 * sText}px` }}
             >
               {data.texto_apoio}
@@ -203,7 +203,7 @@ export function CoverVariant2({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 3 — Blur Editorial
 // Background desfocado + barra de acento + border-left
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -214,13 +214,13 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandH
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
       <div className="flex-1 flex flex-col justify-end relative z-10">
-        <div className="w-16 h-2 mb-8" style={{ backgroundColor: brandColor }} />
+        <div className="w-16 h-2 mb-8" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
 
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-outfit font-black tracking-tighter leading-[0.85] outline-none drop-shadow-lg"
+            className="text-white font-title font-black tracking-tighter leading-[0.85] outline-none drop-shadow-lg"
             style={{ fontSize: `${85 * sTitle}px` }}
           >
             {data.titulo}
@@ -232,7 +232,7 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-zinc-300 font-playfair italic outline-none border-l-2 border-white/30 pl-6"
+              className="text-zinc-300 font-text italic outline-none border-l-2 border-white/30 pl-6"
               style={{ fontSize: `${24 * sText}px` }}
             >
               {data.texto_apoio}
@@ -248,7 +248,7 @@ export function CoverVariant3({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 4 — Moldura Editorial
 // Background claro com moldura branca e estilo magazine
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -267,7 +267,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="px-4 py-1.5 bg-white text-black font-outfit font-black text-[10px] tracking-[0.4em] uppercase inline-block outline-none"
+                className="px-4 py-1.5 bg-white text-black font-title font-black text-[10px] tracking-[0.4em] uppercase inline-block outline-none"
               >
                 {data.badge_text || 'EDITORIAL'}
               </span>
@@ -279,7 +279,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
               <h2
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="text-white font-outfit font-black tracking-tighter leading-none outline-none drop-shadow-2xl mx-auto"
+                className="text-white font-title font-black tracking-tighter leading-none outline-none drop-shadow-2xl mx-auto"
                 style={{ fontSize: `${60 * sTitle}px` }}
               >
                 {data.titulo}
@@ -291,7 +291,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
                 <p
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                  className="text-white/90 font-playfair italic outline-none mx-auto max-w-[80%]"
+                  className="text-white/90 font-text italic outline-none mx-auto max-w-[80%]"
                   style={{ fontSize: `${20 * sText}px` }}
                 >
                   {data.texto_apoio}
@@ -309,7 +309,7 @@ export function CoverVariant4({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 5 — Rounded Split
 // Imagem superior + bloco de cor arredondado inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -323,13 +323,13 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
 
       <div
         className="h-[40%] w-full flex flex-col justify-center p-10 relative z-10 -mt-10 rounded-t-[3rem]"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-outfit font-black tracking-tighter leading-[0.9] outline-none"
+            className="text-white font-title font-black tracking-tighter leading-[0.9] outline-none"
             style={{ fontSize: `${65 * sTitle}px` }}
           >
             {data.titulo}
@@ -341,7 +341,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-white/80 font-playfair outline-none"
+              className="text-white/80 font-text outline-none"
               style={{ fontSize: `${20 * sText}px` }}
             >
               {data.texto_apoio}
@@ -357,7 +357,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 6 — Arco
 // Imagem em container arch-shaped + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -385,7 +385,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="text-white font-outfit font-black tracking-tighter leading-[0.9] outline-none mb-4"
+              className="text-white font-title font-black tracking-tighter leading-[0.9] outline-none mb-4"
               style={{ fontSize: `${60 * sTitle}px` }}
             >
               {data.titulo}
@@ -397,7 +397,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-zinc-400 font-playfair italic outline-none max-w-[90%]"
+            className="text-zinc-400 font-text italic outline-none max-w-[90%]"
             style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
@@ -412,7 +412,7 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 7 — Polaroid
 // Card estilo foto instantânea com título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -433,14 +433,14 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
         <ImageBg
           data={data}
           className="w-full flex-1 rounded-md"
-          style={{ backgroundSize: 'cover' }}
+          style={{fontFamily: textFont,  backgroundSize: 'cover' }}
         />
         <div className="h-16 w-full flex items-center justify-center">
           <SmartField field="contexto_dado" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'contexto_dado', e.currentTarget.innerText)}
-              className="font-playfair italic text-black/40 text-xs outline-none"
+              className="font-tag italic text-black/40 text-xs outline-none"
             >
               {data.contexto_dado || 'Fig 01. The Approach'}
             </span>
@@ -453,7 +453,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-outfit font-black tracking-tighter leading-[0.9] outline-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
+            className="text-white font-title font-black tracking-tighter leading-[0.9] outline-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
             style={{ fontSize: `${70 * sTitle}px` }}
           >
             {data.titulo}
@@ -465,8 +465,8 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="inline-block px-4 py-2 bg-black text-white font-outfit font-black text-[10px] tracking-widest uppercase border border-white/20 rounded-md outline-none"
-              style={{ color: brandColor }}
+              className="inline-block px-4 py-2 bg-black text-white font-title font-black text-[10px] tracking-widest uppercase border border-white/20 rounded-md outline-none"
+              style={{fontFamily: tagFont,  color: brandColor }}
             >
               {data.badge_text || 'NEW INSIGHT'}
             </span>
@@ -481,7 +481,7 @@ export function CoverVariant7({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 8 — Acento Lateral
 // Texto centrado com borda lateral colorida
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -505,7 +505,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="text-white font-outfit font-black tracking-tighter leading-[0.9] outline-none drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
+              className="text-white font-title font-black tracking-tighter leading-[0.9] outline-none drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
               style={{ fontSize: `${65 * sTitle}px` }}
             >
               {data.titulo}
@@ -517,7 +517,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-zinc-300 font-playfair italic outline-none border-l-2 pl-4"
+            className="text-zinc-300 font-text italic outline-none border-l-2 pl-4"
             style={{ fontSize: `${18 * sText}px`, borderColor: brandColor }}
           >
             {data.texto_apoio}
@@ -532,7 +532,7 @@ export function CoverVariant8({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 9 — Spotlight Card
 // Fundo com texto watermark + card branco central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -542,7 +542,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
       {/* Watermark Background */}
       <div className="absolute inset-0 flex flex-col justify-center items-center overflow-hidden pointer-events-none opacity-[0.03]">
         {[...Array(5)].map((_, i) => (
-          <h2 key={i} className="font-outfit font-black text-white whitespace-nowrap leading-none tracking-tighter" style={{ fontSize: '180px' }}>
+          <h2 key={i} className="font-title font-black text-white whitespace-nowrap leading-none tracking-tighter" style={{fontFamily: textFont,  fontSize: '180px' }}>
             {data.titulo}
           </h2>
         ))}
@@ -571,8 +571,8 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="font-outfit font-black text-[12px] uppercase tracking-widest outline-none block"
-                style={{ color: brandColor }}
+                className="font-title font-black text-[12px] uppercase tracking-widest outline-none block"
+                style={{fontFamily: titleFont,  color: brandColor }}
               >
                 {data.badge_text || 'DESTAQUE'}
               </span>
@@ -584,7 +584,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
               <h2
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="font-outfit font-black tracking-tighter leading-[0.9] outline-none"
+                className="font-title font-black tracking-tighter leading-[0.9] outline-none"
                 style={{ fontSize: `${60 * sTitle}px` }}
               >
                 {data.titulo}
@@ -596,7 +596,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair italic text-zinc-800 font-bold outline-none"
+              className="font-text italic text-zinc-800 font-bold outline-none"
               style={{ fontSize: `${18 * sText}px` }}
             >
               {data.texto_apoio}
@@ -612,7 +612,7 @@ export function CoverVariant9({ data, index, brandColor, brandHandle, showBrandH
 // VARIANTE 10 — Bottom Minimal
 // Background desfocado + texto inferior centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant10({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -636,7 +636,7 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="text-white font-outfit font-black tracking-tighter leading-none outline-none drop-shadow-xl"
+              className="text-white font-title font-black tracking-tighter leading-none outline-none drop-shadow-xl"
               style={{ fontSize: `${65 * sTitle}px` }}
             >
               {data.titulo}
@@ -648,7 +648,7 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-zinc-300 font-playfair italic outline-none max-w-[90%] mx-auto"
+            className="text-zinc-300 font-text italic outline-none max-w-[90%] mx-auto"
             style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
@@ -663,7 +663,7 @@ export function CoverVariant10({ data, index, brandColor, brandHandle, showBrand
 // VARIANTE 11 — Luxury Frame
 // Imagem dentro de moldura com sombra profunda e título sobreposto
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant11({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant11({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -676,7 +676,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
         </div>
       )}
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-full h-full z-0 opacity-20 blur-[100px] pointer-events-none" style={{ backgroundColor: brandColor }} />
+      <div className="absolute top-0 right-0 w-full h-full z-0 opacity-20 blur-[100px] pointer-events-none" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       
       <div className="relative z-10 w-full aspect-square bg-white p-6 shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-sm flex flex-col">
         <div className="flex-1 overflow-hidden relative">
@@ -687,7 +687,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)}
-              className="font-playfair italic text-zinc-400 text-[10px] tracking-widest uppercase outline-none"
+              className="font-tag italic text-zinc-400 text-[10px] tracking-widest uppercase outline-none"
             >
               {data.studio_text || 'Carrossel Studio Premium Editorial'}
             </span>
@@ -700,7 +700,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter drop-shadow-2xl outline-none leading-[0.8]"
+            className="font-title font-black text-white tracking-tighter drop-shadow-2xl outline-none leading-[0.8]"
             style={{ fontSize: `${80 * sTitle}px` }}
           >
             {data.titulo}
@@ -715,7 +715,7 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 12 — Diagonal Slice
 // Divisão diagonal dinâmica entre cor e imagem
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -729,7 +729,7 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
 
       <div 
         className="absolute inset-0 z-10 origin-bottom-left -rotate-[15deg] translate-y-1/2 h-[150%] w-[150%]"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       />
 
       <div className="relative z-20 flex-1 flex flex-col justify-end p-12 pb-20">
@@ -737,7 +737,7 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-outfit font-black tracking-tighter leading-none outline-none mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+            className="text-white font-title font-black tracking-tighter leading-none outline-none mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
             style={{ fontSize: `${90 * sTitle}px` }}
           >
             {data.titulo}
@@ -750,7 +750,7 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white/90 font-playfair italic outline-none max-w-[280px]"
+            className="text-white/90 font-text italic outline-none max-w-[280px]"
             style={{ fontSize: `${24 * sText}px` }}
           >
             {data.texto_apoio}
@@ -765,7 +765,7 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 13 — Bold Overlay
 // Título sobreposto com mix-blend e badge de marca
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant13({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant13({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -774,9 +774,9 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
       <div className="h-[55%] w-full shrink-0 bg-zinc-900 relative">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
-      <div className="h-[45%] w-full p-6 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
+      <div className="h-[45%] w-full p-6 flex flex-col justify-between shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="flex items-center gap-1.5 border-b border-white/20 pb-2 shrink-0 w-full">
-          <span className="font-outfit font-bold tracking-widest text-[10px] text-white uppercase">
+          <span className="font-title font-bold tracking-widest text-[10px] text-white uppercase">
             {brandHandle || '@studio'}
           </span>
           <BadgeCheck className="w-3.5 h-3.5 text-white" />
@@ -786,7 +786,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-light text-white/90 text-[11px] tracking-widest uppercase leading-none outline-none"
+              className="font-text font-light text-white/90 text-[11px] tracking-widest uppercase leading-none outline-none"
             >
               {data.texto_apoio}
             </p>
@@ -796,7 +796,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white leading-none outline-none inline-block -translate-y-[3px]"
+                className="font-title font-bold text-[10px] uppercase tracking-widest text-white leading-none outline-none inline-block -translate-y-[3px]"
               >
                 {data.cta_text || 'Deslize'}
               </span>
@@ -810,7 +810,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black leading-[0.85] tracking-tighter text-[#EBE9E1] drop-shadow-2xl mix-blend-difference whitespace-pre-line outline-none"
+            className="font-title font-black leading-[0.85] tracking-tighter text-[#EBE9E1] drop-shadow-2xl mix-blend-difference whitespace-pre-line outline-none"
             style={{ fontSize: `${52 * sTitle}px` }}
           >
             {data.titulo}
@@ -825,19 +825,19 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 14 — Top Block
 // Título superior em bloco de cor com imagem inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant14({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant14({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
         <div className="w-12 h-1.5 bg-white/50 mb-8 shrink-0" />
         <SmartField field="titulo" {...sp} className="mb-4 w-full shrink-0">
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black leading-[0.85] tracking-tighter text-white uppercase whitespace-pre-line outline-none"
+            className="font-title font-black leading-[0.85] tracking-tighter text-white uppercase whitespace-pre-line outline-none"
             style={{ fontSize: `${64 * sTitle}px` }}
           >
             {data.titulo}
@@ -847,7 +847,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white/80 tracking-widest text-[11px] uppercase font-bold font-outfit outline-none"
+            className="text-white/80 tracking-widest text-[11px] uppercase font-bold font-text outline-none"
           >
             {data.texto_apoio}
           </p>
@@ -855,7 +855,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
       </div>
       <div className="w-full h-[30%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1]">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-white text-[9px] font-bold tracking-widest font-outfit uppercase">
+        <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-white text-[9px] font-bold tracking-widest font-title uppercase">
           {brandHandle || '@studio'}
         </div>
       </div>
@@ -867,12 +867,12 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 15 — Center Card
 // Imagem superior e card centralizado com título
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant15({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant15({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
       <div className="flex-1 flex flex-col relative bg-[#020202]">
         <div className="w-full h-[65%] shrink-0 bg-zinc-300 relative border-b border-zinc-300 overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
@@ -882,8 +882,8 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-bold tracking-widest text-[10px] uppercase outline-none"
-              style={{ color: brandColor }}
+              className="font-text font-bold tracking-widest text-[10px] uppercase outline-none"
+              style={{fontFamily: textFont,  color: brandColor }}
             >
               {data.texto_apoio}
             </span>
@@ -892,7 +892,7 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[#1a1a1a] leading-tight uppercase outline-none"
+              className="font-title font-black text-[#1a1a1a] leading-tight uppercase outline-none"
               style={{ fontSize: `${36 * sTitle}px` }}
             >
               {data.titulo}
@@ -908,7 +908,7 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 16 — Bottom Gradient
 // Imagem full com gradient colorido e título centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant16({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant16({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -923,7 +923,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold mb-4 block outline-none"
+            className="text-white font-text tracking-[0.3em] uppercase text-[10px] font-bold mb-4 block outline-none"
           >
             {data.texto_apoio}
           </span>
@@ -932,7 +932,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl outline-none"
+            className="font-title font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl outline-none"
             style={{ fontSize: `${56 * sTitle}px` }}
           >
             {data.titulo}
@@ -940,7 +940,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
         </SmartField>
         <div className="w-full h-px bg-white/30 mb-4" />
         <div className="flex justify-between items-center w-full">
-          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/70 uppercase">
+          <span className="font-title font-bold tracking-widest text-[9px] text-white/70 uppercase">
             {brandHandle || '@studio'}
           </span>
           <div className="flex items-center gap-1 text-[#b5adae]">
@@ -948,7 +948,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="inline-block font-outfit font-bold text-[9px] uppercase tracking-widest outline-none -translate-y-[2px]"
+                className="inline-block font-title font-bold text-[9px] uppercase tracking-widest outline-none -translate-y-[2px]"
               >
                 {data.cta_text || 'Arrasta'}
               </span>
@@ -965,7 +965,7 @@ export function CoverVariant16({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 17 — Minimal Side
 // Divisão lateral com título e imagem
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant17({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant17({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -977,8 +977,8 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[10px] uppercase tracking-widest outline-none"
-              style={{ color: brandColor }}
+              className="font-title font-black text-[10px] uppercase tracking-widest outline-none"
+              style={{fontFamily: textFont,  color: brandColor }}
             >
               {data.studio_text || 'Studio System'}
             </span>
@@ -990,7 +990,7 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[#1a1a1a] leading-[0.9] tracking-tighter whitespace-pre-line mb-4 outline-none"
+              className="font-title font-black text-[#1a1a1a] leading-[0.9] tracking-tighter whitespace-pre-line mb-4 outline-none"
               style={{ fontSize: `${48 * sTitle}px` }}
             >
               {data.titulo}
@@ -1000,13 +1000,13 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-zinc-500 font-outfit font-bold tracking-widest text-[9px] uppercase outline-none"
+              className="text-zinc-500 font-text font-bold tracking-widest text-[9px] uppercase outline-none"
             >
               {data.texto_apoio}
             </p>
           </SmartField>
         </div>
-        <span className="font-outfit font-bold tracking-widest text-[9px] text-zinc-400 uppercase">
+        <span className="font-title font-bold tracking-widest text-[9px] text-zinc-400 uppercase">
           {brandHandle || '@studio'}
         </span>
       </div>
@@ -1025,7 +1025,7 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 18 — Glassmorphism Center
 // Card central com backdrop blur sobre imagem com glow
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant18({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant18({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1036,22 +1036,22 @@ export function CoverVariant18({ data, index, brandColor, brandHandle, titleScal
     <div className="w-full h-full relative overflow-hidden bg-black flex flex-col justify-center items-center p-6">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{ backgroundColor: brandColor }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       </div>
       <div className="relative z-10 w-full bg-surface-input/30 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: `${brandColor}50` }}>
         <SmartField field="texto_apoio" {...sp} className="mb-4">
-          <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{ color: brandColor }}>
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-text tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{fontFamily: textFont,  color: brandColor }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
         <SmartField field="titulo" {...sp} className="w-full">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontSize: `${42 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontSize: `${42 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
       </div>
       <div className="absolute bottom-8 w-full px-8 flex justify-between items-center z-10">
-        <span className="font-outfit font-bold tracking-widest text-[10px] text-white drop-shadow uppercase">{brandHandle || '@studio'}</span>
+        <span className="font-title font-bold tracking-widest text-[10px] text-white drop-shadow uppercase">{brandHandle || '@studio'}</span>
         <ArrowRight className="w-5 h-5 text-white drop-shadow" />
       </div>
     </div>
@@ -1062,7 +1062,7 @@ export function CoverVariant18({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 19 — Arch Featured
 // Imagem em arco superior com badge central
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant19({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant19({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1071,10 +1071,10 @@ export function CoverVariant19({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: bgBase }}>
       <div className="w-full flex-1 rounded-t-full rounded-b-xl overflow-hidden bg-zinc-300 relative shadow-inner mb-6 border-[6px]" style={{ borderColor: brandColor }}>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white rounded-t-xl text-[10px] font-bold uppercase tracking-widest font-outfit" style={{ color: brandColor }}>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white rounded-t-xl text-[10px] font-bold uppercase tracking-widest font-title" style={{fontFamily: titleFont,  color: brandColor }}>
           <SmartField field="badge_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
@@ -1088,12 +1088,12 @@ export function CoverVariant19({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="w-full flex flex-col items-center text-center shrink-0 mb-4">
         <SmartField field="titulo" {...sp} className="w-full mb-2">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[1] tracking-tight whitespace-pre-line" style={{ fontSize: `${38 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[1] tracking-tight whitespace-pre-line" style={{ fontSize: `${38 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp}>
-          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit tracking-[0.2em] uppercase text-[9px] font-bold" style={{ color: brandColor }}>
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-text tracking-[0.2em] uppercase text-[9px] font-bold" style={{fontFamily: textFont,  color: brandColor }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1106,7 +1106,7 @@ export function CoverVariant19({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 20 — Rotating Polaroid
 // Foto rotacionada com padrão de fundo e badge flutuante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant20({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant20({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1122,14 +1122,14 @@ export function CoverVariant20({ data, index, brandColor, titleScale, textScale,
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         </div>
         <SmartField field="titulo" {...sp}>
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-center text-[#1a1a1a] leading-[1.1] tracking-tighter" style={{ fontSize: `${28 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-center text-[#1a1a1a] leading-[1.1] tracking-tighter" style={{ fontSize: `${28 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
       </div>
       <div className="absolute bottom-10 left-10 z-20 rotate-[-4deg]">
         <SmartField field="texto_apoio" {...sp}>
-          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-white px-4 py-1.5 font-bold text-[10px] uppercase tracking-[0.2em] shadow-lg" style={{ backgroundColor: brandColor }}>
+          <TextWrapper {...tw} as="span" field="texto_apoio" className="font-text text-white px-4 py-1.5 font-bold text-[10px] uppercase tracking-[0.2em] shadow-lg" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1142,7 +1142,7 @@ export function CoverVariant20({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 21 — Diagonal Edge
 // Imagem superior diagonal com título gigante inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant21({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant21({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1156,14 +1156,14 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end pb-12">
         <SmartField field="titulo" {...sp} className="w-full shrink-0 mb-4">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter text-white uppercase whitespace-pre-line drop-shadow-md" style={{ fontSize: `${72 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter text-white uppercase whitespace-pre-line drop-shadow-md" style={{ fontSize: `${72 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <div className="flex items-center gap-4">
           <div className="w-8 h-1 bg-white shrink-0" />
           <SmartField field="texto_apoio" {...sp} className="shrink-0">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-white tracking-[0.3em] text-[10px] font-bold uppercase max-w-[260px]">
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-white tracking-[0.3em] text-[10px] font-bold uppercase max-w-[260px]">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1177,7 +1177,7 @@ export function CoverVariant21({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 22 — Header Minimal
 // Header padrão + título gigante centrado com glow lateral
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandLogo, showBrandLogo }) {
+export function CoverVariant22({ data, index, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const bgBase = '#ffffff';
@@ -1185,7 +1185,7 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-8 flex flex-col justify-between overflow-hidden relative" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
       <BrandTag brandHandle={brandHandle} 
         showBrandHandle={false} 
         showSlideCounter={false}
@@ -1196,12 +1196,12 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
       <div className="flex-1 flex flex-col justify-center relative mt-4">
         <div className="absolute -left-4 top-1/4 w-32 h-32 rounded-full blur-[60px] z-0 opacity-50" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-6 z-10">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase break-words" style={{ fontSize: `${80 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase break-words" style={{ fontSize: `${80 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp} className="z-10">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit font-bold tracking-[0.3em] uppercase text-[12px]" style={{ color: brandColor }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text font-bold tracking-[0.3em] uppercase text-[12px]" style={{fontFamily: textFont,  color: brandColor }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1218,7 +1218,7 @@ export function CoverVariant22({ data, index, brandColor, brandHandle, showBrand
 // VARIANTE 23 — Vertical Split
 // Split vertical com handle rotacionado e imagem blend
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant23({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant23({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1229,7 +1229,7 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
   return (
     <div className="w-full h-full flex flex-row overflow-hidden relative" style={{ backgroundColor: bgBase }}>
       <div className="w-[45%] h-full shrink-0 flex flex-col justify-between p-6 z-10" style={{ backgroundColor: brandColor, color: 'white' }}>
-        <span className="font-outfit font-bold text-[10px] tracking-widest uppercase transform -rotate-90 origin-top-left translate-y-[200px]">{brandHandle || '@studio'}</span>
+        <span className="font-title font-bold text-[10px] tracking-widest uppercase transform -rotate-90 origin-top-left translate-y-[200px]">{brandHandle || '@studio'}</span>
         <div className="w-8 h-[2px] bg-white mb-8" />
       </div>
       <div className="w-[55%] h-full shrink-0 relative bg-zinc-800 z-0">
@@ -1237,12 +1237,12 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
       </div>
       <div className="absolute top-1/2 left-[10%] -translate-y-1/2 mt-[-10px] z-20 w-[80%] translate-x-[7px]">
         <SmartField field="texto_apoio" {...sp} className="mb-4 mt-[-48px]">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-outfit font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded whitespace-pre-line max-w-[420px]">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-text font-bold tracking-[0.2em] text-[11px] uppercase bg-black/50 inline-block px-3 py-1 rounded whitespace-pre-line max-w-[420px]">
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
         <SmartField field="titulo" {...sp} className="-translate-y-[5px]">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.9] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${64 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.9] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${64 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
@@ -1255,7 +1255,7 @@ export function CoverVariant23({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 24 — Grid Process
 // Estilo técnico com grid, badge numerado e imagem inferior
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant24({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant24({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1264,7 +1264,7 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
       <div className="flex-1 border-2 flex flex-col p-6 relative" style={{ borderColor: brandColor }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
@@ -1274,8 +1274,8 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
             <div
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
-              className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-outfit font-bold text-xs outline-none"
-              style={{ borderColor: brandColor, color: brandColor }}
+              className="w-12 h-12 rounded-full border-4 flex items-center justify-center font-text font-bold text-xs outline-none"
+              style={{fontFamily: textFont,  borderColor: brandColor, color: brandColor }}
             >
               {data.slide_call || '01'}
             </div>
@@ -1284,8 +1284,8 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold tracking-widest text-[9px] uppercase outline-none"
-              style={{ color: brandColor }}
+              className="font-title font-bold tracking-widest text-[9px] uppercase outline-none"
+              style={{fontFamily: titleFont,  color: brandColor }}
             >
               {data.badge_text || 'O PROCESSO'}
             </span>
@@ -1293,12 +1293,12 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
         </div>
         <div className="relative z-10 shrink-0 mb-6">
           <SmartField field="titulo" {...sp}>
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter uppercase break-words" style={{ color: brandColor, fontSize: `${80 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase break-words" style={{ color: brandColor, fontSize: `${80 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="w-full h-[30%] shrink-0 bg-zinc-300 relative border-t-2" style={{ borderColor: brandColor }}>
+        <div className="w-full h-[30%] shrink-0 bg-zinc-300 relative border-t-2" style={{fontFamily: titleFont,  borderColor: brandColor }}>
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         </div>
       </div>
@@ -1310,7 +1310,7 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 25 — Frosted Float
 // Card com glassmorphism flutuando sobre imagem desfocada
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant25({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant25({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1325,23 +1325,23 @@ export function CoverVariant25({ data, index, brandColor, brandHandle, titleScal
       </div>
       <div className="relative z-10 w-full h-[75%] bg-surface-input/30 backdrop-blur-xl border border-white/20 rounded-[2rem] shadow-2xl flex flex-col justify-between p-8">
         <div className="flex justify-between items-center w-full">
-          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/90 uppercase">{brandHandle || '@studio'}</span>
+          <span className="font-title font-bold tracking-widest text-[9px] text-white/90 uppercase">{brandHandle || '@studio'}</span>
           <div className="w-8 h-[1px] bg-surface-input/300" />
         </div>
         <div className="flex flex-col items-center text-center">
           <SmartField field="texto_apoio" {...sp} className="mb-4">
-            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-outfit tracking-[0.3em] uppercase text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 bg-surface-input/30">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-text tracking-[0.3em] uppercase text-[10px] font-bold px-3 py-1 rounded-full border border-white/20 bg-surface-input/30">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
           <SmartField field="titulo" {...sp} className="w-full">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl" style={{ fontSize: `${48 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-tight tracking-tighter whitespace-pre-line drop-shadow-xl" style={{ fontSize: `${48 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
         </div>
         <div className="flex justify-center items-center w-full">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-md border border-white/10 shadow-lg" style={{ backgroundColor: brandColor }}>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-md border border-white/10 shadow-lg" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
             <ArrowRight className="w-4 h-4" />
           </div>
         </div>
@@ -1354,7 +1354,7 @@ export function CoverVariant25({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 26 — Overlay Volume
 // Bloco superior de cor com blend e imagem inferior P&B
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant26({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant26({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1370,28 +1370,28 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[10px] uppercase tracking-widest text-white border border-white/30 px-2 py-1 outline-none inline-block"
+              className="font-title font-black text-[10px] uppercase tracking-widest text-white border border-white/30 px-2 py-1 outline-none inline-block"
             >
               {data.badge_text || 'VOL. 14'}
             </span>
           </SmartField>
-          <span className="font-outfit font-bold tracking-widest text-[9px] text-white/80 uppercase">
+          <span className="font-title font-bold tracking-widest text-[9px] text-white/80 uppercase">
             @{brandHandle || 'studio'}
           </span>
         </div>
-        <div className="absolute inset-0 z-10 opacity-20 mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(circle at 20% 150%, white 0%, transparent 60%)' }} />
+        <div className="absolute inset-0 z-10 opacity-20 mix-blend-overlay" style={{fontFamily: titleFont,  backgroundImage: 'radial-gradient(circle at 20% 150%, white 0%, transparent 60%)' }} />
       </div>
       <div className="w-full h-[45%] bg-zinc-300 relative shrink-0 z-0">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full px-6 z-30">
         <SmartField field="titulo" {...sp}>
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${70 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${70 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp} className="mt-4">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-[#1a1a1a] font-black tracking-[0.2em] text-[12px] uppercase bg-white inline-block px-4 py-1.5 shadow-xl">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-[#1a1a1a] font-black tracking-[0.2em] text-[12px] uppercase bg-white inline-block px-4 py-1.5 shadow-xl">
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1404,7 +1404,7 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
 // VARIANTE 27 — Slanted New
 // Recorte diagonal superior com badge Sparkles e footer
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant27({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant27({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const imgUrl = data.imageUrl || 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80';
@@ -1413,7 +1413,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-hidden relative" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex flex-col overflow-hidden relative" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
       <div className="absolute inset-0 z-0 bg-zinc-800" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 65%, 0 85%)' }}>
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
@@ -1427,7 +1427,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
             <div
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-outfit font-bold text-[9px] tracking-widest uppercase outline-none"
+              className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-title font-bold text-[9px] tracking-widest uppercase outline-none"
             >
               {data.badge_text || 'Novo'}
             </div>
@@ -1435,18 +1435,18 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
         </div>
         <div className="flex flex-col items-end text-right mt-auto mb-10">
           <SmartField field="texto_apoio" {...sp} className="mb-2">
-            <TextWrapper {...tw} as="span" field="texto_apoio" className="font-outfit text-zinc-900 bg-[#dBdBdB] px-2 py-0.5 rounded-[2px] font-bold tracking-[0.3em] uppercase text-[10px]">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="font-text text-zinc-900 bg-[#dBdBdB] px-2 py-0.5 rounded-[2px] font-bold tracking-[0.3em] uppercase text-[10px]">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
           <SmartField field="titulo" {...sp} className="w-full">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase whitespace-pre-line" style={{ fontSize: `${60 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase whitespace-pre-line" style={{ fontSize: `${60 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="flex items-center gap-4 border-t-2 pt-4" style={{ borderColor: brandColor }}>
-          <span className="font-outfit font-bold tracking-widest text-[9px] uppercase" style={{ color: brandColor }}>
+        <div className="flex items-center gap-4 border-t-2 pt-4" style={{fontFamily: textFont,  borderColor: brandColor }}>
+          <span className="font-title font-bold tracking-widest text-[9px] uppercase" style={{fontFamily: titleFont,  color: brandColor }}>
             @{brandHandle || 'studio'}
           </span>
           <div className="flex-1" />
@@ -1454,7 +1454,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'contexto_dado', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[9px] uppercase outline-none"
+              className="font-title font-bold text-[9px] uppercase outline-none"
             >
               {data.contexto_dado || '2026'}
             </span>
@@ -1472,7 +1472,7 @@ export function CoverVariant27({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 28
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant28({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant28({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1481,27 +1481,27 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex relative overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: bgBase }}>
       <div className="w-[60%] h-full p-8 pb-16 flex flex-col justify-between relative z-10">
         <div className="shrink-0">
-          <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase font-outfit">
+          <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase font-title">
             @{brandHandle || 'studio'}
           </span>
         </div>
         <div className="flex-1 flex flex-col justify-center">
           <SmartField field="titulo" {...sp} className="mb-6 shrink-0">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-outfit" style={{ fontSize: `${34 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-title" style={{ fontSize: `${34 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp} className="shrink-0">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-700 leading-snug font-medium font-outfit" style={{ fontSize: `${16 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-700 leading-snug font-medium font-text" style={{ fontSize: `${16 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
         </div>
       </div>
-      <div className="absolute bottom-6 left-6 flex flex-col z-20 font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a] font-outfit">
+      <div className="absolute bottom-6 left-6 flex flex-col z-20 font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a] font-title">
         <SmartField field="cta_text" {...sp}>
           <div
             contentEditable suppressContentEditableWarning
@@ -1525,7 +1525,7 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 29
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant29({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant29({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1534,8 +1534,8 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: bgBase }}>
-      <div className="absolute top-8 left-8 text-[10px] text-zinc-500 font-bold tracking-widest uppercase z-20 font-outfit">
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
+      <div className="absolute top-8 left-8 text-[10px] text-zinc-500 font-bold tracking-widest uppercase z-20 font-title">
         @{brandHandle || 'studio'}
       </div>
       <div className="w-full h-full flex pt-16 pb-8 pl-6 pr-6">
@@ -1546,20 +1546,20 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
         </div>
         <div className="w-[48%] h-full flex flex-col justify-center pl-2">
           <SmartField field="titulo" {...sp} className="mb-6">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-outfit" style={{ fontSize: `${32 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-title" style={{ fontSize: `${32 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
           <div className="flex gap-2 items-center mb-6">
-            <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: brandColor }} />
+            <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
-              <TextWrapper {...tw} as="p" field="tag" className="text-zinc-600 leading-snug font-medium font-outfit" style={{ fontSize: `${14 * sText}px` }}>
+              <TextWrapper {...tw} as="p" field="tag" className="text-zinc-600 leading-snug font-medium font-title" style={{ fontSize: `${14 * sText}px` }}>
                 {slideData.tag || 'Sua Tag Aqui'}
               </TextWrapper>
             </SmartField>
           </div>
           <SmartField field="texto_apoio" {...sp}>
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug font-outfit" style={{ fontSize: `${15 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug font-text" style={{ fontSize: `${15 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1570,7 +1570,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-outfit outline-none inline-block -translate-y-[3px]"
+            className="font-bold text-[10px] uppercase tracking-widest text-zinc-500 font-title outline-none inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste'}
           </span>
@@ -1584,7 +1584,7 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 30
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant30({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant30({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1593,24 +1593,24 @@ export function CoverVariant30({ data, index, brandColor, brandHandle, titleScal
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex relative overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
       <div className="absolute left-0 top-0 bottom-0 w-[30%] bg-zinc-300 z-0">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="w-full h-full pl-[30%] flex flex-col z-10">
         <div className="p-6 shrink-0">
-          <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase font-outfit">
+          <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase font-title">
             @{brandHandle || 'studio'}
           </span>
         </div>
         <div className="flex-1 flex flex-col justify-center px-8 text-center">
           <SmartField field="titulo" {...sp} className="mb-8">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.95] tracking-tighter uppercase font-outfit" style={{ fontSize: `${30 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.95] tracking-tighter uppercase font-title" style={{ fontSize: `${30 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
-          <SmartField field="texto_apoio" {...sp} className="flex flex-col gap-4 text-left pl-4 border-l-2" style={{ borderColor: brandColor }}>
-            <TextWrapper {...tw} as="div" field="texto_apoio" className="text-zinc-700 leading-snug font-medium whitespace-pre-wrap font-outfit" style={{ fontSize: `${14 * sText}px` }}>
+          <SmartField field="texto_apoio" {...sp} className="flex flex-col gap-4 text-left pl-4 border-l-2" style={{fontFamily: titleFont,  borderColor: brandColor }}>
+            <TextWrapper {...tw} as="div" field="texto_apoio" className="text-zinc-700 leading-snug font-medium whitespace-pre-wrap font-text" style={{ fontSize: `${14 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1631,7 +1631,7 @@ export function CoverVariant30({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 31
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant31({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant31({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1640,13 +1640,13 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
       <div className="w-[55%] h-full p-6 flex flex-col justify-center relative z-10">
-        <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase absolute top-6 left-6 font-outfit">
+        <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase absolute top-6 left-6 font-title">
           @{brandHandle || 'studio'}
         </span>
         <SmartField field="titulo" {...sp} className="mb-6 mt-6 shrink-0 relative top-[96px]">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-[0.9] tracking-tighter uppercase font-outfit" style={{ color: brandColor, fontSize: `${32 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-black leading-[0.9] tracking-tighter uppercase font-title" style={{ color: brandColor, fontSize: `${32 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
@@ -1656,7 +1656,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
               <Star className="w-3 h-3" fill="currentColor" />
             </div>
             <SmartField field="item1" {...sp}>
-               <TextWrapper {...tw} as="p" field="item1" className="text-zinc-800 leading-snug font-medium font-outfit" style={{ fontSize: `${13 * sText}px` }}>
+               <TextWrapper {...tw} as="p" field="item1" className="text-zinc-800 leading-snug font-medium font-title" style={{ fontSize: `${13 * sText}px` }}>
                   {slideData.item1 || 'Entrega com segurança, sem coração na mão durante o trajeto.'}
                </TextWrapper>
             </SmartField>
@@ -1666,7 +1666,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
               <Star className="w-3 h-3" fill="currentColor" />
             </div>
             <SmartField field="item2" {...sp}>
-               <TextWrapper {...tw} as="p" field="item2" className="text-zinc-800 leading-snug font-medium font-outfit" style={{ fontSize: `${13 * sText}px` }}>
+               <TextWrapper {...tw} as="p" field="item2" className="text-zinc-800 leading-snug font-medium font-title" style={{ fontSize: `${13 * sText}px` }}>
                   {slideData.item2 || 'Ganhe a confiança do cliente e valorize seu trabalho sempre.'}
                </TextWrapper>
             </SmartField>
@@ -1676,7 +1676,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
               <Star className="w-3 h-3" fill="currentColor" />
             </div>
             <SmartField field="item3" {...sp}>
-               <TextWrapper {...tw} as="p" field="item3" className="text-zinc-800 leading-snug font-medium font-outfit" style={{ fontSize: `${13 * sText}px` }}>
+               <TextWrapper {...tw} as="p" field="item3" className="text-zinc-800 leading-snug font-medium font-title" style={{ fontSize: `${13 * sText}px` }}>
                   {slideData.item3 || 'Foque em crescer e faturar trabalhando diretamente de casa.'}
                </TextWrapper>
             </SmartField>
@@ -1687,7 +1687,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-bold text-[9px] uppercase tracking-widest text-zinc-500 font-outfit outline-none"
+              className="font-bold text-[9px] uppercase tracking-widest text-zinc-500 font-title outline-none"
             >
               {data.cta_text || 'Arraste para o lado e descubra'}
             </span>
@@ -1705,7 +1705,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 32
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant32({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant32({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1714,14 +1714,14 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: bgBase }}>
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: bgBase }}>
       <div className="absolute inset-0 z-0 flex flex-col opacity-20 pointer-events-none select-none overflow-hidden leading-[0.85] text-center pt-8">
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-outfit" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
       </div>
       <div className="relative z-10 flex-1 flex flex-col justify-end p-6">
         <div className="w-full h-[55%] rounded-t-3xl rounded-b-xl overflow-hidden shadow-2xl bg-zinc-200 relative border-4 border-white mb-4">
@@ -1729,11 +1729,11 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
         </div>
         <div className="bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg flex justify-between items-center">
           <SmartField field="texto_apoio" {...sp} className="flex-1">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-bold text-[#1a1a1a] leading-tight font-outfit" style={{ fontSize: `${12 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-bold text-[#1a1a1a] leading-tight font-text" style={{ fontSize: `${12 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
-          <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center ml-4 shadow-md" style={{ backgroundColor: brandColor }}>
+          <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center ml-4 shadow-md" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
             <Store className="w-5 h-5 text-white" />
           </div>
         </div>
@@ -1746,7 +1746,7 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 33 — Gradient Footer
 // Imagem superior + rodapé colorido com divisória
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant33({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant33({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1760,13 +1760,13 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp} className="w-full mb-3 shrink-0">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${52 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${52 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <div className="w-full h-px bg-white/80 mb-4 shrink-0" />
         <SmartField field="texto_apoio" {...sp} className="w-full mb-8">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-playfair font-medium italic leading-snug tracking-wide" style={{ fontSize: `${18 * sText}px` }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-text font-medium italic leading-snug tracking-wide" style={{ fontSize: `${18 * sText}px` }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1775,7 +1775,7 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[3px]"
+              className="font-title font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[3px]"
             >
               {data.cta_text || 'ARRASTA'}
             </span>
@@ -1791,7 +1791,7 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 34 — Center Focus
 // Imagem full bg com opacity e gradient + texto centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant34({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo }) {
+export function CoverVariant34({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1822,12 +1822,12 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
         />
         <div className="flex-1 flex flex-col justify-center items-center text-center mt-12">
           <SmartField field="titulo" {...sp} className="w-full mb-4">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${56 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${56 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp}>
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white/80 font-outfit font-medium tracking-widest uppercase text-[10px]">
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white/80 font-text font-medium tracking-widest uppercase text-[10px]">
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1838,7 +1838,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
               <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[2px]"
+                className="font-title font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[2px]"
               >
                 {data.cta_text || 'Arraste para o lado e descubra'}
               </span>
@@ -1855,7 +1855,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 35 — Curve Card
 // Imagem superior + card branco inferior com topo arredondado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant35({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant35({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1868,12 +1868,12 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="absolute bottom-0 w-full h-[40%] bg-white rounded-t-[40px] p-8 flex flex-col justify-center z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
         <SmartField field="texto_apoio" {...sp} className="mb-2">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit font-bold text-[10px] uppercase tracking-widest" style={{ color: brandColor }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text font-bold text-[10px] uppercase tracking-widest" style={{fontFamily: textFont,  color: brandColor }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
         <SmartField field="titulo" {...sp} className="w-full">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-none tracking-tight uppercase" style={{ fontSize: `${38 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-none tracking-tight uppercase" style={{ fontSize: `${38 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
@@ -1883,12 +1883,12 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white drop-shadow-md outline-none"
+            className="font-title font-bold text-[10px] uppercase tracking-widest text-white drop-shadow-md outline-none"
           >
             {data.cta_text || 'DESLIZE'}
           </span>
         </SmartField>
-        <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-white border-2 border-white" style={{ backgroundColor: brandColor }}>
+        <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl text-white border-2 border-white" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
           <ArrowRight className="w-6 h-6" />
         </div>
       </div>
@@ -1900,7 +1900,7 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 36 — Magazine Split
 // Texto à esquerda e imagem à direita com botão flutuante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant36({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant36({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1911,12 +1911,12 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
     <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1]">
       <div className="w-[55%] h-full p-8 flex flex-col justify-center z-10">
         <SmartField field="titulo" {...sp} className="mb-4">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${42 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${42 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-zinc-600 font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-zinc-600 font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -1928,7 +1928,7 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[9px] uppercase tracking-widest text-[#1a1a1a] outline-none inline-block -translate-y-[3px]"
+              className="font-title font-bold text-[9px] uppercase tracking-widest text-[#1a1a1a] outline-none inline-block -translate-y-[3px]"
             >
               {data.cta_text || 'CONFIRA AQUI'}
             </span>
@@ -1944,7 +1944,7 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 37 — Modern Frame
 // Fundo colorido com card de imagem central e botões minimalistas
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant37({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo }) {
+export function CoverVariant37({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -1952,9 +1952,9 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col p-6 overflow-hidden" style={{ backgroundColor: brandColor }}>
+    <div className="w-full h-full flex flex-col p-6 overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
       <div className="w-full flex justify-between items-center mb-6">
-        <span className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white/80">
+        <span className="font-title font-bold text-[10px] uppercase tracking-widest text-white/80">
           {brandHandle ? `@${brandHandle.replace('@','')}` : '@STUDIO'}
         </span>
       </div>
@@ -1964,12 +1964,12 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
       <div className="w-full flex justify-between items-end pb-2">
         <div className="flex-1">
           <SmartField field="titulo" {...sp} className="mb-1">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none tracking-tight uppercase" style={{ fontSize: `${28 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none tracking-tight uppercase" style={{ fontSize: `${28 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp}>
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-white/80 text-[12px] font-medium leading-snug" style={{ fontSize: `${12 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-white/80 text-[12px] font-medium leading-snug" style={{ fontSize: `${12 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -1979,7 +1979,7 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[2px]"
+              className="font-title font-bold text-[10px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[2px]"
             >
               {data.cta_text || 'VER MAIS'}
             </span>
@@ -1997,7 +1997,7 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 38 — Gradient Bottom
 // Imagem full bleed com gradient inferior e tags/título alinhados
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant38({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant38({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2012,17 +2012,17 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       <div className="relative z-10 h-full w-full flex flex-col justify-end p-8 pb-24">
         <SmartField field="tag" {...sp} className="mb-3">
-          <TextWrapper {...tw} as="span" field="tag" className="font-outfit font-bold text-[10px] tracking-[0.2em] uppercase" style={{ color: brandColor }}>
+          <TextWrapper {...tw} as="span" field="tag" className="font-tag font-bold text-[10px] tracking-[0.2em] uppercase" style={{fontFamily: titleFont,  color: brandColor }}>
             {slideData.tag || 'DESTAQUE'}
           </TextWrapper>
         </SmartField>
         <SmartField field="titulo" {...sp} className="w-full mb-3">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black leading-[0.9] tracking-tighter uppercase text-white drop-shadow-xl" style={{ fontSize: `${48 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.9] tracking-tighter uppercase text-white drop-shadow-xl" style={{ fontSize: `${48 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp} className="w-[85%]">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit text-zinc-300 font-medium leading-snug" style={{ fontSize: `${15 * sText}px` }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-zinc-300 font-medium leading-snug" style={{ fontSize: `${15 * sText}px` }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -2032,7 +2032,7 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[3px]"
+            className="font-title font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
@@ -2047,7 +2047,7 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 39 — Side Strip
 // Imagem lateral com faixa de marca e título centrado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant39({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant39({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2062,24 +2062,24 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
         </div>
         <div className="relative z-10 w-full">
           <SmartField field="titulo" {...sp} className="w-full mb-4">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${48 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${48 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp} className="w-[90%]">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-400 font-outfit font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-400 font-text font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
         </div>
       </div>
-      <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{ backgroundColor: brandColor }}>
+      <div className="w-16 shrink-0 h-full flex flex-col items-center justify-center shadow-2xl z-20 relative" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="flex items-center gap-3 transform rotate-90 origin-center absolute top-1/2 -translate-y-1/2 whitespace-nowrap w-max min-w-max">
           <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] uppercase tracking-[0.2em] text-white outline-none whitespace-nowrap"
+              className="font-title font-bold text-[10px] uppercase tracking-[0.2em] text-white outline-none whitespace-nowrap"
             >
               {data.cta_text || 'Arraste para o lado e descubra'}
             </span>
@@ -2095,7 +2095,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 40 — Floating Card Center
 // Imagem superior e card flutuante centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2107,15 +2107,15 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
       <div className="h-[65%] w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
-      <div className="flex-1 w-full shrink-0" style={{ backgroundColor: brandColor }} />
+      <div className="flex-1 w-full shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[85%] bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/50 z-10">
         <SmartField field="titulo" {...sp} className="mb-2">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontSize: `${32 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontSize: `${32 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         <SmartField field="texto_apoio" {...sp}>
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-600 font-outfit font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-600 font-text font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -2125,7 +2125,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none inline-block -translate-y-[3px]"
+            className="font-title font-bold text-[10px] uppercase tracking-widest outline-none inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste'}
           </span>
@@ -2140,7 +2140,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 41 — Slanted Banner
 // Faixa diagonal sobre imagem grayscale
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2152,25 +2152,25 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
         <ImageBg data={data} className="absolute inset-0 grayscale opacity-80" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-black/30" />
-      <div className="absolute top-16 -left-8 w-[120%] -rotate-6 bg-[#1a1a1a] py-6 px-12 z-10 shadow-2xl border-y-4" style={{ borderColor: brandColor }}>
+      <div className="absolute top-16 -left-8 w-[120%] -rotate-6 bg-[#1a1a1a] py-6 px-12 z-10 shadow-2xl border-y-4" style={{fontFamily: textFont,  borderColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none uppercase tracking-tighter" style={{ fontSize: `${42 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none uppercase tracking-tighter" style={{ fontSize: `${42 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
       </div>
       <div className="absolute bottom-0 left-0 w-full p-8 z-20 flex justify-between items-end">
-        <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0" style={{ borderColor: brandColor }}>
+        <div className="bg-[#1a1a1a] px-5 py-3 border-l-4 shadow-xl flex items-center gap-3 shrink-0" style={{fontFamily: titleFont,  borderColor: brandColor }}>
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[11px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[2px]"
+              className="font-title font-black text-[11px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[2px]"
             >
               {data.cta_text || 'Arraste para o lado e descubra'}
             </span>
           </SmartField>
-          <ArrowRight className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
+          <ArrowRight className="w-5 h-5 shrink-0" style={{fontFamily: titleFont,  color: brandColor }} />
         </div>
       </div>
     </div>
@@ -2181,7 +2181,7 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 42 — Upper Frame Title
 // Título superior emoldurado e rodapé branco minimalista
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant42({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo }) {
+export function CoverVariant42({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2195,7 +2195,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
         </div>
         <div className="absolute top-0 left-0 w-full p-6 bg-gradient-to-b from-black/60 to-transparent z-10">
           <SmartField field="titulo" {...sp}>
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-outfit font-black text-white leading-none uppercase tracking-tighter drop-shadow-lg" style={{ fontSize: `${38 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none uppercase tracking-tighter drop-shadow-lg" style={{ fontSize: `${38 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
@@ -2203,7 +2203,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
       </div>
       <div className="h-20 w-full flex items-center justify-between px-2 shrink-0 bg-white z-20">
         <SmartField field="texto_apoio" {...sp} className="flex-1 pr-4 min-w-0">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-800 font-outfit font-bold uppercase tracking-widest text-[9px] truncate">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-800 font-text font-bold uppercase tracking-widest text-[9px] truncate">
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -2212,7 +2212,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a] outline-none inline-block -translate-y-[2px]"
+              className="font-title font-black text-[9px] uppercase tracking-[0.2em] text-[#1a1a1a] outline-none inline-block -translate-y-[2px]"
             >
               {data.cta_text || 'Arraste'}
             </span>
@@ -2228,7 +2228,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 43 — Repeat Text Focus
 // Texto repetido ao fundo com card de imagem central e badge
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo }) {
+export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2238,7 +2238,7 @@ export function CoverVariant43({ data, index, brandColor, titleScale, textScale,
     <div className="w-full h-full flex flex-col relative overflow-hidden justify-center items-center p-6 bg-white">
       <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-20 pointer-events-none select-none leading-[0.8] text-center overflow-hidden">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="font-outfit font-black uppercase whitespace-nowrap" style={{ color: brandColor, fontSize: `${70 * sTitle}px` }}>
+          <div key={i} className="font-title font-black uppercase whitespace-nowrap" style={{ color: brandColor, fontSize: `${70 * sTitle}px` }}>
             {slideData.titulo}
           </div>
         ))}
@@ -2247,7 +2247,7 @@ export function CoverVariant43({ data, index, brandColor, titleScale, textScale,
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="absolute bottom-8 right-8 bg-white px-5 py-2.5 rounded-full shadow-xl z-20 flex items-center gap-2 border border-zinc-100">
-        <span className="font-outfit font-bold text-[10px] tracking-widest uppercase" style={{ color: brandColor }}>
+        <span className="font-title font-bold text-[10px] tracking-widest uppercase" style={{fontFamily: textFont,  color: brandColor }}>
           @{brandHandle ? brandHandle.replace('@','') : 'STUDIO'}
         </span>
       </div>
@@ -2259,7 +2259,7 @@ export function CoverVariant43({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 44 — Floating Bubbles
 // Bolhas flutuantes com imagem e texto lateral elegante
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant44({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo }) {
+export function CoverVariant44({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2299,13 +2299,13 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
 
       <div className="absolute top-[40%] left-8 w-[70%] z-20">
         <SmartField field="titulo" {...sp} className="mb-6">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-playfair font-medium leading-tight italic text-[#1a1a1a]" style={{ fontSize: `${36 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-medium leading-tight italic text-[#1a1a1a]" style={{ fontSize: `${36 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
         
         <SmartField field="texto_apoio" {...sp}>
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-outfit leading-snug font-medium text-zinc-500" style={{ fontSize: `${14 * sText}px` }}>
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text leading-snug font-medium text-zinc-500" style={{ fontSize: `${14 * sText}px` }}>
             {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
@@ -2319,7 +2319,7 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
 // Split vertical com CTA de arraste
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant45(props) {
-  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified } = props;
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -2330,7 +2330,7 @@ export function CoverVariant45(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-zinc-800 overflow-hidden relative">
-          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleX(-1)' }} />
+          <ImageBg data={data} className="absolute inset-0" style={{fontFamily: textFont,  transform: 'scaleX(-1)' }} />
         </div>
       </div>
 
@@ -2355,7 +2355,7 @@ export function CoverVariant45(props) {
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            className="font-title font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
             style={{ fontSize: `${32 * sTitle}px` }}
           >
             {data.titulo}
@@ -2368,7 +2368,7 @@ export function CoverVariant45(props) {
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
+            className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
@@ -2384,7 +2384,7 @@ export function CoverVariant45(props) {
 // Split horizontal com CTA de arraste
 // ═══════════════════════════════════════════════════════════
 export function CoverVariant46(props) {
-  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified } = props;
+  const { data, index, brandColor, titleScale, onTextChange, showMetrics, onActionStart, selectedElement, onSelectElement, slideCount, brandHandle, brandAvatar, isVerified , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -2395,7 +2395,7 @@ export function CoverVariant46(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-zinc-800 overflow-hidden relative">
-          <ImageBg data={data} className="absolute inset-0" style={{ transform: 'scaleY(-1)' }} />
+          <ImageBg data={data} className="absolute inset-0" style={{fontFamily: titleFont,  transform: 'scaleY(-1)' }} />
         </div>
       </div>
 
@@ -2420,7 +2420,7 @@ export function CoverVariant46(props) {
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
+            className="font-title font-black text-white leading-none tracking-tighter text-center uppercase outline-none break-words"
             style={{ fontSize: `${32 * sTitle}px` }}
           >
             {data.titulo}
@@ -2433,7 +2433,7 @@ export function CoverVariant46(props) {
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-outfit font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
+            className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
           >
             {data.cta_text || 'Arraste para o lado e descubra'}
           </span>
@@ -2455,7 +2455,7 @@ export function CoverVariant47(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: '#EBE9E1' }}>
+    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: '#EBE9E1' }}>
         {/* Detalhes Geométricos */}
         <div className="absolute top-0 left-0 w-32 h-32 border-b-[3px] border-r-[3px] border-[#1a1a1a]/10 rounded-br-2xl pointer-events-none z-0"></div>
         <div className="absolute top-6 left-6 w-2.5 h-2.5 bg-[#1a1a1a]/30 rounded-full z-0"></div>
@@ -2586,8 +2586,7 @@ export function CoverVariant48(props) {
         </div>
 
         <div 
-          className="absolute left-[32px] top-[274px] font-black text-white/30 text-[10px] tracking-widest uppercase outline-none" 
-          style={{ fontFamily: titleFont }}
+          className="absolute left-[32px] top-[274px] font-black text-white/30 text-[10px] tracking-widest uppercase outline-none"
         >
           {brandHandle} © 2026
         </div>
@@ -2609,8 +2608,7 @@ export function CoverVariant49(props) {
     <div className="w-full h-full flex relative overflow-hidden">
         <div className="w-1/2 h-full relative" style={{ backgroundColor: brandColor }}>
              <div 
-               className="absolute top-8 left-8 z-20 font-black text-white/30 text-[10px] tracking-widest uppercase outline-none" 
-               style={{ fontFamily: titleFont }}
+               className="absolute top-8 left-8 z-20 font-black text-white/30 text-[10px] tracking-widest uppercase outline-none"
              >
                {brandHandle} © 2026
              </div>
@@ -2659,7 +2657,7 @@ export function CoverVariant49(props) {
                  <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-white/10 backdrop-blur-sm">
                     <ArrowRight className="w-5 h-5" />
                  </div>
-                 <span className="text-[9px] font-bold uppercase tracking-widest opacity-60" style={{ fontFamily: titleFont }}>Arraste</span>
+                 <span className="text-[9px] font-bold uppercase tracking-widest opacity-60">Arraste</span>
              </div>
         </div>
     </div>
@@ -2730,7 +2728,7 @@ export function CoverVariant51(props) {
     <div className="w-full h-full flex relative overflow-hidden bg-black">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ fontFamily: titleFont, left: '25px', top: '25px' }}
+          style={{ left: '25px', top: '25px' }}
         >
           {brandHandle} © 2026
         </div>
@@ -2786,7 +2784,7 @@ export function CoverVariant52(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ fontFamily: titleFont, left: '243px', top: '333px' }}
+          style={{ left: '243px', top: '333px' }}
         >
           {brandHandle} © 2026
         </div>
@@ -2868,7 +2866,7 @@ export function CoverVariant53(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ fontFamily: titleFont, left: '12px', top: '232px' }}
+          style={{ left: '12px', top: '232px' }}
         >
           {brandHandle} © 2026
         </div>
@@ -2962,7 +2960,7 @@ export function CoverVariant54(props) {
                     </SmartField>
                 </div>
             </div>
-            <div className="font-black text-white/30 text-[10px] tracking-widest uppercase mt-auto outline-none" style={{ fontFamily: titleFont }}>{brandHandle} © 2026</div>
+            <div className="font-black text-white/30 text-[10px] tracking-widest uppercase mt-auto outline-none">{brandHandle} © 2026</div>
         </div>
     </div>
   );
@@ -2981,7 +2979,7 @@ export function CoverVariant55(props) {
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-white">
         <div className="w-[15%] h-full flex flex-col items-center justify-between py-10 shrink-0" style={{ backgroundColor: brandColor }}>
-             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none mt-6" style={{ fontFamily: titleFont }}>PREMIUM STUDIO</span>
+             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none mt-6">PREMIUM STUDIO</span>
              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-lg">      
                  <ArrowRight className="w-5 h-5" />
              </div>
@@ -3036,7 +3034,7 @@ export function CoverVariant56(props) {
     <div className="w-full h-full flex flex-col overflow-hidden relative">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ fontFamily: titleFont, left: '20px', top: '285px' }}
+          style={{ left: '20px', top: '285px' }}
         >
           {brandHandle} © 2026
         </div>
@@ -3104,7 +3102,7 @@ export function CoverVariant57(props) {
                     />
                 </div>
                 <div className="flex flex-col">
-                    <span className="font-bold text-sm tracking-wide" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+                    <span className="font-bold text-sm tracking-wide">{brandHandle}</span>
                     <SmartField field="tag" {...sp}>
                       <span 
                         contentEditable suppressContentEditableWarning
@@ -3188,7 +3186,7 @@ export function CoverVariant58(props) {
                     <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />
                 </div>
                 <div className="pr-4">
-                    <span className="font-bold text-xs tracking-wider uppercase text-white" style={{ fontFamily: titleFont }}>{brandHandle}</span>
+                    <span className="font-bold text-xs tracking-wider uppercase text-white">{brandHandle}</span>
                 </div>
             </div>
 

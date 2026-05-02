@@ -128,7 +128,7 @@ export default function SlideCover({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
+              className="font-title font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
               style={{ fontSize: `${96 * sTitle}px`, lineHeight: 0.8 }}
             >
               {data.titulo}
@@ -150,7 +150,7 @@ export default function SlideCover({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair italic text-white max-w-[320px] mb-6 outline-none"
+              className="font-text italic text-white max-w-[320px] mb-6 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
@@ -175,7 +175,7 @@ export default function SlideCover({
                 contentEditable
                 suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
-                className="text-[11px] font-outfit font-black text-white tracking-widest uppercase outline-none block"
+                className="text-[11px] font-text font-black text-white tracking-widest uppercase outline-none block"
               >
                 {data.slide_call || 'Deslizar'}
               </span>

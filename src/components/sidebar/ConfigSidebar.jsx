@@ -113,6 +113,8 @@ export default function ConfigSidebar({
   setTitleFont,
   textFont,
   setTextFont,
+  tagFont,
+  setTagFont,
   favorites,
   onUseFavorite,
   onRemoveFavorite,
@@ -241,6 +243,51 @@ export default function ConfigSidebar({
           </div>
 
           <div className="flex flex-col gap-4">
+            {/* === Bloco de Tipografia do Slide === */}
+            <CollapsibleSection title="TIPOGRAFIA DO SLIDE" defaultOpen={true}>
+              <div className="grid grid-cols-1 gap-4">
+                <div>
+                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Título</label>
+                  <select
+                    value={slide.titleFont || ''}
+                    onChange={(e) => {
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, titleFont: e.target.value} : s));
+                    }}
+                    className="cs-input text-xs py-[0.675rem] w-full"
+                  >
+                    <option value="">(Padrão Global)</option>
+                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Texto Apoio</label>
+                  <select
+                    value={slide.textFont || ''}
+                    onChange={(e) => {
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, textFont: e.target.value} : s));
+                    }}
+                    className="cs-input text-xs py-[0.675rem] w-full"
+                  >
+                    <option value="">(Padrão Global)</option>
+                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Tag</label>
+                  <select
+                    value={slide.tagFont || ''}
+                    onChange={(e) => {
+                      setSlides(prev => prev.map((s, i) => i === selectedElement.slideIndex ? {...s, tagFont: e.target.value} : s));
+                    }}
+                    className="cs-input text-xs py-[0.675rem] w-full"
+                  >
+                    <option value="">(Padrão Global)</option>
+                    {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+              </div>
+            </CollapsibleSection>
+
             {/* === Bloco de Imagem(ns) do Slide === */}
             {(() => {
               // Mapeamento de quantos slots de imagem cada variant suporta
@@ -1121,12 +1168,10 @@ export default function ConfigSidebar({
                               positions: {
                                  ...(s.positions || {}),
                                  [cloneId]: { 
-                                     x: startX, 
-                                     y: startY + 60, 
-                                     scale: (originalPos.scale || 1), 
-                                     rotation: (originalPos.rotation || 0),
                                      ...originalPos, // keep color, italic, etc.
-                                     x: startX, // overwrite in case ...originalPos sets it
+                                     rotation: (originalPos.rotation || 0),
+                                     scale: (originalPos.scale || 1), 
+                                     x: startX, 
                                      y: startY + 60
                                  }
                               }
@@ -1417,23 +1462,33 @@ export default function ConfigSidebar({
                 </div>
 
                 {/* Fontes em linha única */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-3 gap-2">
                   <div>
-                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Fonte Título</label>
+                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Título</label>
                     <select
                       value={titleFont}
                       onChange={(e) => setTitleFont(e.target.value)}
-                      className="cs-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-[10px] py-[0.675rem] w-full px-2"
                     >
                       {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
                     </select>
                   </div>
                   <div>
-                    <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo / Texto</label>
+                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Corpo</label>
                     <select
                       value={textFont}
                       onChange={(e) => setTextFont(e.target.value)}
-                      className="cs-input text-xs py-[0.675rem] w-full"
+                      className="cs-input text-[10px] py-[0.675rem] w-full px-2"
+                    >
+                      {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tag</label>
+                    <select
+                      value={tagFont}
+                      onChange={(e) => setTagFont(e.target.value)}
+                      className="cs-input text-[10px] py-[0.675rem] w-full px-2"
                     >
                       {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
                     </select>

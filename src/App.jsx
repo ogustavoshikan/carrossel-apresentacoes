@@ -101,6 +101,7 @@ export default function App() {
   const [isExporting, setIsExporting] = useState(false);
   const [titleFont, setTitleFont] = useState(BRAND_DEFAULTS.titleFont);
   const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
+  const [tagFont, setTagFont] = useState(BRAND_DEFAULTS.titleFont); // Default tag font is same as title font initially
   const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('cs_app_logo') || '');
 
   // Contador de slides
@@ -153,20 +154,34 @@ export default function App() {
 
   // Gerenciamento dinâmico de fontes (Google Fonts) com CORS
   useEffect(() => {
-    const title = titleFont.replace(/ /g, '+');
-    const text = textFont.replace(/ /g, '+');
-    const url = `https://fonts.googleapis.com/css2?family=${title}:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=${text}:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap`;
-    
-    let link = document.getElementById('dynamic-google-fonts');
-    if (!link) {
-      link = document.createElement('link');
-      link.id = 'dynamic-google-fonts';
-      link.rel = 'stylesheet';
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
+    // Coleta todas as fontes únicas em uso (globais + individuais de cada slide)
+    const fontsInUse = new Set([titleFont, textFont, tagFont]);
+    if (Array.isArray(slides)) {
+      slides.forEach(s => {
+        if (s.titleFont) fontsInUse.add(s.titleFont);
+        if (s.textFont) fontsInUse.add(s.textFont);
+        if (s.tagFont) fontsInUse.add(s.tagFont);
+      });
     }
-    link.href = url;
-  }, [titleFont, textFont]);
+
+    const families = Array.from(fontsInUse).map(f => {
+      const name = f.replace(/ /g, '+');
+      return `family=${name}:wght@400;500;700;800;900`;
+    }).join('&');
+    
+    if (families) {
+      const url = `https://fonts.googleapis.com/css2?${families}&display=swap`;
+      let link = document.getElementById('dynamic-google-fonts');
+      if (!link) {
+        link = document.createElement('link');
+        link.id = 'dynamic-google-fonts';
+        link.rel = 'stylesheet';
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      }
+      link.href = url;
+    }
+  }, [titleFont, textFont, tagFont, slides]);
 
   // Teclado: Movimentação de elementos selecionados com as setas (2px por vez)
   useEffect(() => {
@@ -217,20 +232,6 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedElement, setSlides]);
 
-
-  // ========================================
-  // CSS CUSTOM PROPERTIES (dinâmicas)
-  // ========================================
-
-  const dynamicStyles = {
-    '--color-brand': gradientColor1,
-    '--color-brand-glow': `${gradientColor1}40`,
-    '--font-title': `'${titleFont}', sans-serif`,
-    '--font-text': `'${textFont}', serif`,
-    '--radius-slide': `${cardBorderRadius}px`,
-    '--radius-inner': `${imageBorderRadius * 0.8}px`,
-    '--radius-sm': `${imageBorderRadius * 0.6}px`,
-  };
 
   // ========================================
   // HANDLERS
@@ -658,6 +659,17 @@ export default function App() {
   // RENDER
   // ========================================
 
+  const dynamicStyles = {
+    '--color-brand': gradientColor1,
+    '--color-brand-glow': `${gradientColor1}40`,
+    '--font-title': titleFont,
+    '--font-text': textFont,
+    '--font-tag': tagFont,
+    '--radius-slide': `${cardBorderRadius}px`,
+    '--radius-inner': `${imageBorderRadius * 0.8}px`,
+    '--radius-sm': `${imageBorderRadius * 0.6}px`,
+  };
+
   return (
     <div
       className="h-screen bg-[#050505] text-[#FFFFFF] font-sans flex overflow-hidden relative"
@@ -771,6 +783,8 @@ export default function App() {
                   setTitleFont={setTitleFont}
                   textFont={textFont}
                   setTextFont={setTextFont}
+                  tagFont={tagFont}
+                  setTagFont={setTagFont}
                   favorites={favorites}
                   onUseFavorite={handleUseFavorite}
                   onRemoveFavorite={handleRemoveFavorite}
@@ -864,6 +878,9 @@ export default function App() {
                         isVerified={isVerified}
                         titleScale={titleSizeScale}
                         textScale={textSizeScale}
+                        titleFont={titleFont}
+                        textFont={textFont}
+                        tagFont={tagFont}
                         showMetrics={showMetrics}
                         onActionStart={handleActionStart}
                         onTextChange={handleSlideTextChange}
@@ -912,4 +929,3 @@ export default function App() {
     </div>
   );
 }
-

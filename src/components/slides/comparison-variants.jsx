@@ -83,7 +83,7 @@ const ComparisonTitle = ({ data, index, scale, onActionStart, onTextChange, sele
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange && onTextChange(index, 'titulo', e.currentTarget.innerText)}
-          className={`font-outfit font-black ${color} tracking-tighter outline-none ${align} ${className}`}
+          className={`font-text font-black ${color} tracking-tighter outline-none ${align} ${className}`}
           style={{ fontSize: `${36 * scale}px` }}
         >
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
@@ -146,7 +146,7 @@ export function ComparisonVariant13(props) {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
           <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
             <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/20">
-              <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-sm uppercase tracking-tighter" style={{ fontFamily: titleFont, color: gradientColor1 }}>
+              <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-sm uppercase tracking-tighter" style={{ color: gradientColor1 }}>
                 {data.badge_text || 'VS'}
               </TextWrapper>
             </div>
@@ -177,7 +177,7 @@ export function ComparisonVariant14(props) {
         <div className="flex items-center justify-center gap-2 mb-3 mt-4">
           <X className="w-4 h-4 text-red-500" />
           <SmartEl {...sp} field="badge_text">
-            <TextWrapper {...sp} as="span" field="badge_text" className="text-zinc-500 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="badge_text" className="text-zinc-500 font-bold text-[10px] tracking-widest uppercase">
               {data.badge_text || 'NÃO FAÇA ASSIM'}
             </TextWrapper>
           </SmartEl>
@@ -192,7 +192,7 @@ export function ComparisonVariant14(props) {
         <div className="flex items-center justify-center gap-2 mb-3">
           <Check className="w-4 h-4 text-white" />
           <SmartEl {...sp} field="cta_text">
-            <TextWrapper {...sp} as="span" field="cta_text" className="text-white/70 font-bold text-[10px] tracking-widest uppercase" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="cta_text" className="text-white/70 font-bold text-[10px] tracking-widest uppercase">
               {data.cta_text || 'FAÇA ASSIM'}
             </TextWrapper>
           </SmartEl>
@@ -352,7 +352,7 @@ export function ComparisonVariant17(props) {
         </div>
       </div>
       <SmartEl {...sp} field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#1a1a1a] font-black px-4 py-2 rounded-full shadow-2xl z-20 border-4 border-[#1a1a1a]">
-        <TextWrapper {...sp} as="div" field="badge_text" className="uppercase" style={{ fontFamily: titleFont }}>
+        <TextWrapper {...sp} as="div" field="badge_text" className="uppercase">
           {data.badge_text || 'VS'}
         </TextWrapper>
       </SmartEl>
@@ -437,7 +437,7 @@ export function ComparisonVariant19(props) {
       <div className="flex w-full h-[50%] mt-20">
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center border-r border-zinc-300 min-h-0">
           <SmartEl {...sp} field="badge_text" className="mb-4 shrink-0">
-            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-zinc-300 opacity-50 uppercase" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-zinc-300 opacity-50 uppercase">
               {data.badge_text || 'X'}
             </TextWrapper>
           </SmartEl>
@@ -449,7 +449,7 @@ export function ComparisonVariant19(props) {
         </div>
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center min-h-0">
           <SmartEl {...sp} field="cta_text" className="mb-4 shrink-0 shadow-sm">
-            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: gradientColor1, fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: gradientColor1 }}>
               {data.cta_text || '✓'}
             </TextWrapper>
           </SmartEl>
@@ -629,7 +629,7 @@ export function ComparisonVariant23(props) {
       <div className="flex w-full h-[50%] mt-20">
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center border-r border-[#222] min-h-0">
           <SmartEl {...sp} field="badge_text" className="mb-4 shrink-0">
-            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-[#222] uppercase" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="badge_text" className="font-black text-6xl text-[#222] uppercase">
               {data.badge_text || 'X'}
             </TextWrapper>
           </SmartEl>
@@ -641,7 +641,7 @@ export function ComparisonVariant23(props) {
         </div>
         <div className="w-1/2 flex flex-col items-center justify-start p-4 text-center min-h-0">
           <SmartEl {...sp} field="cta_text" className="mb-4 shrink-0 drop-shadow-lg">
-            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: brandColor, fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="span" field="cta_text" className="font-black text-6xl uppercase" style={{ color: brandColor }}>
               {data.cta_text || '✓'}
             </TextWrapper>
           </SmartEl>
@@ -706,7 +706,7 @@ export function ComparisonVariant24(props) {
 }
 
 export function ComparisonVariant1(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
     const items = data.items || [];
     const normalItems = items.filter(it => !it.highlight);
@@ -749,14 +749,14 @@ export function ComparisonVariant1(props) {
                 <div className="flex flex-col w-full">
                   <span 
                     contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'label', e.currentTarget.innerText)}
-                    className={`font-outfit font-black text-[9px] tracking-widest uppercase block ${!item.highlight ? 'text-zinc-500' : ''}`}
+                    className={`font-text font-black text-[9px] tracking-widest uppercase block ${!item.highlight ? 'text-zinc-500' : ''}`}
                     style={item.highlight ? { color: brandColor } : {}}
                   >
                     {item.label}
                   </span>
                   <span 
                     contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'value', e.currentTarget.innerText)}
-                    className={`font-playfair text-base block truncate line-clamp-2 ${item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'}`}
+                    className={`font-text text-base block truncate line-clamp-2 ${item.highlight ? 'text-white font-bold' : 'text-zinc-400 italic'}`}
                   >
                     {item.value}
                   </span>
@@ -789,14 +789,14 @@ export function ComparisonVariant2(props) {
   return (
     <div className="w-full h-full flex flex-row relative rounded-slide items-stretch">
       <div className="flex-1 h-full p-8 pt-32 flex flex-col border-r border-black/20" style={{ backgroundColor: '#000000' }}>
-        <h3 contentEditable suppressContentEditableWarning className="font-outfit font-black text-zinc-600 tracking-widest uppercase text-xs mb-8">{mercadoLabel}</h3>
+        <h3 contentEditable suppressContentEditableWarning className="font-text font-black text-zinc-600 tracking-widest uppercase text-xs mb-8">{mercadoLabel}</h3>
         <div className="space-y-6 flex-1 overflow-hidden">
           {normalItems.map((item, i) => (
             <div key={i} className="pb-4 border-b border-white/5 last:border-0">
               <span 
                 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item) !== -1 ? items.indexOf(item) : items.length, 'value', e.currentTarget.innerText)}
-                className="block font-playfair text-zinc-400 text-lg leading-tight"
-                style={{ fontFamily: textFont }}
+                className="block font-title text-zinc-400 text-lg leading-tight"
+                style={{fontFamily: textFont }}
               >
                 {item.value || 'Qualidade comum'}
               </span>
@@ -805,14 +805,14 @@ export function ComparisonVariant2(props) {
         </div>
       </div>
       <div className="flex-1 h-full p-8 pt-32 flex flex-col" style={{ backgroundColor: brandColor }}>
-        <h3 contentEditable suppressContentEditableWarning className="font-outfit font-black text-black/50 tracking-widest uppercase text-xs mb-8 line-clamp-1">{brandLabel}</h3>
+        <h3 contentEditable suppressContentEditableWarning className="font-title font-black text-black/50 tracking-widest uppercase text-xs mb-8 line-clamp-1">{brandLabel}</h3>
         <div className="space-y-6 flex-1 overflow-hidden">
           {highlightItems.map((item, i) => (
             <div key={i} className="pb-4 border-b border-black/10 last:border-0">
               <span 
                 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item) !== -1 ? items.indexOf(item) : items.length, 'value', e.currentTarget.innerText)}
-                className="block font-playfair font-bold text-white text-lg leading-tight drop-shadow-md"
-                style={{ fontFamily: textFont }}
+                className="block font-tag font-bold text-white text-lg leading-tight drop-shadow-md"
+                style={{fontFamily: textFont }}
               >
                 {item.value || 'Excelência garantida'}
               </span>
@@ -825,7 +825,7 @@ export function ComparisonVariant2(props) {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
         <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
           <div className="w-12 h-12 bg-[#020202] rounded-full flex items-center justify-center shadow-2xl border-4 border-[#020202]">
-            <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-[10px] uppercase text-white" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-[10px] uppercase text-white">
               {data.badge_text || 'VS'}
             </TextWrapper>
           </div>
@@ -840,7 +840,7 @@ export function ComparisonVariant2(props) {
 }
 
 export function ComparisonVariant4(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -871,14 +871,14 @@ export function ComparisonVariant4(props) {
             >
               <span 
                 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)}
-                className={`font-outfit font-black text-[9px] tracking-widest uppercase mb-2 ${item.highlight ? '' : 'text-zinc-500'}`}
+                className={`font-text font-black text-[9px] tracking-widest uppercase mb-2 ${item.highlight ? '' : 'text-zinc-500'}`}
                 style={item.highlight ? { color: brandColor } : {}}
               >
                 {item.label}
               </span>
               <span 
                 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-                className={`font-playfair text-sm leading-snug ${item.highlight ? 'font-bold' : 'italic text-zinc-400'}`}
+                className={`font-text text-sm leading-snug ${item.highlight ? 'font-bold' : 'italic text-zinc-400'}`}
               >
                 {item.value}
               </span>
@@ -892,7 +892,7 @@ export function ComparisonVariant4(props) {
 }
 
 export function ComparisonVariant5(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -915,15 +915,15 @@ export function ComparisonVariant5(props) {
 
         <div className="relative flex-1">
           <div className="absolute top-0 left-4 right-12 bottom-20 bg-white border border-black/10 rounded-3xl p-8 shadow-md transform -rotate-3 z-0 blur-[1px] flex flex-col gap-4 opacity-50 overflow-hidden">
-            <h4 contentEditable suppressContentEditableWarning className="font-outfit font-black text-xs tracking-widest uppercase text-zinc-400">{mercadoLabel}</h4>
+            <h4 contentEditable suppressContentEditableWarning className="font-title font-black text-xs tracking-widest uppercase text-zinc-400">{mercadoLabel}</h4>
             {normalItems.map((item, i) => (
-              <span key={i} contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)} className="font-playfair italic text-zinc-500 text-sm border-b border-black/5 pb-2">{item.value}</span>
+              <span key={i} contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)} className="font-tag italic text-zinc-500 text-sm border-b border-black/5 pb-2">{item.value}</span>
             ))}
           </div>
           <div className="absolute top-20 left-12 right-4 bottom-0 bg-black rounded-3xl p-8 shadow-2xl z-10 flex flex-col gap-4 transform rotate-2 overflow-hidden">
-            <h4 contentEditable suppressContentEditableWarning className="font-outfit font-black text-xs tracking-widest uppercase text-white" style={{ color: brandColor }}>{brandLabel}</h4>
+            <h4 contentEditable suppressContentEditableWarning className="font-title font-black text-xs tracking-widest uppercase text-white" style={{fontFamily: tagFont,  color: brandColor }}>{brandLabel}</h4>
             {highlightItems.map((item, i) => (
-              <span key={i} contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)} className="font-playfair font-bold text-white text-lg border-b border-white/10 pb-4">{item.value}</span>
+              <span key={i} contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)} className="font-title font-bold text-white text-lg border-b border-white/10 pb-4">{item.value}</span>
             ))}
           </div>
         </div>
@@ -934,7 +934,7 @@ export function ComparisonVariant5(props) {
 }
 
 export function ComparisonVariant6(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -951,7 +951,7 @@ export function ComparisonVariant6(props) {
           <SmartElement slideIndex={index} field="titulo" position={data.positions?.titulo || {x:0, y:0, scale:1}} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
             <h2 
               contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange && onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter outline-none border-l-4 pl-4"
+              className="font-title font-black text-white tracking-tighter outline-none border-l-4 pl-4"
               style={{ fontSize: `${36 * sTitle}px`, borderColor: brandColor }}
             >
               {data.titulo}
@@ -965,14 +965,14 @@ export function ComparisonVariant6(props) {
             const right = rightItems[i];
             return (
               <div key={i} className="flex flex-col gap-2">
-                <span className="font-outfit font-black text-[10px] tracking-widest uppercase text-zinc-600">
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => left && onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'label', e.currentTarget.innerText)}>{left?.label || 'Comum'}</span> vs <span contentEditable suppressContentEditableWarning onBlur={(e) => right && onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'label', e.currentTarget.innerText)} style={{ color: brandColor }}>{right?.label || 'Premium'}</span>
+                <span className="font-title font-black text-[10px] tracking-widest uppercase text-zinc-600">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => left && onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'label', e.currentTarget.innerText)}>{left?.label || 'Comum'}</span> vs <span contentEditable suppressContentEditableWarning onBlur={(e) => right && onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'label', e.currentTarget.innerText)} style={{fontFamily: titleFont,  color: brandColor }}>{right?.label || 'Premium'}</span>
                 </span>
                 {left && (
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair text-zinc-500 text-base line-through decoration-zinc-700 decoration-2">{left.value}</span>
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-text text-zinc-500 text-base line-through decoration-zinc-700 decoration-2">{left.value}</span>
                 )}
                 {right && (
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair font-bold text-white text-xl" style={{ color: brandColor }}>{right.value}</span>
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-text font-bold text-white text-xl" style={{fontFamily: textFont,  color: brandColor }}>{right.value}</span>
                 )}
               </div>
             );
@@ -985,7 +985,7 @@ export function ComparisonVariant6(props) {
 }
 
 export function ComparisonVariant9(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -1010,10 +1010,10 @@ export function ComparisonVariant9(props) {
           <div className="w-1/2 pr-6 flex flex-col gap-5 items-end text-right pt-16">
             {normalItems.map((item, i) => (
               <div key={i} className="w-full">
-                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)} className="font-outfit font-black text-[9px] uppercase tracking-widest text-zinc-600 mb-1">{item.label}</h4>
+                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)} className="font-title font-black text-[9px] uppercase tracking-widest text-zinc-600 mb-1">{item.label}</h4>
                 <p 
                   contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-                  className="font-playfair text-zinc-400 text-sm"
+                  className="font-text text-zinc-400 text-sm"
                 >
                   {item.value}
                 </p>
@@ -1023,10 +1023,10 @@ export function ComparisonVariant9(props) {
           <div className="w-1/2 pl-6 flex flex-col gap-6 items-start text-left pt-2 pb-4">
             {highlightItems.map((item, i) => (
               <div key={i} className="w-full drop-shadow-xl z-20">
-                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)} className="font-outfit font-black text-[9px] uppercase tracking-widest mb-1" style={{ color: brandColor }}>{item.label}</h4>
+                <h4 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)} className="font-title font-black text-[9px] uppercase tracking-widest mb-1" style={{fontFamily: textFont,  color: brandColor }}>{item.label}</h4>
                 <p 
                   contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-                  className="font-playfair font-bold text-white text-base"
+                  className="font-text font-bold text-white text-base"
                 >
                   {item.value}
                 </p>
@@ -1040,7 +1040,7 @@ export function ComparisonVariant9(props) {
 }
 
 export function ComparisonVariant10(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   const normalItems = items.filter(it => !it.highlight);
@@ -1063,8 +1063,8 @@ export function ComparisonVariant10(props) {
       />
 
       <div className="w-64 h-12 bg-[#050505] rounded-full border border-white/10 flex items-center p-1 mb-8 shadow-inner shrink-0">
-        <div contentEditable suppressContentEditableWarning className="flex-1 text-[10px] font-outfit font-bold uppercase tracking-widest text-zinc-600 px-2 leading-tight">{mercadoLabel}</div>
-        <div contentEditable suppressContentEditableWarning className="flex-1 h-full rounded-full flex items-center justify-center text-[10px] font-outfit font-bold uppercase tracking-widest text-white shadow-md px-2 leading-tight" style={{ backgroundColor: brandColor }}>{brandLabel}</div>
+        <div contentEditable suppressContentEditableWarning className="flex-1 text-[10px] font-text font-bold uppercase tracking-widest text-zinc-600 px-2 leading-tight">{mercadoLabel}</div>
+        <div contentEditable suppressContentEditableWarning className="flex-1 h-full rounded-full flex items-center justify-center text-[10px] font-text font-bold uppercase tracking-widest text-white shadow-md px-2 leading-tight" style={{fontFamily: textFont,  backgroundColor: brandColor }}>{brandLabel}</div>
       </div>
       
       <div className="w-full flex-1 bg-surface-input/30 border border-white/10 rounded-3xl p-8 pb-12 flex flex-col justify-start gap-4">
@@ -1073,7 +1073,7 @@ export function ComparisonVariant10(props) {
             <CheckCircle2 className="w-6 h-6 shrink-0" style={{ color: brandColor }} />
             <span 
               contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-              className="font-playfair font-bold text-white text-lg"
+              className="font-text font-bold text-white text-lg"
             >
               {item.value}
             </span>
@@ -1086,7 +1086,7 @@ export function ComparisonVariant10(props) {
 }
 
 export function ComparisonVariant11(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const items = data.items || [];
   
@@ -1119,14 +1119,14 @@ export function ComparisonVariant11(props) {
             <div key={i} className="relative w-full border-b border-black/10 pb-4 pt-4 flex flex-col flex-shrink-0 min-h-[4.5rem] justify-center">
               {left && (
                 <div className="w-full relative z-0">
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-outfit font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block w-[70%]">
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(left) !== -1 ? items.indexOf(left) : items.length, 'value', e.currentTarget.innerText)} className="font-text font-bold text-black/30 text-xl uppercase tracking-wider line-through decoration-red-500 decoration-4 block w-[70%]">
                     {left.value}
                   </span>
                 </div>
               )}
               {right && (
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-2/3 flex justify-end pointer-events-auto">
-                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-playfair italic font-bold text-2xl transform -rotate-2 text-right drop-shadow-sm pr-2" style={{ color: brandColor }}>
+                  <span contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(right) !== -1 ? items.indexOf(right) : items.length, 'value', e.currentTarget.innerText)} className="font-text italic font-bold text-2xl transform -rotate-2 text-right drop-shadow-sm pr-2" style={{fontFamily: textFont,  color: brandColor }}>
                     {right.value}
                   </span>
                 </div>

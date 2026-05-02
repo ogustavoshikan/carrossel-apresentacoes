@@ -31,7 +31,7 @@ function BrandTag({ handle, brandAvatar, color, align = 'left', className = '' }
       ) : (
         <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: color }} />
       )}
-      <span className="font-outfit font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500 truncate">
+      <span className="font-text font-black tracking-[0.25em] text-[10px] uppercase text-zinc-500 truncate">
         @{handle}
       </span>
     </div>
@@ -45,7 +45,7 @@ function BrandTag({ handle, brandAvatar, color, align = 'left', className = '' }
  */
 
 function QuoteVariant1(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -54,16 +54,16 @@ function QuoteVariant1(props) {
     <div className="w-full h-full bg-[#050505] flex flex-col p-16 justify-center relative overflow-hidden">
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} className="opacity-40 blur-md scale-110" />
       
-      <div className="absolute left-0 top-1/4 bottom-1/4 w-3 rounded-r-xl" style={{ backgroundColor: brandColor }} />
+      <div className="absolute left-0 top-1/4 bottom-1/4 w-3 rounded-r-xl" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       
       <Quote className="w-12 h-12 mb-8 text-white/20 relative z-10" />
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-8 pl-4 relative z-10">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-outfit font-black text-white outline-none leading-tight" style={{ fontSize: `${40 * tScale}px` }}>"{data.titulo}"</h2>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-black text-white outline-none leading-tight" style={{ fontSize: `${40 * tScale}px` }}>"{data.titulo}"</h2>
       </SmartElement>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="pl-4 relative z-10">
-        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair italic text-zinc-500 outline-none block" style={{ fontSize: '20px' }}>{data.texto_apoio}</span>
+        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text italic text-zinc-500 outline-none block" style={{fontFamily: textFont,  fontSize: '20px' }}>{data.texto_apoio}</span>
       </SmartElement>
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
@@ -72,7 +72,7 @@ function QuoteVariant1(props) {
 }
 
 function QuoteVariant2(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -85,11 +85,11 @@ function QuoteVariant2(props) {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-[1]" />
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 mb-10">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-bold text-white outline-none" style={{ fontSize: `${42 * tScale}px`, lineHeight: '1.2' }}>“{data.titulo}”</h2>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-bold text-white outline-none" style={{ fontSize: `${42 * tScale}px`, lineHeight: '1.2' }}>“{data.titulo}”</h2>
       </SmartElement>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-[14px] tracking-widest uppercase outline-none block" style={{ color: brandColor }}>{data.texto_apoio}</span>
+        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-[14px] tracking-widest uppercase outline-none block" style={{fontFamily: textFont,  color: brandColor }}>{data.texto_apoio}</span>
       </SmartElement>
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
@@ -98,7 +98,7 @@ function QuoteVariant2(props) {
 }
 
 function QuoteVariant3(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -111,7 +111,7 @@ function QuoteVariant3(props) {
       <Quote className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 text-black/10 z-[2] pointer-events-none" />
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 mb-12">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-outfit font-black text-white outline-none tracking-tight" style={{ fontSize: `${44 * tScale}px`, lineHeight: '1.1' }}>"{data.titulo}"</h2>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-black text-white outline-none tracking-tight" style={{ fontSize: `${44 * tScale}px`, lineHeight: '1.1' }}>"{data.titulo}"</h2>
       </SmartElement>
       
       <div className="w-full flex justify-center relative z-10 mb-4 pointer-events-none">
@@ -119,7 +119,7 @@ function QuoteVariant3(props) {
       </div>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair italic text-white/90 outline-none block" style={{ fontSize: '22px' }}>{data.texto_apoio}</span>
+        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text italic text-white/90 outline-none block" style={{fontFamily: textFont,  fontSize: '22px' }}>{data.texto_apoio}</span>
       </SmartElement>
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandColor="rgba(255,255,255,0.7)" hideDot={true} />
@@ -128,7 +128,7 @@ function QuoteVariant3(props) {
 }
 
 function QuoteVariant4(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -142,11 +142,11 @@ function QuoteVariant4(props) {
         <Quote className="w-10 h-10 mb-6 relative z-10" style={{ color: brandColor }} />
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-8 relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic text-white outline-none" style={{ fontSize: `${28 * tScale}px`, lineHeight: '1.3' }}>{data.titulo}</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title italic text-white outline-none" style={{ fontSize: `${28 * tScale}px`, lineHeight: '1.3' }}>{data.titulo}</h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-bold text-[10px] tracking-widest uppercase text-zinc-500 outline-none block">{data.texto_apoio}</span>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-bold text-[10px] tracking-widest uppercase text-zinc-500 outline-none block">{data.texto_apoio}</span>
         </SmartElement>
       </div>
       
@@ -156,7 +156,7 @@ function QuoteVariant4(props) {
 }
 
 function QuoteVariant5(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -167,18 +167,18 @@ function QuoteVariant5(props) {
       <div className="absolute inset-0 bg-black/60 z-[0]" />
       
       <div className="border border-white/10 rounded-3xl p-10 relative z-10 bg-black/40 backdrop-blur-sm">
-        <div className="absolute -top-6 px-4 bg-[#020202]" style={{ left: '32px' }}>
+        <div className="absolute -top-6 px-4 bg-[#020202]" style={{fontFamily: textFont,  left: '32px' }}>
           <Quote className="w-12 h-12" style={{ color: brandColor }} />
         </div>
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-8 mt-4 relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair text-white outline-none leading-relaxed" style={{ fontSize: `${26 * tScale}px` }}>{data.titulo}</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title text-white outline-none leading-relaxed" style={{ fontSize: `${26 * tScale}px` }}>{data.titulo}</h2>
         </SmartElement>
         
         <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-          <div className="w-5 h-5 rounded-full bg-zinc-800 shrink-0" style={{ backgroundColor: brandColor }} />
+          <div className="w-5 h-5 rounded-full bg-zinc-800 shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
           <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10 flex-1">
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-bold text-xs tracking-widest uppercase text-white outline-none block truncate">{data.texto_apoio}</span>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-bold text-xs tracking-widest uppercase text-white outline-none block truncate">{data.texto_apoio}</span>
           </SmartElement>
         </div>
       </div>
@@ -189,7 +189,7 @@ function QuoteVariant5(props) {
 }
 
 function QuoteVariant6(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -199,17 +199,17 @@ function QuoteVariant6(props) {
       <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
       <div className="absolute inset-0 bg-zinc-900/80 z-[0]" />
       
-      <div className="absolute top-0 left-0 right-0 h-4 z-10" style={{ backgroundColor: brandColor }} />
+      <div className="absolute top-0 left-0 right-0 h-4 z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="flex-1 flex flex-col justify-center relative z-10">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="mb-8">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-[14px] tracking-widest uppercase text-zinc-400 outline-none block">{data.texto_apoio}</span>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-[14px] tracking-widest uppercase text-zinc-400 outline-none block">{data.texto_apoio}</span>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement}>
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair text-white outline-none leading-snug" style={{ fontSize: `${38 * tScale}px` }}>"{data.titulo}"</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-text text-white outline-none leading-snug" style={{ fontSize: `${38 * tScale}px` }}>"{data.titulo}"</h2>
         </SmartElement>
       </div>
     </div>
@@ -217,7 +217,7 @@ function QuoteVariant6(props) {
 }
 
 function QuoteVariant7(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -230,16 +230,16 @@ function QuoteVariant7(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <div className="w-full bg-white text-black p-10 border-4 border-zinc-700 shadow-[12px_12px_0_0_rgba(255,255,255,0.1)] relative z-10">
-        <div className="absolute -top-5 -left-5 bg-black p-2 rounded-sm" style={{ backgroundColor: brandColor }}>
+        <div className="absolute -top-5 -left-5 bg-black p-2 rounded-sm" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
           <Quote className="w-10 h-10 text-white" />
         </div>
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-6 mt-2 relative z-10 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-outfit font-black tracking-tight outline-none" style={{ fontSize: `${30 * tScale}px`, lineHeight: '1.1' }}>{data.titulo}</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-black tracking-tight outline-none" style={{ fontSize: `${30 * tScale}px`, lineHeight: '1.1' }}>{data.titulo}</h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair italic outline-none block" style={{ fontSize: '18px', color: 'rgba(0,0,0,0.6)' }}>— {data.texto_apoio}</span>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text italic outline-none block" style={{fontFamily: textFont,  fontSize: '18px', color: 'rgba(0,0,0,0.6)' }}>— {data.texto_apoio}</span>
         </SmartElement>
       </div>
     </div>
@@ -247,7 +247,7 @@ function QuoteVariant7(props) {
 }
 
 function QuoteVariant8(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -259,7 +259,7 @@ function QuoteVariant8(props) {
       <div className="w-[20%] h-full flex items-center justify-center relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="transform -rotate-90 origin-center whitespace-nowrap w-max min-w-max text-center">
             <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="inline-block relative z-10 whitespace-nowrap">
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-black tracking-[0.2em] uppercase outline-none inline-block text-lg whitespace-nowrap">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-black tracking-[0.2em] uppercase outline-none inline-block text-lg whitespace-nowrap">
                 {data.texto_apoio}
               </span>
             </SmartElement>
@@ -271,7 +271,7 @@ function QuoteVariant8(props) {
         <div className="absolute inset-0 bg-[#020202]/80 z-[0]" />
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-bold text-white outline-none leading-relaxed" style={{ fontSize: `${32 * tScale}px` }}>"{data.titulo}"</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-text italic font-bold text-white outline-none leading-relaxed" style={{ fontSize: `${32 * tScale}px` }}>"{data.titulo}"</h2>
         </SmartElement>
       </div>
     </div>
@@ -279,7 +279,7 @@ function QuoteVariant8(props) {
 }
 
 function QuoteVariant9(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -292,18 +292,18 @@ function QuoteVariant9(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-10 relative z-10 w-full">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-bold outline-none leading-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-zinc-500" style={{ fontSize: `${42 * tScale}px` }}>"{data.titulo}"</h2>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-bold outline-none leading-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-zinc-500" style={{ fontSize: `${42 * tScale}px` }}>"{data.titulo}"</h2>
       </SmartElement>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-[12px] tracking-widest uppercase outline-none block" style={{ color: brandColor }}>— {data.texto_apoio}</span>
+        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-[12px] tracking-widest uppercase outline-none block" style={{fontFamily: textFont,  color: brandColor }}>— {data.texto_apoio}</span>
       </SmartElement>
     </div>
   );
 }
 
 function QuoteVariant10(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -319,19 +319,19 @@ function QuoteVariant10(props) {
         <Quote className="absolute top-6 right-6 w-8 h-8 text-white/10 pointer-events-none" />
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 w-[90%]">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-outfit font-bold text-white outline-none leading-relaxed" style={{ fontSize: `${28 * tScale}px` }}>{data.titulo}</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-bold text-white outline-none leading-relaxed" style={{ fontSize: `${28 * tScale}px` }}>{data.titulo}</h2>
         </SmartElement>
       </div>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="pl-6 relative z-10">
-        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair text-zinc-400 italic outline-none block" style={{ fontSize: '18px' }}>{data.texto_apoio}</span>
+        <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text text-zinc-400 italic outline-none block" style={{fontFamily: textFont,  fontSize: '18px' }}>{data.texto_apoio}</span>
       </SmartElement>
     </div>
   );
 }
 
 function QuoteVariant11(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const tScale = titleScale / 100;
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
@@ -343,15 +343,15 @@ function QuoteVariant11(props) {
       
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
       
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[400px] font-playfair font-black text-black/5 pointer-events-none leading-none select-none z-0">"</div>
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[400px] font-text font-black text-black/5 pointer-events-none leading-none select-none z-0">"</div>
       
-      <div className="flex-1 flex flex-col justify-center pl-16 relative z-10 border-l-2 ml-10" style={{ borderColor: brandColor }}>
+      <div className="flex-1 flex flex-col justify-center pl-16 relative z-10 border-l-2 ml-10" style={{fontFamily: textFont,  borderColor: brandColor }}>
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="mb-8 relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-bold text-black outline-none leading-snug" style={{ fontSize: `${36 * tScale}px` }}>{data.titulo}</h2>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title italic font-bold text-black outline-none leading-snug" style={{ fontSize: `${36 * tScale}px` }}>{data.titulo}</h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-[11px] tracking-[0.2em] uppercase text-zinc-600 outline-none block">{data.texto_apoio}</span>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-[11px] tracking-[0.2em] uppercase text-zinc-600 outline-none block">{data.texto_apoio}</span>
         </SmartElement>
       </div>
     </div>
@@ -384,7 +384,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
 
       {/* Background Premium: Gradiente de profundidade com luz suave da cor da marca */}
       <div className="absolute inset-0 bg-neutral-950 z-[0]" />
-      <div className="absolute -top-[20%] -right-[20%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-20" style={{ backgroundColor: brandColor }} />
+      <div className="absolute -top-[20%] -right-[20%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-20" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       <div className="absolute -bottom-[20%] -left-[20%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-10" style={{ backgroundColor: brandColor }} />
       
       {/* Pattern de luxo sutil */}
@@ -396,7 +396,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
           <Quote className="absolute -top-5 -left-5 w-14 h-14 p-3 bg-black rounded-2xl text-white border-4 border-white shadow-2xl" style={{ backgroundColor: brandColor }} />
           
           <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 w-full">
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-bold text-zinc-900 outline-none leading-relaxed tracking-tight" style={{ fontSize: `${26 * tScale}px` }}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title italic font-bold text-zinc-900 outline-none leading-relaxed tracking-tight" style={{ fontSize: `${26 * tScale}px` }}>
               "{data.titulo}"
             </h2>
           </SmartElement>
@@ -405,7 +405,7 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
         {/* Perfil do Cliente Estilizado */}
         <div className="flex items-center gap-5 pl-6">
           <div className="relative">
-            <div className="absolute inset-0 rounded-full blur-md opacity-50" style={{ backgroundColor: brandColor }} />
+            <div className="absolute inset-0 rounded-full blur-md opacity-50" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
             <div className="w-16 h-16 rounded-full border-4 border-white/10 shadow-2xl overflow-hidden shrink-0 relative z-10">
               {data.imageUrl ? (
                 <img src={data.imageUrl} alt="client" className="w-full h-full object-cover" />
@@ -417,13 +417,13 @@ function QuoteVariant12({ data, index, slideCount, brandHandle, brandAvatar, bra
           
           <div className="flex flex-col">
             <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement}>
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-black text-base tracking-[0.1em] uppercase text-white outline-none block">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-text font-black text-base tracking-[0.1em] uppercase text-white outline-none block">
                 {data.texto_apoio}
               </span>
             </SmartElement>
             <div className="flex items-center gap-2 mt-1">
               <div className="w-3 h-[1px] bg-zinc-600" />
-              <span className="font-outfit text-[10px] text-zinc-500 uppercase tracking-[0.2em] font-black">Cliente Satisfeito</span>
+              <span className="font-text text-[10px] text-zinc-500 uppercase tracking-[0.2em] font-black">Cliente Satisfeito</span>
             </div>
           </div>
         </div>

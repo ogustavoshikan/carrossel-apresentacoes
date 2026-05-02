@@ -49,7 +49,7 @@ function TextWrapper({ field, index, onTextChange, as: Component = 'div', classN
  * COLEÇÃO: 1. The Anchor Progress
  */
 export function SequenceVariant1(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -82,14 +82,14 @@ export function SequenceVariant1(props) {
               {...tw} 
               as="h2" 
               field="titulo" 
-              className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+              className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
               style={{ fontSize: `${69.23 * sTitle}px` }}
             >
               {data.titulo || 'PASSO\nDESCRIÇÃO'}
             </TextWrapper>
           </SmartEl>
           
-          <span className="font-light text-white/40 text-6xl tracking-tighter leading-none font-outfit ml-4 select-none">
+          <span className="font-light text-white/40 text-6xl tracking-tighter leading-none font-text ml-4 select-none">
             0{step}
           </span>
         </div>
@@ -115,7 +115,7 @@ export function SequenceVariant1(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O conteúdo detalhado do passo atual da sua sequência explicativa.'}
@@ -130,7 +130,7 @@ export function SequenceVariant1(props) {
  * COLEÇÃO: 2. The Bridge Flow
  */
 export function SequenceVariant2(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -165,7 +165,7 @@ export function SequenceVariant2(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -184,7 +184,7 @@ export function SequenceVariant2(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'A descrição do processo ou etapa que está sendo apresentada neste slide.'}
@@ -194,7 +194,7 @@ export function SequenceVariant2(props) {
 
       <div 
         className="w-[22%] h-full relative z-10 transition-colors duration-500 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         
         
@@ -216,7 +216,7 @@ export function SequenceVariant2(props) {
  * COLEÇÃO: 3. The Minimal Corner
  */
 export function SequenceVariant3(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -237,10 +237,10 @@ export function SequenceVariant3(props) {
         className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
         style={{ backgroundColor: brandColor }}
       >
-        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-outfit select-none">
+        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
           PASSO
         </span>
-        <span className="font-black text-4xl text-white leading-none font-outfit select-none">
+        <span className="font-black text-4xl text-white leading-none font-text select-none">
           0{step}
         </span>
       </div>
@@ -261,7 +261,7 @@ export function SequenceVariant3(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'O PONTO\nPERFEITO'}
@@ -282,7 +282,7 @@ export function SequenceVariant3(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed w-[90%] font-playfair"
+            className="text-white/80 font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'Explicação técnica ou teórica sobre esta fase específica do conteúdo.'}
@@ -297,7 +297,7 @@ export function SequenceVariant3(props) {
  * COLEÇÃO: 4. The Editorial Base
  */
 export function SequenceVariant4(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -333,7 +333,7 @@ export function SequenceVariant4(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${69.23 * sTitle}px`, color: brandColor }}
           >
             {data.titulo || 'A EXPERIÊNCIA\nFINAL'}
@@ -352,7 +352,7 @@ export function SequenceVariant4(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O desfecho ou a conclusão da sequência, focando no resultado final.'}
@@ -365,10 +365,10 @@ export function SequenceVariant4(props) {
           <div key={i} className="flex-1 flex flex-col gap-2.5">
             <div 
               className={`h-[4px] w-full rounded-full transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${i === step ? "opacity-100 scale-100" : "opacity-20 scale-95"}`}
-              style={{ backgroundColor: i === step ? brandColor : "#ffffff" }}
+              style={{fontFamily: textFont,  backgroundColor: i === step ? brandColor : "#ffffff" }}
             />
             <span 
-              className={`font-black text-[11px] uppercase tracking-widest transition-colors duration-500 font-outfit ${i === step ? "text-white" : "text-white/30"}`}
+              className={`font-black text-[11px] uppercase tracking-widest transition-colors duration-500 font-text ${i === step ? "text-white" : "text-white/30"}`}
             >
               Fase 0{i}
             </span>
@@ -383,7 +383,7 @@ export function SequenceVariant4(props) {
  * COLEÇÃO: 5. The Editorial Tab
  */
 export function SequenceVariant5(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -409,7 +409,7 @@ export function SequenceVariant5(props) {
             className={`flex-1 flex items-center justify-center border-t-[6px] transition-all duration-300 ${i === step ? "bg-white shadow-sm" : "bg-transparent"}`}
             style={{ borderColor: i === step ? brandColor : "transparent" }}
           >
-            <span className={`font-black text-[14px] font-outfit ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
+            <span className={`font-black text-[14px] font-text ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
               0{i}
             </span>
           </div>
@@ -434,7 +434,7 @@ export function SequenceVariant5(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -453,7 +453,7 @@ export function SequenceVariant5(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${24.28 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -468,7 +468,7 @@ export function SequenceVariant5(props) {
  * COLEÇÃO: 6. The Ghost Typo
  */
 export function SequenceVariant6(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -486,7 +486,7 @@ export function SequenceVariant6(props) {
         counterBg="#080808" 
       />
       <div 
-        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-outfit"
+        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
         style={{ 
           fontSize: "320px", 
           color: "transparent", 
@@ -515,7 +515,7 @@ export function SequenceVariant6(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -534,7 +534,7 @@ export function SequenceVariant6(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed w-full font-playfair"
+            className="text-white/80 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${22.85 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -551,7 +551,7 @@ export function SequenceVariant6(props) {
  * COLEÇÃO: 7. The Vertical Split
  */
 export function SequenceVariant7(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -585,7 +585,7 @@ export function SequenceVariant7(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-700 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-700 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${14 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -595,9 +595,9 @@ export function SequenceVariant7(props) {
 
       <div 
         className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 transition-colors duration-500"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
-        <span className="font-black text-white/40 text-7xl leading-none font-outfit select-none">
+        <span className="font-black text-white/40 text-7xl leading-none font-text select-none">
           0{step}
         </span>
 
@@ -613,7 +613,7 @@ export function SequenceVariant7(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${32 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -628,7 +628,7 @@ export function SequenceVariant7(props) {
  * COLEÇÃO: 8. The Orbital Step
  */
 export function SequenceVariant8(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -667,7 +667,7 @@ export function SequenceVariant8(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-white font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-white font-title"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -686,7 +686,7 @@ export function SequenceVariant8(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-light leading-relaxed w-[90%] font-playfair"
+            className="text-white/80 font-light leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${22.85 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -701,7 +701,7 @@ export function SequenceVariant8(props) {
  * COLEÇÃO: 9. The Luminous Edge
  */
 export function SequenceVariant9(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -720,7 +720,7 @@ export function SequenceVariant9(props) {
       />
       <div 
         className="absolute top-0 right-[-10%] w-[60%] h-full opacity-30 z-0 pointer-events-none transition-colors duration-700 blur-[80px]"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
 
       <div className="flex-1 h-full p-10 flex flex-col justify-center relative z-10 w-[70%]">
@@ -741,7 +741,7 @@ export function SequenceVariant9(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${63.07 * sTitle}px`, color: '#1a1a1a' }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -760,7 +760,7 @@ export function SequenceVariant9(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${21.42 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -770,11 +770,11 @@ export function SequenceVariant9(props) {
 
       <div className="w-[30%] h-full flex flex-col items-end justify-between p-8 relative z-10">
         <div className="w-8 h-8 rounded-full border border-zinc-300 flex items-center justify-center">
-          <span className="font-bold text-[10px] text-[#1a1a1a] font-outfit select-none">
+          <span className="font-bold text-[10px] text-[#1a1a1a] font-text select-none">
             {step}/5
           </span>
         </div>
-        <span className="font-black text-8xl leading-none text-[#1a1a1a]/40 drop-shadow-sm font-outfit select-none">
+        <span className="font-black text-8xl leading-none text-[#1a1a1a]/40 drop-shadow-sm font-text select-none">
           0{step}
         </span>
       </div>
@@ -786,7 +786,7 @@ export function SequenceVariant9(props) {
  * COLEÇÃO: 10. The Editorial Spine
  */
 export function SequenceVariant10(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -806,7 +806,7 @@ export function SequenceVariant10(props) {
       <div className="w-[75%] h-full p-10 flex flex-col justify-center relative z-10">
         
 
-        <div className="w-8 h-[2px] mb-8" style={{ backgroundColor: brandColor }} />
+        <div className="w-8 h-[2px] mb-8" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
         
         <SmartEl 
           slideIndex={index} 
@@ -821,7 +821,7 @@ export function SequenceVariant10(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -840,7 +840,7 @@ export function SequenceVariant10(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-light leading-relaxed w-[95%] font-playfair"
+            className="text-white/80 font-light leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${21.42 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -851,11 +851,11 @@ export function SequenceVariant10(props) {
       <div className="w-[25%] h-full flex items-center justify-center border-l border-white/10 relative z-10 bg-[#111]">
         <div 
           className="absolute top-0 right-0 w-full h-[6px] transition-all duration-700" 
-          style={{ backgroundColor: step === slideCount ? brandColor : "transparent" }}
+          style={{fontFamily: textFont,  backgroundColor: step === slideCount ? brandColor : "transparent" }}
         />
         <span 
-          className="font-black text-2xl uppercase tracking-[0.3em] whitespace-nowrap -rotate-90 origin-center transition-colors duration-500 font-outfit select-none"
-          style={{ color: brandColor }}
+          className="font-black text-2xl uppercase tracking-[0.3em] whitespace-nowrap -rotate-90 origin-center transition-colors duration-500 font-text select-none"
+          style={{fontFamily: textFont,  color: brandColor }}
         >
           ETAPA 0{step}
         </span>
@@ -868,7 +868,7 @@ export function SequenceVariant10(props) {
  * COLEÇÃO: 11. The Image Anchor
  */
 export function SequenceVariant11(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -897,7 +897,7 @@ export function SequenceVariant11(props) {
           className="px-6 py-2 rounded-full text-white shadow-xl flex items-center justify-center transition-colors duration-500"
           style={{ backgroundColor: brandColor }}
         >
-          <span className="font-black text-[14px] uppercase tracking-widest font-outfit select-none">
+          <span className="font-black text-[14px] uppercase tracking-widest font-text select-none">
             PASSO 0{step}
           </span>
         </div>
@@ -917,7 +917,7 @@ export function SequenceVariant11(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
             style={{ fontSize: `${67.69 * sTitle}px`, color: '#1a1a1a' }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -936,7 +936,7 @@ export function SequenceVariant11(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -951,7 +951,7 @@ export function SequenceVariant11(props) {
  * COLEÇÃO: 12. The Image Split (Editorial)
  */
 export function SequenceVariant12(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -985,7 +985,7 @@ export function SequenceVariant12(props) {
       <div className="w-[55%] h-full p-10 pl-12 flex flex-col justify-center relative z-10 bg-white">
         
 
-        <span className="font-black text-6xl text-zinc-100 mb-2 leading-none font-outfit select-none">
+        <span className="font-black text-6xl text-zinc-100 mb-2 leading-none font-text select-none">
           0{step}
         </span>
 
@@ -1002,7 +1002,7 @@ export function SequenceVariant12(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1021,7 +1021,7 @@ export function SequenceVariant12(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1036,7 +1036,7 @@ export function SequenceVariant12(props) {
  * COLEÇÃO: 13. The Cinematic Step
  */
 export function SequenceVariant13(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1064,8 +1064,8 @@ export function SequenceVariant13(props) {
       <div className="flex-1 p-8 pb-12 flex flex-col justify-end relative z-20">
         <div className="flex items-center gap-4 mb-4">
           <div 
-            className="font-black text-4xl leading-none transition-colors duration-500 drop-shadow-[0_0_15px_currentColor] font-outfit select-none"
-            style={{ color: brandColor }}
+            className="font-black text-4xl leading-none transition-colors duration-500 drop-shadow-[0_0_15px_currentColor] font-text select-none"
+            style={{fontFamily: textFont,  color: brandColor }}
           >
             0{step}.
           </div>
@@ -1085,7 +1085,7 @@ export function SequenceVariant13(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1104,7 +1104,7 @@ export function SequenceVariant13(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-light leading-relaxed w-full font-playfair"
+            className="text-white/80 font-light leading-relaxed w-full font-text"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1119,7 +1119,7 @@ export function SequenceVariant13(props) {
  * COLEÇÃO: 14. The Image Frame
  */
 export function SequenceVariant14(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1141,13 +1141,13 @@ export function SequenceVariant14(props) {
       <div className="w-[85%] h-[40%] mt-8 mx-auto relative z-10">
         <div 
           className="absolute top-3 left-3 w-full h-full rounded-2xl transition-colors duration-500" 
-          style={{ backgroundColor: brandColor }}
+          style={{fontFamily: textFont,  backgroundColor: brandColor }}
         />
         <div className="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden border-2 border-white shadow-xl bg-zinc-100">
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
-          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#FDFBF7] font-outfit select-none"
+          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#FDFBF7] font-text select-none"
         >
           {step}
         </div>
@@ -1167,7 +1167,7 @@ export function SequenceVariant14(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1186,7 +1186,7 @@ export function SequenceVariant14(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1201,7 +1201,7 @@ export function SequenceVariant14(props) {
  * COLEÇÃO: 15. The Magazine Bleed
  */
 export function SequenceVariant15(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1226,9 +1226,9 @@ export function SequenceVariant15(props) {
       <div className="flex-1 flex flex-row z-10">
         <div 
           className="w-[30%] flex items-center justify-center border-r border-zinc-200 transition-colors duration-500 bg-zinc-50"
-          style={{ color: brandColor }}
+          style={{fontFamily: textFont,  color: brandColor }}
         >
-          <span className="font-black text-6xl leading-none font-outfit select-none">
+          <span className="font-black text-6xl leading-none font-text select-none">
             0{step}
           </span>
         </div>
@@ -1247,7 +1247,7 @@ export function SequenceVariant15(props) {
               {...tw} 
               as="h2" 
               field="titulo" 
-              className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+              className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
               style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
             >
               {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
@@ -1266,7 +1266,7 @@ export function SequenceVariant15(props) {
               {...tw} 
               as="p" 
               field="texto_apoio" 
-              className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+              className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
               style={{ fontSize: `${21.43 * sText}px` }}
             >
               {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1282,7 +1282,7 @@ export function SequenceVariant15(props) {
  * COLEÇÃO: 16. The Anchor Bottom
  */
 export function SequenceVariant16(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1317,7 +1317,7 @@ export function SequenceVariant16(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
@@ -1336,7 +1336,7 @@ export function SequenceVariant16(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1344,7 +1344,7 @@ export function SequenceVariant16(props) {
         </SmartEl>
       </div>
 
-      <div className="w-full h-[35%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="w-full h-[35%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="absolute top-0 left-0 h-[3px] bg-white/20 w-full z-0">
           <div 
             className="h-full bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
@@ -1353,10 +1353,10 @@ export function SequenceVariant16(props) {
         </div>
         
         <div className="mt-auto flex justify-between items-end z-10 w-full">
-          <span className="font-bold tracking-widest text-[10px] text-white/60 uppercase mb-2 font-outfit select-none">
+          <span className="font-bold tracking-widest text-[10px] text-white/60 uppercase mb-2 font-text select-none">
             Fase Atual
           </span>
-          <span className="font-light text-white/40 text-7xl tracking-tighter leading-none font-outfit select-none">
+          <span className="font-light text-white/40 text-7xl tracking-tighter leading-none font-text select-none">
             0{step}
           </span>
         </div>
@@ -1369,7 +1369,7 @@ export function SequenceVariant16(props) {
  * COLEÇÃO: 17. The Corner Bottom
  */
 export function SequenceVariant17(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1404,7 +1404,7 @@ export function SequenceVariant17(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
@@ -1425,7 +1425,7 @@ export function SequenceVariant17(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed w-[90%] font-playfair"
+            className="text-white/80 font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1435,12 +1435,12 @@ export function SequenceVariant17(props) {
 
       <div 
         className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[40px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
-        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-outfit select-none">
+        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
           PASSO
         </span>
-        <span className="font-black text-5xl text-white leading-none font-outfit select-none">
+        <span className="font-black text-5xl text-white leading-none font-text select-none">
           0{step}
         </span>
       </div>
@@ -1452,7 +1452,7 @@ export function SequenceVariant17(props) {
  * COLEÇÃO: 18. The Split Bottom
  */
 export function SequenceVariant18(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1486,7 +1486,7 @@ export function SequenceVariant18(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-700 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-700 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${24.28 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1496,7 +1496,7 @@ export function SequenceVariant18(props) {
 
       <div 
         className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 transition-colors duration-500"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         <SmartEl 
           slideIndex={index} 
@@ -1511,14 +1511,14 @@ export function SequenceVariant18(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
           </TextWrapper>
         </SmartEl>
 
-        <span className="font-black text-white/40 text-[90px] leading-[0.75] -mr-2 font-outfit select-none">
+        <span className="font-black text-white/40 text-[90px] leading-[0.75] -mr-2 font-text select-none">
           0{step}
         </span>
       </div>
@@ -1530,7 +1530,7 @@ export function SequenceVariant18(props) {
  * COLEÇÃO: 19. The Cinematic Panel
  */
 export function SequenceVariant19(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1557,9 +1557,9 @@ export function SequenceVariant19(props) {
       <div className="absolute top-[50%] left-8 -translate-y-1/2 z-20 flex items-center">
         <div 
           className="w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-colors duration-500 border-4 border-[#0A0A0A]"
-          style={{ backgroundColor: brandColor }}
+          style={{fontFamily: textFont,  backgroundColor: brandColor }}
         >
-          <span className="font-black text-[16px] text-white font-outfit select-none">
+          <span className="font-black text-[16px] text-white font-text select-none">
             0{step}
           </span>
         </div>
@@ -1579,7 +1579,7 @@ export function SequenceVariant19(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1598,7 +1598,7 @@ export function SequenceVariant19(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-light leading-relaxed w-full font-playfair"
+            className="text-white/80 font-light leading-relaxed w-full font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1613,7 +1613,7 @@ export function SequenceVariant19(props) {
  * COLEÇÃO: 20. The Ghost Light
  */
 export function SequenceVariant20(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1631,7 +1631,7 @@ export function SequenceVariant20(props) {
         counterBg="#EDEDED" 
       />
       <div 
-        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-outfit"
+        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
         style={{ 
           fontSize: "320px", 
           color: "transparent", 
@@ -1660,7 +1660,7 @@ export function SequenceVariant20(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1679,7 +1679,7 @@ export function SequenceVariant20(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1696,7 +1696,7 @@ export function SequenceVariant20(props) {
  * COLEÇÃO: 21. The Orbital Light
  */
 export function SequenceVariant21(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1735,7 +1735,7 @@ export function SequenceVariant21(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-[#1a1a1a] font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-[#1a1a1a] font-text"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -1754,7 +1754,7 @@ export function SequenceVariant21(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1771,7 +1771,7 @@ export function SequenceVariant21(props) {
  * COLEÇÃO: 22. The Clean Polaroid
  */
 export function SequenceVariant22(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1790,7 +1790,7 @@ export function SequenceVariant22(props) {
       />
       <div 
         className="absolute top-0 left-0 w-full h-[6px] z-20 transition-colors duration-500" 
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       
       <div className="w-full h-[50%] relative overflow-hidden bg-zinc-200">
@@ -1817,7 +1817,7 @@ export function SequenceVariant22(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1836,7 +1836,7 @@ export function SequenceVariant22(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1851,7 +1851,7 @@ export function SequenceVariant22(props) {
  * COLEÇÃO: 23. The Single Frame
  */
 export function SequenceVariant23(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1875,8 +1875,8 @@ export function SequenceVariant23(props) {
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
-          className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl transition-colors duration-500 font-outfit select-none"
-          style={{ backgroundColor: brandColor }}
+          className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl transition-colors duration-500 font-text select-none"
+          style={{fontFamily: textFont,  backgroundColor: brandColor }}
         >
           Passo 0{step}
         </div>
@@ -1896,7 +1896,7 @@ export function SequenceVariant23(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -1915,7 +1915,7 @@ export function SequenceVariant23(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1930,7 +1930,7 @@ export function SequenceVariant23(props) {
  * COLEÇÃO: 24. The Elevated Base
  */
 export function SequenceVariant24(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -1968,8 +1968,8 @@ export function SequenceVariant24(props) {
       >
         <div className="flex items-center gap-4 mb-4">
           <span 
-            className="font-black text-3xl font-outfit select-none"
-            style={{ color: brandColor }}
+            className="font-black text-3xl font-text select-none"
+            style={{fontFamily: textFont,  color: brandColor }}
           >
             0{step}.
           </span>
@@ -1989,7 +1989,7 @@ export function SequenceVariant24(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -2008,7 +2008,7 @@ export function SequenceVariant24(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-500 font-medium leading-relaxed font-playfair"
+            className="text-zinc-500 font-medium leading-relaxed font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -2023,7 +2023,7 @@ export function SequenceVariant24(props) {
  * COLEÇÃO: 25. The Tab Bottom
  */
 export function SequenceVariant25(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -2058,7 +2058,7 @@ export function SequenceVariant25(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -2077,7 +2077,7 @@ export function SequenceVariant25(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -2090,9 +2090,9 @@ export function SequenceVariant25(props) {
           <div 
             key={i} 
             className={`flex-1 flex items-center justify-center border-b-[6px] transition-all duration-300 ${i === step ? "bg-white shadow-sm z-10" : "bg-transparent"}`}
-            style={{ borderColor: i === step ? brandColor : "transparent" }}
+            style={{fontFamily: textFont,  borderColor: i === step ? brandColor : "transparent" }}
           >
-            <span className={`font-black text-[14px] font-outfit ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
+            <span className={`font-black text-[14px] font-text ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
               0{i}
             </span>
           </div>
@@ -2106,7 +2106,7 @@ export function SequenceVariant25(props) {
  * COLEÇÃO: 26. The Float Top
  */
 export function SequenceVariant26(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -2143,7 +2143,7 @@ export function SequenceVariant26(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -2162,7 +2162,7 @@ export function SequenceVariant26(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -2177,7 +2177,7 @@ export function SequenceVariant26(props) {
  * COLEÇÃO: 27. The Float Bottom
  */
 export function SequenceVariant27(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -2212,7 +2212,7 @@ export function SequenceVariant27(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
@@ -2231,7 +2231,7 @@ export function SequenceVariant27(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -2250,7 +2250,7 @@ export function SequenceVariant27(props) {
  * COLEÇÃO: 28. The Editorial Capsule
  */
 export function SequenceVariant28(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const step = index + 1;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
@@ -2269,7 +2269,7 @@ export function SequenceVariant28(props) {
       />
       <div 
         className="w-[35%] h-full transition-colors duration-500 relative z-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       <div className="w-[65%] h-full bg-[#FDFBF7] relative z-0" />
 
@@ -2295,7 +2295,7 @@ export function SequenceVariant28(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-outfit"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
             style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
@@ -2314,7 +2314,7 @@ export function SequenceVariant28(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-full font-playfair"
+            className="text-zinc-600 font-medium leading-relaxed w-full font-text"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}

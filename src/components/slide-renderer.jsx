@@ -67,6 +67,9 @@ export default function SlideRenderer({
   isVerified,
   titleScale,
   textScale,
+  titleFont: globalTitleFont,
+  textFont: globalTextFont,
+  tagFont: globalTagFont,
   showMetrics,
   onActionStart,
   onTextChange,
@@ -79,8 +82,15 @@ export default function SlideRenderer({
   const Component = LAYOUT_MAP[data.layout];
   if (!Component) return null;
 
+  // Variáveis de fonte específicas do slide ou globais
+  const slideStyles = {
+    '--font-title': data.titleFont || globalTitleFont,
+    '--font-text': data.textFont || globalTextFont,
+    '--font-tag': data.tagFont || globalTagFont || globalTitleFont,
+  };
+
   return (
-    <>
+    <div className="w-full h-full relative" style={slideStyles}>
       <Component
         data={data}
         index={index}
@@ -94,6 +104,9 @@ export default function SlideRenderer({
         isVerified={isVerified}
         titleScale={titleScale}
         textScale={textScale}
+        titleFont={data.titleFont || globalTitleFont}
+        textFont={data.textFont || globalTextFont}
+        tagFont={data.tagFont || globalTagFont || globalTitleFont}
         showMetrics={showMetrics}
         onActionStart={onActionStart}
         onTextChange={onTextChange}
@@ -140,7 +153,6 @@ export default function SlideRenderer({
            })}
          </div>
       )}
-    </>
+    </div>
   );
 }
-

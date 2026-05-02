@@ -42,7 +42,7 @@ import CtaVariantPopover from './CtaVariantPopover';
 import ListVariantPopover from './ListVariantPopover';
 import SequenceVariantPopover from './SequenceVariantPopover';
 import SlideRenderer from '../slide-renderer';
-import { SLIDE_DIMENSIONS } from '../../lib/design-tokens';
+import { SLIDE_DIMENSIONS, FONT_OPTIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
 import { COVER_VARIANT_META } from '../slides/cover-variants';
 import { SPLIT_VARIANT_META } from '../slides/split-variants';
@@ -68,6 +68,9 @@ export default function VisualPreview({
   isVerified,
   titleScale,
   textScale,
+  titleFont,
+  textFont,
+  tagFont,
   showMetrics,
   onActionStart,
   onTextChange,
@@ -282,6 +285,9 @@ export default function VisualPreview({
               isVerified={isVerified}
               titleScale={titleScale}
               textScale={textScale}
+              titleFont={titleFont}
+              textFont={textFont}
+              tagFont={tagFont}
               showMetrics={showMetrics}
               onActionStart={onActionStart}
               onTextChange={onTextChange}
@@ -336,13 +342,23 @@ export default function VisualPreview({
                 {slide.tag !== undefined && (
                   <div>
                     <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Tag / Categoria</label>
-                    <input 
-                      type="text"
-                      value={slide.tag}
-                      onChange={(e) => onTextChange(index, 'tag', e.target.value)}
-                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors font-medium"
-                      placeholder="Tag..."
-                    />
+                    <div className="grid grid-cols-[1fr_100px] gap-2 items-center">
+                      <input 
+                        type="text"
+                        value={slide.tag}
+                        onChange={(e) => onTextChange(index, 'tag', e.target.value)}
+                        className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors font-medium h-9"
+                        placeholder="Tag..."
+                      />
+                      <select
+                        value={slide.tagFont || ''}
+                        onChange={(e) => onTextChange(index, 'tagFont', e.target.value)}
+                        className="w-full bg-surface-input border border-zinc-800/50 rounded-lg px-2 py-2 text-[10px] text-zinc-400 focus:outline-none focus:border-zinc-700 transition-colors font-bold h-9 uppercase tracking-tighter"
+                      >
+                        <option value="">Fonte</option>
+                        {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                      </select>
+                    </div>
                   </div>
                 )}
                 
@@ -350,12 +366,22 @@ export default function VisualPreview({
                 {slide.titulo !== undefined && (
                   <div>
                     <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Título / Headline</label>
-                    <textarea 
-                      value={slide.titulo}
-                      onChange={(e) => onTextChange(index, 'titulo', e.target.value)}
-                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-16 font-medium custom-scrollbar"
-                      placeholder="Título..."
-                    />
+                    <div className="grid grid-cols-[1fr_100px] gap-2 items-start">
+                      <textarea 
+                        value={slide.titulo}
+                        onChange={(e) => onTextChange(index, 'titulo', e.target.value)}
+                        className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-16 font-medium custom-scrollbar"
+                        placeholder="Título..."
+                      />
+                      <select
+                        value={slide.titleFont || ''}
+                        onChange={(e) => onTextChange(index, 'titleFont', e.target.value)}
+                        className="w-full bg-surface-input border border-zinc-800/50 rounded-lg px-2 py-2 text-[10px] text-zinc-400 focus:outline-none focus:border-zinc-700 transition-colors font-bold h-9 uppercase tracking-tighter"
+                      >
+                        <option value="">Fonte</option>
+                        {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                      </select>
+                    </div>
                   </div>
                 )}
 
@@ -363,12 +389,22 @@ export default function VisualPreview({
                 {slide.texto_apoio !== undefined && (
                   <div>
                     <label className="text-[9px] uppercase font-black tracking-widest text-zinc-600 mb-1.5 block">Texto de Apoio</label>
-                    <textarea 
-                      value={slide.texto_apoio}
-                      onChange={(e) => onTextChange(index, 'texto_apoio', e.target.value)}
-                      className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-20 font-medium custom-scrollbar"
-                      placeholder="Texto de apoio..."
-                    />
+                    <div className="grid grid-cols-[1fr_100px] gap-2 items-start">
+                      <textarea 
+                        value={slide.texto_apoio}
+                        onChange={(e) => onTextChange(index, 'texto_apoio', e.target.value)}
+                        className="w-full bg-surface-input/50 border border-zinc-800/50 rounded-lg px-3 py-2 text-xs text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-700 transition-colors resize-none h-20 font-medium custom-scrollbar"
+                        placeholder="Texto de apoio..."
+                      />
+                      <select
+                        value={slide.textFont || ''}
+                        onChange={(e) => onTextChange(index, 'textFont', e.target.value)}
+                        className="w-full bg-surface-input border border-zinc-800/50 rounded-lg px-2 py-2 text-[10px] text-zinc-400 focus:outline-none focus:border-zinc-700 transition-colors font-bold h-9 uppercase tracking-tighter"
+                      >
+                        <option value="">Fonte</option>
+                        {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                      </select>
+                    </div>
                   </div>
                 )}
 

@@ -64,7 +64,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -88,7 +88,7 @@ export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBr
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none truncate max-w-full block"
+            className="font-title font-black text-white tracking-tighter leading-none outline-none truncate max-w-full block"
             style={{ fontSize: `${130 * sTitle}px` }}
           >
             {data.titulo}
@@ -99,13 +99,13 @@ export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBr
         <SmartField field="tag" {...sp} className="mb-8">
           <div
             className="px-6 py-2 inline-block self-start rounded-md shadow-2xl"
-            style={{ backgroundColor: brandColor }}
+            style={{fontFamily: titleFont,  backgroundColor: brandColor }}
           >
             <span
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-white text-[12px] tracking-[0.3em] uppercase outline-none block"
+              className="font-tag font-bold text-white text-[12px] tracking-[0.3em] uppercase outline-none block"
             >
               {data.tag || 'LABEL'}
             </span>
@@ -118,7 +118,7 @@ export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBr
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-300 outline-none line-clamp-3 overflow-hidden"
+            className="font-text text-zinc-300 outline-none line-clamp-3 overflow-hidden"
             style={{ fontSize: `${18 * sText}px`, lineHeight: 1.6 }}
           >
             {data.texto_apoio}
@@ -141,7 +141,7 @@ export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBr
 // VARIANTE 2 — Phantom Center
 // Número centralizado com ghost gigante atrás (sem imagem).
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -150,8 +150,8 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
     <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-10 relative overflow-hidden text-center">
       {/* Ghost gigante */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none font-outfit font-black text-white leading-none tracking-tighter z-0"
-        style={{ fontSize: '300px' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none font-text font-black text-white leading-none tracking-tighter z-0"
+        style={{fontFamily: tagFont,  fontSize: '300px' }}
       >
         {data.titulo}
       </div>
@@ -172,7 +172,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          className="font-text font-black tracking-tighter leading-none outline-none block"
           style={{
             fontSize: `${100 * sTitle}px`,
             color: brandColor,
@@ -189,7 +189,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-          className="font-outfit font-bold text-white text-[14px] tracking-[0.4em] uppercase border border-white/20 px-6 py-2 rounded-full outline-none inline-block"
+          className="font-tag font-bold text-white text-[14px] tracking-[0.4em] uppercase border border-white/20 px-6 py-2 rounded-full outline-none inline-block"
         >
           {data.tag || 'LABEL'}
         </span>
@@ -201,7 +201,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-zinc-400 outline-none"
+          className="font-text text-zinc-400 outline-none"
           style={{ fontSize: `${20 * sText}px` }}
         >
           {data.texto_apoio}
@@ -215,7 +215,7 @@ export function BigNumberVariant2({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 3 — Color Block
 // Bloco colorido superior com número + área escura inferior com texto.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -225,14 +225,14 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
       {/* Bloco colorido superior */}
       <div
         className="w-full h-[45%] p-10 flex flex-col items-end justify-center relative shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
         <SmartField field="titulo" {...sp} className="w-full text-right">
           <span
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none block"
+            className="font-text font-black text-white tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${110 * sTitle}px` }}
           >
             {data.titulo}
@@ -247,7 +247,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[12px] tracking-widest text-zinc-500 uppercase outline-none block"
+            className="font-tag font-black text-[12px] tracking-widest text-zinc-500 uppercase outline-none block"
           >
             {data.tag || 'LABEL'}
           </span>
@@ -258,7 +258,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white outline-none"
+            className="font-text text-white outline-none"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -284,7 +284,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 4 — Glass Card
 // Número outline sutil atrás + card glassmorphic centralizado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -304,7 +304,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
       {/* Número outline fantasma */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full text-center pointer-events-none">
         <span
-          className="font-outfit font-black text-transparent tracking-tighter leading-none block outline-none"
+          className="font-text font-black text-transparent tracking-tighter leading-none block outline-none"
           style={{ fontSize: `${200 * sTitle}px`, WebkitTextStroke: '2px rgba(255, 255, 255, 0.05)' }}
         >
           {data.titulo}
@@ -318,8 +318,8 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase outline-none block"
-            style={{ color: brandColor }}
+            className="font-text font-bold text-[12px] tracking-[0.4em] uppercase outline-none block"
+            style={{fontFamily: tagFont,  color: brandColor }}
           >
             {data.tag || 'LABEL'}
           </span>
@@ -330,7 +330,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white outline-none"
+            className="font-text text-white outline-none"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -345,7 +345,7 @@ export function BigNumberVariant4({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 5 — Side Panel
 // Número colorido à esquerda + painel de conteúdo à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -369,7 +369,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block text-right"
+            className="font-text font-black tracking-tighter leading-none outline-none block text-right"
             style={{ fontSize: `${120 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}
@@ -380,14 +380,14 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
       {/* Painel direito */}
       <div 
         className="w-1/2 h-full flex flex-col items-start justify-center p-6 border-l border-white/5"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         <SmartField field="tag" {...sp} className="mb-4">
           <span
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-white text-[10px] tracking-widest uppercase outline-none block"
+            className="font-tag font-bold text-white text-[10px] tracking-widest uppercase outline-none block"
           >
             {data.tag || 'LABEL'}
           </span>
@@ -398,7 +398,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white/90 outline-none text-left"
+            className="font-text text-white/90 outline-none text-left"
             style={{ fontSize: `${16 * sText}px` }}
           >
             {data.texto_apoio}
@@ -420,7 +420,7 @@ export function BigNumberVariant5({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 6 — Circle Badge
 // Número em círculo pequeno + tag + card de texto destacado.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -450,14 +450,14 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
         <div className="flex gap-6 items-center mb-8">
           <div
             className="w-32 h-32 rounded-full flex items-center justify-center shrink-0 border-4 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
-            style={{ borderColor: '#050505', backgroundColor: brandColor }}
+            style={{fontFamily: tagFont,  borderColor: '#050505', backgroundColor: brandColor }}
           >
             <SmartField field="titulo" {...sp}>
               <span
                 contentEditable
                 suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="font-outfit font-black text-white tracking-tighter leading-none outline-none"
+                className="font-text font-black text-white tracking-tighter leading-none outline-none"
                 style={{ fontSize: `${40 * sTitle}px` }}
               >
                 {data.titulo}
@@ -470,7 +470,7 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[18px] tracking-[0.2em] uppercase text-white outline-none block"
+              className="font-tag font-bold text-[18px] tracking-[0.2em] uppercase text-white outline-none block"
             >
               {data.tag || 'LABEL'}
             </span>
@@ -480,14 +480,14 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
         {/* Card de texto */}
         <div 
           className="p-8 rounded-3xl border border-white/10 shadow-2xl"
-          style={{ backgroundColor: brandColor }}
+          style={{fontFamily: tagFont,  backgroundColor: brandColor }}
         >
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-white outline-none"
+              className="font-text text-white outline-none"
               style={{ fontSize: `${20 * sText}px` }}
             >
               {data.texto_apoio}
@@ -503,7 +503,7 @@ export function BigNumberVariant6({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 7 — Texture Fill
 // Número com fundo da imagem via background-clip + texto abaixo.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -542,7 +542,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          className="font-text font-black tracking-tighter leading-none outline-none block"
           style={numberStyle}
         >
           {data.titulo}
@@ -554,8 +554,8 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-          className="font-outfit font-bold text-[14px] tracking-[0.4em] uppercase outline-none inline-block"
-          style={{ color: brandColor }}
+          className="font-tag font-bold text-[14px] tracking-[0.4em] uppercase outline-none inline-block"
+          style={{fontFamily: tagFont,  color: brandColor }}
         >
           {data.tag || 'LABEL'}
         </span>
@@ -566,7 +566,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-zinc-400 outline-none"
+          className="font-text text-zinc-400 outline-none"
           style={{ fontSize: `${18 * sText}px` }}
         >
           {data.texto_apoio}
@@ -580,7 +580,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 8 — Outline Float
 // Número outline colorido flutuando + imagem + texto inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -604,7 +604,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-transparent tracking-tighter leading-none outline-none block"
+            className="font-text font-black text-transparent tracking-tighter leading-none outline-none block"
             style={{
               fontSize: `${160 * sTitle}px`,
               WebkitTextStroke: `3px ${brandColor}`,
@@ -629,7 +629,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-white text-[10px] tracking-[0.3em] uppercase outline-none block"
+            className="font-tag font-bold text-white text-[10px] tracking-[0.3em] uppercase outline-none block"
           >
             {data.tag || 'LABEL'}
           </span>
@@ -640,7 +640,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-300 outline-none"
+            className="font-text text-zinc-300 outline-none"
             style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
@@ -655,7 +655,7 @@ export function BigNumberVariant8({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 9 — Sidebar Ribbon
 // Faixa lateral colorida com número rotacionado + texto à direita.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -675,7 +675,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
       {/* Faixa lateral colorida */}
       <div
         className="w-24 h-full flex items-center justify-center border-r border-white/5 shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
         <SmartField 
           field="titulo" 
@@ -687,7 +687,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter outline-none inline-block whitespace-nowrap"
+            className="font-text font-black text-white tracking-tighter outline-none inline-block whitespace-nowrap"
             style={{ fontSize: `${90 * sTitle}px` }}
           >
             {data.titulo}
@@ -707,7 +707,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
+            className="font-tag font-bold text-[12px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
           >
             {data.tag || 'LABEL'}
           </span>
@@ -718,7 +718,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white outline-none leading-relaxed"
+            className="font-text text-white outline-none leading-relaxed"
             style={{ fontSize: `${24 * sText}px` }}
           >
             {data.texto_apoio}
@@ -733,7 +733,7 @@ export function BigNumberVariant9({ data, index, slideCount, brandColor, brandHa
 // VARIANTE 10 — Magazine Split
 // Imagem superior semitransparente + número sobreposto + bloco de cor inferior.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant10({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant10({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -758,14 +758,14 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
       {/* Metade inferior — bloco de cor */}
       <div
         className="h-1/2 w-full p-10 flex flex-col justify-end shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
         <SmartField field="texto_apoio" {...sp}>
           <p
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-black outline-none font-bold"
+            className="font-text text-black outline-none font-bold"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -780,12 +780,11 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none drop-shadow-2xl"
+            className="font-text font-black text-white tracking-tighter leading-none outline-none drop-shadow-2xl"
             style={{ fontSize: `${140 * sTitle}px` }}
           >
             {data.titulo}
-          </h2>
-        </SmartField>
+          </h2>        </SmartField>
       </div>
 
       {/* Tag no canto */}
@@ -795,7 +794,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[12px] uppercase tracking-widest text-white/50 outline-none block"
+            className="font-title font-black text-[12px] uppercase tracking-widest text-white/50 outline-none block"
           >
             {data.tag || 'LABEL'}
           </span>
@@ -811,7 +810,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant11({ data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified,
   titleScale, textScale, showMetrics, onActionStart, onTextChange,
-  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -832,7 +831,7 @@ export function BigNumberVariant11({ data, index, slideCount, brandHandle, showB
         {/* Card número — topo full width */}
         <div
           className="col-span-2 row-span-1 rounded-[2rem] flex items-center justify-center relative overflow-hidden"
-          style={{ backgroundColor: brandColor }}
+          style={{fontFamily: textFont,  backgroundColor: brandColor }}
         >
           <div className="absolute inset-0 bg-black/10" />
           <SmartField field="titulo" {...sp} className="relative z-10 w-full text-center">
@@ -840,7 +839,7 @@ export function BigNumberVariant11({ data, index, slideCount, brandHandle, showB
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter outline-none"
+              className="font-title font-black text-white tracking-tighter outline-none"
               style={{ fontSize: `${120 * sTitle}px`, lineHeight: '0.8' }}
             >
               {data.titulo}
@@ -855,7 +854,7 @@ export function BigNumberVariant11({ data, index, slideCount, brandHandle, showB
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
+              className="font-tag font-bold text-[10px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
             >
               {data.tag || 'LABEL'}
             </span>
@@ -869,7 +868,7 @@ export function BigNumberVariant11({ data, index, slideCount, brandHandle, showB
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-300 outline-none text-sm"
+              className="font-text text-zinc-300 outline-none text-sm"
               style={{ fontSize: `${12 * sText}px` }}
             >
               {data.texto_apoio}
@@ -886,7 +885,7 @@ export function BigNumberVariant11({ data, index, slideCount, brandHandle, showB
 // Número gigante lateral + card de texto glassmorphic vertical
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant12(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -896,14 +895,14 @@ export function BigNumberVariant12(props) {
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       
       {/* Background Decorativo */}
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 blur-[120px] opacity-20 rounded-full" style={{ backgroundColor: brandColor }} />
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 blur-[120px] opacity-20 rounded-full" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
 
       <div className="flex-1 flex items-center relative z-10 gap-8 mt-12">
         <SmartField field="titulo" {...sp} className="shrink-0">
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block"
+            className="font-title font-black tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${160 * sTitle}px`, color: brandColor, textShadow: `0 20px 40px ${brandColor}40` }}
           >
             {data.titulo}
@@ -915,7 +914,7 @@ export function BigNumberVariant12(props) {
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[10px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
+              className="font-tag font-black text-[10px] tracking-[0.4em] uppercase text-zinc-500 outline-none block"
             >
               {data.tag || 'INSIGHT'}
             </span>
@@ -925,7 +924,7 @@ export function BigNumberVariant12(props) {
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-white italic leading-relaxed outline-none break-words max-w-full"
+              className="font-text text-white italic leading-relaxed outline-none break-words max-w-full"
               style={{ fontSize: `${22 * sText}px` }}
             >
               "{data.texto_apoio}"
@@ -942,7 +941,7 @@ export function BigNumberVariant12(props) {
 // Número centralizado com preenchimento branco e glow externo
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant13(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -951,7 +950,7 @@ export function BigNumberVariant13(props) {
     <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
       
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{fontFamily: titleFont,  backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
 
       <div className="relative mb-12">
         <div className="absolute inset-0 blur-[60px] opacity-40 rounded-full" style={{ backgroundColor: brandColor }} />
@@ -959,7 +958,7 @@ export function BigNumberVariant13(props) {
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none block italic"
+            className="font-text font-black text-white tracking-tighter leading-none outline-none block italic"
             style={{ fontSize: `${180 * sTitle}px` }}
           >
             {data.titulo}
@@ -971,8 +970,8 @@ export function BigNumberVariant13(props) {
         <span
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-          className="font-outfit font-black text-[14px] tracking-[0.5em] uppercase outline-none block"
-          style={{ color: brandColor }}
+          className="font-tag font-black text-[14px] tracking-[0.5em] uppercase outline-none block"
+          style={{fontFamily: tagFont,  color: brandColor }}
         >
           {data.tag || 'HIGHLIGHT'}
         </span>
@@ -982,7 +981,7 @@ export function BigNumberVariant13(props) {
         <p
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-zinc-400 outline-none leading-relaxed"
+          className="font-text text-zinc-400 outline-none leading-relaxed"
           style={{ fontSize: `${20 * sText}px` }}
         >
           {data.texto_apoio}
@@ -997,7 +996,7 @@ export function BigNumberVariant13(props) {
 // Número preenchido com imagem (bg-clip) em fundo claro + tag + texto.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant14(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1028,7 +1027,7 @@ export function BigNumberVariant14(props) {
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          className="font-text font-black tracking-tighter leading-none outline-none block"
           style={numberStyle}
         >
           {data.titulo}
@@ -1040,7 +1039,7 @@ export function BigNumberVariant14(props) {
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-          className="font-outfit font-bold text-[12px] tracking-[0.4em] uppercase text-black outline-none block"
+          className="font-tag font-bold text-[12px] tracking-[0.4em] uppercase text-black outline-none block"
         >
           {data.tag || 'RESULTADO'}
         </span>
@@ -1051,7 +1050,7 @@ export function BigNumberVariant14(props) {
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-          className="font-playfair text-zinc-600 outline-none break-words max-w-full"
+          className="font-text text-zinc-600 outline-none break-words max-w-full"
           style={{ fontSize: `${20 * sText}px` }}
         >
           {data.texto_apoio}
@@ -1066,7 +1065,7 @@ export function BigNumberVariant14(props) {
 // Número outline colorido flutuando + card dark com imagem + texto.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant15(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1082,7 +1081,7 @@ export function BigNumberVariant15(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-transparent tracking-tighter leading-none outline-none"
+            className="font-text font-black text-transparent tracking-tighter leading-none outline-none"
             style={{ fontSize: `${180 * sTitle}px`, WebkitTextStroke: `4px ${brandColor}` }}
           >
             {data.titulo}
@@ -1106,7 +1105,7 @@ export function BigNumberVariant15(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[10px] tracking-widest uppercase text-zinc-500 outline-none block"
+            className="font-tag font-bold text-[10px] tracking-widest uppercase text-zinc-500 outline-none block"
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1117,7 +1116,7 @@ export function BigNumberVariant15(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white outline-none text-lg break-words max-w-full"
+            className="font-text text-white outline-none text-lg break-words max-w-full"
             style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1133,7 +1132,7 @@ export function BigNumberVariant15(props) {
 // Fundo branco + número colorido em destaque + card de texto.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant16(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1148,7 +1147,7 @@ export function BigNumberVariant16(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block text-center drop-shadow-sm"
+            className="font-text font-black tracking-tighter leading-none outline-none block text-center drop-shadow-sm"
             style={{ fontSize: `${150 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}
@@ -1161,7 +1160,7 @@ export function BigNumberVariant16(props) {
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[10px] tracking-widest uppercase text-zinc-400 outline-none block"
+              className="font-tag font-bold text-[10px] tracking-widest uppercase text-zinc-400 outline-none block"
             >
               {data.tag || 'RESULTADO'}
             </span>
@@ -1172,7 +1171,7 @@ export function BigNumberVariant16(props) {
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair text-zinc-800 outline-none font-medium break-words max-w-full"
+              className="font-text text-zinc-800 outline-none font-medium break-words max-w-full"
               style={{ fontSize: `${18 * sText}px` }}
             >
               {data.texto_apoio}
@@ -1189,7 +1188,7 @@ export function BigNumberVariant16(props) {
 // Número watermark gigante semitransparente + tag pill colorida + número menor.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant17(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1201,7 +1200,7 @@ export function BigNumberVariant17(props) {
       {/* Watermark gigante decorativo */}
       <div className="absolute top-1/4 -right-10 z-0 pointer-events-none opacity-5">
         <span
-          className="font-outfit font-black tracking-tighter leading-none"
+          className="font-text font-black tracking-tighter leading-none"
           style={{ fontSize: `${220 * sTitle}px`, color: brandColor }}
         >
           {data.titulo}
@@ -1214,8 +1213,8 @@ export function BigNumberVariant17(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-white text-[10px] tracking-[0.3em] uppercase px-5 py-2 shadow-md outline-none inline-block"
-            style={{ backgroundColor: brandColor }}
+            className="font-text font-bold text-white text-[10px] tracking-[0.3em] uppercase px-5 py-2 shadow-md outline-none inline-block"
+            style={{fontFamily: tagFont,  backgroundColor: brandColor }}
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1226,7 +1225,7 @@ export function BigNumberVariant17(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-zinc-900 tracking-tighter leading-none outline-none"
+            className="font-title font-black text-zinc-900 tracking-tighter leading-none outline-none"
             style={{ fontSize: `${90 * sTitle}px` }}
           >
             {data.titulo}
@@ -1238,7 +1237,7 @@ export function BigNumberVariant17(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-500 outline-none break-words max-w-full"
+            className="font-text text-zinc-500 outline-none break-words max-w-full"
             style={{ fontSize: `${20 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1254,7 +1253,7 @@ export function BigNumberVariant17(props) {
 // Número centralizado com glow colorido + tag pill frosted.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant18(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo } = props;
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
@@ -1265,7 +1264,7 @@ export function BigNumberVariant18(props) {
       {/* Glow de fundo */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-10 blur-3xl pointer-events-none rounded-full"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
 
       <SmartField field="titulo" {...sp} className="relative z-10 mb-8">
@@ -1273,7 +1272,7 @@ export function BigNumberVariant18(props) {
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-          className="font-outfit font-black tracking-tighter leading-none outline-none block"
+          className="font-title font-black tracking-tighter leading-none outline-none block"
           style={{ fontSize: `${130 * sTitle}px`, color: brandColor }}
         >
           {data.titulo}
@@ -1285,7 +1284,7 @@ export function BigNumberVariant18(props) {
           contentEditable
           suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-          className="font-outfit font-bold text-zinc-800 text-[12px] tracking-[0.4em] uppercase border border-zinc-200 px-8 py-3 bg-white/80 backdrop-blur-md shadow-sm outline-none inline-block"
+          className="font-tag font-bold text-zinc-800 text-[12px] tracking-[0.4em] uppercase border border-zinc-200 px-8 py-3 bg-white/80 backdrop-blur-md shadow-sm outline-none inline-block"
         >
           {data.tag || 'RESULTADO'}
         </span>
@@ -1299,7 +1298,7 @@ export function BigNumberVariant18(props) {
 // Painel superior colorido com número gigante + painel escuro inferior com tag e texto.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant19(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1309,7 +1308,7 @@ export function BigNumberVariant19(props) {
       {/* Painel superior colorido com número */}
       <div
         className="h-[55%] w-full flex items-center justify-center relative p-10 shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
         <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
         <SmartField field="titulo" {...sp} className="w-full text-center">
@@ -1317,7 +1316,7 @@ export function BigNumberVariant19(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none block"
+            className="font-title font-black text-white tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${150 * sTitle}px` }}
           >
             {data.titulo}
@@ -1332,7 +1331,7 @@ export function BigNumberVariant19(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-[12px] tracking-widest uppercase text-white/50 outline-none block"
+            className="font-tag font-bold text-[12px] tracking-widest uppercase text-white/50 outline-none block"
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1342,7 +1341,7 @@ export function BigNumberVariant19(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-white outline-none leading-relaxed break-words max-w-full"
+            className="font-text text-white outline-none leading-relaxed break-words max-w-full"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1358,7 +1357,7 @@ export function BigNumberVariant19(props) {
 // Fundo imagem semiopaco + card branco arredondado inferior com número colorido e texto.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant20(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1380,7 +1379,7 @@ export function BigNumberVariant20(props) {
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black tracking-tighter leading-none outline-none block"
+              className="font-text font-black tracking-tighter leading-none outline-none block"
               style={{ fontSize: `${90 * sTitle}px`, color: brandColor }}
             >
               {data.titulo}
@@ -1391,7 +1390,7 @@ export function BigNumberVariant20(props) {
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[12px] tracking-widest uppercase text-zinc-400 outline-none block"
+              className="font-tag font-black text-[12px] tracking-widest uppercase text-zinc-400 outline-none block"
             >
               {data.tag || 'RESULTADO'}
             </span>
@@ -1402,7 +1401,7 @@ export function BigNumberVariant20(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair font-bold text-zinc-900 outline-none leading-snug break-words max-w-full"
+            className="font-text font-bold text-zinc-900 outline-none leading-snug break-words max-w-full"
             style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1418,7 +1417,7 @@ export function BigNumberVariant20(props) {
 // Faixa lateral colorida com label rotacionado + número gigante e texto em fundo claro.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant21(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1428,7 +1427,7 @@ export function BigNumberVariant21(props) {
       {/* Faixa lateral colorida */}
       <div
         className="w-[15%] h-full flex items-center justify-center relative shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: titleFont,  backgroundColor: brandColor }}
       >
         <SmartField
           field="tag"
@@ -1440,8 +1439,8 @@ export function BigNumberVariant21(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-white tracking-[0.3em] uppercase outline-none inline-block whitespace-nowrap"
-            style={{ fontSize: '12px' }}
+            className="font-text font-bold text-white tracking-[0.3em] uppercase outline-none inline-block whitespace-nowrap"
+            style={{fontFamily: textFont,  fontSize: '12px' }}
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1457,7 +1456,7 @@ export function BigNumberVariant21(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block text-zinc-950"
+            className="font-title font-black tracking-tighter leading-none outline-none block text-zinc-950"
             style={{ fontSize: `${160 * sTitle}px` }}
           >
             {data.titulo}
@@ -1471,7 +1470,7 @@ export function BigNumberVariant21(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair text-zinc-500 outline-none leading-relaxed break-words max-w-full"
+            className="font-text text-zinc-500 outline-none leading-relaxed break-words max-w-full"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1487,7 +1486,7 @@ export function BigNumberVariant21(props) {
 // Metade superior com imagem + metade inferior colorida com número sobreposto e texto bold.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant22(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1505,12 +1504,12 @@ export function BigNumberVariant22(props) {
       {/* Metade inferior colorida com número sobreposto */}
       <div
         className="h-[50%] w-full relative flex flex-col p-10 justify-end shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         {/* Número sobreposto na junção */}
         <div className="absolute -top-24 left-10 z-20 pointer-events-none">
           <span
-            className="font-outfit font-black text-white tracking-tighter leading-none block drop-shadow-2xl"
+            className="font-text font-black text-white tracking-tighter leading-none block drop-shadow-2xl"
             style={{ fontSize: `${180 * sTitle}px` }}
           >
             {data.titulo}
@@ -1522,7 +1521,7 @@ export function BigNumberVariant22(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white tracking-tighter leading-none outline-none block"
+            className="font-text font-black text-white tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${180 * sTitle}px` }}
           >
             {data.titulo}
@@ -1534,7 +1533,7 @@ export function BigNumberVariant22(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[12px] tracking-[0.4em] uppercase text-white/60 outline-none block"
+            className="font-tag font-black text-[12px] tracking-[0.4em] uppercase text-white/60 outline-none block"
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1545,7 +1544,7 @@ export function BigNumberVariant22(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white outline-none leading-[1.1] uppercase break-words"
+            className="font-text font-black text-white outline-none leading-[1.1] uppercase break-words"
             style={{ fontSize: `${32 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1561,7 +1560,7 @@ export function BigNumberVariant22(props) {
 // Painel colorido superior com número + card flutuante centralizado + imagem inferior.
 // ═══════════════════════════════════════════════════════════
 export function BigNumberVariant23(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1573,14 +1572,14 @@ export function BigNumberVariant23(props) {
       {/* Painel superior colorido com badge de edição + número */}
       <div
         className="h-[45%] w-full flex flex-col p-10 justify-center relative shrink-0"
-        style={{ backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
         <SmartField field="badge_text" {...sp} className="absolute top-8 left-10">
           <span
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white bg-white/20 px-4 py-1 text-[10px] tracking-widest uppercase outline-none inline-block"
+            className="font-text font-black text-white bg-white/20 px-4 py-1 text-[10px] tracking-widest uppercase outline-none inline-block"
           >
             {data.badge_text || 'VOL. 01'}
           </span>
@@ -1592,7 +1591,7 @@ export function BigNumberVariant23(props) {
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter leading-none outline-none block"
+              className="font-title font-black text-white tracking-tighter leading-none outline-none block"
               style={{ fontSize: `${150 * sTitle}px` }}
             >
               {data.titulo}
@@ -1608,8 +1607,8 @@ export function BigNumberVariant23(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-[10px] tracking-[0.4em] uppercase outline-none block"
-            style={{ color: brandColor }}
+            className="font-tag font-black text-[10px] tracking-[0.4em] uppercase outline-none block"
+            style={{fontFamily: titleFont,  color: brandColor }}
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1619,7 +1618,7 @@ export function BigNumberVariant23(props) {
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-outfit font-black text-zinc-900 outline-none leading-tight uppercase break-words max-w-full"
+            className="font-text font-black text-zinc-900 outline-none leading-tight uppercase break-words max-w-full"
             style={{ fontSize: `${24 * sText}px` }}
           >
             {data.texto_apoio}
@@ -1643,7 +1642,7 @@ export function BigNumberVariant23(props) {
 // VARIANTE 24 — Rounded Card Float
 // Fundo claro com ghost watermark + imagem em card arredondado + card flutuante com número e tag.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant24({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant24({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1665,7 +1664,7 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
         {[...Array(5)].map((_, i) => (
           <SmartField key={i} field="titulo" {...sp} className="w-full">
             <span
-              className="font-outfit font-black text-transparent tracking-tighter leading-none whitespace-nowrap block"
+              className="font-text font-black text-transparent tracking-tighter leading-none whitespace-nowrap block"
               style={{ fontSize: '100px', WebkitTextStroke: `2px ${brandColor}` }}
             >
               {data.titulo} {data.titulo} {data.titulo}
@@ -1690,7 +1689,7 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black tracking-tighter leading-none outline-none block"
+              className="font-title font-black tracking-tighter leading-none outline-none block"
               style={{ fontSize: `${80 * sTitle}px`, color: brandColor }}
             >
               {data.titulo}
@@ -1702,7 +1701,7 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-zinc-500 outline-none text-xs tracking-widest uppercase break-words max-w-full"
+              className="font-text font-bold text-zinc-500 outline-none text-xs tracking-widest uppercase break-words max-w-full"
               style={{ fontSize: `${12 * sText}px` }}
             >
               {data.texto_apoio}
@@ -1718,7 +1717,7 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
 // VARIANTE 25 — Image Over Color Bold
 // Imagem superior fullwidth + bloco colorido inferior com número gigante sobreposto e texto bold.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant25({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant25({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1741,7 +1740,7 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
       </SmartField>
 
       {/* Bloco colorido inferior */}
-      <div className="h-[40%] w-full relative flex flex-col p-10 justify-center shrink-0" style={{ backgroundColor: brandColor }}>
+      <div className="h-[40%] w-full relative flex flex-col p-10 justify-center shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         {/* Número gigante sobreposto */}
         <div className="absolute -top-20 left-10 z-20 pointer-events-none">
           <SmartField field="titulo" {...sp}>
@@ -1749,7 +1748,7 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white tracking-tighter leading-none outline-none block drop-shadow-2xl"
+              className="font-text font-black text-white tracking-tighter leading-none outline-none block drop-shadow-2xl"
               style={{ fontSize: `${180 * sTitle}px` }}
             >
               {data.titulo}
@@ -1763,7 +1762,7 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white/90 outline-none leading-tight uppercase break-words max-w-full"
+              className="font-text font-black text-white/90 outline-none leading-tight uppercase break-words max-w-full"
               style={{ fontSize: `${28 * sText}px` }}
             >
               {data.texto_apoio}
@@ -1779,7 +1778,7 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
 // VARIANTE 26 — Minimal Footer Number
 // Imagem fullwidth + barra inferior branca com label, título e número colorido alinhados.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant26({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant26({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1809,7 +1808,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[10px] tracking-[0.4em] uppercase text-zinc-400 outline-none block"
+              className="font-text font-black text-[10px] tracking-[0.4em] uppercase text-zinc-400 outline-none block"
             >
               {data.tag || 'RESULTADO'}
             </span>
@@ -1820,7 +1819,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit font-black text-zinc-950 outline-none leading-none uppercase break-words max-w-full"
+              className="font-text font-black text-zinc-950 outline-none leading-none uppercase break-words max-w-full"
               style={{ fontSize: `${22 * sText}px` }}
             >
               {data.texto_apoio}
@@ -1833,7 +1832,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block"
+            className="font-text font-black tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${110 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}
@@ -1848,7 +1847,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
 // VARIANTE 27 — Bordered Dark
 // Fundo escuro com bordas coloridas no topo e rodapé + badge outline + número gigante + texto.
 // ═══════════════════════════════════════════════════════════
-export function BigNumberVariant27({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo }) {
+export function BigNumberVariant27({ data, index, slideCount, brandColor, brandHandle, showBrandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -1856,7 +1855,7 @@ export function BigNumberVariant27({ data, index, slideCount, brandColor, brandH
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col relative overflow-hidden p-12">
       {/* Borda colorida topo */}
-      <div className="absolute top-0 left-0 w-full h-4 z-10" style={{ backgroundColor: brandColor }} />
+      <div className="absolute top-0 left-0 w-full h-4 z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
       {/* Borda colorida rodapé */}
       <div className="absolute bottom-0 left-0 w-full h-4 z-10" style={{ backgroundColor: brandColor }} />
 
@@ -1877,8 +1876,8 @@ export function BigNumberVariant27({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white text-[14px] tracking-[0.5em] uppercase px-6 py-2 border-2 outline-none inline-block"
-            style={{ borderColor: brandColor }}
+            className="font-tag font-black text-white text-[14px] tracking-[0.5em] uppercase px-6 py-2 border-2 outline-none inline-block"
+            style={{fontFamily: tagFont,  borderColor: brandColor }}
           >
             {data.tag || 'RESULTADO'}
           </span>
@@ -1890,7 +1889,7 @@ export function BigNumberVariant27({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-outfit font-black tracking-tighter leading-none outline-none block"
+            className="font-title font-black tracking-tighter leading-none outline-none block"
             style={{ fontSize: `${220 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}
@@ -1903,7 +1902,7 @@ export function BigNumberVariant27({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-outfit font-black text-white outline-none leading-tight uppercase break-words max-w-full"
+            className="font-text font-black text-white outline-none leading-tight uppercase break-words max-w-full"
             style={{ fontSize: `${32 * sText}px` }}
           >
             {data.texto_apoio}
