@@ -2298,6 +2298,48 @@ export const VARIANT_THUMBNAILS = {
         </div>
         <div className="absolute top-1/2 left-2 -translate-y-1/2 w-4 h-2.5 bg-zinc-900 rounded-[2px]" />
       </div>
+    ),
+    35: ({ brandColor: accent }) => (
+      <div className="w-full h-full relative overflow-hidden bg-black">
+        <div className="absolute inset-0" style={{ clipPath: 'polygon(0 0, 65% 0, 35% 100%, 0 100%)', background: img, opacity: 0.3 }} />
+        <div className="absolute inset-0" style={{ clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 35% 100%)', background: accent }}>
+           <div className="absolute inset-0 opacity-40" style={{ background: img }} />
+        </div>
+        <div className="absolute top-[40%] left-2 flex flex-col gap-1">
+           <div className="w-8 h-[2px] bg-white rounded-full" />
+           <div className="w-12 h-[1px] bg-white/40 rounded-full" />
+        </div>
+        <div className="absolute bottom-4 right-2 flex flex-col gap-1 items-end">
+           <div className="w-8 h-[2px] bg-white rounded-full" />
+           <div className="w-12 h-[1px] bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    36: ({ brandColor: accent }) => (
+      <div className="w-full h-full p-2 flex flex-col overflow-hidden bg-[#FDFBF7] relative">
+        <div className="w-12 h-[2px] bg-zinc-800 rounded-full self-center mt-4 mb-2" />
+        <div className="flex-1 flex items-center justify-center relative">
+           <div className="w-[45%] h-[50%] bg-zinc-200 rounded-md rotate-[-4deg] -translate-x-1" style={{ background: img, opacity: 0.5 }} />
+           <div className="w-[45%] h-[55%] bg-white rounded-md rotate-[4deg] translate-x-1 shadow-md border-2 border-white overflow-hidden relative">
+              <div className="absolute inset-0" style={{ background: img }} />
+              <div className="absolute bottom-0 w-full h-2 bg-black/40" />
+           </div>
+           <div className="absolute w-4 h-4 rounded-full bg-white border shadow-sm z-30" style={{ borderColor: accent }} />
+        </div>
+      </div>
+    ),
+    37: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden">
+        <div className="h-1/2 w-full bg-[#EBE9E1] flex flex-col items-center justify-end p-2 gap-1">
+           <div className="w-8 h-[2px] bg-zinc-800 rounded-full" />
+           <div className="w-[80%] h-[70%] bg-zinc-400 rounded-xl border-2 border-zinc-800" style={{ background: img }} />
+        </div>
+        <div className="h-1/2 w-full flex flex-col items-center justify-start p-2 gap-1" style={{ background: accent }}>
+           <div className="w-[80%] h-[70%] bg-black rounded-xl border-2 border-zinc-800" style={{ background: img }} />
+           <div className="w-8 h-[2px] bg-white rounded-full" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-zinc-800 rounded-full border-2 border-white" />
+        </div>
+      </div>
     )
   },
   list: {

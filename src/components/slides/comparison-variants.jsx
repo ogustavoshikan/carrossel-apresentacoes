@@ -1832,6 +1832,172 @@ export function ComparisonVariant34(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 35 — Diagonal Clash
+// Divisão diagonal agressiva com clip-path e imagens integradas
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant35(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full relative overflow-hidden bg-black text-white rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+      </div>
+
+      <div className="absolute inset-0 z-0 bg-zinc-900" style={{ clipPath: 'polygon(0 0, 65% 0, 35% 100%, 0 100%)' }}>
+        <ImageBg data={data} className="w-full h-full opacity-30 grayscale" />
+        <div className="absolute top-[40%] left-8 w-[45%]">
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-2 leading-[0.9] text-white" style={{ fontFamily: titleFont, fontSize: `${30 * sTitle}px` }}>
+              {data.titulo_a || data.titulo || 'TÍTULO A'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_a">
+            <TextWrapper {...sp} as="p" field="texto_a" className="text-zinc-400 font-medium leading-relaxed" style={{ fontFamily: textFont, fontSize: `${11 * sText}px` }}>
+              {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      <div className="absolute inset-0 z-10 transition-colors duration-500" style={{ clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 35% 100%)', backgroundColor: brandColor }}>
+        <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        <div className="absolute bottom-12 right-8 w-[45%] text-right flex flex-col items-end">
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-2 leading-[0.9] text-white drop-shadow-lg" style={{ fontFamily: titleFont, fontSize: `${30 * sTitle}px` }}>
+              {data.titulo_b || 'TÍTULO B'}
+            </TextWrapper>
+          </SmartEl>
+          <SmartEl {...sp} field="texto_b">
+            <TextWrapper {...sp} as="p" field="texto_b" className="text-white/80 font-medium leading-relaxed drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${11 * sText}px` }}>
+              {data.texto_b || (data.items?.[1]?.value) || 'Texto de apoio da segunda opção.'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 36 — Dynamic Cards
+// Cards rotacionados e sobrepostos com fundo claro
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant36(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full p-8 flex flex-col overflow-hidden bg-[#FDFBF7] relative rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+      </div>
+
+      <div className="mt-12 mb-4 shrink-0 text-center relative z-10">
+        <SmartEl {...sp} field="titulo">
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+            {data.titulo || 'VERSUS'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center gap-2 relative min-h-0">
+        <div className="w-1/2 h-[60%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] relative overflow-hidden rotate-[-4deg] -translate-x-2 border-2 border-white">
+          <ImageBg data={data} className="w-full h-full grayscale opacity-60" />
+          <div className="absolute bottom-0 left-0 w-full p-3 bg-black/40 backdrop-blur-sm">
+            <SmartEl {...sp} field="titulo_a">
+              <TextWrapper {...sp} as="p" field="titulo_a" className="text-white text-[9px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
+                {data.titulo_a || 'OPÇÃO A'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        </div>
+
+        <div className="absolute z-30 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-2xl border-4" style={{ borderColor: brandColor }}>
+          <SmartEl {...sp} field="badge_text">
+            <TextWrapper {...sp} field="badge_text" className="font-black text-[10px]" style={{ color: brandColor, fontFamily: titleFont }}>
+              {data.badge_text || 'VS'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+
+        <div className="w-1/2 h-[65%] bg-white rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15)] relative overflow-hidden rotate-[4deg] translate-x-2 border-4 border-white z-20">
+          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full p-3 text-center">
+            <SmartEl {...sp} field="titulo_b">
+              <TextWrapper {...sp} as="p" field="titulo_b" className="text-white text-[10px] font-black uppercase tracking-widest" style={{ fontFamily: titleFont }}>
+                {data.titulo_b || 'OPÇÃO B'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 37 — Bold Vertical
+// Empilhamento vertical com grandes cards e títulos destacados
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant37(props) {
+  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const imgB = data.imageUrl2 || data.imageUrl;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden rounded-slide">
+      <div className="absolute top-0 left-0 w-full p-10 z-50">
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EBE9E1" />
+      </div>
+
+      <div className="h-1/2 w-full relative shrink-0 bg-[#EBE9E1] flex flex-col items-center justify-end p-8 pb-4 z-0">
+        <div className="w-full text-center mb-3">
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h2" field="titulo_a" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${20 * sTitle}px` }}>
+              {data.titulo_a || 'OPÇÃO A'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="w-full h-[80%] rounded-[40px] shadow-[0_25px_60px_rgba(0,0,0,0.1)] relative overflow-hidden border-[4px] border-[#1a1a1a]">
+          <ImageBg data={data} className="w-full h-full" />
+        </div>
+      </div>
+
+      <div className="h-1/2 w-full relative z-20 p-8 pt-4 flex flex-col justify-start transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center shadow-2xl border-4 border-white">
+          <SmartEl {...sp} field="badge_text">
+            <TextWrapper {...sp} field="badge_text" className="font-black text-sm" style={{ fontFamily: titleFont }}>
+              {data.badge_text || 'VS'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+        <div className="w-full h-[80%] rounded-[40px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] relative overflow-hidden border-[4px] border-[#1a1a1a] mb-3">
+          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        </div>
+        <div className="w-full text-center mt-auto">
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h2" field="titulo_b" className="font-black text-white leading-none uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${20 * sTitle}px` }}>
+              {data.titulo_b || 'OPÇÃO B'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -1867,6 +2033,9 @@ export const COMPARISON_VARIANT_COMPONENTS = {
   32: ComparisonVariant32,
   33: ComparisonVariant33,
   34: ComparisonVariant34,
+  35: ComparisonVariant35,
+  36: ComparisonVariant36,
+  37: ComparisonVariant37,
 };
 
 export const COMPARISON_VARIANT_META = [
@@ -1900,6 +2069,9 @@ export const COMPARISON_VARIANT_META = [
   { id: 32, nome: 'Clean Stack', badge: 'NEW' },
   { id: 33, nome: 'Balanced Stack', badge: 'NEW' },
   { id: 34, nome: 'Offset Stack', badge: 'NEW' },
+  { id: 35, nome: 'Diagonal Clash', badge: 'NEW' },
+  { id: 36, nome: 'Dynamic Cards', badge: 'NEW' },
+  { id: 37, nome: 'Bold Vertical', badge: 'NEW' },
 ];
 
 
