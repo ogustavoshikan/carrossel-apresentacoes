@@ -6,14 +6,38 @@
 
 /** Opções de fontes disponíveis no seletor */
 export const FONT_OPTIONS = [
+  // Sans-Serif (Modernas e Limpas)
   'Inter',
+  'Josefin Sans',
   'Montserrat',
-  'Roboto',
-  'Poppins',
-  'Playfair Display',
-  'Oswald',
+  'Montserrat Alternates',
   'Outfit',
+  'Poppins',
+  'Raleway',
+  'Roboto',
   'Space Grotesk',
+  'Tenor Sans',
+  // Serifadas (Elegantes / Premium / Luxo)
+  'Belleza',
+  'Bodoni Moda',
+  'Cardo',
+  'Cinzel',
+  'Cormorant Garamond',
+  'Crimson Text',
+  'DM Serif Display',
+  'EB Garamond',
+  'Forum',
+  'Fraunces',
+  'Gloock',
+  'Italiana',
+  'Libre Baskerville',
+  'Libre Caslon Display',
+  'Lora',
+  'Marcellus',
+  'Oswald',
+  'Playfair Display',
+  'Prata',
+  'Spectral',
 ];
 
 /** Defaults do brand */
