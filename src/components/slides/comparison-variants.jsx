@@ -721,7 +721,7 @@ export function ComparisonVariant1(props) {
     ];
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
+    <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       
       <div className="flex-1 flex flex-col justify-start pt-5 pb-8">
@@ -730,7 +730,7 @@ export function ComparisonVariant1(props) {
           onActionStart={onActionStart} onTextChange={onTextChange} 
           selectedElement={selectedElement} onSelectElement={onSelectElement}
           wrapperClasses="mb-3 shrink-0"
-          className="text-white"
+          color="text-black"
         />
 
         <div className="space-y-3 overflow-hidden flex-1 pr-2 flex flex-col justify-center">
@@ -760,7 +760,7 @@ export function ComparisonVariant1(props) {
                   <span 
                     contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'value', e.currentTarget.innerText)}
                     className={`font-text text-base block truncate line-clamp-2 font-bold`}
-                    style={{ color: item.highlight ? 'rgb(0 0 0)' : 'rgb(253 253 253)' }}
+                    style={{ color: item.highlight ? 'rgb(0 0 0)' : '#a7a5a5' }}
                   >
                     {item.value}
                   </span>
