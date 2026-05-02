@@ -173,7 +173,7 @@ export function ComparisonVariant14(props) {
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       </div>
-      <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pb-12" style={{ backgroundColor: '#000000' }}>
+      <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pb-12" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex items-center justify-center gap-2 mb-3 mt-4">
           <X className="w-4 h-4 text-red-500" />
           <SmartEl {...sp} field="badge_text">
@@ -183,7 +183,7 @@ export function ComparisonVariant14(props) {
           </SmartEl>
         </div>
         <SmartEl {...sp} field="tag">
-          <TextWrapper {...sp} as="p" field="tag" className="text-white leading-snug font-medium whitespace-pre-wrap px-10" style={{ fontFamily: textFont, fontSize: `${19 * sText}px` }}>
+          <TextWrapper {...sp} as="p" field="tag" className="text-black leading-snug font-medium whitespace-pre-wrap px-10" style={{ fontFamily: textFont, fontSize: `${19 * sText}px` }}>
             {data.tag || (data.items?.[0]?.value && data.items?.[0]?.value !== 'Qualidade comum' ? data.items[0].value : 'EXPECTATIVA\nBolo perfeitamente reto, com andares alinhados e firmes.')}
           </TextWrapper>
         </SmartEl>
@@ -203,9 +203,9 @@ export function ComparisonVariant14(props) {
           </TextWrapper>
         </SmartEl>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5 py-2 rounded-full z-20 border-4 border-black/10 flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] px-5 py-2 rounded-full z-20 border-4 border-black/10 flex items-center justify-center">
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none text-center tracking-tighter uppercase whitespace-pre-wrap" style={{ fontFamily: titleFont, fontSize: `${26 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-none text-center tracking-tighter uppercase whitespace-pre-wrap" style={{ fontFamily: titleFont, fontSize: `${26 * sTitle}px` }}>
             {data.titulo || 'EXPECTATIVA VS\nREALIDADE'}
           </TextWrapper>
         </SmartEl>
