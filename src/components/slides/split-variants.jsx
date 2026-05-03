@@ -4185,13 +4185,13 @@ export function SplitVariant67(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <div className="w-full h-[45%] p-8 flex flex-col justify-center relative shadow-2xl z-20 shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="w-full h-[45%] p-8 flex flex-col justify-center relative z-20 shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="mt-6">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-title font-black leading-[0.8] tracking-tighter uppercase text-white drop-shadow-xl outline-none"
+              className="font-title font-black leading-[0.8] tracking-tighter uppercase text-white outline-none"
               style={{ fontSize: `${48 * sTitle}px` }}
             >
               {data.titulo}
@@ -4213,7 +4213,7 @@ export function SplitVariant67(props) {
             </p>
           </SmartField>
         </div>
-        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative shadow-lg border-2 border-zinc-50 shrink-0 -translate-y-[15px]">
+        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative border-2 border-zinc-50 shrink-0 -translate-y-[18px]">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
