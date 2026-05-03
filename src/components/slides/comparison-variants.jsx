@@ -792,14 +792,14 @@ export function ComparisonVariant2(props) {
 
   return (
     <div className="w-full h-full flex flex-row relative rounded-slide items-stretch">
-      <div className="flex-1 h-full p-8 pt-32 flex flex-col border-r border-black/20" style={{ backgroundColor: '#000000' }}>
+      <div className="flex-1 h-full p-8 pt-32 flex flex-col border-r border-black/20" style={{ backgroundColor: '#ffffff' }}>
         <h3 contentEditable suppressContentEditableWarning className="font-text font-black text-zinc-600 tracking-widest uppercase text-xs mb-8">{mercadoLabel}</h3>
         <div className="space-y-6 flex-1 overflow-hidden">
           {normalItems.map((item, i) => (
-            <div key={i} className="pb-4 border-b border-white/5 last:border-0">
+            <div key={i} className="pb-4 border-b border-black/10 last:border-0">
               <span 
                 contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item) !== -1 ? items.indexOf(item) : items.length, 'value', e.currentTarget.innerText)}
-                className="block font-title text-zinc-400 text-lg leading-tight"
+                className="block font-title text-[#000000] text-lg leading-tight"
                 style={{fontFamily: textFont }}
               >
                 {item.value || 'Qualidade comum'}
@@ -828,7 +828,7 @@ export function ComparisonVariant2(props) {
       {/* Badge VS Centralizado de forma robusta */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
         <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
-          <div className="w-12 h-12 bg-[#020202] rounded-full flex items-center justify-center shadow-2xl border-4 border-[#020202]">
+          <div className="w-12 h-12 bg-[#1A1A1A] rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
             <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-[10px] uppercase text-white">
               {data.badge_text || 'VS'}
             </TextWrapper>
@@ -947,7 +947,7 @@ export function ComparisonVariant6(props) {
   const rowCount = Math.max(leftItems.length, rightItems.length);
 
   return (
-    <div className="w-full h-full bg-[#020202] flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide">
+    <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide">
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       
       <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
@@ -955,7 +955,7 @@ export function ComparisonVariant6(props) {
           <SmartElement slideIndex={index} field="titulo" position={data.positions?.titulo || {x:0, y:0, scale:1}} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
             <h2 
               contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange && onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-title font-black text-white tracking-tighter outline-none border-l-4 pl-4"
+              className="font-title font-black text-[#1A1A1A] tracking-tighter outline-none border-l-4 pl-4"
               style={{ fontSize: `${36 * sTitle}px`, borderColor: brandColor }}
             >
               {data.titulo}
