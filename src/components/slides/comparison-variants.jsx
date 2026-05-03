@@ -996,11 +996,11 @@ export function ComparisonVariant9(props) {
   const highlightItems = items.filter(it => it.highlight);
   
   return (
-    <div className="w-full h-full bg-[#050505] flex relative rounded-slide">
+    <div className="w-full h-full flex relative rounded-slide" style={{ backgroundColor: brandColor }}>
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       </div>
-      <div className="absolute inset-0 bg-zinc-900 clip-diagonal z-0" style={{ clipPath: 'polygon(0px 0px, 45% 0px, 55% 100%, 0px 100%)' }}></div>
+      <div className="absolute inset-0 bg-white clip-diagonal z-0" style={{ clipPath: 'polygon(0px 0px, 45% 0px, 55% 100%, 0px 100%)' }}></div>
       
       <div className="absolute inset-0 z-10 flex flex-col p-10 pt-20 pointer-events-none">
         <ComparisonTitle 
@@ -1008,6 +1008,7 @@ export function ComparisonVariant9(props) {
           onActionStart={onActionStart} onTextChange={onTextChange} 
           selectedElement={selectedElement} onSelectElement={onSelectElement}
           wrapperClasses="mb-10 text-center pointer-events-auto"
+          color="text-[#1A1A1A]"
         />
 
         <div className="flex-1 flex pointer-events-auto">
