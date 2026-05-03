@@ -1662,7 +1662,8 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
         brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
         brandColor={brandColor} isVerified={isVerified}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
-        hideDot={false} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#71717a" counterColor="#a1a1aa"
       />
 
       {/* Ghost watermark */}
@@ -1737,7 +1738,8 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
         brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
         brandColor={brandColor} isVerified={isVerified}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
-        hideDot={false} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#71717a" counterColor="#a1a1aa"
       />
 
       {/* Imagem superior */}
@@ -1798,7 +1800,8 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
         brandHandle={brandHandle} showBrandHandle={showBrandHandle} brandAvatar={brandAvatar}
         brandColor={brandColor} isVerified={isVerified}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
-        hideDot={false} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#71717a" counterColor="#a1a1aa"
       />
 
       {/* Imagem fullwidth */}
@@ -1873,6 +1876,7 @@ export function BigNumberVariant27({ data, index, slideCount, brandColor, brandH
         brandColor={brandColor} isVerified={isVerified}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
         hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#71717a" counterColor="#a1a1aa"
       />
 
       <div className="flex-1 flex flex-col justify-center items-start">
