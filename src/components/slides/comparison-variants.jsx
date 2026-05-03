@@ -1901,7 +1901,7 @@ export function ComparisonVariant36(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full p-8 flex flex-col overflow-hidden bg-[#FDFBF7] relative rounded-slide">
+    <div className="w-full h-full p-8 flex flex-col overflow-hidden relative rounded-slide" style={{ backgroundColor: brandColor }}>
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
       </div>
@@ -1915,17 +1915,19 @@ export function ComparisonVariant36(props) {
       </div>
 
       <div className="flex-1 flex items-center justify-center gap-2 relative min-h-0">
-        <div className="w-1/2 h-[60%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] relative overflow-hidden rotate-[-4deg] -translate-x-2 border-2 border-white">
-          <ImageBg data={data} className="w-full h-full grayscale opacity-60" />
-          <div className="absolute bottom-0 left-0 w-full p-3 bg-black/40 backdrop-blur-sm">
-            <SmartEl {...sp} field="titulo_a">
-              <TextWrapper {...sp} as="p" field="titulo_a" className="text-white text-[9px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
-                {data.titulo_a || 'OPÇÃO A'}
-              </TextWrapper>
-            </SmartEl>
+        {/* Card A */}
+        <div className="w-1/2 flex flex-col items-center gap-2 rotate-[-4deg] -translate-x-2">
+          <div className="w-full h-[60%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] relative overflow-hidden border-2 border-white" style={{ aspectRatio: '3/4' }}>
+            <ImageBg data={data} className="w-full h-full grayscale opacity-60" />
           </div>
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="p" field="titulo_a" className="text-[#1a1a1a] text-[9px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
+              {data.titulo_a || 'OPÇÃO A'}
+            </TextWrapper>
+          </SmartEl>
         </div>
 
+        {/* Badge VS */}
         <div className="absolute z-30 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-2xl border-4" style={{ borderColor: brandColor }}>
           <SmartEl {...sp} field="badge_text">
             <TextWrapper {...sp} field="badge_text" className="font-black text-[10px]" style={{ color: brandColor, fontFamily: titleFont }}>
@@ -1934,16 +1936,17 @@ export function ComparisonVariant36(props) {
           </SmartEl>
         </div>
 
-        <div className="w-1/2 h-[65%] bg-white rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15)] relative overflow-hidden rotate-[4deg] translate-x-2 border-4 border-white z-20">
-          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full p-3 text-center">
-            <SmartEl {...sp} field="titulo_b">
-              <TextWrapper {...sp} as="p" field="titulo_b" className="text-white text-[10px] font-black uppercase tracking-widest" style={{ fontFamily: titleFont }}>
-                {data.titulo_b || 'OPÇÃO B'}
-              </TextWrapper>
-            </SmartEl>
+        {/* Card B */}
+        <div className="w-1/2 flex flex-col items-center gap-2 rotate-[4deg] translate-x-2 z-20">
+          <div className="w-full bg-white rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15)] relative overflow-hidden border-4 border-white" style={{ aspectRatio: '3/4' }}>
+            <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="p" field="titulo_b" className="text-[#1a1a1a] text-[10px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
+              {data.titulo_b || 'OPÇÃO B'}
+            </TextWrapper>
+          </SmartEl>
         </div>
       </div>
     </div>
