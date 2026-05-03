@@ -1019,7 +1019,13 @@ export function BigNumberVariant14(props) {
       };
 
   return (
-    <div className="w-full h-full bg-zinc-100 flex flex-col p-10 overflow-hidden relative justify-center">
+    <div 
+      className="w-full h-full bg-zinc-100 flex flex-col p-10 overflow-hidden relative justify-center"
+      style={{ 
+        borderTop: `10px solid ${brandColor}`,
+        borderBottom: `10px solid ${brandColor}`
+      }}
+    >
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
 
       <SmartField field="titulo" {...sp} className="mb-4">
