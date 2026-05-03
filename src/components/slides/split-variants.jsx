@@ -2338,7 +2338,7 @@ export function SplitVariant38(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[35%] relative shrink-0 z-0 border-b-[8px]" style={{ borderColor: brandColor }}>
+      <SmartField field="imagem" {...sp} className="w-full relative shrink-0 z-0 border-b-[8px]" style={{ height: 'calc(35% + 35px)', borderColor: brandColor }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10">
@@ -2747,7 +2747,7 @@ export function SplitVariant45(props) {
         counterColor="#1A1A1A"
         counterBg="#EDEDED"
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-[25px] overflow-hidden mt-6 relative">
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-[25px] overflow-hidden mt-[39px] relative">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 flex flex-col justify-center py-8">
