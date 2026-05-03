@@ -1434,12 +1434,29 @@ export function ComparisonVariant29(props) {
         <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
       </div>
 
-      <div className="flex-1 flex flex-row items-center justify-center gap-4 px-6 mt-12 relative">
-        <div className="w-1/2 flex flex-col items-center">
-          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-sm bg-zinc-200 mb-6">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 mt-4 relative gap-4">
+
+        {/* Linha das imagens */}
+        <div className="w-full flex flex-row gap-4 relative">
+          <div className="w-1/2 aspect-square rounded-2xl overflow-hidden shadow-sm bg-zinc-200">
             <ImageBg data={data} className="w-full h-full" />
           </div>
-          <div className="text-center px-2">
+          <div className="w-1/2 aspect-square rounded-2xl overflow-hidden shadow-2xl bg-zinc-100">
+            <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+          </div>
+          {/* Badge VS */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-4 py-2 rounded-xl z-30 text-[10px] font-black shadow-lg" style={{ fontFamily: titleFont }}>
+            <SmartEl {...sp} field="badge_text">
+              <TextWrapper {...sp} field="badge_text" className="uppercase">
+                {data.badge_text || 'VS'}
+              </TextWrapper>
+            </SmartEl>
+          </div>
+        </div>
+
+        {/* Linha dos textos */}
+        <div className="w-full flex flex-row gap-4">
+          <div className="w-1/2 text-center px-2">
             <SmartEl {...sp} field="tag">
               <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-zinc-400 uppercase mb-2 block" style={{ fontFamily: textFont }}>
                 {data.tag || 'O COMUM'}
@@ -1456,13 +1473,7 @@ export function ComparisonVariant29(props) {
               </TextWrapper>
             </SmartEl>
           </div>
-        </div>
-
-        <div className="w-1/2 flex flex-col items-center">
-          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 mb-6">
-            <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
-          </div>
-          <div className="text-center px-2">
+          <div className="w-1/2 text-center px-2">
             <SmartEl {...sp} field="cta_text">
               <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] uppercase mb-2 block" style={{ fontFamily: textFont, color: brandColor }}>
                 {data.cta_text || 'O PREMIUM'}
@@ -1481,13 +1492,6 @@ export function ComparisonVariant29(props) {
           </div>
         </div>
 
-        <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] text-white px-4 py-2 rounded-xl z-30 text-[10px] font-black shadow-lg" style={{ fontFamily: titleFont }}>
-          <SmartEl {...sp} field="badge_text">
-            <TextWrapper {...sp} field="badge_text" className="uppercase">
-              {data.badge_text || 'VS'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
       </div>
     </div>
   );
