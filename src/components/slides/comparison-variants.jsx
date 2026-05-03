@@ -1917,11 +1917,11 @@ export function ComparisonVariant36(props) {
       <div className="flex-1 flex items-center justify-center gap-2 relative min-h-0">
         {/* Card A */}
         <div className="w-1/2 flex flex-col items-center gap-2 rotate-[-4deg] -translate-x-2">
-          <div className="w-full h-[60%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] relative overflow-hidden border-2 border-white" style={{ aspectRatio: '3/4' }}>
+          <div className="w-full h-[60%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] relative overflow-hidden border-[3px] border-white" style={{ aspectRatio: '3/4' }}>
             <ImageBg data={data} className="w-full h-full grayscale opacity-60" />
           </div>
           <SmartEl {...sp} field="titulo_a">
-            <TextWrapper {...sp} as="p" field="titulo_a" className="text-[#1a1a1a] text-[9px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="p" field="titulo_a" className="text-[#f9f5f5] text-[10px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
               {data.titulo_a || 'OPÇÃO A'}
             </TextWrapper>
           </SmartEl>
@@ -1938,12 +1938,12 @@ export function ComparisonVariant36(props) {
 
         {/* Card B */}
         <div className="w-1/2 flex flex-col items-center gap-2 rotate-[4deg] translate-x-2 z-20">
-          <div className="w-full bg-white rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15)] relative overflow-hidden border-4 border-white" style={{ aspectRatio: '3/4' }}>
+          <div className="w-full bg-white rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15)] relative overflow-hidden border-[3px] border-white" style={{ aspectRatio: '3/4' }}>
             <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
           <SmartEl {...sp} field="titulo_b">
-            <TextWrapper {...sp} as="p" field="titulo_b" className="text-[#1a1a1a] text-[10px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
+            <TextWrapper {...sp} as="p" field="titulo_b" className="text-[#f9f5f5] text-[10px] font-black uppercase tracking-widest text-center" style={{ fontFamily: titleFont }}>
               {data.titulo_b || 'OPÇÃO B'}
             </TextWrapper>
           </SmartEl>
