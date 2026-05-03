@@ -278,7 +278,7 @@ export function ComparisonVariant16(props) {
       </div>
       <div className="absolute top-24 left-0 w-full z-30 px-6 flex justify-center">
         <SmartEl {...sp} field="titulo" className="text-center bg-white/90 backdrop-blur py-3 px-6 rounded-full shadow-lg border border-white/50 inline-block mx-auto max-w-[90%] relative">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${20 * sText}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-none uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${26 * sText}px` }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
           </TextWrapper>
         </SmartEl>
@@ -288,7 +288,7 @@ export function ComparisonVariant16(props) {
           <div className="absolute inset-0 bg-cover bg-left blur-[8px] grayscale-[50%] opacity-70 scale-110" style={{ backgroundImage: `url(${imgUrl})` }} />
           <div className="absolute inset-0 bg-black/40" />
           <SmartEl {...sp} field="tag" className="z-10 w-full">
-            <TextWrapper {...sp} as="p" field="tag" className="text-white/80 leading-snug font-medium text-center whitespace-pre-wrap drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="tag" className="text-white/80 leading-snug font-medium text-center whitespace-pre-wrap drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
           </SmartEl>
@@ -297,7 +297,7 @@ export function ComparisonVariant16(props) {
           <div className="absolute inset-0 bg-cover bg-right" style={{ backgroundImage: `url(${imgUrl})` }} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           <SmartEl {...sp} field="texto_apoio" className="z-10 w-full">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug text-center whitespace-pre-wrap drop-shadow-xl" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug text-center whitespace-pre-wrap drop-shadow-xl" style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
           </SmartEl>
