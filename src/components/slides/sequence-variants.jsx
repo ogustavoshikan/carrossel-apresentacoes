@@ -360,12 +360,15 @@ export function SequenceVariant4(props) {
         </SmartEl>
       </div>
 
-      <div className="h-[20%] bg-[#111] w-full flex items-end px-8 pb-8 gap-3 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
+      <div 
+        className="h-[20%] w-full flex items-end px-8 pb-8 gap-3 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)] transition-colors duration-500"
+        style={{ backgroundColor: brandColor }}
+      >
         {stepsToShow.map((i) => (
           <div key={i} className="flex-1 flex flex-col gap-2.5">
             <div 
-              className={`h-[4px] w-full rounded-full transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${i === step ? "opacity-100 scale-100" : "opacity-20 scale-95"}`}
-              style={{fontFamily: textFont,  backgroundColor: i === step ? brandColor : "#ffffff" }}
+              className={`h-[4px] w-full rounded-full transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${i === step ? "opacity-100 scale-100" : "opacity-40 scale-95"}`}
+              style={{fontFamily: textFont,  backgroundColor: "#ffffff" }}
             />
             <span 
               className={`font-black text-[11px] uppercase tracking-widest transition-colors duration-500 font-text ${i === step ? "text-white" : "text-white/30"}`}
