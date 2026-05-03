@@ -155,7 +155,7 @@ export function ListVariant14(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <div className="flex-1 flex flex-col min-h-0 pt-6">
         <SmartEl 
           slideIndex={index} 
@@ -221,7 +221,7 @@ export function ListVariant16(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <div className="flex-1 flex flex-col min-h-0 pt-8">
         <SmartEl 
           slideIndex={index} 
@@ -274,7 +274,7 @@ export function ListVariant17(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <div className="mt-8 mb-6 shrink-0">
         <SmartEl 
           slideIndex={index} 
@@ -326,7 +326,7 @@ export function ListVariant23(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <SmartEl 
         slideIndex={index} 
         field="titulo" 
@@ -386,7 +386,7 @@ export function ListVariant25(props) {
 
   return (
     <div className="w-full h-full p-10 flex flex-col bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <SmartEl 
         slideIndex={index} 
         field="titulo" 
@@ -437,7 +437,7 @@ export function ListVariant26(props) {
 
   return (
     <div className="w-full h-full flex bg-zinc-50 relative">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       <div className="w-[35%] h-full p-10 flex flex-col justify-between shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div>
           <SmartEl 
