@@ -1548,7 +1548,7 @@ export function ComparisonVariant30(props) {
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-sm shadow-2xl border-[4px] border-white z-30">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-sm shadow-2xl border-[4px] z-30" style={{ borderColor: brandColor }}>
         <SmartEl {...sp} field="badge_text">
           <TextWrapper {...sp} field="badge_text" className="uppercase" style={{ fontFamily: titleFont }}>
             {data.badge_text || 'VS'}
