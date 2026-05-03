@@ -782,7 +782,7 @@ export function SplitVariant12(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden items-center text-white relative" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
+    <div className="w-full h-full p-6 flex flex-col overflow-hidden items-center text-white relative" style={{fontFamily: titleFont,  backgroundColor: brandColor, borderBottom: '10px solid #ffffff' }}>
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} brandAvatar={brandAvatar}
         hideDot={true}
       />
@@ -798,7 +798,7 @@ export function SplitVariant12(props) {
         </h2>
       </SmartField>
       
-      <SmartField field="imagem" {...sp} className="w-48 h-48 rounded-full overflow-hidden shrink-0 border-4 border-white/20 relative mb-6 shadow-2xl">
+      <SmartField field="imagem" {...sp} className="w-48 h-48 rounded-full overflow-hidden shrink-0 border-[5px] border-white relative mb-6 shadow-2xl">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
