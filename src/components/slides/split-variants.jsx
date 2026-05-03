@@ -1251,7 +1251,7 @@ export function SplitVariant20(props) {
       />
         </div>
         
-        <div className="bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/20 shrink-0 pointer-events-auto">
+        <div className="bg-white/95 backdrop-blur-md p-[17px] rounded-3xl shadow-2xl border border-white/20 shrink-0 pointer-events-auto">
           <SmartField field="titulo" {...sp} className="mb-2 w-full">
             <h2
               contentEditable suppressContentEditableWarning
