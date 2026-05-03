@@ -80,10 +80,7 @@ export default function SlideCTA(props) {
         <div className="absolute top-[-20%] left-[-10%] w-[120%] h-[140%] rotate-12 border-[1px] border-white/40" />
       </div>
 
-      {/* Icon */}
-      <div className="w-20 h-20 bg-black rounded-slide-sm flex items-center justify-center mb-10 rotate-6 shadow-2xl relative z-10 pointer-events-none">
-        <Zap className="w-10 h-10" style={{ color: brandColor }} fill="currentColor" />
-      </div>
+      {/* Icon removido conforme solicitado */}
 
       <SmartElement
         slideIndex={index}
@@ -149,15 +146,15 @@ export default function SlideCTA(props) {
       <div className="mt-16 flex gap-10 items-center text-white/50 relative z-10 pointer-events-none">
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Heart className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Love</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Curtir</span>
         </div>
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Bookmark className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Save</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Salvar</span>
         </div>
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Share2 className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Share</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Compartilhar</span>
         </div>
       </div>
     </div>
