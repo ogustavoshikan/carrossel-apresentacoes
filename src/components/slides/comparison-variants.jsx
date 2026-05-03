@@ -1301,23 +1301,23 @@ export function ComparisonVariant27(props) {
         <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
       </div>
 
-      <div className="h-1/2 w-full flex flex-row border-b border-white/10 relative z-0">
+      <div className="h-1/2 w-full flex flex-row relative z-0">
         <div className="w-1/2 h-full relative overflow-hidden bg-zinc-900 flex items-center justify-center">
           <ImageBg data={data} className="w-full h-full" />
         </div>
-        <div className="w-1/2 h-full p-8 pl-10 flex flex-col justify-center">
+        <div className="w-1/2 h-full p-8 pl-10 flex flex-col justify-center bg-[#ffffff]">
           <SmartEl {...sp} field="tag">
-            <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-white/50 uppercase mb-2 block" style={{ fontFamily: textFont }}>
+            <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] uppercase mb-2 block" style={{ fontFamily: textFont, color: '#050505' }}>
               {data.tag || 'O COMUM'}
             </TextWrapper>
           </SmartEl>
           <SmartEl {...sp} field="titulo_a">
-            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-3 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+            <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-3 leading-[0.9] text-[#1A1A1A]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
               {data.titulo_a || data.titulo || 'TÍTULO A'}
             </TextWrapper>
           </SmartEl>
           <SmartEl {...sp} field="texto_a">
-            <TextWrapper {...sp} as="p" field="texto_a" className="text-white/70 font-medium leading-relaxed pr-2" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="texto_a" className="font-medium leading-relaxed pr-2 text-[#1A1A1A]" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
               {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
             </TextWrapper>
           </SmartEl>
