@@ -1607,7 +1607,7 @@ export function BigNumberVariant23(props) {
       </div>
 
       {/* Card flutuante centralizado */}
-      <div className="absolute top-[40%] left-10 right-10 z-20 bg-white p-6 shadow-2xl">
+      <div className="absolute top-[40%] left-10 right-10 z-50 bg-white p-6 shadow-2xl">
         <SmartField field="tag" {...sp} className="mb-1">
           <span
             contentEditable
