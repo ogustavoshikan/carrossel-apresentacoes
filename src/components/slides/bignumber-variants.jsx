@@ -1741,12 +1741,12 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
       />
 
       {/* Imagem superior */}
-      <SmartField field="imagem" {...sp} className="h-[60%] w-full relative overflow-hidden shrink-0">
+      <SmartField field="imagem" {...sp} className="h-[60%] w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
 
       {/* Bloco colorido inferior */}
-      <div className="h-[40%] w-full relative flex flex-col p-10 justify-center shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="h-[40%] w-full relative z-50 flex flex-col p-10 justify-center shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         {/* Número gigante sobreposto */}
         <div className="absolute -top-20 left-10 z-20 pointer-events-none">
           <SmartField field="titulo" {...sp}>
