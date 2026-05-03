@@ -65,7 +65,10 @@ export default function SlideBigNumber({
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-16 relative overflow-hidden">
+    <div 
+      className="w-full h-full bg-surface-dark flex flex-col p-10 pb-16 relative overflow-hidden"
+      style={{ borderBottom: `10px solid ${brandColor}` }}
+    >
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
