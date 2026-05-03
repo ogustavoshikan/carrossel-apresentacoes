@@ -945,7 +945,7 @@ export function ComparisonVariant6(props) {
   const rowCount = Math.max(leftItems.length, rightItems.length);
 
   return (
-    <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide">
+    <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide" style={{ borderBottom: `10px solid ${brandColor}` }}>
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       
       <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
