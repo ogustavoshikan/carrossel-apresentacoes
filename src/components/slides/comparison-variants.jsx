@@ -1657,7 +1657,10 @@ export function ComparisonVariant32(props) {
       </div>
 
       <div className="h-1/2 w-full flex flex-col items-center justify-center relative p-8 z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
-        <div className="text-center w-full mb-4">
+        <div className="w-[45%] aspect-square rounded-[32px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] mb-4 bg-black">
+          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
+        </div>
+        <div className="text-center w-full">
           <SmartEl {...sp} field="titulo_b">
             <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-1 leading-[0.9] text-white drop-shadow-sm" style={{ fontFamily: titleFont, fontSize: `${22 * sTitle}px` }}>
               {data.titulo_b || 'TÍTULO B'}
@@ -1668,9 +1671,6 @@ export function ComparisonVariant32(props) {
               {data.cta_text || 'O PREMIUM'}
             </TextWrapper>
           </SmartEl>
-        </div>
-        <div className="w-[45%] aspect-square rounded-[32px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] bg-black">
-          <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
       </div>
 
