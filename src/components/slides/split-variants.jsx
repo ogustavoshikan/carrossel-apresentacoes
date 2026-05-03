@@ -4698,7 +4698,7 @@ export function SplitVariant75(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col bg-zinc-50 p-6 relative">
+    <div className="w-full h-full flex flex-col bg-zinc-50 p-6 relative" style={{ borderBottom: `10px solid ${brandColor}` }}>
       <SlideHeader 
         {...props} 
         slideIndex={index} 
