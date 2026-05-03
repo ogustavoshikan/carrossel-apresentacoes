@@ -4027,7 +4027,7 @@ export function SplitVariant64(props) {
           </SmartField>
       </div>
 
-      <div className="w-full h-[35%] shrink-0 z-10 relative" style={{fontFamily: textFont,  transform: 'translateY(-30px)' }}>
+      <div className="w-full shrink-0 z-10 relative" style={{ height: 'calc(35% + 20px)', fontFamily: textFont,  transform: 'translateY(-30px)' }}>
         <SmartField field="imagem" {...sp} className="w-full h-full bg-white rounded-[32px] shadow-2xl relative overflow-hidden border-4 border-white/20">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
