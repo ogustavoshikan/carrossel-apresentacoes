@@ -17,6 +17,7 @@ import VisualPreview from './components/workspace/VisualPreview';
 import TextEditor from './components/workspace/TextEditor';
 import { EmptyState, LoadingState } from './components/workspace/EmptyState';
 import SettingsModal from './components/SettingsModal';
+import InstagramPreview from './components/workspace/InstagramPreview';
 import FavoriteNameModal from './components/workspace/FavoriteNameModal';
 import SplashScreen from './components/SplashScreen';
 import SplashScreenCinematic from './components/SplashScreenCinematic';
@@ -50,6 +51,7 @@ export default function App() {
   const [loadingImages, setLoadingImages] = useState({});
   const [slideCount, setSlideCount] = useState(SLIDE_COUNT_RANGE.default);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isInstagramPreviewOpen, setIsInstagramPreviewOpen] = useState(false);
 
   const [selectedElement, setSelectedElement] = useState(null);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -835,6 +837,25 @@ export default function App() {
                     else localStorage.removeItem('cs_app_logo');
                   }}
                 />
+                <InstagramPreview
+                  isOpen={isInstagramPreviewOpen}
+                  onClose={() => setIsInstagramPreviewOpen(false)}
+                  slides={slides}
+                  brandHandle={brandHandle}
+                  brandAvatar={brandAvatar}
+                  isVerified={isVerified}
+                  brandColor={gradientColor1}
+                  brandLogo={brandLogo}
+                  showBrandHandle={showBrandHandle}
+                  showBrandLogo={showBrandLogo}
+                  titleScale={titleSizeScale}
+                  textScale={textSizeScale}
+                  titleFont={titleFont}
+                  textFont={textFont}
+                  tagFont={tagFont}
+                  showSlideCounter={showSlideCounter}
+                  slideCounterPosition={slideCounterPosition}
+                />
                 {slides.length === 0 && !isGenerating ? (
                   <EmptyState brandColor={gradientColor1} />
                 ) : isGenerating ? (
@@ -852,6 +873,7 @@ export default function App() {
                       isExporting={isExporting}
                       copiedIndex={copiedIndex}
                       brandColor={gradientColor1}
+                      onInstagramPreview={() => setIsInstagramPreviewOpen(true)}
                     />
 
                     {viewMode === 'text' ? (

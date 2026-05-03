@@ -251,6 +251,15 @@ body {
     @apply w-full transition-[width] duration-150;
   }
 
+  /* Utilitário para esconder scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
   @screen lg {
     .cs-sidebar-resizable {
       width: var(--sidebar-width, 384px);

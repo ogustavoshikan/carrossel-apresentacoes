@@ -8,6 +8,7 @@ import {
   Copy,
   CheckCircle2,
   Loader2,
+  Instagram
 } from 'lucide-react';
 
 /**
@@ -25,15 +26,25 @@ export default function WorkspaceToolbar({
   isExporting,
   copiedIndex,
   brandColor,
+  onInstagramPreview
 }) {
   return (
     <div className="relative mt-2 z-20 flex items-center justify-between bg-black border border-white/5 p-2 rounded-[20px] w-full font-sans">
       
-      {/* Esquerda: Badge Metadados */}
-      <div className="flex justify-start pl-2">
-        <span className="flex items-center justify-center text-[11px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full tracking-wide">
+      {/* Esquerda: Badge Metadados e Pré-visualização */}
+      <div className="flex justify-start pl-2 gap-2">
+        <span className="flex items-center justify-center text-[11px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full tracking-wide shrink-0">
           {slides.length} {slides.length === 1 ? 'Slide' : 'Slides'}
         </span>
+        
+        <button
+          onClick={onInstagramPreview}
+          className="group flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-3 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-white/5 transition-all"
+          title="Ver como ficaria no Instagram"
+        >
+          <Instagram className="w-3.5 h-3.5 group-hover:text-pink-500 transition-colors" />
+          <span className="hidden sm:inline-block tracking-tight">Pré-visualizar</span>
+        </button>
       </div>
 
       {/* Direita: Controles e Ações */}
