@@ -2216,7 +2216,7 @@ export function SplitVariant36(props) {
         hideDot={true} 
       />
       <div className="h-[60%] w-full p-6 flex flex-col shrink-0 relative z-10 rounded-b-[40px]" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
-        <div className="flex-1 w-full bg-zinc-900 rounded-[28px] overflow-hidden shadow-inner border-[6px] border-white relative mt-2">
+        <div className="mx-auto bg-zinc-900 rounded-[28px] overflow-hidden shadow-inner border-[6px] border-white relative mt-2" style={{ width: 'calc(100% - 10px)', height: 'calc(100% - 10px)', transform: 'translateY(25px)' }}>
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
