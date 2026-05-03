@@ -59,12 +59,13 @@ export function SequenceVariant1(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#ffffff" 
-        counterColor="#ffffff" 
-        counterBg="rgb(10 10 10 / 0.3)" 
+        handleColor={data.handleColor || "#ffffff"} 
+        counterColor={data.counterColor || "#ffffff"} 
+        counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="w-full h-[45%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
         
@@ -142,12 +143,13 @@ export function SequenceVariant2(props) {
     <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#ffffff" 
-        counterBg="rgb(10 10 10 / 0.3)" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#ffffff"} 
+        counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="flex-1 h-full p-8 pr-12 flex flex-col justify-center relative z-0">
         
@@ -226,12 +228,13 @@ export function SequenceVariant3(props) {
     <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div 
         className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
@@ -311,12 +314,13 @@ export function SequenceVariant4(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
 
       <div className="flex-1 p-10 flex flex-col justify-center">
@@ -398,12 +402,13 @@ export function SequenceVariant5(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="flex w-full h-[12%] border-b border-zinc-200">
         {tabs.map((i) => (
@@ -481,12 +486,13 @@ export function SequenceVariant6(props) {
     <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div 
         className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
@@ -564,12 +570,13 @@ export function SequenceVariant7(props) {
     <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#ffffff" 
-        counterBg="rgb(10 10 10 / 0.3)" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#ffffff"} 
+        counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
         
@@ -645,12 +652,13 @@ export function SequenceVariant8(props) {
     <div className="w-full h-full flex flex-col bg-[#111] text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       
 
@@ -714,12 +722,13 @@ export function SequenceVariant9(props) {
     <div className="w-full h-full flex flex-row bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
         className="absolute top-0 right-[-10%] w-[60%] h-full opacity-30 z-0 pointer-events-none transition-colors duration-700 blur-[80px]"
@@ -799,12 +808,13 @@ export function SequenceVariant10(props) {
     <div className="w-full h-full flex flex-row bg-[#0A0A0A] text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div className="w-[75%] h-full p-10 flex flex-col justify-center relative z-10">
         
@@ -881,12 +891,13 @@ export function SequenceVariant11(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="w-full h-[45%] relative z-0">
         <ImageBg data={data} className="w-full h-full">
@@ -964,12 +975,13 @@ export function SequenceVariant12(props) {
     <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="w-[45%] h-full relative z-0 border-r border-zinc-100">
         <ImageBg data={data} className="w-full h-full" />
@@ -1049,12 +1061,13 @@ export function SequenceVariant13(props) {
     <div className="w-full h-full flex flex-col text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div className="absolute inset-0 z-0 scale-105">
         <ImageBg data={data} className="w-full h-full" />
@@ -1132,12 +1145,13 @@ export function SequenceVariant14(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative p-8 overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       
 
@@ -1214,12 +1228,13 @@ export function SequenceVariant15(props) {
     <div className="w-full h-full flex flex-col bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="w-full h-[50%] relative z-0">
         <ImageBg data={data} className="w-full h-full" />
@@ -1295,12 +1310,13 @@ export function SequenceVariant16(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="flex-1 p-8 pt-12 flex flex-col justify-start">
         
@@ -1382,12 +1398,13 @@ export function SequenceVariant17(props) {
     <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div className="flex-1 p-10 pt-12 flex flex-col justify-start relative z-0">
         
@@ -1465,12 +1482,13 @@ export function SequenceVariant18(props) {
     <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#ffffff" 
-        counterBg="rgb(10 10 10 / 0.3)" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#ffffff"} 
+        counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
         
@@ -1543,12 +1561,13 @@ export function SequenceVariant19(props) {
     <div className="w-full h-full flex flex-col relative bg-[#0A0A0A] text-white overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#71717a" 
-        counterColor="#a1a1aa" 
-        counterBg="#080808" 
+        handleColor={data.handleColor || "#71717a"} 
+        counterColor={data.counterColor || "#a1a1aa"} 
+        counterBg={data.counterBg || "#080808"} 
       />
       <div className="w-full h-[50%] relative z-0">
         <ImageBg data={data} className="w-full h-full">
@@ -1626,12 +1645,13 @@ export function SequenceVariant20(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
         className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
@@ -1713,12 +1733,13 @@ export function SequenceVariant21(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       
 
@@ -1784,12 +1805,13 @@ export function SequenceVariant22(props) {
     <div className="w-full h-full flex flex-col bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
         className="absolute top-0 left-0 w-full h-[6px] z-20 transition-colors duration-500" 
@@ -1864,12 +1886,13 @@ export function SequenceVariant23(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative p-8 overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       
 
@@ -1943,12 +1966,13 @@ export function SequenceVariant24(props) {
     <div className="w-full h-full flex flex-col bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="absolute top-0 left-0 w-full h-[3px] bg-zinc-100 z-20">
         <div 
@@ -2038,12 +2062,13 @@ export function SequenceVariant25(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="flex-1 p-10 flex flex-col justify-center relative bg-white">
         
@@ -2119,12 +2144,13 @@ export function SequenceVariant26(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] p-8 relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       
 
@@ -2190,12 +2216,13 @@ export function SequenceVariant27(props) {
     <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] p-8 relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="flex-1 flex flex-col justify-start pt-4 pb-4 relative z-10 w-full">
         <div className="flex justify-between items-center mb-8">
@@ -2263,12 +2290,13 @@ export function SequenceVariant28(props) {
     <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
+        slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor="#1a1a1a" 
-        counterColor="#1a1a1a" 
-        counterBg="#EDEDED" 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
         className="w-[35%] h-full transition-colors duration-500 relative z-0"

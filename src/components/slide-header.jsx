@@ -60,7 +60,10 @@ export default function SlideHeader({
       onSelectElement={onSelectElement}
       className={`pointer-events-auto ${isSelectedHandle ? 'z-[60]' : 'z-50'}`}
     >
-      <div className="flex items-center gap-3 select-none">
+      <div 
+        className="flex items-center gap-3 select-none"
+        style={handleColor ? { color: handleColor } : {}}
+      >
         {brandAvatar ? (
           <img 
             src={brandAvatar} 
@@ -75,9 +78,7 @@ export default function SlideHeader({
           />
         ) : null}
         <div className="flex items-center gap-1.5">
-          <span className="font-text font-black tracking-[0.25em] text-[10px] uppercase flex items-center"
-            style={handleColor ? { color: handleColor } : {}}
-          >
+          <span className="font-text font-black tracking-[0.25em] text-[10px] uppercase flex items-center">
             <span className="mr-[1px]">@</span>
             {brandHandle ? (brandHandle.startsWith('@') ? brandHandle.substring(1) : brandHandle) : 'studio'}
           </span>
