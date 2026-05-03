@@ -3808,7 +3808,7 @@ export function SplitVariant61(props) {
         counterBg="#EDEDED"
         hideDot={true} 
       />
-      <div className="w-full flex-1 flex flex-col pt-2 relative z-10">
+      <div className="w-full flex-1 flex flex-col pt-2 relative z-10" style={{ marginTop: '30px' }}>
         <div className="mb-2 shrink-0 mt-4">
           <SmartField field="tag" {...sp}>
             <span
