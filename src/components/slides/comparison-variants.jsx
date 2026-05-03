@@ -429,8 +429,8 @@ export function ComparisonVariant19(props) {
       <div className="absolute top-0 left-0 w-full p-10 z-50">
         <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       </div>
-      <SmartEl {...sp} field="titulo" className="absolute top-[66px] text-center w-full px-6">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-widest" style={{ fontFamily: titleFont, fontSize: `${22 * sTitle}px` }}>
+      <SmartEl {...sp} field="titulo" className="absolute top-[41px] text-center w-full px-6">
+        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-widest" style={{ fontFamily: titleFont, fontSize: `${29 * sTitle}px` }}>
           {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
         </TextWrapper>
       </SmartEl>
@@ -442,7 +442,7 @@ export function ComparisonVariant19(props) {
             </TextWrapper>
           </SmartEl>
           <SmartEl {...sp} field="tag">
-            <TextWrapper {...sp} as="p" field="tag" className="text-zinc-600 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="tag" className="text-zinc-600 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
           </SmartEl>
@@ -454,7 +454,7 @@ export function ComparisonVariant19(props) {
             </TextWrapper>
           </SmartEl>
           <SmartEl {...sp} field="texto_apoio">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug" style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}>
               {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
             </TextWrapper>
           </SmartEl>
