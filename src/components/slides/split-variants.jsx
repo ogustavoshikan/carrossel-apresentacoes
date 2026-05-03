@@ -2523,7 +2523,7 @@ export function SplitVariant41(props) {
         </div>
       </div>
       <div className="flex-1 h-full flex flex-col p-8 relative">
-        <SmartField field="imagem" {...sp} className="w-full h-[45%] rounded-2xl overflow-hidden shadow-xl mb-6 mt-12 relative shrink-0 bg-zinc-200">
+        <SmartField field="imagem" {...sp} className="w-full h-[45%] rounded-[25px] overflow-hidden shadow-xl mb-6 mt-12 relative shrink-0 bg-zinc-200">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
         <div className="mb-4 shrink-0">
