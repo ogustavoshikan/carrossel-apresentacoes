@@ -1256,7 +1256,7 @@ export function ComparisonVariant26(props) {
         </div>
       </div>
 
-      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10 transition-colors duration-500 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden shadow-2xl z-20 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgC, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
