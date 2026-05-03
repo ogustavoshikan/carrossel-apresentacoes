@@ -1026,7 +1026,7 @@ export function BigNumberVariant14(props) {
         borderBottom: `10px solid ${brandColor}`
       }}
     >
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       <SmartField field="titulo" {...sp} className="mb-4">
         <span
@@ -1078,7 +1078,7 @@ export function BigNumberVariant15(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 overflow-hidden relative justify-center items-center">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Número outline flutuando centralizado */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none w-full text-center">
@@ -1145,7 +1145,7 @@ export function BigNumberVariant16(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col p-10 relative overflow-hidden text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       <div className="flex-1 flex flex-col justify-center items-center">
         <SmartField field="titulo" {...sp} className="mb-6 w-full text-center">
@@ -1201,7 +1201,7 @@ export function BigNumberVariant17(props) {
 
   return (
     <div className="w-full h-full bg-[#F9F9F9] flex flex-col p-10 relative overflow-hidden text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Watermark gigante decorativo */}
       <div className="absolute top-1/4 -right-10 z-0 pointer-events-none opacity-5">
@@ -1265,7 +1265,7 @@ export function BigNumberVariant18(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col items-center justify-center p-10 relative overflow-hidden text-center text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Glow de fundo */}
       <div
