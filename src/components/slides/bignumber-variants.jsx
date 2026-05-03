@@ -1316,7 +1316,7 @@ export function BigNumberVariant19(props) {
         className="h-[55%] w-full flex items-center justify-center relative p-10 shrink-0"
         style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
-        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
+        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
         <SmartField field="titulo" {...sp} className="w-full text-center">
           <span
             contentEditable
@@ -1370,7 +1370,7 @@ export function BigNumberVariant20(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Imagem de fundo */}
       <SmartField field="imagem" {...sp} className="absolute inset-0 h-[65%] w-full pointer-events-none">
@@ -1455,7 +1455,7 @@ export function BigNumberVariant21(props) {
 
       {/* Área de conteúdo principal */}
       <div className="w-[85%] h-full flex flex-col justify-center p-12 relative">
-        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
         <SmartField field="titulo" {...sp} className="mb-4 mt-8">
           <span
@@ -1499,7 +1499,7 @@ export function BigNumberVariant22(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col relative overflow-hidden">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-[50%] w-full relative shrink-0">
@@ -1573,7 +1573,7 @@ export function BigNumberVariant23(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col relative overflow-hidden">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={false} />
+      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Painel superior colorido com badge de edição + número */}
       <div
