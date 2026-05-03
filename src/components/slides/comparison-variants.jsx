@@ -112,7 +112,7 @@ export function ComparisonVariant13(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden rounded-slide" style={{ backgroundColor: bgBase }}>
       <div className="p-10 pb-2 shrink-0 text-center relative z-10 bg-white">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
         <SmartEl {...sp} field="titulo">
           <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight tracking-tighter uppercase mt-2 mb-2 translate-y-[6px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
@@ -171,7 +171,7 @@ export function ComparisonVariant14(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden relative rounded-slide">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
+        <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       </div>
       <div className="h-1/2 w-full p-8 flex flex-col justify-center text-center pb-12" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex items-center justify-center gap-2 mb-3 mt-4">
@@ -427,7 +427,7 @@ export function ComparisonVariant19(props) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center relative rounded-slide" style={{ backgroundColor: bgBase }}>
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
+        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       </div>
       <SmartEl {...sp} field="titulo" className="absolute top-[41px] text-center w-full px-6">
         <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-widest" style={{ fontFamily: titleFont, fontSize: `${29 * sTitle}px` }}>
@@ -571,7 +571,7 @@ export function ComparisonVariant22(props) {
     <div className="w-full h-full relative overflow-hidden bg-black text-white flex flex-col rounded-slide">
       <div className="h-1/2 w-full relative shrink-0 bg-[#ffffff]">
         <div className="absolute top-0 left-0 w-full p-10 z-50">
-          <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
+          <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
         </div>
         <div className="relative z-10 p-6 h-full flex flex-col justify-end text-center pb-10">
           <X className="w-6 h-6 text-white/30 mx-auto mb-2" />
@@ -946,7 +946,7 @@ export function ComparisonVariant6(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative overflow-hidden rounded-slide" style={{ borderBottom: `10px solid ${brandColor}` }}>
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
       
       <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
         <div className="mb-10 shrink-0">
@@ -1296,7 +1296,7 @@ export function ComparisonVariant27(props) {
   return (
     <div className="w-full h-full flex flex-col relative bg-[#050505] text-white overflow-hidden rounded-slide">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full flex flex-row relative z-0">
