@@ -10,7 +10,7 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 // ============================================================
 
 // ─── Helper: SmartField ──────────────────────────────────────
-function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, children }) {
+function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, style, children }) {
   const pos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   return (
     <SmartElement
@@ -22,6 +22,7 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
       isSelected={selectedElement?.slideIndex === index && selectedElement?.field === field}
       onSelectElement={onSelectElement}
       className={className}
+      style={style}
     >
       {children}
     </SmartElement>
@@ -4535,11 +4536,8 @@ export function SplitVariant72(props) {
           </SmartField>
         </div>
       </div>
-      <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden shadow-2xl shrink-0 bg-zinc-200 relative ml-auto border-4 border-white mt-4">
+      <SmartField field="imagem" {...sp} className="w-[85%] h-[40%] rounded-tr-[50px] rounded-bl-[50px] overflow-hidden shadow-2xl shrink-0 bg-zinc-200 relative ml-auto border-4 mt-4" style={{ borderColor: brandColor }}>
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border-2 border-white bg-white overflow-hidden shadow-lg">
-          <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Avatar"/>
-        </div>
       </SmartField>
     </div>
   );

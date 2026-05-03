@@ -62,6 +62,7 @@ export default function SmartElement({
   children,
   isSelected,
   onSelectElement,
+  style: externalStyle,
 }) {
   const elRef = useRef(null);
   const [dims, setDims] = useState({ w: 0, h: 0 });
@@ -91,6 +92,7 @@ export default function SmartElement({
             zIndex: isSelected ? 60 : (showMetrics ? 50 : 40),
             transformOrigin: 'center center',
             ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
+            ...externalStyle,
           }}
           ref={elRef}
           id={`smart-${slideIndex}-${field}`}
