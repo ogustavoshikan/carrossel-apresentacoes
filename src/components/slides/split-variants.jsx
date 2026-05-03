@@ -1318,8 +1318,8 @@ export function SplitVariant21(props) {
         </SmartField>
       </div>
       
-      <div className="absolute bottom-6 right-6 w-[55%] h-[40%] z-0">
-        <SmartField field="imagem" {...sp} className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-zinc-300 border-4 border-white">
+      <div className="absolute bottom-6 right-6 z-0" style={{ width: 'calc(55% + 40px)', height: 'calc(40% + 20px)' }}>
+        <SmartField field="imagem" {...sp} className="relative w-full h-full rounded-[25px] overflow-hidden shadow-2xl bg-zinc-300 border-4 border-white">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
