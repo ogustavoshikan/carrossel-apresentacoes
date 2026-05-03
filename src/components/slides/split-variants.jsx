@@ -3136,7 +3136,7 @@ export function SplitVariant51(props) {
         counterColor="#1A1A1A"
         counterBg="#EDEDED"
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[40%] rounded-[24px] overflow-hidden mb-5 shrink-0 relative bg-zinc-200 shadow-md mt-[46px]">
+      <SmartField field="imagem" {...sp} className="w-full shrink-0 relative bg-zinc-200 shadow-md mt-[46px] rounded-[24px] overflow-hidden mb-5" style={{ height: 'calc(40% + 25px)' }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex items-center gap-3 mb-4 shrink-0 mt-[30px]">
