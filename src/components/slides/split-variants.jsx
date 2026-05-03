@@ -1377,7 +1377,7 @@ export function SplitVariant22(props) {
           </SmartField>
         </div>
         
-        <SmartField field="imagem" {...sp} className="w-full h-[35%] bg-zinc-300 mt-auto relative shrink-0 shadow-xl rounded-xl overflow-hidden border-4 border-white">
+        <SmartField field="imagem" {...sp} className="w-full bg-zinc-300 mt-auto relative shrink-0 shadow-xl rounded-xl overflow-hidden border-4 border-white" style={{ height: 'calc(35% + 35px)' }}>
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
