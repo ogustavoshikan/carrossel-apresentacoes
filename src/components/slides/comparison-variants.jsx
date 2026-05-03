@@ -1459,7 +1459,7 @@ export function ComparisonVariant29(props) {
         </div>
 
         <div className="w-1/2 flex flex-col items-center">
-          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 mb-6 border-4" style={{ borderColor: brandColor }}>
+          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-zinc-100 mb-6">
             <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
           </div>
           <div className="text-center px-2">
