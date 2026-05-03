@@ -1658,7 +1658,7 @@ export function SplitVariant27(props) {
         hideDot={true}
       />
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] py-3 shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/20" style={{fontFamily: titleFont,  backgroundColor: brandColor, paddingLeft: '18px', paddingRight: '18px' }}>
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
