@@ -1978,7 +1978,7 @@ export function ComparisonVariant37(props) {
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-full rounded-[40px] relative overflow-hidden" style={{ height: '171px' }}>
+        <div className="w-full rounded-[25px] relative overflow-hidden" style={{ height: '181px' }}>
           <ImageBg data={data} className="w-full h-full" />
         </div>
       </div>
@@ -1991,7 +1991,7 @@ export function ComparisonVariant37(props) {
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-full rounded-[40px] relative overflow-hidden mb-3" style={{ height: '171px' }}>
+        <div className="w-full rounded-[25px] relative overflow-hidden mb-3" style={{ height: '181px' }}>
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
         <div className="w-full text-center mt-auto">
