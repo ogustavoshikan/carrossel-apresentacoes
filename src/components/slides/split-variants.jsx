@@ -2815,7 +2815,7 @@ export function SplitVariant46(props) {
 
       <div className="flex-1 pointer-events-none" />
 
-      <div className="relative z-20 flex flex-col p-8 justify-center mx-6 mb-8 rounded-[32px] border-4 border-white/10" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="relative z-20 flex flex-col px-8 py-[27px] justify-center mx-6 mb-8 rounded-[25px]" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="mb-3">
           <SmartField field="titulo" {...sp}>
             <h2
