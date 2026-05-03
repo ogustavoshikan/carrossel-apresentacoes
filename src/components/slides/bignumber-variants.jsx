@@ -1502,14 +1502,14 @@ export function BigNumberVariant22(props) {
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
 
       {/* Metade superior — imagem */}
-      <SmartField field="imagem" {...sp} className="h-[50%] w-full relative overflow-hidden shrink-0">
+      <SmartField field="imagem" {...sp} className="h-[50%] w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-black/10" />
       </SmartField>
 
       {/* Metade inferior colorida com número sobreposto */}
       <div
-        className="h-[50%] w-full relative flex flex-col p-10 justify-end shrink-0"
+        className="h-[50%] w-full relative z-50 flex flex-col p-10 justify-end shrink-0"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         {/* Número sobreposto na junção */}
