@@ -1907,7 +1907,7 @@ export function SplitVariant31(props) {
         hideDot={true}
       />
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] shadow-2xl border-2 border-white/20" style={{fontFamily: textFont,  backgroundColor: brandColor, paddingLeft: '20px', paddingRight: '20px', paddingTop: '11px', paddingBottom: '11px' }}>
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
@@ -2385,7 +2385,7 @@ export function SplitVariant39(props) {
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot handleColor="#1A1A1A" counterColor="#1A1A1A" counterBg="#EDEDED" />
 
       <div className="flex flex-1 mt-4 gap-4">
-        <SmartField field="imagem" {...sp} className="w-[45%] h-[80%] rounded-[24px] overflow-hidden shadow-lg border-[4px] relative shrink-0 z-10 mt-10" style={{fontFamily: textFont,  borderColor: brandColor }}>
+        <SmartField field="imagem" {...sp} className="w-[45%] h-[80%] rounded-[24px] overflow-hidden shadow-lg relative shrink-0 z-10 mt-10">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
         <div className="w-[55%] h-full flex flex-col justify-center pr-2">
@@ -2523,7 +2523,7 @@ export function SplitVariant41(props) {
         </div>
       </div>
       <div className="flex-1 h-full flex flex-col p-8 relative">
-        <SmartField field="imagem" {...sp} className="w-full h-[45%] rounded-2xl overflow-hidden shadow-xl border-4 border-white mb-6 mt-12 relative shrink-0 bg-zinc-200">
+        <SmartField field="imagem" {...sp} className="w-full h-[45%] rounded-2xl overflow-hidden shadow-xl mb-6 mt-12 relative shrink-0 bg-zinc-200">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
         <div className="mb-4 shrink-0">
@@ -2632,8 +2632,8 @@ export function SplitVariant43(props) {
         hideDot={true} 
       />
       <div className="flex-1 flex flex-col mt-6">
-        <div className="w-full h-[50%] bg-white p-3 rounded-[32px] relative">
-          <SmartField field="imagem" {...sp} className="w-full h-full rounded-[24px] overflow-hidden relative">
+        <div className="w-full h-[50%] bg-white rounded-[25px] relative">
+          <SmartField field="imagem" {...sp} className="w-full h-full rounded-[25px] overflow-hidden relative">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
         </div>
