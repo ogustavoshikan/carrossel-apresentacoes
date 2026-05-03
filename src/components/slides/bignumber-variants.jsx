@@ -948,7 +948,7 @@ export function BigNumberVariant13(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
       
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{fontFamily: titleFont,  backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
 
@@ -1026,7 +1026,7 @@ export function BigNumberVariant14(props) {
         borderBottom: `10px solid ${brandColor}`
       }}
     >
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       <SmartField field="titulo" {...sp} className="mb-4">
         <span
@@ -1078,7 +1078,7 @@ export function BigNumberVariant15(props) {
 
   return (
     <div className="w-full h-full bg-[#080808] flex flex-col p-10 overflow-hidden relative justify-center items-center">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Número outline flutuando centralizado */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none w-full text-center">
@@ -1145,7 +1145,7 @@ export function BigNumberVariant16(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col p-10 relative overflow-hidden text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       <div className="flex-1 flex flex-col justify-center items-center">
         <SmartField field="titulo" {...sp} className="mb-6 w-full text-center">
@@ -1201,7 +1201,7 @@ export function BigNumberVariant17(props) {
 
   return (
     <div className="w-full h-full bg-[#F9F9F9] flex flex-col p-10 relative overflow-hidden text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Watermark gigante decorativo */}
       <div className="absolute top-1/4 -right-10 z-0 pointer-events-none opacity-5">
@@ -1265,7 +1265,7 @@ export function BigNumberVariant18(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col items-center justify-center p-10 relative overflow-hidden text-center text-black">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Glow de fundo */}
       <div
@@ -1316,7 +1316,7 @@ export function BigNumberVariant19(props) {
         className="h-[55%] w-full flex items-center justify-center relative p-10 shrink-0"
         style={{fontFamily: tagFont,  backgroundColor: brandColor }}
       >
-        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
         <SmartField field="titulo" {...sp} className="w-full text-center">
           <span
             contentEditable
@@ -1370,7 +1370,7 @@ export function BigNumberVariant20(props) {
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Imagem de fundo */}
       <SmartField field="imagem" {...sp} className="absolute inset-0 h-[65%] w-full pointer-events-none">
@@ -1455,7 +1455,7 @@ export function BigNumberVariant21(props) {
 
       {/* Área de conteúdo principal */}
       <div className="w-[85%] h-full flex flex-col justify-center p-12 relative">
-        <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
         <SmartField field="titulo" {...sp} className="mb-4 mt-8">
           <span
@@ -1499,7 +1499,7 @@ export function BigNumberVariant22(props) {
 
   return (
     <div className="w-full h-full bg-[#050505] flex flex-col relative overflow-hidden">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Metade superior — imagem */}
       <SmartField field="imagem" {...sp} className="h-[50%] w-full relative shrink-0">
@@ -1573,7 +1573,7 @@ export function BigNumberVariant23(props) {
 
   return (
     <div className="w-full h-full bg-white flex flex-col relative overflow-hidden">
-      <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Painel superior colorido com badge de edição + número */}
       <div
