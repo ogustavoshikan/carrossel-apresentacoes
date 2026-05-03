@@ -1509,7 +1509,7 @@ export function ComparisonVariant30(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden rounded-slide bg-white">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full bg-white flex items-center justify-center relative p-8 z-0">
@@ -1637,7 +1637,7 @@ export function ComparisonVariant32(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden rounded-slide bg-white">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full bg-[#FDFBF7] flex flex-col items-center justify-center relative p-8 z-0">
@@ -1701,7 +1701,7 @@ export function ComparisonVariant33(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden rounded-slide bg-white">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full bg-[#FDFBF7] flex flex-row items-center justify-center p-8 gap-6 relative z-0">
@@ -1775,7 +1775,7 @@ export function ComparisonVariant34(props) {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden rounded-slide bg-white">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EFECE6" />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full bg-[#FDFBF7] flex flex-col justify-end p-8 pb-10 relative z-0">
@@ -1963,7 +1963,7 @@ export function ComparisonVariant37(props) {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden rounded-slide">
       <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EBE9E1" />
+        <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} counterBg="#EDEDED" handleColor="#1a1a1a" counterColor="#1a1a1a" />
       </div>
 
       <div className="h-1/2 w-full relative shrink-0 bg-[#EBE9E1] flex flex-col items-center justify-end p-8 pb-4 z-0">
