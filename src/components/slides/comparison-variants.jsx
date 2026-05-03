@@ -1826,13 +1826,7 @@ export function ComparisonVariant34(props) {
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-8 bg-[#1a1a1a] text-white rounded-full px-4 py-2 flex items-center justify-center font-black text-[10px] shadow-2xl z-30 -translate-y-1/2">
-        <SmartEl {...sp} field="badge_text">
-          <TextWrapper {...sp} field="badge_text" className="uppercase" style={{ fontFamily: titleFont }}>
-            {data.badge_text || 'VS'}
-          </TextWrapper>
-        </SmartEl>
-      </div>
+
     </div>
   );
 }
