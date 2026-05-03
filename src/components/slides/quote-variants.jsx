@@ -78,14 +78,16 @@ function QuoteVariant2(props) {
   const isSel = (f) => selectedElement?.slideIndex === index && selectedElement?.field === f;
 
   return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-16 justify-center text-center relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 grayscale blur-sm z-0">
-         <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 z-[1]" />
+    <div className="w-full h-full bg-black flex flex-col p-16 justify-center text-center relative overflow-hidden">
+      {data.imageUrl && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <ImageBg imageUrl={data.imageUrl} imagePosition={data.imagePosition} imageScale={data.imageScale} className="absolute inset-0" />
+        </div>
+      )}
+
       
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('titulo')} onSelectElement={onSelectElement} className="relative z-10 mb-10">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-bold text-white outline-none" style={{ fontSize: `${42 * tScale}px`, lineHeight: '1.2' }}>“{data.titulo}”</h2>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-title font-bold text-white outline-none" style={{ fontSize: `${42 * tScale}px`, lineHeight: '1.2' }}>"{data.titulo}"</h2>
       </SmartElement>
       
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={isSel('texto_apoio')} onSelectElement={onSelectElement} className="relative z-10">

@@ -1978,20 +1978,20 @@ export function ComparisonVariant37(props) {
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-full h-[80%] rounded-[40px] shadow-[0_25px_60px_rgba(0,0,0,0.1)] relative overflow-hidden border-[4px] border-[#1a1a1a]">
+        <div className="w-full rounded-[40px] relative overflow-hidden" style={{ height: '171px' }}>
           <ImageBg data={data} className="w-full h-full" />
         </div>
       </div>
 
       <div className="h-1/2 w-full relative z-20 p-8 pt-4 flex flex-col justify-start transition-colors duration-500" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center shadow-2xl border-4 border-white">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center shadow-2xl" style={{ width: '50px', height: '50px', border: '3px solid #ffffff' }}>
           <SmartEl {...sp} field="badge_text">
             <TextWrapper {...sp} field="badge_text" className="font-black text-sm" style={{ fontFamily: titleFont }}>
               {data.badge_text || 'VS'}
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-full h-[80%] rounded-[40px] shadow-[0_25px_60px_rgba(0,0,0,0.3)] relative overflow-hidden border-[4px] border-[#1a1a1a] mb-3">
+        <div className="w-full rounded-[40px] relative overflow-hidden mb-3" style={{ height: '171px' }}>
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
         <div className="w-full text-center mt-auto">
