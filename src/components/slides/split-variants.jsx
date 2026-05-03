@@ -3211,7 +3211,7 @@ export function SplitVariant52(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-[85%] aspect-square max-h-[45%] rounded-[40px] bg-zinc-800 relative mb-6 mt-8 border border-white/10 shrink-0 overflow-hidden">
+      <SmartField field="imagem" {...sp} className="w-[85%] aspect-square max-h-[45%] rounded-[40px] bg-zinc-800 relative mb-6 mt-8 border-4 border-white shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex flex-col items-center text-center flex-1 min-h-0">
