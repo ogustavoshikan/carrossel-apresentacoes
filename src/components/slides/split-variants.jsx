@@ -2216,13 +2216,13 @@ export function SplitVariant36(props) {
         hideDot={true} 
       />
       <div className="h-[60%] w-full p-6 flex flex-col shrink-0 relative z-10 rounded-b-[40px]" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
-        <div className="mx-auto bg-zinc-900 rounded-[28px] overflow-hidden shadow-inner border-[6px] border-white relative mt-2" style={{ width: 'calc(100% - 10px)', height: 'calc(100% - 10px)', transform: 'translateY(25px)' }}>
+        <div className="mx-auto bg-zinc-900 rounded-[28px] overflow-hidden shadow-inner border-[6px] border-white relative mt-2" style={{ width: 'calc(100% - 10px)', height: 'calc(100% - 20px)', transform: 'translateY(25px)' }}>
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
         </div>
       </div>
-      <div className="flex-1 w-full p-8 flex flex-col justify-center text-center relative z-0">
+      <div className="flex-1 w-full p-8 flex flex-col justify-center text-center relative z-0" style={{ marginTop: '-55px' }}>
         <div className="mb-3 shrink-0">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -2338,10 +2338,10 @@ export function SplitVariant38(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full relative shrink-0 z-0 border-b-[8px]" style={{ height: 'calc(35% + 35px)', borderColor: brandColor }}>
+      <SmartField field="imagem" {...sp} className="w-full relative shrink-0 z-0 border-b-[10px] border-white" style={{ height: 'calc(35% + 15px)' }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
-      <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10">
+      <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10" style={{ marginTop: '-25px' }}>
         <div className="w-full mb-4 shrink-0 mt-6">
           <SmartField field="titulo" {...sp}>
             <h2
