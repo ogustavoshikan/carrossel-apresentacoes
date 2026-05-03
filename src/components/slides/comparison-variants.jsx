@@ -1511,7 +1511,7 @@ export function ComparisonVariant30(props) {
       </div>
 
       <div className="h-1/2 w-full bg-white flex items-center justify-center relative p-8 z-0">
-        <div className="w-[45%] aspect-square rounded-3xl overflow-hidden shadow-xl relative z-10 bg-zinc-100">
+        <div className="w-[50%] aspect-square rounded-[30px] overflow-hidden shadow-xl relative z-10 bg-zinc-100">
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div className="flex-1 pl-8 flex flex-col justify-center text-left">
@@ -1541,7 +1541,7 @@ export function ComparisonVariant30(props) {
             </TextWrapper>
           </SmartEl>
         </div>
-        <div className="w-[45%] aspect-square rounded-3xl overflow-hidden shadow-2xl relative z-10 bg-black">
+        <div className="w-[50%] aspect-square rounded-[30px] overflow-hidden shadow-2xl relative z-10 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
       </div>
