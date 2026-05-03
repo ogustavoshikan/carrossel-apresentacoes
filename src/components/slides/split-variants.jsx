@@ -4046,7 +4046,7 @@ export function SplitVariant65(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 overflow-hidden relative bg-white">
+    <div className="w-full h-full flex flex-col p-10 overflow-hidden relative bg-white" style={{ borderBottom: `10px solid ${brandColor}` }}>
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -4058,12 +4058,6 @@ export function SplitVariant65(props) {
       />
       
       <div className="flex-1 flex flex-col justify-center items-center text-center relative z-10">
-        <div className="absolute inset-0 flex items-center justify-center -z-10 opacity-5 select-none pointer-events-none">
-          <span className="font-black text-[120px] leading-none uppercase font-text" style={{fontFamily: textFont,  color: brandColor }}>
-            {data.tag || 'TOP'}
-          </span>
-        </div>
-        
         <div className="mb-6">
           <SmartField field="titulo" {...sp}>
             <h2
@@ -4091,7 +4085,7 @@ export function SplitVariant65(props) {
         </div>
       </div>
       
-      <div className="w-full h-[30%] bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner shrink-0 flex">
+      <div className="w-full h-[170px] bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner shrink-0 flex">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4149,7 +4143,7 @@ export function SplitVariant66(props) {
           </div>
         </div>
         
-        <div className="w-full h-40 bg-zinc-100 rounded-2xl overflow-hidden relative border border-zinc-200 shrink-0">
+        <div className="w-full h-[210px] bg-zinc-100 rounded-2xl overflow-hidden relative border border-zinc-200 shrink-0">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
