@@ -2633,7 +2633,7 @@ export function SplitVariant43(props) {
         hideDot={true} 
       />
       <div className="flex-1 flex flex-col mt-6">
-        <div className="w-full h-[50%] bg-white rounded-[25px] relative">
+        <div className="w-full h-[50%] bg-white rounded-[25px] relative" style={{ transform: 'translateY(15px)' }}>
           <SmartField field="imagem" {...sp} className="w-full h-full rounded-[25px] overflow-hidden relative">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
