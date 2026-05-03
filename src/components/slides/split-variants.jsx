@@ -2580,7 +2580,7 @@ export function SplitVariant42(props) {
       <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
-      <div className="flex-1 w-full p-10 flex flex-col justify-center relative -mt-8 bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+      <div className="flex-1 w-full p-10 flex flex-col justify-center relative -mt-[47px] bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
         <div className="mb-4 shrink-0">
           <SmartField field="titulo" {...sp}>
             <h2
