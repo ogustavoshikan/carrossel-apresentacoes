@@ -1574,8 +1574,8 @@ export function ComparisonVariant31(props) {
         <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
       </div>
 
-      <div className="w-1/2 h-full flex flex-col items-center justify-center p-8 border-r border-zinc-200 relative z-0">
-        <div className="w-full aspect-square rounded-[32px] overflow-hidden shadow-lg mb-8 bg-zinc-100">
+      <div className="w-1/2 h-full flex flex-col items-center justify-center p-[30px] border-r border-zinc-200 relative z-0">
+        <div className="w-full aspect-square rounded-[30px] overflow-hidden shadow-lg mb-8 bg-zinc-100">
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div className="text-center w-full px-2">
@@ -1592,8 +1592,8 @@ export function ComparisonVariant31(props) {
         </div>
       </div>
 
-      <div className="w-1/2 h-full flex flex-col items-center justify-center p-8 transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
-        <div className="w-full aspect-square rounded-[32px] overflow-hidden shadow-2xl mb-8 bg-black">
+      <div className="w-1/2 h-full flex flex-col items-center justify-center p-[30px] -translate-y-[3px] transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
+        <div className="w-full aspect-square rounded-[30px] overflow-hidden shadow-2xl mb-8 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
         <div className="text-center w-full px-2">
