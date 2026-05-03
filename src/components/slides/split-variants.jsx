@@ -2746,7 +2746,7 @@ export function SplitVariant45(props) {
         counterColor="#1A1A1A"
         counterBg="#EDEDED"
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-2xl overflow-hidden mt-6 relative border-[8px]" style={{fontFamily: textFont,  borderColor: brandColor }}>
+      <SmartField field="imagem" {...sp} className="w-full h-[45%] bg-white rounded-[25px] overflow-hidden mt-6 relative">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 flex flex-col justify-center py-8">
