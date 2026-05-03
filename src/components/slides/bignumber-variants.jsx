@@ -1372,13 +1372,13 @@ export function BigNumberVariant20(props) {
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative">
       <SlideHeader {...props} index={index + 1} total={slideCount} hideDot={true} />
 
-      {/* Imagem de fundo semiopaca */}
+      {/* Imagem de fundo */}
       <SmartField field="imagem" {...sp} className="absolute inset-0 h-[65%] w-full pointer-events-none">
-        <ImageBg data={data} className="absolute inset-0 opacity-40" />
+        <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
 
-      {/* Card branco arredondado inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-[48%] bg-white p-10 flex flex-col justify-center rounded-t-[2rem]">
+      {/* Card branco inferior */}
+      <div className="absolute bottom-0 left-0 w-full h-[48%] bg-white p-10 flex flex-col justify-center">
         <div className="flex items-center gap-6 mb-6">
           <SmartField field="titulo" {...sp} className="shrink-0">
             <span
