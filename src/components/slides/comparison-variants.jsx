@@ -1162,19 +1162,19 @@ export function ComparisonVariant25(props) {
         <SlideHeader {...props} index={index + 1} total={props.slideCount} hideDot={true} />
       </div>
 
-      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-0">
+      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-0 bg-[#ffffff]">
         <SmartEl {...sp} field="tag">
-          <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] text-zinc-500 uppercase mb-4 block" style={{ fontFamily: textFont }}>
+          <TextWrapper {...sp} as="span" field="tag" className="font-bold tracking-[0.2em] text-[10px] uppercase mb-4 block" style={{ fontFamily: textFont, color: '#050505' }}>
             {data.tag || 'O COMUM'}
           </TextWrapper>
         </SmartEl>
         <SmartEl {...sp} field="titulo_a">
-          <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-4 leading-[0.9]" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h3" field="titulo_a" className="font-black uppercase tracking-tighter mb-4 leading-[0.9] text-[#1A1A1A]" style={{ fontFamily: titleFont, fontSize: `${34 * sTitle}px` }}>
             {data.titulo_a || data.titulo || 'TÍTULO A'}
           </TextWrapper>
         </SmartEl>
         <SmartEl {...sp} field="texto_a">
-          <TextWrapper {...sp} as="p" field="texto_a" className="text-zinc-400 font-medium leading-relaxed pr-6" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+          <TextWrapper {...sp} as="p" field="texto_a" className="font-medium leading-relaxed pr-6 text-[#1A1A1A]" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
             {data.texto_a || (data.items?.[0]?.value) || 'Texto de apoio da primeira opção.'}
           </TextWrapper>
         </SmartEl>
