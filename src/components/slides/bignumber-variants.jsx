@@ -1026,7 +1026,7 @@ export function BigNumberVariant14(props) {
         borderBottom: `10px solid ${brandColor}`
       }}
     >
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="#EDEDED" />
 
       <SmartField field="titulo" {...sp} className="mb-4">
         <span
@@ -1455,7 +1455,7 @@ export function BigNumberVariant21(props) {
 
       {/* Área de conteúdo principal */}
       <div className="w-[85%] h-full flex flex-col justify-center p-12 relative">
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="#EDEDED" />
 
         <SmartField field="titulo" {...sp} className="mb-4 mt-8">
           <span
@@ -1663,7 +1663,7 @@ export function BigNumberVariant24({ data, index, slideCount, brandColor, brandH
         brandColor={brandColor} isVerified={isVerified}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
         hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        handleColor="#71717a" counterColor="#a1a1aa"
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="#EDEDED"
       />
 
       {/* Ghost watermark */}
