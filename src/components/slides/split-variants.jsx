@@ -4046,7 +4046,7 @@ export function SplitVariant65(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 overflow-hidden relative bg-white" style={{ borderBottom: `10px solid ${brandColor}` }}>
+    <div className="w-full h-full flex flex-col p-10 overflow-hidden relative bg-white" style={{ borderTop: `10px solid ${brandColor}`, borderBottom: `10px solid ${brandColor}` }}>
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -4085,7 +4085,7 @@ export function SplitVariant65(props) {
         </div>
       </div>
       
-      <div className="w-full h-[170px] bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner shrink-0 flex">
+      <div className="w-full h-[175px] bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner shrink-0 flex">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
