@@ -1294,7 +1294,7 @@ export function SplitVariant21(props) {
         hideDot={true}
       />
       
-      <div className="flex-1 flex flex-col z-10 min-h-0 pt-12">
+      <div className="flex-1 flex flex-col z-10 min-h-0 pt-[73px]">
         <SmartField field="titulo" {...sp} className="mb-4 w-[80%]">
           <h2
             contentEditable suppressContentEditableWarning
