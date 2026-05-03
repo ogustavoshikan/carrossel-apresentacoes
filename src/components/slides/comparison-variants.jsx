@@ -569,16 +569,14 @@ export function ComparisonVariant22(props) {
 
   return (
     <div className="w-full h-full relative overflow-hidden bg-black text-white flex flex-col rounded-slide">
-      <div className="h-1/2 w-full relative shrink-0">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40 grayscale" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black" />
+      <div className="h-1/2 w-full relative shrink-0 bg-[#ffffff]">
         <div className="absolute top-0 left-0 w-full p-10 z-50">
           <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
         </div>
         <div className="relative z-10 p-6 h-full flex flex-col justify-end text-center pb-10">
           <X className="w-6 h-6 text-white/30 mx-auto mb-2" />
           <SmartEl {...sp} field="tag">
-            <TextWrapper {...sp} as="p" field="tag" className="text-white/50 leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="tag" className="text-[#1A1A1A] leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
           </SmartEl>
