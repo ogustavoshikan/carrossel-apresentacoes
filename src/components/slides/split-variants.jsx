@@ -1718,7 +1718,7 @@ export function SplitVariant28(props) {
         hideDot={true}
       />
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-2xl flex flex-col items-center text-center z-10 border border-white/50">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-white/95 backdrop-blur-sm pt-1 pb-6 px-6 rounded-2xl shadow-2xl flex flex-col items-center text-center z-10 border border-white/50">
         <SmartField field="tag" {...sp} className="mb-2">
           <span
             contentEditable suppressContentEditableWarning
@@ -1781,7 +1781,7 @@ export function SplitVariant29(props) {
         />
       </div>
 
-      <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 p-6 z-10 shadow-2xl flex flex-col items-center text-center border-y-[6px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 py-4 px-6 z-10 shadow-2xl flex flex-col items-center text-center border-y-[6px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp} className="w-full">
           <h2
             contentEditable suppressContentEditableWarning
