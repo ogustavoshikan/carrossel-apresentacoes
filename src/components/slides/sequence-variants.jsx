@@ -906,6 +906,8 @@ export function SequenceVariant11(props) {
         
       </div>
 
+      <div className="absolute top-[45%] left-0 w-full h-[10px] z-10 -translate-y-1/2" style={{ backgroundColor: brandColor }} />
+
       <div className="absolute top-[45%] right-8 -translate-y-1/2 z-20">
         <div 
           className="px-6 py-2 rounded-full text-white shadow-xl flex items-center justify-center transition-colors duration-500"
