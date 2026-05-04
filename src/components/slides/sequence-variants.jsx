@@ -1144,7 +1144,7 @@ export function SequenceVariant14(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative p-8 overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#fdf9f3] text-[#1a1a1a] relative p-8 overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -1166,13 +1166,33 @@ export function SequenceVariant14(props) {
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
-          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#FDFBF7] font-text select-none"
+          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#fdf9f3] font-text select-none"
         >
           {step}
         </div>
       </div>
 
       <div className="flex-1 flex flex-col justify-end pt-8 pb-4 relative z-10 w-[90%] mx-auto text-center">
+        <SmartEl 
+          slideIndex={index} 
+          field="tag" 
+          position={data.positions?.tag || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+          onSelectElement={onSelectElement}
+          className="mb-2"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="span" 
+            field="tag" 
+            className="text-[10px] font-bold tracking-widest uppercase"
+            style={{fontFamily: titleFont,  color: brandColor }}
+          >
+            {data.tag || 'DICA'}
+          </TextWrapper>
+        </SmartEl>
+
         <SmartEl 
           slideIndex={index} 
           field="titulo" 

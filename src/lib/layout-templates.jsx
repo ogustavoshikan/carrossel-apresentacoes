@@ -185,7 +185,7 @@ export const LAYOUT_TEMPLATES = {
     texto_apoio: 'Descreva aqui o processo detalhado desta etapa da sua sequência.',
     sugestao_visual: '',
     imageUrl: '',
-    tag: 'PASSO A PASSO',
+    tag: 'DICA',
     items: [],
   },
 };
