@@ -795,64 +795,7 @@ export function BigNumberVariant14(props) {
 
 
 
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 19 — Color Block Split
-// Painel superior colorido com número gigante + painel escuro inferior com tag e texto.
-// ═══════════════════════════════════════════════════════════
-export function BigNumberVariant19(props) {
-  const { data, index, slideCount, brandColor, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
-  return (
-    <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505]">
-      {/* Painel superior colorido com número */}
-      <div
-        className="h-[55%] w-full flex items-center justify-center relative p-10 shrink-0"
-        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
-      >
-        <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
-        <SmartField field="titulo" {...sp} className="w-full text-center">
-          <span
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black text-white tracking-tighter leading-none outline-none block"
-            style={{ fontSize: `${150 * sTitle}px` }}
-          >
-            {data.titulo}
-          </span>
-        </SmartField>
-      </div>
-
-      {/* Painel inferior escuro com tag e texto */}
-      <div className="h-[45%] w-full flex flex-col justify-center p-10 relative shrink-0">
-        <SmartField field="tag" {...sp} className="mb-4">
-          <span
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-tag font-bold text-[12px] tracking-widest uppercase text-white/50 outline-none block"
-          >
-            {data.tag || 'RESULTADO'}
-          </span>
-        </SmartField>
-        <SmartField field="texto_apoio" {...sp}>
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-white outline-none leading-relaxed break-words max-w-full"
-            style={{ fontSize: `${22 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartField>
-      </div>
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 20 — Image Wash Card
@@ -1361,7 +1304,6 @@ export const BIGNUMBER_VARIANT_COMPONENTS = {
   10: BigNumberVariant10,
   13: BigNumberVariant13,
   14: BigNumberVariant14,
-  19: BigNumberVariant19,
   20: BigNumberVariant20,
   21: BigNumberVariant21,
   22: BigNumberVariant22,
@@ -1438,12 +1380,7 @@ export const BIGNUMBER_VARIANT_META = [
     description: 'Número preenchido com textura de imagem em fundo claro',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants14.png'
   },
-  {
-    id: 19,
-    name: 'Color Block Split',
-    description: 'Painel superior colorido com número + painel escuro com tag e texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants19.png'
-  },
+
   {
     id: 20,
     name: 'Image Wash Card',
