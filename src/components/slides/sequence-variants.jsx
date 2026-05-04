@@ -1082,7 +1082,7 @@ export function SequenceVariant13(props) {
       <div className="flex-1 p-8 pb-12 flex flex-col justify-end relative z-20">
         <div className="flex items-center gap-4 mb-4">
           <div 
-            className="font-black text-4xl leading-none transition-colors duration-500 drop-shadow-[0_0_15px_currentColor] font-text select-none"
+            className="font-black text-4xl leading-none transition-colors duration-500 font-text select-none"
             style={{fontFamily: textFont,  color: brandColor }}
           >
             0{step}.
