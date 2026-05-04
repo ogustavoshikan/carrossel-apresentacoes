@@ -1087,7 +1087,7 @@ export function SequenceVariant13(props) {
           >
             0{step}.
           </div>
-          <div className="h-px flex-1 bg-white/20" />
+          <div className="h-px flex-1 bg-white/20 translate-y-[4px]" />
         </div>
 
         <SmartEl 
