@@ -2445,91 +2445,6 @@ export function CoverVariant46(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
-// VARIANTE 47 — GIANT NUMBER BASE
-// Layout off-white com número gigante marca d'água e CTA circular
-// ═══════════════════════════════════════════════════════════
-export function CoverVariant47(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: '#EBE9E1' }}>
-        {/* Detalhes Geométricos */}
-        <div className="absolute top-0 left-0 w-32 h-32 border-b-[3px] border-r-[3px] border-[#1a1a1a]/10 rounded-br-2xl pointer-events-none z-0"></div>
-        <div className="absolute top-6 left-6 w-2.5 h-2.5 bg-[#1a1a1a]/30 rounded-full z-0"></div>
-        <div className="absolute top-6 left-12 w-2.5 h-2.5 bg-[#1a1a1a]/30 rounded-full z-0"></div>
-        
-        <div className="absolute bottom-0 right-12 w-24 h-24 border-t-[3px] border-l-[3px] border-[#1a1a1a]/10 rounded-tl-2xl pointer-events-none z-0"></div>
-        <div className="absolute bottom-6 right-0 w-24 h-24 border-t-[3px] border-l-[3px] border-[#1a1a1a]/10 rounded-tl-2xl pointer-events-none z-0"></div>
-
-        <div className="absolute top-8 left-8 right-8 z-20">
-            <SlideHeader {...props} index={index + 1} total={slideCount} />
-        </div>
-
-        {/* Número Gigante Marca D'água */}
-        <div className="absolute -left-12 top-[12%] z-0 pointer-events-none">
-            <SmartField field="tag" {...sp}>
-              <div 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-black leading-none outline-none" 
-                style={{ fontFamily: titleFont, fontSize: '380px', color: brandColor, opacity: 0.15, WebkitTextStroke: `3px ${brandColor}` }}
-              >
-                {data.tag || '5'}
-              </div>
-            </SmartField>
-        </div>
-
-        <div className="relative z-10 flex-1 flex flex-col justify-center pl-[35%] pr-8 pt-10">
-            <div className="border-l-4 pl-6" style={{ borderColor: 'white' }}>
-                <SmartField field="titulo" {...sp}>
-                  <h2 
-                    contentEditable suppressContentEditableWarning
-                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                    className="font-black text-[#1a1a1a] leading-[0.95] tracking-tighter outline-none whitespace-pre-line" 
-                    style={{ fontFamily: titleFont, fontSize: `${40 * sTitle}px` }}
-                  >
-                    {data.titulo}
-                  </h2>
-                </SmartField>
-                <SmartField field="texto_apoio" {...sp} className="mt-2">
-                  <p 
-                    contentEditable suppressContentEditableWarning
-                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="text-[#1a1a1a]/80 font-semibold leading-snug outline-none" 
-                    style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
-                  >
-                    {data.texto_apoio}
-                  </p>
-                </SmartField>
-            </div>
-        </div>
-
-        {/* CTA Circular e Arraste */}
-        <div className="absolute bottom-12 right-12 flex items-center gap-4 z-20">
-            <div className="flex items-center gap-2">
-                <SmartField field="cta_text" {...sp}>
-                  <span 
-                    contentEditable suppressContentEditableWarning
-                    onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-                    className="font-bold text-[10px] uppercase tracking-widest text-[#1a1a1a]/60 outline-none" 
-                    style={{ fontFamily: titleFont }}
-                  >
-                    {data.cta_text || 'ARRASTA'}
-                  </span>
-                </SmartField>
-            </div>
-            <div className="bg-[#1a1a1a] w-12 h-12 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform cursor-pointer">
-                <ArrowRight className="w-5 h-5 text-white" />
-            </div>
-        </div>
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
 // VARIANTE 48 — SPLIT NUMBER DARK
 // Layout com fundo colorido, imagem superior e número gigante
 // ═══════════════════════════════════════════════════════════
@@ -3446,7 +3361,6 @@ export const COVER_VARIANT_COMPONENTS = {
   44: CoverVariant44,
   45: CoverVariant45,
   46: CoverVariant46,
-  47: CoverVariant47,
   48: CoverVariant48,
   49: CoverVariant49,
   50: CoverVariant50,
@@ -3516,7 +3430,6 @@ export const COVER_VARIANT_META = [
   { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa44.png' },
   { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa45.png' },
   { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa46.png' },
-  { id: 47, name: 'Giant Number Base', description: 'Off-white com número gigante marca d\'água', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa47.png' },
   { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa48.png' },
   { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa49.png' },
   { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_capa50.png' },
