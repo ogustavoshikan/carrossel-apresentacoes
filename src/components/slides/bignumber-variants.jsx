@@ -674,19 +674,18 @@ export function BigNumberVariant13(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full bg-[#080808] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center">
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
+    <div className="w-full h-full bg-[#ffffff] flex flex-col items-center justify-center p-12 relative overflow-hidden text-center" style={{ borderBottom: `10px solid ${brandColor}` }}>
+      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#1A1A1A" counterColor="#1A1A1A" counterBg="#EDEDED" />
       
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{fontFamily: titleFont,  backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{fontFamily: titleFont,  backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '30px 30px' }} />
 
       <div className="relative mb-12">
-        <div className="absolute inset-0 blur-[60px] opacity-40 rounded-full" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="relative z-10">
           <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-text font-black text-white tracking-tighter leading-none outline-none block italic"
-            style={{ fontSize: `${180 * sTitle}px` }}
+            className="font-text font-black tracking-tighter leading-none outline-none block italic"
+            style={{ fontSize: `${180 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}
           </span>
@@ -1595,9 +1594,6 @@ export const BIGNUMBER_VARIANT_COMPONENTS = {
   10: BigNumberVariant10,
   13: BigNumberVariant13,
   14: BigNumberVariant14,
-  16: BigNumberVariant16,
-  17: BigNumberVariant17,
-  18: BigNumberVariant18,
   19: BigNumberVariant19,
   20: BigNumberVariant20,
   21: BigNumberVariant21,
@@ -1675,24 +1671,6 @@ export const BIGNUMBER_VARIANT_META = [
     name: 'Texture Number',
     description: 'Número preenchido com textura de imagem em fundo claro',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants14.png'
-  },
-  {
-    id: 16,
-    name: 'Light Color Drop',
-    description: 'Fundo branco + número colorido + card de texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants16.png'
-  },
-  {
-    id: 17,
-    name: 'Ghost Watermark',
-    description: 'Watermark gigante decorativo + tag pill + número menor',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants17.png'
-  },
-  {
-    id: 18,
-    name: 'Glow Centered',
-    description: 'Número centralizado com glow colorido + tag frosted',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants18.png'
   },
   {
     id: 19,
