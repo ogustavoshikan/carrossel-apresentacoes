@@ -1592,8 +1592,9 @@ export function SequenceVariant19(props) {
         <ImageBg data={data} className="w-full h-full">
            <div className="absolute inset-0 bg-black/10" />
         </ImageBg>
-        
       </div>
+
+      <div className="w-full h-[7px] absolute top-[50%] -translate-y-1/2 z-10" style={{ backgroundColor: brandColor }} />
 
       <div className="absolute top-[50%] left-8 -translate-y-1/2 z-20 flex items-center">
         <div 
@@ -1607,6 +1608,26 @@ export function SequenceVariant19(props) {
       </div>
 
       <div className="flex-1 p-8 pt-12 flex flex-col justify-end relative z-10">
+        <SmartEl 
+          slideIndex={index} 
+          field="tag" 
+          position={data.positions?.tag || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+          onSelectElement={onSelectElement}
+          className="mb-2"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="span" 
+            field="tag" 
+            className="text-[10px] font-bold tracking-widest uppercase"
+            style={{fontFamily: titleFont,  color: brandColor }}
+          >
+            {data.tag || 'DICA'}
+          </TextWrapper>
+        </SmartEl>
+
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
