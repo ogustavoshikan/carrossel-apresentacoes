@@ -146,15 +146,15 @@ export default function SlideCTA(props) {
       <div className="mt-16 flex gap-10 items-center text-white/50 relative z-10 pointer-events-none">
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Heart className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Curtir</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Curta</span>
         </div>
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Bookmark className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Salvar</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Salve</span>
         </div>
         <div className="flex flex-col items-center gap-2 group transition-all hover:scale-110">
           <Share2 className="w-5 h-5" />
-          <span className="text-[8px] font-black tracking-widest uppercase">Compartilhar</span>
+          <span className="text-[8px] font-black tracking-widest uppercase">Compartilhe</span>
         </div>
       </div>
     </div>
