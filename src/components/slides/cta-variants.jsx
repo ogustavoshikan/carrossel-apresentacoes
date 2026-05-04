@@ -1474,9 +1474,9 @@ export function CTAVariant23(props) {
         </SmartElement>
       </div>
       <div className="flex justify-between items-end mt-auto w-full z-10 pointer-events-none">
-        <div className="flex items-center gap-2 mb-2 bg-[#1a1a1a] text-white px-5 py-2.5 rounded-full shadow-lg">
-          <span className="font-text font-bold text-[10px] tracking-widest uppercase">Arraste</span>
-          <ArrowRight className="w-3 h-3" />
+        <div className="flex items-center gap-2 mb-2 text-white px-5 py-2.5 rounded-full shadow-lg" style={{ backgroundColor: brandColor }}>
+          <Bookmark className="w-3 h-3" />
+          <span className="font-text font-bold text-[10px] tracking-widest uppercase">Salve este post</span>
         </div>
         <div className="grid grid-cols-2 gap-3 shrink-0">
           <div className="w-14 h-14 rounded-2xl bg-white shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-zinc-200 flex items-center justify-center">
