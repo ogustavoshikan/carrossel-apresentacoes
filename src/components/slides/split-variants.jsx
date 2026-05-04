@@ -3765,7 +3765,7 @@ export function SplitVariant64(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
+    <div className="w-full h-full flex flex-col p-8 overflow-hidden relative" style={{fontFamily: titleFont,  backgroundColor: brandColor, borderBottom: '10px solid #ffffff' }}>
       <SlideHeader 
         {...props} 
         slideIndex={index} 
