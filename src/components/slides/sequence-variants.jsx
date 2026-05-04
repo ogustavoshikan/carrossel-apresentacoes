@@ -56,7 +56,7 @@ export function SequenceVariant1(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#fdf9f3] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -116,7 +116,7 @@ export function SequenceVariant1(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-text"
+            className="text-[#1a1a1a] font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O conteúdo detalhado do passo atual da sua sequência explicativa.'}
