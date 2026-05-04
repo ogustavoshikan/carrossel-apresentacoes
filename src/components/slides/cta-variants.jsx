@@ -1445,7 +1445,7 @@ export function CTAVariant23(props) {
       <div className="relative z-10">
         
       </div>
-      <div className="flex flex-col mt-4 mb-auto w-[90%] z-10">
+      <div className="flex flex-col mt-4 mb-auto w-[90%] z-10" style={{ paddingTop: '80px' }}>
         <SmartElement
           slideIndex={index} field="titulo"
           position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
