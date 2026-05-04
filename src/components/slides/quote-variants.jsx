@@ -456,19 +456,19 @@ export const QUOTE_VARIANT_COMPONENTS = {
 };
 
 export const QUOTE_VARIANT_META = [
-  { id: 0, name: 'Original', description: 'Layout quote padrão centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote0.png' },
-  { id: 1, name: 'Classic Dark', description: 'Escuro com ícone de aspas e detalhe lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote1.png' },
-  { id: 2, name: 'Blur Movie', description: 'Imagem desfocada com gradiente e logo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote2.png' },
-  { id: 3, name: 'Brand Main', description: 'Fundo da cor da marca com citação centralizada e gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote3.png' },
-  { id: 4, name: 'Side Dark', description: 'Imagem escura na esquerda, texto claro na direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote4.png' },
-  { id: 5, name: 'Bento Card', description: 'Card vidro com ícone deslocado no topo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote5.png' },
-  { id: 6, name: 'Simple Top', description: 'Simples com detalhe na barra superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote6.png' },
-  { id: 7, name: 'White Box', description: 'Card branco com bordas brutais flutuantes', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote7.png' },
-  { id: 8, name: 'Vertical Auth', description: 'Sidebar esticada colorida com autor rotacionado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote8.png' },
-  { id: 9, name: 'Gradient Text', description: 'Texto gigante com preenchimento em gradiente brilhante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote9.png' },
-  { id: 10, name: 'Glass Card', description: 'Card vidro desfocado em fundo fotográfico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote10.png' },
-  { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote11.png' },
-  { id: 12, name: 'Social Proof', description: 'Depoimento premium com balão e avatar', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_quote12.png' }
+  { id: 0, name: 'Original', description: 'Layout quote padrão centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote0.png' },
+  { id: 1, name: 'Classic Dark', description: 'Escuro com ícone de aspas e detalhe lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote1.png' },
+  { id: 2, name: 'Blur Movie', description: 'Imagem desfocada com gradiente e logo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote2.png' },
+  { id: 3, name: 'Brand Main', description: 'Fundo da cor da marca com citação centralizada e gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote3.png' },
+  { id: 4, name: 'Side Dark', description: 'Imagem escura na esquerda, texto claro na direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote4.png' },
+  { id: 5, name: 'Bento Card', description: 'Card vidro com ícone deslocado no topo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote5.png' },
+  { id: 6, name: 'Simple Top', description: 'Simples com detalhe na barra superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote6.png' },
+  { id: 7, name: 'White Box', description: 'Card branco com bordas brutais flutuantes', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote7.png' },
+  { id: 8, name: 'Vertical Auth', description: 'Sidebar esticada colorida com autor rotacionado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote8.png' },
+  { id: 9, name: 'Gradient Text', description: 'Texto gigante com preenchimento em gradiente brilhante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote9.png' },
+  { id: 10, name: 'Glass Card', description: 'Card vidro desfocado em fundo fotográfico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote10.png' },
+  { id: 11, name: 'Light Print', description: 'Estilo editorial impresso com citação ao fundo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote11.png' },
+  { id: 12, name: 'Social Proof', description: 'Depoimento premium com balão e avatar', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Citacao/designs_quote12.png' }
 ];
 
 

@@ -1673,32 +1673,162 @@ export const COMPARISON_VARIANT_COMPONENTS = {
 };
 
 export const COMPARISON_VARIANT_META = [
-  { id: 2, nome: 'Split View', badge: null },
-  { id: 5, nome: 'Cartões', badge: null },
-  { id: 6, nome: 'Strike Bold', badge: null },
-  { id: 9, nome: 'Diagonal', badge: null },
-  { id: 10, nome: 'Toggle', badge: null },
-  { id: 11, nome: 'Correção', badge: 'PRO' },
-  { id: 13, nome: 'VS Central', badge: 'NEW' },
-  { id: 14, nome: 'VS Stack', badge: 'NEW' },
-  { id: 16, nome: 'Photo Split', badge: 'NEW' },
-  { id: 19, nome: 'Minimal VS', badge: 'NEW' },
-  { id: 20, nome: 'Dark Split', badge: 'NEW' },
-  { id: 22, nome: 'Split Img', badge: 'NEW' },
-  { id: 23, nome: 'Giant Check', badge: 'NEW' },
-  { id: 25, nome: 'Split Mono', badge: 'NEW' },
-  { id: 26, nome: 'Mono Cards', badge: 'NEW' },
-  { id: 27, nome: 'Vanguard', badge: 'NEW' },
-  { id: 28, nome: 'Cinematic', badge: 'NEW' },
-  { id: 29, nome: 'Rect Rival', badge: 'NEW' },
-  { id: 30, nome: 'Pure Base', badge: 'NEW' },
-  { id: 31, nome: 'Clean Contrast', badge: 'NEW' },
-  { id: 32, nome: 'Clean Stack', badge: 'NEW' },
-  { id: 33, nome: 'Balanced Stack', badge: 'NEW' },
-  { id: 34, nome: 'Offset Stack', badge: 'NEW' },
-  { id: 35, nome: 'Diagonal Clash', badge: 'NEW' },
-  { id: 36, nome: 'Dynamic Cards', badge: 'NEW' },
-  { id: 37, nome: 'Bold Vertical', badge: 'NEW' },
+  {
+    id: 2,
+    nome: 'Split View',
+    badge: null,
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison2.png'
+  },
+  {
+    id: 5,
+    nome: 'Cartões',
+    badge: null,
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison5.png'
+  },
+  {
+    id: 6,
+    nome: 'Strike Bold',
+    badge: null,
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison6.png'
+  },
+  {
+    id: 9,
+    nome: 'Diagonal',
+    badge: null,
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison9.png'
+  },
+  {
+    id: 10,
+    nome: 'Toggle',
+    badge: null,
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison10.png'
+  },
+  {
+    id: 11,
+    nome: 'Correção',
+    badge: 'PRO',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison11.png'
+  },
+  {
+    id: 13,
+    nome: 'VS Central',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison13.png'
+  },
+  {
+    id: 14,
+    nome: 'VS Stack',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison14.png'
+  },
+  {
+    id: 16,
+    nome: 'Photo Split',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison16.png'
+  },
+  {
+    id: 19,
+    nome: 'Minimal VS',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison19.png'
+  },
+  {
+    id: 20,
+    nome: 'Dark Split',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison20.png'
+  },
+  {
+    id: 22,
+    nome: 'Split Img',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison22.png'
+  },
+  {
+    id: 23,
+    nome: 'Giant Check',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison23.png'
+  },
+  {
+    id: 25,
+    nome: 'Split Mono',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison25.png'
+  },
+  {
+    id: 26,
+    nome: 'Mono Cards',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison26.png'
+  },
+  {
+    id: 27,
+    nome: 'Vanguard',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison27.png'
+  },
+  {
+    id: 28,
+    nome: 'Cinematic',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison28.png'
+  },
+  {
+    id: 29,
+    nome: 'Rect Rival',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison29.png'
+  },
+  {
+    id: 30,
+    nome: 'Pure Base',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison30.png'
+  },
+  {
+    id: 31,
+    nome: 'Clean Contrast',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison31.png'
+  },
+  {
+    id: 32,
+    nome: 'Clean Stack',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison32.png'
+  },
+  {
+    id: 33,
+    nome: 'Balanced Stack',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison33.png'
+  },
+  {
+    id: 34,
+    nome: 'Offset Stack',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison34.png'
+  },
+  {
+    id: 35,
+    nome: 'Diagonal Clash',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison35.png'
+  },
+  {
+    id: 36,
+    nome: 'Dynamic Cards',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison36.png'
+  },
+  {
+    id: 37,
+    nome: 'Bold Vertical',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison37.png'
+  },
 ];
 
 
