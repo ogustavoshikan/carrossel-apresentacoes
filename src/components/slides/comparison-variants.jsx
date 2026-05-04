@@ -214,51 +214,6 @@ export function ComparisonVariant14(props) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 15 — Comparison Card List
-// Lista de cards com ícones e cores contrastantes
-// ═══════════════════════════════════════════════════════════
-export function ComparisonVariant15(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const bgBase = data.bgColor || '#ffffff';
-  const gradientColor1 = brandColor;
-  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
-
-  return (
-    <div className="w-full h-full p-10 flex flex-col rounded-slide" style={{ backgroundColor: bgBase }}>
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} counterBg="#EDEDED" brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      <SmartEl {...sp} field="titulo" className="mb-8 shrink-0 text-center">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter relative top-[60px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
-          {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
-        </TextWrapper>
-      </SmartEl>
-      <div className="flex-1 flex flex-col justify-center gap-6 min-h-0">
-        <div className="flex items-start gap-4 p-6 bg-red-50 rounded-2xl border border-red-100 shadow-sm shrink-0">
-          <div className="bg-red-500 rounded-full p-1.5 shrink-0 mt-1">
-            <X className="w-4 h-4 text-white" />
-          </div>
-          <SmartEl {...sp} field="tag" className="flex-1">
-            <TextWrapper {...sp} as="p" field="tag" className="text-red-900 leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
-              {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-        <div className="flex items-start gap-4 p-6 rounded-2xl border shadow-md shrink-0" style={{ backgroundColor: `${brandColor}10`, borderColor: `${brandColor}30` }}>
-          <div className="rounded-full p-1.5 shrink-0 mt-1" style={{ backgroundColor: gradientColor1 }}>
-            <Check className="w-4 h-4 text-white" />
-          </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="leading-snug font-bold whitespace-pre-wrap" style={{ color: '#1a1a1a', fontFamily: textFont, fontSize: `${14 * sText}px` }}>
-              {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 16 — Comparison Photo Split Blur
@@ -307,110 +262,6 @@ export function ComparisonVariant16(props) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 17 — Comparison Slanted Luxury
-// Fundo escuro com recorte diagonal e tÃ­tulo grande
-// ═══════════════════════════════════════════════════════════
-export function ComparisonVariant17(props) {
-  const { data, index, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const gradientColor1 = brandColor;
-  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
-
-  return (
-    <div className="w-full h-full relative rounded-slide" style={{ backgroundColor: '#1a1a1a' }}>
-      <div className="absolute inset-0 overflow-hidden rounded-slide">
-        <div className="absolute top-0 right-0 w-[150%] h-[150%] origin-top-right rotate-[-30deg] translate-x-[20%] translate-y-[-10%]" style={{ backgroundColor: gradientColor1 }} />
-      </div>
-      <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      </div>
-      <div className="absolute inset-0 flex flex-col p-8 z-10">
-        <SmartEl {...sp} field="titulo" className="mb-auto">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-none uppercase tracking-tighter drop-shadow-lg" style={{ fontFamily: titleFont, fontSize: `${36 * sTitle}px` }}>
-            {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
-          </TextWrapper>
-        </SmartEl>
-        <div className="flex w-full h-[60%] items-end pb-8">
-          <div className="w-1/2 pr-6">
-            <X className="w-6 h-6 text-white/50 mb-3" />
-            <SmartEl {...sp} field="tag">
-              <TextWrapper {...sp} as="p" field="tag" className="text-white/70 font-medium leading-snug" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-                {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
-              </TextWrapper>
-            </SmartEl>
-          </div>
-          <div className="w-1/2 pl-6">
-            <Check className="w-6 h-6 text-white mb-3" />
-            <SmartEl {...sp} field="texto_apoio">
-              <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug drop-shadow-md" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-                {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
-              </TextWrapper>
-            </SmartEl>
-          </div>
-        </div>
-      </div>
-      <SmartEl {...sp} field="badge_text" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-[#1a1a1a] font-black px-4 py-2 rounded-full shadow-2xl z-20 border-4 border-[#1a1a1a]">
-        <TextWrapper {...sp} as="div" field="badge_text" className="uppercase">
-          {data.badge_text || 'VS'}
-        </TextWrapper>
-      </SmartEl>
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 18 — Comparison Glass Glow
-// Cards com blur sobre fundo com glow da cor da marca
-// ═══════════════════════════════════════════════════════════
-export function ComparisonVariant18(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const gradientColor1 = brandColor;
-  const imgUrl = data.imageUrl;
-  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
-
-  return (
-    <div className="w-full h-full relative flex flex-col items-center justify-center p-6 bg-black rounded-slide">
-      <div className="absolute inset-0 z-0 overflow-hidden rounded-slide">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity blur-[3px] scale-110" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute inset-0 bg-black/60" />
-      </div>
-      <div className="absolute top-0 left-0 w-full p-10 z-50">
-        <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      </div>
-      <SmartEl {...sp} field="titulo" className="mb-6 z-10 w-full text-center mt-12 shrink-0">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl" style={{ fontFamily: titleFont, fontSize: `${32 * sTitle}px` }}>
-          {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
-        </TextWrapper>
-      </SmartEl>
-      <div className="w-full flex flex-col gap-4 z-10 flex-1 min-h-0 justify-center pb-8">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl flex items-center gap-4 shadow-lg ml-[-10px] mr-[10px] shrink-0">
-          <div className="bg-red-500/20 p-2 rounded-full shrink-0">
-            <X className="w-4 h-4 text-red-400" />
-          </div>
-          <SmartEl {...sp} field="tag" className="flex-1">
-            <TextWrapper {...sp} as="p" field="tag" className="text-white/80 leading-snug font-medium" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-              {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-        <div className="bg-white/95 backdrop-blur-md border p-5 rounded-2xl flex items-center gap-4 shadow-[0_20px_40px_rgba(0,0,0,0.5)] ml-[10px] mr-[-10px] z-20 shrink-0" style={{ borderColor: gradientColor1 }}>
-          <div className="p-2 rounded-full shrink-0" style={{ backgroundColor: gradientColor1 }}>
-            <Check className="w-4 h-4 text-white" />
-          </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#1a1a1a] leading-snug font-bold" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
-              {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 19 — Comparison Minimal VS
@@ -513,49 +364,6 @@ export function ComparisonVariant20(props) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 21 — Comparison Dark Box
-// Cards escuros com acento na cor da marca
-// ═══════════════════════════════════════════════════════════
-export function ComparisonVariant21(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
-
-  return (
-    <div className="w-full h-full flex flex-col bg-black text-white p-10 rounded-slide">
-      <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      <SmartEl {...sp} field="titulo" className="mt-[60px] mb-8 text-center shrink-0">
-        <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
-          {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
-        </TextWrapper>
-      </SmartEl>
-      <div className="flex-1 flex flex-col gap-6 min-h-0 justify-center">
-        <div className="border border-[#222] bg-[#050505] p-6 rounded-2xl flex gap-4 items-start shrink-0 shadow-lg">
-          <div className="bg-[#111] rounded-full p-2">
-            <X className="w-4 h-4 text-white/50" />
-          </div>
-          <SmartEl {...sp} field="tag" className="flex-1">
-            <TextWrapper {...sp} as="p" field="tag" className="text-white/50 leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
-              {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-        <div className="p-6 rounded-2xl flex gap-4 items-start shadow-2xl shrink-0" style={{ backgroundColor: brandColor }}>
-          <div className="bg-white/20 rounded-full p-2">
-            <Check className="w-4 h-4 text-white" />
-          </div>
-          <SmartEl {...sp} field="texto_apoio" className="flex-1">
-            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white leading-snug font-bold whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
-              {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
-            </TextWrapper>
-          </SmartEl>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // VARIANTE 22 — Comparison Split Image Dark
@@ -654,127 +462,7 @@ export function ComparisonVariant23(props) {
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// VARIANTE 24 — Comparison Minimalist Accent
-// Bordas laterais coloridas para diferenciação
-// ═══════════════════════════════════════════════════════════
-export function ComparisonVariant24(props) {
-  const { data, index, slideCount, brandColor, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const imgUrl = data.imageUrl;
-  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
-  return (
-    <div className="w-full h-full relative overflow-hidden bg-black flex flex-col text-white rounded-slide">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute inset-0 bg-black/80" />
-      </div>
-      <div className="relative z-10 flex-1 flex flex-col p-8 justify-center">
-        <div className="absolute top-0 left-0 w-full p-10 z-50">
-          <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-        </div>
-        <SmartEl {...sp} field="titulo" className="mb-8 text-center shrink-0">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
-            {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
-          </TextWrapper>
-        </SmartEl>
-        <div className="flex flex-col gap-8 min-h-0">
-          <div className="border-l-2 border-[#333] pl-6 shrink-0 opacity-50">
-            <X className="w-5 h-5 text-white mb-2" />
-            <SmartEl {...sp} field="tag">
-              <TextWrapper {...sp} as="p" field="tag" className="text-white leading-snug font-medium whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}>
-                {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
-              </TextWrapper>
-            </SmartEl>
-          </div>
-          <div className="border-l-4 pl-6 shrink-0" style={{ borderColor: brandColor }}>
-            <Check className="w-6 h-6 mb-2" style={{ color: brandColor }} />
-            <SmartEl {...sp} field="texto_apoio">
-              <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white font-bold leading-snug whitespace-pre-wrap" style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}>
-                {data.texto_apoio || (data.items?.[1]?.value) || 'SUA SOLUÇÃO OU ESTADO DESEJADO'}
-              </TextWrapper>
-            </SmartEl>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function ComparisonVariant1(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-    const items = data.items || [];
-    const normalItems = items.filter(it => !it.highlight);
-    const highlightItems = items.filter(it => it.highlight);
-    
-    // Constrói a lista de 4 itens (Cinza, Destaque, Cinza, Destaque)
-    const displayItems = [
-      { item: normalItems[0] || { label: 'Mercado', value: 'Achocolatado com açúcar', highlight: false }, originalIndex: items.indexOf(normalItems[0]) },
-      { item: highlightItems[0] || { label: 'Premium', value: 'Cacau 100% + manteiga', highlight: true }, originalIndex: items.indexOf(highlightItems[0]) },
-      { item: normalItems[1] || { label: 'Mercado', value: 'Gordura hidrogenada', highlight: false }, originalIndex: items.indexOf(normalItems[1]) },
-      { item: highlightItems[1] || { label: 'Premium', value: 'Sabor real de chocolate', highlight: true }, originalIndex: items.indexOf(highlightItems[1]) }
-    ];
-
-  return (
-    <div className="w-full h-full bg-white flex flex-col p-10 pb-10 relative rounded-slide">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      
-      <div className="flex-1 flex flex-col justify-start pt-5 pb-8">
-        <ComparisonTitle 
-          data={data} index={index} scale={sTitle} 
-          onActionStart={onActionStart} onTextChange={onTextChange} 
-          selectedElement={selectedElement} onSelectElement={onSelectElement}
-          wrapperClasses="mb-3 shrink-0"
-          color="text-black"
-        />
-
-        <div className="space-y-3 overflow-hidden flex-1 pr-2 flex flex-col justify-center">
-          {displayItems.map((obj, i) => {
-            const { item, originalIndex } = obj;
-            const targetIndex = originalIndex !== -1 ? originalIndex : items.length + i;
-            
-            return (
-              <div 
-                key={i} 
-                className={`flex justify-between items-center p-4 rounded-2xl border transition-all ${
-                  item.highlight ? 'shadow-2xl' : 'border-white/5'
-                }`}
-                style={item.highlight
-                  ? { backgroundColor: `${brandColor}4D`, borderColor: `${brandColor}40` }
-                  : { backgroundColor: 'rgb(10 10 10 / 90%)' }
-                }
-              >
-                <div className="flex flex-col w-full">
-                  <span 
-                    contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'label', e.currentTarget.innerText)}
-                    className={`font-text font-black text-[9px] tracking-widest uppercase block ${!item.highlight ? 'text-zinc-500' : ''}`}
-                    style={item.highlight ? { color: brandColor } : {}}
-                  >
-                    {item.label}
-                  </span>
-                  <span 
-                    contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, targetIndex, 'value', e.currentTarget.innerText)}
-                    className={`font-text text-base block truncate line-clamp-2 font-bold`}
-                    style={{ color: item.highlight ? 'rgb(0 0 0)' : '#a7a5a5' }}
-                  >
-                    {item.value}
-                  </span>
-                </div>
-                {item.highlight && (
-                  <CheckCircle2 className="w-5 h-5 shrink-0" style={{ color: brandColor }} />
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
 
 export function ComparisonVariant2(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, titleFont, textFont } = props;
@@ -841,57 +529,6 @@ export function ComparisonVariant2(props) {
   );
 }
 
-export function ComparisonVariant4(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [];
-  
-  let baseNormal = items.filter(i => !i.highlight);
-  let baseHighlight = items.filter(i => i.highlight);
-  while (baseNormal.length < 2) baseNormal.push({ label: 'Categoria', value: 'Comum' });
-  while (baseHighlight.length < 2) baseHighlight.push({ label: 'Destaque', value: 'Elite', highlight: true });
-  const itemsDisp = [baseNormal[0], baseHighlight[0], baseNormal[1], baseHighlight[1]];
-
-  return (
-    <div className="w-full h-full bg-[#050505] flex flex-col p-10 pb-10 relative rounded-slide">
-      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement} index={index + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      
-      <div className="flex-1 flex flex-col justify-start pt-16 pb-8">
-        <ComparisonTitle 
-          data={data} index={index} scale={sTitle} 
-          onActionStart={onActionStart} onTextChange={onTextChange} 
-          selectedElement={selectedElement} onSelectElement={onSelectElement}
-          wrapperClasses="mb-8 shrink-0" align="text-left"
-        />
-
-        <div className="grid grid-cols-2 gap-4 flex-1 overflow-hidden pr-1">
-          {itemsDisp.map((item, i) => (
-            <div 
-              key={i} 
-              className={`p-4 rounded-2xl h-full flex flex-col items-center justify-center text-center overflow-hidden border ${item.highlight ? 'bg-white text-black shadow-xl' : 'bg-transparent text-white border-white/20'}`}
-              style={item.highlight ? { borderColor: 'white' } : {}}
-            >
-              <span 
-                contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'label', e.currentTarget.innerText)}
-                className={`font-text font-black text-[9px] tracking-widest uppercase mb-2 ${item.highlight ? '' : 'text-zinc-500'}`}
-                style={item.highlight ? { color: brandColor } : {}}
-              >
-                {item.label}
-              </span>
-              <span 
-                contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-                className={`font-text text-sm leading-snug ${item.highlight ? 'font-bold' : 'italic text-zinc-400'}`}
-              >
-                {item.value}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
 
 export function ComparisonVariant5(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
@@ -2007,9 +1644,7 @@ export function ComparisonVariant37(props) {
 // ==========================================
 
 export const COMPARISON_VARIANT_COMPONENTS = {
-  1: ComparisonVariant1,
   2: ComparisonVariant2,
-  4: ComparisonVariant4,
   5: ComparisonVariant5,
   6: ComparisonVariant6,
   9: ComparisonVariant9,
@@ -2017,16 +1652,11 @@ export const COMPARISON_VARIANT_COMPONENTS = {
   11: ComparisonVariant11,
   13: ComparisonVariant13,
   14: ComparisonVariant14,
-  15: ComparisonVariant15,
   16: ComparisonVariant16,
-  17: ComparisonVariant17,
-  18: ComparisonVariant18,
   19: ComparisonVariant19,
   20: ComparisonVariant20,
-  21: ComparisonVariant21,
   22: ComparisonVariant22,
   23: ComparisonVariant23,
-  24: ComparisonVariant24,
   25: ComparisonVariant25,
   26: ComparisonVariant26,
   27: ComparisonVariant27,
@@ -2043,9 +1673,7 @@ export const COMPARISON_VARIANT_COMPONENTS = {
 };
 
 export const COMPARISON_VARIANT_META = [
-  { id: 1, nome: 'Elegante', badge: null },
   { id: 2, nome: 'Split View', badge: null },
-  { id: 4, nome: 'Grid Mode', badge: null },
   { id: 5, nome: 'Cartões', badge: null },
   { id: 6, nome: 'Strike Bold', badge: null },
   { id: 9, nome: 'Diagonal', badge: null },
@@ -2053,16 +1681,11 @@ export const COMPARISON_VARIANT_META = [
   { id: 11, nome: 'Correção', badge: 'PRO' },
   { id: 13, nome: 'VS Central', badge: 'NEW' },
   { id: 14, nome: 'VS Stack', badge: 'NEW' },
-  { id: 15, nome: 'Check List', badge: 'NEW' },
   { id: 16, nome: 'Photo Split', badge: 'NEW' },
-  { id: 17, nome: 'Slanted Lux', badge: 'NEW' },
-  { id: 18, nome: 'Glass Glow', badge: 'NEW' },
   { id: 19, nome: 'Minimal VS', badge: 'NEW' },
   { id: 20, nome: 'Dark Split', badge: 'NEW' },
-  { id: 21, nome: 'Dark Box', badge: 'NEW' },
   { id: 22, nome: 'Split Img', badge: 'NEW' },
   { id: 23, nome: 'Giant Check', badge: 'NEW' },
-  { id: 24, nome: 'Min Accent', badge: 'NEW' },
   { id: 25, nome: 'Split Mono', badge: 'NEW' },
   { id: 26, nome: 'Mono Cards', badge: 'NEW' },
   { id: 27, nome: 'Vanguard', badge: 'NEW' },
