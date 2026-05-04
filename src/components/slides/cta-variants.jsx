@@ -1515,7 +1515,7 @@ export function CTAVariant24(props) {
       </div>
       <div className="relative z-10 w-full h-full flex flex-col justify-between p-8 pb-12">
         
-        <div className="flex-1 flex flex-col justify-end pb-8">
+        <div className="flex-1 flex flex-col justify-end pb-8" style={{ marginBottom: '95px' }}>
           <SmartElement
             slideIndex={index} field="titulo"
             position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
