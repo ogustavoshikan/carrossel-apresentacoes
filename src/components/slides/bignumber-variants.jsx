@@ -1385,7 +1385,7 @@ export const BIGNUMBER_VARIANT_META = [
     id: 20,
     name: 'Image Wash Card',
     description: 'Fundo imagem semiopaco + card branco inferior com número e texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants20.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_bignumber-variants-20.png'
   },
   {
     id: 21,
