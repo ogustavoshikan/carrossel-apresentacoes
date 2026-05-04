@@ -1388,32 +1388,34 @@ export function CTAVariant22(props) {
     <div className="w-full h-full flex bg-white relative">
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         
-        <SmartElement
-          slideIndex={index} field="titulo"
-          position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement} className="w-full shrink-0 mb-6 mt-10"
-        >
-          <h2 contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-text font-black text-white leading-[0.9] uppercase tracking-tighter outline-none"
-            style={{ fontSize: `${46 * sTitle}px` }}>
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        <SmartElement
-          slideIndex={index} field="texto_apoio"
-          position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement} className="w-[90%] shrink-0"
-        >
-          <p contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white/90 font-medium leading-relaxed outline-none"
-            style={{ fontSize: `${15 * sText}px` }}>
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
+        <div style={{ paddingTop: '60px' }}>
+          <SmartElement
+            slideIndex={index} field="titulo"
+            position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement} className="w-full shrink-0 mb-6 mt-10"
+          >
+            <h2 contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-text font-black text-white leading-[0.9] uppercase tracking-tighter outline-none"
+              style={{ fontSize: `${46 * sTitle}px` }}>
+              {data.titulo}
+            </h2>
+          </SmartElement>
+          <SmartElement
+            slideIndex={index} field="texto_apoio"
+            position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement} className="w-[90%] shrink-0"
+          >
+            <p contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-white/90 font-medium leading-relaxed outline-none"
+              style={{ fontSize: `${15 * sText}px` }}>
+              {data.texto_apoio}
+            </p>
+          </SmartElement>
+        </div>
         <div className="mt-auto pt-8 pointer-events-none">
           <span className="text-white/60 font-text font-bold uppercase tracking-widest text-[9px]">NÃO ESQUEÇA DE SALVAR</span>
         </div>
