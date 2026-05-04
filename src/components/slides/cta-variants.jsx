@@ -1330,7 +1330,7 @@ export function CTAVariant21(props) {
         
       </div>
       <div className="flex-1 flex flex-col justify-center items-start relative z-10">
-        <div className="bg-[#1a1a1a] text-white p-4 rounded-full mb-8 shadow-xl inline-flex pointer-events-none">
+        <div className="text-white p-4 rounded-full mb-8 shadow-xl inline-flex pointer-events-none" style={{ backgroundColor: 'rgb(255 255 255 / 0.1)' }}>
           <Bookmark className="w-8 h-8" fill="currentColor" />
         </div>
         <SmartElement
@@ -1360,13 +1360,13 @@ export function CTAVariant21(props) {
           </p>
         </SmartElement>
         <div className="flex gap-4 items-center w-full mt-auto pointer-events-none">
-          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="flex-1 h-16 rounded-2xl flex items-center justify-center shadow-lg" style={{ backgroundColor: 'rgb(255 255 255 / 0.1)' }}>
             <Heart className="w-6 h-6 text-white" />
           </div>
-          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="flex-1 h-16 rounded-2xl flex items-center justify-center shadow-lg" style={{ backgroundColor: 'rgb(255 255 255 / 0.1)' }}>
             <MessageCircle className="w-6 h-6 text-white" />
           </div>
-          <div className="flex-1 h-16 bg-[#1a1a1a] rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="flex-1 h-16 rounded-2xl flex items-center justify-center shadow-lg" style={{ backgroundColor: 'rgb(255 255 255 / 0.1)' }}>
             <Send className="w-6 h-6 text-white" />
           </div>
         </div>
