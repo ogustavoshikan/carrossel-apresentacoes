@@ -1418,12 +1418,12 @@ export function CTAVariant22(props) {
           <span className="text-white/60 font-text font-bold uppercase tracking-widest text-[9px]">NÃO ESQUEÇA DE SALVAR</span>
         </div>
       </div>
-      <div className="w-20 shrink-0 h-full flex flex-col items-center justify-center gap-8 bg-zinc-950 py-8 relative z-20 shadow-[-10px_0_30px_rgba(0,0,0,0.3)] pointer-events-none">
-        <Heart className="w-7 h-7 text-white opacity-80" />
-        <MessageCircle className="w-7 h-7 text-white opacity-80" />
-        <Send className="w-7 h-7 text-white opacity-80" />
+      <div className="w-20 shrink-0 h-full flex flex-col items-center justify-center gap-8 py-8 relative z-20 pointer-events-none" style={{ backgroundColor: brandColor + '21' }}>
+        <Heart className="w-7 h-7 opacity-80" style={{ color: brandColor }} />
+        <MessageCircle className="w-7 h-7 opacity-80" style={{ color: brandColor }} />
+        <Send className="w-7 h-7 opacity-80" style={{ color: brandColor }} />
         <div className="w-8 h-[2px] bg-white/20 my-2" />
-        <Bookmark className="w-7 h-7 text-white opacity-100" fill="currentColor" />
+        <Bookmark className="w-7 h-7 opacity-100" fill="currentColor" style={{ color: brandColor }} />
       </div>
     </div>
   );
