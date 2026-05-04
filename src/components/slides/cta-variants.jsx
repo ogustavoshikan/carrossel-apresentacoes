@@ -1081,7 +1081,7 @@ export function CTAVariant14(props) {
         </div>
       )}
       <div className="absolute inset-4 border border-white/10 rounded-[40px] pointer-events-none z-10" />
-      <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center mb-6 shrink-0 relative z-10 pointer-events-none">
+      <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6 shrink-0 relative z-10 pointer-events-none" style={{ backgroundColor: brandColor }}>
         <Store className="w-8 h-8 text-white" />
         <div className="absolute -inset-2 border border-dashed rounded-full" style={{ borderColor: gradientColor1 }} />
       </div>
@@ -1111,7 +1111,7 @@ export function CTAVariant14(props) {
           {data.texto_apoio}
         </p>
       </SmartElement>
-      <div className="px-6 py-3 rounded-full text-xs font-text font-bold tracking-widest uppercase border border-white/20 bg-white/10 cursor-pointer shrink-0 pointer-events-none relative z-10">Enviar Mensagem</div>
+      <div className="px-6 py-3 rounded-full text-xs font-text font-bold tracking-widest uppercase cursor-pointer shrink-0 pointer-events-none relative z-10" style={{ backgroundColor: brandColor }}>Enviar Mensagem</div>
     </div>
   );
 }
