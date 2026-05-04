@@ -1247,7 +1247,7 @@ export function SequenceVariant15(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-white text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -1260,8 +1260,9 @@ export function SequenceVariant15(props) {
       />
       <div className="w-full h-[50%] relative z-0">
         <ImageBg data={data} className="w-full h-full" />
-        
       </div>
+
+      <div className="w-full h-[10px] z-10" style={{ backgroundColor: brandColor }} />
 
       <div className="flex-1 flex flex-row z-10">
         <div 
