@@ -14,6 +14,8 @@ export default function TextEditor({
   onTextChange,
   onImageUpload,
   onImagePosition,
+  onImagePositionX,
+  onImageScale,
   onGenerateImage,
   loadingImages,
 }) {
@@ -132,21 +134,58 @@ export default function TextEditor({
               </div>
 
               {slide.imageUrl && (
-                <div className="mt-5 pt-4 border-t border-border-subtle w-full max-w-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <label className="cs-label mb-0">Ajuste Fundo (Y-Axis)</label>
-                    <span className="text-[10px] text-zinc-500 font-mono">
-                      {slide.imagePosition ?? 50}%
-                    </span>
+                <div className="mt-5 pt-4 border-t border-border-subtle w-full max-w-sm space-y-4">
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="cs-label mb-0">Posição da Imagem (X)</label>
+                      <span className="text-[10px] text-zinc-500 font-mono">
+                        {slide.imagePositionX ?? 50}%
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={slide.imagePositionX ?? 50}
+                      onChange={(e) => onImagePositionX(index, e.target.value)}
+                      className="cs-range"
+                    />
                   </div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={slide.imagePosition ?? 50}
-                    onChange={(e) => onImagePosition(index, e.target.value)}
-                    className="cs-range"
-                  />
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="cs-label mb-0">Posição da Imagem (Y)</label>
+                      <span className="text-[10px] text-zinc-500 font-mono">
+                        {slide.imagePosition ?? 50}%
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={slide.imagePosition ?? 50}
+                      onChange={(e) => onImagePosition(index, e.target.value)}
+                      className="cs-range"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="cs-label mb-0">Escala da Imagem</label>
+                      <span className="text-[10px] text-zinc-500 font-mono">
+                        {slide.imageScale ?? 1}x
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="3"
+                      step="0.05"
+                      value={slide.imageScale ?? 1}
+                      onChange={(e) => onImageScale(index, e.target.value)}
+                      className="cs-range"
+                    />
+                  </div>
                 </div>
               )}
             </div>

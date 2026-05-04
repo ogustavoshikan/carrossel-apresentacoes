@@ -107,6 +107,7 @@ export default function ConfigSidebar({
   setSlides,
   onImageUpload,
   onImagePosition,
+  onImagePositionX,
   onImageScale,
   onRemoveImage,
   titleFont,
@@ -299,6 +300,7 @@ export default function ConfigSidebar({
 
               const urlFor = (s) => s === 1 ? 'imageUrl' : `imageUrl${s}`;
               const posFor = (s) => s === 1 ? 'imagePosition' : `imagePosition${s}`;
+              const posForX = (s) => s === 1 ? 'imagePositionX' : `imagePositionX${s}`;
               const scaleFor = (s) => s === 1 ? 'imageScale' : `imageScale${s}`;
 
               const slotLabels = ['Principal', '2ª Imagem', '3ª Imagem', '4ª Imagem'];
@@ -307,6 +309,7 @@ export default function ConfigSidebar({
                 const slot = idx + 1;
                 const currentUrl = slide[urlFor(slot)];
                 const currentPos = slide[posFor(slot)] ?? 50;
+                const currentPosX = slide[posForX(slot)] ?? 50;
                 const currentScale = slide[scaleFor(slot)] ?? 1;
                 const label = totalSlots > 1 ? slotLabels[idx] : 'Imagem do Slide';
 
@@ -320,13 +323,20 @@ export default function ConfigSidebar({
                           style={{
                             backgroundImage: `url(${currentUrl})`,
                             backgroundSize: 'cover',
-                            backgroundPosition: `center ${currentPos}%`,
+                            backgroundPosition: `${currentPosX}% ${currentPos}%`,
                           }}
                         >
                           <label className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity cursor-pointer">
                             <Upload className="w-5 h-5 text-white" />
                             <input type="file" accept="image/*" className="hidden" onChange={(e) => onImageUpload(selectedElement.slideIndex, e, slot)} />
                           </label>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição X</span>
+                            <span className="text-[9px] font-mono text-zinc-500">{currentPosX}%</span>
+                          </div>
+                          <input type="range" min="0" max="100" value={currentPosX} onChange={(e) => onImagePositionX(selectedElement.slideIndex, e.target.value, slot)} className="cs-range w-full" />
                         </div>
                         <div className="space-y-2">
                           <div className="flex justify-between items-center">

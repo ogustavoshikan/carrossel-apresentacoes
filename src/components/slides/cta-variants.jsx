@@ -5,17 +5,18 @@ import SlideHeader from '../slide-header';
 
 // ─── Helper: ImageBg ────────────────────────────────────────
 // Renderiza o background de imagem ou placeholder.
-export function ImageBg({ data, className = '', style = {}, slideIndex, imageUrl, imagePosition, containerClassName, placeholderText, children }) {
+export function ImageBg({ data, className = '', style = {}, slideIndex, imageUrl, imagePosition, imagePositionX, containerClassName, placeholderText, children }) {
   const url = imageUrl || data?.imageUrl;
-  const position = imagePosition ?? data?.imagePosition ?? 50;
-  
+  const positionY = imagePosition ?? data?.imagePosition ?? 50;
+  const positionX = imagePositionX ?? data?.imagePositionX ?? 50;
+
   if (url) {
     return (
       <div
         className={`bg-cover ${className} ${containerClassName || ''}`}
         style={{
           backgroundImage: `url(${url})`,
-          backgroundPosition: `center ${position}%`,
+          backgroundPosition: `${positionX}% ${positionY}%`,
           transform: `scale(${data?.imageScale ?? 1})`,
           transformOrigin: 'center center',
           ...style,
@@ -24,8 +25,7 @@ export function ImageBg({ data, className = '', style = {}, slideIndex, imageUrl
         {children}
       </div>
     );
-  }
-  return (
+  }  return (
     <div className={`bg-zinc-900 flex items-center justify-center opacity-50 ${className} ${containerClassName || ''}`} style={style}>
       {placeholderText && <span className="text-zinc-500 text-xs">{placeholderText}</span>}
       {children}

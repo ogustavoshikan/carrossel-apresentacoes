@@ -9,14 +9,14 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
  * ─────────────────────────────────────────────────────────────────
  */
 
-function ImageBg({ imageUrl, imagePosition, imageScale, className = '' }) {
+function ImageBg({ imageUrl, imagePosition, imagePositionX, imageScale, className = '' }) {
   if (!imageUrl) return null;
   return (
     <div
       className={`absolute inset-0 bg-cover bg-no-repeat ${className}`}
       style={{
         backgroundImage: `url('${imageUrl}')`,
-        backgroundPosition: `center ${imagePosition ?? 50}%`,
+        backgroundPosition: `${imagePositionX ?? 50}% ${imagePosition ?? 50}%`,
         transform: `scale(${imageScale ?? 1})`,
       }}
     />

@@ -50,7 +50,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
         className={`bg-cover ${className}`}
         style={{
           backgroundImage: `url(${data.imageUrl})`,
-          backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+          backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
           transform: `scale(${data.imageScale ?? 1})`,
           transformOrigin: 'center center',
           ...style,
@@ -391,7 +391,7 @@ export function ComparisonVariant22(props) {
         </div>
       </div>
       <div className="h-1/2 w-full relative shrink-0" style={{ backgroundColor: brandColor }}>
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-50" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-50" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%` }} />
         <div className="relative z-10 p-6 h-full flex flex-col justify-start text-center pt-10">
           <Check className="w-6 h-6 text-white mx-auto mb-2" />
           <SmartEl {...sp} field="texto_apoio">
@@ -816,7 +816,7 @@ export function ComparisonVariant25(props) {
       </div>
 
       <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-10 transition-colors duration-500 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
-        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style={{ backgroundImage: `url(${imgB})`, backgroundPosition: `center ${data.imagePosition2 ?? 50}%` }} />
+        <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style={{ backgroundImage: `url(${imgB})`, backgroundPosition: `${data.imagePositionX2 ?? 50}% ${data.imagePosition2 ?? 50}%` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--brandColor)] via-[var(--brandColor)] to-transparent opacity-80" style={{ '--brandColor': brandColor }}></div>
         <div className="relative z-20">
           <SmartEl {...sp} field="cta_text">

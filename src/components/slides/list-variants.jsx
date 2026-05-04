@@ -13,10 +13,10 @@ function ImageBg({ data, className = '', style = {}, children }) {
   
   return (
     <div 
-      className={`bg-cover bg-center transition-all duration-500 ${className}`}
+      className={`bg-cover transition-all duration-500 ${className}`}
       style={{ 
         backgroundImage: `url("${data.imageUrl}")`,
-        backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+        backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
         transform: `scale(${scale})`,
         ...style 
       }}

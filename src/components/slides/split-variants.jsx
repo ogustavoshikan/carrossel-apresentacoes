@@ -32,9 +32,10 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
 // ─── Helper: ImageBg ────────────────────────────────────────
 // Aceita props explícitas (imageUrl, imagePosition, imageScale) ou
 // faz fallback para data.imageUrl para compatibilidade retroativa.
-function ImageBg({ data, imageUrl, imagePosition, imageScale, className = '', style = {}, children }) {
+function ImageBg({ data, imageUrl, imagePosition, imagePositionX, imageScale, className = '', style = {}, children }) {
   const url = imageUrl !== undefined ? imageUrl : data?.imageUrl;
-  const pos = imagePosition !== undefined ? imagePosition : (data?.imagePosition ?? 50);
+  const posY = imagePosition !== undefined ? imagePosition : (data?.imagePosition ?? 50);
+  const posX = imagePositionX !== undefined ? imagePositionX : (data?.imagePositionX ?? 50);
   const scale = imageScale !== undefined ? imageScale : (data?.imageScale ?? 1);
 
   if (url) {
@@ -43,7 +44,7 @@ function ImageBg({ data, imageUrl, imagePosition, imageScale, className = '', st
         className={`bg-cover ${className}`}
         style={{
           backgroundImage: `url(${url})`,
-          backgroundPosition: `center ${pos}%`,
+          backgroundPosition: `${posX}% ${posY}%`,
           transform: `scale(${scale})`,
           transformOrigin: 'center center',
           ...style,

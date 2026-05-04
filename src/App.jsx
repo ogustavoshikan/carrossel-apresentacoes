@@ -439,6 +439,11 @@ export default function App() {
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
   }, []);
 
+  const handleImagePositionX = useCallback((index, value, slot = 1) => {
+    const field = slot === 1 ? 'imagePositionX' : `imagePositionX${slot}`;
+    setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
+  }, []);
+
   const handleImageScale = useCallback((index, value, slot = 1) => {
     const field = slot === 1 ? 'imageScale' : `imageScale${slot}`;
     setSlides((prev) => prev.map((s, i) => (i === index ? { ...s, [field]: value } : s)));
@@ -779,6 +784,7 @@ export default function App() {
                   setSlides={setSlides}
                   onImageUpload={handleImageUpload}
                   onImagePosition={handleImagePosition}
+                  onImagePositionX={handleImagePositionX}
                   onImageScale={handleImageScale}
                   onRemoveImage={handleRemoveImage}
                   titleFont={titleFont}
@@ -883,6 +889,7 @@ export default function App() {
                         onTextChange={handleSlideTextChange}
                         onImageUpload={handleImageUpload}
                         onImagePosition={handleImagePosition}
+                        onImagePositionX={handleImagePositionX}
                         onImageScale={handleImageScale}
                         onGenerateImage={handleGenerateImage}
                         loadingImages={loadingImages}
@@ -909,6 +916,7 @@ export default function App() {
                         onItemChange={handleSlideItemChange}
                         onImageUpload={handleImageUpload}
                         onImagePosition={handleImagePosition}
+                        onImagePositionX={handleImagePositionX}
                         onImageScale={handleImageScale}
                         onRemoveImage={handleRemoveImage}
                         onImageFromUrl={handleImageFromUrl}

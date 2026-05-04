@@ -38,7 +38,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
         className={`bg-cover ${className}`}
         style={{
           backgroundImage: `url(${data.imageUrl})`,
-          backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+          backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
           transform: `scale(${data.imageScale ?? 1})`,
           transformOrigin: 'center center',
           ...style,
@@ -371,7 +371,7 @@ export function BigNumberVariant7({ data, index, slideCount, brandColor, brandHa
         fontSize: `${180 * sTitle}px`,
         backgroundImage: `url(${data.imageUrl})`,
         backgroundSize: 'cover',
-        backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+        backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
@@ -733,7 +733,7 @@ export function BigNumberVariant14(props) {
         fontSize: `${150 * sTitle}px`,
         backgroundImage: `url(${data.imageUrl})`,
         backgroundSize: 'cover',
-        backgroundPosition: `center ${data.imagePosition ?? 50}%`,
+        backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         WebkitTextFillColor: 'transparent',

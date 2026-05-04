@@ -77,6 +77,7 @@ export default function VisualPreview({
   onItemChange,
   onImageUpload,
   onImagePosition,
+  onImagePositionX,
   onImageScale,
   onImageFromUrl,
   onCopySlide,
@@ -712,6 +713,7 @@ export default function VisualPreview({
 
                   const urlFor = (s) => s === 1 ? 'imageUrl' : `imageUrl${s}`;
                   const posFor = (s) => s === 1 ? 'imagePosition' : `imagePosition${s}`;
+                  const posForX = (s) => s === 1 ? 'imagePositionX' : `imagePositionX${s}`;
                   const scaleFor = (s) => s === 1 ? 'imageScale' : `imageScale${s}`;
                   const slotLabels = ['Principal', '2ª Imagem', '3ª Imagem', '4ª Imagem'];
 
@@ -728,6 +730,7 @@ export default function VisualPreview({
                         const imageUrl = slide[urlFor(slot)];
                         if (!imageUrl) return null;
                         const imagePosition = slide[posFor(slot)] ?? 50;
+                        const imagePositionX = slide[posForX(slot)] ?? 50;
                         const imageScale = slide[scaleFor(slot)] ?? 1;
                         const label = totalSlots > 1 ? slotLabels[idx] : null;
 
@@ -736,6 +739,24 @@ export default function VisualPreview({
                             {label && (
                               <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600 block mb-3">{label}</span>
                             )}
+                            
+                            <div>
+                              <div className="flex justify-between items-center mb-2">
+                                <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (X)</label>
+                                <span className="text-[10px] text-zinc-600 font-mono">{imagePositionX}%</span>
+                              </div>
+                              <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value={imagePositionX}
+                                onChange={(e) => onImagePositionX(index, e.target.value, slot)}
+                                className="cs-range"
+                              />
+                            </div>
+
+                            <div className="w-full h-px bg-surface-input/30 my-2" />
+
                             <div>
                               <div className="flex justify-between items-center mb-2">
                                 <label className="text-xs font-medium text-zinc-400 mb-0">Posição da Imagem (Y)</label>
