@@ -3185,7 +3185,7 @@ export function SplitVariant55(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10" style={{fontFamily: textFont,  backgroundColor: brandColor, borderBottom: '10px solid #ffffff' }}>
         <div className="mb-2 shrink-0 mt-6">
           <SmartField field="tag" {...sp}>
             <span
