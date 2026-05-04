@@ -1429,7 +1429,7 @@ export function SequenceVariant17(props) {
         counterColor={data.counterColor || "#a1a1aa"} 
         counterBg={data.counterBg || "#080808"} 
       />
-      <div className="flex-1 p-10 pt-12 flex flex-col justify-start relative z-0">
+      <div className="flex-1 p-10 pt-[128px] flex flex-col justify-start relative z-0">
         
 
         
