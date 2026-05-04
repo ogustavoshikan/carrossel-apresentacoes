@@ -1513,10 +1513,26 @@ export function SequenceVariant18(props) {
         counterColor={data.counterColor || "#ffffff"} 
         counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
-      <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
-        
-
-        
+      <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100 bg-[#faf7f2]">
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-4"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black text-[#1a1a1a] leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
+            style={{ fontSize: `${53.85 * sTitle}px` }}
+          >
+            {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
+          </TextWrapper>
+        </SmartEl>
 
         <SmartEl 
           slideIndex={index} 
@@ -1539,29 +1555,9 @@ export function SequenceVariant18(props) {
       </div>
 
       <div 
-        className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 transition-colors duration-500"
+        className="w-[40%] h-full p-8 flex flex-col justify-end text-right relative z-10 transition-colors duration-500"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mt-4"
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h2" 
-            field="titulo" 
-            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${53.85 * sTitle}px` }}
-          >
-            {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
-          </TextWrapper>
-        </SmartEl>
-
         <span className="font-black text-white/40 text-[90px] leading-[0.75] -mr-2 font-text select-none">
           0{step}
         </span>
