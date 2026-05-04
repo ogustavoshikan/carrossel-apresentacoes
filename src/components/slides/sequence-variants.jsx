@@ -1330,7 +1330,7 @@ export function SequenceVariant16(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
