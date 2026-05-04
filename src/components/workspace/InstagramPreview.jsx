@@ -279,13 +279,6 @@ export default function InstagramPreview({
                       </div>
                     ))}
                   </div>
-
-                  {/* Carousel Indicator Overlay (Instagram style) */}
-                  {slides.length > 1 && (
-                    <div className="absolute top-3.5 right-3.5 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-full text-white text-[10px] font-bold tracking-widest z-20">
-                      {currentIndex + 1}/{slides.length}
-                    </div>
-                  )}
                 </div>
 
                 {/* Engagement Controls */}
