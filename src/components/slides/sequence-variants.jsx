@@ -225,27 +225,32 @@ export function SequenceVariant3(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor={data.handleColor || "#71717a"} 
-        counterColor={data.counterColor || "#a1a1aa"} 
-        counterBg={data.counterBg || "#080808"} 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
-        style={{ backgroundColor: brandColor }}
+        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.1)] transition-colors duration-500 z-10 overflow-hidden"
       >
-        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
-          PASSO
-        </span>
-        <span className="font-black text-4xl text-white leading-none font-text select-none">
-          0{step}
-        </span>
+        <div 
+          className="absolute inset-0 opacity-90 z-0"
+          style={{ backgroundColor: brandColor }}
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
+            PASSO
+          </span>
+          <span className="font-black text-4xl text-white leading-none font-text select-none">
+            0{step}
+          </span>
+        </div>
       </div>
 
       <div className="flex-1 p-10 pt-12 flex flex-col justify-center relative z-0">
@@ -264,14 +269,14 @@ export function SequenceVariant3(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title text-[#1a1a1a]"
             style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'O PONTO\nPERFEITO'}
           </TextWrapper>
         </SmartEl>
 
-        <div className="w-12 h-1 bg-zinc-800 mb-6 rounded-full" />
+        <div className="w-12 h-1 bg-zinc-200 mb-6 rounded-full" />
 
         <SmartEl 
           slideIndex={index} 
@@ -285,7 +290,7 @@ export function SequenceVariant3(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed w-[90%] font-text"
+            className="text-[#1a1a1a] font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'Explicação técnica ou teórica sobre esta fase específica do conteúdo.'}
