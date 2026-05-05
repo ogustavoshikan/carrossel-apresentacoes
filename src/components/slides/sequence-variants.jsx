@@ -578,7 +578,7 @@ export function SequenceVariant7(props) {
         counterColor={data.counterColor || "#ffffff"} 
         counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
-      <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
+      <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100 bg-[#faf7f2]">
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
