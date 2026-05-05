@@ -2360,9 +2360,9 @@ export function SequenceVariant28(props) {
         className="w-[35%] h-full transition-colors duration-500 relative z-0"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
-      <div className="w-[65%] h-full bg-[#FDFBF7] relative z-0" />
+      <div className="w-[65%] h-full bg-[#faf7f2] relative z-0" />
 
-      <div className="absolute top-1/2 left-[35%] -translate-x-1/2 -translate-y-1/2 w-[45%] h-[75%] rounded-[100px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-white z-10 bg-zinc-100">
+      <div className="absolute top-1/2 left-[35%] -translate-x-[calc(50%+15px)] -translate-y-1/2 w-[45%] h-[75%] rounded-[100px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[5px] border-white z-10 bg-zinc-100">
         <ImageBg data={data} className="w-full h-full" />
       </div>
 
