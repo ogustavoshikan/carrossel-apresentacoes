@@ -3,6 +3,7 @@ import { Image as ImageIcon, ArrowRight } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 import { COVER_VARIANT_COMPONENTS } from './cover-variants';
+import { COVER_EXTRA_VARIANT_COMPONENTS } from './cover-extra-variants';
 
 /**
  * SlideCover — Layout "cover" (sempre slide 1).
@@ -39,28 +40,24 @@ export default function SlideCover({
     }
   }
 
+  // Props comuns compartilhadas por todas as variantes
+  const commonVariantProps = {
+    data, index, brandColor, brandHandle, showBrandHandle,
+    brandAvatar, brandLogo, showBrandLogo, isVerified,
+    titleScale, textScale, showMetrics, onActionStart,
+    onTextChange, selectedElement, onSelectElement, slideCount,
+  };
+
+  // Variantes de Capas Extras (IDs 101+)
+  if (variantIndex >= 101 && COVER_EXTRA_VARIANT_COMPONENTS[variantIndex]) {
+    const ExtraComponent = COVER_EXTRA_VARIANT_COMPONENTS[variantIndex];
+    return <ExtraComponent {...commonVariantProps} />;
+  }
+
+  // Variantes de Capas principais (IDs 1-99)
   if (variantIndex > 0 && COVER_VARIANT_COMPONENTS[variantIndex]) {
     const VariantComponent = COVER_VARIANT_COMPONENTS[variantIndex];
-    return (
-      <VariantComponent
-        data={data}
-        index={index}
-        brandColor={brandColor}
-        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
-        brandAvatar={brandAvatar}
-        brandLogo={brandLogo}
-        showBrandLogo={showBrandLogo}
-        isVerified={isVerified}
-        titleScale={titleScale}
-        textScale={textScale}
-        showMetrics={showMetrics}
-        onActionStart={onActionStart}
-        onTextChange={onTextChange}
-        selectedElement={selectedElement}
-        onSelectElement={onSelectElement}
-        slideCount={slideCount}
-      />
-    );
+    return <VariantComponent {...commonVariantProps} />;
   }
 
   // Layout original (variante 0)

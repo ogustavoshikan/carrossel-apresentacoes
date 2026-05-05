@@ -9,6 +9,7 @@ import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
 import { CTA_VARIANT_META } from '../slides/cta-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
 import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
+import { COVER_EXTRA_VARIANT_META } from '../slides/cover-extra-variants';
 
 import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
 
@@ -64,6 +65,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
     cta: CTA_VARIANT_META,
     list: LIST_VARIANT_META,
     sequence: SEQUENCE_VARIANT_META,
+    'cover-extra': COVER_EXTRA_VARIANT_META,
   };
 
   const variants = THEME_METAS[selectedTheme] || [];
@@ -102,8 +104,8 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
                      LAYOUT_ICONS[theme.key]
                    )}
                 </div>
-                <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
-                  {theme.label.split(' ')[0]}
+                <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 leading-tight whitespace-pre-line">
+                  {theme.label}
                 </span>
                 {isActive && (
                   <div 
@@ -143,8 +145,8 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
                       LAYOUT_ICONS[theme.key]
                     )}
                   </div>
-                  <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 truncate">
-                    {theme.label.split(' ')[0]}
+                  <span className="text-[7px] font-black uppercase tracking-tighter w-full text-center px-0.5 leading-tight whitespace-pre-line">
+                    {theme.label}
                   </span>
                   {isActive && (
                     <div 

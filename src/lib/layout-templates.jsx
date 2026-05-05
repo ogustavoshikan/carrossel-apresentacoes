@@ -90,6 +90,17 @@ export const LAYOUT_ICONS = {
       <rect x="4" y="28" width="20" height="2" rx="1" fill="#3a3a5e" />
     </svg>
   ),
+  'cover-extra': (
+    <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
+      <rect width="40" height="50" fill="#1a1a2e" />
+      <rect x="4" y="4" width="32" height="26" rx="2" fill="#2a2a4e" />
+      <rect x="4" y="4" width="32" height="26" rx="2" fill="none" stroke="#5b5bdb" strokeWidth="1.5" />
+      <rect x="8" y="28" width="24" height="4" rx="1" fill="#5b5bdb" />
+      <rect x="6" y="35" width="14" height="2" rx="1" fill="#3a3a5e" />
+      <rect x="6" y="40" width="10" height="2" rx="1" fill="#2a2a4e" />
+      <circle cx="32" cy="42" r="4" fill="#5b5bdb" />
+    </svg>
+  ),
 };
 
 /**
@@ -188,6 +199,16 @@ export const LAYOUT_TEMPLATES = {
     tag: 'DICA',
     items: [],
   },
+
+  'cover-extra': {
+    layout: 'cover',
+    titulo: 'TOP 5',
+    texto_apoio: 'Subtítulo descritivo e convidativo',
+    sugestao_visual: 'Imagem de destaque do produto',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    tag: '',
+    items: [],
+  },
 };
 
 /**
@@ -213,6 +234,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   // Mapeia o layout para o campo de variante correspondente no Carrossel Studio
   const variantFields = {
     'cover': 'coverVariantIndex',
+    'cover-extra': 'coverVariantIndex',
     'content-split': 'splitVariantIndex',
     'big-number': 'bigNumberVariantIndex',
     'quote': 'quoteVariantIndex',
@@ -320,6 +342,12 @@ export const LAYOUT_META = [
     label: 'CTA',
     description: 'Call to action — slide de fechamento',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  {
+    key: 'cover-extra',
+    label: 'Capas\nExtras',
+    description: 'Capas extras com estilos e fontes alternativos',
+    thumbnailUrl: ''
   },
   {
     key: 'sequence',

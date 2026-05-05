@@ -34,6 +34,7 @@ const Tooltip = ({ children, text }) => (
 import AddSlidePopover from './AddSlidePopover';
 import FavoritesPopover from './FavoritesPopover';
 import CoverVariantPopover from './CoverVariantPopover';
+import CoverExtraVariantPopover from './CoverExtraVariantPopover';
 import SplitVariantPopover from './SplitVariantPopover';
 import BigNumberVariantPopover from './BigNumberVariantPopover';
 import QuoteVariantPopover from './QuoteVariantPopover';
@@ -507,16 +508,29 @@ export default function VisualPreview({
                               Variante
                             </button>
                             {openVariantIndex === index && (
-                              <CoverVariantPopover
-                                currentVariantIndex={slide.coverVariantIndex || 0}
-                                onSelect={(variantId) => {
-                                  onCoverVariantChange(index, variantId);
-                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                                }}
-                                onClose={() => setOpenVariantIndex(-1)}
-                                brandColor={brandColor}
-                                brandAvatar={brandAvatar}
-                              />
+                              (slide.coverVariantIndex || 0) >= 101 ? (
+                                <CoverExtraVariantPopover
+                                  currentVariantIndex={slide.coverVariantIndex}
+                                  onSelect={(variantId) => {
+                                    onCoverVariantChange(index, variantId);
+                                    handleActionFeedback(`Variante Extra: ${variantId}`);
+                                  }}
+                                  onClose={() => setOpenVariantIndex(-1)}
+                                  brandColor={brandColor}
+                                  brandAvatar={brandAvatar}
+                                />
+                              ) : (
+                                <CoverVariantPopover
+                                  currentVariantIndex={slide.coverVariantIndex || 0}
+                                  onSelect={(variantId) => {
+                                    onCoverVariantChange(index, variantId);
+                                    handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                  }}
+                                  onClose={() => setOpenVariantIndex(-1)}
+                                  brandColor={brandColor}
+                                  brandAvatar={brandAvatar}
+                                />
+                              )
                             )}
                           </div>
                         )}
