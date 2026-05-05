@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3 } from 'lucide-react';
+import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake } from 'lucide-react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
@@ -1605,7 +1605,8 @@ export function CoverExtraVariant121({
             <span 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-white/80 text-[10px] tracking-[0.4em] uppercase -rotate-90 whitespace-nowrap outline-none break-words origin-center translate-x-[2px]">
+              onKeyDown={(e) => { if (e.key === 'Enter') e.preventDefault(); }}
+              className="inline-block min-w-max font-outfit font-black text-white/80 text-[10px] tracking-[0.4em] uppercase -rotate-90 whitespace-nowrap outline-none origin-center translate-x-[2px]">
               {data.badge_text || 'Vol. 08'}
             </span>
           </SmartField>
@@ -1616,11 +1617,11 @@ export function CoverExtraVariant121({
       <div className="flex-1 h-full relative p-6 flex flex-col justify-between overflow-hidden">
         
         <div className="flex justify-end w-full relative z-20">
-          <ScanBarcode className="w-6 h-6 text-[#1a1a1a]/40" />
+          <Store className="w-5 h-5 text-[#1a1a1a]/40" />
         </div>
 
         {/* Imagem Descentrada */}
-        <div className="absolute right-0 top-[25%] w-[85%] aspect-square bg-zinc-200 shadow-2xl z-10">
+        <div className="absolute right-[25px] top-[15%] w-[85%] aspect-square bg-zinc-200 shadow-2xl z-10 rounded-[20px] overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
 
@@ -1752,7 +1753,7 @@ export function CoverExtraVariant123({
           <span className="font-outfit font-black text-[#1a1a1a] text-[10px] tracking-[0.2em] uppercase border-b border-[#1a1a1a] pb-1">
             @{brandHandle || 'seuhandle'}
           </span>
-          <Columns3 className="w-4 h-4" style={{ color: brandColor }} />
+          <Store className="w-5 h-5" style={{ color: brandColor }} />
         </div>
         
         <div>
@@ -1792,10 +1793,11 @@ export function CoverExtraVariant123({
       
       {/* Botão flutuante */}
       <div 
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[#EBE9E1] px-6 py-2 rounded-full shadow-xl flex items-center gap-2 z-20"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[#EBE9E1] px-4 py-2 rounded-full shadow-xl flex items-center justify-center gap-2 z-20"
         style={{ backgroundColor: brandColor }}
       >
-        <span className="font-outfit font-bold text-[9px] uppercase tracking-widest">Deslize</span>
+        <span className="font-outfit font-bold text-[9px] uppercase tracking-widest leading-none">Deslize</span>
+        <ArrowRight className="w-3 h-3" />
       </div>
       
       <SlideHeader
