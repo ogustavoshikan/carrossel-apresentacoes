@@ -852,6 +852,61 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    109: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col p-1.5 overflow-hidden relative" style={{ background: '#111111' }}>
+        <div className="w-[85%] h-[50%] z-0 rounded-sm mb-1.5" style={{ background: img }} />
+        <div className="absolute right-1.5 top-[20%] w-[60%] h-[35%] bg-white/10 backdrop-blur-md rounded-sm z-10 border border-white/20 p-1 flex flex-col justify-end">
+          <div className="w-[40%] h-[1.5px] rounded-full mb-0.5" style={{ background: accent }} />
+          <div className="w-full h-[2.5px] bg-white rounded-full mb-0.5" />
+          <div className="w-[80%] h-[2.5px] bg-white rounded-full" />
+        </div>
+        <div className="mt-auto flex flex-col gap-0.5 z-10">
+          <div className="w-[70%] h-[1.5px] bg-zinc-500 rounded-full" />
+          <div className="w-[50%] h-[1.5px] bg-zinc-500 rounded-full" />
+        </div>
+      </div>
+    ),
+    110: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col items-center justify-center overflow-hidden relative" style={{ background: accent }}>
+        <div className="w-[90%] h-[85%] rounded-md z-10 border-2 border-white shadow-xl flex flex-col justify-between p-1.5" style={{ background: img }}>
+          <div className="w-full flex justify-between items-start">
+            <div className="w-[50%] h-[4px] bg-white rounded-full shadow-sm" />
+            <div className="w-3 h-3 rounded-full bg-white/20 backdrop-blur-sm" />
+          </div>
+          <div className="w-full flex flex-col gap-0.5 items-end">
+            <div className="w-[60%] h-[2px] bg-white rounded-full" />
+            <div className="w-[40%] h-[1.5px] bg-white/80 rounded-full" />
+          </div>
+        </div>
+      </div>
+    ),
+    111: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden relative p-1.5" style={{ background: '#111111' }}>
+        <div className="w-full h-full border border-white/20 flex flex-col relative z-0 p-1">
+          <div className="absolute -top-1 -left-1 w-2 h-2 rounded-full" style={{ background: accent }} />
+          <div className="w-[60%] h-[3px] bg-white rounded-full mt-1 mb-1" />
+          <div className="w-full h-[40%] mt-auto rounded-sm" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    112: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden relative bg-white border-[1.5px] border-black p-1">
+        <div className="flex justify-between items-center mb-1 border-b-[1.5px] border-black pb-0.5">
+          <div className="w-[40%] h-[2px] bg-black" />
+          <div className="w-2 h-2 border-[1px] border-black" style={{ background: accent }} />
+        </div>
+        <div className="flex-1 flex gap-1">
+          <div className="w-1/2 h-full border-[1.5px] border-black" style={{ background: img }} />
+          <div className="w-1/2 flex flex-col gap-1">
+            <div className="w-full h-[10px] border-[1px] border-black flex items-center justify-center p-0.5" style={{ background: accent }}>
+               <div className="w-[80%] h-[1.5px] bg-black" />
+            </div>
+            <div className="w-[90%] h-[1.5px] bg-black mt-0.5" />
+            <div className="w-[70%] h-[1.5px] bg-black" />
+          </div>
+        </div>
+      </div>
+    ),
   },
   'content-split': {
     0: ({ brandColor: accent }) => (

@@ -296,8 +296,8 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
-  // Pre-configura imagem de fundo para Variante 10, 11, 12 e 13 de Sequência (Image Anchor, Editorial Split, Cinematic Step e Image Frame)
-  if (layoutType === 'sequence' && (variantIndex === 10 || variantIndex === 11 || variantIndex === 12 || variantIndex === 13)) {
+  // Pre-configura imagem de fundo para variantes específicas de Sequência (Image Anchor, Editorial Split, Cinematic Step, Image Frame, Magazine Bleed, Cinematic Panel, Clean Polaroid, Single Frame, Float Top, Float Bottom e Editorial Capsule)
+  if (layoutType === 'sequence' && (variantIndex === 10 || variantIndex === 11 || variantIndex === 12 || variantIndex === 13 || variantIndex === 14 || variantIndex === 18 || variantIndex === 21 || variantIndex === 22 || variantIndex === 25 || variantIndex === 26 || variantIndex === 27)) {
     slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 
