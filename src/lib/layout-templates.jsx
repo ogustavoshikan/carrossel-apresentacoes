@@ -296,6 +296,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
+  // Pre-configura imagem de fundo para Variante 10 de Sequência (Image Anchor)
+  if (layoutType === 'sequence' && variantIndex === 10) {
+    slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+  }
+
   return slide;
 }
 

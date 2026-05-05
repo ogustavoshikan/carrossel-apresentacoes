@@ -29,12 +29,12 @@ export default function SlideCover({
   brandLogo,
   showBrandLogo,
 }) {
-  // Delegação para variante visual (1-22)
-  let variantIndex = data.coverVariantIndex || 0;
+  // Delegação para variante visual
+  let variantIndex = parseInt(data.coverVariantIndex || 0, 10);
 
   // Suporte a layouts nomeados como 'cover-18', 'cover-19', etc.
   if (variantIndex === 0 && data.layout && data.layout.startsWith('cover-')) {
-    const layoutIdx = parseInt(data.layout.replace('cover-', ''));
+    const layoutIdx = parseInt(data.layout.replace('cover-', ''), 10);
     if (!isNaN(layoutIdx)) {
       variantIndex = layoutIdx;
     }
