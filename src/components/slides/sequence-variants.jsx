@@ -1739,6 +1739,7 @@ export function SequenceVariant20(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
           onSelectElement={onSelectElement}
+          className="ml-[35px]"
         >
           <TextWrapper 
             {...tw} 
@@ -2390,14 +2391,14 @@ export function SequenceVariant28(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
           onSelectElement={onSelectElement}
-          className="mb-4"
+          className="mb-4 ml-[35px]"
         >
           <TextWrapper 
             {...tw} 
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${48.85 * sTitle}px`, color: '#1a1a1a' }}
           >
             {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
           </TextWrapper>
@@ -2410,6 +2411,7 @@ export function SequenceVariant28(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
           onSelectElement={onSelectElement}
+          className="ml-[35px]"
         >
           <TextWrapper 
             {...tw} 
