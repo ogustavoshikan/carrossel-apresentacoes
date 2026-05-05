@@ -885,7 +885,7 @@ export function SequenceVariant11(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -897,10 +897,7 @@ export function SequenceVariant11(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="w-full h-[45%] relative z-0">
-        <ImageBg data={data} className="w-full h-full">
-           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent" />
-        </ImageBg>
-        
+        <ImageBg data={data} className="w-full h-full" />
       </div>
 
       <div className="absolute top-[45%] left-0 w-full h-[10px] z-10 -translate-y-1/2" style={{ backgroundColor: brandColor }} />
@@ -916,7 +913,7 @@ export function SequenceVariant11(props) {
         </div>
       </div>
 
-      <div className="flex-1 p-10 pt-12 flex flex-col justify-center relative z-10 bg-[#FDFBF7]">
+      <div className="flex-1 p-10 pt-12 flex flex-col justify-center relative z-10 bg-[#faf7f2]">
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
