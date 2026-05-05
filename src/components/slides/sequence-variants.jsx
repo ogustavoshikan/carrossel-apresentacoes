@@ -311,7 +311,7 @@ export function SequenceVariant4(props) {
   const stepsToShow = Array.from({ length: totalSteps }, (_, i) => i + 1).slice(0, 5);
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#FAF7F2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
