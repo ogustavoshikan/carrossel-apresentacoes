@@ -1854,7 +1854,7 @@ export function SequenceVariant22(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute top-0 left-0 w-full h-[6px] z-20 transition-colors duration-500" 
+        className="absolute bottom-0 left-0 w-full h-[6px] z-20 transition-colors duration-500" 
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       
@@ -1863,10 +1863,28 @@ export function SequenceVariant22(props) {
       </div>
 
       <div className="flex-1 p-8 flex flex-col justify-end relative z-10 bg-white">
+        <SmartEl 
+          slideIndex={index} 
+          field="tag" 
+          position={data.positions?.tag || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+          onSelectElement={onSelectElement}
+          className="mb-2 self-start"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="span" 
+            field="tag" 
+            className="text-white font-bold px-2 py-0.5 rounded text-[11px] outline-none uppercase tracking-wide"
+            style={{fontFamily: tagFont,  backgroundColor: brandColor }}
+          >
+            {data.tag || 'DICA'}
+          </TextWrapper>
+        </SmartEl>
+
         <div className="flex items-center gap-3 mb-6">
-          
           <div className="h-px flex-1 bg-zinc-200" />
-          
         </div>
 
         <SmartEl 
