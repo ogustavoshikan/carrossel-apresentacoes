@@ -1137,6 +1137,73 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    125: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col items-center justify-center p-1 overflow-hidden relative bg-[#EBE9E1]">
+        <div className="flex flex-col items-center w-full z-10 -mt-1">
+          <div className="w-[80%] h-[12px] bg-black/80 rounded-sm mb-[1px]" />
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] h-[55%] rounded-full z-20 shadow-lg border-2 border-[#EBE9E1]" style={{ background: img }} />
+        <div className="absolute bottom-1 w-[90%] flex justify-between items-end z-20">
+          <div className="w-[30%] h-[1.5px] bg-black/40 rounded-full" />
+          <div className="w-1.5 h-1.5" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
+    126: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col p-1 overflow-hidden relative bg-white border border-black/5">
+        <div className="w-full h-full border border-black/10 flex flex-col p-1 relative">
+          <div className="flex justify-between items-center w-full mb-1">
+             <div className="w-[30%] h-[1px] bg-black/20" />
+             <div className="w-1 h-1 rounded-sm bg-black" />
+          </div>
+          <div className="w-full h-[60%] relative overflow-hidden" style={{ background: img }} />
+          <div className="mt-auto flex flex-col items-center">
+             <div className="w-[50%] h-[2.5px] bg-black mb-0.5" />
+             <div className="w-[10%] h-[1px] mb-0.5" style={{ background: accent }} />
+             <div className="w-[30%] h-[1px] bg-black/40" />
+          </div>
+        </div>
+      </div>
+    ),
+    127: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden relative bg-[#EBE9E1]">
+        <div className="w-[30%] h-full flex flex-col justify-between py-1.5 items-center border-r border-black/10 z-10 bg-[#EBE9E1]">
+          <div className="w-1.5 h-1.5 rounded-sm" style={{ background: accent }} />
+          <div className="w-[1px] h-[30%] bg-black/80" />
+          <div className="w-1.5 h-1.5 bg-black" />
+        </div>
+        <div className="w-[70%] h-full flex flex-col relative">
+          <div className="h-[75%] w-full" style={{ background: img }} />
+          <div className="h-[25%] bg-black flex flex-col justify-center px-1 relative">
+            <div className="absolute top-0 left-1 w-[20%] h-[1.5px]" style={{ background: accent }} />
+            <div className="w-[80%] h-[2.5px] bg-[#EBE9E1] mb-0.5" />
+            <div className="w-[40%] h-[1px] bg-[#EBE9E1]/50" />
+          </div>
+        </div>
+      </div>
+    ),
+    128: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between p-1 overflow-hidden relative bg-[#0a0a0a]">
+        <div className="absolute inset-0 opacity-40 mix-blend-luminosity" style={{ background: img }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+        
+        <div className="relative z-10 flex justify-between items-start w-full">
+          <div className="w-[20%] h-[1.5px] bg-white/40 border border-white/20" />
+          <div className="w-1 h-1 border border-white/50" />
+        </div>
+
+        <div className="relative z-10 w-full mt-auto flex flex-col items-center">
+          <div className="w-[60%] h-[10px] rounded-sm mb-1" style={{ background: `linear-gradient(to bottom, ${accent}, #333333)` }} />
+          <div className="bg-black/80 border border-white/10 w-full p-1 rounded-[2px] flex justify-between items-center">
+             <div className="flex flex-col gap-[1px]">
+               <div className="w-[40%] h-[1.5px] bg-white" />
+               <div className="w-[30%] h-[1px] bg-white/40" />
+             </div>
+             <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+          </div>
+        </div>
+      </div>
+    ),
   },
   'content-split': {
     0: ({ brandColor: accent }) => (

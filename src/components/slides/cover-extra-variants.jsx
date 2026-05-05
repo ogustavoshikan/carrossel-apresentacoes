@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake } from 'lucide-react';
+import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake, Diamond, Sparkle, CornerRightDown } from 'lucide-react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
@@ -1914,6 +1914,284 @@ export function CoverExtraVariant124({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 125 — THE MACRO TYPE
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant125({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col justify-center mx-auto ring-1 ring-black/5">
+      
+      <div className="absolute top-6 left-6 flex items-center gap-2 z-20">
+        <Sparkle className="w-4 h-4" style={{ color: brandColor }} />
+        <SmartField field="badge_text" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[#1a1a1a] text-[9px] tracking-[0.3em] uppercase outline-none break-words">
+            {data.badge_text || 'Volume 25'}
+          </span>
+        </SmartField>
+      </div>
+
+      <div className="relative z-10 w-full flex flex-col items-center mt-12">
+        <SmartField field="titulo" {...sp} className="pointer-events-auto">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-playfair font-black text-[#1a1a1a] leading-[0.65] tracking-tighter text-center outline-none break-words"
+            style={{ fontSize: `${135 * sTitle}px`, marginLeft: '-1rem' }}>
+            {data.titulo || 'TOP\n5'}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] h-[55%] rounded-full overflow-hidden shadow-2xl ring-4 ring-[#EBE9E1] z-20">
+        <ImageBg data={data} className="absolute inset-0" />
+      </div>
+
+      <div className="absolute bottom-6 w-full px-6 flex justify-between items-end z-20 pointer-events-none">
+        <span className="font-outfit font-bold text-[#1a1a1a] text-[10px] tracking-widest uppercase bg-white/50 px-3 py-1.5 rounded-full backdrop-blur-md">
+          @{brandHandle || 'seuhandle'}
+        </span>
+        <div className="flex flex-col items-end gap-2">
+          <ArrowRight className="w-5 h-5" style={{ color: brandColor }} />
+        </div>
+      </div>
+      
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 126 — THE MUSEUM FRAME
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant126({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-white overflow-hidden flex flex-col mx-auto p-6">
+      
+      <div className="w-full h-full border border-zinc-200 flex flex-col p-5 relative z-10">
+        
+        <div className="flex justify-between items-center w-full mb-6">
+          <SmartField field="badge_text" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-outfit font-medium text-zinc-400 text-[8px] tracking-[0.2em] uppercase outline-none break-words">
+              {data.badge_text || 'Exposição Especial'}
+            </span>
+          </SmartField>
+          <Diamond className="w-3 h-3 text-[#1a1a1a]" />
+        </div>
+
+        <div className="w-full aspect-[4/5] relative overflow-hidden shadow-sm">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+
+        <div className="mt-auto pt-6 flex flex-col items-center text-center">
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-playfair italic font-bold text-[#1a1a1a] leading-none mb-2 outline-none break-words"
+              style={{ fontSize: `${36 * sTitle}px` }}>
+              {data.titulo || 'O Top 5'}
+            </h2>
+          </SmartField>
+          <div className="w-8 h-[1px] mb-3" style={{ backgroundColor: brandColor }}></div>
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-zinc-500 text-[8px] tracking-[0.3em] uppercase font-bold outline-none break-words">
+              {data.texto_apoio || 'A SELEÇÃO QUE VOCÊ MERECE'}
+            </p>
+          </SmartField>
+        </div>
+
+        <span className="absolute left-[-3.5rem] top-1/2 -translate-y-1/2 -rotate-90 font-outfit text-zinc-300 text-[8px] tracking-[0.4em] uppercase whitespace-nowrap">
+          @{brandHandle || 'seuhandle'}
+        </span>
+      </div>
+      
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={false}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 127 — THE OFFSET GRID
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant127({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex mx-auto ring-1 ring-black/5">
+      
+      <div className="w-[30%] h-full flex flex-col justify-between py-8 px-4 border-r border-[#1a1a1a]/10 z-10 bg-[#EBE9E1] shrink-0">
+        <BadgeCheck className="w-5 h-5 mx-auto" style={{ color: brandColor }} />
+        
+        <div className="flex-1 flex items-center justify-center relative">
+          <SmartField field="badge_text" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              onKeyDown={(e) => { if (e.key === 'Enter') e.preventDefault(); }}
+              className="font-outfit font-black text-[#1a1a1a] text-[11px] tracking-[0.4em] uppercase -rotate-90 whitespace-nowrap outline-none origin-center inline-block min-w-max translate-x-[2px]">
+              {data.badge_text || 'A SELEÇÃO'}
+            </span>
+          </SmartField>
+        </div>
+
+        <ArrowRight className="w-5 h-5 text-[#1a1a1a] mx-auto" />
+      </div>
+
+      <div className="w-[70%] h-full relative overflow-hidden flex flex-col">
+        <div className="h-[75%] w-full relative shrink-0">
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        
+        <div className="flex-1 bg-[#1a1a1a] flex flex-col justify-center px-6 relative">
+          <div className="absolute top-0 left-6 w-12 h-1" style={{ backgroundColor: brandColor }}></div>
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-playfair font-black text-[#EBE9E1] leading-none tracking-tighter -mt-2 outline-none break-words"
+              style={{ fontSize: `${64 * sTitle}px` }}>
+              {data.titulo || 'TOP 5'}
+            </h2>
+          </SmartField>
+          <span className="font-outfit text-zinc-500 text-[8px] tracking-[0.2em] uppercase mt-1">
+            @{brandHandle || 'seuhandle'}
+          </span>
+        </div>
+      </div>
+      
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={false}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 128 — THE DRAMATIC CANVAS
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant128({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#0a0a0a] overflow-hidden flex flex-col justify-between p-6 mx-auto ring-1 ring-white/10">
+      
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-transparent opacity-80" />
+      </div>
+
+      <div className="relative z-10 flex justify-between items-start w-full">
+        <span className="font-outfit font-bold text-white text-[10px] tracking-widest uppercase border border-white/20 px-3 py-1 rounded-sm backdrop-blur-md">
+          @{brandHandle || 'seuhandle'}
+        </span>
+        <Maximize2 className="w-4 h-4 text-white/50" />
+      </div>
+
+      <div className="relative z-10 w-full mt-auto flex flex-col items-center">
+        <SmartField field="badge_text" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="font-playfair font-black text-transparent bg-clip-text text-[12rem] leading-[0.7] tracking-tighter drop-shadow-2xl outline-none"
+            style={{ backgroundImage: `linear-gradient(to bottom, ${brandColor}, #333333)` }}>
+            {data.badge_text || '5'}
+          </h2>
+        </SmartField>
+        
+        <div className="bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 w-full p-5 rounded-xl mt-4 flex justify-between items-center z-20">
+          <div>
+            <SmartField field="titulo" {...sp}>
+              <h3 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-playfair italic font-medium text-white text-xl mb-1 outline-none break-words">
+                {data.titulo || 'A Seleção Definitiva'}
+              </h3>
+            </SmartField>
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-outfit text-zinc-500 text-[9px] uppercase tracking-widest outline-none break-words">
+                {data.texto_apoio || 'Deslize para ver mais'}
+              </p>
+            </SmartField>
+          </div>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg shrink-0" style={{ backgroundColor: brandColor, boxShadow: `0 0 20px ${brandColor}66` }}>
+            <CornerRightDown className="w-5 h-5 text-white -rotate-90" />
+          </div>
+        </div>
+      </div>
+      
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -1939,6 +2217,10 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   122: CoverExtraVariant122,
   123: CoverExtraVariant123,
   124: CoverExtraVariant124,
+  125: CoverExtraVariant125,
+  126: CoverExtraVariant126,
+  127: CoverExtraVariant127,
+  128: CoverExtraVariant128,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -2084,6 +2366,30 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 124,
     name: 'The Michelin Receipt',
     description: 'Estética de fatura/ticket de luxo.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 125,
+    name: 'The Macro Type',
+    description: 'Letras gigantes quebrando as margens.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 126,
+    name: 'The Museum Frame',
+    description: 'Uso extremo de espaço negativo. Limpo.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 127,
+    name: 'The Offset Grid',
+    description: 'Divisão 30/70. Tensão visual assimétrica.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 128,
+    name: 'The Dramatic Canvas',
+    description: 'Escuridão total. Contraste brutal.',
     thumbnailUrl: '',
   },
 ];
