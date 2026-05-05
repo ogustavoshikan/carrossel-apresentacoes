@@ -272,7 +272,7 @@ export function CoverExtraVariant103({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-playfair font-black text-[#1a1a1a] leading-none mb-3 outline-none"
-              style={{ fontSize: `${48 * sTitle}px` }}
+              style={{ fontSize: `${53 * sTitle}px` }}
             >
               {data.titulo || 'TOP 5'}
             </h2>
@@ -283,7 +283,7 @@ export function CoverExtraVariant103({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
               className="font-outfit text-zinc-500 text-[10px] uppercase tracking-wide leading-snug font-medium outline-none break-words max-w-full"
-              style={{ fontSize: `${10 * sText}px` }}
+              style={{ fontSize: '10px' }}
             >
               {data.texto_apoio}
             </p>
