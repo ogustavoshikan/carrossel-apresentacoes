@@ -996,7 +996,10 @@ export function SequenceVariant12(props) {
       <div className="w-[55%] h-full p-10 pl-12 flex flex-col justify-center relative z-10 bg-white">
         
 
-        <span className="font-black text-6xl text-zinc-100 mb-2 leading-none font-text select-none">
+        <span 
+          className="font-black text-6xl mb-2 leading-none font-text select-none opacity-40"
+          style={{ color: brandColor }}
+        >
           0{step}
         </span>
 
@@ -1061,11 +1064,8 @@ export function SequenceVariant13(props) {
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor={data.handleColor || "#71717a"} 
-        counterColor={data.counterColor || "#a1a1aa"} 
-        counterBg={data.counterBg || "#080808"} 
-      />
-      <div className="absolute inset-0 z-0 scale-105">
+        handleColor={data.handleColor || "#ffffff"} 
+      />      <div className="absolute inset-0 z-0 scale-105">
         <ImageBg data={data} className="w-full h-full" />
       </div>
       
@@ -1138,7 +1138,7 @@ export function SequenceVariant14(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#fdf9f3] text-[#1a1a1a] relative p-8 overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative p-8 overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -1160,7 +1160,7 @@ export function SequenceVariant14(props) {
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
-          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#fdf9f3] font-text select-none"
+          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#faf7f2] font-text select-none"
         >
           {step}
         </div>
@@ -1252,8 +1252,10 @@ export function SequenceVariant15(props) {
         counterColor={data.counterColor || "#1a1a1a"} 
         counterBg={data.counterBg || "#EDEDED"} 
       />
-      <div className="w-full h-[50%] relative z-0">
-        <ImageBg data={data} className="w-full h-full" />
+      <div className="w-full h-[50%] relative z-0 bg-zinc-100 flex items-center justify-center overflow-hidden">
+        <ImageBg data={data} className="w-full h-full">
+          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+        </ImageBg>
       </div>
 
       <div className="w-full h-[10px] z-10" style={{ backgroundColor: brandColor }} />
@@ -1412,16 +1414,16 @@ export function SequenceVariant17(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#050505] text-white relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
         index={step} 
         total={slideCount} 
         hideDot={true} 
-        handleColor={data.handleColor || "#71717a"} 
-        counterColor={data.counterColor || "#a1a1aa"} 
-        counterBg={data.counterBg || "#080808"} 
+        handleColor={data.handleColor || "#1a1a1a"} 
+        counterColor={data.counterColor || "#1a1a1a"} 
+        counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="flex-1 p-10 pt-[128px] flex flex-col justify-start relative z-0">
         
@@ -1441,14 +1443,14 @@ export function SequenceVariant17(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title"
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-title text-[#1a1a1a]"
             style={{ fontSize: `${53.85 * sTitle}px` }}
           >
             {(data.titulo || 'A ESCOLHA\nDOS GRÃOS').replace(" ", "\n")}
           </TextWrapper>
         </SmartEl>
 
-        <div className="w-12 h-1 bg-zinc-800 mb-6 rounded-full" />
+        <div className="w-12 h-1 bg-zinc-200 mb-6 rounded-full" />
 
         <SmartEl 
           slideIndex={index} 
@@ -1462,7 +1464,7 @@ export function SequenceVariant17(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed w-[90%] font-text"
+            className="text-[#1a1a1a] font-medium leading-relaxed w-[90%] font-text"
             style={{ fontSize: `${21.43 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -1471,15 +1473,20 @@ export function SequenceVariant17(props) {
       </div>
 
       <div 
-        className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[40px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.5)] transition-colors duration-500 z-10"
-        style={{fontFamily: textFont,  backgroundColor: brandColor }}
+        className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[30px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.1)] transition-colors duration-500 z-10 overflow-hidden"
       >
-        <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
-          PASSO
-        </span>
-        <span className="font-black text-5xl text-white leading-none font-text select-none">
-          0{step}
-        </span>
+        <div 
+          className="absolute inset-0 opacity-90 z-0"
+          style={{ backgroundColor: brandColor }}
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <span className="font-bold text-[10px] tracking-widest text-white/60 uppercase mb-1 font-text select-none">
+            PASSO
+          </span>
+          <span className="font-black text-5xl text-white leading-none font-text select-none">
+            0{step}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -1582,9 +1589,10 @@ export function SequenceVariant19(props) {
         counterColor={data.counterColor || "#a1a1aa"} 
         counterBg={data.counterBg || "#080808"} 
       />
-      <div className="w-full h-[50%] relative z-0">
+      <div className="w-full h-[50%] relative z-0 bg-zinc-800 flex items-center justify-center overflow-hidden">
         <ImageBg data={data} className="w-full h-full">
            <div className="absolute inset-0 bg-black/10" />
+           <span className="text-white/20 text-[10px] font-bold uppercase tracking-widest">Aguardando Imagem</span>
         </ImageBg>
       </div>
 
@@ -1852,11 +1860,13 @@ export function SequenceVariant22(props) {
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       
-      <div className="w-full h-[50%] relative overflow-hidden bg-zinc-200">
-        <ImageBg data={data} className="w-full h-full" />
+      <div className="w-full h-[calc(50%+80px)] relative overflow-hidden bg-zinc-200 flex items-center justify-center">
+        <ImageBg data={data} className="w-full h-full">
+          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+        </ImageBg>
       </div>
 
-      <div className="flex-1 p-8 flex flex-col justify-end relative z-10 bg-white">
+      <div className="flex-1 p-8 pt-6 flex flex-col justify-start relative z-10 bg-white">
         <SmartEl 
           slideIndex={index} 
           field="tag" 
@@ -1864,7 +1874,7 @@ export function SequenceVariant22(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
           onSelectElement={onSelectElement}
-          className="mb-2 self-start"
+          className="mb-4 self-start"
         >
           <TextWrapper 
             {...tw} 
@@ -1949,8 +1959,10 @@ export function SequenceVariant23(props) {
       
 
       <div className="w-[85%] h-[40%] mt-8 mx-auto relative z-10">
-        <div className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-          <ImageBg data={data} className="w-full h-full" />
+        <div className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-zinc-100 flex items-center justify-center">
+          <ImageBg data={data} className="w-full h-full">
+            <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+          </ImageBg>
         </div>
         <div 
           className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl transition-colors duration-500 font-text select-none"
@@ -2206,8 +2218,10 @@ export function SequenceVariant26(props) {
       />
       
 
-      <div className="w-full h-[45%] mt-8 rounded-2xl overflow-hidden shadow-2xl relative z-10 bg-zinc-100">
-        <ImageBg data={data} className="w-full h-full" />
+      <div className="w-full h-[45%] mt-8 rounded-2xl overflow-hidden shadow-2xl relative z-10 bg-zinc-100 flex items-center justify-center">
+        <ImageBg data={data} className="w-full h-full">
+          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+        </ImageBg>
       </div>
 
       <div className="flex-1 flex flex-col justify-end pt-8 pb-2 relative z-10 w-full">
@@ -2321,8 +2335,10 @@ export function SequenceVariant27(props) {
         </SmartEl>
       </div>
 
-      <div className="w-full h-[45%] mb-4 rounded-2xl overflow-hidden shadow-2xl relative z-10 bg-zinc-100">
-        <ImageBg data={data} className="w-full h-full" />
+      <div className="w-full h-[45%] mb-4 rounded-2xl overflow-hidden shadow-2xl relative z-10 bg-zinc-100 flex items-center justify-center">
+        <ImageBg data={data} className="w-full h-full">
+          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+        </ImageBg>
       </div>
     </div>
   );
@@ -2356,8 +2372,10 @@ export function SequenceVariant28(props) {
       />
       <div className="w-[65%] h-full bg-[#faf7f2] relative z-0" />
 
-      <div className="absolute top-1/2 left-[35%] -translate-x-[calc(50%+15px)] -translate-y-1/2 w-[45%] h-[75%] rounded-[100px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[5px] border-white z-10 bg-zinc-100">
-        <ImageBg data={data} className="w-full h-full" />
+      <div className="absolute top-1/2 left-[35%] -translate-x-[calc(50%+15px)] -translate-y-1/2 w-[45%] h-[75%] rounded-[100px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[5px] border-white z-10 bg-zinc-100 flex items-center justify-center">
+        <ImageBg data={data} className="w-full h-full">
+          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
+        </ImageBg>
       </div>
 
       
