@@ -579,9 +579,25 @@ export function SequenceVariant7(props) {
         counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="w-[60%] h-full p-10 flex flex-col justify-center relative z-0 border-r border-zinc-100">
-        
-
-        
+        <SmartEl 
+          slideIndex={index} 
+          field="titulo" 
+          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+          onSelectElement={onSelectElement}
+          className="mb-4"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="h2" 
+            field="titulo" 
+            className="font-black text-[#1a1a1a] leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
+            style={{ fontSize: `${50 * sTitle}px` }}
+          >
+            {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
+          </TextWrapper>
+        </SmartEl>
 
         <SmartEl 
           slideIndex={index} 
@@ -596,7 +612,7 @@ export function SequenceVariant7(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-700 font-medium leading-relaxed w-[95%] font-text"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${19 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -610,25 +626,6 @@ export function SequenceVariant7(props) {
         <span className="font-black text-white/40 text-7xl leading-none font-text select-none">
           0{step}
         </span>
-
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h2" 
-            field="titulo" 
-            className="font-black text-white leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${32 * sTitle}px` }}
-          >
-            {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
-          </TextWrapper>
-        </SmartEl>
       </div>
     </div>
   );
