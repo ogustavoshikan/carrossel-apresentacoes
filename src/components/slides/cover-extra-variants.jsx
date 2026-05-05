@@ -794,7 +794,7 @@ export function CoverExtraVariant110({
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
           className="font-playfair font-black text-[#1a1a1a] leading-[0.7] tracking-tighter text-center mb-8 italic outline-none break-words"
-          style={{ fontSize: `${75 * sTitle}px` }}>
+          style={{ fontSize: `${80 * sTitle}px` }}>
           {data.titulo || 'Top 5'}
         </h2>
       </SmartField>
@@ -844,7 +844,7 @@ export function CoverExtraVariant111({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex flex-col">
+    <div className="relative w-full h-full bg-[#faf7f2] overflow-hidden flex flex-col">
       <div 
         className="absolute top-0 left-0 w-full h-[30%] p-6 flex justify-between items-start z-0"
         style={{ backgroundColor: brandColor }}
@@ -859,9 +859,12 @@ export function CoverExtraVariant111({
           </span>
         </SmartField>
       </div>
-      
+
       <div className="relative z-10 mt-[15%] px-6 shrink-0">
-        <div className="w-full aspect-[4/3] rounded-xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)] ring-4 ring-[#1a1a1a] relative">
+        <div 
+          className="w-full aspect-[4/3] rounded-xl overflow-hidden relative"
+          style={{ boxShadow: `0 30px 60px ${brandColor}33, 0 0 0 4px #e6e6e5` }}
+        >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       </div>
@@ -869,16 +872,15 @@ export function CoverExtraVariant111({
       <div className="flex-1 p-8 flex flex-col justify-end z-20">
         <div className="flex items-end justify-between">
           <div className="flex flex-col">
-             <SmartField field="titulo" {...sp}>
-               <h2 
-                 contentEditable suppressContentEditableWarning
-                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                 className="font-playfair font-black text-[#EBE9E1] leading-[0.8] tracking-tighter mb-4 outline-none break-words"
-                 style={{ fontSize: `${55 * sTitle}px` }}>
-                 {data.titulo || 'TOP 5'}
-               </h2>
-             </SmartField>
-             <p className="font-outfit text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">
+             <SmartField field="titulo" {...sp} className="relative -top-10">
+                <h2 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                  className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter mb-4 outline-none break-words"
+                  style={{ fontSize: `${80 * sTitle}px` }}>
+                  {data.titulo || 'TOP 5'}
+                </h2>
+              </SmartField>             <p className="font-outfit text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">
                @{brandHandle || 'seuhandle'}
              </p>
           </div>
