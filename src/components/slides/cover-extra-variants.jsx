@@ -438,7 +438,7 @@ export function CoverExtraVariant105({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter mt-2 outline-none break-words"
-              style={{ fontSize: `${55 * sTitle}px` }}>
+              style={{ fontSize: `${85 * sTitle}px` }}>
               {data.titulo || 'TOP 5'}
             </h2>
           </SmartField>
@@ -486,10 +486,9 @@ export function CoverExtraVariant106({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex flex-col border border-[#2a2a2a]">
+    <div className="relative w-full h-full bg-[#101010] overflow-hidden flex flex-col">
       <div className="h-[55%] w-full relative overflow-hidden shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent opacity-80" />
         
         <div className="absolute top-5 left-5 right-5 flex justify-between items-start z-20">
           <span className="font-outfit font-bold tracking-[0.2em] text-[9px] text-white/80 uppercase px-3 py-1 bg-black/40 backdrop-blur-md rounded-full border border-white/10">
@@ -499,14 +498,14 @@ export function CoverExtraVariant106({
         </div>
       </div>
 
-      <div className="h-[45%] w-full bg-[#1a1a1a] p-6 flex flex-col justify-between relative z-10">
-        <div className="absolute -top-12 left-6">
+      <div className="h-[45%] w-full bg-[#101010] p-6 flex flex-col justify-between relative z-10 border-t-[8px]" style={{ borderTopColor: brandColor }}>
+        <div className="absolute top-[42px] left-6">
           <SmartField field="titulo" {...sp}>
             <h2 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-playfair font-black text-[#EBE9E1] leading-[0.85] tracking-tighter outline-none break-words"
-              style={{ fontSize: `${65 * sTitle}px` }}>
+              style={{ fontSize: `${75 * sTitle}px` }}>
               {data.titulo || 'TOP 5'}
             </h2>
           </SmartField>
