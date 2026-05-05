@@ -358,6 +358,6 @@ export const LAYOUT_META = [
     key: 'sequence',
     label: 'Sequência',
     description: 'Passo a passo ou fluxo de conteúdo',
-    thumbnailUrl: ''
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence12.png'
   },
 ];
