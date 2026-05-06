@@ -726,7 +726,7 @@ export const VARIANT_THUMBNAILS = {
       <div className="w-full h-full flex flex-col overflow-hidden relative" style={{ background: '#EBE9E1' }}>
         <div className="absolute inset-0 border-[4px] border-[#EBE9E1] z-20 pointer-events-none" />
         <div className="absolute inset-1 border border-zinc-300/30 z-20 pointer-events-none" />
-        <div className="h-[60%] rounded-[2px] overflow-hidden m-1" style={{ background: img }} />
+        <div className="h-[60%]" style={{ background: img }} />
         <div className="flex-1 p-1.5 flex flex-col justify-between relative z-10">
           <div className="absolute -top-2 left-1 w-[75%] h-[3.5px] bg-black/80 rounded-full" />
           <div className="mt-1 w-[50%] h-[2px] bg-black/30 rounded-full" />
