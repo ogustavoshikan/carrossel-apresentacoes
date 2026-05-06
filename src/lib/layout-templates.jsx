@@ -223,7 +223,7 @@ export const LAYOUT_TEMPLATES = {
   'cta-extra': {
     layout: 'cta',
     titulo: 'A sua\nReferência.',
-    texto_apoio: 'Salve este post para não perder o padrão de excelência de vista.',
+    texto_apoio: 'Se a excelência lhe agrada, sinta-se livre para guardar este manifesto e partilhá-lo com quem tem bom gosto.',
     sugestao_visual: '',
     imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'ENCOMENDAR',
@@ -268,6 +268,11 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   const field = variantFields[layoutType];
   if (field && variantIndex !== undefined) {
     slide[field] = variantIndex;
+  }
+
+  // Pre-configura texto específico para a variante 120 de CTA Extra
+  if (layoutType === 'cta-extra' && variantIndex === 120) {
+    slide.texto_apoio = 'Fim da Experiência';
   }
 
   // Pre-configura imagem de fundo para variantes específicas de CTA

@@ -4578,5 +4578,102 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    117: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] border border-black/5 p-2">
+        <div className="flex justify-between items-start w-full opacity-40">
+          <div className="w-2 h-2 rounded-full border border-zinc-900" />
+          <div className="w-[30%] h-[1px] bg-zinc-900 rounded-none" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center items-center mt-2">
+          <div className="w-[60%] h-[6px] bg-zinc-900 rounded-none mb-1" />
+          <div className="w-[40%] h-[6px] bg-zinc-400 rounded-none mb-3" />
+          <div className="flex flex-col gap-1.5 w-full items-center">
+            <div className="flex items-center gap-1 opacity-60">
+               <div className="w-[50%] h-[2px] bg-zinc-900 rounded-none" />
+               <div className="w-2 h-2 bg-zinc-900 rounded-sm" />
+            </div>
+            <div className="flex items-center gap-1 opacity-60">
+               <div className="w-[40%] h-[2px] bg-zinc-900 rounded-none" />
+               <div className="w-2 h-2 bg-zinc-900 rounded-sm" />
+            </div>
+          </div>
+        </div>
+        <div className="w-full flex justify-center border-t border-zinc-900/10 pt-1 mt-auto">
+          <div className="w-[40%] h-[1px] bg-zinc-400 rounded-none" />
+        </div>
+      </div>
+    ),
+    118: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] p-2">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-3 h-3 border border-white/20 rounded-full mb-2" />
+          <div className="flex flex-col gap-1 w-full">
+            <div className="w-[90%] h-[3px] bg-[#EBE9E1] rounded-none" />
+            <div className="w-[80%] h-[3px] bg-[#EBE9E1] rounded-none" />
+            <div className="w-[60%] h-[3px] bg-[#EBE9E1] rounded-none" />
+          </div>
+        </div>
+        <div className="w-full flex justify-between items-end pb-1">
+          <div className="w-[30%] h-[0.5px] bg-white/20 rounded-none" />
+          <div className="w-[30%] h-[1px] bg-white/40 rounded-none" />
+        </div>
+      </div>
+    ),
+    119: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#EBE9E1] px-2 py-3">
+        <div className="mb-auto">
+          <div className="w-[50%] h-[5px] bg-zinc-900 rounded-none mb-2" />
+        </div>
+        <div className="flex flex-col gap-3 w-full my-auto">
+          <div className="flex items-start gap-1">
+            <div className="w-2 h-2 bg-zinc-400 rounded-none" />
+            <div className="flex flex-col gap-0.5 mt-[1px]">
+              <div className="flex items-center gap-1">
+                 <div className="w-[60%] h-[2.5px] bg-zinc-900 rounded-none" />
+                 <div className="w-1.5 h-1.5 bg-zinc-900 rounded-sm" />
+              </div>
+              <div className="w-[40%] h-[1px] bg-zinc-500 rounded-none" />
+            </div>
+          </div>
+          <div className="flex items-start gap-1">
+            <div className="w-2 h-2 bg-zinc-400 rounded-none" />
+            <div className="flex flex-col gap-0.5 mt-[1px]">
+              <div className="flex items-center gap-1">
+                 <div className="w-[50%] h-[2.5px] bg-zinc-900 rounded-none" />
+                 <div className="w-1.5 h-1.5 bg-zinc-900 rounded-sm" />
+              </div>
+              <div className="w-[40%] h-[1px] bg-zinc-500 rounded-none" />
+            </div>
+          </div>
+        </div>
+        <div className="mt-auto flex justify-end">
+          <div className="w-[40%] h-[1px] bg-zinc-400 rounded-none" />
+        </div>
+      </div>
+    ),
+    120: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#0c0a09] border-t-2 border-b-2 border-white/5 p-2 justify-between">
+        <div className="flex justify-start">
+          <div className="w-1.5 h-1.5 rounded-full opacity-50" style={{ backgroundColor: accent }} />
+        </div>
+        <div className="flex flex-col items-end gap-1.5">
+          <div className="opacity-30 flex flex-col items-end">
+            <div className="w-2 h-2 border border-white rounded-full mb-0.5" />
+            <div className="w-[40%] h-[4px] bg-white rounded-none" />
+          </div>
+          <div className="opacity-30 flex flex-col items-end">
+            <div className="w-2 h-2 bg-white rounded-sm mb-0.5" />
+            <div className="w-[50%] h-[4px] bg-white rounded-none" />
+          </div>
+          <div className="flex flex-col items-end" style={{ color: accent }}>
+            <div className="w-2.5 h-2.5 bg-current rounded-sm mb-0.5" />
+            <div className="w-[70%] h-[5px] bg-current rounded-none" />
+          </div>
+        </div>
+        <div className="flex justify-start items-end">
+          <div className="w-[50%] h-[1px] bg-white/30 rounded-none" />
+        </div>
+      </div>
+    ),
   }
 };
