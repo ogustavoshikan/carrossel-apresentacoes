@@ -719,7 +719,7 @@ export function CTAVariant113(props) {
           <div className="w-1.5 h-1.5 bg-white rounded-none" />
         </div>
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="w-full pointer-events-auto">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.85] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${72 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.85] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: titleFont }}>
             {data.titulo}
           </h2>
         </SmartElement>
@@ -727,7 +727,7 @@ export function CTAVariant113(props) {
 
       <div className="w-full h-[50%] p-8 flex flex-col justify-between">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full max-w-[80%]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none whitespace-pre-line" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none whitespace-pre-line" style={{ fontSize: `${20 * sText}px`, fontFamily: textFont }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -758,11 +758,11 @@ export function CTAVariant114(props) {
     <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col p-8">
       
       <div className="flex-1 flex flex-col justify-center pointer-events-none">
-        <h2 className="font-playfair font-normal text-[#EBE9E1] leading-[0.9] tracking-tighter mb-12 pointer-events-auto outline-none" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
-          <span className="opacity-40 flex items-center gap-4 mb-2">
+        <h2 className="font-playfair font-normal text-[#EBE9E1] leading-[0.9] tracking-tighter mb-12 pointer-events-auto outline-none" style={{ fontSize: `${90 * sTitle}px`, fontFamily: titleFont }}>
+          <span className="opacity-70 flex items-center gap-4 mb-2">
             Curtir <Star className="w-6 h-6" strokeWidth={1.5} />
           </span>
-          <span className="opacity-40 flex items-center gap-4 mb-2">
+          <span className="opacity-70 flex items-center gap-4 mb-2">
             Enviar <Send className="w-6 h-6" strokeWidth={1.5} />
           </span>
           <span className="flex items-center gap-4" style={{ color: brandColor }}>
@@ -771,7 +771,7 @@ export function CTAVariant114(props) {
         </h2>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full pointer-events-auto">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -802,7 +802,7 @@ export function CTAVariant115(props) {
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-2">
           <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] outline-none whitespace-pre-line" style={{ fontSize: `${36 * sTitle}px`, fontFamily: titleFont }}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: titleFont }}>
               {data.titulo}
             </h2>
           </SmartElement>
@@ -815,14 +815,14 @@ export function CTAVariant115(props) {
         <div className="flex items-start gap-4">
           <span className="font-outfit font-bold text-sm" style={{ color: brandColor }}>1.</span>
           <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair text-[#1a1a1a] leading-snug outline-none whitespace-pre-line" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair text-[#1a1a1a] leading-snug outline-none whitespace-pre-line" style={{ fontSize: `${24 * sText}px`, fontFamily: textFont }}>
               {data.texto_apoio}
             </p>
           </SmartElement>
         </div>
         <div className="flex items-start gap-4 pointer-events-none">
           <span className="font-outfit font-bold text-sm" style={{ color: brandColor }}>2.</span>
-          <p className="font-playfair text-[#1a1a1a] leading-snug" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+          <p className="font-playfair text-[#1a1a1a] leading-snug" style={{ fontSize: `${24 * sText}px`, fontFamily: textFont }}>
             O ato de <span className="font-bold border-b-2 border-[#1a1a1a] pb-0.5">salvar este post</span> para não perder o contacto com o verdadeiro luxo.
           </p>
         </div>
