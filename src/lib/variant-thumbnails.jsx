@@ -4675,5 +4675,97 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    121: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] border border-white/5 p-2 justify-between">
+        <div className="flex-1 flex flex-col justify-center gap-2">
+          <div className="flex items-center">
+            <div className="w-1.5 h-1.5 border border-white/40 rounded-full mr-1.5" />
+            <div className="w-[40%] h-[4px] bg-white/40 rounded-none" />
+          </div>
+          <div className="flex items-center">
+            <div className="w-1.5 h-1.5 bg-white/40 rounded-sm mr-1.5" />
+            <div className="w-[40%] h-[4px] bg-white/40 rounded-none" />
+          </div>
+          <div className="flex items-center" style={{ color: accent }}>
+            <div className="w-2 h-2 bg-current rounded-sm mr-1.5" />
+            <div className="w-[50%] h-[5px] bg-current rounded-none" />
+          </div>
+        </div>
+        <div className="w-full flex justify-between items-end border-t border-white/10 pt-1">
+          <div className="w-[30%] h-[1px] bg-white/30 rounded-none" />
+          <div className="w-[20%] h-[1px] bg-white/30 rounded-none" />
+        </div>
+      </div>
+    ),
+    122: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] border border-black/5 p-2">
+        <div className="flex justify-between items-start w-full opacity-30">
+          <div className="w-1.5 h-1.5 border border-black rounded-full" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center items-end gap-2">
+          <div className="flex items-center gap-1.5">
+            <div className="w-[40%] h-[5px] bg-black/30 rounded-none" />
+            <div className="w-1.5 h-1.5 bg-current rounded-sm" style={{ color: accent }} />
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-[40%] h-[5px] bg-black/30 rounded-none" />
+            <div className="w-1.5 h-1.5 bg-current rounded-sm" style={{ color: accent }} />
+          </div>
+          <div className="flex items-center gap-1.5">
+            <div className="w-[50%] h-[6px] bg-current rounded-none" style={{ color: accent }} />
+            <div className="w-2 h-2 bg-current rounded-sm" style={{ color: accent }} />
+          </div>
+        </div>
+        <div className="w-full flex justify-start items-end border-t border-black/10 pt-1">
+          <div className="w-[40%] h-[1px] bg-black/40 rounded-none" />
+        </div>
+      </div>
+    ),
+    123: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#0c0a09] p-2">
+        <div className="flex-1 flex flex-col justify-center gap-2">
+          <div className="self-start flex items-center gap-1.5">
+            <div className="w-[30%] h-[5px] bg-white/30 rounded-none" />
+            <div className="w-1.5 h-1.5 border border-white/30 rounded-full" />
+          </div>
+          <div className="self-center flex items-center gap-1.5">
+            <div className="w-[30%] h-[5px] bg-white/30 rounded-none" />
+            <div className="w-1.5 h-1.5 bg-white/30 rounded-sm" />
+          </div>
+          <div className="self-end flex items-center gap-1.5" style={{ color: accent }}>
+            <div className="w-[40%] h-[6px] bg-current rounded-none" />
+            <div className="w-2 h-2 bg-current rounded-sm" />
+          </div>
+        </div>
+        <div className="w-full flex justify-between items-end border-t border-white/10 pt-1">
+          <div className="w-[30%] h-[1px] bg-white/30 rounded-none" />
+          <div className="w-1.5 h-1.5 bg-white/30 rounded-sm" />
+        </div>
+      </div>
+    ),
+    124: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#111] border-l border-r border-white/5 p-2">
+        <div className="w-4 h-[1px] mb-auto" style={{ backgroundColor: accent }}></div>
+        <div className="my-auto flex flex-col gap-3">
+          <div className="flex flex-col gap-0.5">
+            <div className="w-[60%] h-[6px] bg-white rounded-none" />
+            <div className="w-[40%] h-[6px] bg-current rounded-none" style={{ color: accent }} />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 border border-white/40 rounded-sm" />
+              <div className="w-[30%] h-[1px] bg-white/40 rounded-none" />
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 bg-white/40 rounded-sm" />
+              <div className="w-[40%] h-[1px] bg-white/40 rounded-none" />
+            </div>
+          </div>
+        </div>
+        <div className="mt-auto flex justify-end">
+          <div className="w-1.5 h-1.5 border-b border-r border-white/20" />
+        </div>
+      </div>
+    ),
   }
 };

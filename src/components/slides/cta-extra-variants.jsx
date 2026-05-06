@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bookmark, Send, Heart, MessageCircle, CheckCircle2, Instagram, Link2, Sparkles, Share2, ArrowRight, Check, Star, Quote, ChevronRight, CornerRightDown, Feather } from 'lucide-react';
+import { Bookmark, Send, Heart, MessageCircle, CheckCircle2, Instagram, Link2, Sparkles, Share2, ArrowRight, Check, Star, Quote, ChevronRight, CornerRightDown, Feather, CornerDownRight } from 'lucide-react';
 import SmartElement from '../smart-element';
 import { ImageBg } from './cta-variants';
 
@@ -122,6 +122,30 @@ export const CTA_EXTRA_VARIANT_META = [
     id: 120,
     name: 'The Floating Words',
     description: 'Escuro, dramático, usando a quebra de linha para criar arte.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  {
+    id: 121,
+    name: 'The Delicate Shift',
+    description: 'Tema escuro. As palavras deslizam e revelam o ícone elegantemente.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  {
+    id: 122,
+    name: 'The Light Whisper',
+    description: 'Tema claro. Letras minúsculas gigantes.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  {
+    id: 123,
+    name: 'The Staggered Elegance',
+    description: 'Palavras espalhadas pelo eixo X. Traz movimento à leitura.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+  },
+  {
+    id: 124,
+    name: 'The Absolute Focus',
+    description: 'Uma única frase monumental.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
   }
 ];
@@ -1084,10 +1108,195 @@ export function CTAVariant120(props) {
 
       <div className="flex justify-start items-end">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-light text-white/30 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${9 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-light text-white/30 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${21 * sText}px`, fontFamily: textFont }}>
             {data.texto_apoio || 'Fim da Experiência'}
           </p>
         </SmartElement>
+      </div>
+
+    </div>
+  );
+}
+
+export function CTAVariant121(props) {
+  const { data, index, brandColor, brandHandle, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, showBrandHandle } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
+
+  return (
+    <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col p-10 border border-white/5">
+      
+      <div className="flex-1 flex flex-col justify-center gap-8 pointer-events-none">
+        
+        <div className="group/action flex items-center">
+          <Heart className="w-6 h-6 text-white opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" strokeWidth={1} />
+          <h2 className="font-playfair font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+            Apreciar
+          </h2>
+        </div>
+
+        <div className="group/action flex items-center">
+          <Send className="w-6 h-6 text-white opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" strokeWidth={1} />
+          <h2 className="font-playfair font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+            Partilhar
+          </h2>
+        </div>
+
+        <div className="group/action flex items-center" style={{ color: brandColor }}>
+          <Bookmark className="w-6 h-6 opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" fill="currentColor" strokeWidth={1} />
+          <h2 className="font-playfair italic font-medium tracking-tighter group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+            Eternizar
+          </h2>
+        </div>
+
+      </div>
+
+      <div className="w-full flex justify-between items-end border-t border-white/10 pt-6">
+        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: textFont }}>
+            {data.texto_apoio || 'Instruções Finais'}
+          </span>
+        </SmartElement>
+        {showBrandHandle && brandHandle && (
+          <span className="font-outfit text-white/30 text-[8px] tracking-[0.4em] uppercase font-bold pointer-events-none">@{brandHandle}</span>
+        )}
+      </div>
+
+    </div>
+  );
+}
+
+export function CTAVariant122(props) {
+  const { data, index, brandColor, website, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
+
+  return (
+    <div className="w-full h-full relative bg-[#FDFBF7] overflow-hidden flex flex-col p-10 border border-black/5">
+      
+      <div className="flex justify-between items-start w-full opacity-30 pointer-events-none">
+        <Feather className="w-5 h-5 text-[#1a1a1a]" strokeWidth={1} />
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center items-end text-right gap-4 pointer-events-none">
+        
+        <div className="flex items-center gap-6 group/word">
+          <span className="font-playfair italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+            admirar.
+          </span>
+          <Star className="w-5 h-5 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" strokeWidth={1.5} style={{ color: brandColor }} />
+        </div>
+
+        <div className="flex items-center gap-6 group/word">
+          <span className="font-playfair italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+            enviar.
+          </span>
+          <Send className="w-5 h-5 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" strokeWidth={1.5} style={{ color: brandColor }} />
+        </div>
+
+        <div className="flex items-center gap-6 group/word" style={{ color: brandColor }}>
+          <span className="font-playfair italic font-medium tracking-tighter transition-colors duration-500" style={{ fontSize: `${72 * sTitle}px`, fontFamily: titleFont }}>
+            guardar.
+          </span>
+          <Bookmark className="w-6 h-6 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" fill="currentColor" strokeWidth={1.5} />
+        </div>
+
+      </div>
+
+      <div className="w-full flex justify-start items-end border-t border-[#1a1a1a]/10 pt-6 pointer-events-none">
+        <span className="font-outfit text-[#1a1a1a]/40 text-[8px] tracking-[0.4em] uppercase font-bold">
+          {website || "MEUSITE.COM.BR"}
+        </span>
+      </div>
+
+    </div>
+  );
+}
+
+export function CTAVariant123(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
+
+  return (
+    <div className="w-full h-full relative bg-[#0c0a09] overflow-hidden flex flex-col p-10">
+      
+      <div className="flex-1 flex flex-col justify-center pointer-events-none">
+        
+        <div className="group/item self-start flex items-center gap-4 mb-4">
+          <h2 className="font-playfair font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+            Curtir
+          </h2>
+          <Heart className="w-6 h-6 text-white opacity-0 group-hover/item:opacity-100 transition-opacity duration-500" strokeWidth={1.5} />
+        </div>
+
+        <div className="group/item self-center flex items-center gap-4 mb-4">
+          <h2 className="font-playfair font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+            Enviar
+          </h2>
+          <Send className="w-6 h-6 text-white opacity-0 group-hover/item:opacity-100 transition-opacity duration-500" strokeWidth={1.5} />
+        </div>
+
+        <div className="group/item self-end flex items-center gap-4" style={{ color: brandColor }}>
+          <h2 className="font-playfair italic font-medium transition-transform duration-500 group-hover/item:-translate-x-2 tracking-tight" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+            Salvar
+          </h2>
+          <Bookmark className="w-8 h-8 opacity-0 group-hover/item:opacity-100 transition-all duration-500" fill="currentColor" strokeWidth={1.5} />
+        </div>
+
+      </div>
+
+      <div className="w-full flex justify-between items-end border-t border-white/10 pt-6">
+        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: textFont }}>
+            {data.texto_apoio || 'Desfecho'}
+          </span>
+        </SmartElement>
+        <ArrowRight className="w-4 h-4 text-white/30 pointer-events-none" />
+      </div>
+
+    </div>
+  );
+}
+
+export function CTAVariant124(props) {
+  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
+
+  return (
+    <div className="w-full h-full relative bg-[#111] overflow-hidden flex flex-col p-10 border-l border-r border-white/5">
+      
+      <div className="w-8 h-[1px] mb-auto pointer-events-none" style={{ backgroundColor: brandColor }}></div>
+
+      <div className="my-auto">
+        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-10 w-full">
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-light text-white leading-[0.9] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo}
+          </h2>
+        </SmartElement>
+
+        <div className="flex flex-col gap-5 pointer-events-none">
+          <div className="flex items-center gap-4 group/action">
+            <Bookmark className="w-4 h-4 text-white/40 transition-colors" strokeWidth={1.5} />
+            <span className="font-outfit font-light text-white/40 uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+              Arquivar Coleção
+            </span>
+          </div>
+          <div className="flex items-center gap-4 group/action">
+            <Send className="w-4 h-4 text-white/40 transition-colors" strokeWidth={1.5} />
+            <span className="font-outfit font-light text-white/40 uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+              Enviar a um amigo
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-auto flex justify-end pointer-events-none">
+        <CornerDownRight className="w-5 h-5 text-white/20" strokeWidth={1} />
       </div>
 
     </div>
@@ -1115,4 +1324,8 @@ export const CTA_EXTRA_VARIANT_COMPONENTS = {
   118: CTAVariant118,
   119: CTAVariant119,
   120: CTAVariant120,
+  121: CTAVariant121,
+  122: CTAVariant122,
+  123: CTAVariant123,
+  124: CTAVariant124,
 };
