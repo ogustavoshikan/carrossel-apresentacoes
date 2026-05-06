@@ -3435,7 +3435,7 @@ export function CoverExtraVariant146({
       
       <div className="flex-1 w-full bg-[#FDFBF7] relative">
         
-        <div className="w-full h-[65%] relative overflow-hidden bg-zinc-100 mb-6 transition-shadow duration-700 ease-out z-10">
+        <div className="w-full h-[65%] relative overflow-hidden bg-zinc-100 mb-6 transition-shadow duration-700 ease-out z-10 rounded-[10px]">
           <ImageBg data={data} className="absolute inset-0 mix-blend-multiply transition-transform duration-1000" />
         </div>
 
@@ -3454,7 +3454,7 @@ export function CoverExtraVariant146({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-playfair font-medium text-[#1a1a1a] leading-none tracking-tight mb-2 outline-none break-words"
-              style={{ fontSize: `${30 * sTitle}px` }}>
+              style={{ fontSize: `${55 * sTitle}px` }}>
               {data.titulo || 'A Seleção.'}
             </h2>
           </SmartField>
@@ -3520,13 +3520,13 @@ export function CoverExtraVariant147({
           <ImageBg data={data} className="absolute inset-0 opacity-90 transition-opacity duration-700" />
         </div>
         
-        <div className="absolute bottom-2 left-0 w-full text-center">
+        <div className="absolute bottom-[-2px] left-0 w-full text-center">
           <SmartField field="titulo" {...sp}>
             <h2 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-playfair italic font-medium text-[#1a1a1a] outline-none break-words"
-              style={{ fontSize: `${18 * sTitle}px` }}>
+              className="font-playfair font-medium text-[#1a1a1a] outline-none break-words"
+              style={{ fontSize: `${38 * sTitle}px` }}>
               {data.titulo || 'O Top 5'}
             </h2>
           </SmartField>
