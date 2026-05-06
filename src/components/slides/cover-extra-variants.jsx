@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake, Diamond, Sparkle, CornerRightDown, ArrowDownRight, Asterisk, Plus, Shapes, FolderOpen, AlignLeft, Hash } from 'lucide-react';
+import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake, Diamond, Sparkle, CornerRightDown, ArrowDownRight, Asterisk, Plus, Shapes, AlignLeft, Hash, Ticket, LayoutGrid, Wind } from 'lucide-react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
@@ -2572,7 +2572,7 @@ export function CoverExtraVariant134({
         {/* Header Falso */}
         <div className="flex justify-between items-start border-b border-zinc-300 pb-4 mb-6 pointer-events-none">
           <div className="flex items-center gap-2">
-            <FolderOpen className="w-4 h-4 text-zinc-400" />
+            <Store className="w-4 h-4 text-zinc-400" />
             <SmartField field="badge_text" {...sp} className="pointer-events-auto">
               <span 
                 contentEditable suppressContentEditableWarning
@@ -2655,18 +2655,17 @@ export function CoverExtraVariant135({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex mx-auto ring-1 ring-white/10">
+    <div className="relative w-full h-full bg-[#ebe9e1] overflow-hidden flex mx-auto border border-zinc-300">
       
       {/* Slice da Imagem */}
-      <div className="w-[35%] h-full relative overflow-hidden z-10 border-r border-white/20 shrink-0">
+      <div className="w-[35%] h-full relative overflow-hidden z-10 border-r border-black/10 shrink-0">
         <ImageBg data={data} className="absolute inset-0 h-full" />
-        <div className="absolute inset-0 mix-blend-color pointer-events-none" style={{ backgroundColor: `${brandColor}33` }} />
       </div>
 
-      {/* Bloco de Texto Escuro */}
-      <div className="w-[65%] h-full bg-[#1a1a1a] p-6 flex flex-col justify-between relative shrink-0">
+      {/* Bloco de Texto Claro */}
+      <div className="w-[65%] h-full bg-[#ebe9e1] p-6 flex flex-col justify-between relative shrink-0">
         <div className="flex justify-end pointer-events-none">
-          <AlignLeft className="w-5 h-5 text-white/40" />
+          <AlignLeft className="w-5 h-5 text-[#1A1A1A]" />
         </div>
 
         <div className="flex flex-col">
@@ -2683,7 +2682,7 @@ export function CoverExtraVariant135({
             <h2 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-playfair font-black text-[#EBE9E1] leading-[0.8] tracking-tighter outline-none break-words"
+              className="font-playfair font-black text-[#1A1A1A] leading-[0.8] tracking-tighter outline-none break-words"
               style={{ fontSize: `${4.2 * sTitle}rem` }}>
               {data.titulo || 'TOP\nCINCO'}
             </h2>
@@ -2691,13 +2690,13 @@ export function CoverExtraVariant135({
         </div>
 
         <div className="flex flex-col gap-4 pointer-events-none">
-          <div className="w-full h-[1px] bg-white/10"></div>
+          <div className="w-full h-[1px] bg-black/10"></div>
           <div className="flex justify-between items-end">
-            <span className="font-outfit font-medium text-white/50 text-[8px] tracking-[0.2em] uppercase">
+            <span className="font-outfit font-medium text-[#1A1A1A] text-[8px] tracking-[0.2em] uppercase">
               @{brandHandle || 'seuhandle'}
             </span>
-            <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center shrink-0">
-              <ArrowRight className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 rounded-full border border-[#1A1A1A] flex items-center justify-center shrink-0">
+              <ArrowRight className="w-4 h-4 text-[#1A1A1A]" />
             </div>
           </div>
         </div>
@@ -2755,7 +2754,7 @@ export function CoverExtraVariant136({
       </div>
 
       {/* Imagem Central Elevada */}
-      <div className="relative z-20 w-[80%] aspect-square mt-4 mb-8 shrink-0">
+      <div className="relative z-20 w-[80%] aspect-square mt-4 mb-8 shrink-0 translate-y-[40px]">
         <div className="absolute inset-0 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] ring-1 ring-white/20 overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
@@ -2786,6 +2785,295 @@ export function CoverExtraVariant136({
           <span className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest">Explorar</span>
           <CornerRightDown className="w-4 h-4 text-[#EBE9E1] -rotate-90" />
         </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 137 — THE FLOATING TICKET
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant137({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex items-center justify-center mx-auto">
+      
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <ImageBg data={data} className="absolute inset-0 scale-125 blur-xl opacity-60" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      <div className="relative z-10 w-[80%] aspect-[3/4] bg-[#EBE9E1] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
+        
+        <div className="h-[40%] w-full relative">
+          <ImageBg data={data} className="absolute inset-0" />
+          <div className="absolute top-3 right-3 bg-white/90 backdrop-blur px-2 py-1 rounded shadow-sm">
+            <Ticket className="w-4 h-4 text-[#1a1a1a]" />
+          </div>
+        </div>
+
+        <div className="flex-1 p-5 flex flex-col justify-between bg-[radial-gradient(#d4d4d4_1px,transparent_1px)] [background-size:16px_16px]">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <SmartField field="badge_text" {...sp}>
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                  className="text-white font-outfit font-black text-[8px] px-2 py-0.5 uppercase tracking-widest outline-none" style={{ backgroundColor: brandColor }}>
+                  {data.badge_text || 'Passe VIP'}
+                </span>
+              </SmartField>
+            </div>
+            <SmartField field="titulo" {...sp}>
+              <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-playfair font-black text-[#1a1a1a] leading-none outline-none break-words" style={{ fontSize: `${36 * sTitle}px` }}>
+                {data.titulo || 'TOP 5'}
+              </h2>
+            </SmartField>
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-outfit text-zinc-500 text-[9px] uppercase tracking-widest mt-2 outline-none break-words">
+                {data.texto_apoio || 'A SELEÇÃO QUE VOCÊ MERECE'}
+              </p>
+            </SmartField>
+          </div>
+
+          <div className="border-t border-dashed border-[#1a1a1a]/20 pt-3 mt-4 flex justify-between items-end pointer-events-none">
+            <span className="font-outfit font-bold text-[#1a1a1a] text-[9px] uppercase tracking-[0.2em]">@{brandHandle || 'seuhandle'}</span>
+            <ArrowRight className="w-4 h-4" style={{ color: brandColor }} />
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 138 — THE BRUTALIST GRID
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant138({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col mx-auto border-[8px] border-[#1a1a1a]">
+      
+      <div className="h-1/2 w-full flex border-b-4 border-[#1a1a1a]">
+        <div className="w-[40%] h-full flex flex-col justify-between p-4 border-r-4 border-[#1a1a1a]" style={{ backgroundColor: brandColor }}>
+          <LayoutGrid className="w-5 h-5 text-[#1a1a1a]" />
+          <SmartField field="badge_text" {...sp} className="relative z-10 w-max overflow-visible">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] text-[11px] uppercase tracking-[0.2em] -rotate-90 origin-bottom-left ml-4 mb-8 whitespace-nowrap inline-block outline-none">
+              {data.badge_text || 'EDIÇÃO 38'}
+            </span>
+          </SmartField>
+        </div>
+        <div className="w-[60%] h-full relative overflow-hidden">
+          <ImageBg data={data} className="absolute inset-0 grayscale" />
+        </div>
+      </div>
+
+      <div className="h-1/2 w-full bg-[#EBE9E1] flex flex-col justify-between p-6 relative">
+        <div className="absolute top-0 right-6 w-16 h-16 bg-[#1a1a1a] flex items-center justify-center rounded-b-xl shadow-lg">
+          <span className="font-playfair font-black text-[#EBE9E1] text-3xl">5</span>
+        </div>
+
+        <div className="mt-4">
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-playfair font-black text-[#1a1a1a] leading-[0.9] uppercase tracking-tighter outline-none break-words" style={{ fontSize: `${48 * sTitle}px` }}>
+              {data.titulo || 'A SELEÇÃO.'}
+            </h2>
+          </SmartField>
+        </div>
+
+        <div className="flex justify-between items-end w-full border-t-2 border-[#1a1a1a] pt-3 pointer-events-none">
+          <span className="font-outfit font-bold text-[#1a1a1a] text-[10px] tracking-[0.3em] uppercase">@{brandHandle || 'seuhandle'}</span>
+          <div className="flex items-center gap-1">
+            <span className="font-outfit font-bold text-[10px] uppercase tracking-widest" style={{ color: brandColor }}>Abrir</span>
+            <MoveUpRight className="w-3 h-3" style={{ color: brandColor }} />
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 139 — THE NEGATIVE SPACE
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant139({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#F9F7F2] overflow-hidden flex flex-col mx-auto ring-1 ring-black/5">
+      
+      <div className="flex-1 p-8 flex flex-col relative">
+        
+        <div className="flex justify-between items-start w-full">
+          <Store className="w-5 h-5 text-zinc-300" />
+          <SmartField field="badge_text" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-zinc-300 text-[9px] uppercase tracking-[0.4em] outline-none">
+              {data.badge_text || 'Respire'}
+            </span>
+          </SmartField>
+        </div>
+
+        <div className="mt-12">
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter outline-none break-words"
+              style={{ fontSize: `${80 * sTitle}px` }}>
+              {data.titulo || 'O TOP Cinco.'}
+            </h2>
+          </SmartField>
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-zinc-400 text-[9px] uppercase tracking-[0.3em] mt-8 max-w-[180px] leading-relaxed outline-none break-words">
+              {data.texto_apoio || 'A SELEÇÃO QUE VOCÊ MERECE'}
+            </p>
+          </SmartField>
+        </div>
+
+        <div 
+          className="absolute bottom-6 right-6 w-[45%] aspect-[3/4] bg-zinc-200 overflow-hidden -rotate-3 rounded-[10px]"
+          style={{ boxShadow: `0 20px 25px -5px ${brandColor}33, 0 8px 10px -6px ${brandColor}33` }}>
+          <ImageBg data={data} className="absolute inset-0" />
+        </div>
+
+        <div className="absolute bottom-8 left-8 pointer-events-none">
+          <div className="w-10 h-10 rounded-full border border-zinc-300 flex items-center justify-center">
+            <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 140 — THE INTERSECTING MASK
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant140({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="relative w-full h-full bg-[#050505] overflow-hidden flex flex-col mx-auto ring-1 ring-white/10">
+      
+      <div className="h-[65%] w-full relative overflow-hidden z-0 pointer-events-none">
+        <ImageBg data={data} className="absolute inset-0 opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-90" />
+      </div>
+
+      <div className="h-[35%] w-full bg-[#050505] p-6 flex flex-col justify-end relative z-10">
+        
+        <SmartField field="titulo" {...sp} className="absolute -top-16 left-6 z-20">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-playfair font-black text-white leading-[0.8] tracking-tighter drop-shadow-2xl outline-none break-words"
+            style={{ fontSize: `${96 * sTitle}px` }}>
+            {data.titulo || 'TOP 5'}
+          </h2>
+        </SmartField>
+
+        <div className="w-full flex justify-between items-end border-t border-white/20 pt-4 mt-12 pointer-events-none">
+          <div className="flex flex-col gap-1">
+            <span className="font-outfit font-bold text-white/50 text-[10px] uppercase tracking-widest">
+              @{brandHandle || 'seuhandle'}
+            </span>
+            <SmartField field="texto_apoio" {...sp} className="pointer-events-auto">
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-outfit font-medium text-zinc-400 text-[8px] uppercase tracking-[0.3em] outline-none">
+                {data.texto_apoio || 'Experiência Premium'}
+              </span>
+            </SmartField>
+          </div>
+          <div className="bg-white/10 p-2 rounded backdrop-blur-md">
+            <ArrowDownRight className="w-5 h-5 text-white/80" />
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute top-6 right-6 z-20 pointer-events-none">
+        <Layers className="w-5 h-5 text-white/40" />
       </div>
 
       <SlideHeader
@@ -2838,6 +3126,10 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   134: CoverExtraVariant134,
   135: CoverExtraVariant135,
   136: CoverExtraVariant136,
+  137: CoverExtraVariant137,
+  138: CoverExtraVariant138,
+  139: CoverExtraVariant139,
+  140: CoverExtraVariant140,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -3055,6 +3347,30 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 136,
     name: 'The Crimson Monogram',
     description: 'Fundo escuro dramático. Símbolos gigantes mascarados pela imagem.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 137,
+    name: 'The Floating Ticket',
+    description: 'Fundo desfocado dramático, card central estéril e super detalhado.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 138,
+    name: 'The Brutalist Grid',
+    description: 'Linhas duras, divisão 4-way, blocos de cor agressivos.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 139,
+    name: 'The Negative Space',
+    description: '70% de espaço em branco absoluto. Luxo através da ausência.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 140,
+    name: 'The Intersecting Mask',
+    description: 'Texto gigante a cruzar o limite entre a imagem e o fundo escuro.',
     thumbnailUrl: '',
   },
 ];
