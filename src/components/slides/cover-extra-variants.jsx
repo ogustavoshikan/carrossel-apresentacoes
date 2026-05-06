@@ -3364,17 +3364,17 @@ export function CoverExtraVariant145({
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/50 via-transparent to-transparent" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col p-8">
-        <div className="flex justify-center w-full pointer-events-none">
+      <div className="relative z-10 h-full flex flex-col items-center p-8 pb-2">
+        <div className="pointer-events-none mt-2">
           <Crown className="w-5 h-5 text-[#DE1E4D]/80" strokeWidth={1.5} style={{ color: brandColor }} />
         </div>
 
-        <div className="mt-auto flex flex-col items-center text-center">
+        <div className="flex-1 flex flex-col items-center justify-end text-center w-full pb-0">
           <SmartField field="badge_text" {...sp}>
             <span 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit text-white/50 text-[8px] tracking-[0.5em] uppercase mb-4 border-b border-white/10 pb-2 outline-none break-words">
+              className="inline-block font-outfit text-white/50 text-[8px] tracking-[0.5em] uppercase mb-[15px] border-b border-white/10 pb-2 outline-none break-words">
               {data.badge_text || 'A Obra-Prima'}
             </span>
           </SmartField>
@@ -3383,26 +3383,26 @@ export function CoverExtraVariant145({
             <h2 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-playfair font-normal text-white leading-[0.9] tracking-tight mb-6 outline-none break-words"
-              style={{ fontSize: `${64 * sTitle}px` }}>
+              className="font-playfair font-normal text-white leading-[0.9] tracking-tight mb-8 outline-none break-words"
+              style={{ fontSize: `${74 * sTitle}px` }}>
               {data.titulo || 'O Top Cinco.'}
             </h2>
           </SmartField>
           
-          <div className="flex items-center gap-3 pointer-events-none mt-4">
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm transition-colors">
-              <Play className="w-3 h-3 text-white ml-0.5" fill="currentColor" />
+          <div className="flex flex-col items-center gap-4 pointer-events-none">
+            <div className="flex items-center gap-3">
+              <span className="font-outfit font-light text-white/70 text-[9px] uppercase tracking-[0.2em] transition-colors">
+                Iniciar Experiência
+              </span>
+              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm transition-colors">
+                <ArrowRight className="w-3 h-3 text-white" strokeWidth={1.5} />
+              </div>
             </div>
-            <span className="font-outfit font-light text-white/70 text-[9px] uppercase tracking-[0.2em] transition-colors">
-              Iniciar Experiência
+            
+            <span className="font-outfit font-medium text-white/30 text-[8px] tracking-widest uppercase">
+              @{brandHandle || 'seuhandle'}
             </span>
           </div>
-        </div>
-        
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none">
-          <span className="font-outfit font-medium text-white/30 text-[8px] tracking-widest uppercase">
-            @{brandHandle || 'seuhandle'}
-          </span>
         </div>
       </div>
 
