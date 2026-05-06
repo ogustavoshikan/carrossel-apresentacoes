@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Upload, Link, Search, X, Loader2, Camera, ExternalLink, ChevronDown, Image as ImageIcon, Sparkles, Wand2 } from 'lucide-react';
 import { searchUnsplashPhotos } from '../../services/unsplash';
 import { searchPexelsPhotos } from '../../services/pexels';
@@ -312,7 +312,6 @@ export default function ImageSourceDropdown({ slideIndex, onImageUpload, onImage
                   className="hidden"
                   onChange={(e) => {
                     onImageUpload(slideIndex, e);
-                    handleClose();
                   }}
                 />
               </label>

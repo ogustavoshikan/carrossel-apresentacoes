@@ -303,40 +303,65 @@ export default function VisualPreview({
 
           {/* Controls */}
           <div className="bg-surface-dark border border-zinc-800/60 rounded-xl p-4 flex flex-col" style={{ width: SLIDE_DIMENSIONS.width }}>
-            <div className="flex justify-between items-center mb-4">
-               <div className="flex items-center gap-2">
-                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
-                   {slide.layout}
-                 </span>
-               </div>
-               
-               <div className="flex items-center gap-1 bg-surface-input p-0.5 rounded-lg border border-white/5">
-                  <button
-                    onClick={() => setIsSimpleView(true)}
-                    className={cn(
-                      "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
-                      isSimpleView 
-                        ? "bg-zinc-800 text-white shadow-sm" 
-                        : "text-zinc-500 hover:text-zinc-300"
-                    )}
-                  >
-                    <Type size={12} />
-                    Simples
-                  </button>
-                  <button
-                    onClick={() => setIsSimpleView(false)}
-                    className={cn(
-                      "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
-                      !isSimpleView 
-                        ? "bg-zinc-800 text-white shadow-sm" 
-                        : "text-zinc-500 hover:text-zinc-300"
-                    )}
-                  >
-                    <Settings2 size={12} />
-                    Avançado
-                  </button>
-               </div>
-            </div>
+            {/* Header: layout badge + reset icon + Simples/Avançado toggle */}
+            {(() => {
+              const hasPositions = Object.keys(slide.positions || {}).length > 0;
+              const hasImageAdjust = (slide.imagePosition !== undefined && slide.imagePosition !== 50)
+                || (slide.imageScale !== undefined && slide.imageScale !== 1);
+              const canReset = hasPositions || hasImageAdjust;
+              return (
+                <div className="flex justify-between items-center mb-4">
+                   <div className="flex items-center gap-2">
+                     <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest bg-surface-input px-2 py-0.5 rounded-full border border-white/10">
+                       {slide.layout}
+                     </span>
+                   </div>
+                   
+                   <div className="flex items-center gap-1.5">
+                     {/* Botão Resetar Posições — ícone-only, visível apenas quando há ajustes ativos */}
+                     {canReset && (
+                       <Tooltip text="Resetar Posições">
+                         <button
+                           onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
+                           className="w-6 h-6 flex items-center justify-center rounded-md text-zinc-500 hover:text-rose-400 hover:bg-rose-500/10 transition-all active:scale-90"
+                           title="Resetar Posições"
+                         >
+                           <RotateCcw size={12} />
+                         </button>
+                       </Tooltip>
+                     )}
+
+                     <div className="flex items-center gap-1 bg-surface-input p-0.5 rounded-lg border border-white/5">
+                        <button
+                          onClick={() => setIsSimpleView(true)}
+                          className={cn(
+                            "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
+                            isSimpleView 
+                              ? "bg-zinc-800 text-white shadow-sm" 
+                              : "text-zinc-500 hover:text-zinc-300"
+                          )}
+                        >
+                          <Type size={12} />
+                          Simples
+                        </button>
+                        <button
+                          onClick={() => setIsSimpleView(false)}
+                          className={cn(
+                            "flex items-center gap-1.5 px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider transition-all",
+                            !isSimpleView 
+                              ? "bg-zinc-800 text-white shadow-sm" 
+                              : "text-zinc-500 hover:text-zinc-300"
+                          )}
+                        >
+                          <Settings2 size={12} />
+                          Avançado
+                        </button>
+                     </div>
+                   </div>
+                </div>
+              );
+            })()}
+
 
             {isSimpleView ? (
               <div className="space-y-4 animate-in fade-in slide-in-from-top-1 duration-200">
