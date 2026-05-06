@@ -469,13 +469,20 @@ export default function ConfigSidebar({
       }));
     };
 
-    // Função para incremento contínuo ao segurar botão (com disparo imediato ao clicar)
+    // Função para incremento contínuo ao segurar botão (clique = 1 passo, segurar = scroll contínuo)
     const startAutoScroll = (prop, delta) => {
-      updateProp(prop, v => v + delta);
-      const interval = setInterval(() => {
-        updateProp(prop, v => v + delta);
-      }, 50);
+      updateProp(prop, v => v + delta); // passo único imediato no clique
+
+      let interval = null;
+      const timeout = setTimeout(() => {
+        // Só inicia o scroll contínuo se o botão ainda estiver pressionado
+        interval = setInterval(() => {
+          updateProp(prop, v => v + delta);
+        }, 50);
+      }, 300); // aguarda 300ms antes de entrar em modo contínuo
+
       const stop = () => {
+        clearTimeout(timeout);
         clearInterval(interval);
         window.removeEventListener('mouseup', stop);
         window.removeEventListener('touchend', stop);
@@ -652,11 +659,11 @@ export default function ConfigSidebar({
                 </div>
                   <input 
                     type="range"
-                    min="-500"
-                    max="500"
+                    min="-200"
+                    max="200"
                     step="any"
                     value={pos?.x || 0}
-                    onChange={(e) => updateProp('x', Math.round(Number(e.target.value)))}
+                    onChange={(e) => updateProp('x', Math.round(parseFloat(e.target.value)))}
                     className="cs-range w-full"
                   />
               </div>
@@ -698,11 +705,11 @@ export default function ConfigSidebar({
                 </div>
                   <input 
                     type="range"
-                    min="-500"
-                    max="500"
+                    min="-200"
+                    max="200"
                     step="any"
                     value={pos?.y || 0}
-                    onChange={(e) => updateProp('y', Math.round(Number(e.target.value)))}
+                    onChange={(e) => updateProp('y', Math.round(parseFloat(e.target.value)))}
                     className="cs-range w-full"
                   />
               </div>
