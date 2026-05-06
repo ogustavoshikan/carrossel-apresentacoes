@@ -4312,5 +4312,154 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    105: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#0a0002] relative items-center justify-center p-2">
+        <div className="absolute top-0 right-0 w-12 h-12 rounded-full blur-[10px] opacity-40" style={{ background: accent }} />
+        <div className="absolute bottom-0 left-0 w-12 h-12 bg-white rounded-full blur-[12px] opacity-10" />
+        <div className="w-[60%] h-[4px] bg-white rounded-full mb-1.5 z-10" />
+        <div className="w-[80%] h-[2px] bg-white/50 rounded-full mb-4 z-10" />
+        <div className="w-6 h-6 rounded-full bg-white/10 border border-white/20 z-10 flex items-center justify-center">
+           <div className="w-2 h-3 bg-white/60 rounded-[1px]" />
+        </div>
+      </div>
+    ),
+    106: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-900 relative items-center justify-center p-2">
+        <div className="absolute inset-0 flex items-center justify-center">
+           <div className="w-16 h-16 bg-black/60 rounded-full blur-[4px]" />
+        </div>
+        <div className="w-[70%] h-[4px] bg-white rounded-full mb-1.5 z-10" />
+        <div className="w-[50%] h-[2px] bg-white/70 rounded-full mb-4 z-10" />
+        <div className="w-[80%] flex justify-between z-10">
+           <div className="w-[30%] h-[2px] bg-white/90 rounded-full" />
+           <div className="w-3 h-3 bg-white/80 rounded-sm" />
+        </div>
+      </div>
+    ),
+    107: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] p-2 justify-between">
+        <div className="flex flex-col gap-1 mt-1">
+          <div className="w-[60%] h-[4px] bg-zinc-900 rounded-full" />
+          <div className="w-[40%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="flex flex-col gap-2 pl-1 mb-1">
+          <div className="flex gap-1.5 items-start">
+             <div className="w-2 h-4 opacity-50" style={{ background: accent }} />
+             <div className="flex flex-col gap-0.5 mt-0.5">
+               <div className="w-8 h-[2px] bg-zinc-900 rounded-full" />
+               <div className="w-10 h-[1px] bg-zinc-400 rounded-full" />
+             </div>
+          </div>
+          <div className="flex gap-1.5 items-start">
+             <div className="w-2 h-4 opacity-50" style={{ background: accent }} />
+             <div className="flex flex-col gap-0.5 mt-0.5">
+               <div className="w-8 h-[2px] bg-zinc-900 rounded-full" />
+               <div className="w-10 h-[1px] bg-zinc-400 rounded-full" />
+             </div>
+          </div>
+        </div>
+      </div>
+    ),
+    108: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] relative items-center justify-center p-2">
+        <div className="absolute top-[-10px] w-16 h-16 rounded-full bg-zinc-800 flex items-end justify-center overflow-hidden">
+           <div className="w-full h-1/2 bg-gradient-to-t from-[#050505] to-transparent" />
+        </div>
+        <div className="absolute top-2 w-10 h-10 bg-white/10 rounded-full blur-[8px]" />
+        
+        <div className="w-[50%] h-[4px] bg-white rounded-full mt-8 mb-1 z-10" />
+        <div className="w-[70%] h-[2px] bg-white/50 rounded-full mb-3 z-10" />
+        <div className="flex gap-1 z-10 items-center justify-center w-full">
+           <div className="w-10 h-3 rounded-full bg-white/20" />
+           <div className="w-4 h-4 rounded-full bg-white/10" />
+        </div>
+      </div>
+    ),
+    109: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] p-2 justify-between">
+        <div className="w-full flex justify-between items-center mb-2">
+           <div className="w-[30%] h-[2px] bg-white/30 rounded-full" />
+           <div className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+        </div>
+        <div className="flex-1 flex flex-col justify-center gap-1.5">
+           <div className="w-[80%] h-[5px] bg-white rounded-full" />
+           <div className="w-[60%] h-[3px] bg-white/80 rounded-full" />
+           <div className="w-[50%] h-[1.5px] bg-white/40 mt-1" />
+           <div className="w-[40%] h-[1.5px] bg-white/40" />
+        </div>
+        <div className="flex flex-col gap-1 mt-auto">
+           <div className="w-full h-[1.5px] bg-white/20 mb-0.5" />
+           <div className="w-full flex justify-between">
+             <div className="w-[40%] h-[2px] bg-white rounded-full" />
+             <div className="w-2 h-2 bg-white rounded-sm" />
+           </div>
+        </div>
+      </div>
+    ),
+    110: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] ring-1 ring-black/5">
+        <div className="h-[45%] w-full bg-zinc-200" />
+        <div className="flex-1 flex flex-col p-2 justify-between">
+          <div className="flex flex-col gap-1">
+             <div className="w-[70%] h-[4px] bg-zinc-900 rounded-full" />
+             <div className="w-[40%] h-[2px] bg-zinc-400 rounded-full" />
+          </div>
+          <div className="w-full flex justify-between items-center p-1.5" style={{ background: accent }}>
+             <div className="w-[40%] h-[2px] bg-white rounded-full" />
+             <div className="w-2 h-2 bg-white rounded-sm" />
+          </div>
+          <div className="w-full flex justify-between items-center">
+             <div className="w-[30%] h-[1.5px] bg-zinc-300 rounded-full" />
+             <div className="flex gap-1">
+                <div className="w-1.5 h-1.5 bg-zinc-300 rounded-full" />
+                <div className="w-1.5 h-1.5 bg-zinc-300 rounded-full" />
+             </div>
+          </div>
+        </div>
+      </div>
+    ),
+    111: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden items-center justify-center p-2 text-center" style={{ background: accent }}>
+        <div className="w-full border-t border-b border-white/20 py-2 flex flex-col items-center justify-center flex-1 my-1 gap-1.5">
+           <div className="w-[70%] h-[5px] bg-white rounded-full" />
+           <div className="w-[50%] h-[2px] bg-white/80 rounded-full" />
+           <div className="w-1/2 h-4 bg-white flex items-center justify-center mt-1">
+             <div className="w-[40%] h-[1.5px] bg-black/60 rounded-full" />
+           </div>
+        </div>
+        <div className="w-full flex justify-between items-center">
+           <div className="w-[20%] h-[1.5px] bg-white/50 rounded-full" />
+           <div className="w-[20%] h-[1.5px] bg-white/50 rounded-full" />
+        </div>
+      </div>
+    ),
+    112: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] p-2 justify-between ring-1 ring-black/5">
+        <div className="w-full flex justify-between items-center mb-2">
+           <div className="w-2 h-2 rounded-full" style={{ background: accent }} />
+           <div className="w-[30%] h-[1.5px] bg-zinc-300 rounded-full" />
+        </div>
+        <div className="flex flex-col gap-1.5">
+           <div className="w-[80%] h-[6px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[6px] bg-zinc-900 rounded-full" />
+        </div>
+        <div className="flex flex-col gap-1 mt-2">
+           <div className="flex gap-1.5 items-center">
+             <div className="w-2 h-2 bg-zinc-300 rounded-sm" />
+             <div className="w-[40%] h-[2px] bg-zinc-800 rounded-full" />
+           </div>
+           <div className="flex gap-1.5 items-center">
+             <div className="w-2 h-2 bg-zinc-300 rounded-sm" />
+             <div className="w-[40%] h-[2px] bg-zinc-800 rounded-full" />
+           </div>
+        </div>
+        <div className="flex gap-1 items-center mt-auto">
+           <div className="w-3 h-3 border border-zinc-900 flex items-center justify-center">
+             <div className="w-1 h-[1px] bg-zinc-900" />
+           </div>
+           <div className="w-[30%] h-[1px] bg-zinc-400 rounded-full" />
+        </div>
+      </div>
+    ),
   }
 };
