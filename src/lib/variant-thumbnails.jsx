@@ -4461,5 +4461,122 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    113: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] border-none">
+        <div className="w-full h-[50%] p-2 flex flex-col justify-end" style={{ background: accent }}>
+          <div className="mb-auto flex justify-between items-center w-full">
+             <div className="w-[30%] h-[1px] bg-white/50 rounded-none" />
+             <div className="w-1 h-1 bg-white rounded-none" />
+          </div>
+          <div className="w-[70%] h-[8px] bg-white rounded-none mt-2" />
+        </div>
+        <div className="w-full h-[50%] p-2 flex flex-col justify-between">
+           <div className="flex flex-col gap-1">
+             <div className="w-[80%] h-[2px] bg-zinc-400 rounded-none" />
+             <div className="w-[60%] h-[2px] bg-zinc-400 rounded-none" />
+           </div>
+           <div className="mt-auto flex flex-col gap-1">
+             <div className="w-full flex justify-between items-center py-1 border-b border-zinc-200">
+                <div className="w-[50%] h-[2px] bg-zinc-800 rounded-none" />
+                <div className="w-2 h-2 bg-zinc-800 rounded-sm" />
+             </div>
+             <div className="w-full flex justify-between items-center py-1">
+                <div className="w-[40%] h-[2px] bg-zinc-300 rounded-none" />
+                <div className="w-2 h-2 bg-zinc-300 rounded-sm" />
+             </div>
+           </div>
+        </div>
+      </div>
+    ),
+    114: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#050505] p-2">
+        <div className="flex-1 flex flex-col justify-center">
+           <div className="flex flex-col gap-2 mb-4">
+             <div className="flex gap-2 items-center">
+                <div className="w-[40%] h-[4px] bg-white/40 rounded-none" />
+                <div className="w-3 h-3 bg-white/40 rounded-sm" />
+             </div>
+             <div className="flex gap-2 items-center">
+                <div className="w-[40%] h-[4px] bg-white/40 rounded-none" />
+                <div className="w-3 h-3 bg-white/40 rounded-sm" />
+             </div>
+             <div className="flex gap-2 items-center">
+                <div className="w-[40%] h-[4px] rounded-none" style={{ background: accent }} />
+                <div className="w-3 h-3 rounded-sm" style={{ background: accent }} />
+             </div>
+           </div>
+           <div className="w-[50%] h-[1.5px] bg-white/50 rounded-none" />
+        </div>
+        <div className="w-full flex justify-between items-end border-t border-white/20 pt-1">
+           <div className="w-[20%] h-[1px] bg-white/40 rounded-none" />
+           <div className="w-[10%] h-[1px] bg-white/40 rounded-none" />
+        </div>
+      </div>
+    ),
+    115: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] p-2 justify-between">
+        <div className="flex flex-col gap-1 mb-2">
+           <div className="flex items-center gap-1">
+             <div className="w-[60%] h-[6px] bg-zinc-900 rounded-none" />
+             <div className="w-[20%] h-[2px] bg-zinc-400 rounded-none" />
+           </div>
+           <div className="w-[40%] h-[1.5px] bg-zinc-500 rounded-none" />
+        </div>
+        <div className="flex flex-col gap-2">
+           <div className="flex gap-1 items-start">
+             <div className="w-1.5 h-1.5 rounded-none" style={{ background: accent }} />
+             <div className="flex flex-col gap-1 flex-1">
+                <div className="w-full h-[2px] bg-zinc-800 rounded-none" />
+                <div className="w-[80%] h-[2px] bg-zinc-800 rounded-none" />
+             </div>
+           </div>
+           <div className="flex gap-1 items-start">
+             <div className="w-1.5 h-1.5 rounded-none" style={{ background: accent }} />
+             <div className="flex flex-col gap-1 flex-1">
+                <div className="w-full h-[2px] bg-zinc-800 rounded-none" />
+                <div className="w-[60%] h-[2px] bg-zinc-800 rounded-none" />
+             </div>
+           </div>
+        </div>
+        <div className="mt-auto flex justify-between items-center w-full">
+           <div className="w-[30%] h-[1px] bg-zinc-900 rounded-none" />
+           <div className="w-2.5 h-2.5 bg-zinc-900 rounded-sm" />
+        </div>
+      </div>
+    ),
+    116: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#EBE9E1] px-2 py-3">
+        <div className="mb-4 flex flex-col gap-1">
+           <div className="w-[70%] h-[5px] bg-zinc-900 rounded-none" />
+           <div className="w-[50%] h-[1.5px] bg-zinc-500 rounded-none" />
+        </div>
+        <div className="flex flex-col w-full">
+           <div className="w-full flex justify-between items-center border-t border-zinc-900/20 py-1">
+             <div className="flex items-center gap-1">
+                <div className="w-1 h-1 bg-zinc-400 rounded-none" />
+                <div className="w-[40%] h-[1.5px] bg-zinc-900 rounded-none" />
+             </div>
+             <div className="w-2 h-2 bg-zinc-900 rounded-sm" />
+           </div>
+           <div className="w-full flex justify-between items-center border-t border-zinc-900/20 py-1">
+             <div className="flex items-center gap-1">
+                <div className="w-1 h-1 bg-zinc-400 rounded-none" />
+                <div className="w-[40%] h-[1.5px] bg-zinc-900 rounded-none" />
+             </div>
+             <div className="w-2 h-2 bg-zinc-900 rounded-sm" />
+           </div>
+           <div className="w-full flex justify-between items-center border-t border-b border-zinc-900/20 py-1">
+             <div className="flex items-center gap-1">
+                <div className="w-1 h-1 bg-zinc-400 rounded-none" />
+                <div className="w-[40%] h-[1.5px] bg-zinc-900 rounded-none" />
+             </div>
+             <div className="w-2 h-2 bg-zinc-900 rounded-sm" />
+           </div>
+        </div>
+        <div className="mt-auto flex justify-center">
+           <div className="w-[40%] h-[1px] bg-zinc-400 rounded-none" />
+        </div>
+      </div>
+    ),
   }
 };
