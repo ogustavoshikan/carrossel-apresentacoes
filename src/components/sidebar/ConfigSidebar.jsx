@@ -129,8 +129,10 @@ export default function ConfigSidebar({
 }) {
   const isInspectorActive = !!selectedElement;
   const savedSelection = useRef(null);
+  const selectionColorInputRef = useRef(null);
   const [showContentLib, setShowContentLib] = React.useState(false);
   const [activeNiche, setActiveNiche] = React.useState('confeitaria');
+  const [selectionColor, setSelectionColor] = React.useState('');
 
   const scrollContainerRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = React.useState(false);
@@ -945,6 +947,73 @@ export default function ConfigSidebar({
                   </button>
                 ))}
              </div>
+
+              {/* Cor do Texto Selecionado — abaixo do alinhamento, acima de Cor do Texto */}
+              <div className="mb-3">
+                <label className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block mb-2">Cor do Texto Selecionado</label>
+                <div className="relative flex items-center bg-surface-input rounded p-1 gap-1">
+                  <label
+                    className="flex-shrink-0 cursor-pointer"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      const sel = window.getSelection();
+                      if (sel && sel.rangeCount > 0 && !sel.isCollapsed) {
+                        savedSelection.current = sel.getRangeAt(0).cloneRange();
+                      }
+                    }}
+                    onClick={() => selectionColorInputRef.current?.click()}
+                  >
+                    <input
+                      ref={selectionColorInputRef}
+                      type="color"
+                      value={selectionColor || '#ffffff'}
+                      onChange={(e) => {
+                        setSelectionColor(e.target.value);
+                        const saved = savedSelection.current;
+                        if (saved) {
+                          const sel = window.getSelection();
+                          sel.removeAllRanges();
+                          sel.addRange(saved);
+                          document.execCommand('styleWithCSS', false, true);
+                          document.execCommand('foreColor', false, e.target.value);
+                          const updated = window.getSelection();
+                          if (updated && updated.rangeCount > 0 && !updated.isCollapsed) {
+                            savedSelection.current = updated.getRangeAt(0).cloneRange();
+                          }
+                        }
+                      }}
+                      className="absolute w-0 h-0 opacity-0 pointer-events-none"
+                    />
+                    <span
+                      className="inline-block w-4 h-4 rounded-sm border border-white/20 shadow-sm"
+                      style={{ backgroundColor: selectionColor || '#ffffff' }}
+                    />
+                  </label>
+                  <input
+                    type="text"
+                    value={selectionColor}
+                    placeholder="No slide, dê duplo clique e selecione a palavra"
+                    onChange={(e) => {
+                      setSelectionColor(e.target.value);
+                      if (/^#[0-9a-fA-F]{6}$/.test(e.target.value)) {
+                        const saved = savedSelection.current;
+                        if (saved) {
+                          const sel = window.getSelection();
+                          sel.removeAllRanges();
+                          sel.addRange(saved);
+                          document.execCommand('styleWithCSS', false, true);
+                          document.execCommand('foreColor', false, e.target.value);
+                          const updated = window.getSelection();
+                          if (updated && updated.rangeCount > 0 && !updated.isCollapsed) {
+                            savedSelection.current = updated.getRangeAt(0).cloneRange();
+                          }
+                        }
+                      }
+                    }}
+                    className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
+                  />
+                </div>
+              </div>
 
              <div className="grid grid-cols-2 gap-3">
                <div>

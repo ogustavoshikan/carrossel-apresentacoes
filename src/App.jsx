@@ -643,7 +643,8 @@ export default function App() {
   const handleCopySlide = useCallback(
     (index) => {
       const slide = slides[index];
-      const text = `Headline: ${slide.titulo}\nTexto: ${slide.texto_apoio}`;
+      const stripTags = (str) => (str ? str.replace(/<[^>]*>/g, '') : '');
+      const text = `Headline: ${stripTags(slide.titulo)}\nTexto: ${stripTags(slide.texto_apoio)}`;
       copyToClipboard(text).then(() => {
         setCopiedIndex(index);
         setTimeout(() => setCopiedIndex(null), 2000);
@@ -653,8 +654,9 @@ export default function App() {
   );
 
   const handleCopyAll = useCallback(() => {
+    const stripTags = (str) => (str ? str.replace(/<[^>]*>/g, '') : '');
     const allText = slides
-      .map((s) => `[Slide ${s.slide} - ${s.layout}]\nHeadline: ${s.titulo}\nTexto: ${s.texto_apoio}\n`)
+      .map((s) => `[Slide ${s.slide} - ${s.layout}]\nHeadline: ${stripTags(s.titulo)}\nTexto: ${stripTags(s.texto_apoio)}\n`)
       .join('\n---\n\n');
     copyToClipboard(allText).then(() => {
       setCopiedIndex('all');
@@ -885,7 +887,21 @@ export default function App() {
                     {viewMode === 'text' ? (
                       <TextEditor
                         slides={slides}
+                        slideCount={slides.length}
                         brandColor={gradientColor1}
+                        brandHandle={brandHandle}
+                        showBrandHandle={showBrandHandle}
+                        brandAvatar={brandAvatar}
+                        brandLogo={brandLogo}
+                        showBrandLogo={showBrandLogo}
+                        isVerified={isVerified}
+                        titleScale={titleSizeScale}
+                        textScale={textSizeScale}
+                        titleFont={titleFont}
+                        textFont={textFont}
+                        tagFont={tagFont}
+                        showSlideCounter={showSlideCounter}
+                        slideCounterPosition={slideCounterPosition}
                         onTextChange={handleSlideTextChange}
                         onImageUpload={handleImageUpload}
                         onImagePosition={handleImagePosition}

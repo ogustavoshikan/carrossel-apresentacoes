@@ -323,10 +323,10 @@ export default function VisualPreview({
                        <Tooltip text="Resetar Posições">
                          <button
                            onClick={(e) => { e.stopPropagation(); onResetPositions(index); handleActionFeedback('Posições Resetadas'); }}
-                           className="w-6 h-6 flex items-center justify-center rounded-md text-zinc-500 hover:text-rose-400 hover:bg-rose-500/10 transition-all active:scale-90"
+                           className="w-7 h-7 flex items-center justify-center rounded-md text-zinc-500 hover:text-rose-400 hover:bg-rose-500/10 transition-all active:scale-90"
                            title="Resetar Posições"
                          >
-                           <RotateCcw size={12} />
+                           <RotateCcw size={13} />
                          </button>
                        </Tooltip>
                      )}
@@ -643,7 +643,7 @@ export default function VisualPreview({
                             </button>
                             {openVariantIndex === index && (
                               <ComparisonVariantPopover
-                                currentVariantIndex={slide.comparisonVariantIndex || 1}
+                                currentVariantIndex={slide.comparisonVariantIndex || 2}
                                 onSelect={(variantId) => {
                                   onComparisonVariantChange(index, variantId);
                                   handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
