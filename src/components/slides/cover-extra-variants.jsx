@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake, Diamond, Sparkle, CornerRightDown } from 'lucide-react';
+import { BadgeCheck, ArrowRight, Sparkles, MoveUpRight, Quote, MoveRight, Maximize2, Zap, Hexagon, Component, Fingerprint, ScanLine, Store, Gem, Maximize, Layers, ListTree, ScanBarcode, Receipt, CircleDashed, Columns3, Cake, Diamond, Sparkle, CornerRightDown, ArrowDownRight, Asterisk, Plus, Shapes } from 'lucide-react';
 import { Image as ImageIcon } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
@@ -73,14 +73,13 @@ export function CoverExtraVariant101({
   return (
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col p-4">
       {/* Moldura interna decorativa */}
-      <div className="absolute inset-0 border-[16px] border-[#EBE9E1] z-20 pointer-events-none" />
       <div
-        className="absolute inset-4 border z-20 pointer-events-none"
+        className="absolute inset-4 border z-40 pointer-events-none rounded-[10px]"
         style={{ borderColor: `${brandColor}33` }}
       />
 
       {/* Imagem superior (65%) */}
-      <div className="relative w-full h-[65%] overflow-hidden rounded-t-sm shrink-0">
+      <div className="relative w-full h-[65%] overflow-hidden rounded-[10px] shrink-0 z-10">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
 
@@ -2221,6 +2220,10 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   126: CoverExtraVariant126,
   127: CoverExtraVariant127,
   128: CoverExtraVariant128,
+  129: CoverExtraVariant129,
+  130: CoverExtraVariant130,
+  131: CoverExtraVariant131,
+  132: CoverExtraVariant132,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -2390,6 +2393,30 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 128,
     name: 'The Dramatic Canvas',
     description: 'Escuridão total. Contraste brutal.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 129,
+    name: 'The Staggered Type',
+    description: 'Tipografia gigante desalinhada invadindo a imagem.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 130,
+    name: 'The Architecture',
+    description: 'Moldura em formato de pílula centralizada elegante.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 131,
+    name: 'The Letterbox',
+    description: 'Faixa de imagem horizontal formato wide cinema.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 132,
+    name: 'The Brutalist Stamp',
+    description: 'Tipografia matemática focada e layout em formato selo.',
     thumbnailUrl: '',
   },
 ];
