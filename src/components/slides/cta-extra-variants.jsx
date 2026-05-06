@@ -45,13 +45,13 @@ export function CTAVariant101(props) {
       </div>
 
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 relative z-10 w-full">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.9] outline-none whitespace-pre-line" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.9] outline-none whitespace-pre-line" style={{ fontSize: `${76 * sTitle}px`, fontFamily: titleFont }}>
           {data.titulo}
         </h2>
       </SmartElement>
 
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-12 relative z-10 max-w-[80%]">
-        <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-widest leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${11 * sText}px`, fontFamily: textFont }}>
+        <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-widest leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${17 * sText}px`, fontFamily: textFont }}>
           {data.texto_apoio}
         </p>
       </SmartElement>
@@ -82,7 +82,7 @@ export function CTAVariant102(props) {
       </div>
 
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-8 w-full">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${48 * sTitle}px`, fontFamily: titleFont }}>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${73 * sTitle}px`, fontFamily: titleFont }}>
           {data.titulo}
         </h2>
       </SmartElement>
@@ -221,13 +221,13 @@ export function CTAVariant104(props) {
         </div>
 
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 w-full relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-white outline-none whitespace-pre-line" style={{ fontSize: `${30 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-white outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px`, fontFamily: titleFont }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-8 w-full relative z-10">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-[0.2em] leading-relaxed outline-none" style={{ fontSize: `${10 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-[0.2em] leading-relaxed outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -235,15 +235,15 @@ export function CTAVariant104(props) {
         <div className="w-full flex items-center justify-center gap-6 border-t border-white/10 pt-6 pointer-events-none">
           <div className="flex flex-col items-center gap-2">
              <Heart className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Gostar</span>
+             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Curte</span>
           </div>
           <div className="flex flex-col items-center gap-2">
              <MessageCircle className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Comentar</span>
+             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Comente</span>
           </div>
           <div className="flex flex-col items-center gap-2">
              <Send className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Partilhar</span>
+             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Compartilhe</span>
           </div>
         </div>
       </div>
