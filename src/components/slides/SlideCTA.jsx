@@ -3,6 +3,7 @@ import { Zap, Heart, Bookmark, Share2 } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 import { CTA_VARIANT_COMPONENTS, ImageBg } from './cta-variants';
+import { CTA_EXTRA_VARIANT_COMPONENTS } from './cta-extra-variants';
 
 /**
  * SlideCTA — Layout "cta" (sempre o último slide).
@@ -33,6 +34,13 @@ export default function SlideCTA(props) {
 
   // Se houver uma variante selecionada (> 0), usa o componente correspondente
   const ctaVariantIndex = data.ctaVariantIndex || 0;
+
+  // Variantes de CTAs Extras (IDs 101+)
+  if (ctaVariantIndex >= 101 && CTA_EXTRA_VARIANT_COMPONENTS[ctaVariantIndex]) {
+    const ExtraComponent = CTA_EXTRA_VARIANT_COMPONENTS[ctaVariantIndex];
+    return <ExtraComponent {...props} />;
+  }
+
   if (ctaVariantIndex > 0 && CTA_VARIANT_COMPONENTS[ctaVariantIndex]) {
     const VariantComponent = CTA_VARIANT_COMPONENTS[ctaVariantIndex];
     return <VariantComponent {...props} />;

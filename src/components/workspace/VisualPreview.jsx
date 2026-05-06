@@ -40,17 +40,20 @@ import BigNumberVariantPopover from './BigNumberVariantPopover';
 import QuoteVariantPopover from './QuoteVariantPopover';
 import ComparisonVariantPopover from './ComparisonVariantPopover';
 import CtaVariantPopover from './CtaVariantPopover';
+import CtaExtraVariantPopover from './CtaExtraVariantPopover';
 import ListVariantPopover from './ListVariantPopover';
 import SequenceVariantPopover from './SequenceVariantPopover';
 import SlideRenderer from '../slide-renderer';
 import { SLIDE_DIMENSIONS, FONT_OPTIONS } from '../../lib/design-tokens';
 import ImageSourceDropdown from './ImageSourceDropdown';
 import { COVER_VARIANT_META } from '../slides/cover-variants';
+import { COVER_EXTRA_VARIANT_META } from '../slides/cover-extra-variants';
 import { SPLIT_VARIANT_META } from '../slides/split-variants';
 import { BIGNUMBER_VARIANT_META } from '../slides/bignumber-variants';
 import { QUOTE_VARIANT_META } from '../slides/quote-variants';
 import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
 import { CTA_VARIANT_META } from '../slides/cta-variants';
+import { CTA_EXTRA_VARIANT_META } from '../slides/cta-extra-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
 import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
 
@@ -143,13 +146,14 @@ export default function VisualPreview({
     }
   };
 
-  const handleRandomVariant = (index, layout) => {
+  const handleRandomVariant = (index, slide) => {
     let metas = [];
     let handler = null;
+    const layout = slide.layout;
 
     switch (layout) {
       case 'cover':
-        metas = COVER_VARIANT_META;
+        metas = (slide.coverVariantIndex || 0) >= 101 ? COVER_EXTRA_VARIANT_META : COVER_VARIANT_META;
         handler = onCoverVariantChange;
         break;
       case 'content-split':
@@ -169,7 +173,7 @@ export default function VisualPreview({
         handler = onComparisonVariantChange;
         break;
       case 'cta':
-        metas = CTA_VARIANT_META;
+        metas = (slide.ctaVariantIndex || 0) >= 101 ? CTA_EXTRA_VARIANT_META : CTA_VARIANT_META;
         handler = onCtaVariantChange;
         break;
       case 'list':
@@ -512,10 +516,10 @@ export default function VisualPreview({
 
                       <div className="flex items-center gap-1.5">
                         {/* Botão Aleatório (Shuffle) fora do popover */}
-                        {['cover', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'list', 'sequence'].includes(slide.layout) && (
+                        {['cover', 'cover-extra', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'cta-extra', 'list', 'sequence'].includes(slide.layout) && (
                           <Tooltip text="Variante Aleatória">
                             <button
-                              onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide.layout); }}
+                              onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide); }}
                               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"
                             >
                               <Shuffle size={18} />
@@ -666,16 +670,29 @@ export default function VisualPreview({
                               Variante
                             </button>
                             {openVariantIndex === index && (
-                              <CtaVariantPopover
-                                currentVariantIndex={slide.ctaVariantIndex || 0}
-                                onSelect={(variantId) => {
-                                  onCtaVariantChange(index, variantId);
-                                  handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
-                                }}
-                                onClose={() => setOpenVariantIndex(-1)}
-                                brandColor={brandColor}
-                                brandAvatar={brandAvatar}
-                              />
+                              (slide.ctaVariantIndex || 0) >= 101 ? (
+                                <CtaExtraVariantPopover
+                                  currentVariantIndex={slide.ctaVariantIndex}
+                                  onSelect={(variantId) => {
+                                    onCtaVariantChange(index, variantId);
+                                    handleActionFeedback(`Variante Extra: ${variantId}`);
+                                  }}
+                                  onClose={() => setOpenVariantIndex(-1)}
+                                  brandColor={brandColor}
+                                  brandAvatar={brandAvatar}
+                                />
+                              ) : (
+                                <CtaVariantPopover
+                                  currentVariantIndex={slide.ctaVariantIndex || 0}
+                                  onSelect={(variantId) => {
+                                    onCtaVariantChange(index, variantId);
+                                    handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                  }}
+                                  onClose={() => setOpenVariantIndex(-1)}
+                                  brandColor={brandColor}
+                                  brandAvatar={brandAvatar}
+                                />
+                              )
                             )}
                           </div>
                         )}

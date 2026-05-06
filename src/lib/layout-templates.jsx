@@ -101,6 +101,16 @@ export const LAYOUT_ICONS = {
       <circle cx="32" cy="42" r="4" fill="#5b5bdb" />
     </svg>
   ),
+  'cta-extra': (
+    <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
+      <rect width="40" height="50" fill="#1a1a2e" />
+      <rect x="8" y="8" width="24" height="4" rx="1" fill="#5b5bdb" />
+      <rect x="4" y="16" width="32" height="2.5" rx="1" fill="#3a3a5e" />
+      <rect x="6" y="21" width="28" height="2.5" rx="1" fill="#3a3a5e" />
+      <rect x="8" y="33" width="24" height="9" rx="3" fill="none" stroke="#5b5bdb" strokeWidth="1.5" />
+      <rect x="12" y="36" width="16" height="3" rx="1" fill="#fff" opacity="0.4" />
+    </svg>
+  ),
 };
 
 /**
@@ -209,6 +219,16 @@ export const LAYOUT_TEMPLATES = {
     tag: '',
     items: [],
   },
+
+  'cta-extra': {
+    layout: 'cta',
+    titulo: 'A sua\nReferência.',
+    texto_apoio: 'Salve este post para não perder o padrão de excelência de vista.',
+    sugestao_visual: '',
+    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    tag: 'ENCOMENDAR',
+    items: [],
+  },
 };
 
 /**
@@ -240,6 +260,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     'quote': 'quoteVariantIndex',
     'comparison': 'comparisonVariantIndex',
     'cta': 'ctaVariantIndex',
+    'cta-extra': 'ctaVariantIndex',
     'list': 'listVariantIndex',
     'sequence': 'sequenceVariantIndex',
   };
@@ -359,5 +380,11 @@ export const LAYOUT_META = [
     label: 'Sequência',
     description: 'Passo a passo ou fluxo de conteúdo',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence12.png'
+  },
+  {
+    key: 'cta-extra',
+    label: 'CTAs\nExtras',
+    description: 'CTAs extras com estilos e fontes alternativos',
+    thumbnailUrl: ''
   },
 ];

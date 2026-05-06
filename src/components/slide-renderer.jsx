@@ -50,6 +50,7 @@ const LAYOUT_MAP = {
   'comparison': SlideComparison,
   'list': SlideList,
   'cta': SlideCTA,
+  'cta-extra': SlideCTA,
   'sequence': SlideSequence,
 };
 

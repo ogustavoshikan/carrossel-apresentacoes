@@ -4264,5 +4264,53 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+  },
+  'cta-extra': {
+    101: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-black relative">
+        <div className="w-full h-[60%] flex flex-col justify-center items-center gap-1.5 pt-4">
+           <div className="w-[60%] h-[4px] bg-white rounded-full" />
+           <div className="w-[40%] h-[2px] bg-zinc-500 rounded-full" />
+        </div>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[70%] h-6 rounded-full flex items-center justify-center" style={{ background: accent }}>
+           <div className="w-[30%] h-[2px] bg-black/50 rounded-full" />
+        </div>
+      </div>
+    ),
+    102: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-[#FDFBF7] relative">
+        <div className="flex-1 p-2 flex flex-col justify-center gap-1.5 border-b border-zinc-200">
+           <div className="w-[70%] h-[4px] bg-zinc-900 rounded-full" />
+           <div className="w-[50%] h-[2px] bg-zinc-400 rounded-full" />
+        </div>
+        <div className="h-[30%] w-full flex items-center justify-between p-2" style={{ background: accent }}>
+           <div className="w-6 h-6 rounded-full bg-black/20" />
+           <div className="w-[40%] h-[2px] bg-black/50 rounded-full" />
+        </div>
+      </div>
+    ),
+    103: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-zinc-100 p-2">
+        <div className="flex-1 bg-white rounded-md shadow-sm border border-zinc-200 p-2 flex flex-col justify-center items-center gap-1.5">
+           <div className="w-[80%] h-[3px] bg-zinc-900 rounded-full" />
+           <div className="w-[60%] h-[1.5px] bg-zinc-400 rounded-full" />
+           <div className="w-[90%] h-[1px] border-t border-dashed border-zinc-300 my-1" />
+           <div className="w-full h-5 rounded flex items-center justify-center" style={{ background: accent }}>
+             <div className="w-[40%] h-[1.5px] bg-black/40 rounded-full" />
+           </div>
+        </div>
+      </div>
+    ),
+    104: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col overflow-hidden bg-black relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+        <div className="flex-1 bg-zinc-800" />
+        <div className="absolute bottom-2 left-2 right-2 p-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 z-20 flex flex-col gap-1.5">
+           <div className="w-[70%] h-[3px] bg-white rounded-full" />
+           <div className="w-[90%] h-[1.5px] bg-white/60 rounded-full" />
+           <div className="w-full h-4 rounded-lg mt-1" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
   }
 };

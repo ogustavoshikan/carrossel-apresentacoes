@@ -10,6 +10,7 @@ import { CTA_VARIANT_META } from '../slides/cta-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
 import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
 import { COVER_EXTRA_VARIANT_META } from '../slides/cover-extra-variants';
+import { CTA_EXTRA_VARIANT_META } from '../slides/cta-extra-variants';
 
 import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
 
@@ -66,6 +67,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
     list: LIST_VARIANT_META,
     sequence: SEQUENCE_VARIANT_META,
     'cover-extra': COVER_EXTRA_VARIANT_META,
+    'cta-extra': CTA_EXTRA_VARIANT_META,
   };
 
   const variants = THEME_METAS[selectedTheme] || [];
