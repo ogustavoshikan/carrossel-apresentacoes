@@ -1536,15 +1536,21 @@ export function CTAVariant34(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative bg-black text-white">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="w-full h-full relative bg-[#050505] text-white">
+      <div className="absolute inset-0 opacity-40 blur-lg scale-110 pointer-events-none">
         <ImageBg
           data={data}
           slideIndex={index}
-          className="absolute inset-0"
+          imageUrl={data.imageUrl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       <div className="relative z-10 flex flex-col h-full p-8 pb-32 justify-center text-center">
         <div className="absolute top-6 left-6 right-6">
           
@@ -1701,15 +1707,21 @@ export function CTAVariant36(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full relative bg-black text-white">
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="w-full h-full relative bg-[#050505] text-white">
+      <div className="absolute inset-0 opacity-40 blur-lg scale-110 pointer-events-none">
         <ImageBg
           data={data}
           slideIndex={index}
-          className="absolute inset-0"
+          imageUrl={data.imageUrl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/80" />
       </div>
+      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       <div className="relative z-10 flex flex-col h-full p-8 pb-32 justify-between">
         
         <div className="flex flex-col mt-auto text-center">

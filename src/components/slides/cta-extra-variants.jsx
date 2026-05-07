@@ -1268,7 +1268,7 @@ export function CTAVariant124(props) {
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
 
   return (
-    <div className="w-full h-full relative bg-[#111] overflow-hidden flex flex-col p-10 border-l border-r border-white/5">
+    <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col p-10 border-l border-r border-white/5">
       
       <div className="w-8 h-[1px] mb-auto pointer-events-none" style={{ backgroundColor: brandColor }}></div>
 
@@ -1281,8 +1281,8 @@ export function CTAVariant124(props) {
 
         <div className="flex flex-col gap-5 pointer-events-none">
           <div className="flex items-center gap-4 group/action">
-            <Bookmark className="w-4 h-4 text-white/40 transition-colors" strokeWidth={1.5} />
-            <span className="font-outfit font-light text-white/40 uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+            <Bookmark className="w-4 h-4 transition-colors" strokeWidth={1.5} fill={brandColor} style={{ color: brandColor }} />
+            <span className="font-outfit font-light text-white uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
               Arquivar Coleção
             </span>
           </div>
