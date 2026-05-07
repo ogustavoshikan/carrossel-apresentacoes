@@ -156,27 +156,31 @@ export function CoverExtraVariant102({
         className="w-[32%] h-full flex flex-col justify-between relative z-10 border-r border-[#1a1a1a]/20"
         style={{ backgroundColor: brandColor }}
       >
-        <div className="p-4">
+        <div className="p-4 h-12">
           {isVerified && <BadgeCheck className="w-5 h-5 text-white/90" />}
         </div>
 
-        {/* Título rotacionado 90° */}
-        <SmartField field="titulo" {...sp}>
-          <div className="absolute bottom-6 left-6 w-[300px] origin-bottom-left -rotate-90">
-            <h2
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[#EBE9E1] tracking-tighter whitespace-nowrap leading-none outline-none"
-              style={{ fontSize: `${51 * sTitle}px` }}
-            >
-              {data.titulo || 'TOP 5'}
-            </h2>
-          </div>
-        </SmartField>
+        {/* Título centralizado na barra lateral */}
+        <div className="flex-1 flex flex-col justify-center px-4 w-full">
+          <SmartField field="titulo" {...sp}>
+            <div className="w-full">
+              <h2
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-outfit font-black text-[#EBE9E1] tracking-tighter leading-tight outline-none break-words"
+                style={{ fontSize: `${42 * sTitle}px` }}
+              >
+                {data.titulo || 'TOP 5'}
+              </h2>
+            </div>
+          </SmartField>
+        </div>
 
-        <span className="font-outfit font-bold text-white/40 text-[8px] tracking-[0.4em] uppercase absolute top-6 left-1/2 -translate-x-1/2 rotate-90 origin-left">
-          Deslize
-        </span>
+        <div className="w-full flex justify-center pb-6">
+          <span className="font-outfit font-bold text-white/60 text-[9px] tracking-[0.2em] uppercase">
+            Deslize →
+          </span>
+        </div>
       </div>
 
       {/* Imagem à direita (68%) */}
@@ -1369,7 +1373,8 @@ export function CoverExtraVariant118({
       <div 
         className="absolute inset-0 z-10 [clip-path:polygon(0_70%,100%_55%,100%_100%,0_100%)] flex flex-col justify-end p-6"
         style={{ backgroundColor: brandColor }}
-      >        <div className="flex flex-col relative z-20">
+      >
+        <div className="flex flex-col relative z-20">
           <SmartField field="badge_text" {...sp}>
             <span 
               contentEditable suppressContentEditableWarning
@@ -1393,6 +1398,11 @@ export function CoverExtraVariant118({
           </div>
         </div>
       </div>
+
+      {/* Linha de divisão (Borda 3px) */}
+      <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" preserveAspectRatio="none">
+        <line x1="0" y1="70%" x2="100%" y2="55%" stroke="white" strokeWidth="3" />
+      </svg>
 
       {/* Header sobre a imagem */}
       <div className="relative z-20 flex justify-between items-start p-6 w-full">

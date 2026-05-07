@@ -165,13 +165,13 @@ export function CTAVariant101(props) {
       </div>
 
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 relative z-10 w-full">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.9] outline-none whitespace-pre-line" style={{ fontSize: `${76 * sTitle}px`, fontFamily: titleFont }}>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.9] outline-none whitespace-pre-line" style={{ fontSize: `${76 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
           {data.titulo}
         </h2>
       </SmartElement>
 
       <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-12 relative z-10 max-w-[80%]">
-        <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-widest leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${17 * sText}px`, fontFamily: textFont }}>
+        <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-widest leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${17 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
           {data.texto_apoio}
         </p>
       </SmartElement>
@@ -197,12 +197,16 @@ export function CTAVariant102(props) {
   return (
     <div className="group relative w-full h-full bg-[#EBE9E1] flex flex-col p-8 border border-black/5">
       <div className="flex justify-between items-center border-b border-[#1a1a1a]/10 pb-4 mb-8 pointer-events-none">
-        <span className="font-outfit font-black text-[#1a1a1a] text-[10px] tracking-[0.3em] uppercase">Fim de Leitura</span>
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-black text-[#1a1a1a] text-[10px] tracking-[0.3em] uppercase outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+            {data.badge_text || 'Fim de Leitura'}
+          </span>
+        </SmartElement>
         <CheckCircle2 className="w-4 h-4" style={{ color: brandColor }} />
       </div>
 
       <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-8 w-full">
-        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${73 * sTitle}px`, fontFamily: titleFont }}>
+        <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${73 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
           {data.titulo}
         </h2>
       </SmartElement>
@@ -212,9 +216,13 @@ export function CTAVariant102(props) {
           <div className="mt-1 w-6 h-6 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center">
             <Bookmark className="w-3 h-3 text-[#1a1a1a]" />
           </div>
-          <div>
-            <h3 className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest mb-1">Guardar</h3>
-            <p className="font-playfair text-zinc-600 text-sm">Salve a coleção no seu arquivo.</p>
+          <div className="pointer-events-auto">
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="mb-1">
+              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Guardar'}</h3>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit text-zinc-600 text-sm outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Salve a coleção no seu arquivo.'}</p>
+            </SmartElement>
           </div>
         </div>
 
@@ -222,9 +230,13 @@ export function CTAVariant102(props) {
           <div className="mt-1 w-6 h-6 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center">
             <Send className="w-3 h-3 text-[#1a1a1a]" />
           </div>
-          <div>
-            <h3 className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest mb-1">Partilhar</h3>
-            <p className="font-playfair text-zinc-600 text-sm">Envie a quem lhe deve este post.</p>
+          <div className="pointer-events-auto">
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="mb-1">
+              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Partilhar'}</h3>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement}>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="font-outfit text-zinc-600 text-sm outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.slide_call || 'Envie a quem lhe deve este post.'}</p>
+            </SmartElement>
           </div>
         </div>
 
@@ -233,18 +245,18 @@ export function CTAVariant102(props) {
             <Link2 className="w-3 h-3 text-white" />
           </div>
           <div>
-            <SmartElement slideIndex={index} field="tag" position={pos('tag')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'} onSelectElement={onSelectElement} className="mb-1 pointer-events-auto">
-              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest outline-none" style={{ fontFamily: tagFont }}>{data.tag || 'Encomendar'}</h3>
+            <SmartElement slideIndex={index} field="cta_button" position={pos('cta_button')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_button'} onSelectElement={onSelectElement} className="mb-1 pointer-events-auto">
+              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_button', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-sm uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_button || 'Encomendar'}</h3>
             </SmartElement>
             <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
-              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair text-zinc-600 outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>{data.texto_apoio}</p>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-600 outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>{data.texto_apoio}</p>
             </SmartElement>
           </div>
         </div>
       </div>
 
       <div className="mt-auto pt-6 border-t border-[#1a1a1a]/10 flex justify-between items-center pointer-events-none">
-        <span className="font-outfit text-zinc-400 text-[10px] uppercase tracking-widest font-bold">@{brandHandle}</span>
+        <span className="font-outfit text-zinc-400 text-[10px] uppercase tracking-widest font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
       </div>
     </div>
   );
@@ -265,35 +277,47 @@ export function CTAVariant103(props) {
           <div className="text-center mb-8 pointer-events-none">
             <Instagram className="w-6 h-6 text-[#1a1a1a] mx-auto mb-3" />
             <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-1 w-full pointer-events-auto">
-              <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-outfit font-black text-[#1a1a1a] tracking-[0.2em] uppercase outline-none" style={{ fontSize: `${20 * sTitle}px`, fontFamily: titleFont }}>
+              <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] tracking-[0.2em] uppercase outline-none" style={{ fontSize: `${20 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
                 {data.titulo || 'RECIBO DE VALOR'}
               </h2>
             </SmartElement>
-            <p className="font-outfit text-zinc-400 text-[9px] uppercase tracking-widest">
+            <p className="font-outfit text-zinc-400 text-[9px] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
               ID: {Math.floor(Math.random() * 90000) + 10000} • {brandHandle}
             </p>
           </div>
 
           <div className="flex-1 flex flex-col gap-4 border-y-2 border-dashed border-zinc-200 py-6 mb-6 pointer-events-none">
             <div className="flex justify-between items-center font-outfit text-[10px] text-zinc-400 uppercase tracking-widest mb-2">
-              <span>Ação</span>
-              <span>Status</span>
+              <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Ação'}</span>
+              </SmartElement>
+              <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Status'}</span>
+              </SmartElement>
             </div>
             
             <div className="flex justify-between items-end">
-              <span className="font-playfair font-bold text-[#1a1a1a] text-lg">Deixar o Like</span>
-              <span className="font-outfit font-bold text-[10px] uppercase tracking-widest" style={{ color: brandColor }}>Pendente</span>
+              <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-lg outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Deixar o Like'}</span>
+              </SmartElement>
+              <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.slide_call || 'Pendente'}</span>
+              </SmartElement>
             </div>
             <div className="flex justify-between items-end">
-              <span className="font-playfair font-bold text-[#1a1a1a] text-lg">Salvar Post</span>
-              <span className="font-outfit font-bold text-[10px] uppercase tracking-widest" style={{ color: brandColor }}>Recomendado</span>
+              <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-lg outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Salvar Post'}</span>
+              </SmartElement>
+              <SmartElement slideIndex={index} field="citacao" position={pos('citacao')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'citacao'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'citacao', e.currentTarget.innerText)} className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.citacao || 'Recomendado'}</span>
+              </SmartElement>
             </div>
             <div className="flex justify-between items-end">
               <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
-                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair font-bold text-[#1a1a1a] outline-none" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>{data.texto_apoio || 'Enviar a um Amigo'}</span>
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] outline-none" style={{ fontSize: `${18 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>{data.texto_apoio || 'Enviar a um Amigo'}</span>
               </SmartElement>
-              <SmartElement slideIndex={index} field="tag" position={pos('tag')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'} onSelectElement={onSelectElement} className="pointer-events-auto">
-                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)} className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none" style={{ color: brandColor, fontFamily: tagFont }}>{data.tag || 'Obrigatório'}</span>
+              <SmartElement slideIndex={index} field="cta_button" position={pos('cta_button')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_button'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_button', e.currentTarget.innerText)} className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_button || 'Obrigatório'}</span>
               </SmartElement>
             </div>
           </div>
@@ -306,9 +330,11 @@ export function CTAVariant103(props) {
                  ))}
                </div>
             </div>
-            <p className="font-outfit font-bold text-[#1a1a1a] text-[8px] uppercase tracking-[0.3em]">
-              OBRIGADO PELA ATENÇÃO
-            </p>
+            <SmartElement slideIndex={index} field="autor" position={pos('autor')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'autor'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'autor', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-[8px] uppercase tracking-[0.3em] outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.autor || 'OBRIGADO PELA ATENÇÃO'}
+              </p>
+            </SmartElement>
           </div>
         </div>
       </div>
@@ -330,7 +356,7 @@ export function CTAVariant104(props) {
       </div>
 
       <div className="absolute top-6 left-6 z-10 pointer-events-none">
-        <span className="font-outfit font-black text-white/80 text-[10px] tracking-[0.3em] uppercase drop-shadow-md">
+        <span className="font-outfit font-black text-white/80 text-[10px] tracking-[0.3em] uppercase drop-shadow-md" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
           {brandHandle}
         </span>
       </div>
@@ -341,13 +367,13 @@ export function CTAVariant104(props) {
         </div>
 
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 w-full relative z-10">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-white outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-white outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-8 w-full relative z-10">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-[0.2em] leading-relaxed outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-[0.2em] leading-relaxed outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -355,15 +381,21 @@ export function CTAVariant104(props) {
         <div className="w-full flex items-center justify-center gap-6 border-t border-white/10 pt-6 pointer-events-none">
           <div className="flex flex-col items-center gap-2">
              <Heart className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Curte</span>
+             <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit text-[8px] text-white uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Curte'}</span>
+             </SmartElement>
           </div>
           <div className="flex flex-col items-center gap-2">
              <MessageCircle className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Comente</span>
+             <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit text-[8px] text-white uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Comente'}</span>
+             </SmartElement>
           </div>
           <div className="flex flex-col items-center gap-2">
              <Send className="w-5 h-5 text-white" />
-             <span className="font-outfit text-[8px] text-white uppercase tracking-widest">Compartilhe</span>
+             <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit text-[8px] text-white uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Compartilhe'}</span>
+             </SmartElement>
           </div>
         </div>
       </div>
@@ -387,13 +419,13 @@ export function CTAVariant105(props) {
         <Sparkles className="w-6 h-6 text-white/50 mb-8 pointer-events-none" strokeWidth={1.5} />
 
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 relative z-10 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
 
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-12 relative z-10 max-w-[80%]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -435,24 +467,28 @@ export function CTAVariant106(props) {
 
       <div className="relative z-20 flex flex-col items-center text-center px-8 w-full">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-3 w-full relative z-20">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-tight outline-none whitespace-pre-line" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-tight outline-none whitespace-pre-line" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
 
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-8 w-full relative z-20">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/70 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
 
         <div className="flex flex-col gap-5 w-full max-w-[200px] pointer-events-none">
           <div className="flex items-center justify-between w-full">
-            <span className="font-outfit text-white/90 text-sm uppercase tracking-widest">Salvar</span>
+            <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit text-white/90 text-sm uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Salvar'}</span>
+            </SmartElement>
             <Bookmark className="w-6 h-6 text-white" strokeWidth={1.5} />
           </div>
           <div className="flex items-center justify-between w-full">
-            <span className="font-outfit text-white/50 text-sm uppercase tracking-widest">Partilhar</span>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit text-white/50 text-sm uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Partilhar'}</span>
+            </SmartElement>
             <Send className="w-6 h-6 text-white/50" strokeWidth={1.5} />
           </div>
         </div>
@@ -460,7 +496,7 @@ export function CTAVariant106(props) {
 
       {showBrandHandle && brandHandle && (
         <div className="absolute top-8 w-full text-center z-20 pointer-events-none">
-          <span className="font-outfit text-white/50 text-[10px] uppercase tracking-[0.4em]">@{brandHandle}</span>
+          <span className="font-outfit text-white/50 text-[10px] uppercase tracking-[0.4em]" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
         </div>
       )}
     </div>
@@ -478,13 +514,13 @@ export function CTAVariant107(props) {
       
       <div className="relative z-10 mt-4">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-400 uppercase tracking-[0.3em] outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-400 uppercase tracking-[0.3em] outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -492,18 +528,26 @@ export function CTAVariant107(props) {
 
       <div className="flex flex-col gap-8 w-full pl-4 mb-4 relative z-10 pointer-events-none">
         <div className="flex items-start gap-6">
-          <span className="font-playfair italic text-5xl leading-none opacity-50" style={{ color: brandColor }}>1</span>
-          <div className="pt-2">
-            <h3 className="font-outfit font-bold text-[#1a1a1a] text-lg uppercase tracking-widest mb-1">Arquivar</h3>
-            <p className="font-playfair text-zinc-500 text-sm">Salve no seu dispositivo.</p>
+          <span className="font-playfair italic text-5xl leading-none opacity-50" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>1</span>
+          <div className="pt-2 pointer-events-auto">
+            <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="mb-1">
+              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-lg uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Arquivar'}</h3>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit text-zinc-500 text-sm outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Salve no seu dispositivo.'}</p>
+            </SmartElement>
           </div>
         </div>
 
         <div className="flex items-start gap-6">
-          <span className="font-playfair italic text-5xl leading-none opacity-50" style={{ color: brandColor }}>2</span>
-          <div className="pt-2">
-            <h3 className="font-outfit font-bold text-[#1a1a1a] text-lg uppercase tracking-widest mb-1">Distribuir</h3>
-            <p className="font-playfair text-zinc-500 text-sm">Envie a um apreciador.</p>
+          <span className="font-playfair italic text-5xl leading-none opacity-50" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>2</span>
+          <div className="pt-2 pointer-events-auto">
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="mb-1">
+              <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-lg uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Distribuir'}</h3>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement}>
+              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="font-outfit text-zinc-500 text-sm outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.slide_call || 'Envie a um apreciador.'}</p>
+            </SmartElement>
           </div>
         </div>
       </div>
@@ -536,21 +580,23 @@ export function CTAVariant108(props) {
 
       <div className="relative z-10 mt-[40%] flex flex-col items-center w-full">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-3 relative z-10 text-center w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#EBE9E1] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${48 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#EBE9E1] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${48 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-10 relative z-10 text-center w-full">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${12 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
 
         <div className="flex gap-4 items-center pointer-events-none relative z-10">
-          <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md">
+          <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md pointer-events-auto">
             <Bookmark className="w-5 h-5 text-white" fill="currentColor" />
-            <span className="font-outfit font-bold text-white text-[12px] uppercase tracking-widest">Salvar</span>
+            <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-bold text-white text-[12px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Salvar'}</span>
+            </SmartElement>
           </div>
           <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-md">
             <Send className="w-5 h-5 text-white" strokeWidth={1.5} />
@@ -559,9 +605,11 @@ export function CTAVariant108(props) {
       </div>
 
       <div className="absolute top-8 left-8 right-8 flex justify-between items-center z-10 opacity-40 pointer-events-none">
-        <span className="font-outfit text-white text-[10px] uppercase tracking-widest">Final</span>
+        <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit text-white text-[10px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.studio_text || 'Final'}</span>
+        </SmartElement>
         {showBrandHandle && brandHandle && (
-          <span className="font-outfit text-white text-[10px] uppercase tracking-widest">@{brandHandle}</span>
+          <span className="font-outfit text-white text-[10px] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
         )}
       </div>
 
@@ -579,21 +627,23 @@ export function CTAVariant109(props) {
     <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col justify-between p-8 border border-white/10">
       
       <div className="flex justify-between items-start w-full pointer-events-none">
-        <span className="font-outfit font-medium text-white/50 text-[10px] tracking-[0.3em] uppercase">
-          Encerramento
-        </span>
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-medium text-white/50 text-[10px] tracking-[0.3em] uppercase outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+            {data.badge_text || 'Encerramento'}
+          </span>
+        </SmartElement>
         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: brandColor }} />
       </div>
 
       <div className="flex flex-col">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${72 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${72 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full max-w-[80%]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/60 leading-relaxed font-light outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/60 leading-relaxed font-light outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -601,11 +651,15 @@ export function CTAVariant109(props) {
 
       <div className="flex flex-col gap-4 mt-8 pointer-events-none">
         <div className="flex items-center justify-between border-b border-white/20 pb-4">
-          <span className="font-outfit text-white text-xs uppercase tracking-widest">Salvar Coleção</span>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit text-white text-xs uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Salvar Coleção'}</span>
+          </SmartElement>
           <Bookmark className="w-5 h-5 text-white" strokeWidth={1.5} />
         </div>
         <div className="flex items-center justify-between pb-2">
-          <span className="font-outfit text-white/50 text-xs uppercase tracking-widest">Enviar Recomendação</span>
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit text-white/50 text-xs uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Enviar Recomendação'}</span>
+          </SmartElement>
           <Send className="w-5 h-5 text-white/50" strokeWidth={1.5} />
         </div>
       </div>
@@ -630,26 +684,28 @@ export function CTAVariant110(props) {
       <div className="flex-1 flex flex-col p-8 bg-[#FDFBF7]">
         <div className="mb-auto">
           <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-3 w-full">
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
               {data.titulo}
             </h2>
           </SmartElement>
           <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
               {data.texto_apoio}
             </p>
           </SmartElement>
         </div>
 
-        <div className="w-full flex items-center justify-between text-white p-4 pointer-events-none" style={{ backgroundColor: brandColor }}>
-          <span className="font-outfit font-bold text-[12px] uppercase tracking-widest">
-            Guardar no Arquivo
-          </span>
+        <div className="w-full flex items-center justify-between text-white p-4 pointer-events-auto" style={{ backgroundColor: brandColor }}>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[12px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'Guardar no Arquivo'}
+            </span>
+          </SmartElement>
           <Bookmark className="w-5 h-5 text-white" strokeWidth={1.5} />
         </div>
         
         <div className="w-full flex justify-between items-end mt-6 pointer-events-none">
-          <span className="font-outfit text-zinc-400 text-[10px] uppercase tracking-widest font-bold">
+          <span className="font-outfit text-zinc-400 text-[10px] uppercase tracking-widest font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
             {showBrandHandle && brandHandle ? `@${brandHandle}` : ''}
           </span>
           <div className="flex gap-4">
@@ -675,28 +731,32 @@ export function CTAVariant111(props) {
       <div className="w-full border-t border-b border-white/20 py-8 flex flex-col items-center justify-center flex-1 my-8">
         
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] outline-none whitespace-pre-line" style={{ fontSize: `${72 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[1.1] outline-none whitespace-pre-line" style={{ fontSize: `${72 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="mb-10 max-w-[80%]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/80 uppercase tracking-[0.2em] leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/80 uppercase tracking-[0.2em] leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
 
-        <div className="bg-white flex items-center gap-3 px-6 py-3 pointer-events-none" style={{ color: brandColor }}>
+        <div className="bg-white flex items-center gap-3 px-6 py-3 pointer-events-auto" style={{ color: brandColor }}>
           <Bookmark className="w-5 h-5" fill="currentColor" />
-          <span className="font-outfit font-bold text-[12px] uppercase tracking-widest">Salvar Post</span>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[12px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Salvar Post'}</span>
+          </SmartElement>
         </div>
 
       </div>
 
       <div className="w-full flex justify-between items-center opacity-70 pointer-events-none">
-        <span className="font-outfit text-white text-[10px] tracking-[0.3em] uppercase">Fim</span>
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit text-white text-[10px] tracking-[0.3em] uppercase outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Fim'}</span>
+        </SmartElement>
         {showBrandHandle && brandHandle && (
-          <span className="font-outfit text-white text-[10px] tracking-[0.3em] uppercase">@{brandHandle}</span>
+          <span className="font-outfit text-white text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
         )}
       </div>
 
@@ -715,26 +775,32 @@ export function CTAVariant112(props) {
       
       <div className="w-full flex justify-between items-start mb-auto pointer-events-none">
         <Check className="w-6 h-6" strokeWidth={1.5} style={{ color: brandColor }} />
-        <span className="font-outfit font-bold text-zinc-300 text-[10px] uppercase tracking-[0.4em]">
-          Concluído
-        </span>
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-bold text-zinc-300 text-[10px] uppercase tracking-[0.4em] outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+            {data.badge_text || 'Concluído'}
+          </span>
+        </SmartElement>
       </div>
 
       <div className="flex flex-col">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${80 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${80 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
 
         <ul className="flex flex-col gap-6 mb-12 pointer-events-none">
-          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest">
+          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
             <Bookmark className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
-            <span style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>Guardar na Coleção</span>
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Guardar na Coleção'}</span>
+            </SmartElement>
           </li>
-          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest">
+          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
             <Send className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
-            <span style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>Enviar para uma Amiga</span>
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Enviar para uma Amiga'}</span>
+            </SmartElement>
           </li>
         </ul>
         
@@ -742,7 +808,9 @@ export function CTAVariant112(props) {
           <div className="w-12 h-12 border border-[#1a1a1a] flex items-center justify-center">
             <ArrowRight className="w-5 h-5 text-[#1a1a1a]" />
           </div>
-          <span className="font-outfit text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-medium">Fazer meu Pedido</span>
+          <SmartElement slideIndex={index} field="cta_button" position={pos('cta_button')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_button'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_button', e.currentTarget.innerText)} className="font-outfit text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-medium outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_button || 'Fazer meu Pedido'}</span>
+          </SmartElement>
         </div>
       </div>
 
@@ -761,13 +829,15 @@ export function CTAVariant113(props) {
       
       <div className="w-full h-[50%] p-8 flex flex-col justify-end pointer-events-none" style={{ backgroundColor: brandColor }}>
         <div className="mb-auto flex justify-between items-center w-full">
-          <span className="font-outfit font-black text-white/80 text-[10px] tracking-[0.3em] uppercase">
-            Ação
-          </span>
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-black text-white/80 text-[10px] tracking-[0.3em] uppercase outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'Ação'}
+            </span>
+          </SmartElement>
           <div className="w-1.5 h-1.5 bg-white rounded-none" />
         </div>
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="w-full pointer-events-auto">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.85] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-[0.85] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
@@ -775,18 +845,22 @@ export function CTAVariant113(props) {
 
       <div className="w-full h-[50%] p-8 flex flex-col justify-between">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full max-w-[80%]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none whitespace-pre-line" style={{ fontSize: `${20 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-600 leading-relaxed font-medium outline-none whitespace-pre-line" style={{ fontSize: `${20 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
 
         <div className="mt-auto flex flex-col gap-1 pointer-events-none">
           <div className="w-full flex items-center justify-between py-4 border-b border-zinc-200">
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest">Salvar Referência</span>
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Salvar Referência'}</span>
+            </SmartElement>
             <Bookmark className="w-4 h-4 text-[#1a1a1a]" strokeWidth={2} />
           </div>
           <div className="w-full flex items-center justify-between py-4">
-            <span className="font-outfit font-bold text-zinc-400 text-[11px] uppercase tracking-widest">Partilhar</span>
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-bold text-zinc-400 text-[11px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Partilhar'}</span>
+            </SmartElement>
             <Send className="w-4 h-4 text-zinc-400" strokeWidth={2} />
           </div>
         </div>
@@ -806,20 +880,26 @@ export function CTAVariant114(props) {
     <div className="w-full h-full relative bg-[#050505] overflow-hidden flex flex-col p-8">
       
       <div className="flex-1 flex flex-col justify-center pointer-events-none">
-        <h2 className="font-playfair font-normal text-[#EBE9E1] leading-[0.9] tracking-tighter mb-12 pointer-events-auto outline-none" style={{ fontSize: `${90 * sTitle}px`, fontFamily: titleFont }}>
-          <span className="opacity-70 flex items-center gap-4 mb-2">
-            Curtir <Star className="w-6 h-6" strokeWidth={1.5} />
-          </span>
-          <span className="opacity-70 flex items-center gap-4 mb-2">
-            Enviar <Send className="w-6 h-6" strokeWidth={1.5} />
-          </span>
-          <span className="flex items-center gap-4" style={{ color: brandColor }}>
-            Salvar <Bookmark className="w-6 h-6" fill="currentColor" />
-          </span>
+        <h2 className="font-playfair font-normal text-[#EBE9E1] leading-[0.9] tracking-tighter mb-12 pointer-events-none outline-none" style={{ fontSize: `${90 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit opacity-70 flex items-center gap-4 mb-2 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'Curtir'} <Star className="w-6 h-6" strokeWidth={1.5} />
+            </span>
+          </SmartElement>
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit opacity-70 flex items-center gap-4 mb-2 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.insta_ready || 'Enviar'} <Send className="w-6 h-6" strokeWidth={1.5} />
+            </span>
+          </SmartElement>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit flex items-center gap-4 outline-none" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'Salvar'} <Bookmark className="w-6 h-6" fill="currentColor" />
+            </span>
+          </SmartElement>
         </h2>
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full pointer-events-auto">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/50 uppercase tracking-[0.3em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${16 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -827,11 +907,11 @@ export function CTAVariant114(props) {
 
       <div className="w-full flex justify-between items-end border-t border-white/20 pt-6 pointer-events-none">
         {showBrandHandle && brandHandle ? (
-          <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold">@{brandHandle}</span>
+          <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
         ) : (
-          <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold"></span>
+          <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}></span>
         )}
-        <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold">Fim</span>
+        <span className="font-outfit text-white/40 text-[9px] tracking-widest uppercase font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>Fim</span>
       </div>
 
     </div>
@@ -850,29 +930,31 @@ export function CTAVariant115(props) {
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-2">
           <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: titleFont }}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
               {data.titulo}
             </h2>
           </SmartElement>
-          <span className="font-outfit text-zinc-400 text-sm italic">subst. f.</span>
+          <span className="font-outfit text-zinc-400 text-sm italic" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>subst. f.</span>
         </div>
-        <p className="font-outfit text-zinc-500 text-xs tracking-widest">/re.fe.rên.ci.a/</p>
+        <p className="font-outfit text-zinc-500 text-xs tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>/re.fe.rên.ci.a/</p>
       </div>
 
       <div className="flex flex-col gap-6">
         <div className="flex items-start gap-4">
-          <span className="font-outfit font-bold text-sm" style={{ color: brandColor }}>1.</span>
+          <span className="font-outfit font-bold text-sm" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>1.</span>
           <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair text-[#1a1a1a] leading-snug outline-none whitespace-pre-line" style={{ fontSize: `${24 * sText}px`, fontFamily: textFont }}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-[#1a1a1a] leading-snug outline-none whitespace-pre-line" style={{ fontSize: `${24 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
               {data.texto_apoio}
             </p>
           </SmartElement>
         </div>
-        <div className="flex items-start gap-4 pointer-events-none">
-          <span className="font-outfit font-bold text-sm" style={{ color: brandColor }}>2.</span>
-          <p className="font-playfair text-[#1a1a1a] leading-snug" style={{ fontSize: `${24 * sText}px`, fontFamily: textFont }}>
-            O ato de <span className="font-bold border-b-2 border-[#1a1a1a] pb-0.5">salvar este post</span> para não perder o contacto com o verdadeiro luxo.
-          </p>
+        <div className="flex items-start gap-4 pointer-events-auto">
+          <span className="font-outfit font-bold text-sm" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>2.</span>
+          <SmartElement slideIndex={index} field="citacao" position={pos('citacao')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'citacao'} onSelectElement={onSelectElement} className="w-full">
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'citacao', e.currentTarget.innerText)} className="font-outfit text-[#1a1a1a] leading-snug outline-none whitespace-pre-line" style={{ fontSize: `${24 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.citacao || 'O ato de salvar este post para não perder o contacto com o verdadeiro luxo.'}
+            </p>
+          </SmartElement>
         </div>
       </div>
 
@@ -896,12 +978,12 @@ export function CTAVariant116(props) {
       
       <div className="mb-16">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${48 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${48 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-bold outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-bold outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio}
           </p>
         </SmartElement>
@@ -910,25 +992,31 @@ export function CTAVariant116(props) {
       <div className="flex flex-col w-full pointer-events-none">
         
         <div className="w-full flex items-center justify-between border-t border-[#1a1a1a]/20 py-5">
-          <div className="flex items-center gap-4">
-            <span className="font-outfit text-zinc-400 text-xs">01</span>
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest">Guardar Post</span>
+          <div className="flex items-center gap-4 pointer-events-auto">
+            <span className="font-outfit text-zinc-400 text-xs" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>01</span>
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Guardar Post'}</span>
+            </SmartElement>
           </div>
           <Bookmark className="w-4 h-4 text-[#1a1a1a]" strokeWidth={1.5} />
         </div>
 
         <div className="w-full flex items-center justify-between border-t border-[#1a1a1a]/20 py-5">
-          <div className="flex items-center gap-4">
-            <span className="font-outfit text-zinc-400 text-xs">02</span>
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest">Partilhar</span>
+          <div className="flex items-center gap-4 pointer-events-auto">
+            <span className="font-outfit text-zinc-400 text-xs" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>02</span>
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Partilhar'}</span>
+            </SmartElement>
           </div>
           <Send className="w-4 h-4 text-[#1a1a1a]" strokeWidth={1.5} />
         </div>
 
         <div className="w-full flex items-center justify-between border-t border-b border-[#1a1a1a]/20 py-5">
-          <div className="flex items-center gap-4">
-            <span className="font-outfit text-zinc-400 text-xs">03</span>
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest">Aceder ao Menu</span>
+          <div className="flex items-center gap-4 pointer-events-auto">
+            <span className="font-outfit text-zinc-400 text-xs" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>03</span>
+            <SmartElement slideIndex={index} field="cta_button" position={pos('cta_button')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_button'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_button', e.currentTarget.innerText)} className="font-outfit font-bold text-[#1a1a1a] text-[11px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_button || 'Aceder ao Menu'}</span>
+            </SmartElement>
           </div>
           <ChevronRight className="w-4 h-4 text-[#1a1a1a]" strokeWidth={1.5} />
         </div>
@@ -936,7 +1024,7 @@ export function CTAVariant116(props) {
       </div>
 
       <div className="mt-auto flex justify-center pointer-events-none">
-        <span className="font-outfit text-zinc-400 text-[8px] uppercase tracking-[0.4em]">
+        <span className="font-outfit text-zinc-400 text-[8px] uppercase tracking-[0.4em]" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
           {website || "MEUSITE.COM.BR"}
         </span>
       </div>
@@ -955,32 +1043,38 @@ export function CTAVariant117(props) {
       
       <div className="flex justify-between items-start w-full opacity-40 pointer-events-none">
         <Feather className="w-4 h-4 text-[#1a1a1a]" strokeWidth={1} />
-        <span className="font-outfit font-light text-[9px] tracking-[0.4em] uppercase">
-          O Epílogo
-        </span>
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-light text-[9px] tracking-[0.4em] uppercase outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+            {data.badge_text || 'O Epílogo'}
+          </span>
+        </SmartElement>
       </div>
 
       <div className="flex-1 flex flex-col justify-center items-center text-center mt-8">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-12 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-light text-[#1a1a1a] leading-[0.8] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${81 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-light text-[#1a1a1a] leading-[0.8] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${81 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
         
         <div className="flex flex-col gap-6 w-full items-center pointer-events-none">
-          <div className="flex items-center gap-3 opacity-60">
-            <span className="font-playfair italic text-[22px] text-[#1a1a1a]">Guardar na coleção</span>
+          <div className="flex items-center gap-3 opacity-60 pointer-events-auto">
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit italic text-[22px] text-[#1a1a1a] outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Guardar na coleção'}</span>
+            </SmartElement>
             <Bookmark className="w-5 h-5 text-[#1a1a1a]" strokeWidth={1} />
           </div>
-          <div className="flex items-center gap-3 opacity-60">
-            <span className="font-playfair italic text-[22px] text-[#1a1a1a]">Partilhar a doçura</span>
+          <div className="flex items-center gap-3 opacity-60 pointer-events-auto">
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit italic text-[22px] text-[#1a1a1a] outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Partilhar a doçura'}</span>
+            </SmartElement>
             <Send className="w-5 h-5 text-[#1a1a1a]" strokeWidth={1} />
           </div>
         </div>
       </div>
 
       <div className="w-full flex justify-center border-t border-[#1a1a1a]/10 pt-6 mt-auto pointer-events-none">
-        <span className="font-outfit text-[#1a1a1a]/40 text-[8px] tracking-[0.4em] uppercase">
+        <span className="font-outfit text-[#1a1a1a]/40 text-[8px] tracking-[0.4em] uppercase" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
           {website || "MEUSITE.COM.BR"}
         </span>
       </div>
@@ -1002,7 +1096,7 @@ export function CTAVariant118(props) {
         <Quote className="w-6 h-6 text-white/20 mb-8 pointer-events-none" strokeWidth={1} />
         
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-playfair font-light text-[#EBE9E1] leading-[1.3] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${40 * sText}px`, fontFamily: textFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-light text-[#EBE9E1] leading-[1.3] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${40 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio || 'Se a excelência lhe agrada, sinta-se livre para guardar este manifesto e partilhá-lo com quem tem bom gosto.'}
           </h2>
         </SmartElement>
@@ -1011,7 +1105,7 @@ export function CTAVariant118(props) {
       <div className="w-full flex justify-between items-end pb-2 pointer-events-none">
         <div className="w-12 h-[1px] bg-white/20"></div>
         {showBrandHandle && brandHandle && (
-          <span className="font-outfit font-light text-white/40 text-[9px] tracking-widest uppercase">
+          <span className="font-outfit font-light text-white/40 text-[9px] tracking-widest uppercase" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
             @{brandHandle}
           </span>
         )}
@@ -1032,7 +1126,7 @@ export function CTAVariant119(props) {
       
       <div className="mb-auto">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none mb-4 outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none mb-4 outline-none whitespace-pre-line" style={{ fontSize: `${51 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
@@ -1041,33 +1135,41 @@ export function CTAVariant119(props) {
       <div className="flex flex-col gap-10 w-full my-auto pointer-events-none">
         
         <div className="flex items-start gap-6">
-          <span className="font-outfit font-light text-zinc-400 text-lg">01</span>
-          <div className="flex flex-col gap-1 mt-1">
-            <span className="font-playfair font-medium text-[#1a1a1a] text-2xl flex items-center gap-3">
-              Arquivar <Bookmark className="w-4 h-4" strokeWidth={1.5} />
-            </span>
-            <span className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest">
-              Para memórias futuras
-            </span>
+          <span className="font-outfit font-light text-zinc-400 text-lg" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>01</span>
+          <div className="flex flex-col gap-1 mt-1 pointer-events-auto">
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl flex items-center gap-3 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.cta_text || 'Arquivar'} <Bookmark className="w-4 h-4" strokeWidth={1.5} />
+              </span>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.studio_text || 'Para memórias futuras'}
+              </span>
+            </SmartElement>
           </div>
         </div>
 
         <div className="flex items-start gap-6">
-          <span className="font-outfit font-light text-zinc-400 text-lg">02</span>
-          <div className="flex flex-col gap-1 mt-1">
-            <span className="font-playfair font-medium text-[#1a1a1a] text-2xl flex items-center gap-3">
-              Distribuir <Send className="w-4 h-4" strokeWidth={1.5} />
-            </span>
-            <span className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest">
-              Para paladares refinados
-            </span>
+          <span className="font-outfit font-light text-zinc-400 text-lg" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>02</span>
+          <div className="flex flex-col gap-1 mt-1 pointer-events-auto">
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl flex items-center gap-3 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.insta_ready || 'Distribuir'} <Send className="w-4 h-4" strokeWidth={1.5} />
+              </span>
+            </SmartElement>
+            <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.slide_call || 'Para paladares refinados'}
+              </span>
+            </SmartElement>
           </div>
         </div>
 
       </div>
 
       <div className="mt-auto flex justify-end pointer-events-none">
-        <span className="font-outfit text-zinc-400 text-[8px] uppercase tracking-[0.4em]">
+        <span className="font-outfit text-zinc-400 text-[8px] uppercase tracking-[0.4em]" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
           {website || "MEUSITE.COM.BR"}
         </span>
       </div>
@@ -1090,25 +1192,31 @@ export function CTAVariant120(props) {
       </div>
 
       <div className="flex flex-col items-end text-right gap-6 pointer-events-none">
-        <div className="opacity-30 flex flex-col items-end">
+        <div className="opacity-30 flex flex-col items-end pointer-events-auto">
           <Heart className="w-6 h-6 text-white mb-2" strokeWidth={1} />
-          <h2 className="font-playfair font-light text-white text-5xl tracking-tighter" style={{ fontSize: `${73 * sTitle}px`, fontFamily: titleFont }}>Amar</h2>
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-light text-white text-5xl tracking-tighter outline-none" style={{ fontSize: `${73 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.badge_text || 'Amar'}</h2>
+          </SmartElement>
         </div>
         
-        <div className="opacity-30 flex flex-col items-end">
+        <div className="opacity-30 flex flex-col items-end pointer-events-auto">
           <Send className="w-6 h-6 text-white mb-2" strokeWidth={1} />
-          <h2 className="font-playfair font-light text-white text-5xl tracking-tighter" style={{ fontSize: `${73 * sTitle}px`, fontFamily: titleFont }}>Enviar</h2>
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-light text-white text-5xl tracking-tighter outline-none" style={{ fontSize: `${73 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Enviar'}</h2>
+          </SmartElement>
         </div>
         
-        <div className="flex flex-col items-end" style={{ color: brandColor }}>
+        <div className="flex flex-col items-end pointer-events-auto" style={{ color: brandColor }}>
           <Bookmark className="w-6 h-6 mb-2" fill="currentColor" strokeWidth={1} />
-          <h2 className="font-playfair italic font-medium text-white text-6xl tracking-tighter" style={{ fontSize: `${85 * sTitle}px`, fontFamily: titleFont }}>Salvar</h2>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit italic font-medium text-white text-6xl tracking-tighter outline-none" style={{ fontSize: `${85 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Salvar'}</h2>
+          </SmartElement>
         </div>
       </div>
 
       <div className="flex justify-start items-end">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-full">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-light text-white/30 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${21 * sText}px`, fontFamily: textFont }}>
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-light text-white/30 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${21 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio || 'Fim da Experiência'}
           </p>
         </SmartElement>
@@ -1129,37 +1237,43 @@ export function CTAVariant121(props) {
       
       <div className="flex-1 flex flex-col justify-center gap-8 pointer-events-none">
         
-        <div className="group/action flex items-center">
+        <div className="group/action flex items-center pointer-events-auto">
           <Heart className="w-6 h-6 text-white opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" strokeWidth={1} />
-          <h2 className="font-playfair font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
-            Apreciar
-          </h2>
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out outline-none" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'Apreciar'}
+            </h2>
+          </SmartElement>
         </div>
 
-        <div className="group/action flex items-center">
+        <div className="group/action flex items-center pointer-events-auto">
           <Send className="w-6 h-6 text-white opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" strokeWidth={1} />
-          <h2 className="font-playfair font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
-            Partilhar
-          </h2>
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-light text-[#EBE9E1] tracking-tighter opacity-40 group-hover/action:opacity-100 group-hover/action:translate-x-4 transition-all duration-500 ease-out outline-none" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.insta_ready || 'Partilhar'}
+            </h2>
+          </SmartElement>
         </div>
 
-        <div className="group/action flex items-center" style={{ color: brandColor }}>
+        <div className="group/action flex items-center pointer-events-auto" style={{ color: brandColor }}>
           <Bookmark className="w-6 h-6 opacity-0 -translate-x-4 group-hover/action:opacity-100 group-hover/action:translate-x-0 transition-all duration-500 ease-out" fill="currentColor" strokeWidth={1} />
-          <h2 className="font-playfair italic font-medium tracking-tighter group-hover/action:translate-x-4 transition-all duration-500 ease-out" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
-            Eternizar
-          </h2>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit italic font-medium tracking-tighter group-hover/action:translate-x-4 transition-all duration-500 ease-out outline-none" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'Eternizar'}
+            </h2>
+          </SmartElement>
         </div>
 
       </div>
 
       <div className="w-full flex justify-between items-end border-t border-white/10 pt-6">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-auto">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: textFont }}>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio || 'Instruções Finais'}
           </span>
         </SmartElement>
         {showBrandHandle && brandHandle && (
-          <span className="font-outfit text-white/30 text-[8px] tracking-[0.4em] uppercase font-bold pointer-events-none">@{brandHandle}</span>
+          <span className="font-outfit text-white/30 text-[8px] tracking-[0.4em] uppercase font-bold pointer-events-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>@{brandHandle}</span>
         )}
       </div>
 
@@ -1181,31 +1295,37 @@ export function CTAVariant122(props) {
 
       <div className="flex-1 flex flex-col justify-center items-end text-right gap-4 pointer-events-none">
         
-        <div className="flex items-center gap-6 group/word">
-          <span className="font-playfair italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
-            admirar.
-          </span>
+        <div className="flex items-center gap-6 group/word pointer-events-auto">
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement}>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500 outline-none" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'admirar.'}
+            </span>
+          </SmartElement>
           <Star className="w-5 h-5 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" strokeWidth={1.5} style={{ color: brandColor }} />
         </div>
 
-        <div className="flex items-center gap-6 group/word">
-          <span className="font-playfair italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
-            enviar.
-          </span>
+        <div className="flex items-center gap-6 group/word pointer-events-auto">
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit italic font-light text-[#1a1a1a] tracking-tighter opacity-30 group-hover/word:opacity-100 transition-colors duration-500 outline-none" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.insta_ready || 'enviar.'}
+            </span>
+          </SmartElement>
           <Send className="w-5 h-5 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" strokeWidth={1.5} style={{ color: brandColor }} />
         </div>
 
-        <div className="flex items-center gap-6 group/word" style={{ color: brandColor }}>
-          <span className="font-playfair italic font-medium tracking-tighter transition-colors duration-500" style={{ fontSize: `${72 * sTitle}px`, fontFamily: titleFont }}>
-            guardar.
-          </span>
+        <div className="flex items-center gap-6 group/word pointer-events-auto" style={{ color: brandColor }}>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit italic font-medium tracking-tighter transition-colors duration-500 outline-none" style={{ fontSize: `${72 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'guardar.'}
+            </span>
+          </SmartElement>
           <Bookmark className="w-6 h-6 opacity-0 group-hover/word:opacity-100 transform -translate-x-4 group-hover/word:translate-x-0 transition-all duration-500" fill="currentColor" strokeWidth={1.5} />
         </div>
 
       </div>
 
       <div className="w-full flex justify-start items-end border-t border-[#1a1a1a]/10 pt-6 pointer-events-none">
-        <span className="font-outfit text-[#1a1a1a]/40 text-[8px] tracking-[0.4em] uppercase font-bold">
+        <span className="font-outfit text-[#1a1a1a]/40 text-[8px] tracking-[0.4em] uppercase font-bold" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
           {website || "MEUSITE.COM.BR"}
         </span>
       </div>
@@ -1225,24 +1345,30 @@ export function CTAVariant123(props) {
       
       <div className="flex-1 flex flex-col justify-center pointer-events-none">
         
-        <div className="group/item self-start flex items-center gap-4 mb-4">
-          <h2 className="font-playfair font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
-            Curtir
-          </h2>
+        <div className="group/item self-start flex items-center gap-4 mb-4 pointer-events-auto">
+          <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight outline-none" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'Curtir'}
+            </h2>
+          </SmartElement>
           <Heart className="w-6 h-6 text-white opacity-0 group-hover/item:opacity-100 transition-opacity duration-500" strokeWidth={1.5} />
         </div>
 
-        <div className="group/item self-center flex items-center gap-4 mb-4">
-          <h2 className="font-playfair font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight" style={{ fontSize: `${56 * sTitle}px`, fontFamily: titleFont }}>
-            Enviar
-          </h2>
+        <div className="group/item self-center flex items-center gap-4 mb-4 pointer-events-auto">
+          <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-normal text-white opacity-30 group-hover/item:opacity-100 transition-opacity duration-500 tracking-tight outline-none" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.insta_ready || 'Enviar'}
+            </h2>
+          </SmartElement>
           <Send className="w-6 h-6 text-white opacity-0 group-hover/item:opacity-100 transition-opacity duration-500" strokeWidth={1.5} />
         </div>
 
-        <div className="group/item self-end flex items-center gap-4" style={{ color: brandColor }}>
-          <h2 className="font-playfair italic font-medium transition-transform duration-500 group-hover/item:-translate-x-2 tracking-tight" style={{ fontSize: `${64 * sTitle}px`, fontFamily: titleFont }}>
-            Salvar
-          </h2>
+        <div className="group/item self-end flex items-center gap-4 pointer-events-auto" style={{ color: brandColor }}>
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit italic font-medium transition-transform duration-500 group-hover/item:-translate-x-2 tracking-tight outline-none" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'Salvar'}
+            </h2>
+          </SmartElement>
           <Bookmark className="w-8 h-8 opacity-0 group-hover/item:opacity-100 transition-all duration-500" fill="currentColor" strokeWidth={1.5} />
         </div>
 
@@ -1250,7 +1376,7 @@ export function CTAVariant123(props) {
 
       <div className="w-full flex justify-between items-end border-t border-white/10 pt-6">
         <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="w-auto">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: textFont }}>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/30 uppercase font-bold tracking-[0.4em] outline-none whitespace-pre-line" style={{ fontSize: `${8 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
             {data.texto_apoio || 'Desfecho'}
           </span>
         </SmartElement>
@@ -1274,23 +1400,27 @@ export function CTAVariant124(props) {
 
       <div className="my-auto">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-10 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-light text-white leading-[0.9] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: titleFont }}>
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-light text-white leading-[0.9] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${98 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
             {data.titulo}
           </h2>
         </SmartElement>
 
         <div className="flex flex-col gap-5 pointer-events-none">
-          <div className="flex items-center gap-4 group/action">
+          <div className="flex items-center gap-4 group/action pointer-events-auto">
             <Bookmark className="w-4 h-4 transition-colors" strokeWidth={1.5} fill={brandColor} style={{ color: brandColor }} />
-            <span className="font-outfit font-light text-white uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
-              Arquivar Coleção
-            </span>
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-light text-white uppercase tracking-[0.3em] transition-colors outline-none" style={{ fontSize: `${18 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.cta_text || 'Arquivar Coleção'}
+              </span>
+            </SmartElement>
           </div>
-          <div className="flex items-center gap-4 group/action">
+          <div className="flex items-center gap-4 group/action pointer-events-auto">
             <Send className="w-4 h-4 text-white/40 transition-colors" strokeWidth={1.5} />
-            <span className="font-outfit font-light text-white/40 uppercase tracking-[0.3em] transition-colors" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
-              Enviar a um amigo
-            </span>
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-light text-white/40 uppercase tracking-[0.3em] transition-colors outline-none" style={{ fontSize: `${18 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.insta_ready || 'Enviar a um amigo'}
+              </span>
+            </SmartElement>
           </div>
         </div>
       </div>

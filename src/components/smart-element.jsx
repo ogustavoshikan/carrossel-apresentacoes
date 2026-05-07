@@ -86,7 +86,7 @@ export default function SmartElement({
 
   return (
       <div
-          className={`group relative ${className || ''}`}
+          className={`group/smart relative ${className || ''}`}
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale}) rotate(${pos.rotation || 0}deg)`,
             zIndex: isSelected ? 60 : (showMetrics ? 50 : 40),
@@ -113,7 +113,7 @@ export default function SmartElement({
 
       {/* Handles BOTTOM (Drag + Rotate) */}
       <div 
-        className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 z-50 transition-opacity"
+        className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-0 group-hover/smart:opacity-100 z-50 transition-opacity"
         style={{ transform: `translateX(-50%) scale(${inverseScale})`, transformOrigin: 'top center' }}
       >
         <div
@@ -279,7 +279,7 @@ export default function SmartElement({
           if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize-width');
         }}
-        className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-8 bg-zinc-700 hover:bg-[var(--color-brand)] rounded-full cursor-ew-resize opacity-0 group-hover:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-600 pointer-events-auto transition-colors"
+        className="absolute top-1/2 -right-3 -translate-y-1/2 w-3 h-8 bg-zinc-700 hover:bg-[var(--color-brand)] rounded-full cursor-ew-resize opacity-0 group-hover/smart:opacity-100 flex items-center justify-center z-50 shadow-lg border border-zinc-600 pointer-events-auto transition-colors"
         style={{ transform: `translateY(-50%) scale(${inverseScale})`, transformOrigin: 'center left' }}
         title="Redimensionar largura"
       >
@@ -298,7 +298,7 @@ export default function SmartElement({
           if (onSelectElement) onSelectElement(slideIndex, field);
           onActionStart(e, slideIndex, field, 'resize');
         }}
-        className="absolute -top-2 -left-2 w-3 h-3 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
+        className="absolute -top-2 -left-2 w-3 h-3 bg-[var(--color-brand)] rounded-full cursor-nwse-resize opacity-0 group-hover/smart:opacity-100 shadow border-2 border-zinc-900 z-50 pointer-events-auto"
         style={{ transform: `scale(${inverseScale})`, transformOrigin: 'bottom right' }}
         title="Redimensionar escala"
       />
