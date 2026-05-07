@@ -529,7 +529,105 @@ export default function ConfigSidebar({
                 </p>
               </div>
 
-              <div className="mt-2 pt-4 border-t border-border-subtle">
+              <div className="mt-4 pt-4 border-t border-border-subtle">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mb-3 block">Ações do Elemento</span>
+                <div className="flex gap-2">
+                   <button
+                      onClick={() => {
+                         const {slideIndex, field} = selectedElement;
+                         const smartEl = document.getElementById(`smart-${slideIndex}-${field}`);
+                         const textNode = smartEl?.querySelector('[contenteditable]');
+                         if (!textNode) return;
+
+                         const cloneId = `clone_${Date.now()}`;
+                         const cloneData = {
+                           id: cloneId,
+                           sourceField: field,
+                           type: textNode.tagName.toLowerCase(),
+                           className: textNode.className.replace('outline-none', '').trim(),
+                           style: {
+                             fontSize: textNode.style.fontSize,
+                             lineHeight: textNode.style.lineHeight,
+                             letterSpacing: textNode.style.letterSpacing,
+                             textTransform: textNode.style.textTransform,
+                             fontFamily: window.getComputedStyle(textNode).fontFamily
+                           }
+                         };
+                         
+                         setSlides(prev => prev.map((s, i) => {
+                             if(i !== slideIndex) return s;
+                             const originalText = s[field] || textNode.innerText;
+                             const originalPos = s.positions?.[field] || {};
+                             
+                             const slideCard = document.getElementById(`slide-card-${slideIndex}`);
+                             let startX = 0;
+                             let startY = 0;
+                             
+                             if (slideCard) {
+                                 const slideRect = slideCard.getBoundingClientRect();
+                                 const elRect = smartEl.getBoundingClientRect();
+                                 const scaleFactor = slideRect.width / slideCard.offsetWidth;
+                                 
+                                 const unscaledW = smartEl.offsetWidth;
+                                 const unscaledH = smartEl.offsetHeight;
+                                 
+                                 const unscaledCenterX = (elRect.left + elRect.width / 2 - slideRect.left) / scaleFactor;
+                                 const unscaledCenterY = (elRect.top + elRect.height / 2 - slideRect.top) / scaleFactor;
+                                 
+                                 startX = unscaledCenterX - unscaledW / 2;
+                                 startY = unscaledCenterY - unscaledH / 2;
+                             }
+                             
+                             return {
+                                ...s,
+                                [cloneId]: originalText,
+                                clonedFields: [...(s.clonedFields || []), cloneData],
+                                positions: {
+                                   ...(s.positions || {}),
+                                   [cloneId]: { 
+                                       ...originalPos, // keep color, italic, etc.
+                                       rotation: (originalPos.rotation || 0),
+                                       scale: (originalPos.scale || 1), 
+                                       x: startX, 
+                                       y: startY + 60
+                                   }
+                                }
+                             };
+                         }));
+                         setTimeout(() => setSelectedElement({ slideIndex, field: cloneId }), 50);
+                      }}
+                      className="cs-btn-ghost flex-1 py-3.5 rounded-xl shadow-lg border-border-hover border flex justify-center items-center gap-2 text-label-xs uppercase"
+                   >
+                      <Copy className="w-4 h-4" /> Duplicar Camada
+                   </button>
+                   
+                   {selectedElement.field && selectedElement.field.startsWith('clone_') && (
+                       <button
+                          onClick={() => {
+                             const {slideIndex, field} = selectedElement;
+                             setSlides(prev => prev.map((s, i) => {
+                                 if (i !== slideIndex) return s;
+                                 const newClonedFields = (s.clonedFields || []).filter(c => c.id !== field);
+                                 const { [field]: textToRemove, ...restSlide } = s;
+                                 const { [field]: posToRemove, ...restPositions } = s.positions || {};
+                                 return {
+                                     ...restSlide,
+                                     clonedFields: newClonedFields,
+                                     positions: restPositions
+                                 };
+                             }));
+                             setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null });
+                          }}
+                          className="px-4 bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 border border-rose-500/20 rounded-xl transition-all flex items-center justify-center"
+                          title="Remover Camada Clonada"
+                       >
+                          <Trash2 className="w-4 h-4" />
+                       </button>
+                   )}
+                </div>
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-border-subtle">
                 <div className="flex justify-between items-center mb-3">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 block">Conteúdo</span>
                   <div className="flex gap-2">
@@ -1198,103 +1296,6 @@ export default function ConfigSidebar({
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-border-subtle">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mb-3 block">Ações do Elemento</span>
-              <div className="flex gap-2">
-                 <button
-                    onClick={() => {
-                       const {slideIndex, field} = selectedElement;
-                       const smartEl = document.getElementById(`smart-${slideIndex}-${field}`);
-                       const textNode = smartEl?.querySelector('[contenteditable]');
-                       if (!textNode) return;
-
-                       const cloneId = `clone_${Date.now()}`;
-                       const cloneData = {
-                         id: cloneId,
-                         sourceField: field,
-                         type: textNode.tagName.toLowerCase(),
-                         className: textNode.className.replace('outline-none', '').trim(),
-                         style: {
-                           fontSize: textNode.style.fontSize,
-                           lineHeight: textNode.style.lineHeight,
-                           letterSpacing: textNode.style.letterSpacing,
-                           textTransform: textNode.style.textTransform,
-                           fontFamily: window.getComputedStyle(textNode).fontFamily
-                         }
-                       };
-                       
-                       setSlides(prev => prev.map((s, i) => {
-                           if(i !== slideIndex) return s;
-                           const originalText = s[field] || textNode.innerText;
-                           const originalPos = s.positions?.[field] || {};
-                           
-                           const slideCard = document.getElementById(`slide-card-${slideIndex}`);
-                           let startX = 0;
-                           let startY = 0;
-                           
-                           if (slideCard) {
-                               const slideRect = slideCard.getBoundingClientRect();
-                               const elRect = smartEl.getBoundingClientRect();
-                               const scaleFactor = slideRect.width / slideCard.offsetWidth;
-                               
-                               const unscaledW = smartEl.offsetWidth;
-                               const unscaledH = smartEl.offsetHeight;
-                               
-                               const unscaledCenterX = (elRect.left + elRect.width / 2 - slideRect.left) / scaleFactor;
-                               const unscaledCenterY = (elRect.top + elRect.height / 2 - slideRect.top) / scaleFactor;
-                               
-                               startX = unscaledCenterX - unscaledW / 2;
-                               startY = unscaledCenterY - unscaledH / 2;
-                           }
-                           
-                           return {
-                              ...s,
-                              [cloneId]: originalText,
-                              clonedFields: [...(s.clonedFields || []), cloneData],
-                              positions: {
-                                 ...(s.positions || {}),
-                                 [cloneId]: { 
-                                     ...originalPos, // keep color, italic, etc.
-                                     rotation: (originalPos.rotation || 0),
-                                     scale: (originalPos.scale || 1), 
-                                     x: startX, 
-                                     y: startY + 60
-                                 }
-                              }
-                           };
-                       }));
-                       setTimeout(() => setSelectedElement({ slideIndex, field: cloneId }), 50);
-                    }}
-                    className="flex-1 py-1.5 bg-[var(--color-brand)]/10 hover:bg-[var(--color-brand)]/20 text-[var(--color-brand)] border border-[var(--color-brand)]/20 rounded-md text-xs font-bold transition-all flex items-center justify-center gap-2"
-                 >
-                    <Copy size={14} /> Duplicar Camada
-                 </button>
-                 
-                 {selectedElement.field && selectedElement.field.startsWith('clone_') && (
-                     <button
-                        onClick={() => {
-                           const {slideIndex, field} = selectedElement;
-                           setSlides(prev => prev.map((s, i) => {
-                               if (i !== slideIndex) return s;
-                               const newClonedFields = (s.clonedFields || []).filter(c => c.id !== field);
-                               const { [field]: textToRemove, ...restSlide } = s;
-                               const { [field]: posToRemove, ...restPositions } = s.positions || {};
-                               return {
-                                   ...restSlide,
-                                   clonedFields: newClonedFields,
-                                   positions: restPositions
-                               };
-                           }));
-                           setSelectedElement({ slideIndex: selectedElement.slideIndex, field: null });
-                        }}
-                        className="px-3 bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 border border-rose-500/20 rounded-md text-xs transition-all flex items-center justify-center"
-                        title="Remover Camada Clonada"
-                     >
-                        <Trash2 size={16} />
-                     </button>
-                 )}
-              </div>
-            </div>
         </div>
       </aside>
     );
