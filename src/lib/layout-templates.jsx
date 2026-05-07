@@ -135,7 +135,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'Título do Conteúdo',
     texto_apoio: 'Descrição detalhada e envolvente do conteúdo deste slide.',
     sugestao_visual: 'Foto do produto em destaque',
-    imageUrl: 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png',
+    imageUrl: 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png',
     tag: 'DICA',
     items: [],
   },
@@ -276,23 +276,31 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de CTA
-  if (layoutType === 'cta' && [0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 14].includes(variantIndex)) {
+  if (layoutType === 'cta' && [0, 1, 2, 3, 8, 12].includes(variantIndex)) {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
+  if (layoutType === 'cta' && variantIndex === 5) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://www.receitasnestle.com.br/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/bcdefc547f55a0e76253de10d24e7b54.webp?itok=n08QxbvK';
+  }
+
   // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
-  if ((layoutType === 'cover' || layoutType === 'cta') && [48, 49, 52, 53, 57, 58, 59, 60, 61].includes(variantIndex)) {
-    slide.imageUrl = 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
+  if ((layoutType === 'cover' || layoutType === 'cta') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
   }
 
-  // Pre-configura imagem de fundo específica para a variante 51
-  if ((layoutType === 'cover' || layoutType === 'cta') && variantIndex === 51) {
-    slide.imageUrl = 'https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
+  // Pre-configura imagem de fundo específica para as variantes 33 e 51
+  if ((layoutType === 'cover' || layoutType === 'cta') && [33, 51].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
-  // Pre-configura imagem de fundo para as variantes 55 e 56
-  if ((layoutType === 'cover' || layoutType === 'cta') && [55, 56].includes(variantIndex)) {
-    slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+  // Pre-configura imagem de fundo para as variantes de Brigadeiro Gourmet
+  if ((layoutType === 'cover' || layoutType === 'cta') && [6, 7, 18, 34, 36, 37, 42, 55, 56].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+  }
+
+  if (layoutType === 'cta' && variantIndex === 24) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2018/02/ganhar-dinheiro-vendendo-brigadeiro.webp';
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Quote
@@ -307,7 +315,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     const motherDayIndices = [46, 63];
 
     if (splitIndicesToUpdate.includes(variantIndex)) {
-      slide.imageUrl = 'https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
     } else if (newSpecialIndices.includes(variantIndex)) {
       slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
     } else if (motherDayIndices.includes(variantIndex)) {
