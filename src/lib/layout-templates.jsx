@@ -394,7 +394,7 @@ export const LAYOUT_META = [
     key: 'cover-extra',
     label: 'Capas\nExtras',
     description: 'Capas extras com estilos e fontes alternativos',
-    thumbnailUrl: ''
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras104.png'
   },
   {
     key: 'sequence',
@@ -406,6 +406,6 @@ export const LAYOUT_META = [
     key: 'cta-extra',
     label: 'CTAs\nExtras',
     description: 'CTAs extras com estilos e fontes alternativos',
-    thumbnailUrl: ''
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta18.png'
   },
 ];
