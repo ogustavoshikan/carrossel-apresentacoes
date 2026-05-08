@@ -11,7 +11,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
   
   return (
     <div 
-      className={`bg-cover transition-all duration-500 ${className}`}
+      className={`bg-cover ${className}`}
       style={{ 
         backgroundImage: `url("${data.imageUrl}")`,
         backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
@@ -67,7 +67,7 @@ export function SequenceVariant1(props) {
         counterColor={data.counterColor || "#ffffff"} 
         counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
-      <div className="w-full h-[45%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="w-full h-[45%] flex flex-col justify-between p-8 relative " style={{ backgroundColor: brandColor }}>
         
         <div className="flex justify-between items-end z-10 mt-auto">
           <SmartEl 
@@ -97,7 +97,7 @@ export function SequenceVariant1(props) {
 
         <div className="absolute bottom-0 left-0 h-[3px] bg-white/20 w-full z-0">
           <div 
-            className="h-full bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+            className="h-full bg-white "
             style={{ width: `${(step / Math.max(slideCount, 1)) * 100}%` }}
           />
         </div>
@@ -195,13 +195,13 @@ export function SequenceVariant2(props) {
       </div>
 
       <div 
-        className="w-[22%] h-full relative z-10 transition-colors duration-500 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]"
+        className="w-[22%] h-full relative z-10 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         
         
         <div 
-          className="absolute left-[-10px] w-5 h-5 bg-white border-[3px] rounded-full flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-md"
+          className="absolute left-[-10px] w-5 h-5 bg-white border-[3px] rounded-full flex items-center justify-center shadow-md"
           style={{ 
             top: `${trackerPosition}%`,
             borderColor: brandColor
@@ -237,7 +237,7 @@ export function SequenceVariant3(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.1)] transition-colors duration-500 z-10 overflow-hidden"
+        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.1)] z-10 overflow-hidden"
       >
         <div 
           className="absolute inset-0 opacity-90 z-0"
@@ -370,17 +370,17 @@ export function SequenceVariant4(props) {
       </div>
 
       <div 
-        className="h-[20%] w-full flex items-end px-8 pb-8 gap-3 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)] transition-colors duration-500"
+        className="h-[20%] w-full flex items-end px-8 pb-8 gap-3 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)] "
         style={{ backgroundColor: brandColor }}
       >
         {stepsToShow.map((i) => (
           <div key={i} className="flex-1 flex flex-col gap-2.5">
             <div 
-              className={`h-[4px] w-full rounded-full transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${i === step ? "opacity-100 scale-100" : "opacity-40 scale-95"}`}
+              className={`h-[4px] w-full rounded-full ${i === step ? "opacity-100 scale-100" : "opacity-40 scale-95"}`}
               style={{fontFamily: textFont,  backgroundColor: "#ffffff" }}
             />
             <span 
-              className={`font-black text-[11px] uppercase tracking-widest transition-colors duration-500 font-text ${i === step ? "text-white" : "text-white/30"}`}
+              className={`font-black text-[11px] uppercase tracking-widest font-text ${i === step ? "text-white" : "text-white/30"}`}
             >
               Fase 0{i}
             </span>
@@ -419,7 +419,7 @@ export function SequenceVariant5(props) {
         {tabs.map((i) => (
           <div 
             key={i} 
-            className={`flex-1 flex items-center justify-center border-t-[6px] transition-all duration-300 ${i === step ? "bg-white shadow-sm" : "bg-transparent"}`}
+            className={`flex-1 flex items-center justify-center border-t-[6px] ${i === step ? "bg-white shadow-sm" : "bg-transparent"}`}
             style={{ borderColor: i === step ? brandColor : "transparent" }}
           >
             <span className={`font-black text-[14px] font-text ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
@@ -500,7 +500,7 @@ export function SequenceVariant6(props) {
         counterBg={data.counterBg || "#080808"} 
       />
       <div 
-        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
+        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none font-text"
         style={{ 
           fontSize: "320px", 
           color: "transparent", 
@@ -625,7 +625,7 @@ export function SequenceVariant7(props) {
       </div>
 
       <div 
-        className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 transition-colors duration-500"
+        className="w-[40%] h-full p-8 flex flex-col justify-between text-right relative z-10 "
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         <span className="font-black text-white/40 text-7xl leading-none font-text select-none">
@@ -733,7 +733,7 @@ export function SequenceVariant9(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute top-0 right-[-10%] w-[60%] h-full opacity-30 z-0 pointer-events-none transition-colors duration-700 blur-[80px]"
+        className="absolute top-0 right-[-10%] w-[60%] h-full opacity-30 z-0 pointer-events-none blur-[80px]"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
 
@@ -865,11 +865,11 @@ export function SequenceVariant10(props) {
 
       <div className="w-[25%] h-full flex items-center justify-center border-l border-white/10 relative z-10 bg-[#111]">
         <div 
-          className="absolute top-0 right-0 w-full h-[6px] transition-all duration-700" 
+          className="absolute top-0 right-0 w-full h-[6px] " 
           style={{fontFamily: textFont,  backgroundColor: step === slideCount ? brandColor : "transparent" }}
         />
         <span 
-          className="font-black text-2xl uppercase tracking-[0.3em] whitespace-nowrap -rotate-90 origin-center transition-colors duration-500 font-text select-none"
+          className="font-black text-2xl uppercase tracking-[0.3em] whitespace-nowrap -rotate-90 origin-center font-text select-none"
           style={{fontFamily: textFont,  color: brandColor }}
         >
           ETAPA 0{step}
@@ -909,7 +909,7 @@ export function SequenceVariant11(props) {
 
       <div className="absolute top-[45%] right-8 -translate-y-1/2 z-20">
         <div 
-          className="px-6 py-2 rounded-full text-white shadow-xl flex items-center justify-center transition-colors duration-500"
+          className="px-6 py-2 rounded-full text-white shadow-xl flex items-center justify-center "
           style={{ backgroundColor: brandColor }}
         >
           <span className="font-black text-[14px] uppercase tracking-widest font-text select-none">
@@ -990,7 +990,7 @@ export function SequenceVariant12(props) {
 
       <div className="absolute top-0 left-[45%] w-[4px] h-full bg-zinc-100 z-10">
         <div 
-          className="w-full transition-all duration-700 ease-in-out" 
+          className="w-full " 
           style={{ 
             height: `${(step / Math.max(slideCount, 1)) * 100}%`,
             backgroundColor: brandColor 
@@ -1081,7 +1081,7 @@ export function SequenceVariant13(props) {
       <div className="flex-1 p-8 pb-12 flex flex-col justify-end relative z-20">
         <div className="flex items-center gap-4 mb-4">
           <div 
-            className="font-black text-4xl leading-none transition-colors duration-500 font-text select-none"
+            className="font-black text-4xl leading-none font-text select-none"
             style={{fontFamily: textFont,  color: brandColor }}
           >
             0{step}.
@@ -1158,7 +1158,7 @@ export function SequenceVariant14(props) {
 
       <div className="w-[85%] h-[40%] mt-8 mx-auto relative z-10">
         <div 
-          className="absolute top-3 left-3 w-full h-full rounded-2xl transition-colors duration-500" 
+          className="absolute top-3 left-3 w-full h-full rounded-2xl " 
           style={{fontFamily: textFont,  backgroundColor: brandColor }}
         />
         <div className="absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden border-2 border-white shadow-xl bg-zinc-100">
@@ -1267,7 +1267,7 @@ export function SequenceVariant15(props) {
 
       <div className="flex-1 flex flex-row z-10">
         <div 
-          className="w-[30%] flex items-center justify-center border-r border-zinc-200 transition-colors duration-500 bg-zinc-50"
+          className="w-[30%] flex items-center justify-center border-r border-zinc-200 bg-zinc-50"
           style={{fontFamily: textFont,  color: brandColor }}
         >
           <span className="font-black text-6xl leading-none font-text select-none">
@@ -1387,10 +1387,10 @@ export function SequenceVariant16(props) {
         </SmartEl>
       </div>
 
-      <div className="w-full h-[35%] flex flex-col justify-between p-8 relative transition-colors duration-500" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="w-full h-[35%] flex flex-col justify-between p-8 relative " style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="absolute top-0 left-0 h-[3px] bg-white/20 w-full z-0">
           <div 
-            className="h-full bg-white transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+            className="h-full bg-white "
             style={{ width: `${(step / Math.max(slideCount, 1)) * 100}%` }}
           />
         </div>
@@ -1478,7 +1478,7 @@ export function SequenceVariant17(props) {
       </div>
 
       <div 
-        className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[30px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.1)] transition-colors duration-500 z-10 overflow-hidden"
+        className="absolute bottom-0 right-0 w-[120px] h-[120px] flex flex-col items-center justify-center rounded-tl-[30px] shadow-[-10px_-10px_30px_rgba(0,0,0,0.1)] z-10 overflow-hidden"
       >
         <div 
           className="absolute inset-0 opacity-90 z-0"
@@ -1561,7 +1561,7 @@ export function SequenceVariant18(props) {
       </div>
 
       <div 
-        className="w-[40%] h-full p-8 flex flex-col justify-end text-right relative z-10 transition-colors duration-500"
+        className="w-[40%] h-full p-8 flex flex-col justify-end text-right relative z-10 "
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
         <span className="font-black text-white/40 text-[90px] leading-[0.75] -mr-2 font-text select-none">
@@ -1605,7 +1605,7 @@ export function SequenceVariant19(props) {
 
       <div className="absolute top-[50%] left-8 -translate-y-1/2 z-20 flex items-center">
         <div 
-          className="w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-colors duration-500 border-4 border-[#0A0A0A]"
+          className="w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-4 border-[#0A0A0A]"
           style={{fontFamily: textFont,  backgroundColor: brandColor }}
         >
           <span className="font-black text-[16px] text-white font-text select-none">
@@ -1701,7 +1701,7 @@ export function SequenceVariant20(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none transition-all duration-700 font-text"
+        className="absolute right-[-10%] top-1/2 -translate-y-1/2 font-black opacity-[0.15] select-none pointer-events-none font-text"
         style={{ 
           fontSize: "320px", 
           color: "transparent", 
@@ -1862,7 +1862,7 @@ export function SequenceVariant22(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute bottom-0 left-0 w-full h-[6px] z-20 transition-colors duration-500" 
+        className="absolute bottom-0 left-0 w-full h-[6px] z-20 " 
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       
@@ -1971,7 +1971,7 @@ export function SequenceVariant23(props) {
           </ImageBg>
         </div>
         <div 
-          className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl transition-colors duration-500 font-text select-none"
+          className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl font-text select-none"
           style={{fontFamily: textFont,  backgroundColor: brandColor }}
         >
           Passo 0{step}
@@ -2046,7 +2046,7 @@ export function SequenceVariant24(props) {
       />
       <div className="absolute top-0 left-0 w-full h-[3px] bg-zinc-100 z-20">
         <div 
-          className="h-full transition-all duration-700 ease-in-out shadow-[0_0_10px_currentColor]" 
+          className="h-full shadow-[0_0_10px_currentColor]" 
           style={{ 
             width: `${(step / Math.max(slideCount, 1)) * 100}%`,
             backgroundColor: brandColor,
@@ -2187,7 +2187,7 @@ export function SequenceVariant25(props) {
         {tabs.map((i) => (
           <div 
             key={i} 
-            className={`flex-1 flex items-center justify-center border-b-[6px] transition-all duration-300 ${i === step ? "bg-white shadow-sm z-10" : "bg-transparent"}`}
+            className={`flex-1 flex items-center justify-center border-b-[6px] ${i === step ? "bg-white shadow-sm z-10" : "bg-transparent"}`}
             style={{fontFamily: textFont,  borderColor: i === step ? brandColor : "transparent" }}
           >
             <span className={`font-black text-[14px] font-text ${i === step ? "text-[#1a1a1a]" : "text-zinc-300"}`}>
@@ -2373,7 +2373,7 @@ export function SequenceVariant28(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="w-[35%] h-full transition-colors duration-500 relative z-0"
+        className="w-[35%] h-full relative z-0"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       />
       <div className="w-[65%] h-full bg-[#faf7f2] relative z-0" />
