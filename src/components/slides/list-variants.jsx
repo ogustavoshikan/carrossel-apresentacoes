@@ -578,67 +578,7 @@ export function ListVariant27(props) {
   );
 }
 
-export function ListVariant29(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandAvatar, brandColor, isVerified, titleScale, textScale, onTextChange, onItemChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const items = data.items || [];
-  const tw = { index, onTextChange };
 
-  return (
-    <div className="w-full h-full relative p-10 flex flex-col bg-black text-white">
-      {data.imageUrl && (
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] overflow-hidden">
-          <ImageBg data={data} className="absolute inset-0" />
-        </div>
-      )}
-      <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} />
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-zinc-800 opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
-      </div>
-      <div className="relative z-10 flex flex-col h-full pt-8">
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-6 shrink-0 text-center mt-2"
-        >
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl font-title" style={{ fontSize: `${30 * sTitle}px` }}>
-            {data.titulo}
-          </TextWrapper>
-        </SmartEl>
-        <div className="flex-1 flex flex-col gap-3 min-h-0 justify-center">
-          {items.slice(0, 4).map((item, i) => (
-            <div key={i} className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.3)] flex items-center gap-4 shrink-0">
-              <div 
-                contentEditable 
-                suppressContentEditableWarning 
-                onBlur={(e) => onItemChange && onItemChange(index, i, 'label', e.currentTarget.innerText)}
-                className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-[10px] shrink-0 border border-white/30 font-text outline-none" 
-                style={{fontFamily: textFont,  backgroundColor: brandColor }}
-              >
-                {item.label || `0${i + 1}`}
-              </div>
-              <p 
-                contentEditable 
-                suppressContentEditableWarning 
-                onBlur={(e) => onItemChange && onItemChange(index, i, 'text', e.currentTarget.innerText)}
-                className="text-white/90 leading-snug font-medium outline-none font-text" 
-                style={{ fontSize: `${13 * sText}px` }}
-              >
-                {item.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ==========================================
 // EXPORTS & METADATA
@@ -654,7 +594,6 @@ export const LIST_VARIANT_COMPONENTS = {
   25: ListVariant25,
   26: ListVariant26,
   27: ListVariant27,
-  29: ListVariant29,
 };
 
 export const LIST_VARIANT_META = [
@@ -667,5 +606,4 @@ export const LIST_VARIANT_META = [
   { id: 25, nome: 'Rounded Grid', badge: 'PRO' },
   { id: 26, nome: 'Split Premium', badge: 'PREMIUM' },
   { id: 27, nome: 'Gallery List', badge: 'PRO' },
-  { id: 29, nome: 'Glass Cards', badge: 'NEW' },
 ];
