@@ -285,7 +285,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
-  if ((layoutType === 'cover' || layoutType === 'cta') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61, 109, 118, 119, 127, 130, 133, 135, 138, 143].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
   }
 
@@ -295,12 +295,20 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para as variantes de Brigadeiro Gourmet
-  if ((layoutType === 'cover' || layoutType === 'cta') && [6, 7, 18, 34, 36, 37, 42, 55, 56].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [6, 7, 18, 34, 36, 37, 42, 55, 56, 102, 103, 106, 112, 113, 116, 128, 131, 132, 139, 142, 144, 147].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 
-  if (layoutType === 'cta' && variantIndex === 24) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [24, 101, 104, 107, 110, 115, 117, 120, 121, 134, 136, 137, 140, 141, 145, 146, 148].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2018/02/ganhar-dinheiro-vendendo-brigadeiro.webp';
+  }
+
+  if ((layoutType === 'cover' || layoutType === 'cover-extra') && [105, 108, 111, 114].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/caixa-brigadeiros-gourmet-variados-venda.jpg';
+  }
+
+  if ((layoutType === 'cover' || layoutType === 'cover-extra') && [123, 126, 129].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Quote
