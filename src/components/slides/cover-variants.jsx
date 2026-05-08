@@ -2653,6 +2653,7 @@ export function CoverVariant51(props) {
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
              </div>
              <div className="shrink-0 z-20 w-[180%]">
+                 <div className="w-12 h-[3px] bg-white mb-[21px]"></div>
                  <SmartField field="titulo" {...sp}>
                    <h2 
                     contentEditable suppressContentEditableWarning
@@ -2744,6 +2745,7 @@ export function CoverVariant52(props) {
                     {data.texto_apoio}
                   </p>
                 </SmartField>
+                <div className="mt-[21px]" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
         </div>
 
@@ -2790,6 +2792,8 @@ export function CoverVariant53(props) {
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
+
+            <div className="w-12 h-1 bg-white mb-[21px]"></div>
 
             <div className="w-full mb-3 shrink-0">
                 <SmartField field="titulo" {...sp}>
@@ -2894,7 +2898,7 @@ export function CoverVariant55(props) {
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-white">
         <div className="w-[15%] h-full flex flex-col items-center justify-between py-10 shrink-0" style={{ backgroundColor: brandColor }}>
-             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none mt-6">PREMIUM STUDIO</span>
+             <span className="font-black text-white/30 text-xl rotate-90 whitespace-nowrap uppercase select-none mt-[44px]">PREMIUM STUDIO</span>
              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#1a1a1a] shadow-lg">      
                  <ArrowRight className="w-5 h-5" />
              </div>
@@ -2927,7 +2931,7 @@ export function CoverVariant55(props) {
                     </SmartField>
                 </div>
             </div>
-            <div className="w-full h-48 bg-zinc-100 rounded-3xl overflow-hidden relative shadow-inner">
+            <div className="w-full h-48 bg-zinc-100 rounded-3xl overflow-hidden relative border-[4px]" style={{ borderColor: '#3f3e3e36', boxShadow: `0 15px 35px ${brandColor}33` }}>
                 <ImageBg data={data} className="absolute inset-0" />
             </div>
         </div>
@@ -2954,7 +2958,7 @@ export function CoverVariant56(props) {
           {brandHandle} © 2026
         </div>
 
-        <div className="h-[55%] w-full relative z-0">
+        <div className="h-[55%] w-full relative z-0 border-b-4 border-white">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
@@ -2984,6 +2988,7 @@ export function CoverVariant56(props) {
                     {data.texto_apoio}
                   </p>
                 </SmartField>
+                <div className="mt-4" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
         </div>
     </div>
@@ -3097,7 +3102,7 @@ export function CoverVariant58(props) {
             </div>
 
             <div className="flex items-center gap-4 mb-6 bg-white/10 p-3 rounded-full w-max border border-white/20 shrink-0">
-                <div className="w-8 h-8 rounded-full bg-white overflow-hidden shrink-0">
+                <div className="w-[35px] h-[35px] rounded-full bg-white overflow-hidden shrink-0">
                     <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />
                 </div>
                 <div className="pr-4">
@@ -3116,10 +3121,17 @@ export function CoverVariant58(props) {
                     {data.texto_apoio}
                   </p>
                 </SmartField>
+                <div className="mt-4" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
         </div>
-        <div className="h-[40%] w-full relative z-0">
+        <div className="h-[40%] w-full relative z-0 border-t-4 border-white">
             <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div 
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ left: '16px', top: '14px' }}
+        >
+          {brandHandle} © 2026
         </div>
     </div>
   );
@@ -3142,12 +3154,12 @@ export function CoverVariant59(props) {
         </div>
         <div className="h-[45%] w-full relative z-0 shrink-0">
             <ImageBg data={data} className="absolute inset-0" />
+            <div className="absolute bottom-0 left-0 w-full h-[4px] z-20" style={{ backgroundColor: '#ffffff' }} />
         </div>
         <div className="flex-1 flex flex-col p-10 relative z-10 -mt-20">
-            <div className="w-16 h-16 rounded-full border-4 overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: brandColor, backgroundColor: brandColor }}>
-                <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />  
-            </div>
-            <div className="mb-2 shrink-0">
+            <div className="w-16 h-16 rounded-full border-[3px] overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: '#ffffff', backgroundColor: brandColor }}>
+                <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />
+            </div>            <div className="mb-2 shrink-0">
                 <SmartField field="tag" {...sp}>
                   <span 
                     contentEditable suppressContentEditableWarning
@@ -3182,7 +3194,14 @@ export function CoverVariant59(props) {
                     {data.texto_apoio}
                   </p>
                 </SmartField>
+                <div className="mt-4" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
+        </div>
+        <div 
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ left: '202px', top: '463px' }}
+        >
+          {brandHandle} © 2026
         </div>
     </div>
   );
@@ -3246,7 +3265,7 @@ export function CoverVariant60(props) {
                 </SmartField>
             </div>
         </div>
-        <div className="w-full h-[35%] relative z-0">
+        <div className="w-full h-[35%] relative z-0 border-t-[5px]" style={{ borderColor: brandColor }}>
             <ImageBg data={data} className="absolute inset-0" />
         </div>
     </div>
@@ -3277,7 +3296,7 @@ export function CoverVariant61(props) {
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
                 className="font-black text-[10px] tracking-widest uppercase outline-none" 
-                style={{ fontFamily: titleFont, color: '#d4d4d4' }}
+                style={{ fontFamily: titleFont, color: 'rgba(255, 255, 255, 0.6)' }}
               >
                 {data.tag || 'MESTRE'}
               </span>
@@ -3300,15 +3319,21 @@ export function CoverVariant61(props) {
               <p 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-medium leading-relaxed text-zinc-300 outline-none" 
-                style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
+                className="font-medium leading-relaxed outline-none" 
+                style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#F5F5F5' }}
               >
                 {data.texto_apoio}
               </p>
             </SmartField>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-[40%] z-0">
+        <div className="absolute bottom-0 left-0 w-full h-[40%] z-0 border-t-4 border-white">
             <ImageBg data={data} className="absolute inset-0" />
+        </div>
+        <div 
+          className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+          style={{ left: '12px', top: '12px' }}
+        >
+          {brandHandle} © 2026
         </div>
     </div>
   );

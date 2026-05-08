@@ -1140,76 +1140,6 @@ export function CTAVariant31(props) {
 }
 
 // ==========================================
-// Variante 32: Centered Impact
-// ==========================================
-export function CTAVariant32(props) {
-  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="w-full h-full flex flex-col p-6 bg-[#050505] text-white">
-      
-      <div className="flex-1 mt-4 mb-4 rounded-[40px] flex flex-col p-8 justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative" style={{ backgroundColor: brandColor }}>
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay overflow-hidden rounded-[40px]" />
-        <SmartElement
-          slideIndex={index}
-          field="titulo"
-          position={pos('titulo')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="w-full mb-6 shrink-0 relative z-10"
-        >
-          <h2
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black leading-none tracking-tighter uppercase drop-shadow-md outline-none"
-            style={{ fontSize: `${42 * sTitle}px` }}
-          >
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        <SmartElement
-          slideIndex={index}
-          field="texto_apoio"
-          position={pos('texto_apoio')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-          className="w-[95%] mx-auto shrink-0 relative z-10"
-        >
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text font-medium leading-snug text-white/90 outline-none"
-            style={{ fontSize: `${15 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
-      </div>
-      <div className="flex justify-between items-center px-4 pt-2 pb-2">
-        <span className="font-text font-bold text-[10px] tracking-[0.2em] uppercase text-zinc-500">Arraste para o lado e descubra</span>
-        <div className="flex gap-4">
-          <div className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-colors cursor-pointer">
-            <Heart className="w-4 h-4 text-white" />
-          </div>
-          <div className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-zinc-800 transition-colors cursor-pointer">
-            <Bookmark className="w-4 h-4 text-white" fill="currentColor" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
 // Variante 33: Sidebar Actions Glossy
 // ==========================================
 export function CTAVariant33(props) {
@@ -1376,93 +1306,6 @@ export function CTAVariant34(props) {
         <div className="flex items-center gap-2 cursor-pointer group">
           <span className="font-text font-bold text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-black transition-colors">SALVAR</span>
           <Bookmark className="w-6 h-6 group-hover:scale-110 transition-transform" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// Variante 35: Bottom Dock Premium
-// ==========================================
-export function CTAVariant35(props) {
-  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="w-full h-full relative bg-black flex flex-col text-white">
-      <div className="absolute inset-0 z-0">
-        <ImageBg
-          data={data}
-          slideIndex={index}
-          className="absolute inset-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/30" />
-      </div>
-      <div className="relative z-10 flex-1 flex flex-col p-8 justify-end pb-24">
-        <div className="absolute top-6 left-6 right-6">
-          
-        </div>
-        <SmartElement
-          slideIndex={index}
-          field="titulo"
-          position={pos('titulo')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-4 text-center shrink-0"
-        >
-          <h2
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl outline-none"
-            style={{ fontSize: `${38 * sTitle}px` }}
-          >
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        <SmartElement
-          slideIndex={index}
-          field="texto_apoio"
-          position={pos('texto_apoio')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-          className="w-[90%] mx-auto text-center shrink-0"
-        >
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-white/90 font-bold leading-relaxed drop-shadow-md outline-none"
-            style={{ fontSize: `${15 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
-      </div>
-      <div className="absolute bottom-6 left-8 right-8 bg-[#111]/90 backdrop-blur-md rounded-2xl p-3 flex justify-between items-center border border-white/20 shadow-2xl z-20">
-        <div className="flex gap-2">
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-            <Heart className="w-5 h-5 text-white" />
-          </div>
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-            <MessageCircle className="w-5 h-5 text-white" />
-          </div>
-          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-            <Send className="w-5 h-5 text-white" />
-          </div>
-        </div>
-        <div className="flex items-center gap-3 pr-2 cursor-pointer group">
-          <span className="font-text font-bold text-[9px] tracking-[0.2em] uppercase text-zinc-400 group-hover:text-white transition-colors">SALVAR</span>
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-            <Bookmark className="w-5 h-5 text-white" fill="currentColor" />
-          </div>
         </div>
       </div>
     </div>
@@ -1645,162 +1488,6 @@ export function CTAVariant37(props) {
       <div className="absolute top-[45%] right-8 -translate-y-1/2 w-24 h-24 rounded-2xl border-[4px] overflow-hidden z-20 rotate-3" style={{ background: `linear-gradient(${brandColor + '21'}, ${brandColor + '21'}), white`, borderColor: brandColor, boxShadow: `0 10px 30px ${brandColor}40` }}>
         <div className="w-full h-full flex items-center justify-center">
           <ImageIcon className="w-8 h-8" style={{ color: brandColor }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// Variante 38: Rounded Card Premium
-// ==========================================
-export function CTAVariant38(props) {
-  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="w-full h-full flex flex-col p-6 relative" style={{ backgroundColor: brandColor }}>
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-black/20 rounded-full blur-[60px] pointer-events-none z-0" />
-      <div className="relative z-10">
-        
-      </div>
-      <div className="flex-1 bg-white rounded-3xl mt-4 p-6 flex flex-col items-center justify-center text-center shadow-2xl relative z-10">
-        <div className="w-24 h-24 rounded-full border-[6px] border-white shadow-xl overflow-hidden mb-6 bg-zinc-200 -mt-16 ring-4 ring-black/5">
-          <div className="w-full h-full bg-zinc-100 flex items-center justify-center">
-            <Store className="w-8 h-8 text-zinc-300" />
-          </div>
-        </div>
-
-        <SmartElement
-          slideIndex={index}
-          field="titulo"
-          position={pos('titulo')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="w-full mb-3 shrink-0"
-        >
-          <h2
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black text-[#1a1a1a] leading-none tracking-tighter uppercase outline-none"
-            style={{ fontSize: `${34 * sTitle}px` }}
-          >
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        <SmartElement
-          slideIndex={index}
-          field="texto_apoio"
-          position={pos('texto_apoio')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-          className="w-[90%] mx-auto shrink-0 mb-8"
-        >
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-zinc-500 font-medium leading-snug outline-none"
-            style={{ fontSize: `${14 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
-        <div className="w-full flex gap-3 mt-auto">
-          <div className="flex-1 h-12 rounded-xl bg-zinc-100 flex items-center justify-center hover:bg-zinc-200 transition-colors cursor-pointer border border-zinc-200">
-            <MessageCircle className="w-5 h-5 text-zinc-600" />
-          </div>
-          <div className="flex-[2] h-12 rounded-xl flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] transition-transform text-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-            <Bookmark className="w-4 h-4" fill="currentColor" />
-            <span className="font-text font-bold text-[10px] uppercase tracking-widest">SALVAR POST</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// Variante 39: Overlay Glass Profile
-// ==========================================
-export function CTAVariant39(props) {
-  const { data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, slideCount, brandHandle , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="w-full h-full flex flex-col p-8 relative" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-      <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
-      <div className="relative z-10">
-        
-      </div>
-      <div className="flex-1 flex flex-col items-center justify-center text-center relative z-10 mt-8">
-        <div className="w-28 h-28 rounded-full border-[8px] border-white/20 shadow-2xl overflow-hidden mb-6 relative">
-          <div className="w-full h-full bg-white/20 flex items-center justify-center">
-            <Store className="w-8 h-8 text-white/50" />
-          </div>
-        </div>
-        <span className="font-text font-bold text-[10px] uppercase tracking-[0.3em] mb-4 text-white/70">
-        </span>
-        <SmartElement
-          slideIndex={index}
-          field="titulo"
-          position={pos('titulo')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="w-full mb-4 shrink-0"
-        >
-          <h2
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black text-white leading-none tracking-tighter uppercase drop-shadow-xl outline-none"
-            style={{ fontSize: `${40 * sTitle}px` }}
-          >
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        <SmartElement
-          slideIndex={index}
-          field="texto_apoio"
-          position={pos('texto_apoio')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-          className="w-[90%] mx-auto shrink-0 mb-8"
-        >
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-white/90 font-medium leading-relaxed outline-none"
-            style={{ fontSize: `${15 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
-      </div>
-      <div className="w-full bg-[#1a1a1a] rounded-3xl p-4 flex justify-between items-center shadow-2xl relative z-10">
-        <div className="flex gap-4 pl-4">
-          <Heart className="w-6 h-6 text-white hover:text-red-400 transition-colors cursor-pointer" />
-          <MessageCircle className="w-6 h-6 text-white hover:text-blue-400 transition-colors cursor-pointer" />
-        </div>
-        <div className="flex items-center gap-3 pr-2 cursor-pointer group">
-          <span className="font-text font-bold text-[10px] uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">SALVAR</span>
-          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform text-[#1a1a1a]">
-            <Bookmark className="w-5 h-5" fill="currentColor" />
-          </div>
         </div>
       </div>
     </div>
@@ -2084,14 +1771,10 @@ export const CTA_VARIANT_COMPONENTS = {
   25: CTAVariant25,
   29: CTAVariant29,
   31: CTAVariant31,
-  32: CTAVariant32,
   33: CTAVariant33,
   34: CTAVariant34,
-  35: CTAVariant35,
   36: CTAVariant36,
   37: CTAVariant37,
-  38: CTAVariant38,
-  39: CTAVariant39,
   40: CTAVariant40,
   41: CTAVariant41,
   42: CTAVariant42,
@@ -2114,16 +1797,12 @@ export const CTA_VARIANT_META = [
   { id: 25, name: 'Giant Watermark', title: 'Giant Watermark', description: 'Marca d\'água gigante com ícone de salvar ao fundo', desc: 'Marca d\'água gigante com ícone de salvar ao fundo', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta25.png' },
   { id: 29, name: 'Bold Frame', title: 'Bold Frame', description: 'Moldura espessa na cor da marca com foco centralizado', desc: 'Moldura espessa na cor da marca com foco centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta29.png' },
   { id: 31, name: 'Floating Bar', title: 'Floating Bar', description: 'Divisão de cores contrastantes com barra de ações centralizada', desc: 'Divisão de cores contrastantes com barra de ações centralizada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta31.png' },
-  { id: 32, name: 'Centered Impact', title: 'Centered Impact', description: 'Card central de alto impacto sobre fundo dark', desc: 'Card central de alto impacto sobre fundo dark', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta32.png' },
   { id: 33, name: 'Sidebar Glossy', title: 'Sidebar Glossy', description: 'Barra lateral de ações com fundo glassmorphism e gradiente suave', desc: 'Barra lateral de ações com fundo glassmorphism e gradiente suave', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta33.png' },
   { id: 34, name: 'Floating Capsule', title: 'Floating Capsule', description: 'Cápsula flutuante de ações em glassmorphism claro', desc: 'Cápsula flutuante de ações em glassmorphism claro', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta34.png' },
-  { id: 35, name: 'Bottom Dock', title: 'Bottom Dock', description: 'Dock inferior with ações e destaque no botão salvar', desc: 'Dock inferior with ações e destaque no botão salvar', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta35.png' },
   { id: 36, name: 'Creator Bar', title: 'Creator Bar', description: 'Barra de criador com perfil circular e ações rápidas', desc: 'Barra de criador com perfil circular e ações rápidas', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta36.png' },
-  { id: 37, name: 'Split Modern', title: 'Split Modern', description: 'Layout dividido moderno com topo arredondado e imagem flutuante', desc: 'Layout dividido moderno com topo arredondado e imagem flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta37.png' },
-  { id: 38, name: 'Rounded Card Premium', title: 'Rounded Card Premium', description: 'Card branco arredondado sobre fundo colorido com perfil centralizado', desc: 'Card branco arredondado sobre fundo colorido com perfil centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta38.png' },
-  { id: 39, name: 'Overlay Glass Profile', title: 'Overlay Glass Profile', description: 'Layout com gradiente e barra de ações dark no rodapé', desc: 'Layout com gradiente e barra de ações dark no rodapé', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta39.png' },
+  { id: 37, name: 'Split Modern', title: 'Split Modern', description: 'Layout dividido moderno com topo arredondado e imagem flutuante', desc: 'Layout dividido moderno com topo arredondado e imagem flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta-37.png' },
   { id: 40, name: 'Split Tilt Profile', title: 'Split Tilt Profile', description: 'Divisão diagonal com perfil em destaque e botões arredondados', desc: 'Divisão diagonal com perfil em destaque e botões arredondados', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta40.png' },
-  { id: 41, name: 'Vertical Color Block', title: 'Vertical Color Block', description: 'Blocos de cores verticais com perfil flutuante lateral', desc: 'Blocos de cores verticais com perfil flutuante lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta41.png' },
+  { id: 41, name: 'Vertical Color Block', title: 'Vertical Color Block', description: 'Blocos de cores verticais com perfil flutuante lateral', desc: 'Blocos de cores verticais com perfil flutuante lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta-41.png' },
   { id: 42, name: 'Center Focus Round', title: 'Center Focus Round', description: 'Topo com imagem e corpo colorido arredondado com foco no perfil', desc: 'Topo com imagem e corpo colorido arredondado com foco no perfil', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta42.png' },
 ];
 
