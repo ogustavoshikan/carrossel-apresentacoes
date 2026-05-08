@@ -528,7 +528,7 @@ export function CoverExtraVariant106({
                 {data.texto_apoio || 'A SELEÇÃO QUE VOCÊ MERECE'}
               </p>
             </SmartField>
-            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: brandColor }}>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center " style={{ backgroundColor: brandColor }}>
               <ArrowRight className="w-4 h-4 text-white" />
             </div>
           </div>
@@ -758,7 +758,7 @@ export function CoverExtraVariant109({
                   </p>
                 </SmartField>
               </div>
-              <div className="p-3 rounded-lg transition-colors" style={{ backgroundColor: '#1a1a1a' }}>
+              <div className="p-3 rounded-lg " style={{ backgroundColor: '#1a1a1a' }}>
                 <MoveRight className="w-4 h-4 text-white" />
               </div>
             </div>
@@ -902,7 +902,7 @@ export function CoverExtraVariant111({
              </p>
           </div>
           <div 
-            className="w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all"
+            className="w-12 h-12 rounded-full border-2 flex items-center justify-center "
             style={{ borderColor: brandColor, color: brandColor }}
           >
             <Maximize2 className="w-5 h-5" />
@@ -1054,7 +1054,7 @@ export function CoverExtraVariant113({
         </div>
 
         <div className="w-full flex-1 flex items-center justify-center py-8">
-          <div className="w-[85%] aspect-square relative rounded-full overflow-hidden ring-1 ring-[#1a1a1a]/20 shadow-2xl transition-transform duration-700">
+          <div className="w-[85%] aspect-square relative rounded-full overflow-hidden ring-1 ring-[#1a1a1a]/20 shadow-2xl ">
              <ImageBg data={data} className="absolute inset-0" />
              <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
           </div>
@@ -1129,7 +1129,7 @@ export function CoverExtraVariant114({
       {/* O Selo (Imagem Pequena) */}
       <div className="relative z-10 mt-auto flex flex-col items-center">
         <div 
-          className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-offset-4 ring-offset-[#1a1a1a] shadow-[0_0_40px_rgba(222,30,77,0.4)] mb-8 transition-transform duration-700"
+          className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-offset-4 ring-offset-[#1a1a1a] shadow-[0_0_40px_rgba(222,30,77,0.4)] mb-8 "
           style={{ '--tw-ring-color': brandColor, boxShadow: `0 0 40px ${brandColor}66` }}
         >
           <ImageBg data={data} className="absolute inset-0" />
@@ -1208,7 +1208,7 @@ export function CoverExtraVariant115({
 
         <div className="flex justify-between items-end w-full">
           <span className="font-outfit font-bold text-[#1a1a1a]/50 text-[10px] uppercase tracking-[0.3em]">@{brandHandle || 'seuhandle'}</span>
-          <div className="w-8 h-8 flex items-center justify-center rounded-sm transition-colors" style={{ backgroundColor: brandColor }}>
+          <div className="w-8 h-8 flex items-center justify-center rounded-sm " style={{ backgroundColor: brandColor }}>
             <ArrowRight className="w-4 h-4 text-white" />
           </div>
         </div>
@@ -1248,7 +1248,7 @@ export function CoverExtraVariant116({
           <Store className="w-5 h-5 text-white/70" />
           </div>
         <div 
-          className="absolute top-[20%] right-[-10%] w-[80%] aspect-square rounded-full overflow-hidden shadow-2xl ring-8 z-10 transition-transform duration-700" 
+          className="absolute top-[20%] right-[-10%] w-[80%] aspect-square rounded-full overflow-hidden shadow-2xl ring-8 z-10 " 
           style={{ '--tw-ring-color': brandColor, border: '4px solid #ffffffb3' }}
         >
           <ImageBg data={data} className="absolute inset-0" />
@@ -1348,7 +1348,7 @@ export function CoverExtraVariant117({
           </SmartField>
           <p className="font-outfit text-[#1a1a1a]/60 text-[9px] uppercase tracking-widest font-medium">@{brandHandle || 'seuhandle'}</p>
         </div>
-        <div className="w-8 h-8 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center transition-colors">
+        <div className="w-8 h-8 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center ">
           <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
         </div>
       </div>
@@ -2283,7 +2283,7 @@ export function CoverExtraVariant129({
             </SmartField>
             <span className="font-outfit font-bold text-[#1a1a1a] text-[10px] uppercase tracking-widest">@{brandHandle || 'seuhandle'}</span>
           </div>
-          <div className="w-10 h-10 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center transition-all shrink-0">
+          <div className="w-10 h-10 rounded-full border border-[#1a1a1a]/20 flex items-center justify-center shrink-0">
             <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
           </div>
         </div>
@@ -2329,7 +2329,7 @@ export function CoverExtraVariant130({
       </div>
 
       <div className="w-[70%] h-[75%] rounded-t-full rounded-b-full overflow-hidden relative shadow-2xl ring-1 ring-white/10 z-10 shrink-0 mt-4">
-        <ImageBg data={data} className="absolute inset-0 opacity-90 hover:opacity-100 transition-opacity" />
+        <ImageBg data={data} className="absolute inset-0 opacity-90 " />
       </div>
 
       <div className="absolute bottom-16 w-full flex flex-col items-center z-20">
@@ -3140,7 +3140,7 @@ export function CoverExtraVariant141({
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex items-center justify-center mx-auto border border-black/5">
       
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <ImageBg data={data} className="absolute inset-0 transition-transform duration-1000 group-hover:scale-110" />
+        <ImageBg data={data} className="absolute inset-0 " />
         <div className="absolute inset-0 bg-black/20 mix-blend-overlay" />
       </div>
 
@@ -3169,7 +3169,7 @@ export function CoverExtraVariant141({
           </p>
         </SmartField>
 
-        <div className="mt-8 flex items-center gap-2 bg-white/10 px-5 py-2 rounded-full cursor-pointer transition-colors border border-white/20 pointer-events-none">
+        <div className="mt-8 flex items-center gap-2 bg-white/10 px-5 py-2 rounded-full border border-white/20 pointer-events-none">
           <span className="font-outfit font-bold text-white text-[9px] uppercase tracking-widest">Descobrir</span>
           <ArrowRight className="w-3 h-3 text-white" />
         </div>
@@ -3236,7 +3236,7 @@ export function CoverExtraVariant142({
           <span className="font-outfit font-medium text-white/40 text-[9px] tracking-[0.2em] uppercase">
             @{brandHandle || 'seuhandle'}
           </span>
-          <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center transition-colors" style={{ borderColor: brandColor }}>
+          <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center " style={{ borderColor: brandColor }}>
             <ArrowRight className="w-3 h-3 text-white/70" strokeWidth={1.5} style={{ color: brandColor }} />
           </div>
         </div>
@@ -3369,7 +3369,7 @@ export function CoverExtraVariant144({
           </SmartField>
           
           <div className="flex items-center gap-4 pointer-events-none">
-            <div className="w-8 h-8 rounded-full border border-zinc-400 flex items-center justify-center transition-colors">
+            <div className="w-8 h-8 rounded-full border border-zinc-400 flex items-center justify-center ">
               <ArrowRight className="w-3 h-3 text-[#1a1a1a]" strokeWidth={1.5} />
             </div>
             <span className="font-outfit text-zinc-500 text-[8px] uppercase tracking-[0.3em] font-medium">
@@ -3407,7 +3407,7 @@ export function CoverExtraVariant145({
     <div className="relative w-full h-full bg-[#0c0a09] overflow-hidden flex flex-col mx-auto ring-1 ring-white/5">
       
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <ImageBg data={data} className="absolute inset-0 opacity-50 transition-all duration-1000 ease-in-out" />
+        <ImageBg data={data} className="absolute inset-0 opacity-50 " />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a09]/50 via-transparent to-transparent" />
       </div>
@@ -3439,10 +3439,10 @@ export function CoverExtraVariant145({
           
           <div className="flex flex-col items-center gap-4 pointer-events-none">
             <div className="flex items-center gap-3">
-              <span className="font-outfit font-light text-white/70 text-[9px] uppercase tracking-[0.2em] transition-colors">
+              <span className="font-outfit font-light text-white/70 text-[9px] uppercase tracking-[0.2em] ">
                 Iniciar Experiência
               </span>
-              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm transition-colors">
+              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm ">
                 <ArrowRight className="w-3 h-3 text-white" strokeWidth={1.5} />
               </div>
             </div>
@@ -3484,10 +3484,10 @@ export function CoverExtraVariant146({
       <div className="flex-1 w-full bg-[#FDFBF7] relative">
         
         <div 
-          className="w-full h-[65%] relative overflow-hidden bg-zinc-100 mb-6 transition-shadow duration-700 ease-out z-10 rounded-[10px]"
+          className="w-full h-[65%] relative overflow-hidden bg-zinc-100 mb-6 z-10 rounded-[10px]"
           style={{ border: '3px solid rgb(206 206 206 / 25%)' }}
         >
-          <ImageBg data={data} className="absolute inset-0 mix-blend-multiply transition-transform duration-1000" />
+          <ImageBg data={data} className="absolute inset-0 mix-blend-multiply " />
         </div>
 
         <div className="flex flex-col border-l-[1px] border-zinc-300 pl-4 ml-2">
@@ -3565,10 +3565,10 @@ export function CoverExtraVariant147({
         <Feather className="w-4 h-4 text-zinc-300" strokeWidth={1} style={{ color: brandColor }} />
       </div>
 
-      <div className="relative z-10 bg-[#FDFBF7] p-3 pb-8 rounded shadow-[0_20px_40px_rgba(0,0,0,0.08)] transform -rotate-1 transition-all duration-700 ease-out w-[75%]">
+      <div className="relative z-10 bg-[#FDFBF7] p-3 pb-8 rounded shadow-[0_20px_40px_rgba(0,0,0,0.08)] transform -rotate-1 w-[75%]">
         
         <div className="w-full aspect-[4/5] relative overflow-hidden bg-zinc-100 z-10">
-          <ImageBg data={data} className="absolute inset-0 opacity-90 transition-opacity duration-700" />
+          <ImageBg data={data} className="absolute inset-0 opacity-90 " />
         </div>
         
         <div className="absolute bottom-[-2px] left-0 w-full text-center">
@@ -3589,7 +3589,7 @@ export function CoverExtraVariant147({
         <span className="font-outfit font-medium text-zinc-400 text-[8px] uppercase tracking-[0.3em]">
           @{brandHandle || 'seuhandle'}
         </span>
-        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm transition-shadow">
+        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm ">
           <ArrowRight className="w-3 h-3 text-[#1a1a1a]" />
         </div>
       </div>
@@ -3631,7 +3631,7 @@ export function CoverExtraVariant148({
         </div>
 
         <div className="flex flex-col items-center w-full">
-          <div className="w-[50%] aspect-[1/2] rounded-full relative overflow-hidden shadow-[0_0_50px_rgba(222,30,77,0.1)] ring-1 ring-white/10 mb-8 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] z-10">
+          <div className="w-[50%] aspect-[1/2] rounded-full relative overflow-hidden shadow-[0_0_50px_rgba(222,30,77,0.1)] ring-1 ring-white/10 mb-8 ease-[cubic-bezier(0.25,1,0.5,1)] z-10">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-80 pointer-events-none" />
           </div>
@@ -3649,7 +3649,7 @@ export function CoverExtraVariant148({
 
         <div className="w-full flex flex-col items-center gap-4 pointer-events-none">
           <div className="w-[1px] h-8 bg-gradient-to-b from-white/20 to-transparent"></div>
-          <span className="font-outfit font-light text-white/50 text-[9px] uppercase tracking-widest transition-colors">
+          <span className="font-outfit font-light text-white/50 text-[9px] uppercase tracking-widest ">
             Explorar Coleção
           </span>
         </div>
