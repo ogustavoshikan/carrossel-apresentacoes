@@ -1015,10 +1015,6 @@ TOP
 }
 
 // ═══════════════════════════════════════════════════════════
-// MAPEAMENTO E METADADOS
-// ═══════════════════════════════════════════════════════════
-
-// ═══════════════════════════════════════════════════════════
 // EXTRA VARIANTE 113 — The Blueprint (Linhas Arquitetônicas)
 // ═══════════════════════════════════════════════════════════
 export function CoverExtraVariant113({
@@ -4158,6 +4154,255 @@ export function CoverExtraVariant159({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 160 — Scrapbook Lux
+// Design de colagem elegante com moldura polaroid e padrões.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant160({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col p-6">
+      {/* Padrão de pontos de fundo */}
+      <div 
+        className="absolute inset-0 opacity-50" 
+        style={{
+          backgroundImage: 'radial-gradient(rgb(213, 213, 213) 1px, transparent 1px)', 
+          backgroundSize: '16px 16px'
+        }}
+      ></div>
+
+      {/* Header do Scrapbook */}
+      <div className="relative z-20 w-full flex justify-between items-start mb-2">
+        <div className="bg-[#1a1a1a] text-white font-outfit font-black text-[9px] px-3 py-1 uppercase tracking-widest transform -rotate-3 shadow-md">
+          EST. 2026
+        </div>
+        <span className="font-outfit font-bold text-[10px] tracking-[0.2em] uppercase bg-white/50 px-2 py-0.5 rounded-sm backdrop-blur-sm" style={{ color: brandColor }}>
+          {brandHandle || 'SEUHANDLE'}
+        </span>
+      </div>
+
+      {/* Moldura Polaroid da Imagem */}
+      <div className="relative z-10 w-[90%] aspect-square bg-white p-3 pb-12 shadow-[15px_15px_40px_rgba(0,0,0,0.08)] transform rotate-2 group-hover:rotate-0 transition-transform duration-700 mx-auto mt-6">
+        {/* Fita adesiva decorativa */}
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transform -rotate-2 z-30"></div>
+        
+        <div className="w-full h-full relative overflow-hidden bg-zinc-100 ring-1 ring-black/5">
+          <ImageBg data={data} className="absolute inset-0 transition-transform duration-700 group-hover:scale-110" />
+        </div>
+
+        {/* Texto manuscrito na base da polaroid */}
+        <div className="absolute bottom-3 left-0 w-full text-center opacity-80">
+          <SmartField field="badge_text" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-caveat text-2xl text-zinc-800 font-bold -rotate-2 inline-block outline-none"
+            >
+              {data.badge_text || 'o melhor do fds!'}
+            </span>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Conteúdo inferior */}
+      <div className="relative z-20 mt-auto flex flex-col">
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter -ml-1 outline-none"
+            style={{ fontSize: `${72 * sTitle}px` }}
+          >
+            {data.titulo || 'TOP 5'}
+          </h2>
+        </SmartField>
+
+        <div className="flex justify-between items-end mt-4">
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-[#8A8275] text-[10px] font-medium tracking-[0.1em] uppercase max-w-[130px] leading-snug outline-none break-words"
+            >
+              {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
+            </p>
+          </SmartField>
+
+          <div 
+            className="w-12 h-12 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-lg"
+            style={{ 
+              backgroundColor: brandColor,
+              boxShadow: `0 10px 20px ${brandColor}4D`
+            }}
+          >
+            <ArrowRight className="w-5 h-5" />
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 161 — Negative Space
+// Minimalismo extremo. Foco no respiro e na tipografia clássica.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant161({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#FAF9F6] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 flex flex-col items-center p-8">
+      {/* Header Minimalista */}
+      <div className="w-full flex justify-between items-center mb-12">
+        <span className="font-mono text-[8px] text-zinc-400 tracking-[0.2em] uppercase">
+          {brandHandle || 'SEUHANDLE'}
+        </span>
+        <span className="font-mono text-[8px] text-zinc-400 tracking-[0.2em]">
+          {String(index + 1).padStart(2, '0')}/{String(slideCount).padStart(2, '0')}
+        </span>
+      </div>
+
+      {/* Imagem Central Reduzida */}
+      <div className="w-[45%] aspect-[3/4] overflow-hidden shadow-xl ring-1 ring-black/5 group-hover:scale-105 transition-transform duration-700 bg-zinc-200">
+        <ImageBg data={data} className="w-full h-full" />
+      </div>
+
+      {/* Conteúdo inferior centralizado */}
+      <div className="mt-auto w-full text-center flex flex-col items-center">
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-cormorant font-light text-zinc-800 leading-[0.9] tracking-tighter mb-4 outline-none break-words"
+            style={{ fontSize: `${56 * sTitle}px` }}
+          >
+            {data.titulo || 'O Espaço'} <br />
+            <span className="italic" style={{ color: brandColor }}>{data.badge_text || 'do Sabor'}</span>
+          </h2>
+        </SmartField>
+
+        {/* CTA de Deslize */}
+        <div className="flex items-center justify-center gap-2 cursor-pointer group/btn">
+          <span className="font-outfit text-[9px] text-zinc-500 uppercase tracking-[0.2em] group-hover/btn:text-[#DE1E4D] transition-colors" style={{ '--tw-text-opacity': '1', color: `var(--brand-color, ${brandColor})` }}>
+            Deslize para adoçar o dia
+          </span>
+          <ArrowRight className="w-3 h-3 text-zinc-400 group-hover/btn:translate-x-1 transition-all" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 162 — Swiss Grid
+// Funcionalismo suíço. Bordas pesadas e grid rigoroso.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant162({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col border-[3px] border-black">
+      <div className="flex-1 flex min-h-0">
+        {/* Barra Lateral Esquerda com Título Vertical */}
+        <div className="w-[25%] bg-black flex items-center justify-center p-4">
+          <SmartField field="titulo" {...sp} className="w-full">
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#EBE9E1] uppercase -rotate-90 whitespace-nowrap leading-none outline-none"
+              style={{ fontSize: `${48 * sTitle}px` }}
+            >
+              {data.titulo || 'TOP 5'}
+            </h2>
+          </SmartField>
+        </div>
+
+        {/* Área da Imagem Central */}
+        <div className="flex-1 relative bg-white border-l-[3px] border-black">
+          <ImageBg data={data} className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
+          
+          {/* Badge de Verificação / Ícone */}
+          <div className="absolute top-4 right-4 bg-black p-2 shadow-lg">
+            <ArrowDownRight className="w-6 h-6 text-white" />
+          </div>
+        </div>
+      </div>
+
+      {/* Rodapé do Grid */}
+      <div className="h-[25%] flex bg-white border-t-[3px] border-black">
+        <div className="flex-1 p-4 flex flex-col justify-between border-r-[3px] border-black overflow-hidden">
+          <span className="font-mono text-[10px] uppercase font-bold text-black truncate">
+            {brandHandle || 'SEUHANDLE'}
+          </span>
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit text-[9px] uppercase tracking-widest text-zinc-600 max-w-[120px] outline-none break-words"
+            >
+              {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
+            </p>
+          </SmartField>
+        </div>
+        
+        {/* Bloco de CTA */}
+        <div 
+          className="w-[30%] flex items-center justify-center cursor-pointer transition-colors group/cta"
+          style={{ backgroundColor: brandColor }}
+        >
+          <ArrowRight className="w-8 h-8 text-white group-hover/cta:translate-x-1 transition-transform" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -4213,6 +4458,9 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   157: CoverExtraVariant157,
   158: CoverExtraVariant158,
   159: CoverExtraVariant159,
+  160: CoverExtraVariant160,
+  161: CoverExtraVariant161,
+  162: CoverExtraVariant162,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -4539,5 +4787,23 @@ export const COVER_EXTRA_VARIANT_META = [
     name: 'The Floating Typo',
     description: 'Imagem em moldura flutuante com numeral gigante ao fundo.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras159.png',
+  },
+  {
+    id: 160,
+    name: 'Scrapbook Lux',
+    description: 'Design de colagem elegante com moldura polaroid e padrões.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras160.png',
+  },
+  {
+    id: 161,
+    name: 'Negative Space',
+    description: 'Minimalismo extremo. Foco no respiro e na tipografia clássica.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras161.png',
+  },
+  {
+    id: 162,
+    name: 'Swiss Grid',
+    description: 'Funcionalismo suíço. Bordas pesadas e grid rigoroso.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras162.png',
   },
 ];
