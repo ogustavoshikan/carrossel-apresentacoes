@@ -4215,7 +4215,12 @@ export function CoverExtraVariant160({
       </div>
 
       {/* Moldura Polaroid da Imagem */}
-      <div className="relative z-10 w-[90%] aspect-square bg-white p-3 pb-12 shadow-[15px_15px_40px_rgba(0,0,0,0.08)] transform rotate-2 group-hover:rotate-0 transition-transform duration-700 mx-auto mt-6">
+      <div 
+        className="relative z-10 w-[90%] aspect-square bg-white p-3 pb-12 transform rotate-2 group-hover:rotate-0 transition-transform duration-700 mx-auto mt-6"
+        style={{ 
+          boxShadow: `15px 15px 40px ${brandColor}33`
+        }}
+      >
         {/* Fita adesiva decorativa */}
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-white/40 backdrop-blur-md border border-white/60 shadow-sm transform -rotate-2 z-30"></div>
         
