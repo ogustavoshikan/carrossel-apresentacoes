@@ -3722,6 +3722,9 @@ export function CoverExtraVariant154({
       <div className="relative h-[55%] w-full overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" />
       </div>
+
+      {/* Linha divisória branca */}
+      <div className="h-[8px] w-full bg-white z-20" />
       
       <div className="relative h-[45%] w-full p-6 flex flex-col justify-between" style={{ backgroundColor: brandColor }}>
         <div className="flex justify-between items-center w-full border-b border-white/20 pb-4">
@@ -3866,22 +3869,25 @@ export function CoverExtraVariant156({
   return (
     <div className="group relative w-full h-full bg-[#F9F6F0] overflow-hidden shadow-2xl ring-1 ring-white/10 p-4">
       <div className="w-full h-full border rounded-t-[120px] rounded-b-2xl overflow-hidden relative flex flex-col" style={{ borderColor: `${brandColor}33` }}>
-        <div className="relative h-[60%] w-full bg-zinc-200 overflow-hidden">
+        <div className="relative h-[50%] w-full bg-zinc-200 overflow-hidden">
           <ImageBg data={data} className="absolute inset-0 transition-transform duration-1000 group-hover:scale-110" />
         </div>
 
         <div className="flex-1 bg-[#F9F6F0] flex flex-col items-center justify-between p-6 text-center">
           <div className="flex flex-col items-center gap-2">
-            <Sparkles className="w-5 h-5 text-[#D4AF37]" />
+            <Sparkles className="w-5 h-5" style={{ color: brandColor }} />
             <SmartField field="titulo" {...sp}>
               <h2 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
                 className="font-cormorant font-bold text-[#2C2C2C] leading-none uppercase outline-none break-words"
-                style={{ fontSize: `${36 * sTitle}px` }}
+                style={{ fontSize: `${58 * sTitle}px` }}
               >
-                {data.titulo || 'Top '}
-                <span className="italic" style={{ color: brandColor }}>Five</span>
+                {data.titulo || (
+                  <>
+                    Top <span className="italic" style={{ color: brandColor }}>Five</span>
+                  </>
+                )}
               </h2>
             </SmartField>
           </div>
@@ -3890,8 +3896,8 @@ export function CoverExtraVariant156({
             <p 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit text-[#5A5A5A] font-bold tracking-[0.2em] uppercase max-w-[180px] leading-relaxed outline-none break-words"
-              style={{ fontSize: `${9 * sText}px` }}
+              className="font-outfit text-[#5A5A5A] font-bold tracking-[0.2em] uppercase max-w-[180px] leading-relaxed outline-none break-words relative -top-[20px]"
+              style={{ fontSize: `${13 * sText}px` }}
             >
               {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
             </p>
