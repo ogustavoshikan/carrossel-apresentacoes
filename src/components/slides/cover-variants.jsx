@@ -2825,7 +2825,7 @@ export function CoverVariant53(props) {
             <ImageBg data={data} className="absolute inset-0" />
         </div>
 
-        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-white text-[#1a1a1a] rounded-full flex items-center justify-center shadow-xl border-4 z-20 hover:scale-105 transition-transform cursor-pointer" style={{ borderColor: brandColor }}>
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-white text-[#1a1a1a] rounded-full flex items-center justify-center shadow-xl border-4 z-20" style={{ borderColor: brandColor }}>
              <ArrowRight className="w-6 h-6" />
         </div>
     </div>
