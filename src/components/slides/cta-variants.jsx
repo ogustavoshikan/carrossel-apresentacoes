@@ -177,7 +177,7 @@ export function CTAVariant5(props) {
         />
       </div>
       
-      <div className="relative z-10 w-[95%] bg-surface-input/30 backdrop-blur-3xl border border-white/20 rounded-[2rem] p-8 py-10 shadow-2xl flex flex-col items-center text-center transform -rotate-2 hover:rotate-0 transition-transform duration-150">
+      <div className="relative z-10 w-[95%] bg-surface-input/30 backdrop-blur-3xl border border-white/20 rounded-[2rem] p-8 py-10 shadow-2xl flex flex-col items-center text-center -rotate-2">
         <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-inner pointer-events-none" style={{ backgroundColor: brandColor }}>
           <ArrowUpRight className="w-8 h-8 text-white" />
         </div>
@@ -327,7 +327,7 @@ export function CTAVariant6(props) {
         className="w-full relative z-10"
       >
         <button
-          className="w-full py-6 font-tag font-black text-[14px] uppercase tracking-[0.4em] rounded-2xl text-white transition-all shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:scale-105 pointer-events-none"
+          className="w-full py-6 font-tag font-black text-[14px] uppercase tracking-[0.4em] rounded-2xl text-white shadow-[0_0_40px_rgba(0,0,0,0.5)] pointer-events-none"
           style={{fontFamily: titleFont,  backgroundColor: brandColor }}
         >
           {data.tag || 'CLIQUE AQUI'}
@@ -421,7 +421,7 @@ export function CTAVariant7(props) {
           onSelectElement={onSelectElement}
           className="w-full relative z-10"
         >
-          <button className="w-full py-4 rounded-xl font-tag font-black text-[10px] uppercase tracking-widest text-black bg-white flex items-center justify-center gap-2 hover:bg-zinc-200 pointer-events-none">
+          <button className="w-full py-4 rounded-xl font-tag font-black text-[10px] uppercase tracking-widest text-black bg-white flex items-center justify-center gap-2 pointer-events-none">
             <MousePointer2 className="w-4 h-4" /> {data.tag || 'RESERVE SUA DATA'}
           </button>
         </SmartElement>
@@ -481,7 +481,7 @@ export function CTAVariant14(props) {
           {data.texto_apoio}
         </p>
       </SmartElement>
-      <div className="px-6 py-3 rounded-full text-xs font-text font-bold tracking-widest uppercase cursor-pointer shrink-0 pointer-events-none relative z-10" style={{ backgroundColor: brandColor }}>Enviar Mensagem</div>
+      <div className="px-6 py-3 rounded-full text-xs font-text font-bold tracking-widest uppercase shrink-0 pointer-events-none relative z-10" style={{ backgroundColor: brandColor }}>Enviar Mensagem</div>
     </div>
   );
 }
@@ -1053,11 +1053,11 @@ export function CTAVariant29(props) {
         </SmartElement>
         <div className="w-full border-t border-zinc-800 pt-6 flex justify-between items-center px-4">
           <div className="flex gap-6">
-            <Heart className="w-6 h-6 text-zinc-500 hover:text-white transition-colors cursor-pointer" />
-            <MessageCircle className="w-6 h-6 text-zinc-500 hover:text-white transition-colors cursor-pointer" />
-            <Send className="w-6 h-6 text-zinc-500 hover:text-white transition-colors cursor-pointer" />
+            <Heart className="w-6 h-6 text-zinc-500" />
+            <MessageCircle className="w-6 h-6 text-zinc-500" />
+            <Send className="w-6 h-6 text-zinc-500" />
           </div>
-          <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
+          <div className="flex items-center gap-2">
             <span className="font-text font-bold text-[10px] tracking-widest uppercase text-white">SALVAR</span>
             <Bookmark className="w-6 h-6" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
           </div>
@@ -1127,12 +1127,12 @@ export function CTAVariant31(props) {
       </div>
       <div className="absolute top-[60%] left-8 right-8 -translate-y-1/2 bg-white rounded-2xl p-4 flex justify-between items-center shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-20 border border-zinc-200">
         <div className="flex gap-6 pl-4">
-          <Heart className="w-6 h-6 text-[#1a1a1a] hover:scale-110 transition-transform cursor-pointer" />
-          <MessageCircle className="w-6 h-6 text-[#1a1a1a] hover:scale-110 transition-transform cursor-pointer" />
-          <Send className="w-6 h-6 text-[#1a1a1a] hover:scale-110 transition-transform cursor-pointer" />
+          <Heart className="w-6 h-6 text-[#1a1a1a]" />
+          <MessageCircle className="w-6 h-6 text-[#1a1a1a]" />
+          <Send className="w-6 h-6 text-[#1a1a1a]" />
         </div>
         <div className="pr-4 pl-4 border-l border-zinc-200">
-          <Bookmark className="w-7 h-7 hover:scale-110 transition-transform cursor-pointer" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
+          <Bookmark className="w-7 h-7" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
         </div>
       </div>
     </div>
@@ -1204,21 +1204,21 @@ export function CTAVariant33(props) {
         </SmartElement>
       </div>
       <div className="w-[25%] h-full bg-black/40 backdrop-blur-xl border-l border-white/20 flex flex-col items-center justify-center gap-8 relative z-20 shadow-[-20px_0_50px_rgba(0,0,0,0.5)]">
-        <div className="flex flex-col items-center gap-2 group cursor-pointer opacity-70 hover:opacity-100 transition-all">
-          <Heart className="w-6 h-6 text-white group-hover:text-red-400 transition-all" />
-          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Curtir</span>
+        <div className="flex flex-col items-center gap-2 group opacity-70">
+          <Heart className="w-6 h-6 text-white" />
+          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50">Curtir</span>
         </div>
-        <div className="flex flex-col items-center gap-2 group cursor-pointer opacity-70 hover:opacity-100 transition-all">
-          <MessageCircle className="w-6 h-6 text-white group-hover:text-blue-400 transition-all" />
-          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Comentar</span>
+        <div className="flex flex-col items-center gap-2 group opacity-70">
+          <MessageCircle className="w-6 h-6 text-white" />
+          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50">Comentar</span>
         </div>
-        <div className="flex flex-col items-center gap-2 group cursor-pointer opacity-70 hover:opacity-100 transition-all">
-          <Send className="w-6 h-6 text-white group-hover:text-green-400 transition-all" />
-          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">Enviar</span>
+        <div className="flex flex-col items-center gap-2 group opacity-70">
+          <Send className="w-6 h-6 text-white" />
+          <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white/50">Enviar</span>
         </div>
         <div className="w-8 h-px bg-white/20 my-2" />
-        <div className="flex flex-col items-center gap-2 group cursor-pointer">
-          <div className="p-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+        <div className="flex flex-col items-center gap-2 group">
+          <div className="p-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)]" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
             <Bookmark className="w-6 h-6 text-white" fill="currentColor" />
           </div>
           <span className="font-text font-bold text-[8px] uppercase tracking-widest text-white">Salvar</span>
@@ -1299,13 +1299,13 @@ export function CTAVariant34(props) {
         </SmartElement>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur text-[#1a1a1a] rounded-full px-8 py-3 flex items-center gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] z-20 border border-white">
-        <Heart className="w-6 h-6 hover:text-red-500 hover:scale-110 transition-all cursor-pointer" />
-        <MessageCircle className="w-6 h-6 hover:text-blue-500 hover:scale-110 transition-all cursor-pointer" />
-        <Send className="w-6 h-6 hover:text-green-500 hover:scale-110 transition-all cursor-pointer" />
+        <Heart className="w-6 h-6" />
+        <MessageCircle className="w-6 h-6" />
+        <Send className="w-6 h-6" />
         <div className="w-px h-6 bg-zinc-300 mx-1" />
-        <div className="flex items-center gap-2 cursor-pointer group">
-          <span className="font-text font-bold text-[10px] uppercase tracking-widest text-zinc-500 group-hover:text-black transition-colors">SALVAR</span>
-          <Bookmark className="w-6 h-6 group-hover:scale-110 transition-transform" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
+        <div className="flex items-center gap-2 group">
+          <span className="font-text font-bold text-[10px] uppercase tracking-widest text-zinc-500">SALVAR</span>
+          <Bookmark className="w-6 h-6" style={{fontFamily: textFont,  color: brandColor }} fill="currentColor" />
         </div>
       </div>
     </div>
@@ -1396,10 +1396,10 @@ export function CTAVariant36(props) {
           </div>
         </div>
         <div className="flex items-center gap-2 pr-2 shrink-0">
-          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
+          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20">
             <Heart className="w-4 h-4 text-white" />
           </div>
-          <div className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:scale-105 transition-transform" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
             <Bookmark className="w-4 h-4 text-white" fill="currentColor" />
           </div>
         </div>
@@ -1476,11 +1476,11 @@ export function CTAVariant37(props) {
         </SmartElement>
         <div className="flex justify-between items-center w-full mt-auto border-t border-black/10 pt-4">
           <div className="flex gap-4">
-            <Heart className="w-6 h-6 cursor-pointer transition-colors" style={{ color: brandColor }} />
-            <MessageCircle className="w-6 h-6 cursor-pointer transition-colors" style={{ color: brandColor }} />
+            <Heart className="w-6 h-6" style={{ color: brandColor }} />
+            <MessageCircle className="w-6 h-6" style={{ color: brandColor }} />
           </div>
-          <div className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform group">
-            <span className="font-text font-bold text-[10px] tracking-widest uppercase transition-colors" style={{ color: brandColor }}>SALVAR</span>
+          <div className="flex items-center gap-2 group">
+            <span className="font-text font-bold text-[10px] tracking-widest uppercase" style={{ color: brandColor }}>SALVAR</span>
             <Bookmark className="w-6 h-6" style={{ color: brandColor }} fill="currentColor" />
           </div>
         </div>
@@ -1564,10 +1564,10 @@ export function CTAVariant40(props) {
         </SmartElement>
       </div>
       <div className="w-full p-8 pt-0 flex items-center gap-4 relative z-10 mt-auto">
-        <div className="flex-1 h-14 rounded-full bg-zinc-100 flex items-center justify-center hover:bg-zinc-200 transition-colors cursor-pointer border border-zinc-200 shadow-inner">
+        <div className="flex-1 h-14 rounded-full bg-zinc-100 flex items-center justify-center border border-zinc-200 shadow-inner">
           <MessageCircle className="w-6 h-6 text-zinc-600" />
         </div>
-        <div className="flex-[2] h-14 rounded-full flex items-center justify-center gap-3 cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:scale-[1.02] transition-transform text-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+        <div className="flex-[2] h-14 rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.2)] text-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
           <span className="font-text font-bold text-[11px] uppercase tracking-[0.2em]">SALVAR POST</span>
           <Bookmark className="w-5 h-5" fill="currentColor" />
         </div>
@@ -1647,14 +1647,14 @@ export function CTAVariant41(props) {
           }}
         >
           <div className="flex gap-4 pl-3">
-            <Heart className="w-6 h-6 cursor-pointer transition-colors" style={{ color: brandColor }} />
-            <MessageCircle className="w-6 h-6 cursor-pointer transition-colors" style={{ color: brandColor }} />
+            <Heart className="w-6 h-6" style={{ color: brandColor }} />
+            <MessageCircle className="w-6 h-6" style={{ color: brandColor }} />
           </div>
           <div 
-            className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform group px-4 py-2 rounded-xl border border-white/10"
+            className="flex items-center gap-2 group px-4 py-2 rounded-xl border border-white/10"
             style={{ backgroundColor: brandColor + '15' }}
           >
-            <span className="font-text font-bold text-[10px] tracking-widest uppercase transition-colors" style={{ color: brandColor }}>SALVAR</span>
+            <span className="font-text font-bold text-[10px] tracking-widest uppercase" style={{ color: brandColor }}>SALVAR</span>
             <Bookmark className="w-5 h-5" style={{ color: brandColor }} fill="currentColor" />
           </div>
         </div>
@@ -1738,10 +1738,10 @@ export function CTAVariant42(props) {
         </SmartElement>
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 flex justify-between items-center border border-white/20 shadow-xl mt-auto shrink-0">
           <div className="flex gap-2 pl-2">
-            <Heart className="w-6 h-6 text-white hover:scale-110 transition-transform cursor-pointer" />
-            <MessageCircle className="w-6 h-6 text-white hover:scale-110 transition-transform cursor-pointer ml-3" />
+            <Heart className="w-6 h-6 text-white" />
+            <MessageCircle className="w-6 h-6 text-white ml-3" />
           </div>
-          <div className="flex items-center gap-2 cursor-pointer group bg-white text-[#111] px-5 py-2.5 rounded-xl shadow-lg hover:scale-105 transition-transform">
+          <div className="flex items-center gap-2 group bg-white text-[#111] px-5 py-2.5 rounded-xl shadow-lg">
             <span className="font-text font-black text-[10px] tracking-widest uppercase">SALVAR</span>
             <Bookmark className="w-4 h-4" fill="currentColor" />
           </div>
