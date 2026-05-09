@@ -4403,6 +4403,222 @@ export function CoverExtraVariant162({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 163 — Typographic Noise
+// Fundo escuro com marquee tipográfico e imagem em destaque.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant163({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const marqueeText = (data.titulo || 'TOP 5').toUpperCase() + ' ';
+  const repeatedText = Array(10).fill(marqueeText).join('');
+
+  return (
+    <div className="group relative w-full h-full bg-zinc-950 overflow-hidden flex items-center justify-center p-6">
+      {/* Background Marquee */}
+      <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none flex flex-col justify-center gap-2">
+        {[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5].map((delay, i) => (
+          <div 
+            key={i} 
+            className="whitespace-nowrap font-outfit font-black text-5xl text-white transform -skew-x-12 animate-[marquee_10s_linear_infinite]" 
+            style={{ animationDelay: `${delay}s`, animationDirection: i % 2 === 0 ? 'normal' : 'reverse' }}
+          >
+            {repeatedText}
+          </div>
+        ))}
+      </div>
+
+      {/* Main Image Container */}
+      <div 
+        className="relative z-10 w-full aspect-square rounded-[40px] overflow-hidden p-1"
+        style={{ backgroundColor: brandColor, boxShadow: `0 0 50px ${brandColor}4D` }}
+      >
+        <div className="w-full h-full rounded-[36px] overflow-hidden relative group-hover:scale-[0.98] transition-transform duration-500 bg-zinc-800">
+          <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+        </div>
+      </div>
+
+      {/* Bottom Floating Bar */}
+      <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center z-20 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-2xl">
+        <span className="font-outfit font-bold text-[8px] text-white/70 tracking-widest uppercase truncate max-w-[150px]">
+          {brandHandle || 'SEUHANDLE'}
+        </span>
+        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center cursor-pointer">
+          <ArrowRight className="w-3 h-3 text-black" />
+        </div>
+      </div>
+
+      {/* Hidden Text Edit (Since it's marquee, we need a way to edit it directly) */}
+      <div className="absolute top-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 p-2 rounded">
+        <SmartField field="titulo" {...sp}>
+           <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="text-white text-xs font-mono outline-none"
+            >
+              {data.titulo || 'TOP 5'}
+            </h2>
+        </SmartField>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 164 — Split Bold
+// Divisão horizontal forte, cor sólida vibrante e tipografia bold.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant164({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full overflow-hidden shadow-2xl flex flex-col" style={{ backgroundColor: brandColor }}>
+      <div className="h-[35%] w-full flex flex-col justify-center px-8 relative">
+        <span className="font-mono text-[9px] text-white/70 absolute top-6 left-8">
+          {brandHandle || 'SEUHANDLE'}
+        </span>
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white uppercase tracking-tighter leading-none mt-4 outline-none break-words"
+            style={{ fontSize: `${60 * sTitle}px` }}
+          >
+            {data.titulo || 'TOP 5'}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair italic text-white/90 text-sm mt-2 outline-none break-words"
+          >
+            {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
+          </p>
+        </SmartField>
+      </div>
+      
+      <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-black">
+        <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+        
+        <div className="absolute bottom-6 right-6 bg-black text-white px-5 py-2.5 rounded-full font-outfit text-[10px] font-bold uppercase flex items-center gap-2 shadow-xl cursor-pointer hover:scale-105 transition-transform">
+          Deslizar <ArrowRight className="w-4 h-4" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 165 — Vogue Food
+// Estilo editorial de luxo, com imagem full e tipografia Cormorant.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant165({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-black overflow-hidden flex flex-col justify-between p-6">
+      <div className="absolute inset-0 opacity-80 bg-zinc-900">
+        <ImageBg data={data} className="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+      
+      <div className="relative z-10 w-full text-center mt-2 flex flex-col items-center">
+        <SmartField field="titulo" {...sp}>
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-cormorant font-black text-white leading-[0.8] tracking-tighter uppercase drop-shadow-2xl outline-none break-words"
+            style={{ fontSize: `${88 * sTitle}px` }}
+          >
+            {data.titulo || 'TOP 5'}
+          </h1>
+        </SmartField>
+        
+        <SmartField field="badge_text" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="font-outfit text-white/90 text-[10px] tracking-[0.3em] uppercase mt-4 drop-shadow-md outline-none"
+            style={{ color: brandColor }}
+          >
+            {data.badge_text || 'The Weekend Edition'}
+          </p>
+        </SmartField>
+      </div>
+      
+      <div className="relative z-10 flex justify-between items-end w-full mt-auto">
+        <div className="flex flex-col">
+          <span 
+            className="font-outfit font-bold text-white text-[10px] px-2 py-1 uppercase w-fit mb-1"
+            style={{ backgroundColor: brandColor }}
+          >
+            {brandHandle || 'SEUHANDLE'}
+          </span>
+          <SmartField field="texto_apoio" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair italic text-white/90 text-sm drop-shadow-md outline-none max-w-[200px] block"
+            >
+              {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
+            </span>
+          </SmartField>
+        </div>
+        
+        <div className="w-8 h-8 rounded-full border border-white/50 flex items-center justify-center bg-black/40 backdrop-blur-sm cursor-pointer group-hover:bg-white/20 transition-colors">
+          <ArrowRight className="w-4 h-4 text-white" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -4461,6 +4677,9 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   160: CoverExtraVariant160,
   161: CoverExtraVariant161,
   162: CoverExtraVariant162,
+  163: CoverExtraVariant163,
+  164: CoverExtraVariant164,
+  165: CoverExtraVariant165,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -4805,5 +5024,23 @@ export const COVER_EXTRA_VARIANT_META = [
     name: 'Swiss Grid',
     description: 'Funcionalismo suíço. Bordas pesadas e grid rigoroso.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras162.png',
+  },
+  {
+    id: 163,
+    name: 'Typographic Noise',
+    description: 'Fundo escuro com marquee tipográfico e imagem em destaque.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras163.png',
+  },
+  {
+    id: 164,
+    name: 'Split Bold',
+    description: 'Divisão horizontal forte, cor sólida vibrante e tipografia bold.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras164.png',
+  },
+  {
+    id: 165,
+    name: 'Vogue Food',
+    description: 'Estilo editorial de luxo, com imagem full e tipografia Cormorant.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras165.png',
   },
 ];
