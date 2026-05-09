@@ -3915,6 +3915,249 @@ export function CoverExtraVariant156({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 157 — THE BENTO EDITORIAL
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant157({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#111] overflow-hidden shadow-2xl ring-1 ring-white/10 p-3 grid grid-cols-2 grid-rows-4 gap-3">
+      <div className="col-span-2 row-span-3 bg-zinc-900 rounded-xl overflow-hidden relative shadow-inner">
+        <ImageBg data={data} className="absolute inset-0 transition-transform duration-700 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+        
+        <div className="absolute bottom-6 left-6 right-6">
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-white leading-[0.9] tracking-tighter uppercase mb-2 outline-none break-words"
+              style={{ fontSize: `${48 * sTitle}px` }}
+            >
+              {data.titulo || 'TOP 5'} <br/><span style={{ color: brandColor }}>DO FDS</span>
+            </h2>
+          </SmartField>
+
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-playfair italic text-white/80 leading-tight outline-none break-words"
+              style={{ fontSize: `${18 * sText}px` }}
+            >
+              {data.texto_apoio || 'A seleção que você realmente merece saborear.'}
+            </p>
+          </SmartField>
+        </div>
+
+        <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-1 border border-white/10">
+          <span className="font-outfit text-white text-[10px] font-bold tracking-widest">VOL. 0{index + 1}</span>
+        </div>
+      </div>
+
+      <div className="col-span-1 row-span-1 bg-white/5 border border-white/10 rounded-xl flex flex-col items-center justify-center backdrop-blur-sm p-4 text-center hover:bg-white/10 transition-colors">
+        <Crown className="w-5 h-5 mb-1" style={{ color: brandColor }} />
+        <span className="font-outfit font-bold tracking-widest text-[8px] text-white/70 uppercase leading-tight">
+          @{brandHandle || 'seuhandle'}
+        </span>
+      </div>
+
+      <div 
+        className="col-span-1 row-span-1 rounded-xl flex items-center justify-center cursor-pointer group/cta shadow-xl hover:opacity-90 transition-all relative overflow-hidden"
+        style={{ backgroundColor: brandColor }}
+      >
+        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/cta:translate-y-0 transition-transform duration-300" />
+        <div className="relative flex items-center gap-2">
+          <span className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest">Deslizar</span>
+          <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center group-hover/cta:translate-x-1 transition-transform">
+            <ChevronRight className="w-4 h-4 stroke-[3]" style={{ color: brandColor }} />
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 158 — THE MASKED TYPOGRAPHY
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant158({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#050505] overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col justify-center items-center">
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{ background: `radial-gradient(circle at center, ${brandColor}, transparent 70%)` }}
+      />
+      
+      <div className="absolute top-8 w-full px-8 flex justify-between items-center z-20">
+        <div className="h-[1px] flex-1 bg-white/10" />
+        <span className="font-outfit font-medium tracking-[0.3em] text-[9px] text-white/50 uppercase px-4">
+          @{brandHandle || 'seuhandle'}
+        </span>
+        <div className="h-[1px] flex-1 bg-white/10" />
+      </div>
+
+      <div className="relative w-full flex flex-col items-center justify-center z-10 scale-105 group-hover:scale-110 transition-transform duration-1000 ease-out">
+        <SmartField field="titulo" {...sp}>
+          <div className="flex flex-col items-center">
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-center tracking-tighter m-0 p-0 text-transparent bg-clip-text bg-cover bg-center outline-none break-words"
+              style={{ 
+                fontSize: `${144 * sTitle}px`, 
+                lineHeight: 0.8,
+                backgroundImage: `url(${data.backgroundImage || 'https://images.unsplash.com/photo-1623934444983-8a3014c2c9d0'})` 
+              }}
+            >
+              TOP
+            </h1>
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo2', e.currentTarget.innerText)}
+              className="font-outfit font-black text-center tracking-tighter m-0 p-0 text-transparent bg-clip-text bg-cover bg-center outline-none break-words"
+              style={{ 
+                fontSize: `${192 * sTitle}px`, 
+                lineHeight: 0.75,
+                backgroundImage: `url(${data.backgroundImage || 'https://images.unsplash.com/photo-1623934444983-8a3014c2c9d0'})` 
+              }}
+            >
+              5
+            </h1>
+          </div>
+        </SmartField>
+        <div className="absolute inset-0 bg-black/10 pointer-events-none mix-blend-overlay" />
+      </div>
+
+      <div className="absolute bottom-24 w-full text-center z-20">
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair italic text-white drop-shadow-xl bg-black/40 inline-block px-4 py-1 backdrop-blur-md rounded-full border border-white/5 outline-none break-words"
+            style={{ fontSize: `${20 * sText}px` }}
+          >
+            {data.texto_apoio || 'A seleção essencial do fds.'}
+          </p>
+        </SmartField>
+      </div>
+
+      <div className="absolute bottom-8 w-full flex justify-center z-20">
+        <div className="flex items-center gap-3 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+          <span className="font-outfit font-bold text-white text-[10px] uppercase tracking-[0.2em]">Deslize para adoçar o dia</span>
+          <ArrowRight className="w-4 h-4" style={{ color: brandColor }} />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 159 — THE FLOATING TYPO
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant159({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+    <div className="group relative w-full h-full bg-[#0c0c0c] overflow-hidden shadow-2xl ring-1 ring-white/10 flex items-center justify-center p-6">
+      <div className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-10 transition-opacity duration-700 blur-sm pointer-events-none">
+        <ImageBg data={data} />
+      </div>
+      
+      <h2 
+        className="absolute z-0 font-cormorant font-black text-white leading-none opacity-20 -translate-y-12 group-hover:scale-110 transition-transform duration-1000 select-none"
+        style={{ fontSize: `${320 * sTitle}px`, color: brandColor }}
+      >
+        5
+      </h2>
+
+      <div className="relative z-10 w-[70%] aspect-[4/5] bg-zinc-900 shadow-[0_30px_60px_rgba(0,0,0,0.8)] overflow-hidden rounded-md ring-1 ring-white/20 transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700">
+        <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      </div>
+
+      <div className="absolute z-20 bottom-20 left-6">
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white leading-[0.8] uppercase tracking-tighter drop-shadow-2xl outline-none break-words"
+            style={{ fontSize: `${60 * sTitle}px` }}
+          >
+            O Top <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-300" style={{ backgroundImage: `linear-gradient(to right, ${brandColor}, #fda4af)`, fontSize: `${72 * sTitle}px` }}>
+              Cinco
+            </span>
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="absolute top-6 right-6 z-30">
+        <span className="font-outfit font-bold tracking-[0.2em] text-[8px] text-white bg-black/60 px-4 py-2 rounded-full backdrop-blur-md border border-white/10 uppercase">
+          @{brandHandle || 'seuhandle'}
+        </span>
+      </div>
+
+      <div className="absolute bottom-6 right-6 z-30 cursor-pointer group/btn">
+        <div className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center hover:opacity-90 transition-all shadow-xl" style={{ backgroundColor: brandColor }}>
+          <ArrowRight className="w-5 h-5 text-white" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -3967,6 +4210,9 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   154: CoverExtraVariant154,
   155: CoverExtraVariant155,
   156: CoverExtraVariant156,
+  157: CoverExtraVariant157,
+  158: CoverExtraVariant158,
+  159: CoverExtraVariant159,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -4275,5 +4521,23 @@ export const COVER_EXTRA_VARIANT_META = [
     name: 'The Organic Arch',
     description: 'Elegância orgânica com moldura em arco e detalhes em dourado.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras156.png',
+  },
+  {
+    id: 157,
+    name: 'The Bento Editorial',
+    description: 'Layout em grade estilo bento com destaque para o título e CTA.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras157.png',
+  },
+  {
+    id: 158,
+    name: 'The Masked Typography',
+    description: 'Tipografia gigante mascarada com a imagem de fundo.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras158.png',
+  },
+  {
+    id: 159,
+    name: 'The Floating Typo',
+    description: 'Imagem em moldura flutuante com numeral gigante ao fundo.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras159.png',
   },
 ];

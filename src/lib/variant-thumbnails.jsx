@@ -1489,6 +1489,46 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
+    157: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#111] p-1 grid grid-cols-2 grid-rows-4 gap-1 overflow-hidden">
+        <div className="col-span-2 row-span-3 rounded-lg overflow-hidden relative" style={{ background: img }}>
+           <div className="absolute bottom-1.5 left-1.5 w-[70%] h-4 flex flex-col gap-0.5">
+             <div className="w-full h-1.5 bg-white/40 rounded-full" />
+             <div className="w-[60%] h-1 bg-white/20 rounded-full" />
+           </div>
+        </div>
+        <div className="col-span-1 row-span-1 rounded-lg border border-white/5 bg-white/5 flex flex-col items-center justify-center">
+           <div className="w-2 h-2 rounded-full opacity-40 mb-0.5" style={{ background: accent }} />
+           <div className="w-[60%] h-[0.5px] bg-white/20" />
+        </div>
+        <div className="col-span-1 row-span-1 rounded-lg flex items-center justify-center" style={{ background: accent }}>
+           <div className="w-[50%] h-1 bg-white/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    158: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#050505] flex flex-col items-center justify-center p-2 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10" style={{ background: `radial-gradient(circle, ${accent}, transparent)` }} />
+        <div className="font-black text-white/10 leading-none" style={{ fontSize: '40px' }}>TOP</div>
+        <div className="font-black text-white/10 leading-none -mt-2" style={{ fontSize: '50px' }}>5</div>
+        <div className="absolute bottom-4 w-[60%] h-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+           <div className="w-[70%] h-1 bg-white/20 rounded-full" />
+        </div>
+      </div>
+    ),
+    159: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#0c0c0c] flex items-center justify-center p-1.5 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-20" style={{ background: img }} />
+        <div className="absolute font-black text-white/5" style={{ fontSize: '70px' }}>5</div>
+        <div className="w-[60%] aspect-[4/5] bg-zinc-800 rounded shadow-2xl -rotate-3 border border-white/10 overflow-hidden relative">
+           <div className="absolute inset-0" style={{ background: img }} />
+        </div>
+        <div className="absolute bottom-4 left-2 flex flex-col gap-0.5">
+           <div className="w-10 h-2 bg-white/40 rounded-full" />
+           <div className="w-6 h-2 rounded-full" style={{ background: accent }} />
+        </div>
+      </div>
+    ),
   },
   'content-split': {
     0: ({ brandColor: accent }) => (
