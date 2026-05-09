@@ -3739,7 +3739,7 @@ export function CoverExtraVariant154({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
               className="font-outfit font-light text-white/90 tracking-widest uppercase max-w-[140px] leading-relaxed outline-none break-words"
-              style={{ fontSize: `${11 * sText}px` }}
+              style={{ fontSize: `${14 * sText}px` }}
             >
               {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
             </p>
@@ -3752,7 +3752,7 @@ export function CoverExtraVariant154({
         </div>
       </div>
 
-      <div className="absolute top-[55%] left-6 -translate-y-1/2 z-10 pointer-events-none">
+      <div className="absolute top-[55%] left-6 -translate-y-1/2 z-10 pointer-events-none mt-[90px]">
         <SmartField field="titulo" {...sp}>
           <h2 
             contentEditable suppressContentEditableWarning
