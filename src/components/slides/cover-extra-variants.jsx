@@ -103,22 +103,25 @@ export function CoverExtraVariant101({
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-outfit text-zinc-600 font-medium text-[11px] max-w-[160px] uppercase tracking-widest mt-8 ml-3 leading-relaxed outline-none break-words"
+            className="font-outfit text-zinc-600 font-medium text-[11px] max-w-[160px] uppercase tracking-widest mt-[48px] ml-3 leading-relaxed outline-none break-words"
             style={{ fontSize: '11px' }}
           >
             {data.texto_apoio}
           </p>
         </SmartField>
 
-        <div className="flex justify-between items-end px-3">
-          <span className="font-outfit font-bold text-[9px] text-[#1a1a1a] uppercase tracking-[0.2em] opacity-60">
-            @{brandHandle || 'seuhandle'}
-          </span>
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center shadow-lg"
-            style={{ backgroundColor: brandColor }}
-          >
-            <ArrowRight className="w-4 h-4 text-white" />
+        <div className="mt-2 px-3">
+          <div className="border-t border-[#1a1a1a]/10 translate-y-[4px]" />
+          <div className="flex justify-between items-end pt-4">
+            <span className="font-outfit font-bold text-[9px] text-[#1a1a1a] uppercase tracking-[0.2em] opacity-60">
+              @{brandHandle || 'seuhandle'}
+            </span>
+            <div
+              className="w-8 h-8 rounded-full flex items-center justify-center shadow-lg translate-y-[5px]"
+              style={{ backgroundColor: brandColor }}
+            >
+              <ArrowRight className="w-4 h-4 text-white" />
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +157,7 @@ export function CoverExtraVariant102({
     <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex">
       {/* Faixa lateral esquerda colorida (32%) */}
       <div
-        className="w-[32%] h-full flex flex-col justify-between relative z-10 border-r border-[#1a1a1a]/20"
+        className="w-[32%] h-full flex flex-col justify-between relative z-10 border-r border-[#1a1a1a]/40"
         style={{ backgroundColor: brandColor }}
       >
         <div className="p-4 h-12">
@@ -163,6 +166,7 @@ export function CoverExtraVariant102({
 
         {/* Título centralizado na barra lateral */}
         <div className="flex-1 flex flex-col justify-center px-4 w-full">
+          <div className="w-[3rem] h-[0.1875rem] bg-white mb-4" />
           <SmartField field="titulo" {...sp}>
             <div className="w-full">
               <h2
@@ -195,7 +199,7 @@ export function CoverExtraVariant102({
 
       {/* Handle badge no topo direito */}
       <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/10 z-20">
-        <span className="font-outfit text-[8px] text-white tracking-[0.2em] uppercase font-bold">
+        <span className="font-outfit text-[8px] text-white tracking-[0.2em] uppercase font-bold relative -top-[5px]">
           @{brandHandle || 'seuhandle'}
         </span>
       </div>
