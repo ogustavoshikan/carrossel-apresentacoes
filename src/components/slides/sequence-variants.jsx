@@ -128,93 +128,6 @@ export function SequenceVariant1(props) {
 }
 
 /**
- * COLEÇÃO: 2. The Bridge Flow
- */
-export function SequenceVariant2(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
-  const step = index + 1;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const tw = { index, onTextChange };
-  
-  const trackerPosition = 20 + ((step - 1) / Math.max(slideCount - 1, 1)) * 60;
-
-  return (
-    <div className="w-full h-full flex flex-row bg-white text-[#1a1a1a] relative overflow-hidden">
-      <SlideHeader 
-        {...props} 
-        slideIndex={index} 
-        index={step} 
-        total={slideCount} 
-        hideDot={true} 
-        handleColor={data.handleColor || "#1a1a1a"} 
-        counterColor={data.counterColor || "#ffffff"} 
-        counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
-      />
-      <div className="flex-1 h-full p-8 pr-12 flex flex-col justify-center relative z-0">
-        
-
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-6 mt-12"
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h2" 
-            field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${69.23 * sTitle}px`, color: '#1a1a1a' }}
-          >
-            {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
-          </TextWrapper>
-        </SmartEl>
-
-        <SmartEl 
-          slideIndex={index} 
-          field="texto_apoio" 
-          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-        >
-          <TextWrapper 
-            {...tw} 
-            as="p" 
-            field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
-            style={{ fontSize: `${25.71 * sText}px` }}
-          >
-            {data.texto_apoio || 'A descrição do processo ou etapa que está sendo apresentada neste slide.'}
-          </TextWrapper>
-        </SmartEl>
-      </div>
-
-      <div 
-        className="w-[22%] h-full relative z-10 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]"
-        style={{fontFamily: textFont,  backgroundColor: brandColor }}
-      >
-        
-        
-        <div 
-          className="absolute left-[-10px] w-5 h-5 bg-white border-[3px] rounded-full flex items-center justify-center shadow-md"
-          style={{ 
-            top: `${trackerPosition}%`,
-            borderColor: brandColor
-          }}
-        >
-          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandColor }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/**
  * COLEÇÃO: 3. The Minimal Corner
  */
 export function SequenceVariant3(props) {
@@ -631,80 +544,6 @@ export function SequenceVariant7(props) {
         <span className="font-black text-white/40 text-7xl leading-none font-text select-none">
           0{step}
         </span>
-      </div>
-    </div>
-  );
-}
-
-/**
- * COLEÇÃO: 8. The Orbital Step
- */
-export function SequenceVariant8(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
-  const step = index + 1;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const tw = { index, onTextChange };
-
-  const radius = 28;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (step / 5) * circumference;
-
-  return (
-    <div className="w-full h-full flex flex-col bg-[#111] text-white relative overflow-hidden">
-      <SlideHeader 
-        {...props} 
-        slideIndex={index} 
-        index={step} 
-        total={slideCount} 
-        hideDot={true} 
-        handleColor={data.handleColor || "#71717a"} 
-        counterColor={data.counterColor || "#a1a1aa"} 
-        counterBg={data.counterBg || "#080808"} 
-      />
-      
-
-      <div className="flex-1 p-10 pt-12 flex flex-col justify-center relative z-10">
-        
-
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-8"
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h2" 
-            field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-white font-title"
-            style={{ fontSize: `${69.23 * sTitle}px` }}
-          >
-            {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
-          </TextWrapper>
-        </SmartEl>
-
-        <SmartEl 
-          slideIndex={index} 
-          field="texto_apoio" 
-          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-        >
-          <TextWrapper 
-            {...tw} 
-            as="p" 
-            field="texto_apoio" 
-            className="text-white/80 font-light leading-relaxed w-[90%] font-text"
-            style={{ fontSize: `${22.85 * sText}px` }}
-          >
-            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
-          </TextWrapper>
-        </SmartEl>
       </div>
     </div>
   );
@@ -1764,82 +1603,6 @@ export function SequenceVariant20(props) {
 }
 
 /**
- * COLEÇÃO: 21. The Orbital Light
- */
-export function SequenceVariant21(props) {
-  const { data, index, slideCount, brandHandle, brandColor, titleScale, textScale, onTextChange, onActionStart, selectedElement, onSelectElement , titleFont, textFont, tagFont} = props;
-  const step = index + 1;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const tw = { index, onTextChange };
-
-  const radius = 28;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (step / 5) * circumference;
-
-  return (
-    <div className="w-full h-full flex flex-col bg-[#FDFBF7] text-[#1a1a1a] relative overflow-hidden">
-      <SlideHeader 
-        {...props} 
-        slideIndex={index} 
-        index={step} 
-        total={slideCount} 
-        hideDot={true} 
-        handleColor={data.handleColor || "#1a1a1a"} 
-        counterColor={data.counterColor || "#1a1a1a"} 
-        counterBg={data.counterBg || "#EDEDED"} 
-      />
-      
-
-      <div className="flex-1 p-10 pt-16 flex flex-col justify-start relative z-10">
-        
-
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-8"
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h2" 
-            field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line text-[#1a1a1a] font-text"
-            style={{ fontSize: `${53.85 * sTitle}px` }}
-          >
-            {(data.titulo || 'A ESCOLHA DOS GRÃOS').replace(" ", "\n")}
-          </TextWrapper>
-        </SmartEl>
-
-        <SmartEl 
-          slideIndex={index} 
-          field="texto_apoio" 
-          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-        >
-          <TextWrapper 
-            {...tw} 
-            as="p" 
-            field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[90%] font-text"
-            style={{ fontSize: `${21.43 * sText}px` }}
-          >
-            {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
-          </TextWrapper>
-        </SmartEl>
-      </div>
-
-      
-    </div>
-  );
-}
-
-/**
  * COLEÇÃO: 22. The Clean Polaroid
  */
 export function SequenceVariant22(props) {
@@ -2439,13 +2202,11 @@ export function SequenceVariant28(props) {
 
 export const SEQUENCE_VARIANT_COMPONENTS = {
   0: SequenceVariant1,
-  1: SequenceVariant2,
   2: SequenceVariant3,
   3: SequenceVariant4,
   4: SequenceVariant5,
   5: SequenceVariant6,
   6: SequenceVariant7,
-  7: SequenceVariant8,
   8: SequenceVariant9,
   9: SequenceVariant10,
   10: SequenceVariant11,
@@ -2458,7 +2219,6 @@ export const SEQUENCE_VARIANT_COMPONENTS = {
   17: SequenceVariant18,
   18: SequenceVariant19,
   19: SequenceVariant20,
-  20: SequenceVariant21,
   21: SequenceVariant22,
   22: SequenceVariant23,
   23: SequenceVariant24,
@@ -2470,13 +2230,11 @@ export const SEQUENCE_VARIANT_COMPONENTS = {
 
 export const SEQUENCE_VARIANT_META = [
   { id: 0, name: 'Anchor Progress', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence0.png' },
-  { id: 1, name: 'Bridge Flow', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence1.png' },
-  { id: 2, name: 'Minimal Corner', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence2.png' },
-  { id: 3, name: 'Editorial Base', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence3.png' },
-  { id: 4, name: 'Editorial Tab', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence4.png' },
+  { id: 2, name: 'Minimal Corner', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence4.png' },
+  { id: 3, name: 'Editorial Base', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence1.png' },
+  { id: 4, name: 'Editorial Tab', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence3.png' },
   { id: 5, name: 'Ghost Typo', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence5.png' },
   { id: 6, name: 'Vertical Split', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence6.png' },
-  { id: 7, name: 'Orbital Step', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence7.png' },
   { id: 8, name: 'Luminous Edge', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence8.png' },
   { id: 9, name: 'Editorial Spine', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence9.png' },
   { id: 10, name: 'Image Anchor', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence10.png' },
@@ -2489,7 +2247,6 @@ export const SEQUENCE_VARIANT_META = [
   { id: 17, name: 'Split Bottom', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence17.png' },
   { id: 18, name: 'Cinematic Panel', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence18.png' },
   { id: 19, name: 'Ghost Light', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence19.png' },
-  { id: 20, name: 'Orbital Light', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence20.png' },
   { id: 21, name: 'Clean Polaroid', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence21.png' },
   { id: 22, name: 'Single Frame', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence22.png' },
   { id: 23, name: 'Elevated Base', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence23.png' },
