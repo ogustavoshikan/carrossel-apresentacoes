@@ -4120,8 +4120,8 @@ export function CoverExtraVariant159({
 
   return (
     <div className="group relative w-full h-full bg-[#0c0c0c] overflow-hidden shadow-2xl ring-1 ring-white/10 flex items-center justify-center p-6">
-      <div className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:opacity-10 transition-opacity duration-700 blur-sm pointer-events-none">
-        <ImageBg data={data} />
+      <div className="absolute inset-0 opacity-50 blur-[10px] scale-110 pointer-events-none transition-opacity duration-700">
+        <ImageBg data={data} className="w-full h-full object-cover" />
       </div>
       
       <h2 
@@ -4136,18 +4136,22 @@ export function CoverExtraVariant159({
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
 
-      <div className="absolute z-20 bottom-20 left-6">
+      <div className="absolute z-20 bottom-20 left-[64px]">
         <SmartField field="titulo" {...sp}>
           <h2 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-outfit font-black text-white leading-[0.8] uppercase tracking-tighter drop-shadow-2xl outline-none break-words"
-            style={{ fontSize: `${60 * sTitle}px` }}
+            style={{ fontSize: `${68 * sTitle}px` }}
           >
-            O Top <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-300" style={{ backgroundImage: `linear-gradient(to right, ${brandColor}, #fda4af)`, fontSize: `${72 * sTitle}px` }}>
-              Cinco
-            </span>
+            {data.titulo || (
+              <>
+                O Top <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-rose-300" style={{ backgroundImage: `linear-gradient(to right, ${brandColor}, #fda4af)`, fontSize: `${80 * sTitle}px` }}>
+                  Cinco
+                </span>
+              </>
+            )}
           </h2>
         </SmartField>
       </div>
