@@ -4619,6 +4619,230 @@ export function CoverExtraVariant165({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 166 — Silk Ribbon
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant166({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+  <div className="group relative w-full h-full bg-gradient-to-br from-[#FFF9F2] to-[#F2E8DF] rounded-2xl overflow-hidden shadow-2xl p-8 flex flex-col items-center justify-between">
+    <div className="w-full flex justify-between items-center z-10">
+      <div className="w-8 h-[1px]" style={{ backgroundColor: `${brandColor}80` }}></div>
+      <span className="font-outfit font-light tracking-[0.3em] text-[#8A7B6C] text-[9px] uppercase">
+        {brandHandle || 'SEUHANDLE'}
+      </span>
+      <div className="w-8 h-[1px]" style={{ backgroundColor: `${brandColor}80` }}></div>
+    </div>
+    
+    <div className="w-[80%] aspect-[3/4] rounded-t-full rounded-b-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] ring-4 ring-white relative z-10 mt-6 mb-4 group-hover:scale-105 transition-transform duration-700">
+      <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+    </div>
+    
+    <div className="relative z-20 text-center flex flex-col items-center -mt-16">
+      <SmartField field="badge_text" {...sp}>
+        <span 
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+          className="font-caveat text-4xl -rotate-3 -mb-4 drop-shadow-sm inline-block outline-none"
+          style={{ color: brandColor }}
+        >
+          {data.badge_text || 'a doce seleção...'}
+        </span>
+      </SmartField>
+      <SmartField field="titulo" {...sp}>
+        <h2 
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+          className="font-cormorant font-bold text-[#2C2C2C] leading-none uppercase tracking-widest drop-shadow-md outline-none break-words"
+          style={{ fontSize: `${64 * sTitle}px` }}
+        >
+          {data.titulo || 'TOP 5'}
+        </h2>
+      </SmartField>
+    </div>
+    
+    <div className="w-full flex justify-center items-center gap-2 mt-4 opacity-70 group-hover:opacity-100 transition-opacity">
+      <SmartField field="texto_apoio" {...sp}>
+        <span 
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+          className="font-outfit text-[#8A7B6C] text-[9px] uppercase tracking-[0.2em] outline-none"
+        >
+          {data.texto_apoio || 'Deslize para adoçar o dia'}
+        </span>
+      </SmartField>
+      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" style={{ color: brandColor }} />
+    </div>
+
+    <SlideHeader
+      data={data} slideIndex={index} index={index + 1} total={slideCount}
+      brandHandle={brandHandle} showBrandHandle={false}
+      showSlideCounter={false}
+      brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+      brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+      onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+      hideDot={true}
+    />
+  </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 167 — Golden Hour
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant167({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+  <div className="group relative w-full h-full bg-[#EAE0D5] rounded-2xl overflow-hidden shadow-2xl flex flex-col p-6">
+    <div className="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.6)_0%,transparent_50%)] pointer-events-none"></div>
+    
+    <div className="w-full flex justify-between items-center z-10">
+      <span className="font-outfit font-bold text-[#8B7355] text-[8px] tracking-[0.3em] uppercase bg-white/50 px-3 py-1 rounded-full">
+        {brandHandle || 'SEUHANDLE'}
+      </span>
+      <Sparkles className="w-4 h-4 text-[#8B7355]" />
+    </div>
+    
+    <div className="relative z-10 w-full flex-1 flex flex-col justify-center items-center my-6">
+      <div className="w-full aspect-[4/3] rounded-lg overflow-hidden shadow-[0_15px_35px_rgba(139,115,85,0.15)] relative group-hover:scale-105 transition-transform duration-700">
+        <ImageBg data={data} className="absolute inset-0 w-full h-full mix-blend-multiply opacity-90" />
+      </div>
+    </div>
+    
+    <div className="relative z-10 flex justify-between items-end w-full border-t border-[#8B7355]/20 pt-4">
+      <div>
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-cormorant font-bold text-[#4A3E2D] uppercase leading-none tracking-widest mb-1 outline-none break-words"
+            style={{ fontSize: `${36 * sTitle}px` }}
+          >
+            {data.titulo || 'TOP 5'}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-playfair italic text-[#8B7355] text-xs outline-none"
+          >
+            {data.texto_apoio || 'Exclusivo de Fim de Semana'}
+          </span>
+        </SmartField>
+      </div>
+      <div 
+        className="w-8 h-8 rounded-full flex items-center justify-center text-[#EAE0D5] shadow-lg cursor-pointer hover:scale-110 transition-transform"
+        style={{ backgroundColor: brandColor }}
+      >
+        <ArrowRight className="w-4 h-4" />
+      </div>
+    </div>
+
+    <SlideHeader
+      data={data} slideIndex={index} index={index + 1} total={slideCount}
+      brandHandle={brandHandle} showBrandHandle={false}
+      showSlideCounter={false}
+      brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+      brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+      onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+      hideDot={true}
+    />
+  </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 168 — Editorial Pillar
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant168({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  return (
+  <div className="group relative w-full h-full bg-[#F4F4F0] rounded-2xl overflow-hidden shadow-2xl flex">
+    <div 
+      className="absolute left-1/2 -translate-x-1/2 w-[45%] h-full z-0 transition-colors duration-700"
+      style={{ backgroundColor: brandColor }}
+    ></div>
+    
+    <div className="relative z-10 w-full h-full flex flex-col justify-between p-8">
+      <div className="flex justify-between items-start w-full">
+        <SmartField field="badge_text" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="font-playfair italic font-bold text-zinc-900 text-lg leading-none outline-none block"
+            style={{ whiteSpace: 'pre-line' }}
+          >
+            {data.badge_text || 'Top\nCinco.'}
+          </span>
+        </SmartField>
+        <span className="font-mono text-[8px] text-white bg-zinc-900 px-2 py-1 uppercase">
+          {brandHandle || 'SEUHANDLE'}
+        </span>
+      </div>
+      
+      <div className="w-full aspect-[4/3] bg-zinc-200 shadow-[0_30px_60px_rgba(0,0,0,0.3)] relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+        <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+      </div>
+      
+      <div className="w-full flex flex-col">
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-outfit font-black text-white uppercase leading-[0.9] tracking-tighter -ml-1 mix-blend-exclusion outline-none break-words"
+            style={{ fontSize: `${48 * sTitle}px` }}
+          >
+            {data.titulo || 'A Seleção Definitiva'}
+          </h2>
+        </SmartField>
+        
+        <div className="flex items-center gap-2 mt-4 text-zinc-900 cursor-pointer group/btn">
+          <SmartField field="texto_apoio" {...sp}>
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit font-bold text-[10px] uppercase tracking-widest outline-none"
+            >
+              {data.texto_apoio || 'Deslize para adoçar o dia'}
+            </span>
+          </SmartField>
+          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </div>
+      </div>
+    </div>
+
+    <SlideHeader
+      data={data} slideIndex={index} index={index + 1} total={slideCount}
+      brandHandle={brandHandle} showBrandHandle={false}
+      showSlideCounter={false}
+      brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+      brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+      onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+      hideDot={true}
+    />
+  </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -4680,6 +4904,9 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   163: CoverExtraVariant163,
   164: CoverExtraVariant164,
   165: CoverExtraVariant165,
+  166: CoverExtraVariant166,
+  167: CoverExtraVariant167,
+  168: CoverExtraVariant168,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -5042,5 +5269,23 @@ export const COVER_EXTRA_VARIANT_META = [
     name: 'Vogue Food',
     description: 'Estilo editorial de luxo, com imagem full e tipografia Cormorant.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras165.png',
+  },
+  {
+    id: 166,
+    name: 'Silk Ribbon',
+    description: 'Design refinado com curvas em arco e tipografia serifada.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras166.png',
+  },
+  {
+    id: 167,
+    name: 'Golden Hour',
+    description: 'Tons terrosos, reflexos sutis e design flutuante.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras167.png',
+  },
+  {
+    id: 168,
+    name: 'Editorial Pillar',
+    description: 'Bloco de cor brutalista com título impactante.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras168.png',
   },
 ];
