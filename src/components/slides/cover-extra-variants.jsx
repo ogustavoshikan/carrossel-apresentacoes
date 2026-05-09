@@ -3405,10 +3405,10 @@ export function CoverExtraVariant150({
       </div>
 
       <div className="relative flex-1 bg-zinc-900 rounded-t-full overflow-hidden mt-2 ring-4 ring-[#fdfbf7]">
-        <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-80 group-hover:mix-blend-normal group-hover:opacity-100 transition-all duration-500" />
+        <ImageBg data={data} className="absolute inset-0 transition-all duration-500" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         
-        <div className="absolute bottom-10 left-0 w-full text-center px-4">
+        <div className="absolute bottom-5 left-0 w-full text-center px-4">
           <SmartField field="titulo" {...sp}>
             <h2 
               contentEditable suppressContentEditableWarning
@@ -3433,11 +3433,11 @@ export function CoverExtraVariant150({
         </div>
       </div>
 
-      <div className="bg-[#fdfbf7] mt-4 rounded-xl p-4 flex justify-between items-center">
-        <span className="font-outfit font-bold text-black text-[11px] uppercase tracking-widest">
+      <div className="bg-[#fdfbf7] mt-4 rounded-xl p-4 flex justify-center items-center relative">
+        <span className="font-outfit font-bold text-black text-[11px] uppercase tracking-widest text-center">
           Deslize para adoçar o dia
         </span>
-        <div className="w-8 h-8 bg-black rounded flex items-center justify-center transform group-hover:translate-x-1 transition-transform">
+        <div className="absolute right-4 w-8 h-8 rounded flex items-center justify-center transform group-hover:translate-x-1 transition-transform" style={{ backgroundColor: brandColor }}>
           <ArrowRight className="w-4 h-4 text-white" />
         </div>
       </div>
