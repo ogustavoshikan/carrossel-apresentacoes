@@ -13,7 +13,7 @@ function ImageBg({ data, className = '', style = {}, children }) {
   
   return (
     <div 
-      className={`bg-cover transition-all duration-500 ${className}`}
+      className={`bg-cover ${className}`}
       style={{ 
         backgroundImage: `url("${data.imageUrl}")`,
         backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
@@ -346,9 +346,7 @@ export function ListVariant23(props) {
           return (
             <div 
               key={i} 
-              className={`p-5 rounded-xl flex items-center shadow-sm shrink-0 border transition-all ${
-                isSelected ? 'text-white scale-105 z-10' : 'bg-white text-zinc-600 border-zinc-200'
-              }`}
+              className={`p-5 rounded-xl flex items-center shadow-sm shrink-0 border ${ isSelected ? 'text-white scale-105 z-10' : 'bg-white text-zinc-600 border-zinc-200' }`}
               style={isSelected ? { backgroundColor: brandColor, borderColor: brandColor } : {}}
             >
               <span 
@@ -402,7 +400,7 @@ export function ListVariant25(props) {
       </SmartEl>
       <div className="grid grid-cols-2 gap-5 flex-1 min-h-0 content-center">
         {items.slice(0, 4).map((item, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center justify-center border border-zinc-100 transition-transform hover:scale-105">
+          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center justify-center border border-zinc-100">
             <div 
               contentEditable 
               suppressContentEditableWarning 
