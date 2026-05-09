@@ -3660,8 +3660,8 @@ export function CoverExtraVariant153({
           <h3 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-            className="font-outfit font-black text-sm tracking-[0.2em] uppercase mb-2 outline-none break-words"
-            style={{ color: brandColor, fontSize: `${14 * sText}px` }}
+            className="font-outfit font-black text-sm tracking-[0.2em] uppercase mb-2 outline-none break-words relative -top-[15px]"
+            style={{ color: brandColor, fontSize: `${20 * sText}px` }}
           >
             {data.badge_text || 'Seleção Exclusiva'}
           </h3>
@@ -3687,7 +3687,7 @@ export function CoverExtraVariant153({
             onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = brandColor; e.currentTarget.style.borderColor = brandColor; }}
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = '#d4d4d8'; }}
           >
-            <ArrowRight className="w-3 h-3" />
+            <ArrowRight className="w-3 h-3 text-black" />
           </div>
         </div>
       </div>
