@@ -679,52 +679,6 @@ export function ComparisonVariant9(props) {
   );
 }
 
-export function ComparisonVariant10(props) {
-  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
-  const sTitle = titleScale / 100;
-  const items = data.items || [];
-  const normalItems = items.filter(it => !it.highlight);
-  const highlightItems = items.filter(it => it.highlight);
-  
-  const mercadoLabel = normalItems[0]?.label || 'Mercado';
-  const brandLabel = highlightItems[0]?.label || brandHandle || 'Carrossel Mode';
-
-  return (
-    <div className="w-full h-full bg-[#080808] flex flex-col p-10 pb-10 relative items-center text-center rounded-slide">
-      <div className="absolute top-0 left-0 w-full p-10 z-50 text-left">
-        <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
-      </div>
-      
-      <ComparisonTitle 
-        data={data} index={index} scale={sTitle} 
-        onActionStart={onActionStart} onTextChange={onTextChange} 
-        selectedElement={selectedElement} onSelectElement={onSelectElement}
-        wrapperClasses="mb-10 shrink-0 mt-8"
-      />
-
-      <div className="w-64 h-12 bg-[#050505] rounded-full border border-white/10 flex items-center p-1 mb-8 shadow-inner shrink-0">
-        <div contentEditable suppressContentEditableWarning className="flex-1 text-[10px] font-text font-bold uppercase tracking-widest text-zinc-600 px-2 leading-tight">{mercadoLabel}</div>
-        <div contentEditable suppressContentEditableWarning className="flex-1 h-full rounded-full flex items-center justify-center text-[10px] font-text font-bold uppercase tracking-widest text-white shadow-md px-2 leading-tight" style={{fontFamily: textFont,  backgroundColor: brandColor }}>{brandLabel}</div>
-      </div>
-      
-      <div className="w-full flex-1 bg-surface-input/30 border border-white/10 rounded-3xl p-8 pb-12 flex flex-col justify-start gap-4">
-        {highlightItems.map((item, i) => (
-          <div key={i} className="flex items-center gap-4 text-left">
-            <CheckCircle2 className="w-6 h-6 shrink-0" style={{ color: brandColor }} />
-            <span 
-              contentEditable suppressContentEditableWarning onBlur={(e) => onItemChange && onItemChange(index, items.indexOf(item), 'value', e.currentTarget.innerText)}
-              className="font-text font-bold text-white text-lg"
-            >
-              {item.value}
-            </span>
-          </div>
-        ))}
-      </div>
-      <SlideFooterPlaceholder />
-    </div>
-  );
-}
-
 export function ComparisonVariant11(props) {
   const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, onActionStart, onTextChange, onItemChange, selectedElement, onSelectElement, showSlideCounter, slideCounterPosition , titleFont, textFont, tagFont} = props;
   const sTitle = titleScale / 100;
@@ -1648,7 +1602,6 @@ export const COMPARISON_VARIANT_COMPONENTS = {
   5: ComparisonVariant5,
   6: ComparisonVariant6,
   9: ComparisonVariant9,
-  10: ComparisonVariant10,
   11: ComparisonVariant11,
   13: ComparisonVariant13,
   14: ComparisonVariant14,
@@ -1696,12 +1649,6 @@ export const COMPARISON_VARIANT_META = [
     nome: 'Diagonal',
     badge: null,
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison9.png'
-  },
-  {
-    id: 10,
-    nome: 'Toggle',
-    badge: null,
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/designs_comparison10.png'
   },
   {
     id: 11,
