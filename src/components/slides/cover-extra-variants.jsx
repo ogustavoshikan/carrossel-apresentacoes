@@ -3229,44 +3229,53 @@ export function CoverExtraVariant148({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="group relative w-full h-full bg-zinc-900 overflow-hidden flex flex-col justify-between">
+    <div className="group relative w-full h-full bg-zinc-900 overflow-hidden flex flex-col justify-between" style={{ isolation: 'isolate' }}>
       <ImageBg data={data} className="absolute inset-0 transition-transform duration-700 group-hover:scale-110" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/90" />
       
       <div className="relative z-20 p-6 flex justify-between items-center w-full">
-        <span className="font-outfit font-bold tracking-widest text-[10px] text-white/80 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-md uppercase border border-white/10">
-          @{brandHandle || 'seuhandle'}
-        </span>
+        <div className="relative overflow-hidden rounded-full border border-white/10">
+          <div className="absolute inset-0 backdrop-blur-md bg-black/40" />
+          <span className="relative z-10 font-outfit font-bold tracking-widest text-[10px] text-white/80 px-3 py-1.5 uppercase block">
+            @{brandHandle || 'seuhandle'}
+          </span>
+        </div>
         {isVerified && (
           <BadgeCheck className="w-5 h-5" style={{ color: brandColor }} />
         )}
       </div>
 
       <div className="relative z-10 px-6 pb-12 w-full">
-        <div className="backdrop-blur-xl bg-black/40 border border-white/20 p-8 rounded-2xl shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(to right, transparent, ${brandColor}, transparent)` }} />
+        <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-white/20">
+          {/* Camada de Blur isolada para evitar bug no download (html-to-image) */}
+          <div className="absolute inset-0 backdrop-blur-xl bg-black/40" />
           
-          <SmartField field="titulo" {...sp}>
-            <h2 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit font-black leading-none text-white mb-3 outline-none break-words"
-              style={{ fontSize: `${40 * sTitle}px` }}
-            >
-              {data.titulo || 'O TOP 5 QUE SEU FDS'}
-            </h2>
-          </SmartField>
+          {/* Linha decorativa superior */}
+          <div className="absolute top-0 left-0 w-full h-1 z-10" style={{ background: `linear-gradient(to right, transparent, ${brandColor}, transparent)` }} />
+          
+          <div className="relative z-10 p-8">
+            <SmartField field="titulo" {...sp}>
+              <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-outfit font-black leading-none text-white mb-3 outline-none break-words"
+                style={{ fontSize: `${40 * sTitle}px` }}
+              >
+                {data.titulo || 'O TOP 5 QUE SEU FDS'}
+              </h2>
+            </SmartField>
 
-          <SmartField field="texto_apoio" {...sp}>
-            <p 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-playfair italic text-white/80 outline-none break-words"
-              style={{ fontSize: `${20 * sText}px` }}
-            >
-              {data.texto_apoio || 'merece.'}
-            </p>
-          </SmartField>
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-playfair italic text-white/80 outline-none break-words"
+                style={{ fontSize: `${20 * sText}px` }}
+              >
+                {data.texto_apoio || 'merece.'}
+              </p>
+            </SmartField>
+          </div>
         </div>
       </div>
 
