@@ -3956,7 +3956,11 @@ export function CoverExtraVariant157({
               className="font-outfit font-black text-white leading-[0.9] tracking-tighter uppercase mb-2 outline-none break-words"
               style={{ fontSize: `${48 * sTitle}px` }}
             >
-              {data.titulo || 'TOP 5'} <br/><span style={{ color: brandColor }}>DO FDS</span>
+              {data.titulo || (
+                <>
+                  TOP 5 <br/><span style={{ color: brandColor }}>DO FDS</span>
+                </>
+              )}
             </h2>
           </SmartField>
 
