@@ -815,7 +815,7 @@ export function ComparisonVariant25(props) {
         </SmartEl>
       </div>
 
-      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-10 transition-colors duration-500 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
+      <div className="w-1/2 h-full p-8 flex flex-col justify-center relative z-10 shadow-[-20px_0_40px_rgba(0,0,0,0.5)]" style={{ backgroundColor: brandColor }}>
         <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-30" style={{ backgroundImage: `url(${imgB})`, backgroundPosition: `${data.imagePositionX2 ?? 50}% ${data.imagePosition2 ?? 50}%` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--brandColor)] via-[var(--brandColor)] to-transparent opacity-80" style={{ '--brandColor': brandColor }}></div>
         <div className="relative z-20">
@@ -891,7 +891,7 @@ export function ComparisonVariant26(props) {
         </div>
       </div>
 
-      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden shadow-2xl z-20 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgC, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
@@ -959,7 +959,7 @@ export function ComparisonVariant27(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full flex flex-row transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full flex flex-row relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="w-1/2 h-full p-8 pr-10 flex flex-col justify-center items-end text-right relative z-10">
           <SmartEl {...sp} field="cta_text">
             <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[10px] text-white/80 uppercase mb-2 block" style={{ fontFamily: textFont }}>
@@ -1026,7 +1026,7 @@ export function ComparisonVariant28(props) {
         </div>
       </div>
 
-      <div className="w-full h-1/2 relative flex flex-col justify-end p-8 pb-10 overflow-hidden transition-colors duration-500 bg-zinc-900">
+      <div className="w-full h-1/2 relative flex flex-col justify-end p-8 pb-10 overflow-hidden bg-zinc-900">
         <div className="absolute inset-0 z-0">
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
@@ -1167,7 +1167,7 @@ export function ComparisonVariant30(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full flex items-center justify-center relative p-8 z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full flex items-center justify-center relative p-8 z-10" style={{ backgroundColor: brandColor }}>
         <div className="flex-1 pr-8 flex flex-col justify-center text-right items-end">
           <SmartEl {...sp} field="titulo_b">
             <TextWrapper {...sp} as="h3" field="titulo_b" className="font-black uppercase tracking-tighter mb-3 leading-[0.9] text-white" style={{ fontFamily: titleFont, fontSize: `${26 * sTitle}px` }}>
@@ -1231,7 +1231,7 @@ export function ComparisonVariant31(props) {
         </div>
       </div>
 
-      <div className="w-1/2 h-full flex flex-col items-center justify-center p-[30px] -translate-y-[3px] transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
+      <div className="w-1/2 h-full flex flex-col items-center justify-center p-[30px] -translate-y-[3px] relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="w-full aspect-square rounded-[30px] overflow-hidden shadow-2xl mb-8 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
@@ -1295,7 +1295,7 @@ export function ComparisonVariant32(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full flex flex-col items-center justify-center relative p-8 z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full flex flex-col items-center justify-center relative p-8 z-10" style={{ backgroundColor: brandColor }}>
         <div className="w-[45%] aspect-square rounded-[32px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] mb-4 bg-black">
           <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
@@ -1364,7 +1364,7 @@ export function ComparisonVariant33(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full flex flex-row items-center justify-center p-8 gap-6 transition-colors duration-500 relative z-10" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full flex flex-row items-center justify-center p-8 gap-6 relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="flex-1 flex flex-col justify-center text-right items-end">
           <SmartEl {...sp} field="cta_text">
             <TextWrapper {...sp} as="span" field="cta_text" className="font-bold tracking-[0.2em] text-[9px] text-white/70 uppercase mb-2 block" style={{ fontFamily: textFont }}>
@@ -1440,7 +1440,7 @@ export function ComparisonVariant34(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full flex flex-col justify-start p-8 pt-10 relative z-10 transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full flex flex-col justify-start p-8 pt-10 relative z-10" style={{ backgroundColor: brandColor }}>
         <div className="w-full flex items-center gap-6">
           <div className="w-[55%] flex flex-col text-right items-end">
             <SmartEl {...sp} field="cta_text">
@@ -1503,7 +1503,7 @@ export function ComparisonVariant35(props) {
         </div>
       </div>
 
-      <div className="absolute inset-0 z-10 transition-colors duration-500" style={{ clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 35% 100%)', backgroundColor: brandColor }}>
+      <div className="absolute inset-0 z-10" style={{ clipPath: 'polygon(65% 0, 100% 0, 100% 100%, 35% 100%)', backgroundColor: brandColor }}>
         <ImageBg data={{ ...data, imageUrl: imgB, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         <div className="absolute bottom-12 right-8 w-[45%] text-right flex flex-col items-end">
           <SmartEl {...sp} field="titulo_b">
@@ -1616,7 +1616,7 @@ export function ComparisonVariant37(props) {
         </div>
       </div>
 
-      <div className="h-1/2 w-full relative z-20 p-8 pt-4 flex flex-col justify-start transition-colors duration-500" style={{ backgroundColor: brandColor }}>
+      <div className="h-1/2 w-full relative z-20 p-8 pt-4 flex flex-col justify-start" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center shadow-2xl" style={{ width: '50px', height: '50px', border: '3px solid #ffffff' }}>
           <SmartEl {...sp} field="badge_text">
             <TextWrapper {...sp} field="badge_text" className="font-black text-sm" style={{ fontFamily: titleFont }}>
