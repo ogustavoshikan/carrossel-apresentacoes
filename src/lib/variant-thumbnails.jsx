@@ -1395,18 +1395,7 @@ export const VARIANT_THUMBNAILS = {
         </div>
       </div>
     ),
-    149: ({ brandColor: accent }) => (
-      <div className="w-full h-full flex flex-col overflow-hidden relative bg-[#EBE9E1]">
-        <div className="absolute top-0 right-0 w-[80%] h-[55%] rounded-bl-3xl shadow-md" style={{ background: img }} />
-        <div className="mt-auto p-2 flex flex-col gap-1">
-           <div className="w-3 h-3 rounded-full mb-1" style={{ background: accent }} />
-           <div className="w-[60%] h-[4px] bg-black rounded-full" />
-           <div className="w-[40%] h-[2px] bg-zinc-500 rounded-full" />
-        </div>
-      </div>
-    ),
-    150: ({ brandColor: accent }) => (
-      <div className="w-full h-full flex flex-col p-1 overflow-hidden relative" style={{ background: accent }}>
+    150: ({ brandColor: accent }) => (      <div className="w-full h-full flex flex-col p-1 overflow-hidden relative" style={{ background: accent }}>
         <div className="flex-1 bg-zinc-900 rounded-t-full border-2 border-white flex items-center justify-center relative overflow-hidden">
            <div className="absolute inset-0 opacity-40 grayscale" style={{ background: img }} />
            <div className="relative z-10 flex flex-col items-center gap-0.5">
@@ -1464,19 +1453,6 @@ export const VARIANT_THUMBNAILS = {
         <div className="absolute top-[55%] left-1.5 -translate-y-1/2 font-black text-white mix-blend-difference" style={{ fontSize: '12px' }}>T5</div>
       </div>
     ),
-    155: ({ brandColor: accent }) => (
-      <div className="w-full h-full flex items-center justify-center overflow-hidden relative bg-neutral-950">
-        <div className="absolute inset-0 flex items-center justify-center opacity-20">
-          <div className="font-black text-white border border-white/20 rounded px-1" style={{ fontSize: '18px' }}>T5</div>
-        </div>
-        <div className="w-[70%] aspect-square rounded-full border-2 border-neutral-900 shadow-2xl relative z-10 overflow-hidden" style={{ background: img }}>
-           <div className="absolute inset-0 opacity-40" style={{ background: `radial-gradient(circle, transparent, ${accent})` }} />
-        </div>
-        <div className="absolute bottom-1 w-[60%] h-3 bg-black/80 rounded-full border border-white/5 flex items-center justify-center px-1">
-           <div className="w-full h-[1px] bg-white/20" />
-        </div>
-      </div>
-    ),
     156: ({ brandColor: accent }) => (
       <div className="w-full h-full p-1 overflow-hidden relative bg-[#F9F6F0]">
         <div className="w-full h-full border rounded-t-3xl rounded-b-md border-zinc-200 flex flex-col overflow-hidden">
@@ -1503,16 +1479,6 @@ export const VARIANT_THUMBNAILS = {
         </div>
         <div className="col-span-1 row-span-1 rounded-lg flex items-center justify-center" style={{ background: accent }}>
            <div className="w-[50%] h-1 bg-white/60 rounded-full" />
-        </div>
-      </div>
-    ),
-    158: ({ brandColor: accent }) => (
-      <div className="w-full h-full bg-[#050505] flex flex-col items-center justify-center p-2 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10" style={{ background: `radial-gradient(circle, ${accent}, transparent)` }} />
-        <div className="font-black text-white/10 leading-none" style={{ fontSize: '40px' }}>TOP</div>
-        <div className="font-black text-white/10 leading-none -mt-2" style={{ fontSize: '50px' }}>5</div>
-        <div className="absolute bottom-4 w-[60%] h-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-           <div className="w-[70%] h-1 bg-white/20 rounded-full" />
         </div>
       </div>
     ),

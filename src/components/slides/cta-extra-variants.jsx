@@ -8,145 +8,145 @@ export const CTA_EXTRA_VARIANT_META = [
     id: 101,
     name: 'The Dark Luxury',
     description: 'Foco absoluto em salvar o post. Ícone gigante, fundo escuro.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png' // Add proper thumbnail later
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra101.png' // Add proper thumbnail later
   },
   {
     id: 102,
     name: 'The Editorial Index',
     description: 'Limpo, claro, estruturado como o índice de uma revista de luxo.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra102.png'
   },
   {
     id: 103,
     name: 'The Action Receipt',
     description: 'Estética muito em alta. Engaja visualmente e cria senso de urgência/exclusividade.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra103.png'
   },
   {
     id: 104,
     name: 'The Cinematic Glass',
     description: 'Altamente visual. Usa a foto do produto por trás de um bloco desfocado.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra104.png'
   },
   {
     id: 105,
     name: 'The Velvet Gradient',
     description: 'Profundo, sem linhas duras, puramente baseado em cor e luz.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra105.png'
   },
   {
     id: 106,
     name: 'The Pure Glass',
     description: 'Imagem de fundo total, com um desfoque massivo no centro. Zero linhas visíveis.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra106.png'
   },
   {
     id: 107,
     name: 'The Minimalist Path',
     description: 'Fundo off-white, sem margens, sem caixas. Apenas hierarquia tipográfica.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra107.png'
   },
   {
     id: 108,
     name: 'The Eclipse',
     description: 'Foco total no vazio. Um círculo iluminado que atrai o olhar.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra108.png'
   },
   {
     id: 109,
     name: 'The Solid Contrast',
     description: 'Zero efeitos. Fundo preto puro, tipografia branca impecável.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra109.png'
   },
   {
     id: 110,
     name: 'The Clean Magazine',
     description: 'Flat design absoluto. Foto de um lado, bloco sólido do outro. Sem sombras.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra-110.png'
   },
   {
     id: 111,
     name: 'The Flat Crimson',
     description: 'Um bloco de cor maciço. Nada de blurs, sombras ou texturas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra111.png'
   },
   {
     id: 112,
     name: 'The Absolute Void',
     description: 'Muito espaço em branco, tipografia limpa, hierarquia pura.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra112.png'
   },
   {
     id: 113,
     name: 'The Swiss Split',
     description: 'Metade cor sólida, metade off-white. Contraste absoluto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra113.png'
   },
   {
     id: 114,
     name: 'The Pure Typography',
     description: 'Apenas texto. Layout focado em opções de ação limpas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra114.png'
   },
   {
     id: 115,
     name: 'The Dictionary Entry',
     description: 'Estética clínica e purista. Como um verbete de dicionário.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra115.png'
   },
   {
     id: 116,
     name: 'The Strict Grid',
     description: 'Informação organizada em linhas finas absolutas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra116.png'
   },
   {
     id: 117,
     name: 'The Poetic Serif',
     description: 'Fundo claro, letras gigantes e itálicos delicados.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra117.png'
   },
   {
     id: 118,
     name: 'The Elegant Sentence',
     description: 'As ações estão embutidas diretamente no texto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra118.png'
   },
   {
     id: 119,
     name: 'The Minimalist List',
     description: 'Editorial fashion. Números delicados, texto preciso.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra116.png'
   },
   {
     id: 120,
     name: 'The Floating Words',
     description: 'Escuro, dramático, usando a quebra de linha para criar arte.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra120.png'
   },
   {
     id: 121,
     name: 'The Delicate Shift',
     description: 'Tema escuro. As palavras deslizam e revelam o ícone elegantemente.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra121.png'
   },
   {
     id: 122,
     name: 'The Light Whisper',
     description: 'Tema claro. Letras minúsculas gigantes.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra122.png'
   },
   {
     id: 123,
     name: 'The Staggered Elegance',
     description: 'Palavras espalhadas pelo eixo X. Traz movimento à leitura.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra123.png'
   },
   {
     id: 124,
     name: 'The Absolute Focus',
     description: 'Uma única frase monumental.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra124.png'
   }
 ];
 
@@ -882,19 +882,22 @@ export function CTAVariant114(props) {
       <div className="flex-1 flex flex-col justify-center pointer-events-none">
         <h2 className="font-playfair font-normal text-[#EBE9E1] leading-[0.9] tracking-tighter mb-12 pointer-events-none outline-none" style={{ fontSize: `${90 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
           <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit opacity-70 flex items-center gap-4 mb-2 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-              {data.badge_text || 'Curtir'} <Star className="w-6 h-6" strokeWidth={1.5} />
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit opacity-70 outline-none inline-block align-middle" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.badge_text || 'Curtir'}
             </span>
+            <Star className="w-6 h-6 ml-4 inline-block align-middle opacity-70" strokeWidth={1.5} />
           </SmartElement>
           <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit opacity-70 flex items-center gap-4 mb-2 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-              {data.insta_ready || 'Enviar'} <Send className="w-6 h-6" strokeWidth={1.5} />
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit opacity-70 outline-none inline-block align-middle" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.insta_ready || 'Enviar'}
             </span>
+            <Send className="w-6 h-6 ml-4 inline-block align-middle opacity-70" strokeWidth={1.5} />
           </SmartElement>
           <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit flex items-center gap-4 outline-none" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-              {data.cta_text || 'Salvar'} <Bookmark className="w-6 h-6" fill="currentColor" />
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit outline-none inline-block align-middle" style={{ color: brandColor, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+              {data.cta_text || 'Salvar'}
             </span>
+            <Bookmark className="w-6 h-6 ml-4 inline-block align-middle" fill="currentColor" style={{ color: brandColor }} />
           </SmartElement>
         </h2>
         
@@ -1138,9 +1141,10 @@ export function CTAVariant119(props) {
           <span className="font-outfit font-light text-zinc-400 text-lg" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>01</span>
           <div className="flex flex-col gap-1 mt-1 pointer-events-auto">
             <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl flex items-center gap-3 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-                {data.cta_text || 'Arquivar'} <Bookmark className="w-4 h-4" strokeWidth={1.5} />
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl inline-block align-middle outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.cta_text || 'Arquivar'}
               </span>
+              <Bookmark className="w-4 h-4 ml-3 inline-block align-middle" strokeWidth={1.5} />
             </SmartElement>
             <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
               <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
@@ -1154,9 +1158,10 @@ export function CTAVariant119(props) {
           <span className="font-outfit font-light text-zinc-400 text-lg" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>02</span>
           <div className="flex flex-col gap-1 mt-1 pointer-events-auto">
             <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl flex items-center gap-3 outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-                {data.insta_ready || 'Distribuir'} <Send className="w-4 h-4" strokeWidth={1.5} />
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="font-outfit font-medium text-[#1a1a1a] text-2xl inline-block align-middle outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
+                {data.insta_ready || 'Distribuir'}
               </span>
+              <Send className="w-4 h-4 ml-3 inline-block align-middle" strokeWidth={1.5} />
             </SmartElement>
             <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement}>
               <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="font-outfit font-light text-zinc-500 text-[10px] uppercase tracking-widest outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
