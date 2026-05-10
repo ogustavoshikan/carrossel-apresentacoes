@@ -2348,12 +2348,12 @@ export function CoverExtraVariant135({
     <div className="relative w-full h-full bg-[#ebe9e1] overflow-hidden flex mx-auto border border-zinc-300">
       
       {/* Slice da Imagem */}
-      <div className="w-[35%] h-full relative overflow-hidden z-10 border-r border-black/10 shrink-0">
+      <div className="w-[40%] h-full relative overflow-hidden z-10 border-r border-black/10 shrink-0">
         <ImageBg data={data} className="absolute inset-0 h-full" />
       </div>
 
       {/* Bloco de Texto Claro */}
-      <div className="w-[65%] h-full bg-[#ebe9e1] p-6 flex flex-col justify-between relative shrink-0">
+      <div className="w-[60%] h-full bg-[#ebe9e1] p-6 flex flex-col justify-between relative shrink-0">
         <div className="flex justify-end pointer-events-none">
           <AlignLeft className="w-5 h-5 text-[#1A1A1A]" />
         </div>
@@ -2385,7 +2385,7 @@ export function CoverExtraVariant135({
             <span className="font-outfit font-medium text-[#1A1A1A] text-[8px] tracking-[0.2em] uppercase">
               @{brandHandle || 'seuhandle'}
             </span>
-            <div className="w-8 h-8 rounded-full border border-[#1A1A1A] flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-full border border-[#1A1A1A] flex items-center justify-center shrink-0 translate-y-[5px]">
               <ArrowRight className="w-4 h-4 text-[#1A1A1A]" />
             </div>
           </div>
@@ -2509,7 +2509,7 @@ export function CoverExtraVariant137({
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="relative z-10 w-[80%] aspect-[3/4] bg-[#EBE9E1] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
+      <div className="relative z-10 w-[90%] aspect-[3/4] bg-[#EBE9E1] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
         
         <div className="h-[40%] w-full relative">
           <ImageBg data={data} className="absolute inset-0" />
@@ -2583,18 +2583,18 @@ export function CoverExtraVariant138({
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col mx-auto">
       
       <div className="h-1/2 w-full flex border-b-4 border-[#CECECE]">
-        <div className="w-[40%] h-full flex flex-col justify-between p-4 border-r-2 border-[#CECECE]" style={{ backgroundColor: brandColor }}>
-          <LayoutGrid className="w-5 h-5 text-[#1a1a1a]" />
-          <SmartField field="badge_text" {...sp} className="relative z-10 w-max overflow-visible">
+        <div className="w-[20%] h-full flex flex-col items-center justify-between p-4 border-r-2 border-[#CECECE]" style={{ backgroundColor: brandColor }}>
+          <LayoutGrid className="w-5 h-5 text-white" />
+          <SmartField field="badge_text" {...sp} className="relative z-10">
             <span 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-black text-[#1a1a1a] text-[11px] uppercase tracking-[0.2em] -rotate-90 origin-bottom-left ml-4 mb-8 whitespace-nowrap inline-block outline-none">
+              className="font-outfit font-black text-white text-[11px] uppercase tracking-[0.2em] -rotate-90 whitespace-nowrap block w-max outline-none mb-16">
               {data.badge_text || 'EDIÇÃO 38'}
             </span>
           </SmartField>
         </div>
-        <div className="w-[60%] h-full relative overflow-hidden">
+        <div className="w-[80%] h-full relative overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
       </div>
@@ -2727,37 +2727,37 @@ export function CoverExtraVariant140({
   return (
     <div className="relative w-full h-full bg-[#050505] overflow-hidden flex flex-col mx-auto ring-1 ring-white/10">
       
-      <div className="h-[65%] w-full relative overflow-hidden z-0 pointer-events-none">
+      <div className="h-[55%] w-full relative overflow-hidden z-0 pointer-events-none">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
 
-      <div className="h-[35%] w-full p-6 flex flex-col justify-end relative z-10 border-t-[5px]" style={{ backgroundColor: '#FDF3F3', borderTopColor: brandColor }}>
+      <div className="h-[45%] w-full p-6 flex flex-col justify-end relative z-10 border-t-[8px]" style={{ backgroundColor: '#FDF3F3', borderTopColor: brandColor }}>
         
-        <SmartField field="titulo" {...sp} className="absolute z-20" style={{ top: '30px', left: '-1px' }}>
-          <h2 
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter drop-shadow-2xl outline-none break-words"
-            style={{ fontSize: `${96 * sTitle}px` }}>
-            {data.titulo || 'TOP 5'}
-          </h2>
-        </SmartField>
+        <div className="absolute z-20 flex flex-col gap-4" style={{ top: '30px', left: '24px' }}>
+          <SmartField field="titulo" {...sp}>
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter drop-shadow-2xl outline-none break-words"
+              style={{ fontSize: `${96 * sTitle}px` }}>
+              {data.titulo || 'TOP 5'}
+            </h2>
+          </SmartField>
+          <SmartField field="texto_apoio" {...sp} className="pointer-events-auto">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-outfit font-medium text-zinc-600 text-[8px] uppercase tracking-[0.3em] outline-none">
+              {data.texto_apoio || 'Experiência Premium'}
+            </span>
+          </SmartField>
+        </div>
 
         <div className="w-full flex justify-between items-end border-t border-black/10 pt-4 mt-12 pointer-events-none">
-          <div className="flex flex-col gap-1">
-            <span className="font-outfit font-bold text-[#1a1a1a]/50 text-[10px] uppercase tracking-widest">
-              @{brandHandle || 'seuhandle'}
-            </span>
-            <SmartField field="texto_apoio" {...sp} className="pointer-events-auto">
-              <span 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-outfit font-medium text-zinc-600 text-[8px] uppercase tracking-[0.3em] outline-none">
-                {data.texto_apoio || 'Experiência Premium'}
-              </span>
-            </SmartField>
-          </div>
-          <div className="bg-black/5 p-2 rounded backdrop-blur-md">
+          <span className="font-outfit font-bold text-[#1a1a1a]/50 text-[10px] uppercase tracking-widest">
+            @{brandHandle || 'seuhandle'}
+          </span>
+          <div className="bg-black/5 p-2 rounded backdrop-blur-md translate-y-[7px]">
             <ArrowDownRight className="w-5 h-5 text-[#1a1a1a]/80" />
           </div>
         </div>
