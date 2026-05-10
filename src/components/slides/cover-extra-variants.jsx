@@ -4548,6 +4548,7 @@ export function CoverExtraVariant164({
             {data.texto_apoio || 'QUE O SEU FINAL DE SEMANA MERECE'}
           </p>
         </SmartField>
+        <div className="w-16 h-1 bg-white/40 mt-4" />
       </div>
       
       <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-white">
@@ -4744,23 +4745,29 @@ export function CoverExtraVariant167({
       <span className="font-outfit font-bold text-[#8B7355] text-[8px] tracking-[0.3em] uppercase bg-white/50 px-3 py-1 rounded-full">
         {brandHandle || 'SEUHANDLE'}
       </span>
-      <Sparkles className="w-4 h-4 text-[#8B7355]" />
+      <Sparkles className="w-4 h-4" style={{ color: brandColor }} />
     </div>
     
     <div className="relative z-10 w-full flex-1 flex flex-col justify-center items-center my-6">
-      <div className="w-full aspect-[4/3] rounded-lg overflow-hidden shadow-[0_15px_35px_rgba(139,115,85,0.15)] relative group-hover:scale-105 transition-transform duration-700">
-        <ImageBg data={data} className="absolute inset-0 w-full h-full mix-blend-multiply opacity-90" />
+      <div 
+        className="w-full aspect-[4/3] rounded-lg overflow-hidden relative group-hover:scale-105 transition-transform duration-700"
+        style={{ 
+          border: '4px solid rgba(255, 255, 255, 0.3)',
+          boxShadow: `0 15px 35px ${brandColor}40`
+        }}
+      >
+        <ImageBg data={data} className="absolute inset-0 w-full h-full" />
       </div>
     </div>
     
-    <div className="relative z-10 flex justify-between items-end w-full border-t border-[#8B7355]/20 pt-4">
+    <div className="relative z-10 flex justify-between items-end w-full border-t pt-4" style={{ borderTopColor: 'rgba(16, 16, 16, 0.15)' }}>
       <div>
         <SmartField field="titulo" {...sp}>
           <h2 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-cormorant font-bold text-[#4A3E2D] uppercase leading-none tracking-widest mb-1 outline-none break-words"
-            style={{ fontSize: `${36 * sTitle}px` }}
+            className="font-cormorant font-bold uppercase leading-none tracking-widest mb-1 outline-none break-words"
+            style={{ fontSize: `${48 * sTitle}px`, color: '#101010' }}
           >
             {data.titulo || 'TOP 5'}
           </h2>
@@ -4769,7 +4776,8 @@ export function CoverExtraVariant167({
           <span 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-playfair italic text-[#8B7355] text-xs outline-none"
+            className="font-playfair italic text-xs outline-none"
+            style={{ color: '#101010' }}
           >
             {data.texto_apoio || 'Exclusivo de Fim de Semana'}
           </span>
@@ -5198,7 +5206,7 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 148,
     name: 'The Glassmorphism',
     description: 'Fundo desfocado com card central flutuante e luz neon.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras148.png',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras-148.png',
   },
   {
     id: 149,
