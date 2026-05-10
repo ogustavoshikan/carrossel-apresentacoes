@@ -4550,10 +4550,10 @@ export function CoverExtraVariant164({
         </SmartField>
       </div>
       
-      <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-black">
+      <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-white">
         <ImageBg data={data} className="absolute inset-0 w-full h-full" />
         
-        <div className="absolute bottom-6 right-6 bg-black text-white px-5 py-2.5 rounded-full font-outfit text-[10px] font-bold uppercase flex items-center gap-2 shadow-xl cursor-pointer hover:scale-105 transition-transform">
+        <div className="absolute bottom-6 right-6 bg-black/40 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full font-outfit text-[10px] font-bold uppercase flex items-center gap-2 shadow-xl cursor-pointer hover:scale-105 transition-transform">
           Deslizar <ArrowRight className="w-4 h-4" />
         </div>
       </div>
