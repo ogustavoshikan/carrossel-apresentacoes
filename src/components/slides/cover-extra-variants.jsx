@@ -346,7 +346,10 @@ export function CoverExtraVariant104({
       {/* Grid principal */}
       <div className="w-full flex-1 grid grid-cols-2 grid-rows-3 gap-3 min-h-0">
         {/* Imagem principal — ocupa 2 cols × 2 rows */}
-        <div className="col-span-2 row-span-2 rounded-xl overflow-hidden relative shadow-inner ring-1 ring-black/5 border-[4px] border-white/30">
+        <div 
+          className="col-span-2 row-span-2 rounded-xl overflow-hidden relative shadow-inner ring-1 ring-black/5"
+          style={{ border: '4px solid rgba(255, 255, 255, 0.3)' }}
+        >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
 
@@ -426,7 +429,10 @@ export function CoverExtraVariant105({
 
       <div className="w-full flex-1 relative flex flex-col items-center min-h-0">
         {/* O Arco */}
-        <div className="w-[90%] h-[75%] rounded-t-[1000px] overflow-hidden relative shadow-inner ring-1 ring-black/10 shrink-0">
+        <div 
+          className="w-[90%] h-[75%] rounded-t-[1000px] overflow-hidden relative shadow-inner ring-1 ring-black/10 shrink-0"
+          style={{ border: '4px solid rgba(255, 255, 255, 0.3)' }}
+        >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         
@@ -566,9 +572,15 @@ export function CoverExtraVariant107({
 
   return (
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col items-center justify-center p-4">
-      
-      {/* Número gigante ao fundo */}
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
+      {/* Grid Lines (Copiado da Variante 113) */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute left-[15%] top-0 bottom-0 w-[1px] bg-[#1a1a1a]/10"></div>
+        <div className="absolute left-[85%] top-0 bottom-0 w-[1px] bg-[#1a1a1a]/10"></div>
+        <div className="absolute top-[20%] left-0 right-0 h-[1px] bg-[#1a1a1a]/10"></div>
+        <div className="absolute top-[80%] left-0 right-0 h-[1px] bg-[#1a1a1a]/10"></div>
+      </div>
+
+      {/* Número gigante ao fundo */}      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
         <span className="font-playfair font-black text-[#1a1a1a] text-[35rem] leading-none opacity-[0.03] select-none -translate-y-12">
           {data.badge_text?.charAt(0) || '5'}
         </span>
@@ -580,7 +592,13 @@ export function CoverExtraVariant107({
       </div>
 
       <div className="relative w-[85%] flex flex-col items-center z-10 mt-8">
-        <div className="w-full aspect-square rounded-full overflow-hidden shadow-2xl ring-4 ring-white mb-6 relative z-10 shrink-0">
+        <div 
+          className="w-full aspect-square rounded-full overflow-hidden ring-4 ring-white mb-6 relative z-10 shrink-0"
+          style={{ 
+            boxShadow: `0 25px 50px -12px ${brandColor}40`,
+            border: '4px solid rgba(255, 255, 255, 0.3)'
+          }}
+        >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         
@@ -818,7 +836,10 @@ export function CoverExtraVariant110({
       
       <div 
         className="w-full aspect-[4/2.8] rounded-2xl overflow-hidden relative mb-10 shrink-0"
-        style={{ filter: `drop-shadow(0 25px 25px ${brandColor}40)` }}
+        style={{ 
+          filter: `drop-shadow(0 25px 25px ${brandColor}40)`,
+          border: '4px solid rgba(255, 255, 255, 0.3)'
+        }}
       >
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
@@ -1054,7 +1075,13 @@ export function CoverExtraVariant113({
         </div>
 
         <div className="w-full flex-1 flex items-center justify-center py-8">
-          <div className="w-[85%] aspect-square relative rounded-full overflow-hidden ring-1 ring-[#1a1a1a]/20 shadow-2xl ">
+          <div 
+            className="w-[85%] aspect-square relative rounded-full overflow-hidden ring-1 ring-[#1a1a1a]/20"
+            style={{ 
+              boxShadow: `0 25px 50px -12px ${brandColor}40`,
+              border: '4px solid rgba(255, 255, 255, 0.3)'
+            }}
+          >
              <ImageBg data={data} className="absolute inset-0" />
              <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
           </div>
@@ -1102,6 +1129,18 @@ export function CoverExtraVariant115({
   return (
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col mx-auto border-8 border-white">
       <div className="h-[25%] bg-[#EBE9E1] flex flex-col justify-end p-6 relative">
+        <div className="absolute top-4 left-6">
+          <SmartField field="badge_text" {...sp}>
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[#1a1a1a] text-[9px] tracking-[0.4em] uppercase outline-none break-words"
+            >
+              {data.badge_text || 'VOL. 01'}
+            </span>
+          </SmartField>
+        </div>
         <BadgeCheck className="absolute top-4 right-4 w-5 h-5" style={{ color: brandColor }} />
         <SmartField field="titulo" {...sp}>
           <h2 
@@ -1114,7 +1153,7 @@ export function CoverExtraVariant115({
         </SmartField>
       </div>
       
-      <div className="h-[40%] w-full relative overflow-hidden rounded-[8px] ring-1 ring-[#1a1a1a]/10">
+      <div className="h-[50%] w-full relative overflow-hidden rounded-[8px] ring-1 ring-[#1a1a1a]/10">
         <ImageBg data={data} className="absolute inset-0" />
         <div
           className="absolute inset-0 bg-gradient-to-r from-transparent to-transparent mix-blend-overlay"
@@ -1132,10 +1171,13 @@ export function CoverExtraVariant115({
           </p>
         </SmartField>
 
-        <div className="flex justify-between items-end w-full">
-          <span className="font-outfit font-bold text-[#1a1a1a]/50 text-[10px] uppercase tracking-[0.3em]">@{brandHandle || 'seuhandle'}</span>
-          <div className="w-8 h-8 flex items-center justify-center rounded-sm " style={{ backgroundColor: brandColor }}>
-            <ArrowRight className="w-4 h-4 text-white" />
+        <div className="w-full">
+          <div className="mb-4" style={{ width: '22rem', height: '1px', backgroundColor: 'rgb(26 26 26 / 0.1)' }}></div>
+          <div className="flex justify-between items-end w-full">
+            <span className="font-outfit font-bold text-[#1a1a1a]/50 text-[10px] uppercase tracking-[0.3em]">@{brandHandle || 'seuhandle'}</span>
+            <div className="w-8 h-8 flex items-center justify-center rounded-sm translate-y-[4px]" style={{ backgroundColor: brandColor }}>
+              <ArrowRight className="w-4 h-4 text-white" />
+            </div>
           </div>
         </div>
       </div>
@@ -1251,7 +1293,13 @@ export function CoverExtraVariant117({
         </div>
       {/* A "Janela" */}
       <div className="w-full flex justify-center items-center my-auto relative z-10">
-        <div className="w-[65%] aspect-square relative overflow-hidden shadow-2xl z-10">
+        <div 
+          className="w-[65%] aspect-square relative overflow-hidden z-10"
+          style={{ 
+            boxShadow: `0 25px 50px -12px ${brandColor}40`,
+            border: '3px solid rgba(255, 255, 255, 0.2)'
+          }}
+        >
            <ImageBg data={data} className="absolute inset-0" />
         </div>
         {/* Moldura descentrada para criar tensão visual */}
@@ -1640,6 +1688,7 @@ export function CoverExtraVariant123({
         </div>
         
         <div>
+          <div className="h-[1px] mb-4" style={{ width: '22rem', backgroundColor: 'rgb(0 0 0 / 0.1)' }}></div>
           <SmartField field="titulo" {...sp}>
             <h2 
               contentEditable suppressContentEditableWarning
@@ -1781,13 +1830,14 @@ export function CoverExtraVariant127({
   return (
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex mx-auto ring-1 ring-black/5">
       
-      <div className="w-[30%] h-full flex flex-col justify-between py-8 px-4 border-r border-[#1a1a1a]/10 z-10 bg-[#EBE9E1] shrink-0">
+      <div className="w-[20%] h-full flex flex-col justify-between py-8 px-4 border-r border-[#1a1a1a]/10 z-10 bg-[#EBE9E1] shrink-0">
         <BadgeCheck className="w-5 h-5 mx-auto" style={{ color: brandColor }} />
-        
+
         <div className="flex-1 flex items-center justify-center relative">
           <SmartField field="badge_text" {...sp}>
-            <span 
-              contentEditable suppressContentEditableWarning
+            <span
+              contentEditable
+              suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               onKeyDown={(e) => { if (e.key === 'Enter') e.preventDefault(); }}
               className="font-outfit font-black text-[#1a1a1a] text-[11px] tracking-[0.4em] uppercase -rotate-90 whitespace-nowrap outline-none origin-center inline-block min-w-max translate-x-[2px]">
@@ -1799,7 +1849,7 @@ export function CoverExtraVariant127({
         <ArrowRight className="w-5 h-5 text-[#1a1a1a] mx-auto" />
       </div>
 
-      <div className="w-[70%] h-full relative overflow-hidden flex flex-col">
+      <div className="w-[80%] h-full relative overflow-hidden flex flex-col">
         <div className="h-[75%] w-full relative shrink-0">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
@@ -1849,7 +1899,7 @@ export function CoverExtraVariant128({
     <div className="relative w-full h-full bg-[#0a0a0a] overflow-hidden flex flex-col justify-between p-6 mx-auto ring-1 ring-white/10">
       
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-40" />
+        <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-99" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-transparent opacity-80" />
       </div>
@@ -1862,17 +1912,7 @@ export function CoverExtraVariant128({
       </div>
 
       <div className="relative z-10 w-full mt-auto flex flex-col items-center">
-        <SmartField field="badge_text" {...sp}>
-          <h2 
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-            className="font-playfair font-black text-transparent bg-clip-text text-[12rem] leading-[0.7] tracking-tighter drop-shadow-2xl outline-none"
-            style={{ backgroundImage: `linear-gradient(to bottom, ${brandColor}, #333333)` }}>
-            {data.badge_text || '5'}
-          </h2>
-        </SmartField>
-        
-        <div className="bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 w-full p-5 rounded-xl mt-4 flex justify-between items-center z-20">
+        <div className="bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 w-full p-5 rounded-xl flex justify-between items-center z-20">
           <div>
             <SmartField field="titulo" {...sp}>
               <h3 
@@ -2000,21 +2040,21 @@ export function CoverExtraVariant130({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#1a1a1a] overflow-hidden flex flex-col items-center justify-center p-6 mx-auto">
+    <div className="relative w-full h-full overflow-hidden flex flex-col items-center justify-center p-6 mx-auto" style={{ backgroundColor: brandColor }}>
       
       <div className="absolute top-6 w-full px-6 flex justify-between items-center z-20 pointer-events-none">
-        <BadgeCheck className="w-5 h-5 text-white/50" />
+        <BadgeCheck className="w-5 h-5 text-white" />
         <SmartField field="badge_text" {...sp} className="pointer-events-auto">
           <span 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-            className="font-outfit font-bold text-white/50 text-[9px] tracking-[0.3em] uppercase outline-none break-words">
+            className="font-outfit font-bold text-white text-[9px] tracking-[0.3em] uppercase outline-none break-words">
             {data.badge_text || 'Editorial'}
           </span>
         </SmartField>
       </div>
 
-      <div className="w-[70%] h-[75%] rounded-t-full rounded-b-full overflow-hidden relative shadow-2xl ring-1 ring-white/10 z-10 shrink-0 mt-4">
+      <div className="w-[70%] h-[75%] rounded-t-full rounded-b-full overflow-hidden relative z-10 shrink-0 mt-4" style={{ border: '4px solid rgb(255 255 255)', boxShadow: `0 0 60px color-mix(in srgb, ${brandColor}, white 35%)` }}>
         <ImageBg data={data} className="absolute inset-0 opacity-90 " />
       </div>
 
@@ -2033,7 +2073,7 @@ export function CoverExtraVariant130({
       </div>
 
       <div className="absolute bottom-5 w-full text-center pointer-events-none">
-        <span className="font-outfit text-zinc-500 text-[8px] tracking-[0.4em] uppercase">@{brandHandle || 'seuhandle'}</span>
+        <span className="font-outfit text-white text-[8px] tracking-[0.4em] uppercase">@{brandHandle || 'seuhandle'}</span>
       </div>
       
       <SlideHeader
@@ -2063,18 +2103,21 @@ export function CoverExtraVariant131({
   return (
     <div className="relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col mx-auto ring-1 ring-black/10">
       
-      <div className="h-[30%] w-full flex flex-col justify-end p-6 bg-[#EBE9E1] shrink-0">
-        <div className="flex items-center gap-2 mb-[10px] pointer-events-none">
-          <div className="w-8 h-[1px]" style={{ backgroundColor: brandColor }}></div>
-          <SmartField field="badge_text" {...sp} className="pointer-events-auto">
-            <span 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-outfit font-bold text-[9px] uppercase tracking-[0.2em] outline-none break-words inline-block"
-              style={{ color: brandColor, transform: 'translateY(-2px)' }}>
-              {data.badge_text || 'A Coleção'}
-            </span>
-          </SmartField>
+      <div className="h-[25%] w-full flex flex-col justify-end p-6 bg-[#EBE9E1] shrink-0">
+        <div className="flex items-center justify-between mb-[10px] pointer-events-none">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-[1px]" style={{ backgroundColor: brandColor }}></div>
+            <SmartField field="badge_text" {...sp} className="pointer-events-auto">
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-outfit font-bold text-[9px] uppercase tracking-[0.2em] outline-none break-words inline-block"
+                style={{ color: brandColor, transform: 'translateY(-2px)' }}>
+                {data.badge_text || 'A Coleção'}
+              </span>
+            </SmartField>
+          </div>
+          {isVerified && <BadgeCheck className="w-4 h-4" style={{ color: brandColor }} />}
         </div>
         <SmartField field="titulo" {...sp}>
           <h2 
@@ -2087,8 +2130,8 @@ export function CoverExtraVariant131({
         </SmartField>
       </div>
 
-      <div className="h-[40%] w-full relative overflow-hidden bg-black flex items-center shadow-inner shrink-0">
-        <ImageBg data={data} className="absolute inset-0 opacity-80" />
+      <div className="h-[45%] w-full relative overflow-hidden bg-black flex items-center shadow-inner shrink-0" style={{ borderBottom: '8px solid #ffffff' }}>
+        <ImageBg data={data} className="absolute inset-0" />
       </div>
 
       <div className="flex-1 w-full p-6 flex flex-col justify-between shrink-0" style={{ backgroundColor: brandColor }}>
@@ -2101,9 +2144,12 @@ export function CoverExtraVariant131({
           </p>
         </SmartField>
         
-        <div className="flex justify-between items-end w-full pointer-events-none">
-          <span className="font-outfit font-bold text-white/40 text-[9px] tracking-[0.3em] uppercase">@{brandHandle || 'seuhandle'}</span>
-          <ArrowDownRight className="w-5 h-5 text-white/80" />
+        <div className="flex flex-col gap-4 w-full">
+          <div className="h-[1px] mx-auto" style={{ width: '22rem', backgroundColor: 'rgb(255 255 255 / 0.2)' }}></div>
+          <div className="flex justify-between items-end w-full pointer-events-none">
+            <span className="font-outfit font-bold text-white/40 text-[9px] tracking-[0.3em] uppercase">@{brandHandle || 'seuhandle'}</span>
+            <ArrowDownRight className="w-5 h-5 text-white/80" />
+          </div>
         </div>
       </div>
       
@@ -2132,7 +2178,7 @@ export function CoverExtraVariant132({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#DE1E4D] overflow-hidden flex flex-col p-6 mx-auto border-[6px] border-[#DE1E4D]" style={{ backgroundColor: brandColor, borderColor: brandColor }}>
+    <div className="relative w-full h-full bg-[#DE1E4D] overflow-hidden flex flex-col p-2 mx-auto border-[6px] border-[#DE1E4D]" style={{ backgroundColor: brandColor, borderColor: brandColor }}>
       
       <div className="w-full h-full bg-[#EBE9E1] rounded-xl flex flex-col relative overflow-hidden shadow-inner p-5 z-10">
         
@@ -3480,14 +3526,14 @@ export function CoverExtraVariant152({
       <div className="absolute inset-0 bg-black/40" />
       
       <div 
-        className="absolute w-[75%] aspect-[3/4] rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)] -rotate-6 transform transition-transform duration-700 group-hover:-rotate-12 opacity-60 overflow-hidden" 
+        className="absolute w-[75%] aspect-[3/4] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.6)] -rotate-6 transform transition-transform duration-700 group-hover:-rotate-12 opacity-60 overflow-hidden" 
         style={{ 
           backgroundColor: '#ffffff',
           backgroundImage: `linear-gradient(${brandColor}66, ${brandColor}66)`
         }}
       />
       
-      <div className="relative w-[85%] bg-[#F9F6F0] p-3 pb-12 rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.3)] rotate-3 transform transition-transform duration-700 group-hover:rotate-0 flex flex-col z-10">
+      <div className="relative w-[85%] bg-[#F9F6F0] p-3 pb-12 rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] rotate-3 transform transition-transform duration-700 group-hover:rotate-0 flex flex-col z-10">
         
         <div className="w-full aspect-[4/5] bg-zinc-200 overflow-hidden relative shadow-inner ring-1 ring-black/5">
           <ImageBg data={data} className="absolute inset-0" />
