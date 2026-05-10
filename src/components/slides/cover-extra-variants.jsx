@@ -3555,14 +3555,19 @@ export function CoverExtraVariant152({
     <div className="group relative w-full h-full bg-zinc-800 overflow-hidden shadow-2xl ring-1 ring-white/10 p-6 flex items-center justify-center">
       <ImageBg 
         data={data} 
-        className="absolute inset-0 opacity-40 blur-2xl scale-125" 
+        className="absolute inset-0 opacity-40 blur-[12px] scale-125" 
       />
       <div className="absolute inset-0 bg-black/40" />
       
-      <div className="absolute w-[75%] aspect-[3/4] bg-white rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.6)] -rotate-6 transform transition-transform duration-700 group-hover:-rotate-12 opacity-60" />
+      <div 
+        className="absolute w-[75%] aspect-[3/4] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.6)] -rotate-6 transform transition-transform duration-700 group-hover:-rotate-12 opacity-60 overflow-hidden" 
+        style={{ 
+          backgroundColor: '#ffffff',
+          backgroundImage: `linear-gradient(${brandColor}66, ${brandColor}66)`
+        }}
+      />
       
       <div className="relative w-[85%] bg-[#F9F6F0] p-3 pb-12 rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] rotate-3 transform transition-transform duration-700 group-hover:rotate-0 flex flex-col z-10">
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 bg-white/30 backdrop-blur-md border border-white/20 rotate-2 shadow-sm z-20" />
         
         <div className="w-full aspect-[4/5] bg-zinc-200 overflow-hidden relative shadow-inner ring-1 ring-black/5">
           <ImageBg data={data} className="absolute inset-0" />
@@ -3580,7 +3585,7 @@ export function CoverExtraVariant152({
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-cormorant font-bold italic text-black leading-tight outline-none break-words"
-              style={{ fontSize: `${20 * sTitle}px` }}
+              style={{ fontSize: `${40 * sTitle}px` }}
             >
               {data.titulo || 'Que seu fds exige'}
             </h2>
@@ -4157,14 +4162,21 @@ export function CoverExtraVariant159({
       </div>
 
       <div className="absolute top-6 right-6 z-30">
-        <span className="font-outfit font-bold tracking-[0.2em] text-[8px] text-white bg-black/60 px-4 py-2 rounded-full backdrop-blur-md border border-white/10 uppercase">
-          @{brandHandle || 'seuhandle'}
-        </span>
+        <div className="relative overflow-hidden rounded-full border border-white/10 px-4 py-2">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+          <span className="relative font-outfit font-bold tracking-[0.2em] text-[8px] text-white uppercase">
+            @{brandHandle || 'seuhandle'}
+          </span>
+        </div>
       </div>
 
       <div className="absolute bottom-6 right-6 z-30 cursor-pointer group/btn">
-        <div className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 flex items-center justify-center hover:opacity-90 transition-all shadow-xl" style={{ backgroundColor: brandColor }}>
-          <ArrowRight className="w-5 h-5 text-white" />
+        <div 
+          className="relative w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:opacity-90 transition-all shadow-xl overflow-hidden" 
+          style={{ backgroundColor: brandColor }}
+        >
+          <div className="absolute inset-0 backdrop-blur-xl bg-white/10" />
+          <ArrowRight className="relative z-10 w-5 h-5 text-white" />
         </div>
       </div>
 
@@ -4451,51 +4463,64 @@ export function CoverExtraVariant163({
   const repeatedText = Array(10).fill(marqueeText).join('');
 
   return (
-    <div className="group relative w-full h-full bg-zinc-950 overflow-hidden flex items-center justify-center p-6">
+    <div className="group relative w-full h-full overflow-hidden flex items-center justify-center">
+      {/* Shielded Background Layers */}
+      <div className="absolute -inset-10 bg-white z-0" />
+      <div 
+        className="absolute -inset-10 z-0" 
+        style={{ backgroundColor: brandColor + '40' }} 
+      />
+
       {/* Background Marquee */}
-      <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none flex flex-col justify-center gap-2">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none flex flex-col justify-center gap-2 z-10">
         {[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5].map((delay, i) => (
           <div 
             key={i} 
-            className="whitespace-nowrap font-outfit font-black text-5xl text-white transform -skew-x-12 animate-[marquee_10s_linear_infinite]" 
-            style={{ animationDelay: `${delay}s`, animationDirection: i % 2 === 0 ? 'normal' : 'reverse' }}
+            className="whitespace-nowrap font-outfit font-black text-5xl transform -skew-x-12 animate-[marquee_10s_linear_infinite]" 
+            style={{ 
+              animationDelay: `${delay}s`, 
+              animationDirection: i % 2 === 0 ? 'normal' : 'reverse',
+              color: brandColor
+            }}
           >
             {repeatedText}
           </div>
         ))}
       </div>
 
-      {/* Main Image Container */}
-      <div 
-        className="relative z-10 w-full aspect-square rounded-[40px] overflow-hidden p-1"
-        style={{ backgroundColor: brandColor, boxShadow: `0 0 50px ${brandColor}4D` }}
-      >
-        <div className="w-full h-full rounded-[36px] overflow-hidden relative group-hover:scale-[0.98] transition-transform duration-500 bg-zinc-800">
-          <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+      <div className="relative w-full h-full flex items-center justify-center p-6 z-20">
+        {/* Main Image Container */}
+        <div 
+          className="relative w-full aspect-square rounded-[40px] overflow-hidden p-1"
+          style={{ backgroundColor: brandColor, boxShadow: `0 0 50px ${brandColor}4D` }}
+        >
+          <div className="w-full h-full rounded-[36px] overflow-hidden relative group-hover:scale-[0.98] transition-transform duration-500 bg-zinc-800">
+            <ImageBg data={data} className="absolute inset-0 w-full h-full" />
+          </div>
         </div>
-      </div>
 
-      {/* Bottom Floating Bar */}
-      <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center z-20 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-2xl">
-        <span className="font-outfit font-bold text-[8px] text-white/70 tracking-widest uppercase truncate max-w-[150px]">
-          {brandHandle || 'SEUHANDLE'}
-        </span>
-        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center cursor-pointer">
-          <ArrowRight className="w-3 h-3 text-black" />
+        {/* Bottom Floating Bar */}
+        <div className="absolute bottom-4 left-6 right-6 flex justify-between items-center z-20 bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-2xl">
+          <span className="font-outfit font-bold text-[10px] text-white tracking-widest uppercase truncate max-w-[150px]">
+            {brandHandle || 'SEUHANDLE'}
+          </span>
+          <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center cursor-pointer">
+            <ArrowRight className="w-3 h-3 text-black" />
+          </div>
         </div>
-      </div>
 
-      {/* Hidden Text Edit (Since it's marquee, we need a way to edit it directly) */}
-      <div className="absolute top-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 p-2 rounded">
-        <SmartField field="titulo" {...sp}>
-           <h2 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="text-white text-xs font-mono outline-none"
-            >
-              {data.titulo || 'TOP 5'}
-            </h2>
-        </SmartField>
+        {/* Hidden Text Edit */}
+        <div className="absolute top-4 left-4 z-30 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 p-2 rounded">
+          <SmartField field="titulo" {...sp}>
+             <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="text-white text-xs font-mono outline-none"
+              >
+                {data.titulo || 'TOP 5'}
+              </h2>
+          </SmartField>
+        </div>
       </div>
 
       <SlideHeader
@@ -4554,8 +4579,13 @@ export function CoverExtraVariant164({
       <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-white">
         <ImageBg data={data} className="absolute inset-0 w-full h-full" />
         
-        <div className="absolute bottom-6 right-6 bg-black/40 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full font-outfit text-[10px] font-bold uppercase flex items-center gap-2 shadow-xl cursor-pointer hover:scale-105 transition-transform">
-          Deslizar <ArrowRight className="w-4 h-4" />
+        <div className="absolute bottom-6 right-6 z-20 cursor-pointer hover:scale-105 transition-transform group/cta">
+          <div className="relative overflow-hidden rounded-full border border-white/10 px-5 py-2.5 shadow-xl">
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+            <div className="relative flex items-center gap-2 text-white font-outfit text-[10px] font-bold uppercase">
+              Deslizar <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
         </div>
       </div>
 
