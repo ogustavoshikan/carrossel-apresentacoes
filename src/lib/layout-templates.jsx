@@ -285,23 +285,23 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61, 109, 118, 119, 127, 130, 133, 135, 138, 143].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61, 109, 118, 119, 125, 126, 127, 130, 133, 135, 138, 140, 143, 149].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
   }
 
   // Pre-configura imagem de fundo específica para as variantes 33 e 51
-  if ((layoutType === 'cover' || layoutType === 'cta') && [33, 51].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cta-extra') && [33, 51].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
-  // Pre-configura imagem de fundo para as variantes de Brigadeiro Gourmet
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [6, 7, 18, 34, 36, 37, 42, 55, 56, 102, 103, 106, 112, 113, 116, 128, 131, 132, 139, 142, 144, 147].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [6, 7, 18, 34, 36, 37, 42, 55, 56, 102, 103, 106, 112, 113, 116, 128, 129, 131, 132, 134, 136, 137, 139, 141, 142, 144, 145, 146, 147, 152, 154, 158, 161, 162].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra') && [24, 101, 104, 107, 110, 115, 117, 120, 121, 134, 136, 137, 140, 141, 145, 146, 148].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [24, 101, 104, 107, 110, 115, 117, 120, 121, 137, 140, 141, 145, 146, 148, 150, 151, 153, 155, 156, 157, 159, 160, 163, 164].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2018/02/ganhar-dinheiro-vendendo-brigadeiro.webp';
   }
+
 
   if ((layoutType === 'cover' || layoutType === 'cover-extra') && [105, 108, 111, 114].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/caixa-brigadeiros-gourmet-variados-venda.jpg';
