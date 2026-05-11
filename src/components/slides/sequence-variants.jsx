@@ -104,6 +104,14 @@ export function SequenceVariant1(props) {
       </div>
 
       <div className="flex-1 p-8 flex flex-col justify-center">
+        <div 
+          className="mb-8" 
+          style={{ 
+            width: '200px', 
+            height: '1px', 
+            backgroundColor: 'rgb(228 228 231 / var(--tw-bg-opacity, 1))' 
+          }} 
+        />
         <SmartEl 
           slideIndex={index} 
           field="texto_apoio" 
@@ -138,7 +146,7 @@ export function SequenceVariant3(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#faf7f2] text-[#1a1a1a] relative overflow-hidden">
+    <div className="w-full h-full flex flex-col bg-[#FAF7F2] text-[#1a1a1a] relative overflow-hidden">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -150,7 +158,8 @@ export function SequenceVariant3(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div 
-        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] shadow-[-10px_10px_30px_rgba(0,0,0,0.1)] z-10 overflow-hidden"
+        className="absolute top-0 right-0 w-[100px] h-[100px] flex flex-col items-center justify-center rounded-bl-[40px] z-10 overflow-hidden"
+        style={{ boxShadow: `-10px 10px 30px ${brandColor}4D` }}
       >
         <div 
           className="absolute inset-0 opacity-90 z-0"
@@ -242,6 +251,14 @@ export function SequenceVariant4(props) {
       />
 
       <div className="flex-1 p-10 flex flex-col justify-center">
+        <div 
+          className="mb-6" 
+          style={{ 
+            width: '3rem', 
+            height: '0.25rem', 
+            backgroundColor: 'rgb(228 228 231 / var(--tw-bg-opacity, 1))' 
+          }} 
+        />
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
@@ -255,8 +272,8 @@ export function SequenceVariant4(props) {
             {...tw} 
             as="h2" 
             field="titulo" 
-            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${69.23 * sTitle}px`, color: brandColor }}
+            className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text text-[#1A1A1A]"
+            style={{ fontSize: `${69.23 * sTitle}px` }}
           >
             {data.titulo || 'A EXPERIÊNCIA\nFINAL'}
           </TextWrapper>
@@ -274,7 +291,7 @@ export function SequenceVariant4(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
+            className="text-[#1A1A1A] font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${25.71 * sText}px` }}
           >
             {data.texto_apoio || 'O desfecho ou a conclusão da sequência, focando no resultado final.'}
@@ -283,8 +300,8 @@ export function SequenceVariant4(props) {
       </div>
 
       <div 
-        className="h-[20%] w-full flex items-end px-8 pb-8 gap-3 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)] "
-        style={{ backgroundColor: brandColor }}
+        className="h-[20%] w-full flex items-end px-8 pb-8 gap-3 relative z-10 "
+        style={{ backgroundColor: brandColor, boxShadow: `0 -20px 40px ${brandColor}33` }}
       >
         {stepsToShow.map((i) => (
           <div key={i} className="flex-1 flex flex-col gap-2.5">
@@ -343,9 +360,25 @@ export function SequenceVariant5(props) {
       </div>
 
       <div className="flex-1 p-10 flex flex-col justify-center relative bg-white">
-        
-
-        
+        <SmartEl 
+          slideIndex={index} 
+          field="tag" 
+          position={data.positions?.tag || { x: 0, y: 0, scale: 1 }}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'tag'}
+          onSelectElement={onSelectElement}
+          className="mb-4 self-start"
+        >
+          <TextWrapper 
+            {...tw} 
+            as="span" 
+            field="tag" 
+            className="text-white font-bold px-2 py-0.5 rounded text-[11px] outline-none uppercase tracking-wide"
+            style={{fontFamily: tagFont,  backgroundColor: brandColor }}
+          >
+            {data.tag || 'DICA'}
+          </TextWrapper>
+        </SmartEl>
 
         <SmartEl 
           slideIndex={index} 
@@ -379,7 +412,7 @@ export function SequenceVariant5(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-zinc-600 font-medium leading-relaxed w-[95%] font-text"
+            className="text-[#1a1a1a] font-medium leading-relaxed w-[95%] font-text"
             style={{ fontSize: `${24.28 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
@@ -425,10 +458,14 @@ export function SequenceVariant6(props) {
       </div>
 
       <div className="flex-1 p-10 flex flex-col justify-center relative z-10 w-[85%]">
-        
-
-        
-
+        <div 
+          className="mb-6" 
+          style={{ 
+            width: '2rem', 
+            height: '0.16rem', 
+            backgroundColor: brandColor 
+          }} 
+        />
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
@@ -758,6 +795,14 @@ export function SequenceVariant11(props) {
       </div>
 
       <div className="flex-1 p-10 pt-12 flex flex-col justify-center relative z-10 bg-[#faf7f2]">
+        <div 
+          className="mb-6" 
+          style={{ 
+            width: '3rem', 
+            height: '0.25rem', 
+            backgroundColor: 'rgb(228 228 231 / var(--tw-bg-opacity, 1))' 
+          }} 
+        />
         <SmartEl 
           slideIndex={index} 
           field="titulo" 
@@ -823,11 +868,11 @@ export function SequenceVariant12(props) {
         counterColor={data.counterColor || "#1a1a1a"} 
         counterBg={data.counterBg || "#EDEDED"} 
       />
-      <div className="w-[45%] h-full relative z-0 border-r border-zinc-100">
+      <div className="w-[50%] h-full relative z-0 border-r border-zinc-100">
         <ImageBg data={data} className="w-full h-full" />
       </div>
 
-      <div className="absolute top-0 left-[45%] w-[4px] h-full bg-zinc-100 z-10">
+      <div className="absolute top-0 left-[50%] w-[4px] h-full bg-zinc-100 z-10">
         <div 
           className="w-full " 
           style={{ 
@@ -837,7 +882,7 @@ export function SequenceVariant12(props) {
         />
       </div>
 
-      <div className="w-[55%] h-full p-10 pl-12 flex flex-col justify-center relative z-10 bg-white">
+      <div className="w-[50%] h-full p-10 pl-7 flex flex-col justify-center relative z-10 bg-white">
         
 
         <span 
@@ -885,6 +930,14 @@ export function SequenceVariant12(props) {
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
         </SmartEl>
+        <div 
+          className="mt-6" 
+          style={{ 
+            width: '3rem', 
+            height: '0.25rem', 
+            backgroundColor: 'rgb(228 228 231 / var(--tw-bg-opacity, 1))' 
+          }} 
+        />
       </div>
     </div>
   );
