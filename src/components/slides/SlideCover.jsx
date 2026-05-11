@@ -86,7 +86,7 @@ export default function SlideCover({
         hideDot={true}
       />
       {/* Hero image top */}
-      <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
         {data.imageUrl ? (
             <div
               className="absolute inset-0 bg-cover"
@@ -107,7 +107,7 @@ export default function SlideCover({
 
       {/* Content area */}
       <div
-        className="flex-1 mt-[55%] p-10 flex flex-col justify-between relative"
+        className="flex-1 mt-[60%] p-10 flex flex-col justify-between relative"
         style={{ backgroundColor: brandColor }}
       >
         <div className="absolute -top-[31px] left-10">
@@ -153,12 +153,15 @@ export default function SlideCover({
               {data.texto_apoio}
             </p>
           </SmartElement>
-          <div className="w-20 h-[3px] bg-surface-input/300" />
+          <div className="mb-8" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgb(255 255 255 / 0.4)' }} />
         </div>
 
         <div className="flex justify-end items-end pb-4 relative z-10">
 
-          <div className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto">
+          <div 
+            className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto"
+            style={{ transform: 'translate(17.6px, 10px)' }}
+          >
             <SmartElement
               slideIndex={index}
               field="slide_call"
