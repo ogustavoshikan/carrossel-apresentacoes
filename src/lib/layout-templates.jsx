@@ -276,7 +276,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de CTA
-  if (layoutType === 'cta' && [0, 1, 2, 3, 8, 12].includes(variantIndex)) {
+  if (layoutType === 'cta' && [2, 3, 12].includes(variantIndex)) {
     slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
@@ -285,7 +285,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [4, 14, 48, 49, 52, 53, 57, 58, 59, 60, 61, 109, 118, 119, 125, 126, 127, 130, 133, 135, 138, 140, 143, 149].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [4, 14, 49, 52, 57, 58, 59, 60, 109, 118, 119, 125, 126, 127, 130, 133, 135, 138, 140, 143, 149].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
   }
 
@@ -294,7 +294,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [6, 7, 18, 34, 36, 37, 42, 55, 56, 102, 103, 106, 112, 113, 116, 128, 129, 131, 132, 134, 136, 137, 139, 141, 142, 144, 145, 146, 147, 152, 154, 158, 161, 162].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [0, 1, 6, 7, 8, 18, 34, 36, 37, 40, 41, 42, 48, 53, 55, 56, 61, 102, 103, 106, 112, 113, 116, 128, 129, 131, 132, 134, 136, 137, 139, 141, 142, 144, 145, 146, 147, 152, 154, 158, 161, 162].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 

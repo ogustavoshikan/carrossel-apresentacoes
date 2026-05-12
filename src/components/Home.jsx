@@ -67,7 +67,8 @@ const HeroCarousel = ({ brandColor = '#DE1E4D' }) => {
   const images = [
     "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png",
     "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png",
-    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png"
+    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png",
+    "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_10%20(6).png"
   ];
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -135,7 +136,7 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   const recentProjects = [
     { title: "Designs de Capa", slides: 46, tag: "Cover", delay: "0", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png" },
     { title: "Content Split", slides: 31, tag: "Split", delay: "100", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image3.png" },
-    { title: "Listas Criativas", slides: 30, tag: "Lista", delay: "200", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image1_oficial.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image3.png" },
+    { title: "Sequências Criativas", slides: 25, tag: "Sequência", delay: "200", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence-22.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image3.png" },
     { title: "Layouts de CTA", slides: 18, tag: "CTA", delay: "300", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Layout4_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout4_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout4_image3.png" }
   ];
 

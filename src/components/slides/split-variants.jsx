@@ -101,7 +101,7 @@ export function SplitVariant1({ data, index, slideCount, brandHandle, showBrandH
         {/* Tag + título + texto */}
         <div className="flex-1 flex flex-col">
           <div className="flex items-center gap-2 mb-2 shrink-0">
-            <div className="h-[2px] w-8" style={{ backgroundColor: brandColor }} />
+            <div className="h-[2px] w-5" style={{ backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
               <span
                 contentEditable

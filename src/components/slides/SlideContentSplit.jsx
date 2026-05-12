@@ -110,7 +110,7 @@ export default function SlideContentSplit({
         </SmartElement>
 
         <div className="flex items-center gap-3 mb-4">
-          <div className="h-[2px] w-8" style={{ backgroundColor: brandColor }} />
+          <div className="h-[2px] w-5" style={{ backgroundColor: brandColor }} />
           <SmartElement
             slideIndex={index}
             field="tag"
