@@ -133,7 +133,7 @@ export default function SlideCover({
           </SmartElement>
         </div>
 
-        <div className="mt-[43px]">
+        <div className="mt-[43px] flex flex-col">
           <SmartElement
             slideIndex={index}
             field="texto_apoio"
@@ -154,7 +154,7 @@ export default function SlideCover({
               {data.texto_apoio}
             </p>
           </SmartElement>
-          <div className="mb-8" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgb(255 255 255 / 0.4)' }} />
+          <div className="mt-6 mb-8 shrink-0" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgb(255 255 255 / 0.4)' }} />
         </div>
 
         {/* Action Button - Agora absoluto para não ser empurrado pelo conteúdo */}

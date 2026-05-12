@@ -205,7 +205,7 @@ export function SplitVariant2({ data, index, slideCount, brandHandle, showBrandH
           </h2>
         </SmartField>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable
@@ -219,7 +219,7 @@ export function SplitVariant2({ data, index, slideCount, brandHandle, showBrandH
           </SmartField>
           
           <div 
-            className="shrink-0" 
+            className="shrink-0 mt-4" 
             style={{ 
               width: '4rem', 
               height: '0.25rem', 

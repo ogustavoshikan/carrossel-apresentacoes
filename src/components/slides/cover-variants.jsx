@@ -1061,19 +1061,25 @@ export function CoverVariant18({ data, index, brandColor, brandHandle, titleScal
     <div className="w-full h-full relative overflow-hidden bg-black flex flex-col justify-center items-center p-6">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-luminosity" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[90px] opacity-60" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-60 pointer-events-none" 
+          style={{ background: `radial-gradient(circle, ${brandColor} 0%, transparent 60%)` }} 
+        />
       </div>
-      <div className="relative z-10 w-full bg-surface-input/30 backdrop-blur-md border rounded-3xl p-8 flex flex-col items-center text-center shadow-2xl" style={{ borderColor: `${brandColor}50` }}>
-        <SmartField field="texto_apoio" {...sp} className="mb-4">
-          <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-text tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{fontFamily: textFont,  color: brandColor }}>
-            {slideData.texto_apoio}
-          </TextWrapper>
-        </SmartField>
-        <SmartField field="titulo" {...sp} className="w-full">
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontSize: `${42 * sTitle}px` }}>
-            {slideData.titulo}
-          </TextWrapper>
-        </SmartField>
+      <div className="relative z-10 w-full border rounded-3xl shadow-2xl overflow-hidden" style={{ borderColor: `${brandColor}50` }}>
+        <div className="absolute inset-0 bg-surface-input/30 backdrop-blur-md pointer-events-none" />
+        <div className="relative z-10 p-8 flex flex-col items-center text-center w-full">
+          <SmartField field="texto_apoio" {...sp} className="mb-4">
+            <TextWrapper {...tw} as="span" field="texto_apoio" className="text-white font-text tracking-[0.2em] uppercase text-[10px] font-bold py-1.5 px-4 rounded-full bg-black/50 shadow-inner border border-white/10" style={{fontFamily: textFont,  color: brandColor }}>
+              {slideData.texto_apoio}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="titulo" {...sp} className="w-full">
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-[1] tracking-tighter whitespace-pre-line drop-shadow-lg" style={{ fontSize: `${42 * sTitle}px` }}>
+              {slideData.titulo}
+            </TextWrapper>
+          </SmartField>
+        </div>
       </div>
       <div className="absolute bottom-8 w-full px-8 flex justify-between items-center z-10">
         <span className="font-title font-bold tracking-widest text-[10px] text-white drop-shadow uppercase">{brandHandle || '@studio'}</span>
@@ -1782,14 +1788,17 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
         >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
-        <div className="bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg flex justify-between items-center">
-          <SmartField field="texto_apoio" {...sp} className="flex-1">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-bold text-[#1a1a1a] leading-tight font-text" style={{ fontSize: `${12 * sText}px` }}>
-              {slideData.texto_apoio}
-            </TextWrapper>
-          </SmartField>
-          <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center ml-4 shadow-md" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-            <Store className="w-5 h-5 text-white" />
+        <div className="relative overflow-hidden rounded-xl shadow-lg p-4 flex justify-between items-center">
+          <div className="absolute inset-0 bg-white/90 backdrop-blur pointer-events-none" />
+          <div className="relative z-10 flex-1 w-full flex justify-between items-center">
+            <SmartField field="texto_apoio" {...sp} className="flex-1">
+              <TextWrapper {...tw} as="p" field="texto_apoio" className="font-bold text-[#1a1a1a] leading-tight font-text" style={{ fontSize: `${12 * sText}px` }}>
+                {slideData.texto_apoio}
+              </TextWrapper>
+            </SmartField>
+            <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center ml-4 shadow-md" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+              <Store className="w-5 h-5 text-white" />
+            </div>
           </div>
         </div>
       </div>
@@ -2095,17 +2104,20 @@ export function CoverVariant38({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-2.5 rounded-full flex items-center gap-3 z-20 shadow-2xl shrink-0 w-max whitespace-nowrap">
-        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
-          <span
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="font-title font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[3px]"
-          >
-            {data.cta_text || 'Arraste para o lado e descubra'}
-          </span>
-        </SmartField>
-        <ArrowRight className="w-4 h-4 text-white shrink-0" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 border border-white/20 rounded-full z-20 shadow-2xl shrink-0 w-max whitespace-nowrap overflow-hidden">
+        <div className="absolute inset-0 bg-white/10 backdrop-blur-xl pointer-events-none" />
+        <div className="relative z-10 flex items-center gap-3 px-8 py-2.5">
+          <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="font-title font-bold text-[10px] uppercase tracking-widest text-white whitespace-nowrap outline-none inline-block -translate-y-[3px]"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
+          <ArrowRight className="w-4 h-4 text-white shrink-0" />
+        </div>
       </div>
     </div>
   );
@@ -2702,17 +2714,20 @@ export function CoverVariant50(props) {
 
             <div className="flex-1 w-full relative z-0">
                 <ImageBg data={data} className="absolute inset-0" />
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/50 shadow-xl">
-                    <SmartField field="texto_apoio" {...sp}>
-                      <p 
-                        contentEditable suppressContentEditableWarning
-                        onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                        className="text-[#1a1a1a] font-bold leading-snug text-sm outline-none" 
-                        style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
-                      >
-                        {data.texto_apoio}
-                      </p>
-                    </SmartField>
+                <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/50 shadow-xl overflow-hidden">
+                    <div className="absolute inset-0 bg-white/95 backdrop-blur-md pointer-events-none" />
+                    <div className="relative z-10 px-5 py-4">
+                        <SmartField field="texto_apoio" {...sp}>
+                          <p 
+                            contentEditable suppressContentEditableWarning
+                            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                            className="text-[#1a1a1a] font-bold leading-snug text-sm outline-none" 
+                            style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
+                          >
+                            {data.texto_apoio}
+                          </p>
+                        </SmartField>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2739,7 +2754,7 @@ export function CoverVariant51(props) {
           {brandHandle} © 2026
         </div>
 
-        <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center" style={{ backgroundColor: brandColor }}>
+        <div className="w-1/2 h-full relative z-10 flex flex-col p-8 justify-center shrink-0" style={{ backgroundColor: brandColor }}>
              <div className="absolute top-6 left-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
              </div>
@@ -2757,21 +2772,24 @@ export function CoverVariant51(props) {
                  </SmartField>
              </div>
         </div>
-        <div className="w-1/2 h-full relative z-0">
+        <div className="flex-1 h-full relative z-0 -ml-[1px]">
             <ImageBg data={data} className="absolute inset-0" />
         </div>
 
-        <div className="absolute bottom-8 right-6 z-30 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-[70%] shadow-2xl">
-            <SmartField field="texto_apoio" {...sp}>
-              <p 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-bold leading-snug text-white drop-shadow-md outline-none" 
-                style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}
-              >
-                {data.texto_apoio}
-              </p>
-            </SmartField>
+        <div className="absolute bottom-8 right-6 z-30 rounded-xl border border-white/20 w-[70%] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-md pointer-events-none" />
+            <div className="relative z-10 p-4">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-bold leading-snug text-white drop-shadow-md outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
         </div>
     </div>
   );
@@ -3505,7 +3523,7 @@ export const COVER_VARIANT_META = [
     id: 0,
     name: 'Original',
     description: 'Layout padrão',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa_0.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa_-0.png'
   },
   { id: 1, name: 'Color Split', description: 'Imagem + bloco de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa1.png' },
   { id: 2, name: 'Cinemático', description: 'Full-bleed com gradient', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-2.png' },
@@ -3524,7 +3542,7 @@ export const COVER_VARIANT_META = [
   { id: 15, name: 'Center Card', description: 'Imagem superior e card central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-15.png' },
   { id: 16, name: 'Bottom Gradient', description: 'Imagem full com gradient colorido', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa16.png' },
   { id: 17, name: 'Minimal Side', description: 'Divisão lateral limpa', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-17.png' },
-  { id: 18, name: 'Glassmorphism Center', description: 'Card com blur sobre glow', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-18.png' },
+  { id: 18, name: 'Glassmorphism Center', description: 'Card com blur sobre glow', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs-capa-18.png' },
   { id: 19, name: 'Arch Featured', description: 'Imagem em arco com badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-19.png' },
   { id: 20, name: 'Rotating Polaroid', description: 'Polaroid com padrão radial', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-20.png' },
   { id: 21, name: 'Diagonal Edge', description: 'Corte diagonal com título gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-21.png' },
@@ -3538,13 +3556,13 @@ export const COVER_VARIANT_META = [
   { id: 29, name: 'Framed Left Image', description: 'Imagem emoldurada com tags à direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa29.png' },
   { id: 30, name: 'Social Icons Overlay', description: 'Layout com barra de ícones de redes sociais', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa30.png' },
   { id: 31, name: 'List Bullet Stars', description: 'Imagem com lista de destaques', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa31.png' },
-  { id: 32, name: 'Repeated Text Background', description: 'Fundo com texto repetido e card inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa32.png' },
+  { id: 32, name: 'Repeated Text Background', description: 'Fundo com texto repetido e card inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-32.png' },
   { id: 33, name: 'Gradient Footer', description: 'Imagem superior com rodapé colorido e divisória', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-33.png' },
   { id: 34, name: 'Center Focus', description: 'Fundo escuro com texto centralizado e header', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-34.png' },
   { id: 35, name: 'Curve Card', description: 'Card branco inferior com topo arredondado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-35.png' },
   { id: 36, name: 'Magazine Split', description: 'Texto à esquerda e imagem à direita estilo revista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-36.png' },
   { id: 37, name: 'Modern Frame', description: 'Fundo colorido com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-37.png' },
-  { id: 38, name: 'Gradient Bottom', description: 'Imagem full com gradient e tags inferiores', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa38.png' },
+  { id: 38, name: 'Gradient Bottom', description: 'Imagem full com gradient e tags inferiores', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-38.png' },
   { id: 39, name: 'Side Strip', description: 'Imagem lateral com faixa de marca vertical', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa39.png' },
   { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-40.png' },
   { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-41.png' },
@@ -3555,8 +3573,8 @@ export const COVER_VARIANT_META = [
   { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa46.png' },
   { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-48.png' },
   { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-49.png' },
-  { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa50.png' },
-  { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa51.png' },
+  { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-50.png' },
+  { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-51.png' },
   { id: 52, name: 'Brand Dominance', description: 'Bloco de cor dominante e imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-52.png' },
   { id: 53, name: 'Sharp Half Block', description: 'Divisão ao meio com bloco sólido e CTA', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa53.png' },
   { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa54.png' },
