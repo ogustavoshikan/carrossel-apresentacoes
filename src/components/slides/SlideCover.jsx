@@ -125,29 +125,30 @@ export default function SlideCover({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-title font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
-              style={{ fontSize: `${96 * sTitle}px`, lineHeight: 0.8 }}
+              className="font-title font-black text-white tracking-tighter whitespace-pre-line outline-none"
+              style={{ fontSize: `${86 * sTitle}px`, lineHeight: 0.8 }}
             >
               {data.titulo}
             </h2>
           </SmartElement>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-[43px]">
           <SmartElement
-          slideIndex={index}
-          field="texto_apoio"
-          position={pos('texto_apoio')}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-          className="max-w-[70%]"
-        >    <p
+            slideIndex={index}
+            field="texto_apoio"
+            position={pos('texto_apoio')}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement}
+            className="max-w-[70%]"
+          >
+            <p
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text italic text-white max-w-[320px] mb-6 outline-none"
+              className="font-text italic text-[#ffebeb] max-w-[320px] mb-6 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
@@ -156,8 +157,8 @@ export default function SlideCover({
           <div className="mb-8" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgb(255 255 255 / 0.4)' }} />
         </div>
 
-        <div className="flex justify-end items-end pb-4 relative z-10">
-
+        {/* Action Button - Agora absoluto para não ser empurrado pelo conteúdo */}
+        <div className="absolute bottom-10 right-10 z-10">
           <div 
             className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto"
             style={{ transform: 'translate(17.6px, 10px)' }}
@@ -187,5 +188,3 @@ export default function SlideCover({
     </div>
   );
 }
-
-

@@ -97,6 +97,12 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
 
   return (
     <div className="relative w-full h-full bg-[#080808] flex flex-col overflow-hidden">
+      <div
+        className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+        style={{ left: '234px', top: '465px' }}
+      >
+        {brandHandle} © 2026
+      </div>
       <SlideHeader 
         data={data} slideIndex={index} index={index + 1} total={10} 
         brandHandle={brandHandle} showBrandHandle={false} 
@@ -106,18 +112,18 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
         onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         hideDot={true}
       />
-      <div className="absolute top-0 left-0 w-full h-[55%] overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/10 to-transparent" />
       </div>
 
-      <div className="flex-1 mt-[55%] p-10 flex flex-col justify-between relative" style={{ backgroundColor: brandColor }}>
+      <div className="flex-1 mt-[60%] p-10 flex flex-col justify-between relative border-t-[8px] border-white" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-[12px] left-10">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-title font-black text-white tracking-tighter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] whitespace-pre-line outline-none"
+              className="font-title font-black text-white tracking-tighter whitespace-pre-line outline-none"
               style={{ fontSize: `${85 * sTitle}px`, lineHeight: 0.85 }}
             >
               {data.titulo}
@@ -130,13 +136,13 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text italic text-white max-w-[320px] mb-6 outline-none"
+              className="font-text italic text-[#ffebeb] max-w-[320px] mb-7 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
             </p>
           </SmartField>
-          <div className="w-20 h-[3px] bg-surface-input/300 mb-8" />
+          <div className="mb-10" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.4)' }} />
         </div>
       </div>
     </div>
@@ -316,15 +322,22 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
 
   return (
     <div className="relative w-full h-full flex flex-col overflow-hidden bg-[#050505]">
-      <div className="h-[60%] w-full relative">
+      <div
+        className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+        style={{ left: '234px', top: '260px' }}
+      >
+        {brandHandle} © 2026
+      </div>
+      <div className="h-[50%] w-full relative">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-transparent" />
       </div>
 
       <div
-        className="h-[40%] w-full flex flex-col justify-center p-10 relative z-10 -mt-10 rounded-t-[3rem]"
+        className="h-[50%] w-full flex flex-col justify-center p-10 relative z-10 border-t-[8px] border-white"
         style={{fontFamily: textFont,  backgroundColor: brandColor }}
       >
+        <div className="mb-8" style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} />
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
@@ -341,7 +354,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-white/80 font-text outline-none"
+              className="text-[#ffebeb] font-text outline-none"
               style={{ fontSize: `${20 * sText}px` }}
             >
               {data.texto_apoio}
@@ -373,14 +386,15 @@ export function CoverVariant6({ data, index, brandColor, brandHandle, showBrandH
         hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       <div
-        className="w-full h-1/2 rounded-t-full rounded-b-[2rem] overflow-hidden relative border-b-4"
+        className="w-full h-1/2 rounded-t-full rounded-b-[2rem] overflow-hidden relative border-4 border-[#c2c3c3]"
         style={{ boxShadow: `0 20px 50px ${brandColor}4D` }}
       >
         <ImageBg data={data} className="absolute inset-0" />
       </div>
 
       <div className="flex-1 flex flex-col justify-center items-center text-center mt-8">
-        <div className="w-full">
+        <div className="w-full flex flex-col items-center">
+          <div className="w-20 h-[4px] mb-6" style={{ backgroundColor: brandColor }} />
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
@@ -715,13 +729,13 @@ export function CoverVariant11({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 12 — Diagonal Slice
 // Divisão diagonal dinâmica entre cor e imagem
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant12({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
+export function CoverVariant12({ data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-black flex flex-col overflow-hidden">
+    <div className="relative w-full h-full bg-black flex flex-col overflow-hidden text-left">
       <div className="absolute inset-0 z-0">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute inset-0 bg-black/40" />
@@ -737,25 +751,32 @@ export function CoverVariant12({ data, index, brandColor, titleScale, textScale,
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="text-white font-title font-black tracking-tighter leading-none outline-none mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+            className="text-white font-title font-black tracking-tighter leading-none outline-none mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.2)]"
             style={{ fontSize: `${90 * sTitle}px` }}
           >
             {data.titulo}
           </h2>
         </SmartField>
 
-        <div className="w-16 h-1 bg-white/40 mb-6" />
+        <div className="w-16 h-1 bg-white/80 mb-6" />
 
         <SmartField field="texto_apoio" {...sp}>
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white/90 font-text italic outline-none max-w-[280px]"
+            className="text-[#ffebeb] font-text italic outline-none max-w-[280px]"
             style={{ fontSize: `${24 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
         </SmartField>
+      </div>
+
+      <div
+        className="absolute left-[48px] top-[455px] z-30 font-black text-white/30 text-[10px] tracking-widest uppercase outline-none"
+        style={{ fontFamily: titleFont }}
+      >
+        {brandHandle} © 2026
       </div>
     </div>
   );
@@ -771,10 +792,10 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#020202] relative">
-      <div className="h-[55%] w-full shrink-0 bg-zinc-900 relative">
+      <div className="h-[50%] w-full shrink-0 bg-zinc-900 relative">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
-      <div className="h-[45%] w-full p-6 flex flex-col justify-between shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="h-[50%] w-full p-6 flex flex-col justify-between shrink-0 border-t-8 border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         <div className="flex items-center gap-1.5 border-b border-white/20 pb-2 shrink-0 w-full">
           <span className="font-title font-bold tracking-widest text-[10px] text-white uppercase">
             {brandHandle || '@studio'}
@@ -786,7 +807,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text font-light text-white/90 text-[11px] tracking-widest uppercase leading-none outline-none"
+              className="font-text font-light text-[#ffebeb] text-[11px] tracking-widest uppercase leading-none outline-none"
             >
               {data.texto_apoio}
             </p>
@@ -810,7 +831,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
           <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-title font-black leading-[0.85] tracking-tighter text-[#EBE9E1] drop-shadow-2xl mix-blend-difference whitespace-pre-line outline-none"
+            className="font-title font-black leading-[0.85] tracking-tighter text-[#EBE9E1] mix-blend-difference whitespace-pre-line outline-none"
             style={{ fontSize: `${52 * sTitle}px` }}
           >
             {data.titulo}
@@ -832,7 +853,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
   return (
     <div className="w-full h-full flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
       <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
-        <div className="w-12 h-1.5 bg-white/50 mb-8 shrink-0" />
+        <div className="w-12 h-1.5 bg-white/80 mb-8 shrink-0" />
         <SmartField field="titulo" {...sp} className="mb-4 w-full shrink-0">
           <h2
             contentEditable suppressContentEditableWarning
@@ -853,7 +874,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
           </p>
         </SmartField>
       </div>
-      <div className="w-full h-[30%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1]">
+      <div className="w-full h-[50%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1]">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-white text-[9px] font-bold tracking-widest font-title uppercase">
           {brandHandle || '@studio'}
@@ -872,12 +893,13 @@ export function CoverVariant15({ data, index, brandColor, titleScale, textScale,
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+    <div className="w-full h-full p-2 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
       <div className="flex-1 flex flex-col relative bg-[#020202]">
         <div className="w-full h-[65%] shrink-0 bg-zinc-300 relative border-b border-zinc-300 overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-center text-center p-6 bg-white relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
+          <div className="w-12 h-[3px] mb-4" style={{ backgroundColor: brandColor }} />
           <SmartField field="texto_apoio" {...sp} className="mb-3 shrink-0">
             <span
               contentEditable suppressContentEditableWarning
@@ -971,7 +993,10 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
 
   return (
     <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1]">
-      <div className="w-[55%] h-full p-6 flex flex-col justify-between shrink-0 relative z-10 bg-[#EBE9E1]">
+      <div 
+        className="w-[50%] h-full p-6 flex flex-col justify-between shrink-0 relative z-10 bg-[#EBE9E1]"
+        style={{ borderRight: `3px solid ${brandColor}60` }}
+      >
         <div className="flex flex-col gap-1 items-start">
           <SmartField field="studio_text" {...sp}>
             <span
@@ -1010,7 +1035,7 @@ export function CoverVariant17({ data, index, brandColor, brandHandle, titleScal
           {brandHandle || '@studio'}
         </span>
       </div>
-      <div className="w-[45%] h-full shrink-0 bg-zinc-200">
+      <div className="w-[50%] h-full shrink-0 bg-zinc-200">
         <ImageBg data={data} className="w-full h-full" />
       </div>
     </div>
@@ -1087,6 +1112,7 @@ export function CoverVariant19({ data, index, brandColor, titleScale, textScale,
         </div>
       </div>
       <div className="w-full flex flex-col items-center text-center shrink-0 mb-4">
+        <div className="w-12 h-px mb-4" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="w-full mb-2">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[1] tracking-tight whitespace-pre-line" style={{ fontSize: `${38 * sTitle}px` }}>
             {slideData.titulo}
@@ -1117,10 +1143,14 @@ export function CoverVariant20({ data, index, brandColor, titleScale, textScale,
   return (
     <div className="w-full h-full p-6 flex flex-col items-center justify-center relative overflow-hidden" style={{ backgroundColor: bgBase }}>
       <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#1a1a1a 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
-      <div className="bg-white p-4 pb-12 shadow-2xl rotate-2 w-[90%] relative z-10 flex flex-col">
+      <div 
+        className="bg-white p-4 pb-12 rotate-2 w-[90%] relative z-10 flex flex-col"
+        style={{ boxShadow: `0 20px 50px ${brandColor}4D` }}
+      >
         <div className="w-full aspect-[4/5] bg-zinc-200 relative mb-5 border border-zinc-100">
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         </div>
+        <div className="w-12 h-px bg-zinc-200 mx-auto mb-4" style={{ backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp}>
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-center text-[#1a1a1a] leading-[1.1] tracking-tighter" style={{ fontSize: `${28 * sTitle}px` }}>
             {slideData.titulo}
@@ -1264,8 +1294,8 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full p-6 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
-      <div className="flex-1 border-2 flex flex-col p-6 relative" style={{ borderColor: brandColor }}>
+    <div className="w-full h-full p-4 flex flex-col overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
+      <div className="flex-1 border-2 flex flex-col p-4 relative" style={{ borderColor: brandColor }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `linear-gradient(${brandColor} 1px, transparent 1px), linear-gradient(90deg, ${brandColor} 1px, transparent 1px)`, backgroundSize: '20px 20px' }} />
         </div>
@@ -1291,14 +1321,14 @@ export function CoverVariant24({ data, index, brandColor, titleScale, textScale,
             </span>
           </SmartField>
         </div>
-        <div className="relative z-10 shrink-0 mb-6">
+        <div className="relative z-10 shrink-0 mb-6" style={{ transform: 'translateY(-30px)' }}>
           <SmartField field="titulo" {...sp}>
             <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase break-words" style={{ color: brandColor, fontSize: `${80 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
         </div>
-        <div className="w-full h-[30%] shrink-0 bg-zinc-300 relative border-t-2" style={{fontFamily: titleFont,  borderColor: brandColor }}>
+        <div className="w-full h-[45%] shrink-0 bg-zinc-300 relative border-t-2" style={{fontFamily: titleFont,  borderColor: brandColor }}>
           <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
         </div>
       </div>
@@ -1385,6 +1415,16 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full px-6 z-30">
+        <div 
+          style={{ 
+            width: '4rem', 
+            height: '0.25rem', 
+            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+            position: 'absolute',
+            top: '-2rem',
+            left: '1.5rem'
+          }} 
+        />
         <SmartField field="titulo" {...sp}>
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${70 * sTitle}px` }}>
             {slideData.titulo}
@@ -1489,8 +1529,9 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
           </span>
         </div>
         <div className="flex-1 flex flex-col justify-center">
+          <div className="w-12 h-[2px] mb-6" style={{ backgroundColor: brandColor }} />
           <SmartField field="titulo" {...sp} className="mb-6 shrink-0">
-            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-title" style={{ fontSize: `${34 * sTitle}px` }}>
+            <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-title" style={{ fontSize: `${44 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
@@ -1515,7 +1556,10 @@ export function CoverVariant28({ data, index, brandColor, brandHandle, titleScal
           <ArrowRight className="w-4 h-4 text-[#1a1a1a]" />
         </div>
       </div>
-      <div className="absolute right-0 top-0 w-[45%] h-full bg-zinc-200 z-0 overflow-hidden shadow-[-10px_0_30px_rgba(0,0,0,0.1)]">
+      <div 
+        className="absolute right-0 top-0 w-[50%] h-full bg-zinc-200 z-0 overflow-hidden"
+        style={{ boxShadow: `-10px 0 30px ${brandColor}26` }}
+      >
         <ImageBg data={data} className="absolute inset-0" />
       </div>
     </div>
@@ -1540,24 +1584,33 @@ export function CoverVariant29({ data, index, brandColor, brandHandle, titleScal
       </div>
       <div className="w-full h-full flex pt-16 pb-8 pl-6 pr-6">
         <div className="w-[52%] h-full pb-8 pr-4">
-          <div className="w-full h-full rounded-2xl overflow-hidden bg-zinc-200 relative shadow-lg">
+          <div 
+            className="w-full h-full rounded-2xl overflow-hidden bg-zinc-200 relative"
+            style={{ 
+              boxShadow: `0 20px 40px ${brandColor}33`,
+              border: '3px solid rgba(255, 255, 255, 0.9)'
+            }}
+          >
             <ImageBg data={data} className="absolute inset-0" />
           </div>
         </div>
         <div className="w-[48%] h-full flex flex-col justify-center pl-2">
+          <SmartField field="tag" {...sp} className="mb-4 self-start">
+            <TextWrapper 
+              {...tw} 
+              as="span" 
+              field="tag" 
+              className="text-white font-bold px-2 py-0.5 rounded text-[11px] outline-none uppercase tracking-wide inline-block"
+              style={{fontFamily: tagFont,  backgroundColor: brandColor }}
+            >
+              {slideData.tag || 'DICA'}
+            </TextWrapper>
+          </SmartField>
           <SmartField field="titulo" {...sp} className="mb-6">
             <TextWrapper {...tw} as="h2" field="titulo" className="font-black text-[#1a1a1a] leading-[0.9] tracking-tighter uppercase font-title" style={{ fontSize: `${32 * sTitle}px` }}>
               {slideData.titulo}
             </TextWrapper>
           </SmartField>
-          <div className="flex gap-2 items-center mb-6">
-            <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
-            <SmartField field="tag" {...sp}>
-              <TextWrapper {...tw} as="p" field="tag" className="text-zinc-600 leading-snug font-medium font-title" style={{ fontSize: `${14 * sText}px` }}>
-                {slideData.tag || 'Sua Tag Aqui'}
-              </TextWrapper>
-            </SmartField>
-          </div>
           <SmartField field="texto_apoio" {...sp}>
             <TextWrapper {...tw} as="p" field="texto_apoio" className="text-[#1a1a1a] font-bold leading-snug font-text" style={{ fontSize: `${15 * sText}px` }}>
               {slideData.texto_apoio}
@@ -1641,7 +1694,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
 
   return (
     <div className="w-full h-full flex overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
-      <div className="w-[55%] h-full p-6 flex flex-col justify-center relative z-10">
+      <div className="w-[52%] h-full p-6 flex flex-col justify-center relative z-10">
         <span className="font-bold tracking-[0.15em] text-[10px] text-zinc-500 uppercase absolute top-6 left-6 font-title">
           @{brandHandle || 'studio'}
         </span>
@@ -1695,7 +1748,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
           <ArrowRight className="w-3 h-3 text-zinc-500" />
         </div>
       </div>
-      <div className="w-[45%] h-full bg-zinc-200 relative shrink-0">
+      <div className="w-[48%] h-full bg-zinc-200 relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
     </div>
@@ -1715,16 +1768,18 @@ export function CoverVariant32({ data, index, brandColor, titleScale, textScale,
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden" style={{fontFamily: titleFont,  backgroundColor: bgBase }}>
-      <div className="absolute inset-0 z-0 flex flex-col opacity-20 pointer-events-none select-none overflow-hidden leading-[0.85] text-center pt-8">
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
-        <div className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>{slideData.titulo}</div>
+      <div className="absolute inset-0 z-0 flex flex-col opacity-20 pointer-events-none select-none overflow-hidden leading-[0.85] text-center pt-4">
+        {[...Array(20)].map((_, i) => (
+          <div key={i} className="font-black uppercase whitespace-nowrap font-title" style={{ color: brandColor, fontSize: `${60 * sTitle}px` }}>
+            {slideData.titulo}
+          </div>
+        ))}
       </div>
-      <div className="relative z-10 flex-1 flex flex-col justify-end p-6">
-        <div className="w-full h-[55%] rounded-t-3xl rounded-b-xl overflow-hidden shadow-2xl bg-zinc-200 relative border-4 border-white mb-4">
+      <div className="relative z-10 flex-1 flex flex-col justify-center p-6">
+        <div 
+          className="w-full h-[55%] rounded-t-3xl rounded-b-xl overflow-hidden bg-zinc-200 relative border-4 border-white mb-4"
+          style={{ boxShadow: `0 25px 50px -12px ${brandColor}40` }}
+        >
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg flex justify-between items-center">
@@ -1755,10 +1810,11 @@ export function CoverVariant33({ data, index, brandColor, titleScale, textScale,
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-black">
-      <div className="h-[45%] w-full relative shrink-0">
+      <div className="h-[50%] w-full relative shrink-0 border-b-[8px] border-white">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative" style={{ backgroundColor: brandColor }}>
+        <div className="w-16 h-1 bg-white/80 mb-6 shrink-0" style={{ width: '4rem', height: '0.25rem' }} />
         <SmartField field="titulo" {...sp} className="w-full mb-3 shrink-0">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${52 * sTitle}px` }}>
             {slideData.titulo}
@@ -1821,6 +1877,7 @@ export function CoverVariant34({ data, index, brandColor, titleScale, textScale,
           dark 
         />
         <div className="flex-1 flex flex-col justify-center items-center text-center mt-12">
+          <div className="w-12 h-[2px] mb-6" style={{ backgroundColor: brandColor }} />
           <SmartField field="titulo" {...sp} className="w-full mb-4">
             <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${56 * sTitle}px` }}>
               {slideData.titulo}
@@ -1866,15 +1923,19 @@ export function CoverVariant35({ data, index, brandColor, titleScale, textScale,
       <div className="absolute inset-0 z-0 h-[70%]">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
-      <div className="absolute bottom-0 w-full h-[40%] bg-white rounded-t-[40px] p-8 flex flex-col justify-center z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
-        <SmartField field="texto_apoio" {...sp} className="mb-2">
-          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text font-bold text-[10px] uppercase tracking-widest" style={{fontFamily: textFont,  color: brandColor }}>
-            {slideData.texto_apoio}
-          </TextWrapper>
-        </SmartField>
+      <div 
+        className="absolute bottom-0 w-full h-[40%] bg-white rounded-t-[40px] p-8 flex flex-col justify-center z-10"
+        style={{ boxShadow: `0 -20px 40px ${brandColor}26` }}
+      >
+        <div className="mb-6" style={{ width: '4rem', height: '0.25rem', backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="w-full">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-none tracking-tight uppercase" style={{ fontSize: `${38 * sTitle}px` }}>
             {slideData.titulo}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="mt-2">
+          <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text font-bold text-[10px] uppercase tracking-widest" style={{fontFamily: textFont,  color: brandColor }}>
+            {slideData.texto_apoio}
           </TextWrapper>
         </SmartField>
       </div>
@@ -1908,8 +1969,9 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex overflow-hidden bg-[#EBE9E1]">
-      <div className="w-[55%] h-full p-8 flex flex-col justify-center z-10">
+    <div className="w-full h-full flex overflow-hidden bg-white">
+      <div className="w-[50%] h-full p-8 flex flex-col justify-center z-10 bg-white">
+        <div className="mb-6" style={{ width: '4rem', height: '0.25rem', backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-4">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-[0.85] tracking-tighter uppercase" style={{ fontSize: `${42 * sTitle}px` }}>
             {slideData.titulo}
@@ -1921,19 +1983,22 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="w-[45%] h-full relative z-0">
+      <div className="w-[50%] h-full relative z-20">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute bottom-6 -left-8 bg-white shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border border-zinc-100 z-20">
+        <div 
+          className="absolute bottom-6 -left-8 shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border-2 border-white z-30"
+          style={{ backgroundColor: brandColor, boxShadow: `0 10px 25px ${brandColor}26` }}
+        >
           <SmartField field="cta_text" {...sp}>
             <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-              className="font-title font-bold text-[9px] uppercase tracking-widest text-[#1a1a1a] outline-none inline-block -translate-y-[3px]"
+              className="font-title font-bold text-[9px] uppercase tracking-widest text-white outline-none inline-block -translate-y-[3px]"
             >
               {data.cta_text || 'CONFIRA AQUI'}
             </span>
           </SmartField>
-          <ArrowRight className="w-3 h-3 text-[#1a1a1a]" />
+          <ArrowRight className="w-3 h-3 text-white" />
         </div>
       </div>
     </div>
@@ -1958,7 +2023,10 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
           {brandHandle ? `@${brandHandle.replace('@','')}` : '@STUDIO'}
         </span>
       </div>
-      <div className="w-full flex-1 bg-zinc-200 rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white/20 mb-6">
+      <div 
+        className="w-full flex-1 bg-zinc-200 rounded-3xl overflow-hidden relative border-4 border-white/20 mb-6"
+        style={{ boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)' }}
+      >
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="w-full flex justify-between items-end pb-2">
@@ -2061,6 +2129,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
           <ImageBg data={data} className="absolute inset-0 opacity-40 mix-blend-luminosity" />
         </div>
         <div className="relative z-10 w-full">
+          <div className="mb-6" style={{ width: '4rem', height: '0.25rem', backgroundColor: brandColor }} />
           <SmartField field="titulo" {...sp} className="w-full mb-4">
             <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-white leading-none tracking-tighter uppercase drop-shadow-2xl" style={{ fontSize: `${48 * sTitle}px` }}>
               {slideData.titulo}
@@ -2095,7 +2164,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 40 — Floating Card Center
 // Imagem superior e card flutuante centralizado
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant40({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
+export function CoverVariant40({ data, index, brandColor, brandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const slideData = data;
@@ -2104,11 +2173,17 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
-      <div className="h-[65%] w-full relative shrink-0">
+      <div
+        className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
+        style={{ left: '52px', top: '414px' }}
+      >
+        {brandHandle} © 2026
+      </div>
+      <div className="h-[55%] w-full relative shrink-0 border-b-[8px] border-white">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="flex-1 w-full shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
-      <div className="absolute top-[45%] left-1/2 -translate-x-1/2 w-[85%] bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/50 z-10">
+      <div className="absolute top-[calc(45%+1.5rem)] left-1/2 -translate-x-1/2 w-[85%] bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-white/50 z-10">
         <SmartField field="titulo" {...sp} className="mb-2">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black text-[#1a1a1a] leading-tight uppercase tracking-tighter" style={{ fontSize: `${32 * sTitle}px` }}>
             {slideData.titulo}
@@ -2140,7 +2215,7 @@ export function CoverVariant40({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 41 — Slanted Banner
 // Faixa diagonal sobre imagem grayscale
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant41({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
+export function CoverVariant41({ data, index, brandColor, brandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2149,7 +2224,7 @@ export function CoverVariant41({ data, index, brandColor, titleScale, textScale,
   return (
     <div className="w-full h-full relative overflow-hidden bg-zinc-200">
       <div className="absolute inset-0 z-0">
-        <ImageBg data={data} className="absolute inset-0 grayscale opacity-80" />
+        <ImageBg data={data} className="absolute inset-0 opacity-80" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-black/30" />
       <div className="absolute top-16 -left-8 w-[120%] -rotate-6 bg-[#1a1a1a] py-6 px-12 z-10 shadow-2xl border-y-4" style={{fontFamily: textFont,  borderColor: brandColor }}>
@@ -2228,7 +2303,7 @@ export function CoverVariant42({ data, index, brandColor, titleScale, textScale,
 // VARIANTE 43 — Repeat Text Focus
 // Texto repetido ao fundo com card de imagem central e badge
 // ═══════════════════════════════════════════════════════════
-export function CoverVariant43({ data, index, brandColor, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandHandle, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
+export function CoverVariant43({ data, index, brandColor, brandHandle, brandAvatar, isVerified, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo , titleFont, textFont, tagFont}) {
   const sTitle = titleScale / 100;
   const slideData = data;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -2237,13 +2312,16 @@ export function CoverVariant43({ data, index, brandColor, titleScale, textScale,
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden justify-center items-center p-6 bg-white">
       <div className="absolute inset-0 z-0 flex flex-col justify-center opacity-20 pointer-events-none select-none leading-[0.8] text-center overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(16)].map((_, i) => (
           <div key={i} className="font-title font-black uppercase whitespace-nowrap" style={{ color: brandColor, fontSize: `${70 * sTitle}px` }}>
             {slideData.titulo}
           </div>
         ))}
       </div>
-      <div className="relative z-10 w-[85%] aspect-[3/4] bg-zinc-200 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden border-[6px] border-white shrink-0">
+      <div 
+        className="relative z-10 w-[85%] aspect-[3/4] bg-zinc-200 rounded-[40px] overflow-hidden border-[6px] border-white shrink-0"
+        style={{ boxShadow: `0 20px 50px ${brandColor}40` }}
+      >
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="absolute bottom-8 right-8 bg-white px-5 py-2.5 rounded-full shadow-xl z-20 flex items-center gap-2 border border-zinc-100">
@@ -2284,20 +2362,33 @@ export function CoverVariant44({ data, index, brandColor, titleScale, textScale,
         hideDot={true}
       />
       
-      <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full border-8 border-white/60 shadow-xl overflow-hidden bg-zinc-100 z-0">
+      <div 
+        className="absolute -top-10 -right-10 w-48 h-48 rounded-full border-8 border-white/60 overflow-hidden bg-zinc-100 z-0"
+        style={{ boxShadow: `0 15px 30px ${brandColor}33` }}
+      >
         <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 50%' }} />
       </div>
-      <div className="absolute top-[30%] -right-16 w-56 h-56 rounded-full border-[10px] border-white/60 shadow-2xl overflow-hidden bg-zinc-100 z-0">
+      <div 
+        className="absolute top-[30%] -right-16 w-56 h-56 rounded-full border-[10px] border-white/60 overflow-hidden bg-zinc-100 z-0"
+        style={{ boxShadow: `0 20px 40px ${brandColor}33` }}
+      >
         <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 100%' }} />
       </div>
-      <div className="absolute -bottom-20 right-4 w-64 h-64 rounded-full border-[12px] border-white/60 shadow-2xl overflow-hidden bg-zinc-100 z-0">
+      <div 
+        className="absolute -bottom-20 right-4 w-64 h-64 rounded-full border-[12px] border-white/60 overflow-hidden bg-zinc-100 z-0"
+        style={{ boxShadow: `0 25px 50px ${brandColor}33` }}
+      >
         <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 0%' }} />
       </div>
-      <div className="absolute -bottom-10 left-10 w-32 h-32 rounded-full border-4 border-white/60 shadow-lg overflow-hidden bg-zinc-100 opacity-60 blur-[1px] z-0">
+      <div 
+        className="absolute -bottom-10 left-10 w-32 h-32 rounded-full border-4 border-white/60 overflow-hidden bg-zinc-100 opacity-60 blur-[1px] z-0"
+        style={{ boxShadow: `0 10px 20px ${brandColor}33` }}
+      >
         <ImageBg data={data} className="w-full h-full" style={{ backgroundPosition: 'center 50%' }} />
       </div>
 
       <div className="absolute top-[40%] left-8 w-[70%] z-20">
+        <div className="mb-6" style={{ width: '4rem', height: '0.25rem', backgroundColor: brandColor }} />
         <SmartField field="titulo" {...sp} className="mb-6">
           <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-medium leading-tight italic text-[#1a1a1a]" style={{ fontSize: `${36 * sTitle}px` }}>
             {slideData.titulo}
@@ -2350,7 +2441,7 @@ export function CoverVariant45(props) {
         />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-8 py-3 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
@@ -2415,7 +2506,7 @@ export function CoverVariant46(props) {
         />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-10 py-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-[24px] px-8 py-3 shadow-2xl border-2 border-white/20" style={{ backgroundColor: brandColor }}>
         <SmartField field="titulo" {...sp}>
           <h2
             contentEditable suppressContentEditableWarning
@@ -2700,12 +2791,12 @@ export function CoverVariant52(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-zinc-900 text-white">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ left: '243px', top: '333px' }}
+          style={{ left: '231px', top: '227px' }}
         >
           {brandHandle} © 2026
         </div>
 
-        <div className="flex-1 w-full relative z-10 flex flex-col justify-center p-8 pb-12" style={{ backgroundColor: brandColor }}>
+        <div className="h-[50%] w-full relative z-10 flex flex-col justify-center p-8 pb-12" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
@@ -2749,7 +2840,7 @@ export function CoverVariant52(props) {
             </div>
         </div>
 
-        <div className="w-full h-[30%] relative z-0 border-t-[8px] border-white">
+        <div className="w-full h-[50%] relative z-0 border-t-[8px] border-white">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white px-5 py-2 rounded-full shadow-lg">
                 <SmartField field="cta_text" {...sp}>
@@ -2783,12 +2874,12 @@ export function CoverVariant53(props) {
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-white">
         <div
           className="absolute font-black text-white/30 text-[10px] tracking-widest uppercase outline-none pointer-events-none z-50" 
-          style={{ left: '12px', top: '232px' }}
+          style={{ left: '12px', top: '227px' }}
         >
           {brandHandle} © 2026
         </div>
 
-        <div className="h-[50%] w-full flex flex-col justify-center p-8 pb-10 z-10" style={{ backgroundColor: brandColor }}>
+        <div className="h-[50%] w-full flex flex-col justify-center p-8 pb-10 z-10 border-b-[8px] border-white" style={{ backgroundColor: brandColor }}>
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
@@ -2825,7 +2916,10 @@ export function CoverVariant53(props) {
             <ImageBg data={data} className="absolute inset-0" />
         </div>
 
-        <div className="absolute top-1/2 right-8 -translate-y-1/2 w-16 h-16 bg-white text-[#1a1a1a] rounded-full flex items-center justify-center shadow-xl border-4 z-20" style={{ borderColor: brandColor }}>
+        <div 
+          className="absolute top-1/2 right-8 -translate-y-1/2 mt-[-4px] w-16 h-16 rounded-full flex items-center justify-center shadow-xl border-[5px] border-white z-20 text-white" 
+          style={{ backgroundColor: brandColor }}
+        >
              <ArrowRight className="w-6 h-6" />
         </div>
     </div>
@@ -2844,7 +2938,7 @@ export function CoverVariant54(props) {
 
   return (
     <div className="w-full h-full flex relative overflow-hidden bg-white">
-        <div className="w-[35%] h-full relative z-0">
+        <div className="w-[45%] h-full relative z-0">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute inset-0 bg-black/10" />
         </div>
@@ -3061,7 +3155,10 @@ export function CoverVariant57(props) {
             </div>
         </div>
 
-        <div className="flex-1 w-[90%] mx-auto bg-zinc-100 rounded-t-[40px] relative overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+        <div 
+          className="flex-1 w-[90%] mx-auto bg-zinc-100 rounded-t-[40px] relative overflow-hidden"
+          style={{ boxShadow: `0 -10px 40px ${brandColor}1A` }}
+        >
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl">
                 <ArrowRight className="w-5 h-5 text-black" />
@@ -3083,7 +3180,7 @@ export function CoverVariant58(props) {
 
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ backgroundColor: brandColor }}>
-        <div className="flex-1 p-10 flex flex-col justify-center relative z-10 text-white">
+        <div className="h-[55%] p-10 flex flex-col justify-center relative z-10 text-white">
             <div className="absolute top-8 left-10">
                 <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />
             </div>
@@ -3124,7 +3221,7 @@ export function CoverVariant58(props) {
                 <div className="mt-4" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
         </div>
-        <div className="h-[40%] w-full relative z-0 border-t-4 border-white">
+        <div className="h-[45%] w-full relative z-0 border-t-[8px] border-white">
             <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div 
@@ -3154,7 +3251,7 @@ export function CoverVariant59(props) {
         </div>
         <div className="h-[45%] w-full relative z-0 shrink-0">
             <ImageBg data={data} className="absolute inset-0" />
-            <div className="absolute bottom-0 left-0 w-full h-[4px] z-20" style={{ backgroundColor: '#ffffff' }} />
+            <div className="absolute bottom-0 left-0 w-full h-[8px] z-20" style={{ backgroundColor: '#ffffff' }} />
         </div>
         <div className="flex-1 flex flex-col p-10 relative z-10 -mt-20">
             <div className="w-16 h-16 rounded-full border-[3px] overflow-hidden shadow-xl mb-4 shrink-0" style={{ borderColor: '#ffffff', backgroundColor: brandColor }}>
@@ -3265,9 +3362,6 @@ export function CoverVariant60(props) {
                 </SmartField>
             </div>
         </div>
-        <div className="w-full h-[35%] relative z-0 border-t-[5px]" style={{ borderColor: brandColor }}>
-            <ImageBg data={data} className="absolute inset-0" />
-        </div>
     </div>
   );
 }
@@ -3287,46 +3381,50 @@ export function CoverVariant61(props) {
         <div className="absolute top-8 left-8 right-8 z-20">
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
-        <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl z-20 mt-12 mb-1">
-            <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />      
+
+        <div className="flex flex-col items-center -translate-y-[35px] w-full z-20">
+            <div className="w-20 h-20 rounded-full border-4 border-white bg-zinc-800 overflow-hidden shrink-0 shadow-2xl mt-12 mb-1">
+                <img src={brandAvatar || ""} className="w-full h-full object-cover" alt="Author" />      
+            </div>
+            <div className="mb-[3px] shrink-0">
+                <SmartField field="tag" {...sp}>
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                    className="font-black text-[10px] tracking-widest uppercase outline-none" 
+                    style={{ fontFamily: titleFont, color: 'rgba(255, 255, 255, 0.6)' }}
+                  >
+                    {data.tag || 'MESTRE'}
+                  </span>
+                </SmartField>
+            </div>
+            <div className="mb-4 w-[90%] shrink-0">
+                <SmartField field="titulo" {...sp}>
+                  <h2 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                    className="font-black leading-[0.9] tracking-tighter uppercase drop-shadow-md outline-none whitespace-pre-line" 
+                    style={{ fontFamily: titleFont, fontSize: `${46 * sTitle}px` }}
+                  >
+                    {data.titulo}
+                  </h2>
+                </SmartField>
+            </div>
+            <div className="w-[80%] shrink-0">
+                <SmartField field="texto_apoio" {...sp}>
+                  <p 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                    className="font-medium leading-relaxed outline-none" 
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#F5F5F5' }}
+                  >
+                    {data.texto_apoio}
+                  </p>
+                </SmartField>
+            </div>
         </div>
-        <div className="mb-[3px] z-20 shrink-0">
-            <SmartField field="tag" {...sp}>
-              <span 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-                className="font-black text-[10px] tracking-widest uppercase outline-none" 
-                style={{ fontFamily: titleFont, color: 'rgba(255, 255, 255, 0.6)' }}
-              >
-                {data.tag || 'MESTRE'}
-              </span>
-            </SmartField>
-        </div>
-        <div className="mb-4 z-20 w-[90%] shrink-0">
-            <SmartField field="titulo" {...sp}>
-              <h2 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="font-black leading-[0.9] tracking-tighter uppercase drop-shadow-md outline-none whitespace-pre-line" 
-                style={{ fontFamily: titleFont, fontSize: `${46 * sTitle}px` }}
-              >
-                {data.titulo}
-              </h2>
-            </SmartField>
-        </div>
-        <div className="w-[80%] z-20 shrink-0">
-            <SmartField field="texto_apoio" {...sp}>
-              <p 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-medium leading-relaxed outline-none" 
-                style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#F5F5F5' }}
-              >
-                {data.texto_apoio}
-              </p>
-            </SmartField>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-[40%] z-0 border-t-4 border-white">
+
+        <div className="absolute bottom-0 left-0 w-full h-[45%] z-0 border-t-[8px] border-white">
             <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div 
@@ -3403,70 +3501,70 @@ export const COVER_VARIANT_COMPONENTS = {
 };
 
 export const COVER_VARIANT_META = [
-  { 
-    id: 0, 
-    name: 'Original', 
+  {
+    id: 0,
+    name: 'Original',
     description: 'Layout padrão',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa_0.png'
   },
   { id: 1, name: 'Color Split', description: 'Imagem + bloco de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa1.png' },
-  { id: 2, name: 'Cinemático', description: 'Full-bleed com gradient', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa2.png' },
-  { id: 3, name: 'Blur Editorial', description: 'Fundo blur + barra de acento', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa3.png' },
+  { id: 2, name: 'Cinemático', description: 'Full-bleed com gradient', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-2.png' },
+  { id: 3, name: 'Blur Editorial', description: 'Fundo blur + barra de acento', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-3.png' },
   { id: 4, name: 'Moldura', description: 'Estilo editorial emoldurado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa4.png' },
-  { id: 5, name: 'Rounded Split', description: 'Bloco arredondado de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa5.png' },
-  { id: 6, name: 'Arco', description: 'Imagem em arco + texto central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa6.png' },
-  { id: 7, name: 'Polaroid', description: 'Card estilo foto instantânea', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa7.png' },
-  { id: 8, name: 'Acento Lateral', description: 'Borda lateral colorida', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa8.png' },
-  { id: 9, name: 'Spotlight', description: 'Card branco com watermark', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa9.png' },
+  { id: 5, name: 'Rounded Split', description: 'Bloco arredondado de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-5.png' },
+  { id: 6, name: 'Arco', description: 'Imagem em arco + texto central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-6.png' },
+  { id: 7, name: 'Polaroid', description: 'Card estilo foto instantânea', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-7.png' },
+  { id: 8, name: 'Acento Lateral', description: 'Borda lateral colorida', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-8.png' },
+  { id: 9, name: 'Spotlight', description: 'Card branco com watermark', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-9.png' },
   { id: 10, name: 'Bottom Minimal', description: 'Texto inferior minimalista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa10.png' },
-  { id: 11, name: 'Luxury Frame', description: 'Moldura branca com sombra profunda', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa11.png' },
-  { id: 12, name: 'Diagonal Slice', description: 'Corte diagonal dinâmico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa12.png' },
-  { id: 13, name: 'Bold Overlay', description: 'Título com mix-blend e badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa13.png' },
-  { id: 14, name: 'Top Block', description: 'Bloco de cor superior e imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa14.png' },
-  { id: 15, name: 'Center Card', description: 'Imagem superior e card central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa15.png' },
+  { id: 11, name: 'Luxury Frame', description: 'Moldura branca com sombra profunda', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-11.png' },
+  { id: 12, name: 'Diagonal Slice', description: 'Corte diagonal dinâmico', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-12.png' },
+  { id: 13, name: 'Bold Overlay', description: 'Título com mix-blend e badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-13.png' },
+  { id: 14, name: 'Top Block', description: 'Bloco de cor superior e imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-14.png' },
+  { id: 15, name: 'Center Card', description: 'Imagem superior e card central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-15.png' },
   { id: 16, name: 'Bottom Gradient', description: 'Imagem full com gradient colorido', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa16.png' },
-  { id: 17, name: 'Minimal Side', description: 'Divisão lateral limpa', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa17.png' },
-  { id: 18, name: 'Glassmorphism Center', description: 'Card com blur sobre glow', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa18.png' },
-  { id: 19, name: 'Arch Featured', description: 'Imagem em arco com badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa19.png' },
-  { id: 20, name: 'Rotating Polaroid', description: 'Polaroid com padrão radial', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa20.png' },
-  { id: 21, name: 'Diagonal Edge', description: 'Corte diagonal com título gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa21.png' },
+  { id: 17, name: 'Minimal Side', description: 'Divisão lateral limpa', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-17.png' },
+  { id: 18, name: 'Glassmorphism Center', description: 'Card com blur sobre glow', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-18.png' },
+  { id: 19, name: 'Arch Featured', description: 'Imagem em arco com badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-19.png' },
+  { id: 20, name: 'Rotating Polaroid', description: 'Polaroid com padrão radial', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-20.png' },
+  { id: 21, name: 'Diagonal Edge', description: 'Corte diagonal com título gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-21.png' },
   { id: 22, name: 'Header Minimal', description: 'Título uppercase com glow lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa22.png' },
-  { id: 23, name: 'Vertical Split', description: 'Split vertical com handle rotacionado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa23.png' },
-  { id: 24, name: 'Grid Process', description: 'Estilo técnico com grid e badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa24.png' },
+  { id: 23, name: 'Vertical Split', description: 'Split vertical com handle rotacionado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-23.png' },
+  { id: 24, name: 'Grid Process', description: 'Estilo técnico com grid e badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-24.png' },
   { id: 25, name: 'Frosted Float', description: 'Card flutuante com blur intenso', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa25.png' },
-  { id: 26, name: 'Overlay Volume', description: 'Bloco superior blend sobre imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa26.png' },
+  { id: 26, name: 'Overlay Volume', description: 'Bloco superior blend sobre imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-26.png' },
   { id: 27, name: 'Slanted New', description: 'Recorte diagonal com ícone Sparkles', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa27.png' },
-  { id: 28, name: 'Right Image Text Left', description: 'Imagem à direita com texto à esquerda', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa28.png' },
+  { id: 28, name: 'Right Image Text Left', description: 'Imagem à direita com texto à esquerda', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-28.png' },
   { id: 29, name: 'Framed Left Image', description: 'Imagem emoldurada com tags à direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa29.png' },
   { id: 30, name: 'Social Icons Overlay', description: 'Layout com barra de ícones de redes sociais', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa30.png' },
   { id: 31, name: 'List Bullet Stars', description: 'Imagem com lista de destaques', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa31.png' },
   { id: 32, name: 'Repeated Text Background', description: 'Fundo com texto repetido e card inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa32.png' },
-  { id: 33, name: 'Gradient Footer', description: 'Imagem superior com rodapé colorido e divisória', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa33.png' },
-  { id: 34, name: 'Center Focus', description: 'Fundo escuro com texto centralizado e header', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa34.png' },
-  { id: 35, name: 'Curve Card', description: 'Card branco inferior com topo arredondado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa35.png' },
-  { id: 36, name: 'Magazine Split', description: 'Texto à esquerda e imagem à direita estilo revista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa36.png' },
-  { id: 37, name: 'Modern Frame', description: 'Fundo colorido com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa37.png' },
+  { id: 33, name: 'Gradient Footer', description: 'Imagem superior com rodapé colorido e divisória', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-33.png' },
+  { id: 34, name: 'Center Focus', description: 'Fundo escuro com texto centralizado e header', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-34.png' },
+  { id: 35, name: 'Curve Card', description: 'Card branco inferior com topo arredondado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-35.png' },
+  { id: 36, name: 'Magazine Split', description: 'Texto à esquerda e imagem à direita estilo revista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-36.png' },
+  { id: 37, name: 'Modern Frame', description: 'Fundo colorido com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-37.png' },
   { id: 38, name: 'Gradient Bottom', description: 'Imagem full com gradient e tags inferiores', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa38.png' },
   { id: 39, name: 'Side Strip', description: 'Imagem lateral com faixa de marca vertical', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa39.png' },
-  { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa40.png' },
-  { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa41.png' },
+  { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-40.png' },
+  { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-41.png' },
   { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa42.png' },
-  { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa43.png' },
+  { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-43.png' },
   { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa44.png' },
   { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa45.png' },
   { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa46.png' },
-  { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa48.png' },
-  { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa49.png' },
+  { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-48.png' },
+  { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-49.png' },
   { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa50.png' },
   { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa51.png' },
-  { id: 52, name: 'Brand Dominance', description: 'Bloco de cor dominante e imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa52.png' },
+  { id: 52, name: 'Brand Dominance', description: 'Bloco de cor dominante e imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-52.png' },
   { id: 53, name: 'Sharp Half Block', description: 'Divisão ao meio com bloco sólido e CTA', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa53.png' },
   { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa54.png' },
   { id: 55, name: 'Premium Edge', description: 'Barra lateral informativa e card de imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa55.png' },
   { id: 56, name: 'Split Typo Hero', description: 'Imagem superior e bloco informativo inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa56.png' },
-  { id: 57, name: 'Author Focus', description: 'Focado no autor com imagem circular e card', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa57.png' },
-  { id: 58, name: 'Author Clean', description: 'Minimalista com foco em cor e autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa58.png' },
-  { id: 59, name: 'Author Profile', description: 'Layout escuro com autor centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa59.png' },
+  { id: 57, name: 'Author Focus', description: 'Focado no autor com imagem circular e card', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-57.png' },
+  { id: 58, name: 'Author Clean', description: 'Minimalista com foco em cor e autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-58.png' },
+  { id: 59, name: 'Author Profile', description: 'Layout escuro com autor centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-59.png' },
   { id: 60, name: 'Author Elegant', description: 'Elegante com borda e autor lateral', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa60.png' },
   { id: 61, name: 'Author Centered', description: 'Centralizado com autor no topo e fundo escuro', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa61.png' },
-];
+  ];
