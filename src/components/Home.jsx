@@ -126,10 +126,10 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   }, []);
 
   const internalSlogans = [
-    "Sincronizado com os guias da marca.",
-    "Bancos de dados de copy carregados.",
-    "Sistema de aprovação pronto.",
-    "Otimizando fluxo de produção..."
+    "Sua autoridade visual automatizada.",
+    "Crie carrosséis em menos de 1 minuto.",
+    "Posts prontos com um único comando.",
+    "Design de alta performance para o Instagram."
   ];
 
   const recentProjects = [

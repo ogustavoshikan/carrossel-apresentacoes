@@ -3525,7 +3525,7 @@ export const COVER_VARIANT_META = [
     description: 'Layout padrão',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa_-0.png'
   },
-  { id: 1, name: 'Color Split', description: 'Imagem + bloco de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa1.png' },
+  { id: 1, name: 'Color Split', description: 'Imagem + bloco de cor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs-capa-1.png' },
   { id: 2, name: 'Cinemático', description: 'Full-bleed com gradient', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-2.png' },
   { id: 3, name: 'Blur Editorial', description: 'Fundo blur + barra de acento', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-3.png' },
   { id: 4, name: 'Moldura', description: 'Estilo editorial emoldurado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa4.png' },
