@@ -317,7 +317,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   if (layoutType === 'content-split') {
     const splitIndicesToUpdate = [0, 1, 3, 7, 8, 9, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 40, 42, 43, 44, 45, 48, 50, 51, 52, 54, 56, 57, 59, 60, 61, 67, 69, 70, 72, 74];
     const newSpecialIndices = [36, 38, 41, 47, 53, 58, 62, 68, 71, 73, 75];
-    const motherDayIndices = [46, 63];
+    const motherDayIndices = [2, 46, 63];
 
     if (splitIndicesToUpdate.includes(variantIndex)) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
