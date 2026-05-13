@@ -26,6 +26,8 @@ function DesignThumbnail({ theme, variantId, brandColor, brandAvatar, thumbnailU
         src={thumbnailUrl}
         alt={`Variante ${variantId}`}
         className="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
       />
     );
   }
@@ -101,7 +103,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
               >
                 <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
                    {theme.thumbnailUrl ? (
-                     <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
+                     <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                    ) : (
                      LAYOUT_ICONS[theme.key]
                    )}
@@ -142,7 +144,7 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
                 >
                   <div className={`w-5 h-6 mb-1.5 transition-transform group-hover:scale-110 overflow-hidden rounded-[2px] ${isActive ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`}>
                     {theme.thumbnailUrl ? (
-                      <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" />
+                      <img src={theme.thumbnailUrl} alt={theme.label} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                     ) : (
                       LAYOUT_ICONS[theme.key]
                     )}
