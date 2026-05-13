@@ -75,7 +75,7 @@ const HeroCarousel = ({ brandColor = '#DE1E4D' }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % images.length);
-    }, 3500);
+    }, 6500);
     return () => clearInterval(timer);
   }, [images.length]);
 
