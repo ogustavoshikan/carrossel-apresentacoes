@@ -125,7 +125,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'TÍTULO DE\nIMPACTO',
     texto_apoio: 'Subtítulo descritivo e convidativo',
     sugestao_visual: 'Imagem de destaque do produto',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: '',
     items: [],
   },
@@ -145,7 +145,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: '100%',
     texto_apoio: 'Descrição do número de impacto e o que ele representa.',
     sugestao_visual: 'Imagem relacionada ao dado',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'RESULTADO',
     items: [],
   },
@@ -195,7 +195,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'Pronto para experimentar?',
     texto_apoio: 'Não perca mais tempo. A qualidade que você merece está a um clique de distância.',
     sugestao_visual: '',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'ENCOMENDAR',
     items: [],
   },
@@ -215,7 +215,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'TOP 5',
     texto_apoio: 'Subtítulo descritivo e convidativo',
     sugestao_visual: 'Imagem de destaque do produto',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: '',
     items: [],
   },
@@ -225,7 +225,7 @@ export const LAYOUT_TEMPLATES = {
     titulo: 'A sua\nReferência.',
     texto_apoio: 'Se a excelência lhe agrada, sinta-se livre para guardar este manifesto e partilhá-lo com quem tem bom gosto.',
     sugestao_visual: '',
-    imageUrl: 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
+    imageUrl: 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg',
     tag: 'ENCOMENDAR',
     items: [],
   },
@@ -310,7 +310,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
 
   // Pre-configura imagem de fundo para variantes específicas de Quote
   if (layoutType === 'quote' && [1, 2, 4, 5, 6, 7, 8, 9, 10].includes(variantIndex)) {
-    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
   // Pre-configura imagem de fundo para Split Variants (content-split)
@@ -322,22 +322,22 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     if (splitIndicesToUpdate.includes(variantIndex)) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
     } else if (newSpecialIndices.includes(variantIndex)) {
-      slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
     } else if (motherDayIndices.includes(variantIndex)) {
-      slide.imageUrl = 'https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
     } else {
-      slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
     }
   }
 
   // Pre-configura imagem de fundo para Big Number Variants
   if (layoutType === 'big-number') {
-    slide.imageUrl = 'https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Sequência (Image Anchor, Editorial Split, Cinematic Step, Image Frame, Magazine Bleed, Cinematic Panel, Clean Polaroid, Single Frame, Float Top, Float Bottom e Editorial Capsule)
   if (layoutType === 'sequence' && (variantIndex === 10 || variantIndex === 11 || variantIndex === 12 || variantIndex === 13 || variantIndex === 14 || variantIndex === 18 || variantIndex === 21 || variantIndex === 22 || variantIndex === 25 || variantIndex === 26 || variantIndex === 27)) {
-    slide.imageUrl = 'https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 
   return slide;
