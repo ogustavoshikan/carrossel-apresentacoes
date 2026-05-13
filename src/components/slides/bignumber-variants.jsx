@@ -128,7 +128,7 @@ export function BigNumberVariant1({ data, index, slideCount, brandHandle, showBr
         {/* Imagem arredondada inferior */}
         <SmartField
           field="imagem" {...sp}
-          className="w-full flex-1 min-h-[120px] rounded-[2rem] overflow-hidden relative shadow-2xl ring-1 ring-white/5"
+          className="w-full flex-1 min-h-[145px] -mt-[10px] rounded-[2rem] overflow-hidden relative shadow-2xl ring-1 ring-white/5"
         >
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -225,7 +225,7 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
       {/* Bloco colorido superior */}
       <div
         className="w-full h-[45%] p-10 flex flex-col items-end justify-center relative shrink-0"
-        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor, borderBottom: '8px solid #ffffff' }}
       >
         <SmartField field="titulo" {...sp} className="w-full text-right">
           <span
@@ -242,28 +242,30 @@ export function BigNumberVariant3({ data, index, slideCount, brandColor, brandHa
 
       {/* Área escura inferior */}
       <div className="flex-1 p-10 flex flex-col justify-center bg-[#050505] relative shrink-0">
-        <SmartField field="tag" {...sp} className="mb-4">
-          <span
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-tag font-black text-[12px] tracking-widest text-zinc-500 uppercase outline-none block"
-          >
-            {data.tag || 'LABEL'}
-          </span>
-        </SmartField>
+        <div className="-mt-[90px]">
+          <SmartField field="tag" {...sp} className="mb-4">
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-tag font-black text-[12px] tracking-widest text-zinc-500 uppercase outline-none block"
+            >
+              {data.tag || 'LABEL'}
+            </span>
+          </SmartField>
 
-        <SmartField field="texto_apoio" {...sp}>
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-white outline-none"
-            style={{ fontSize: `${22 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartField>
+          <SmartField field="texto_apoio" {...sp}>
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-text text-white outline-none"
+              style={{ fontSize: `${22 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
       </div>
 
       {/* Brand tag no topo */}
@@ -623,7 +625,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text text-black outline-none font-bold"
+            className="font-text text-white outline-none font-bold"
             style={{ fontSize: `${22 * sText}px` }}
           >
             {data.texto_apoio}
@@ -748,7 +750,6 @@ export function BigNumberVariant14(props) {
     <div 
       className="w-full h-full bg-zinc-100 flex flex-col p-10 overflow-hidden relative justify-center"
       style={{ 
-        borderTop: `10px solid ${brandColor}`,
         borderBottom: `10px solid ${brandColor}`
       }}
     >
@@ -812,46 +813,49 @@ export function BigNumberVariant20(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Imagem de fundo */}
-      <SmartField field="imagem" {...sp} className="absolute inset-0 h-[65%] w-full pointer-events-none">
+      <SmartField field="imagem" {...sp} className="absolute inset-0 h-[50%] w-full pointer-events-none">
         <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-0 left-0 w-full h-[8px]" style={{ backgroundColor: brandColor }} />
       </SmartField>
 
       {/* Card branco inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-[48%] bg-white p-10 flex flex-col justify-center">
-        <div className="flex items-center gap-6 mb-6">
-          <SmartField field="titulo" {...sp} className="shrink-0">
-            <span
+      <div className="absolute bottom-0 left-0 w-full h-[50%] bg-white p-10 flex flex-col justify-center">
+        <div className="-mt-[100px]">
+          <div className="flex items-center gap-6 mb-6">
+            <SmartField field="titulo" {...sp} className="shrink-0">
+              <span
+                contentEditable
+                suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-text font-black tracking-tighter leading-none outline-none block"
+                style={{ fontSize: `${90 * sTitle}px`, color: brandColor }}
+              >
+                {data.titulo}
+              </span>
+            </SmartField>
+            <SmartField field="tag" {...sp} className="flex-1">
+              <span
+                contentEditable
+                suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                className="font-tag font-black text-[12px] tracking-widest uppercase text-zinc-400 outline-none block"
+              >
+                {data.tag || 'RESULTADO'}
+              </span>
+            </SmartField>
+          </div>
+          <SmartField field="texto_apoio" {...sp}>
+            <p
               contentEditable
               suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-text font-black tracking-tighter leading-none outline-none block"
-              style={{ fontSize: `${90 * sTitle}px`, color: brandColor }}
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-text font-bold text-zinc-900 outline-none leading-snug break-words max-w-full"
+              style={{ fontSize: `${18 * sText}px` }}
             >
-              {data.titulo}
-            </span>
-          </SmartField>
-          <SmartField field="tag" {...sp} className="flex-1">
-            <span
-              contentEditable
-              suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="font-tag font-black text-[12px] tracking-widest uppercase text-zinc-400 outline-none block"
-            >
-              {data.tag || 'RESULTADO'}
-            </span>
+              {data.texto_apoio}
+            </p>
           </SmartField>
         </div>
-        <SmartField field="texto_apoio" {...sp}>
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text font-bold text-zinc-900 outline-none leading-snug break-words max-w-full"
-            style={{ fontSize: `${18 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartField>
       </div>
     </div>
   );
@@ -973,28 +977,30 @@ export function BigNumberVariant22(props) {
           </span>
         </SmartField>
 
-        <SmartField field="tag" {...sp} className="mb-4">
-          <span
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            className="font-tag font-black text-[12px] tracking-[0.4em] uppercase text-white/60 outline-none block"
-          >
-            {data.tag || 'RESULTADO'}
-          </span>
-        </SmartField>
+        <div className="-translate-y-[45px]">
+          <SmartField field="tag" {...sp} className="mb-4">
+            <span
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="font-tag font-black text-[12px] tracking-[0.4em] uppercase text-white/60 outline-none block"
+            >
+              {data.tag || 'RESULTADO'}
+            </span>
+          </SmartField>
 
-        <SmartField field="texto_apoio" {...sp} className="max-w-[90%]">
-          <p
-            contentEditable
-            suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-text font-black text-white outline-none leading-[1.1] uppercase break-words"
-            style={{ fontSize: `${32 * sText}px` }}
-          >
-            {data.texto_apoio}
-          </p>
-        </SmartField>
+          <SmartField field="texto_apoio" {...sp} className="max-w-[90%]">
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="font-text font-black text-white outline-none leading-[1.1] uppercase break-words"
+              style={{ fontSize: `${32 * sText}px` }}
+            >
+              {data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
       </div>
     </div>
   );
@@ -1017,7 +1023,7 @@ export function BigNumberVariant23(props) {
       {/* Painel superior colorido com badge de edição + número */}
       <div
         className="h-[45%] w-full flex flex-col p-10 justify-center relative shrink-0"
-        style={{fontFamily: tagFont,  backgroundColor: brandColor }}
+        style={{fontFamily: tagFont,  backgroundColor: brandColor, borderBottom: '8px solid #ffffff' }}
       >
         <SmartField field="badge_text" {...sp} className="absolute top-8 left-10">
           <span
@@ -1182,12 +1188,13 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
       />
 
       {/* Imagem superior */}
-      <SmartField field="imagem" {...sp} className="h-[60%] w-full relative shrink-0">
+      <SmartField field="imagem" {...sp} className="h-[55%] w-full relative shrink-0">
         <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-0 left-0 w-full h-[8px]" style={{ backgroundColor: '#ffffff' }} />
       </SmartField>
 
       {/* Bloco colorido inferior */}
-      <div className="h-[40%] w-full relative z-50 flex flex-col p-10 justify-center shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+      <div className="h-[45%] w-full relative z-50 flex flex-col p-10 justify-center shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
         {/* Número gigante sobreposto */}
         <div className="absolute -top-20 left-10 z-20 pointer-events-none">
           <SmartField field="titulo" {...sp}>
@@ -1203,7 +1210,7 @@ export function BigNumberVariant25({ data, index, slideCount, brandColor, brandH
           </SmartField>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-12 -translate-y-[30px]">
           <SmartField field="texto_apoio" {...sp}>
             <p
               contentEditable
@@ -1246,11 +1253,12 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
       {/* Imagem fullwidth */}
       <SmartField field="imagem" {...sp} className="flex-1 w-full relative">
         <ImageBg data={data} className="absolute inset-0" />
+        <div className="absolute bottom-0 left-0 w-full h-[8px]" style={{ backgroundColor: brandColor }} />
       </SmartField>
 
       {/* Barra inferior */}
-      <div className="h-[25%] w-full bg-white border-t border-zinc-100 flex items-center justify-between px-10 shrink-0">
-        <div className="flex flex-col gap-1 min-w-0 flex-1 pr-4">
+      <div className="h-[45%] w-full bg-white border-t border-zinc-100 flex items-center justify-between px-10 shrink-0">
+        <div className="flex flex-col gap-1 min-w-0 flex-1 pr-4 -translate-y-[35px]">
           <SmartField field="tag" {...sp}>
             <span
               contentEditable
@@ -1280,7 +1288,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
             contentEditable
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            className="font-text font-black tracking-tighter leading-none outline-none block"
+            className="font-text font-black tracking-tighter leading-none outline-none block -translate-y-[45px]"
             style={{ fontSize: `${110 * sTitle}px`, color: brandColor }}
           >
             {data.titulo}

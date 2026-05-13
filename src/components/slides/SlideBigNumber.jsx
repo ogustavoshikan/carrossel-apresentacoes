@@ -158,7 +158,7 @@ export default function SlideBigNumber({
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'imagem'}
           onSelectElement={onSelectElement}
-          className="w-full h-40 rounded-slide-inner overflow-hidden border border-white/5 shadow-2xl relative"
+          className="w-full h-[185px] -mt-[10px] rounded-slide-inner overflow-hidden border border-white/5 shadow-2xl relative"
         >
           {data.imageUrl ? (
             <div
