@@ -19,7 +19,7 @@ import { EmptyState, LoadingState } from './components/workspace/EmptyState';
 import SettingsModal from './components/SettingsModal';
 import InstagramPreview from './components/workspace/InstagramPreview';
 import FavoriteNameModal from './components/workspace/FavoriteNameModal';
-import SplashScreen from './components/SplashScreen';
+import SplashScreenIntro from './components/SplashScreenIntro';
 import SplashScreenCinematic from './components/SplashScreenCinematic';
 import Home from './components/Home';
 import GlobalSidebar from './components/GlobalSidebar';
@@ -684,8 +684,8 @@ export default function App() {
       className="h-screen bg-[#050505] text-[#FFFFFF] font-sans flex overflow-hidden relative"
       style={dynamicStyles}
     >
-      {splashStep < 3 && <div className="fixed inset-0 z-[9998] bg-[#0d0d0d]" />}
-      {splashStep === 1 && <SplashScreen onComplete={() => setSplashStep(2)} />}
+      {splashStep < 3 && <div className="fixed inset-0 z-[9998] bg-[#080808]" />}
+      {splashStep === 1 && <SplashScreenIntro onFinished={() => setSplashStep(2)} />}
       {splashStep === 2 && <SplashScreenCinematic onComplete={() => setSplashStep(3)} />}
       
       {/* GLOBAL NAVIGATION BAR (Premium) */}
