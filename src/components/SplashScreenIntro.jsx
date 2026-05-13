@@ -8,12 +8,12 @@ const IMAGES = [
   "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_2%20(6).png",
 ];
 
-const STAGE_W      = 560;
-const CARD_W       = 192;
-const CARD_H       = 272;
-const CARD_W_MAIN  = 222;
-const CARD_H_MAIN  = 296;
-const GAP          = 12;
+const STAGE_W      = 680;
+const CARD_W       = 230;
+const CARD_H       = 325;
+const CARD_W_MAIN  = 265;
+const CARD_H_MAIN  = 355;
+const GAP          = 14;
 
 function getFan(active) {
   return IMAGES.map((_, i) => {
@@ -243,23 +243,23 @@ const styles = {
     animation:      "fadeDown .7s cubic-bezier(.22,1,.36,1) .2s forwards",
   },
   icon: {
-    width:          52,
-    height:         52,
-    borderRadius:   14,
+    width:          68,
+    height:         68,
+    borderRadius:   18,
     background:     "#DE1E40",
     display:        "flex",
     alignItems:     "center",
     justifyContent: "center",
     fontWeight:     900,
-    fontSize:       20,
+    fontSize:       26,
     color:          "white",
     letterSpacing:  -1,
     boxShadow:      "0 4px 28px rgba(222,30,64,0.5)",
   },
   brandName: {
     fontWeight:    900,
-    fontSize:      26,
-    letterSpacing: 4,
+    fontSize:      34,
+    letterSpacing: 5,
     color:         "white",
     textTransform: "uppercase",
     lineHeight:    1,
@@ -267,17 +267,17 @@ const styles = {
   brandAccent: { color: "#DE1E40" },
   brandSub: {
     fontWeight:    300,
-    fontSize:      10,
-    letterSpacing: 4,
+    fontSize:      12,
+    letterSpacing: 5,
     color:         "rgba(255,255,255,0.25)",
     textTransform: "uppercase",
-    marginTop:     4,
+    marginTop:     6,
   },
   stage: {
     position:     "relative",
     width:        STAGE_W,
-    height:       380,
-    marginBottom: 40,
+    height:       460,
+    marginBottom: 48,
   },
   slide: {
     position:     "absolute",
