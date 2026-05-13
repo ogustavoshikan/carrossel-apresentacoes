@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Zap, Heart, Bookmark, Share2 } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 import { CTA_VARIANT_COMPONENTS, ImageBg } from './cta-variants';
-import { CTA_EXTRA_VARIANT_COMPONENTS } from './cta-extra-variants';
+
+// Lazy: só carrega quando um slide usa ctaVariantIndex >= 101
+const CtaExtraLazy = React.lazy(() =>
+  import('./cta-extra-variants').then(mod => ({
+    default: function CtaExtraDispatch({ ctaVariantIndex, ...rest }) {
+      const Comp = mod.CTA_EXTRA_VARIANT_COMPONENTS[ctaVariantIndex];
+      return Comp ? <Comp {...rest} /> : null;
+    }
+  }))
+);
 
 /**
  * SlideCTA — Layout "cta" (sempre o último slide).
@@ -36,9 +45,12 @@ export default function SlideCTA(props) {
   const ctaVariantIndex = data.ctaVariantIndex || 0;
 
   // Variantes de CTAs Extras (IDs 101+)
-  if (ctaVariantIndex >= 101 && CTA_EXTRA_VARIANT_COMPONENTS[ctaVariantIndex]) {
-    const ExtraComponent = CTA_EXTRA_VARIANT_COMPONENTS[ctaVariantIndex];
-    return <ExtraComponent {...props} />;
+  if (ctaVariantIndex >= 101) {
+    return (
+      <Suspense fallback={<div className="w-full h-full bg-[#080808]" />}>
+        <CtaExtraLazy ctaVariantIndex={ctaVariantIndex} {...props} />
+      </Suspense>
+    );
   }
 
   if (ctaVariantIndex > 0 && CTA_VARIANT_COMPONENTS[ctaVariantIndex]) {

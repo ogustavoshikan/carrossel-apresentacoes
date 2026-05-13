@@ -17,4 +17,27 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Chunk isolado para cada família de variantes pesadas
+          if (id.includes('cover-extra-variants'))  return 'variants-cover-extra';
+          if (id.includes('cover-variants'))         return 'variants-cover';
+          if (id.includes('split-variants'))         return 'variants-split';
+          if (id.includes('cta-extra-variants'))     return 'variants-cta-extra';
+          if (id.includes('cta-variants'))           return 'variants-cta';
+          if (id.includes('bignumber-variants'))     return 'variants-bignumber';
+          if (id.includes('comparison-variants'))    return 'variants-comparison';
+          if (id.includes('quote-variants'))         return 'variants-quote';
+          if (id.includes('list-variants'))          return 'variants-list';
+          if (id.includes('sequence-variants'))      return 'variants-sequence';
+          // Dependências externas em chunk separado (melhor cache)
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'vendor-react';
+          if (id.includes('node_modules/lucide-react'))  return 'vendor-lucide';
+          if (id.includes('node_modules/framer-motion')) return 'vendor-framer';
+        },
+      },
+    },
+  },
 });

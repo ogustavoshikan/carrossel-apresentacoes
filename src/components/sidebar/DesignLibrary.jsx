@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import { LAYOUT_META, LAYOUT_ICONS } from '../../lib/layout-templates';
-import { COVER_VARIANT_META } from '../slides/cover-variants';
-import { SPLIT_VARIANT_META } from '../slides/split-variants';
-import { BIGNUMBER_VARIANT_META } from '../slides/bignumber-variants';
-import { QUOTE_VARIANT_META } from '../slides/quote-variants';
-import { COMPARISON_VARIANT_META } from '../slides/comparison-variants';
-import { CTA_VARIANT_META } from '../slides/cta-variants';
-import { LIST_VARIANT_META } from '../slides/list-variants';
-import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
-import { COVER_EXTRA_VARIANT_META } from '../slides/cover-extra-variants';
-import { CTA_EXTRA_VARIANT_META } from '../slides/cta-extra-variants';
-
 import { VARIANT_THUMBNAILS } from '../../lib/variant-thumbnails';
+
+// Loaders dinâmicos — cada aba carrega seu arquivo só quando selecionada
+const META_LOADERS = {
+  'cover':         () => import('../slides/cover-variants').then(m => m.COVER_VARIANT_META),
+  'content-split': () => import('../slides/split-variants').then(m => m.SPLIT_VARIANT_META),
+  'big-number':    () => import('../slides/bignumber-variants').then(m => m.BIGNUMBER_VARIANT_META),
+  'quote':         () => import('../slides/quote-variants').then(m => m.QUOTE_VARIANT_META),
+  'comparison':    () => import('../slides/comparison-variants').then(m => m.COMPARISON_VARIANT_META),
+  'cta':           () => import('../slides/cta-variants').then(m => m.CTA_VARIANT_META),
+  'list':          () => import('../slides/list-variants').then(m => m.LIST_VARIANT_META),
+  'sequence':      () => import('../slides/sequence-variants').then(m => m.SEQUENCE_VARIANT_META),
+  'cover-extra':   () => import('../slides/cover-extra-variants').then(m => m.COVER_EXTRA_VARIANT_META),
+  'cta-extra':     () => import('../slides/cta-extra-variants').then(m => m.CTA_EXTRA_VARIANT_META),
+};
+
+// Cache em memória — evita re-importar ao trocar de aba
+const metaCache = {};
 
 /**
  * DesignThumbnail — Renderiza o mini wireframe de uma variante específica.
@@ -58,21 +64,25 @@ function DesignThumbnail({ theme, variantId, brandColor, brandAvatar, thumbnailU
 
 export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, slidesCount }) {
   const [selectedTheme, setSelectedTheme] = useState('cover');
-  // Mapeamento de metadados das variantes
-  const THEME_METAS = {
-    cover: COVER_VARIANT_META,
-    'content-split': SPLIT_VARIANT_META,
-    'big-number': BIGNUMBER_VARIANT_META,
-    quote: QUOTE_VARIANT_META,
-    comparison: COMPARISON_VARIANT_META,
-    cta: CTA_VARIANT_META,
-    list: LIST_VARIANT_META,
-    sequence: SEQUENCE_VARIANT_META,
-    'cover-extra': COVER_EXTRA_VARIANT_META,
-    'cta-extra': CTA_EXTRA_VARIANT_META,
-  };
+  const [variants, setVariants] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const variants = THEME_METAS[selectedTheme] || [];
+  useEffect(() => {
+    if (metaCache[selectedTheme]) {
+      setVariants(metaCache[selectedTheme]);
+      setIsLoading(false);
+      return;
+    }
+    setIsLoading(true);
+    setVariants([]);
+    const loader = META_LOADERS[selectedTheme];
+    if (!loader) { setIsLoading(false); return; }
+    loader().then(meta => {
+      metaCache[selectedTheme] = meta;
+      setVariants(meta);
+      setIsLoading(false);
+    });
+  }, [selectedTheme]);
 
   // Divide os layouts em duas linhas (7 na primeira, o resto na segunda)
   const firstRow = LAYOUT_META.slice(0, 7);
@@ -215,7 +225,15 @@ export default function DesignLibrary({ onAddSlide, brandColor, brandAvatar, sli
         ))}
       </div>
       
-      {variants.length === 0 && (
+      {isLoading && (
+        <div className="grid grid-cols-2 gap-4 pb-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="aspect-[4/5] bg-zinc-900/60 rounded-2xl animate-pulse" />
+          ))}
+        </div>
+      )}
+
+      {!isLoading && variants.length === 0 && (
          <div className="py-20 text-center">
             <p className="text-[10px] uppercase font-black tracking-widest text-white/10">Nenhum design encontrado</p>
          </div>

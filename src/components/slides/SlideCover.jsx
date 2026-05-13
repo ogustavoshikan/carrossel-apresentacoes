@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Image as ImageIcon, ArrowRight } from 'lucide-react';
 import SmartElement from '../smart-element';
 import SlideHeader from '../slide-header';
 import { COVER_VARIANT_COMPONENTS } from './cover-variants';
-import { COVER_EXTRA_VARIANT_COMPONENTS } from './cover-extra-variants';
+
+// Lazy: só carrega quando um slide usa variantIndex >= 101
+const CoverExtraLazy = React.lazy(() =>
+  import('./cover-extra-variants').then(mod => ({
+    default: function CoverExtraDispatch({ variantIndex, ...rest }) {
+      const Comp = mod.COVER_EXTRA_VARIANT_COMPONENTS[variantIndex];
+      return Comp ? <Comp {...rest} /> : null;
+    }
+  }))
+);
 
 /**
  * SlideCover — Layout "cover" (sempre slide 1).
@@ -49,9 +58,12 @@ export default function SlideCover({
   };
 
   // Variantes de Capas Extras (IDs 101+)
-  if (variantIndex >= 101 && COVER_EXTRA_VARIANT_COMPONENTS[variantIndex]) {
-    const ExtraComponent = COVER_EXTRA_VARIANT_COMPONENTS[variantIndex];
-    return <ExtraComponent {...commonVariantProps} />;
+  if (variantIndex >= 101) {
+    return (
+      <Suspense fallback={<div className="w-full h-full bg-[#080808]" />}>
+        <CoverExtraLazy variantIndex={variantIndex} {...commonVariantProps} />
+      </Suspense>
+    );
   }
 
   // Variantes de Capas principais (IDs 1-99)
