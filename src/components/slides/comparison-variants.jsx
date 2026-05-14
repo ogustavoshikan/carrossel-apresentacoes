@@ -120,12 +120,12 @@ export function ComparisonVariant13(props) {
         </SmartEl>
       </div>
       <div className="flex-1 flex w-full relative z-0 items-stretch">
-        <div className="flex-1 p-6 pt-10 text-white flex flex-col items-center justify-start overflow-hidden" style={{ backgroundColor: '#000000' }}>
+        <div className="flex-1 p-6 pt-10 text-[#1A1A1A] flex flex-col items-center justify-start overflow-hidden" style={{ backgroundColor: '#EBE9E1' }}>
           <div className="w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center mb-6 shrink-0 mx-auto">
             <X className="w-4 h-4" />
           </div>
           <SmartEl {...sp} field="tag" className="w-full flex-1 min-h-0">
-            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap px-4" style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap px-4" style={{ fontFamily: textFont, fontSize: `${18 * sText}px`, color: '#1A1A1A' }}>
               {data.tag || (data.items?.[0]?.value && data.items?.[0]?.value !== 'Qualidade comum' ? data.items[0].value : 'O COMUM\nUsa achocolatado cheio de açúcar e gordura vegetal hidrogenada.')}
             </TextWrapper>
           </SmartEl>
@@ -145,8 +145,8 @@ export function ComparisonVariant13(props) {
         {/* Badge VS Centralizado de forma robusta */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
           <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
-            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl border-4 border-white/20">
-              <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-sm uppercase tracking-tighter" style={{ color: gradientColor1 }}>
+            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl border-4" style={{ borderColor: brandColor }}>
+              <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-sm uppercase tracking-tighter text-[#1A1A1A]">
                 {data.badge_text || 'VS'}
               </TextWrapper>
             </div>
@@ -203,9 +203,9 @@ export function ComparisonVariant14(props) {
           </TextWrapper>
         </SmartEl>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A1A] px-5 py-2 rounded-full z-20 border-4 border-black/10 flex items-center justify-center">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1.5 rounded-full z-20 border-4 flex items-center justify-center shadow-xl" style={{ borderColor: brandColor }}>
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-white leading-none text-center tracking-tighter uppercase whitespace-pre-wrap" style={{ fontFamily: titleFont, fontSize: `${26 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black text-[#1A1A1A] leading-none text-center tracking-tighter uppercase whitespace-pre-wrap" style={{ fontFamily: titleFont, fontSize: `${24 * sTitle}px` }}>
             {data.titulo || 'EXPECTATIVA VS\nREALIDADE'}
           </TextWrapper>
         </SmartEl>
@@ -327,26 +327,26 @@ export function ComparisonVariant20(props) {
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col bg-black text-white rounded-slide">
+    <div className="w-full h-full flex flex-col bg-black text-white rounded-slide relative overflow-hidden">
       <div className="absolute inset-0 z-0 overflow-hidden rounded-slide">
         <div className="flex w-full h-full">
-          <div className="w-1/2 h-full bg-[#0a0a0a]" />
+          <div className="w-1/2 h-full bg-white" />
           <div className="w-1/2 h-full" style={{ backgroundColor: gradientColor1 }} />
         </div>
       </div>
       <div className="p-10 shrink-0 relative z-10">
         <SlideHeader data={props.data} slideIndex={props.index} onActionStart={props.onActionStart} selectedElement={props.selectedElement} onSelectElement={props.onSelectElement} index={(props.index || 0) + 1} total={props.slideCount} brandHandle={props.brandHandle} showBrandHandle={props.showBrandHandle} brandColor={props.brandColor} isVerified={props.isVerified} showSlideCounter={props.showSlideCounter} slideCounterPosition={props.slideCounterPosition} brandAvatar={props.brandAvatar} hideDot={true} brandLogo={props.brandLogo} showBrandLogo={props.showBrandLogo} />
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight tracking-tighter uppercase mt-2 mb-2 text-center translate-y-[20px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-black leading-tight tracking-tighter uppercase mt-2 mb-2 text-center translate-y-[20px]" style={{ fontFamily: titleFont, fontSize: `${28 * sTitle}px`, color: '#ffffff', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
             {data.titulo || 'TÍTULO DA COMPARAÇÃO'}
           </TextWrapper>
         </SmartEl>
       </div>
       <div className="flex-1 flex w-full relative z-10">
         <div className="w-1/2 h-full p-6 pt-10 flex flex-col items-center">
-          <X className="w-8 h-8 text-white/50 mb-6 shrink-0" />
+          <X className="w-8 h-8 text-[#1A1A1A] mb-6 shrink-0" />
           <SmartEl {...sp} field="tag" className="flex-1 w-full">
-            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap text-white/50" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
+            <TextWrapper {...sp} as="p" field="tag" className="leading-relaxed font-medium text-center whitespace-pre-wrap text-[#1A1A1A]" style={{ fontFamily: textFont, fontSize: `${13 * sText}px` }}>
               {data.tag || (data.items?.[0]?.value) || 'ESTADO ATUAL OU PROBLEMA COMUM'}
             </TextWrapper>
           </SmartEl>
@@ -514,8 +514,8 @@ export function ComparisonVariant2(props) {
       {/* Badge VS Centralizado de forma robusta */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
         <SmartEl {...sp} field="badge_text" className="pointer-events-auto">
-          <div className="w-12 h-12 bg-[#1A1A1A] rounded-full flex items-center justify-center shadow-2xl border-4 border-white">
-            <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-[10px] uppercase text-white">
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-2xl border-4" style={{ borderColor: brandColor }}>
+            <TextWrapper {...sp} as="div" field="badge_text" className="font-black text-[10px] uppercase text-[#1A1A1A]">
               {data.badge_text || 'VS'}
             </TextWrapper>
           </div>
@@ -846,7 +846,7 @@ export function ComparisonVariant26(props) {
       </div>
 
       <div className="w-1/2 h-full p-8 pb-12 flex flex-col justify-end relative z-10" style={{ backgroundColor: brandColor }}>
-        <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden shadow-2xl z-20 bg-black">
+        <div className="absolute top-20 left-4 right-4 h-40 rounded-[35px] overflow-hidden z-20 bg-black" style={{ boxShadow: '0 25px 50px -12px rgba(255, 255, 255, 0.1)' }}>
           <ImageBg data={{ ...data, imageUrl: imgC, imagePosition: data.imagePosition2, imageScale: data.imageScale2 }} className="w-full h-full" />
         </div>
         <div className="absolute top-[252px] left-0 w-full flex justify-center z-20">

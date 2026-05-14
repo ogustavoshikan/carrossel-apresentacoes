@@ -5,45 +5,43 @@ import VariantThumbnail from './VariantThumbnail';
 import { cn } from '../../lib/utils';
 
 /**
- * ComparisonVariantPopover — Grid visual com mini-wireframes de cada variante de comparação.
- * Abre acima do botão "Variante".
+ * ComparisonVariantPopover — Grid visual com mini-wireframes de cada design de comparação.
+ * Abre acima do botão "Designs".
  */
-export default function ComparisonVariantPopover({
-  currentVariantIndex,
-  onSelect,
-  onClose,
-  brandColor,
-  brandAvatar
-}) {
-  const popoverRef = useRef(null);
+ export default function ComparisonVariantPopover({
+   currentVariantIndex,
+   onSelect,
+   onClose,
+   brandColor,
+   brandAvatar
+ }) {
+   const popoverRef = useRef(null);
 
-  // Click outside → fecha
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (popoverRef.current && !popoverRef.current.contains(e.target)) {
-        onClose();
-      }
-    };
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  }, [onClose]);
+   useEffect(() => {
+     const handleClick = (e) => {
+       if (popoverRef.current && !popoverRef.current.contains(e.target)) {
+         onClose();
+       }
+     };
+     document.addEventListener('mousedown', handleClick);
+     return () => document.removeEventListener('mousedown', handleClick);
+   }, [onClose]);
 
-  return (
-    <div
-      ref={popoverRef}
-      className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px] max-w-[380px]">
-        {/* Header */}
-        <VariantPopoverHeader
-          label="Variante Comparison"
-          activeLabel={COMPARISON_VARIANT_META.find(v => v.id === currentVariantIndex)?.nome || 'Original'}
-          onClose={onClose}
-        />
+   return (
+     <div
+       ref={popoverRef}
+       className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-2 duration-150"
+       onClick={(e) => e.stopPropagation()}
+     >
+       <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-4 min-w-[320px]">
+         <VariantPopoverHeader
+           label="Design de Comparação"
+           activeLabel={COMPARISON_VARIANT_META.find(v => v.id === currentVariantIndex)?.name || 'Original'}
+           onClose={onClose}
+         />
 
-        {/* Grid de variantes com Scroll */}
-        <div className="grid grid-cols-4 gap-2.5 max-h-[320px] overflow-y-auto pr-1.5 custom-scrollbar">
+         {/* Grid de designs com Scroll */}
+         <div className="grid grid-cols-4 gap-2.5 max-h-[320px] overflow-y-auto pr-1.5 custom-scrollbar">
           {COMPARISON_VARIANT_META.map((variant) => (
             <button
               key={variant.id}
