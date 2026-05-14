@@ -1077,7 +1077,7 @@ export function CTAVariant125(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] flex flex-col overflow-hidden border border-black/5">
-      <SlideHeader {...props} index={index + 1} />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} />
       
       <div className="w-full h-[55%] relative p-4 pb-0">
         <div className="w-full h-full rounded-t-xl overflow-hidden relative shadow-sm">
@@ -1129,7 +1129,7 @@ export function CTAVariant126(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col p-3">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="w-full h-[55%] rounded-xl overflow-hidden relative shadow-sm mb-3">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -1180,7 +1180,7 @@ export function CTAVariant127(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#0A0A0A] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} dark />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark />
 
       <div className="w-full h-[55%] relative">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-80" />
@@ -1230,7 +1230,7 @@ export function CTAVariant128(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#050505] overflow-hidden flex">
-      <SlideHeader {...props} index={index + 1} dark />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark />
 
       <div className="w-[35%] h-full flex flex-col justify-between p-4 relative z-10 shadow-[10px_0_30px_rgba(0,0,0,0.3)]" style={{ backgroundColor: brandColor }}>
         <div className="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center pointer-events-none">
@@ -1284,7 +1284,7 @@ export function CTAVariant129(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#1a1a1a] overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="h-[60%] w-full relative">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -1334,7 +1334,7 @@ export function CTAVariant130(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#EBE7E0] overflow-hidden flex flex-col items-center justify-center p-8 border border-zinc-200">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="absolute top-8 text-center flex flex-col items-center w-full px-8">
         <span className="font-outfit font-bold text-[#DE1E4D] text-[8px] tracking-[0.3em] uppercase mb-4 flex items-center gap-2" style={{ color: brandColor }}>
@@ -1384,7 +1384,7 @@ export function CTAVariant131(props) {
 
   return (
     <div className="group relative w-full h-full bg-gradient-to-b from-white to-[#F4F1EB] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[25%] w-full bg-[#DE1E4D] px-6 py-6 flex justify-between items-start relative z-0" style={{ backgroundColor: brandColor }}>
         <div className="w-6 h-6 rounded-full overflow-hidden border border-white/30">
@@ -1440,7 +1440,7 @@ export function CTAVariant132(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="px-8 pt-8 pb-4 flex justify-between items-center pointer-events-none">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
@@ -1495,7 +1495,7 @@ export function CTAVariant133(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#DE1E4D] overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="h-[55%] w-full relative">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -1547,7 +1547,7 @@ export function CTAVariant134(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col items-center justify-center p-8 border border-zinc-200">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="absolute top-10 flex flex-col items-center pointer-events-none">
         <span className="font-outfit font-bold text-[#DE1E4D] text-[8px] tracking-[0.3em] uppercase mb-1" style={{ color: brandColor }}>
@@ -1605,7 +1605,7 @@ export function CTAVariant135(props) {
 
   return (
     <div className="group relative w-full h-full bg-gradient-to-b from-white to-[#F9F8F5] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[30%] w-full bg-[#DE1E4D] px-6 py-6 flex justify-between items-start relative z-0" style={{ backgroundColor: brandColor }}>
         <div className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20 pointer-events-none">
@@ -1666,7 +1666,7 @@ export function CTAVariant136(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#FDFBF7] overflow-hidden flex flex-col p-10 border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="flex justify-between items-start w-full mb-12 pointer-events-none">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
@@ -1727,7 +1727,7 @@ export function CTAVariant137(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] flex overflow-hidden border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="w-[15%] h-full flex flex-col justify-between items-center py-8 relative z-20" style={{ backgroundColor: brandColor }}>
         <CheckCircle2 className="w-4 h-4 text-white/80" />
@@ -1790,7 +1790,7 @@ export function CTAVariant138(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[45%] w-full p-10 flex flex-col justify-between relative z-10 border-b-4 border-white">
         <div className="flex justify-between items-start w-full pointer-events-none">
@@ -1850,7 +1850,7 @@ export function CTAVariant139(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col p-4 border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="flex-1 border border-zinc-100 p-6 flex flex-col relative">
         <div className="flex justify-between items-center w-full mb-8 pointer-events-none">
@@ -1915,7 +1915,7 @@ export function CTAVariant140(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#FDFBF7] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="flex-1 p-10 flex flex-col relative z-10">
         <div className="flex justify-between items-start pointer-events-none">
@@ -1967,7 +1967,7 @@ export function CTAVariant141(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] flex overflow-hidden border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="w-[15%] h-full flex flex-col justify-between items-center py-8 z-10 shadow-[10px_0_20px_rgba(0,0,0,0.05)]" style={{ backgroundColor: brandColor }}>
         <CheckCircle2 className="w-5 h-5 text-white/90" />
@@ -2033,7 +2033,7 @@ export function CTAVariant142(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[40%] w-full p-8 flex flex-col justify-center relative z-10 border-b-4 border-[#EBE9E1] bg-white">     
         <div className="absolute top-6 left-6 right-6 flex justify-between items-center border-b border-[#1a1a1a]/10 pb-2 pointer-events-none">
@@ -2091,7 +2091,7 @@ export function CTAVariant143(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col p-5 border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="flex-1 border border-zinc-200 p-6 flex flex-col relative justify-between">
         <div className="flex justify-between items-center w-full pointer-events-none">
@@ -2146,7 +2146,7 @@ export function CTAVariant144(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#FDFBF7] overflow-hidden flex flex-col border border-zinc-100">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="h-2 w-full" style={{ backgroundColor: brandColor }}></div>
 
@@ -2211,7 +2211,7 @@ export function CTAVariant145(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] flex flex-col overflow-hidden">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="h-[20%] w-full flex items-center justify-center relative px-8">
         <div className="w-12 h-[1px] absolute left-8 top-10" style={{ backgroundColor: brandColor }} />
@@ -2274,7 +2274,7 @@ export function CTAVariant146(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[50%] w-full flex relative">
         <div className="w-[35%] h-full p-6 flex flex-col justify-between items-start" style={{ backgroundColor: brandColor }}>
@@ -2329,7 +2329,7 @@ export function CTAVariant147(props) {
   return (
     <div className="group relative w-full h-full bg-gradient-to-br from-[#4a0818] to-[#1a0208] overflow-hidden flex flex-col p-4 border border-black/5">
       <div className="w-full h-full bg-[#F4F1EB] rounded-sm p-4 flex flex-col shadow-2xl relative">
-        <SlideHeader {...props} index={index + 1} hideDot />
+        <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
         <div className="h-[45%] w-full relative overflow-hidden rounded-sm mb-6">
           <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -2395,7 +2395,7 @@ export function CTAVariant148(props) {
       </div>
 
       <div className="w-[80%] h-full flex flex-col justify-between relative">
-        <SlideHeader {...props} index={index + 1} hideDot />
+        <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
         <div className="h-[40%] w-full relative overflow-hidden">
           <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -2445,7 +2445,7 @@ export function CTAVariant149(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col items-center justify-center border border-black/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="absolute inset-0 z-0">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -2489,7 +2489,7 @@ export function CTAVariant150(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#0A0A0A] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="h-[60%] w-full relative z-0">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
@@ -2547,7 +2547,7 @@ export function CTAVariant151(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#050505] overflow-hidden flex flex-col items-center justify-center border border-black/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="absolute inset-0 z-0">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-30 mix-blend-luminosity transition-transform duration-1000 group-hover:scale-105" />
@@ -2595,7 +2595,7 @@ export function CTAVariant152(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#0c0a09] overflow-hidden flex flex-col p-10 border border-white/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="flex justify-between items-center w-full opacity-30 mb-auto pointer-events-none">
         <span className="font-outfit text-white text-[8px] tracking-[0.4em] uppercase">
@@ -2651,7 +2651,7 @@ export function CTAVariant153(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="h-[50%] w-full flex flex-col items-center justify-center p-8 relative z-10 shadow-md" style={{ backgroundColor: brandColor }}>
         <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-sm mb-4">
@@ -2700,7 +2700,7 @@ export function CTAVariant154(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col border border-black/10">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="h-[60%] w-full p-8 flex flex-col justify-center relative z-10">
         <div className="flex items-center gap-3 mb-8 pointer-events-none">
@@ -2755,7 +2755,7 @@ export function CTAVariant155(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
       <div className="h-[50%] w-full relative overflow-hidden">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
@@ -2812,7 +2812,7 @@ export function CTAVariant156(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
 
       <div className="w-full h-[55%] relative overflow-hidden border-b-[8px]" style={{ borderBottomColor: brandColor }}>
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 transition-all duration-700" />
@@ -2865,7 +2865,7 @@ export function CTAVariant157(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#900d2d] overflow-hidden flex flex-col p-10 border border-white/10" style={{ backgroundColor: brandColor }}>
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
       
       <div className="flex justify-between items-start opacity-60 pointer-events-none">
         <Sparkles className="w-4 h-4 text-white" strokeWidth={1.5} />
@@ -2907,7 +2907,7 @@ export function CTAVariant158(props) {
 
   return (
     <div className="group relative w-full h-full bg-white overflow-hidden flex flex-col p-8 border border-zinc-200">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="w-full h-full border border-zinc-200 p-6 flex flex-col relative">
         <div className="flex items-center gap-3 mb-auto pointer-events-none">
@@ -2958,7 +2958,7 @@ export function CTAVariant159(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#050505] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
       
       <div className="flex-1 flex flex-col items-center justify-center p-8 relative z-10 pointer-events-none">
         <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
@@ -2995,7 +2995,7 @@ export function CTAVariant160(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#0c0a09] overflow-hidden flex flex-col items-center justify-center border border-black/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
       
       <div className="absolute inset-0 z-0">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-70" />
@@ -3036,7 +3036,7 @@ export function CTAVariant161(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#FDFBF7] overflow-hidden flex flex-col">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="h-[50%] w-full flex flex-col items-center justify-center relative p-8 pointer-events-none" style={{ backgroundColor: brandColor }}>        
         <CheckCircle2 className="w-6 h-6 text-white/50 mb-4" />
@@ -3082,7 +3082,7 @@ export function CTAVariant162(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#FDFBF7] overflow-hidden flex flex-col p-10 border border-black/5">
-      <SlideHeader {...props} index={index + 1} hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
       
       <div className="flex justify-between items-start w-full pointer-events-none">
         <Store className="w-4 h-4" style={{ color: brandColor }} fill="currentColor" strokeWidth={1.5} />
@@ -3123,7 +3123,7 @@ export function CTAVariant163(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#111] overflow-hidden flex flex-col items-center justify-center p-8 border border-white/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
       
       <div className="w-20 h-20 rounded-full border flex items-center justify-center mb-8 cursor-pointer hover:bg-white transition-colors group/btn shadow-[0_0_30px_rgba(222,30,77,0.2)] pointer-events-auto" style={{ borderColor: brandColor, boxShadow: `0 0 30px ${brandColor}33` }}>
         <Bookmark className="w-8 h-8 group-hover/btn:text-[#111] transition-colors" style={{ color: brandColor }} fill="currentColor" />
@@ -3157,7 +3157,7 @@ export function CTAVariant164(props) {
 
   return (
     <div className="group relative w-full h-full bg-[#050505] overflow-hidden flex flex-col border border-white/5">
-      <SlideHeader {...props} index={index + 1} dark hideDot />
+      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
       
       <div className="absolute inset-0 z-0 pointer-events-none [clip-path:polygon(0_0,100%_0,100%_35%,0_65%)] transition-all duration-700 group-hover:opacity-80" style={{ backgroundColor: brandColor }} />        
       
