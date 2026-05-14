@@ -42,12 +42,6 @@ export const CTA_EXTRA_VARIANT_META = [
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra111.png'
   },
   {
-    id: 112,
-    name: 'The Absolute Void',
-    description: 'Muito espaço em branco, tipografia limpa, hierarquia pura.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra112.png'
-  },
-  {
     id: 113,
     name: 'The Swiss Split',
     description: 'Metade cor sólida, metade off-white. Contraste absoluto.',
@@ -89,12 +83,6 @@ export const CTA_EXTRA_VARIANT_META = [
     name: 'The Absolute Focus',
     description: 'Uma única frase monumental.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra124.png'
-  },
-  {
-    id: 125,
-    name: 'The Classic Cream',
-    description: 'Fundo creme, imagem superior, tipografia serifada enorme.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra125.png'
   },
   {
     id: 126,
@@ -145,34 +133,10 @@ export const CTA_EXTRA_VARIANT_META = [
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra133.png'
   },
   {
-    id: 134,
-    name: 'The Floating Conclusion',
-    description: 'Fundo creme, caixa de interação central flutuante com sombra suave.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra134.png'
-  },
-  {
-    id: 135,
-    name: 'The Header Break Action',
-    description: 'Topo colorido com bloco de ação cortando a linha de divisão.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra135.png'
-  },
-  {
     id: 136,
     name: 'The Sharp Minimal',
     description: 'Design ultra clean com lista elegante e botão quadrado vibrante.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra136.png'
-  },
-  {
-    id: 137,
-    name: 'The Red Sidebar Action',
-    description: 'Barra lateral vibrante à esquerda, card central com cantos curvos e sombra.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra137.png'
-  },
-  {
-    id: 138,
-    name: 'The Triptych Split',
-    description: 'Fundo creme no topo, 3 fatias de imagem na base com botão flutuante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra138.png'
   },
   {
     id: 139,
@@ -221,30 +185,6 @@ export const CTA_EXTRA_VARIANT_META = [
     name: 'The Overlap Pill',
     description: 'Design dividido no topo com pílula de ação sobrepondo a divisão.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra146.png'
-  },
-  {
-    id: 147,
-    name: 'The Dashed VIP',
-    description: 'Moldura escura com card creme interno e linha tracejada sofisticada.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra147.png'
-  },
-  {
-    id: 148,
-    name: 'The Vertical Synthesis',
-    description: 'Faixa lateral colorida e síntese visual focada em conversão.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra148.png'
-  },
-  {
-    id: 149,
-    name: 'The Frosted Closure',
-    description: 'Fundo imagem total com card central glassmorphism focado em salvar.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra149.png'
-  },
-  {
-    id: 150,
-    name: 'The Elegant Line',
-    description: 'Design escuro minimalista com linha divisória fina e botão lateral.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra150.png'
   },
   {
     id: 151,
@@ -677,60 +617,6 @@ export function CTAVariant111(props) {
   );
 }
 
-export function CTAVariant112(props) {
-  const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0 };
-
-  return (
-    <div className="w-full h-full relative overflow-hidden bg-[#FDFBF7] flex flex-col p-8 ring-1 ring-black/5">
-      
-      <div className="w-full flex justify-between items-start mb-auto pointer-events-none">
-        <Check className="w-6 h-6" strokeWidth={1.5} style={{ color: brandColor }} />
-        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
-          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-outfit font-bold text-zinc-300 text-[10px] uppercase tracking-[0.4em] outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-            {data.badge_text || 'Concluído'}
-          </span>
-        </SmartElement>
-      </div>
-
-      <div className="flex flex-col">
-        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-6 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-[#1a1a1a] leading-none outline-none whitespace-pre-line" style={{ fontSize: `${80 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-            {data.titulo}
-          </h2>
-        </SmartElement>
-
-        <ul className="flex flex-col gap-6 mb-12 pointer-events-none">
-          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-            <Bookmark className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
-            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_text || 'Guardar na Coleção'}</span>
-            </SmartElement>
-          </li>
-          <li className="flex items-center gap-4 font-outfit text-[#1a1a1a] uppercase tracking-widest" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>
-            <Send className="w-5 h-5 text-zinc-300" strokeWidth={1.5} />
-            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="pointer-events-auto">
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.insta_ready || 'Enviar para uma Amiga'}</span>
-            </SmartElement>
-          </li>
-        </ul>
-        
-        <div className="flex items-center gap-3 pointer-events-none">
-          <div className="w-12 h-12 border border-[#1a1a1a] flex items-center justify-center">
-            <ArrowRight className="w-5 h-5 text-[#1a1a1a]" />
-          </div>
-          <SmartElement slideIndex={index} field="cta_button" position={pos('cta_button')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_button'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_button', e.currentTarget.innerText)} className="font-outfit text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-medium outline-none" style={{ fontFamily: data.tagFont || data.textFont || 'Outfit' }}>{data.cta_button || 'Fazer meu Pedido'}</span>
-          </SmartElement>
-        </div>
-      </div>
-
-    </div>
-  );
-}
-
 export function CTAVariant113(props) {
   const { data, index, brandColor, titleFont, textFont, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement } = props;
   const sTitle = titleScale / 100;
@@ -1065,58 +951,6 @@ export function CTAVariant124(props) {
         <CornerDownRight className="w-5 h-5 text-white/20" strokeWidth={1} />
       </div>
 
-    </div>
-  );
-}
-
-export function CTAVariant125(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#F4F1EB] flex flex-col overflow-hidden border border-black/5">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} />
-      
-      <div className="w-full h-[55%] relative p-4 pb-0">
-        <div className="w-full h-full rounded-t-xl overflow-hidden relative shadow-sm">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-        </div>
-      </div>
-
-      <div className="flex-1 flex flex-col p-8 pt-6 relative">
-        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="mb-4 w-full">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-[0.8] tracking-tighter outline-none whitespace-pre-line" style={{ fontSize: `${80 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-            {data.titulo}
-          </h2>
-        </SmartElement>
-        
-        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="max-w-[180px]">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-medium leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${14 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-            {data.texto_apoio}
-          </p>
-        </SmartElement>
-
-        <div className="mt-auto flex justify-between items-end w-full border-t border-zinc-200 pt-4 pointer-events-none">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full overflow-hidden border border-zinc-300">
-              {brandAvatar ? (
-                <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-              ) : (
-                <div className="w-full h-full bg-zinc-200" />
-              )}
-            </div>
-            <span className="font-outfit font-bold text-zinc-400 text-[8px] tracking-[0.2em] uppercase">
-              @{brandHandle}
-            </span>
-          </div>
-
-          <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg pointer-events-auto" style={{ backgroundColor: brandColor }}>
-            <Bookmark className="w-4 h-4 text-white" fill="currentColor" />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -1539,125 +1373,6 @@ export function CTAVariant133(props) {
   );
 }
 
-export function CTAVariant134(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col items-center justify-center p-8 border border-zinc-200">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-
-      <div className="absolute top-10 flex flex-col items-center pointer-events-none">
-        <span className="font-outfit font-bold text-[#DE1E4D] text-[8px] tracking-[0.3em] uppercase mb-1" style={{ color: brandColor }}>
-          @{brandHandle}
-        </span>
-        <div className="flex gap-1">
-          <div className="w-1 h-1 bg-zinc-300 rounded-full" />
-          <div className="w-1 h-1 bg-zinc-300 rounded-full" />
-          <div className="w-1 h-1 bg-[#DE1E4D] rounded-full" style={{ backgroundColor: brandColor }} />
-        </div>
-      </div>
-
-      <div className="w-full bg-white rounded-[1.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-8 flex flex-col items-center text-center mt-8 pointer-events-none">
-        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-[#1a1a1a] leading-none mb-4 outline-none whitespace-pre-line" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-            {data.titulo || 'Eternize.'}
-          </h2>
-        </SmartElement>
-        
-        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto mb-8">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-            {data.texto_apoio || 'Faça desta seleção a sua referência.'}
-          </p>
-        </SmartElement>
-
-        <div className="flex w-full gap-3 pointer-events-auto">
-          <div className="flex-1 bg-[#1a1a1a] text-white py-3 rounded-xl flex items-center justify-center gap-2" style={{ backgroundColor: brandColor }}>
-            <Bookmark className="w-4 h-4" fill="currentColor" />
-            <span className="font-outfit font-bold text-[10px] uppercase tracking-widest">Salvar</span>
-          </div>
-          <div className="w-12 h-12 bg-zinc-100 rounded-xl flex items-center justify-center">
-            <Send className="w-4 h-4 text-[#1a1a1a]" />
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-8 w-full flex justify-center pointer-events-none">
-        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md">
-          {brandAvatar ? (
-            <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full bg-zinc-200" />
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant135(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-gradient-to-b from-white to-[#F9F8F5] overflow-hidden flex flex-col">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-
-      <div className="h-[30%] w-full bg-[#DE1E4D] px-6 py-6 flex justify-between items-start relative z-0" style={{ backgroundColor: brandColor }}>
-        <div className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20 pointer-events-none">
-          <CheckCircle2 className="w-3 h-3 text-white" />
-          <span className="font-outfit font-bold text-white text-[8px] uppercase tracking-widest">
-            COLEÇÃO 001
-          </span>
-        </div>
-      </div>
-
-      <div className="relative z-10 w-[85%] mx-auto -mt-20 bg-white rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] p-6 border border-zinc-100 flex flex-col pointer-events-none">
-        <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-md mx-auto -mt-12 bg-white">
-          {brandAvatar ? (
-            <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full bg-zinc-200" />
-          )}
-        </div>
-
-        <div className="text-center mt-4 mb-6">
-          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none mb-1 outline-none whitespace-pre-line uppercase" style={{ fontSize: `${30 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-              {data.titulo || 'A CHEF RECOMENDA'}
-            </h2>
-          </SmartElement>
-          
-          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-widest outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-              {data.texto_apoio || 'Não perca esta referência de vista.'}
-            </p>
-          </SmartElement>
-        </div>
-
-        <div className="bg-zinc-50 rounded-lg p-2 flex justify-between items-center pointer-events-auto">
-          <span className="font-outfit font-bold text-[#1a1a1a] text-[10px] uppercase tracking-widest pl-2">
-            Adicionar ao Arquivo
-          </span>
-          <div className="w-8 h-8 bg-white rounded-md shadow-sm flex items-center justify-center" style={{ backgroundColor: `${brandColor}1a` }}>
-            <Bookmark className="w-4 h-4" style={{ color: brandColor }} />
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-auto mb-8 flex justify-end px-8 pointer-events-none">
-        <div className="w-10 h-10 rounded-full border border-[#DE1E4D] flex items-center justify-center pointer-events-auto" style={{ borderColor: brandColor }}>
-          <ArrowRight className="w-4 h-4 text-[#DE1E4D]" style={{ color: brandColor }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function CTAVariant136(props) {
   const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
   const sTitle = titleScale / 100;
@@ -1713,129 +1428,6 @@ export function CTAVariant136(props) {
         
         <div className="w-10 h-10 bg-[#DE1E4D] rounded-[25px] flex items-center justify-center shadow-md pointer-events-auto" style={{ backgroundColor: brandColor }}>
           <Bookmark className="w-4 h-4 text-white" fill="currentColor" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant137(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#F4F1EB] flex overflow-hidden border border-black/5">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-      
-      <div className="w-[15%] h-full flex flex-col justify-between items-center py-8 relative z-20" style={{ backgroundColor: brandColor }}>
-        <CheckCircle2 className="w-4 h-4 text-white/80" />
-        <span className="font-outfit font-bold text-white/50 text-[8px] tracking-[0.3em] uppercase -rotate-90 whitespace-nowrap">
-          AÇÃO FINAL
-        </span>
-      </div>
-
-      <div className="w-[85%] h-full p-8 flex flex-col justify-center relative">
-        <div className="w-full bg-white rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col relative z-10">
-          <div className="h-32 relative">
-            <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-40 grayscale" />
-            <div className="absolute -bottom-6 left-6 w-12 h-12 rounded-full border-4 border-white overflow-hidden shadow-sm">
-              {brandAvatar ? (
-                <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-              ) : (
-                <div className="w-full h-full bg-zinc-200" />
-              )}
-            </div>
-          </div>
-
-          <div className="p-8 pt-10 pb-10">
-            <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-              <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-none mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${32 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-                {data.titulo || 'SALVAR'}
-              </h2>
-            </SmartElement>
-            
-            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
-              <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${11 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-                {data.texto_apoio || 'Mantenha este padrão de qualidade na sua coleção.'}
-              </p>
-            </SmartElement>
-
-            <div className="flex items-center gap-2 mt-6 cursor-pointer pointer-events-none" style={{ color: brandColor }}>
-              <Bookmark className="w-5 h-5" fill="currentColor" />
-              <span className="font-outfit font-bold text-[10px] uppercase tracking-widest">
-                Arquivar Post
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 flex justify-between items-end px-2 pointer-events-none">
-          <span className="font-outfit font-bold text-zinc-400 text-[8px] uppercase tracking-widest">
-            @{brandHandle}
-          </span>
-          <ArrowRight className="w-4 h-4" style={{ color: brandColor }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant138(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-
-      <div className="h-[45%] w-full p-10 flex flex-col justify-between relative z-10 border-b-4 border-white">
-        <div className="flex justify-between items-start w-full pointer-events-none">
-          <span className="font-outfit font-bold text-[#1a1a1a] text-[8px] tracking-[0.2em] uppercase border-b border-[#1a1a1a] pb-1">
-            @{brandHandle}
-          </span>
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-200">
-            {brandAvatar ? (
-              <img src={brandAvatar} alt="profile" className="w-full h-full object-cover grayscale" />
-            ) : (
-              <div className="w-full h-full bg-zinc-100" />
-            )}
-          </div>
-        </div>
-
-        <div>
-          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] leading-[0.8] mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${64 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-              {data.titulo || 'GUARDE.'}
-            </h2>
-          </SmartElement>
-          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
-            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-400 text-[10px] uppercase tracking-[0.2em] font-medium outline-none" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-              {data.texto_apoio || 'A excelência dividida.'}
-            </span>
-          </SmartElement>
-        </div>
-      </div>
-
-      <div className="h-[55%] w-full flex gap-1 bg-white relative">
-        <div className="flex-1 h-full relative overflow-hidden">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-        </div>
-        <div className="flex-1 h-full relative overflow-hidden">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-        </div>
-        <div className="flex-1 h-full relative overflow-hidden">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 px-8 py-3 rounded-full shadow-2xl flex items-center gap-2 pointer-events-none" style={{ backgroundColor: brandColor }}>
-          <Bookmark className="w-3 h-3 text-white" fill="currentColor" />
-          <span className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest">
-            SALVAR
-          </span>
         </div>
       </div>
     </div>
@@ -2314,225 +1906,6 @@ export function CTAVariant146(props) {
             </span>
             <ArrowRight className="w-3 h-3" style={{ color: brandColor }} /> 
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant147(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-gradient-to-br from-[#4a0818] to-[#1a0208] overflow-hidden flex flex-col p-4 border border-black/5">
-      <div className="w-full h-full bg-[#F4F1EB] rounded-sm p-4 flex flex-col shadow-2xl relative">
-        <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-
-        <div className="h-[45%] w-full relative overflow-hidden rounded-sm mb-6">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-        </div>
-
-        <div className="flex-1 flex flex-col px-4">
-          <div className="px-2 py-1 w-fit mb-4" style={{ backgroundColor: brandColor }}>
-            <span className="font-outfit font-black text-white text-[7px] uppercase tracking-widest">
-              AÇÃO VIP
-            </span>
-          </div>
-
-          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] mb-2 outline-none whitespace-pre-line uppercase" style={{ fontSize: `${40 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-              {data.titulo || 'GUARDE.'}
-            </h2>
-          </SmartElement>
-          
-          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 uppercase tracking-[0.2em] font-medium leading-relaxed outline-none whitespace-pre-line" style={{ fontSize: `${9 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-              {data.texto_apoio || 'Subtítulo focado em convencer o utilizador a arquivar a coleção.'}
-            </p>
-          </SmartElement>
-        </div>
-
-        <div className="w-full border-t border-dashed border-zinc-300 mt-auto pt-4 px-4 flex justify-between items-center pointer-events-none">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded-full overflow-hidden">
-              {brandAvatar ? (
-                <img src={brandAvatar} alt="profile" className="w-full h-full object-cover grayscale" />
-              ) : (
-                <div className="w-full h-full bg-zinc-200" />
-              )}
-            </div>
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[8px] uppercase tracking-widest">
-              {brandHandle}
-            </span>
-          </div>
-
-          <div className="flex gap-3 pointer-events-auto">
-            <Bookmark className="w-4 h-4" style={{ color: brandColor }} fill="currentColor" />
-            <Send className="w-4 h-4 text-zinc-400" />      
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant148(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#F4F1EB] overflow-hidden flex border border-black/5">
-      <div className="w-[20%] h-full flex flex-col items-center justify-between py-8 z-10 shadow-lg" style={{ backgroundColor: brandColor }}>
-        <CheckCircle2 className="w-5 h-5 text-white/80" />
-        <span className="font-outfit font-bold text-white/50 text-[10px] tracking-[0.4em] uppercase -rotate-90 whitespace-nowrap">
-          Conclusão
-        </span>
-      </div>
-
-      <div className="w-[80%] h-full flex flex-col justify-between relative">
-        <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} hideDot />
-
-        <div className="h-[40%] w-full relative overflow-hidden">
-          <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F4F1EB] to-transparent" />
-        </div>
-
-        <div className="flex-1 p-8 pt-0 flex flex-col justify-end">
-          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-            <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-black text-[#1a1a1a] mb-2 outline-none whitespace-pre-line uppercase" style={{ fontSize: `${40 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-              {data.titulo || 'SALVAR'}
-            </h2>
-          </SmartElement>
-          
-          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
-            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-zinc-500 text-xs mb-8 outline-none whitespace-pre-line" style={{ fontSize: `${12 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-              {data.texto_apoio || 'Não deixe esta referência perder-se no feed.'}
-            </p>
-          </SmartElement>
-
-          <div className="flex items-center gap-4 bg-white border border-zinc-200 px-4 py-3 rounded-xl cursor-pointer transition-colors group/btn pointer-events-auto">
-            <Bookmark className="w-5 h-5 text-[#1a1a1a] group-hover/btn:text-[#DE1E4D] transition-colors" style={{ color: brandColor }} strokeWidth={1.5} />
-            <span className="font-outfit font-bold text-[#1a1a1a] text-[10px] uppercase tracking-widest group-hover/btn:text-[#DE1E4D] transition-colors">
-              Arquivar Coleção
-            </span>
-          </div>
-        </div>
-
-        <div className="absolute top-10 right-8 pointer-events-none">
-          <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-sm">
-            {brandAvatar ? (
-              <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full bg-zinc-200" />
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant149(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#EBE9E1] overflow-hidden flex flex-col items-center justify-center border border-black/5">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
-
-      <div className="absolute inset-0 z-0">
-        <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
-      </div>
-
-      <div className="relative z-10 w-[85%] aspect-square bg-white/20 backdrop-blur-2xl border border-white/40 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center shadow-2xl transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
-        <Sparkles className="w-6 h-6 text-white mb-6" strokeWidth={1.5} />
-
-        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
-          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair italic font-medium text-white leading-none mb-2 drop-shadow-md outline-none whitespace-pre-line" style={{ fontSize: `${40 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-            {data.titulo || 'Eternize.'}
-          </h2>
-        </SmartElement>
-        
-        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto mb-8">
-          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/90 text-[10px] uppercase tracking-[0.2em] font-medium outline-none whitespace-pre-line" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-            {data.texto_apoio || 'Guarde esta referência.'}
-          </p>
-        </SmartElement>
-
-        <div className="bg-white/30 backdrop-blur-md border border-white/50 px-8 py-3 rounded-full flex items-center gap-3 shadow-lg pointer-events-auto" style={{ backgroundColor: `${brandColor}4D` }}>
-          <Bookmark className="w-4 h-4 text-white" fill="currentColor" />
-          <span className="font-outfit font-bold text-white text-[10px] uppercase tracking-widest">Salvar</span>
-        </div>
-      </div>
-
-      <div className="absolute bottom-10 w-full text-center z-10 pointer-events-none">
-        <span className="font-outfit font-bold text-white/80 text-[8px] tracking-[0.3em] uppercase drop-shadow-md">
-          @{brandHandle}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-export function CTAVariant150(props) {
-  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont, brandAvatar } = props;
-  const sTitle = titleScale / 100;
-  const sText = textScale / 100;
-  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
-
-  return (
-    <div className="group relative w-full h-full bg-[#0A0A0A] overflow-hidden flex flex-col border border-black/5">
-      <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
-
-      <div className="h-[60%] w-full relative z-0">
-        <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-      </div>
-
-      <div className="flex-1 bg-[#0A0A0A] relative z-10 p-10 flex flex-col justify-end">
-        <div className="flex items-center gap-4 mb-6 pointer-events-none">
-          <div className="w-8 h-[1px]" style={{ backgroundColor: brandColor }} />
-          <span className="font-outfit font-bold text-white/50 text-[8px] uppercase tracking-[0.3em]">
-            O PRÓXIMO PASSO
-          </span>
-        </div>
-
-        <div className="flex justify-between items-end w-full pb-6 border-b border-white/10">
-          <div>
-            <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement}>
-              <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-playfair font-normal text-white leading-none mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${56 * sTitle}px`, fontFamily: data.titleFont || 'Playfair Display' }}>
-                {data.titulo || 'SALVAR'}
-              </h2>
-            </SmartElement>
-            
-            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
-              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-white/40 text-[10px] uppercase tracking-widest outline-none" style={{ fontSize: `${10 * sText}px`, fontFamily: data.textFont || 'Outfit' }}>
-                {data.texto_apoio || 'A Coleção Definitiva'}
-              </span>
-            </SmartElement>
-          </div>
-
-          <div className="w-14 h-14 rounded-full border flex items-center justify-center shadow-lg transition-transform hover:scale-105 pointer-events-auto" style={{ borderColor: brandColor }}>
-            <Bookmark className="w-6 h-6" style={{ color: brandColor }} fill="currentColor" strokeWidth={1} />
-          </div>
-        </div>
-
-        <div className="pt-6 flex items-center gap-3 pointer-events-none">
-          <div className="w-6 h-6 rounded-full overflow-hidden border border-white/20 grayscale">
-            {brandAvatar ? (
-              <img src={brandAvatar} alt="profile" className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full bg-zinc-800" />
-            )}
-          </div>
-          <span className="font-outfit text-white/30 text-[8px] tracking-[0.2em] uppercase">@{brandHandle}</span>
         </div>
       </div>
     </div>
@@ -3453,7 +2826,6 @@ export const CTA_EXTRA_VARIANT_COMPONENTS = {
   109: CTAVariant109,
   110: CTAVariant110,
   111: CTAVariant111,
-  112: CTAVariant112,
   113: CTAVariant113,
   114: CTAVariant114,
   117: CTAVariant117,
@@ -3461,7 +2833,6 @@ export const CTA_EXTRA_VARIANT_COMPONENTS = {
   120: CTAVariant120,
   122: CTAVariant122,
   124: CTAVariant124,
-  125: CTAVariant125,
   126: CTAVariant126,
   127: CTAVariant127,
   128: CTAVariant128,
@@ -3470,11 +2841,7 @@ export const CTA_EXTRA_VARIANT_COMPONENTS = {
   131: CTAVariant131,
   132: CTAVariant132,
   133: CTAVariant133,
-  134: CTAVariant134,
-  135: CTAVariant135,
   136: CTAVariant136,
-  137: CTAVariant137,
-  138: CTAVariant138,
   139: CTAVariant139,
   140: CTAVariant140,
   141: CTAVariant141,
@@ -3483,10 +2850,6 @@ export const CTA_EXTRA_VARIANT_COMPONENTS = {
   144: CTAVariant144,
   145: CTAVariant145,
   146: CTAVariant146,
-  147: CTAVariant147,
-  148: CTAVariant148,
-  149: CTAVariant149,
-  150: CTAVariant150,
   151: CTAVariant151,
   152: CTAVariant152,
   153: CTAVariant153,
