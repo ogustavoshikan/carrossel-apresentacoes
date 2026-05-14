@@ -951,13 +951,13 @@ export function SplitVariant18(props) {
         hideDot={true}
       />
       
-      <div className="w-full h-[50%] shrink-0 relative border-b-8" style={{fontFamily: titleFont,  borderColor: brandColor }}>
+      <div className="w-full h-[50%] shrink-0 relative border-b-[8px] border-solid" style={{ borderColor: brandColor }}>
         <SmartField field="imagem" {...sp} className="w-full h-full bg-zinc-300 relative overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
       
-      <div className="flex-1 p-8 flex flex-col min-h-0 bg-white shadow-[inset_0_10px_30px_rgba(0,0,0,0.03)] z-10 -mt-[10px]">
+      <div className="flex-1 p-8 flex flex-col min-h-0 bg-white shadow-[inset_0_10px_30px_rgba(0,0,0,0.03)] z-10">
         <div className="flex items-center gap-3 mb-3 shrink-0">
           <SmartField field="tag" {...sp}>
             <span
