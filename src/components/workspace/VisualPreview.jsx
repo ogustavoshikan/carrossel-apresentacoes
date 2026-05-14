@@ -534,7 +534,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               (slide.coverVariantIndex || 0) >= 101 ? (
@@ -571,7 +571,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <SplitVariantPopover
@@ -595,7 +595,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <BigNumberVariantPopover
@@ -619,7 +619,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <QuoteVariantPopover
@@ -643,7 +643,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <ComparisonVariantPopover
@@ -667,7 +667,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               (slide.ctaVariantIndex || 0) >= 101 ? (
@@ -704,7 +704,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <ListVariantPopover
@@ -728,7 +728,7 @@ export default function VisualPreview({
                               onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
                               className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
                             >
-                              Variante
+                              Designs
                             </button>
                             {openVariantIndex === index && (
                               <SequenceVariantPopover
