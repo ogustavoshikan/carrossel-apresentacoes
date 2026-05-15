@@ -282,7 +282,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo para variantes específicas de Capa (Cover) ou CTA
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [4, 5, 53, 60, 61, 109, 118, 119, 125, 126, 127, 130, 133, 135, 138, 140, 143, 149].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [5, 53, 60, 61, 109, 118, 119, 125, 126, 127, 130, 133, 135, 138, 140, 143, 149].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
   }
 
@@ -304,7 +304,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/caixa-brigadeiros-gourmet-variados-venda.jpg';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [6, 11, 18, 20, 32, 34, 37, 38, 43, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [4, 6, 10, 11, 16, 18, 20, 32, 34, 37, 38, 43, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
   }
 
