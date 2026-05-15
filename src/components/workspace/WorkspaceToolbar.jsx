@@ -29,21 +29,21 @@ export default function WorkspaceToolbar({
   onInstagramPreview
 }) {
   return (
-    <div className="relative mt-2 z-20 flex items-center justify-between bg-black border border-white/5 p-2 rounded-[20px] w-full font-sans">
+    <div className="relative z-20 flex items-center justify-between bg-surface-dark/40 border-b border-white/5 p-2 w-full font-sans">
       
       {/* Esquerda: Badge Metadados e Pré-visualização */}
       <div className="flex justify-start pl-2 gap-2">
-        <span className="flex items-center justify-center text-[11px] font-medium text-zinc-400 bg-white/5 border border-white/5 px-3 py-1.5 rounded-full tracking-wide shrink-0">
+        <span className="flex items-center justify-center text-[10px] font-black uppercase tracking-widest text-zinc-400 px-3 py-2.5 rounded-xl shrink-0">
           {slides.length} {slides.length === 1 ? 'Slide' : 'Slides'}
         </span>
         
         <button
           onClick={onInstagramPreview}
-          className="group flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-3 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-white/5 transition-all"
+          className="group flex items-center justify-center gap-2 text-[10px] font-black uppercase tracking-widest py-2.5 px-3 rounded-xl bg-transparent hover:bg-zinc-900/80 text-zinc-400 hover:text-white transition-all"
           title="Ver como ficaria no Instagram"
         >
           <Instagram className="w-3.5 h-3.5 group-hover:text-pink-500 transition-colors" />
-          <span className="hidden sm:inline-block tracking-tight">Pré-visualizar</span>
+          <span>Pré-visualizar</span>
         </button>
       </div>
 
@@ -53,38 +53,36 @@ export default function WorkspaceToolbar({
         <button
           onClick={() => { setViewMode('visual'); setShowMetrics(false); }}
           className={cn(
-            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            'flex items-center justify-center gap-2 py-2.5 px-2 sm:px-3 rounded-xl outline-none ring-0 border-none transition-none text-[10px] font-black uppercase tracking-widest',
             viewMode === 'visual' && !showMetrics
-              ? 'bg-zinc-900 text-white border-white/10'
-              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+              ? 'bg-zinc-900 text-white'
+              : 'text-white/30 hover:text-white/60 hover:bg-zinc-900/80'
           )}
         >
-          <Eye className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline-block">Preview Final</span>
+          <span>Preview Final</span>
         </button>
 
         {/* Estrutura */}
         <button
           onClick={() => setViewMode('text')}
           className={cn(
-            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            'flex items-center justify-center gap-2 py-2.5 px-2 sm:px-3 rounded-xl outline-none ring-0 border-none transition-none text-[10px] font-black uppercase tracking-widest',
             viewMode === 'text'
-              ? 'bg-zinc-900 text-white border-white/10'
-              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+              ? 'bg-zinc-900 text-white'
+              : 'text-white/30 hover:text-white/60 hover:bg-zinc-900/80'
           )}
         >
-          <FileText className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline-block">Estrutura</span>
+          <span>Estrutura</span>
         </button>
 
         {/* Raio-X */}
         <button
           onClick={() => { setViewMode('visual'); setShowMetrics(true); }}
           className={cn(
-            'flex items-center justify-center gap-2 text-[11px] font-medium py-1.5 px-2 sm:px-3 rounded-full transition-colors border transition-all',
+            'flex items-center justify-center gap-2 py-2.5 px-2 sm:px-3 rounded-xl outline-none ring-0 border-none transition-none text-[10px] font-black uppercase tracking-widest',
             viewMode === 'visual' && showMetrics
-              ? 'bg-zinc-900 border-white/10'
-              : 'bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 border-transparent hover:border-white/5'
+              ? 'bg-zinc-900'
+              : 'text-white/30 hover:text-white/60 hover:bg-zinc-900/80'
           )}
           style={
             viewMode === 'visual' && showMetrics
@@ -92,8 +90,7 @@ export default function WorkspaceToolbar({
               : {}
           }
         >
-          <Zap className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline-block">Raio-X</span>
+          <span>Raio-X</span>
         </button>
 
         <div className="w-px h-4 bg-white/10 mx-1"></div>
@@ -101,14 +98,9 @@ export default function WorkspaceToolbar({
         {/* Copiar */}
         <button
           onClick={onCopyAll}
-          className="flex items-center justify-center gap-2 text-[11px] font-medium bg-transparent hover:bg-white/5 text-zinc-400 hover:text-zinc-200 py-1.5 px-2 sm:px-3 rounded-full transition-colors border border-transparent hover:border-white/5"
+          className="flex items-center justify-center gap-2 py-2.5 px-2 sm:px-3 rounded-xl outline-none ring-0 border-none transition-none text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-white/60 hover:bg-zinc-900/80"
         >
-          {copiedIndex === 'all' ? (
-            <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
-          ) : (
-            <Copy className="w-3.5 h-3.5" />
-          )}
-          <span className="hidden sm:inline-block">
+          <span>
             {copiedIndex === 'all' ? 'Copiado' : 'Copiar'}
           </span>
         </button>
@@ -118,7 +110,7 @@ export default function WorkspaceToolbar({
           <button
             onClick={onExportAll}
             disabled={isExporting}
-            className="flex items-center justify-center gap-2 text-[11px] font-bold text-white py-1.5 px-3 sm:px-4 rounded-full transition-all disabled:opacity-50 hover:brightness-110"
+            className="flex items-center justify-center gap-2 py-2.5 px-3 sm:px-4 rounded-xl transition-all disabled:opacity-50 hover:brightness-110 text-[10px] font-black uppercase tracking-widest text-white"
             style={{ backgroundColor: brandColor }}
           >
             {isExporting ? (
@@ -126,7 +118,7 @@ export default function WorkspaceToolbar({
             ) : (
               <Download className="w-3.5 h-3.5" />
             )}
-            <span className="hidden sm:inline-block">
+            <span>
               {isExporting ? 'Exportando' : 'Exportar'}
             </span>
           </button>

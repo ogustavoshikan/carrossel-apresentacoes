@@ -1326,7 +1326,7 @@ export const BIGNUMBER_VARIANT_META = [
     id: 0, 
     name: 'Original', 
     description: 'Número + tag + texto + imagem inferior',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--s0.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--0.png'
   },
   { 
     id: 1, 
