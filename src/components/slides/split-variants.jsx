@@ -1380,12 +1380,12 @@ export function SplitVariant25(props) {
         hideDot={true}
       />
       
-      <div className="flex-1 flex flex-col justify-start items-center gap-4 mt-12 pt-[34px]">
+      <div className="flex-1 flex flex-col justify-start items-center gap-4 mt-12 pt-[19px]">
         {/* Card de Imagem (A "moldura" que o usuário mencionou) */}
         <SmartField field="imagem" {...sp} 
           className="w-[90%] rounded-3xl overflow-hidden bg-zinc-900 relative shrink-0 border-4 border-white"
           style={{ 
-            height: 'calc(38% + 30px)',
+            height: 'calc(38% + 45px)',
             boxShadow: `0 10px 15px -3px ${brandColor}26, 0 4px 6px -2px ${brandColor}26`
           }}
         >
