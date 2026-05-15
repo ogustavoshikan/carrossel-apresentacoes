@@ -1298,7 +1298,9 @@ export function CTAVariant34(props) {
           </p>
         </SmartElement>
       </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur text-[#1a1a1a] rounded-full px-8 py-3 flex items-center gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] z-20 border border-white">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#1a1a1a] rounded-full px-8 py-3 flex items-center gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] z-20 border border-white">
+        {/* Fundo com blur isolado para evitar bug no download PNG */}
+        <div className="absolute inset-0 bg-white/90 backdrop-blur rounded-full -z-10" />
         <Heart className="w-6 h-6" />
         <MessageCircle className="w-6 h-6" />
         <Send className="w-6 h-6" />
