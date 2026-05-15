@@ -10,7 +10,7 @@ export function EmptyState({ brandColor }) {
     <div className="flex-1 flex flex-col items-center justify-center border border-dashed border-border-subtle rounded-[24px] text-zinc-700">
       <Target className="w-16 h-16 mb-4 opacity-20" />
       <p className="font-outfit font-black uppercase tracking-widest text-xs">
-        Waiting for prompt, Mr. Gustavo.
+        Seu workspace está pronto. Insira um tema para começar.
       </p>
     </div>
   );

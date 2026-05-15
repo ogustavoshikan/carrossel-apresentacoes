@@ -544,7 +544,7 @@ export default function App() {
         );
       } catch (err) {
         console.error(err);
-        setError('Erro ao gerar imagem. A IA tá de greve, faz upload manual.');
+        setError('Não foi possível gerar a imagem. Faça o upload manualmente ou tente novamente.');
       } finally {
         setLoadingImages((prev) => ({ ...prev, [index]: false }));
       }
@@ -554,7 +554,7 @@ export default function App() {
 
   const handleGenerate = useCallback(async () => {
     if (!theme.trim()) {
-      setError('Digite um tema primeiro. Não sou telepata, Mr. Gustavo.');
+      setError('Insira um tema antes de gerar o carrossel.');
       return;
     }
 
@@ -611,7 +611,7 @@ export default function App() {
       }
     } catch (err) {
       console.error(err);
-      setError('Deu ruim na geração. O Studio cansou, tente de novo.');
+      setError('Falha ao gerar o carrossel. Verifique sua conexão ou chave de API e tente novamente.');
     } finally {
       setIsGenerating(false);
     }
@@ -623,7 +623,7 @@ export default function App() {
       await exportAllToPNG(slides, brandHandle);
     } catch (err) {
       console.error('Erro ao exportar:', err);
-      setError('Deu BO na hora de gerar os PNGs. O navegador arregou.');
+      setError('Erro ao exportar os slides. Tente novamente ou reduza o número de slides.');
     } finally {
       setIsExporting(false);
     }
@@ -635,7 +635,7 @@ export default function App() {
       await exportSlideToPNG(index, brandHandle);
     } catch (err) {
       console.error(`Erro ao exportar slide ${index}:`, err);
-      setError(`Deu BO na hora de exportar o slide ${index + 1}.`);
+      setError(`Erro ao exportar o slide ${index + 1}. Tente novamente.`);
     } finally {
       setIsExporting(false);
     }
