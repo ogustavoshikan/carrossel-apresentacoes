@@ -116,6 +116,8 @@ export default function ConfigSidebar({
   setTextFont,
   tagFont,
   setTagFont,
+  headerFont,
+  setHeaderFont,
   favorites,
   onUseFavorite,
   onRemoveFavorite,
@@ -963,7 +965,7 @@ export default function ConfigSidebar({
                            </button>
                         </div>
 
-                        <div className="bg-zinc-900 px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
+                        <div className="bg-surface-input px-2 py-4 rounded-lg flex flex-col items-center justify-center space-y-3">
                           <div className="flex items-center justify-between w-full px-1">
                             <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Posição</span>
                           </div>
@@ -1548,8 +1550,8 @@ export default function ConfigSidebar({
                   </div>
                 </div>
 
-                {/* Fontes em linha única */}
-                <div className="grid grid-cols-3 gap-2">
+                {/* Fontes em grid 2x2 */}
+                <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Título</label>
                     <select
@@ -1571,10 +1573,20 @@ export default function ConfigSidebar({
                     </select>
                   </div>
                   <div>
-                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tag</label>
+                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Tag / Selo</label>
                     <select
                       value={tagFont}
                       onChange={(e) => setTagFont(e.target.value)}
+                      className="cs-input text-[10px] py-[0.675rem] w-full px-2"
+                    >
+                      {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-[8px] uppercase font-bold tracking-widest text-zinc-600 mb-1 block">Handle / Contador</label>
+                    <select
+                      value={headerFont}
+                      onChange={(e) => setHeaderFont(e.target.value)}
                       className="cs-input text-[10px] py-[0.675rem] w-full px-2"
                     >
                       {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}

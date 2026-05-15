@@ -78,7 +78,10 @@ export default function SlideHeader({
           />
         ) : null}
         <div className="flex items-center gap-1.5">
-          <span className="font-text font-black tracking-[0.25em] text-[10px] uppercase flex items-center">
+          <span 
+            className="font-header font-black tracking-[0.25em] text-[10px] uppercase flex items-center"
+            style={{ fontFamily: 'var(--font-header)' }}
+          >
             <span className="mr-[1px]">@</span>
             {brandHandle ? (brandHandle.startsWith('@') ? brandHandle.substring(1) : brandHandle) : 'studio'}
           </span>
@@ -104,12 +107,13 @@ export default function SlideHeader({
       className={`pointer-events-auto ${isSelectedCounter ? 'z-[60]' : 'z-50'}`}
     >
       <div
-        className={`font-text font-bold text-[11px] px-3 py-1.5 rounded-lg border select-none -translate-y-[8px] relative overflow-hidden ${
+        className={`font-header font-bold text-[11px] px-3 py-1.5 rounded-lg border select-none -translate-y-[8px] relative overflow-hidden ${
           dark
             ? 'bg-black/5 border-black/10'
             : 'bg-surface-input/30 border-white/10'
         }`}
         style={{ 
+          fontFamily: 'var(--font-header)',
           ...(counterBg ? { backgroundColor: counterBg, borderColor: 'transparent' } : {}),
           ...(counterColor ? { color: counterColor } : {})
         }}

@@ -104,6 +104,7 @@ export default function App() {
   const [titleFont, setTitleFont] = useState(BRAND_DEFAULTS.titleFont);
   const [textFont, setTextFont] = useState(BRAND_DEFAULTS.textFont);
   const [tagFont, setTagFont] = useState(BRAND_DEFAULTS.titleFont); // Default tag font is same as title font initially
+  const [headerFont, setHeaderFont] = useState(BRAND_DEFAULTS.headerFont);
   const [appLogoUrl, setAppLogoUrl] = useState(() => localStorage.getItem('cs_app_logo') || '');
 
   // Contador de slides
@@ -157,7 +158,7 @@ export default function App() {
   // Gerenciamento dinâmico de fontes (Google Fonts) com CORS
   useEffect(() => {
     // Coleta todas as fontes únicas em uso (globais + individuais de cada slide)
-    const fontsInUse = new Set([titleFont, textFont, tagFont]);
+    const fontsInUse = new Set([titleFont, textFont, tagFont, headerFont]);
     if (Array.isArray(slides)) {
       slides.forEach(s => {
         if (s.titleFont) fontsInUse.add(s.titleFont);
@@ -183,7 +184,7 @@ export default function App() {
       }
       link.href = url;
     }
-  }, [titleFont, textFont, tagFont, slides]);
+  }, [titleFont, textFont, tagFont, headerFont, slides]);
 
   // Teclado: Movimentação de elementos selecionados com as setas (2px por vez)
   useEffect(() => {
@@ -674,6 +675,7 @@ export default function App() {
     '--font-title': titleFont,
     '--font-text': textFont,
     '--font-tag': tagFont,
+    '--font-header': headerFont,
     '--radius-slide': `${cardBorderRadius}px`,
     '--radius-inner': `${imageBorderRadius * 0.8}px`,
     '--radius-sm': `${imageBorderRadius * 0.6}px`,
@@ -795,6 +797,8 @@ export default function App() {
                   setTextFont={setTextFont}
                   tagFont={tagFont}
                   setTagFont={setTagFont}
+                  headerFont={headerFont}
+                  setHeaderFont={setHeaderFont}
                   favorites={favorites}
                   onUseFavorite={handleUseFavorite}
                   onRemoveFavorite={handleRemoveFavorite}
@@ -926,6 +930,7 @@ export default function App() {
                         titleFont={titleFont}
                         textFont={textFont}
                         tagFont={tagFont}
+                        headerFont={headerFont}
                         showMetrics={showMetrics}
                         onActionStart={handleActionStart}
                         onTextChange={handleSlideTextChange}

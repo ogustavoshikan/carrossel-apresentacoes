@@ -291,7 +291,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [0, 1, 7, 8, 40, 41, 42, 48, 55, 56, 102, 103, 106, 112, 113, 116, 128, 129, 131, 132, 134, 136, 137, 139, 141, 142, 144, 145, 146, 147, 152, 154, 158, 161, 162].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [0, 1, 7, 8, 40, 41, 48, 55, 56, 102, 103, 106, 112, 113, 116, 128, 129, 131, 132, 134, 136, 137, 139, 141, 142, 144, 145, 146, 147, 152, 154, 158, 161, 162].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
   }
 
@@ -304,7 +304,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/caixa-brigadeiros-gourmet-variados-venda.jpg';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [4, 6, 10, 11, 16, 18, 20, 32, 34, 37, 38, 43, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [4, 6, 10, 11, 16, 18, 20, 25, 27, 32, 34, 37, 38, 42, 43, 45, 46, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
   }
 

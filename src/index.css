@@ -14,6 +14,8 @@
   /* Fonts — dinâmicas via JS (state titleFont / textFont) */
   --font-title: 'Outfit', sans-serif;
   --font-text: 'Playfair Display', serif;
+  --font-tag: 'Outfit', sans-serif;
+  --font-header: 'Inter', sans-serif;
 }
 
 /* ========================================

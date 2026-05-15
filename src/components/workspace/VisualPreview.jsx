@@ -75,6 +75,7 @@ export default function VisualPreview({
   titleFont,
   textFont,
   tagFont,
+  headerFont,
   showMetrics,
   onActionStart,
   onTextChange,
@@ -294,6 +295,7 @@ export default function VisualPreview({
               titleFont={titleFont}
               textFont={textFont}
               tagFont={tagFont}
+              headerFont={headerFont}
               showMetrics={showMetrics}
               onActionStart={onActionStart}
               onTextChange={onTextChange}

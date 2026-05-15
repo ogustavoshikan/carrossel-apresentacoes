@@ -71,6 +71,7 @@ export default function SlideRenderer({
   titleFont: globalTitleFont,
   textFont: globalTextFont,
   tagFont: globalTagFont,
+  headerFont: globalHeaderFont,
   showMetrics,
   onActionStart,
   onTextChange,
@@ -88,6 +89,7 @@ export default function SlideRenderer({
     '--font-title': data.titleFont || globalTitleFont,
     '--font-text': data.textFont || globalTextFont,
     '--font-tag': data.tagFont || globalTagFont || globalTitleFont,
+    '--font-header': globalHeaderFont,
   };
 
   return (

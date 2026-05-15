@@ -29,6 +29,7 @@ export default {
         title: ['var(--font-title)', 'sans-serif'],
         text: ['var(--font-text)', 'serif'],
         tag: ['var(--font-tag)', 'sans-serif'],
+        header: ['var(--font-header)', 'sans-serif'],
       },
       borderRadius: {
         slide: 'var(--radius-slide, 2.5rem)',

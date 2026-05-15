@@ -48,6 +48,7 @@ export const BRAND_DEFAULTS = {
   gradientColor2: '#FFFFFF',
   titleFont: 'Outfit',
   textFont: 'Playfair Display',
+  headerFont: 'Inter',
   isVerified: true,
   swipeText: 'Deslize para adoçar o dia',
 };
