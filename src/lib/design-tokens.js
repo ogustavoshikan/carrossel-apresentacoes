@@ -42,8 +42,8 @@ export const FONT_OPTIONS = [
 
 /** Defaults do brand */
 export const BRAND_DEFAULTS = {
-  handle: 'TIAJOANABRIGADEIROS',
-  website: 'Carrossel Studio v4.0',
+  handle: 'MARICONFEITARIA',
+  website: 'Carrossel Studio - Criação Inteligente de Conteúdo',
   gradientColor1: '#DE1E4D',
   gradientColor2: '#FFFFFF',
   titleFont: 'Outfit',

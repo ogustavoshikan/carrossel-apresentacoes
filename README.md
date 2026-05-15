@@ -6,7 +6,7 @@
 
 ## 🚀 O que é o Carrossel Studio?
 
-O Carrossel Studio v4.0 é a evolução de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
+O Carrossel Studio - Criação Inteligente de Conteúdo é a evolução de uma ferramenta pensada para diretores de arte, criadores de conteúdo e marcas que não abrem mão da qualidade. Ele automatiza a criação de carrosséis complexos, cuidando do copywriting (tom de voz irônico, ácido e premium) e da composição visual.
 
 ### Principais Diferenciais:
 - **IA Generativa Dual**: Suporte nativo para **Google Gemini** e **OpenAI (GPT-4o)** para textos, e **Imagen/DALL-E** para imagens.

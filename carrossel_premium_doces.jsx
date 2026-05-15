@@ -49,8 +49,8 @@ export default function App() {
     const [actionInfo, setActionInfo] = useState(null);
 
     // Brand Customization State (Carrossel Studio Defaults)
-    const [brandHandle, setBrandHandle] = useState('TIAJOANABRIGADEIROS');
-    const [brandWebsite, setBrandWebsite] = useState('Carrossel Studio v4.0');
+    const [brandHandle, setBrandHandle] = useState('MARICONFEITARIA');
+    const [brandWebsite, setBrandWebsite] = useState('Carrossel Studio - Criação Inteligente de Conteúdo');
     const [profilePic, setProfilePic] = useState(null);
     const [innerLogo, setInnerLogo] = useState(null);
     const [isVerified, setIsVerified] = useState(true);

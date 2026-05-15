@@ -104,7 +104,7 @@ export default function SlideHeader({
       className={`pointer-events-auto ${isSelectedCounter ? 'z-[60]' : 'z-50'}`}
     >
       <div
-        className={`font-text font-bold text-[11px] px-3 py-1.5 rounded-lg border backdrop-blur-xl select-none -translate-y-[8px] ${
+        className={`font-text font-bold text-[11px] px-3 py-1.5 rounded-lg border select-none -translate-y-[8px] relative overflow-hidden ${
           dark
             ? 'bg-black/5 border-black/10'
             : 'bg-surface-input/30 border-white/10'
@@ -114,7 +114,11 @@ export default function SlideHeader({
           ...(counterColor ? { color: counterColor } : {})
         }}
       >
-        {index} <span className="opacity-30 mx-1">/</span> {total}
+        {/* Camada de Blur isolada para evitar bug no download PNG (html-to-image) */}
+        {!counterBg && <div className="absolute inset-0 backdrop-blur-xl -z-10" />}
+        <span className="relative z-10">
+          {index} <span className="opacity-30 mx-1">/</span> {total}
+        </span>
       </div>
     </SmartElement>
   ) : null;

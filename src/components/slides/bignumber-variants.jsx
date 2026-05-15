@@ -1326,110 +1326,110 @@ export const BIGNUMBER_VARIANT_META = [
     id: 0, 
     name: 'Original', 
     description: 'Número + tag + texto + imagem inferior',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants0.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--s0.png'
   },
   { 
     id: 1, 
     name: 'Dark Stack', 
     description: 'Número grande + tag pill + imagem arredondada',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants1.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--1.png'
   },
   { 
     id: 2, 
     name: 'Phantom', 
     description: 'Número central com ghost gigante atrás',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants2.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--2.png'
   },
   { 
     id: 3, 
     name: 'Color Block', 
     description: 'Bloco colorido superior + texto escuro abaixo',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants3.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--3.png'
   },
   { 
     id: 5, 
     name: 'Side Panel', 
     description: 'Número à esquerda + painel de texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants5.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--5.png'
   },
   { 
     id: 7, 
     name: 'Texture Fill', 
     description: 'Número preenchido com textura da imagem',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants7.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--7.png'
   },
   { 
     id: 8, 
     name: 'Outline Float', 
     description: 'Número outline flutuando + imagem inferior',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants8.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--8.png'
   },
   { 
     id: 9, 
     name: 'Sidebar', 
     description: 'Faixa lateral colorida com número rotacionado',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants9.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--9.png'
   },
   { 
     id: 10, 
     name: 'Magazine', 
     description: 'Imagem superior + número sobreposto + cor',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants10.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--10.png'
   },
   { 
     id: 13, 
     name: 'Elegant Glow', 
     description: 'Número central branco com glow da marca',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants13.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--13.png'
   },
   {
     id: 14,
     name: 'Texture Number',
     description: 'Número preenchido com textura de imagem em fundo claro',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants14.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--14.png'
   },
 
   {
     id: 20,
     name: 'Image Wash Card',
     description: 'Fundo imagem semiopaco + card branco inferior com número e texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants-20.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--20.png'
   },
   {
     id: 21,
     name: 'Sidebar Ribbon Light',
     description: 'Faixa lateral colorida rotacionada + número gigante + texto claro',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants21.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--21.png'
   },
   {
     id: 22,
     name: 'Image Over Color',
     description: 'Imagem superior + bloco colorido com número sobreposto e texto bold',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants22.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--22.png'
   },
   {
     id: 23,
     name: 'Editorial Card Float',
     description: 'Painel colorido + card flutuante central + imagem inferior',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants23.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--23.png'
   },
   {
     id: 24,
     name: 'Rounded Card Float',
     description: 'Ghost watermark + imagem em card arredondado + card flutuante com número',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants24.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--24.png'
   },
   {
     id: 25,
     name: 'Image Over Color Bold',
     description: 'Imagem superior + bloco colorido com número gigante sobreposto e texto bold',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants25.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--25.png'
   },
   {
     id: 26,
     name: 'Minimal Footer Number',
     description: 'Imagem fullwidth + barra inferior com label, título e número colorido',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants26.png'
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnail%20Bignumber/designs_bignumber-variants--26.png'
   },
 ];
 
