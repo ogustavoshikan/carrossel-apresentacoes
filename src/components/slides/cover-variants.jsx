@@ -1653,7 +1653,7 @@ export function CoverVariant30({ data, index, brandColor, brandHandle, titleScal
 
   return (
     <div className="w-full h-full flex relative overflow-hidden" style={{fontFamily: textFont,  backgroundColor: bgBase }}>
-      <div className="absolute left-0 top-0 bottom-0 w-[30%] bg-zinc-300 z-0">
+      <div className="absolute left-0 top-0 bottom-0 w-[30%] bg-zinc-300 z-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="w-full h-full pl-[30%] flex flex-col z-10">
@@ -1754,7 +1754,7 @@ export function CoverVariant31({ data, index, brandColor, brandHandle, titleScal
           <ArrowRight className="w-3 h-3 text-zinc-500" />
         </div>
       </div>
-      <div className="w-[48%] h-full bg-zinc-200 relative shrink-0">
+      <div className="w-[48%] h-full bg-zinc-200 relative shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
     </div>
@@ -1992,7 +1992,7 @@ export function CoverVariant36({ data, index, brandColor, titleScale, textScale,
           </TextWrapper>
         </SmartField>
       </div>
-      <div className="w-[50%] h-full relative z-20">
+      <div className="w-[50%] h-full relative z-20 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div 
           className="absolute bottom-6 -left-8 shadow-xl px-5 py-2.5 rounded-full flex items-center gap-2 border-2 border-white z-30"
@@ -2191,7 +2191,7 @@ export function CoverVariant40({ data, index, brandColor, brandHandle, brandAvat
       >
         {brandHandle} © 2026
       </div>
-      <div className="h-[55%] w-full relative shrink-0 border-b-[8px] border-white">
+      <div className="h-[55%] w-full relative shrink-0 border-b-[8px] border-white overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="flex-1 w-full shrink-0" style={{fontFamily: titleFont,  backgroundColor: brandColor }} />
@@ -2565,7 +2565,7 @@ export function CoverVariant48(props) {
 
   return (
     <div className="w-full h-full relative overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
-        <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900">
+        <div className="w-full h-[50%] relative z-10 border-b-[8px] border-white bg-zinc-900 overflow-hidden">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute top-6 left-6 right-6">
                 <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />    
@@ -2637,7 +2637,7 @@ export function CoverVariant49(props) {
                {brandHandle} © 2026
              </div>
         </div>
-        <div className="w-1/2 h-full bg-zinc-950 relative">
+        <div className="w-1/2 h-full bg-zinc-950 relative overflow-hidden">
              <ImageBg data={data} className="absolute inset-0 opacity-100" />
         </div>
 
@@ -3245,7 +3245,7 @@ export function CoverVariant58(props) {
                 <div className="mt-4" style={{ width: '3rem', height: '0.1875rem', backgroundColor: '#ffffff' }} />
             </div>
         </div>
-        <div className="h-[45%] w-full relative z-0 border-t-[8px] border-white">
+        <div className="h-[45%] w-full relative z-0 border-t-[8px] border-white overflow-hidden">
             <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div 
@@ -3273,7 +3273,7 @@ export function CoverVariant59(props) {
         <div className="absolute top-8 left-8 right-8 z-20">
             <SlideHeader dark {...props} index={index + 1} total={slideCount} showBrandHandle={false} showSlideCounter={false} />        
         </div>
-        <div className="h-[45%] w-full relative z-0 shrink-0">
+        <div className="h-[45%] w-full relative z-0 shrink-0 overflow-hidden">
             <ImageBg data={data} className="absolute inset-0" />
             <div className="absolute bottom-0 left-0 w-full h-[8px] z-20" style={{ backgroundColor: '#ffffff' }} />
         </div>
@@ -3448,7 +3448,7 @@ export function CoverVariant61(props) {
             </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-[45%] z-0 border-t-[8px] border-white">
+        <div className="absolute bottom-0 left-0 w-full h-[45%] z-0 border-t-[8px] border-white overflow-hidden">
             <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div 

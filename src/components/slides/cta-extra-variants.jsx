@@ -962,7 +962,7 @@ export function CTAVariant127(props) {
     <div className="group relative w-full h-full bg-[#0A0A0A] overflow-hidden flex flex-col">
       <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark />
 
-      <div className="w-full h-[55%] relative">
+      <div className="w-full h-[55%] relative overflow-hidden">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0 opacity-80" />
         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-2 pointer-events-none">
           <div className="w-3 h-3 rounded-full overflow-hidden">
@@ -1237,7 +1237,7 @@ export function CTAVariant132(props) {
         </div>
       </div>
 
-      <div className="w-full h-[45%] relative my-auto">
+      <div className="w-full h-[45%] relative my-auto overflow-hidden">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
       </div>
 
@@ -1277,7 +1277,7 @@ export function CTAVariant133(props) {
     <div className="group relative w-full h-full bg-[#DE1E4D] overflow-hidden flex flex-col" style={{ backgroundColor: brandColor }}>
       <SlideHeader {...props} showBrandHandle={false} showSlideCounter={false} index={index + 1} dark hideDot />
 
-      <div className="h-[55%] w-full relative">
+      <div className="h-[55%] w-full relative overflow-hidden">
         <ImageBg data={data} slideIndex={index} imageUrl={data.imageUrl} imagePosition={data.imagePosition} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'} onSelectElement={onSelectElement} className="absolute inset-0" />
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         <div className="absolute top-6 left-6 border border-white/20 px-3 py-1 bg-black/40 backdrop-blur-md pointer-events-none">

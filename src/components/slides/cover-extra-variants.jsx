@@ -2206,7 +2206,7 @@ export function CoverExtraVariant132({
           </SmartField>
         </div>
 
-        <div className="absolute right-5 top-24 w-28 aspect-[3/4] bg-zinc-300 z-10" style={{ boxShadow: `10px 10px 0px ${brandColor}` }}>
+        <div className="absolute right-5 top-24 w-28 aspect-[3/4] bg-zinc-300 z-10 overflow-hidden" style={{ boxShadow: `10px 10px 0px ${brandColor}` }}>
           <ImageBg data={data} className="absolute inset-0" />
         </div>
 
@@ -2511,7 +2511,7 @@ export function CoverExtraVariant137({
 
       <div className="relative z-10 w-[90%] aspect-[3/4] bg-[#EBE9E1] rounded-lg shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
         
-        <div className="h-[40%] w-full relative">
+        <div className="h-[40%] w-full relative overflow-hidden">
           <ImageBg data={data} className="absolute inset-0" />
           <div className="absolute top-3 right-3 bg-white/90 backdrop-blur px-2 py-1 rounded shadow-sm">
             <Ticket className="w-4 h-4 text-[#1a1a1a]" />
@@ -4134,7 +4134,7 @@ export function CoverExtraVariant162({
         </div>
 
         {/* Área da Imagem Central */}
-        <div className="flex-1 relative bg-white border-l-[3px] border-black">
+        <div className="flex-1 relative bg-white border-l-[3px] border-black overflow-hidden">
           <ImageBg data={data} className="w-full h-full transition-transform duration-700 group-hover:scale-105" />
           
           {/* Badge de Verificação / Ícone */}
@@ -4312,7 +4312,7 @@ export function CoverExtraVariant164({
         <div className="w-16 h-1 bg-white/40 mt-4" />
       </div>
       
-      <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-white">
+      <div className="h-[65%] w-full bg-zinc-900 relative border-t-8 border-white overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 w-full h-full" />
         
         <div className="absolute bottom-6 right-6 z-20 cursor-pointer hover:scale-105 transition-transform group/cta">

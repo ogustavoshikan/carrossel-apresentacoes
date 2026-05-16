@@ -160,7 +160,7 @@ export function SplitVariant2({ data, index, slideCount, brandHandle, showBrandH
     <div className="w-full h-full flex relative overflow-hidden" style={{fontFamily: textFont,  backgroundColor: brandColor || '#050505' }}>
       {/* Imagem lateral esquerda */}
       <SmartField field="imagem" {...sp}
-        className="w-[50%] h-full relative z-10 border-r-[3px]"
+        className="w-[50%] h-full relative z-10 border-r-[3px] overflow-hidden"
         style={{ borderRightColor: '#54545452', borderRightStyle: 'solid' }}
       >
         <ImageBg data={data} className="absolute inset-0" />
@@ -305,7 +305,7 @@ export function SplitVariant3({ data, index, slideCount, brandHandle, showBrandH
       </div>
 
       {/* Bloco inferior: imagem */}
-      <SmartField field="imagem" {...sp} className="w-full h-1/2 relative shrink-0">
+      <SmartField field="imagem" {...sp} className="w-full h-1/2 relative shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
     </div>
@@ -592,7 +592,7 @@ export function SplitVariant11(props) {
       />
       
       <div className="w-full shrink-0" style={{fontFamily: textFont,  height: '13px' }} />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative z-0 border border-black/5 mt-4">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative z-0 border border-black/5 mt-4 overflow-hidden">
          <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       
@@ -2198,7 +2198,7 @@ export function SplitVariant37(props) {
         </div>
         <div style={{ width: '3rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} className="mb-4 shrink-0" />
       </div>
-      <SmartField field="imagem" {...sp} className="w-[60%] h-full relative z-0">
+      <SmartField field="imagem" {...sp} className="w-[60%] h-full relative z-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 opacity-90" />
         <div 
           className="absolute bottom-6 right-6 bg-white/95 p-4 rounded-xl border border-white/50 max-w-[85%]"
@@ -2241,7 +2241,7 @@ export function SplitVariant38(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full relative shrink-0 z-0 border-b-[8px] border-white" style={{ height: 'calc(40% + 15px)' }}>
+      <SmartField field="imagem" {...sp} className="w-full relative shrink-0 z-0 border-b-[8px] border-white overflow-hidden" style={{ height: 'calc(40% + 15px)' }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10" style={{ marginTop: '-25px' }}>
@@ -2363,7 +2363,7 @@ export function SplitVariant40(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[60%] relative shrink-0">
+      <SmartField field="imagem" {...sp} className="w-full h-[60%] relative shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10 border-t-[8px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
@@ -2494,7 +2494,7 @@ export function SplitVariant42(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0" style={{ borderBottom: `8px solid ${brandColor}` }}>
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 overflow-hidden" style={{ borderBottom: `8px solid ${brandColor}` }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 w-full p-10 flex flex-col justify-center relative -mt-[47px] bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
@@ -2632,7 +2632,7 @@ export function SplitVariant44(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0">
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 w-full p-8 flex flex-col justify-center relative z-10 border-t-[8px] bg-zinc-50" style={{fontFamily: textFont,  borderColor: brandColor }}>
@@ -2969,7 +2969,7 @@ export function SplitVariant49(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
       <div className="flex-1 flex flex-col p-8 justify-center relative border-t-[8px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
@@ -3045,7 +3045,7 @@ export function SplitVariant50(props) {
         brandColor={brandColor}
         hideDot={true} 
       />
-      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 z-0">
+      <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 z-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute -bottom-6 right-8 p-2 rounded-2xl shadow-xl flex items-center gap-3 z-20" style={{fontFamily: titleFont,  backgroundColor: brandColor }}>
           <div className="w-10 h-10 rounded-xl bg-zinc-300 overflow-hidden border-2" style={{ borderColor: brandColor }}>
@@ -3434,7 +3434,7 @@ export function SplitVariant55(props) {
           </SmartField>
       </div>
       <div className="w-full h-[8px] bg-white shrink-0 z-20" />
-      <SmartField field="imagem" {...sp} className="w-full h-[50%] relative shrink-0 z-0">
+      <SmartField field="imagem" {...sp} className="w-full h-[50%] relative shrink-0 z-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
     </div>
@@ -4403,7 +4403,7 @@ export function SplitVariant70(props) {
         </div>
       </div>
       
-      <div className="h-[50%] w-full relative z-0 shrink-0">
+      <div className="h-[50%] w-full relative z-0 shrink-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="w-full h-full block">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4480,7 +4480,7 @@ export function SplitVariant71(props) {
           </SmartField>
         </div>
       </div>
-      <div className="flex-1 w-full relative z-0 flex">
+      <div className="flex-1 w-full relative z-0 flex overflow-hidden">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4627,7 +4627,7 @@ export function SplitVariant73(props) {
           </SmartField>
         </div>
       </div>
-      <div className="w-full h-[45%] shrink-0 relative bg-zinc-200 flex">
+      <div className="w-full h-[45%] shrink-0 relative bg-zinc-200 flex overflow-hidden">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4697,7 +4697,7 @@ export function SplitVariant74(props) {
           </SmartField>
         </div>
       </div>
-      <div className="w-full h-[50%] shrink-0 relative bg-zinc-200 mt-2 z-0">
+      <div className="w-full h-[50%] shrink-0 relative bg-zinc-200 mt-2 z-0 overflow-hidden">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
@@ -4912,7 +4912,7 @@ export const SPLIT_VARIANT_META = [
   { id: 40, name: 'Foco Superior', description: 'Foco superior com base sólida da marca', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--40.png' },
   { id: 41, name: 'Enquadramento', description: 'Lateral sólida de cor pura que emoldura o produto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--41.png' },
   { id: 42, name: 'Geometria Pura', description: 'Intersecção entre imagem e identidade geométrica', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--42.png' },
-  { id: 43, name: 'Massive Frame', description: 'Moldura robusta com produto centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split-43.png' },
+  { id: 43, name: 'Massive Frame', description: 'Moldura robusta com produto centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--43.png' },
   { id: 44, name: 'Full Bleed Base', description: 'Imagem no topo com base de texto sólida', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--44.png' },
   { id: 45, name: 'Framed Hero', description: 'Imagem emoldurada no centro superior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--45.png' },
   { id: 46, name: 'Card Ascend', description: 'Texto sobreposto à imagem com profundidade', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--46.png' },

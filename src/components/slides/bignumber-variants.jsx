@@ -611,7 +611,7 @@ export function BigNumberVariant10({ data, index, slideCount, brandColor, brandH
         hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo} />
 
       {/* Metade superior — imagem */}
-      <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0">
+      <SmartField field="imagem" {...sp} className="h-1/2 w-full relative shrink-0 overflow-hidden">
         <ImageBg data={data} className="absolute inset-0 opacity-30" />
       </SmartField>
 
@@ -813,7 +813,7 @@ export function BigNumberVariant20(props) {
       <SlideHeader {...props} slideIndex={index} index={index + 1} total={slideCount} hideDot={true} handleColor="#71717a" counterColor="#a1a1aa" />
 
       {/* Imagem de fundo */}
-      <SmartField field="imagem" {...sp} className="absolute inset-0 h-[50%] w-full pointer-events-none">
+      <SmartField field="imagem" {...sp} className="absolute inset-0 h-[50%] w-full pointer-events-none overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-0 left-0 w-full h-[8px]" style={{ backgroundColor: brandColor }} />
       </SmartField>
@@ -1251,7 +1251,7 @@ export function BigNumberVariant26({ data, index, slideCount, brandColor, brandH
       />
 
       {/* Imagem fullwidth */}
-      <SmartField field="imagem" {...sp} className="flex-1 w-full relative">
+      <SmartField field="imagem" {...sp} className="flex-1 w-full relative overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-0 left-0 w-full h-[8px]" style={{ backgroundColor: brandColor }} />
       </SmartField>
