@@ -792,7 +792,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
 
   return (
     <div className="w-full h-full flex flex-col overflow-hidden bg-[#020202] relative">
-      <div className="h-[50%] w-full shrink-0 bg-zinc-900 relative">
+      <div className="h-[50%] w-full shrink-0 bg-zinc-900 relative overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </div>
       <div className="h-[50%] w-full p-6 flex flex-col justify-between shrink-0 border-t-8 border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
@@ -874,7 +874,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
           </p>
         </SmartField>
       </div>
-      <div className="w-full h-[50%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1]">
+      <div className="w-full h-[50%] bg-zinc-900 relative shrink-0 border-t-8 border-[#EBE9E1] overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur px-3 py-1 rounded text-white text-[9px] font-bold tracking-widest font-title uppercase">
           {brandHandle || '@studio'}
