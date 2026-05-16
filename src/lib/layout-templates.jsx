@@ -287,7 +287,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo específica para as variantes solicitadas (Dia das Mães)
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [2, 3, 12, 14, 17, 23, 33, 35, 36, 49, 51].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [2, 3, 12, 14, 17, 23, 29, 31, 33, 35, 36, 39, 49, 51, 54].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
@@ -304,7 +304,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/caixa-brigadeiros-gourmet-variados-venda.jpg';
   }
 
-  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [4, 6, 10, 11, 16, 18, 20, 25, 27, 32, 34, 37, 38, 42, 43, 45, 46, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cover-extra' || layoutType === 'cta' || layoutType === 'cta-extra') && [4, 6, 10, 11, 16, 18, 20, 25, 27, 32, 34, 37, 38, 42, 43, 44, 45, 46, 50, 52, 57, 58, 59, 123, 126, 129].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
   }
 
@@ -318,6 +318,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     const splitIndicesToUpdate = [0, 1, 3, 7, 8, 9, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 40, 42, 43, 44, 45, 48, 50, 51, 52, 54, 56, 57, 59, 60, 61, 67, 69, 70, 72, 74];
     const newSpecialIndices = [36, 38, 41, 47, 53, 58, 62, 68, 71, 73, 75];
     const motherDayIndices = [2, 46, 63];
+    const ninhoNutellaIndices = [10];
 
     if (splitIndicesToUpdate.includes(variantIndex)) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png';
@@ -325,6 +326,8 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
       slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
     } else if (motherDayIndices.includes(variantIndex)) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
+    } else if (ninhoNutellaIndices.includes(variantIndex)) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
     } else {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
     }

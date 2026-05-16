@@ -2466,17 +2466,20 @@ export function CoverVariant45(props) {
         </SmartField>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-8 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700 w-max whitespace-nowrap">
-        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
-          <span
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
-          >
-            {data.cta_text || 'Arraste para o lado e descubra'}
-          </span>
-        </SmartField>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full shadow-2xl z-10 border border-zinc-700 w-max whitespace-nowrap overflow-hidden">
+        <div className="absolute inset-0 bg-zinc-900/90 backdrop-blur pointer-events-none" />
+        <div className="relative z-10 flex items-center gap-3 px-8 py-2.5">
+          <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
   );
@@ -2531,17 +2534,20 @@ export function CoverVariant46(props) {
         </SmartField>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-zinc-900/90 backdrop-blur px-8 py-2.5 rounded-full shadow-2xl z-10 flex items-center gap-3 border border-zinc-700 w-max whitespace-nowrap">
-        <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
-          <span
-            contentEditable suppressContentEditableWarning
-            onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
-            className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
-          >
-            {data.cta_text || 'Arraste para o lado e descubra'}
-          </span>
-        </SmartField>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full shadow-2xl z-10 border border-zinc-700 w-max whitespace-nowrap overflow-hidden">
+        <div className="absolute inset-0 bg-zinc-900/90 backdrop-blur pointer-events-none" />
+        <div className="relative z-10 flex items-center gap-3 px-8 py-2.5">
+          <SmartField field="cta_text" {...sp} className="whitespace-nowrap">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)}
+              className="text-white font-title font-bold text-[10px] tracking-widest uppercase outline-none whitespace-nowrap inline-block -translate-y-[3px]"
+            >
+              {data.cta_text || 'Arraste para o lado e descubra'}
+            </span>
+          </SmartField>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
       </div>
     </div>
   );
@@ -3551,11 +3557,11 @@ export const COVER_VARIANT_META = [
   { id: 24, name: 'Grid Process', description: 'Estilo técnico com grid e badge', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-24.png' },
   { id: 25, name: 'Frosted Float', description: 'Card flutuante com blur intenso', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa25.png' },
   { id: 26, name: 'Overlay Volume', description: 'Bloco superior blend sobre imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-26.png' },
-  { id: 27, name: 'Slanted New', description: 'Recorte diagonal com ícone Sparkles', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa27.png' },
+  { id: 27, name: 'Slanted New', description: 'Recorte diagonal com ícone Sparkles', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-27.png' },
   { id: 28, name: 'Right Image Text Left', description: 'Imagem à direita com texto à esquerda', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-28.png' },
-  { id: 29, name: 'Framed Left Image', description: 'Imagem emoldurada com tags à direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa29.png' },
+  { id: 29, name: 'Framed Left Image', description: 'Imagem emoldurada com tags à direita', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-29.png' },
   { id: 30, name: 'Social Icons Overlay', description: 'Layout com barra de ícones de redes sociais', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa30.png' },
-  { id: 31, name: 'List Bullet Stars', description: 'Imagem com lista de destaques', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa31.png' },
+  { id: 31, name: 'List Bullet Stars', description: 'Imagem com lista de destaques', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-31.png' },
   { id: 32, name: 'Repeated Text Background', description: 'Fundo com texto repetido e card inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-32.png' },
   { id: 33, name: 'Gradient Footer', description: 'Imagem superior com rodapé colorido e divisória', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-33.png' },
   { id: 34, name: 'Center Focus', description: 'Fundo escuro com texto centralizado e header', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-34.png' },
@@ -3563,21 +3569,21 @@ export const COVER_VARIANT_META = [
   { id: 36, name: 'Magazine Split', description: 'Texto à esquerda e imagem à direita estilo revista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-36.png' },
   { id: 37, name: 'Modern Frame', description: 'Fundo colorido com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-37.png' },
   { id: 38, name: 'Gradient Bottom', description: 'Imagem full com gradient e tags inferiores', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-38.png' },
-  { id: 39, name: 'Side Strip', description: 'Imagem lateral com faixa de marca vertical', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa39.png' },
+  { id: 39, name: 'Side Strip', description: 'Imagem lateral com faixa de marca vertical', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-39.png' },
   { id: 40, name: 'Floating Card Center', description: 'Imagem superior e card flutuante centralizado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-40.png' },
   { id: 41, name: 'Slanted Banner', description: 'Faixa diagonal sobre imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-41.png' },
-  { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa42.png' },
+  { id: 42, name: 'Upper Frame Title', description: 'Título superior emoldurado e rodapé branco minimalista', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-42.png' },
   { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-43.png' },
-  { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa44.png' },
-  { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa45.png' },
-  { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa46.png' },
+  { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-44.png' },
+  { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-45.png' },
+  { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa--46.png' },
   { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-48.png' },
   { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-49.png' },
   { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-50.png' },
   { id: 51, name: 'Solid Half Brand', description: 'Meio a meio sólido com título vazado para fora', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-51.png' },
   { id: 52, name: 'Brand Dominance', description: 'Bloco de cor dominante e imagem grayscale', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-52.png' },
   { id: 53, name: 'Sharp Half Block', description: 'Divisão ao meio com bloco sólido e CTA', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa53.png' },
-  { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa54.png' },
+  { id: 54, name: 'Bold Brand Frame', description: 'Moldura colorida lateral com título impactante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-54.png' },
   { id: 55, name: 'Premium Edge', description: 'Barra lateral informativa e card de imagem', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa55.png' },
   { id: 56, name: 'Split Typo Hero', description: 'Imagem superior e bloco informativo inferior', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa56.png' },
   { id: 57, name: 'Author Focus', description: 'Focado no autor com imagem circular e card', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-57.png' },
