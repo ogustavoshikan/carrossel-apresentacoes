@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { ChevronUp, ChevronDown, Cake, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useDragResize } from './hooks/useDragResize';
 import { generateCarouselContent, generateImageWithAI, generateSingleSlideContent } from './services/ai';
@@ -8,6 +8,7 @@ import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
 import { createSlideFromTemplate } from './lib/layout-templates';
 import { LAYOUT_META } from './lib/layout-templates';
 import { getFavorites, saveFavorite, removeFavorite } from './lib/favorites';
+import { SelectionContext } from './lib/selection-context';
 
 // Componentes
 import { FloatingChat } from './components/FloatingChat';
@@ -54,6 +55,9 @@ export default function App() {
   const [isInstagramPreviewOpen, setIsInstagramPreviewOpen] = useState(false);
 
   const [selectedElement, setSelectedElement] = useState(null);
+  // Multi-seleção de SmartElements (Ctrl+A, Shift+Click)
+  const [selectedElements, setSelectedElements] = useState(new Set());
+  const isShiftHeldRef = useRef(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   const [layoutSelection, setLayoutSelection] = useState({
@@ -122,7 +126,7 @@ export default function App() {
   }, []);
 
   // Drag & Resize hook
-  const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides);
+  const { handleActionStart, resetSlidePositions } = useDragResize(slides, setSlides, selectedElements);
 
   // Sidebar Resize Logic
   useEffect(() => {
@@ -189,16 +193,44 @@ export default function App() {
   // Teclado: Movimentação de elementos selecionados com as setas (2px por vez)
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!selectedElement) return;
-      
       const active = document.activeElement;
-      if (active && (
-         active.tagName === 'INPUT' || 
-         active.tagName === 'TEXTAREA' || 
-         active.isContentEditable
-      )) {
-        return; // não movimentar se o usuário estiver digitando
+      const isTyping = active && (
+        active.tagName === 'INPUT' ||
+        active.tagName === 'TEXTAREA' ||
+        active.isContentEditable
+      );
+
+      // Ctrl+A — Selecionar todos os SmartElements visiveis no canvas
+      if ((e.ctrlKey || e.metaKey) && e.key === 'a') {
+        const isInSidebarField = active && (
+          active.tagName === 'INPUT' || active.tagName === 'TEXTAREA'
+        );
+        if (isInSidebarField) return;
+        e.preventDefault();
+        const all = document.querySelectorAll('[id^="smart-"]');
+        const keys = new Set();
+        all.forEach(el => {
+          // ID: smart-{slideIndex}-{field}
+          const withoutPrefix = el.id.slice('smart-'.length);
+          const dash = withoutPrefix.indexOf('-');
+          if (dash > -1) {
+            keys.add(`${withoutPrefix.substring(0, dash)}:${withoutPrefix.substring(dash + 1)}`);
+          }
+        });
+        setSelectedElements(keys);
+        return;
       }
+
+      // Escape — Limpar seleção (pai + multi-seleção)
+      if (e.key === 'Escape') {
+        setSelectedElement(null);
+        setSelectedElements(new Set());
+        return;
+      }
+
+      // Movimentação com setas — só quando há elemento selecionado
+      if (!selectedElement) return;
+      if (isTyping) return; // não movimentar se o usuário estiver digitando
 
       const { slideIndex, field } = selectedElement;
       const step = 2; // incremento de 2px definido nos requisitos
@@ -215,25 +247,46 @@ export default function App() {
 
       setSlides((prev) => {
         const newSlides = [...prev];
-        const slide = { ...newSlides[slideIndex] };
-        const positions = { ...(slide.positions || {}) };
-        const currentPos = positions[field] || { x: 0, y: 0, scale: 1, rotation: 0 };
-        
-        positions[field] = {
-           ...currentPos,
-           x: (currentPos.x || 0) + dx,
-           y: (currentPos.y || 0) + dy
-        };
-        
-        slide.positions = positions;
-        newSlides[slideIndex] = slide;
+
+        // Conjunto de elementos a mover: selectedElements (multi) ou apenas o pai
+        const targets = selectedElements.size > 0 ? selectedElements : new Set([`${slideIndex}:${field}`]);
+
+        targets.forEach(key => {
+          const [si, ...fieldParts] = key.split(':');
+          const f = fieldParts.join(':');
+          const idx = parseInt(si);
+          if (idx < 0 || idx >= newSlides.length) return;
+          const slide = { ...newSlides[idx] };
+          const positions = { ...(slide.positions || {}) };
+          const currentPos = positions[f] || { x: 0, y: 0, scale: 1, rotation: 0 };
+          positions[f] = {
+            ...currentPos,
+            x: (currentPos.x || 0) + dx,
+            y: (currentPos.y || 0) + dy,
+          };
+          slide.positions = positions;
+          newSlides[idx] = slide;
+        });
+
         return newSlides;
       });
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedElement, setSlides]);
+  }, [selectedElement, selectedElements, slides, setSlides]);
+
+  // Rastrear tecla Shift para multi-seleção de elementos
+  useEffect(() => {
+    const onKeyDown = (e) => { if (e.key === 'Shift') isShiftHeldRef.current = true; };
+    const onKeyUp   = (e) => { if (e.key === 'Shift') isShiftHeldRef.current = false; };
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keyup', onKeyUp);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('keyup', onKeyUp);
+    };
+  }, []);
 
 
   // ========================================
@@ -246,6 +299,7 @@ export default function App() {
 
   const handleRemoveSlide = useCallback((index) => {
     setSlides(prev => prev.filter((_, i) => i !== index));
+    setSelectedElements(new Set());
   }, []);
 
   const handleDuplicateSlide = useCallback((index) => {
@@ -266,8 +320,9 @@ export default function App() {
       // Re-indexar a propriedade `slide`
       return newSlides.map((s, idx) => ({ ...s, slide: idx + 1 }));
     });
-    // Limpar o array selecionado para prevenir referências mortas
+    // Limpar seleções para prevenir referências mortas
     setSelectedElement(null);
+    setSelectedElements(new Set());
   }, []);
 
   const handleAddSlide = useCallback((layoutType, insertIndex, variantIndex = 0) => {
@@ -575,6 +630,7 @@ export default function App() {
     setIsGenerating(true);
     setError('');
     setSlides([]);
+    setSelectedElements(new Set());
 
     try {
       const parsedSlides = await generateCarouselContent(
@@ -722,6 +778,7 @@ export default function App() {
             label={comingSoonData.label} 
           />
         ) : (
+          <SelectionContext.Provider value={selectedElements}>
           <div key="studio" className="flex-1 flex flex-col animate-page-transition h-full">
             {/* Favorite Modal */}
             <FavoriteNameModal 
@@ -835,7 +892,10 @@ export default function App() {
               {/* Workspace */}
               <main 
                 className="flex-1 bg-[#0a0a0a] relative flex flex-col px-4 md:px-8 pb-4 md:pb-8 pt-0 overflow-y-auto overflow-x-hidden custom-scrollbar"
-                onClick={() => setSelectedElement(null)}
+                onClick={() => {
+                  setSelectedElement(null);
+                  setSelectedElements(new Set());
+                }}
               >
                 <SettingsModal 
                   isOpen={isSettingsOpen} 
@@ -962,7 +1022,24 @@ export default function App() {
                         copiedIndex={copiedIndex}
                         selectedElement={selectedElement}
                         isExporting={isExporting}
-                        onSelectElement={(index, field) => setSelectedElement({ slideIndex: index, field })}
+                        onSelectElement={(index, field) => {
+                          const key = `${index}:${field}`;
+                          if (isShiftHeldRef.current) {
+                            // Shift+Click: toggle elemento na multi-seleção
+                            setSelectedElements(prev => {
+                              const next = new Set(prev);
+                              if (next.has(key)) next.delete(key);
+                              else next.add(key);
+                              return next;
+                            });
+                            // Atualiza o elemento foco para o último clicado
+                            setSelectedElement({ slideIndex: index, field });
+                          } else {
+                            // Click simples: seleciona só este elemento
+                            setSelectedElement({ slideIndex: index, field });
+                            setSelectedElements(new Set([key]));
+                          }
+                        }}
                         showSlideCounter={showSlideCounter}
                         slideCounterPosition={slideCounterPosition}
                       />
@@ -972,6 +1049,7 @@ export default function App() {
               </main>
             </div>
           </div>
+          </SelectionContext.Provider>
         )}
       </div>
 

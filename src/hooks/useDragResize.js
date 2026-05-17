@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
  *
  * @returns {{ actionInfo, handleActionStart, resetSlidePositions, setSlides props }}
  */
-export function useDragResize(slides, setSlides) {
+export function useDragResize(slides, setSlides, selectedElements = new Set()) {
   const [actionInfo, setActionInfo] = useState(null);
 
   useEffect(() => {
@@ -44,6 +44,20 @@ export function useDragResize(slides, setSlides) {
         currentY = newY;
         // scale mantida do que já existe, sem tocar
         targetElement.style.transform = `translate(${newX}px, ${newY}px) scale(${actionInfo.origScale}) rotate(${actionInfo.origRotation || 0}deg)`;
+
+        // Mover todos os demais elementos da multi-seleção com o mesmo delta
+        selectedElements.forEach(key => {
+          const [si, ...fieldParts] = key.split(':');
+          const field = fieldParts.join(':');
+          if (si === String(actionInfo.index) && field === actionInfo.field) return; // pula o principal
+          const otherEl = document.getElementById(`smart-${si}-${field}`);
+          if (!otherEl) return;
+          const slideIdx = parseInt(si);
+          const otherPos = slides[slideIdx]?.positions?.[field] || { x: 0, y: 0, scale: 1, rotation: 0 };
+          const ox = (otherPos.x || 0) + dx;
+          const oy = (otherPos.y || 0) + dy;
+          otherEl.style.transform = `translate(${ox}px, ${oy}px) scale(${otherPos.scale || 1}) rotate(${otherPos.rotation || 0}deg)`;
+        });
 
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
@@ -155,8 +169,12 @@ export function useDragResize(slides, setSlides) {
         const finalWidth = currentWidth;
         const finalRotation = currentRotation;
 
-        setSlides((prev) =>
-          prev.map((s, i) => {
+        // Calcular delta de posição para propagar para os demais elementos selecionados
+        const deltaX = (finalX !== undefined && actionInfo.type === 'drag') ? finalX - actionInfo.origX : 0;
+        const deltaY = (finalY !== undefined && actionInfo.type === 'drag') ? finalY - actionInfo.origY : 0;
+
+        setSlides((prev) => {
+          const newSlides = prev.map((s, i) => {
             if (i !== actionInfo.index) return s;
             const pos = s.positions?.[actionInfo.field] || {};
             const updatedPos = { x: 0, y: 0, scale: 1, ...pos };
@@ -167,7 +185,6 @@ export function useDragResize(slides, setSlides) {
             if (finalWidth !== undefined) updatedPos.width = finalWidth;
             if (finalRotation !== undefined) updatedPos.rotation = finalRotation;
 
-            // PREVENIR UNDEFINED - GARANTIR VALORES SÓLIDOS
             if (updatedPos.x === undefined || isNaN(updatedPos.x)) updatedPos.x = 0;
             if (updatedPos.y === undefined || isNaN(updatedPos.y)) updatedPos.y = 0;
             if (updatedPos.scale === undefined || isNaN(updatedPos.scale)) updatedPos.scale = 1;
@@ -176,8 +193,28 @@ export function useDragResize(slides, setSlides) {
               ...s,
               positions: { ...(s.positions || {}), [actionInfo.field]: updatedPos },
             };
-          })
-        );
+          });
+
+          // Persistir delta nos demais elementos da multi-seleção (somente drag)
+          if (actionInfo.type === 'drag' && (deltaX !== 0 || deltaY !== 0)) {
+            selectedElements.forEach(key => {
+              const [si, ...fieldParts] = key.split(':');
+              const field = fieldParts.join(':');
+              if (si === String(actionInfo.index) && field === actionInfo.field) return;
+              const slideIdx = parseInt(si);
+              if (slideIdx < 0 || slideIdx >= newSlides.length) return;
+              const slide = { ...newSlides[slideIdx] };
+              const pos = slide.positions?.[field] || {};
+              const updatedPos = { x: 0, y: 0, scale: 1, ...pos };
+              updatedPos.x = (updatedPos.x || 0) + deltaX;
+              updatedPos.y = (updatedPos.y || 0) + deltaY;
+              slide.positions = { ...(slide.positions || {}), [field]: updatedPos };
+              newSlides[slideIdx] = slide;
+            });
+          }
+
+          return newSlides;
+        });
       }
 
       setActionInfo(null);
@@ -201,7 +238,7 @@ export function useDragResize(slides, setSlides) {
       window.removeEventListener('touchmove', handleMouseMove);
       window.removeEventListener('touchend', handleMouseUp);
     };
-  }, [actionInfo, setSlides]);
+  }, [actionInfo, setSlides, slides, selectedElements]);
 
   const handleActionStart = useCallback(
     (e, index, field, type) => {

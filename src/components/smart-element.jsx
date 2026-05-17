@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Move, GripVertical, RotateCw } from 'lucide-react';
+import { useSelectedElements } from '../lib/selection-context';
 
 /**
  * Componente isolado para proteger a edição RTF do React Reconciliation
@@ -84,12 +85,16 @@ export default function SmartElement({
     }
   }, [showMetrics, pos.scale, pos.x, pos.y, children]);
 
+  const selectedElements = useSelectedElements();
+  const isMultiSelected = selectedElements.has(`${slideIndex}:${field}`);
+  const isActive = isSelected || isMultiSelected;
+
   return (
       <div
           className={`group/smart relative ${className || ''}`}
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale}) rotate(${pos.rotation || 0}deg)`,
-            zIndex: isSelected ? 60 : (showMetrics ? 50 : 40),
+            zIndex: isActive ? 60 : (showMetrics ? 50 : 40),
             transformOrigin: 'center center',
             ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
             ...externalStyle,
@@ -203,7 +208,7 @@ export default function SmartElement({
       {/* Conteúdo */}
       <div
         className={`w-full h-full outline-none transition-all relative z-10 ${
-          isSelected 
+          isActive
             ? 'outline outline-2 outline-offset-4 outline-[var(--color-brand)] bg-[var(--color-brand)]/5 ring-4 ring-black/20 rounded-sm'
             : showMetrics
               ? 'outline outline-1 outline-dashed outline-[var(--color-brand)]/50 bg-[var(--color-brand)]/10'

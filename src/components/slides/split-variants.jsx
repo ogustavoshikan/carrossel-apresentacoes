@@ -261,8 +261,8 @@ export function SplitVariant3({ data, index, slideCount, brandHandle, showBrandH
         counterBg="#080808" />
 
       {/* Bloco superior: texto */}
-      <div className="w-full h-1/2 p-10 pt-24 flex flex-col justify-center border-b-[8px] shrink-0" style={{ borderColor: brandColor }}>
-        <div className="-translate-y-[25px]">
+      <div className="w-full h-1/2 p-10 pt-[115px] flex flex-col justify-start border-b-[8px] shrink-0" style={{ borderColor: brandColor }}>
+        <div className="">
           <div className="flex items-center gap-2 mb-4 shrink-0">
             <div className="h-[2px] min-h-[2px] w-5 shrink-0" style={{fontFamily: textFont,  backgroundColor: brandColor }} />
             <SmartField field="tag" {...sp}>
@@ -1210,7 +1210,7 @@ export function SplitVariant22(props) {
       
       <div className="flex-1 flex flex-col h-full p-6 relative z-20 pb-8">
         
-        <div className="flex-1 min-h-0 flex flex-col justify-center mb-6 pl-2">
+        <div className="flex-1 min-h-0 flex flex-col justify-start pt-24 mb-6 pl-2">
           <div style={{ width: '2.5rem', height: '3px', backgroundColor: brandColor }} className="mb-6 shrink-0" />
           
           <SmartField field="titulo" {...sp} className="mb-3">
@@ -2120,7 +2120,7 @@ export function SplitVariant36(props) {
           </SmartField>
         </div>
       </div>
-      <div className="flex-1 w-full p-8 flex flex-col justify-center text-center relative z-0" style={{ marginTop: '-55px' }}>
+      <div className="flex-1 w-full p-8 flex flex-col justify-start pt-[95px] text-center relative z-0" style={{ marginTop: '-55px' }}>
         <div style={{ width: '4rem', height: '0.1875rem', backgroundColor: brandColor }} className="mx-auto mb-4 shrink-0" />
         <div className="mb-3 shrink-0">
           <SmartField field="titulo" {...sp}>
@@ -2497,8 +2497,8 @@ export function SplitVariant42(props) {
       <SmartField field="imagem" {...sp} className="w-full h-[55%] relative shrink-0 overflow-hidden" style={{ borderBottom: `8px solid ${brandColor}` }}>
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
-      <div className="flex-1 w-full p-10 flex flex-col justify-center relative -mt-[47px] bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
-        <div style={{ position: 'relative', top: '-25px' }}>
+      <div className="flex-1 w-full p-10 flex flex-col justify-start pt-[75px] relative -mt-[47px] bg-white rounded-t-[40px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+        <div className="">
           <div className="flex items-center gap-3 mb-3 shrink-0">
             <SmartField field="tag" {...sp}>
               <span
@@ -2972,8 +2972,8 @@ export function SplitVariant49(props) {
       <SmartField field="imagem" {...sp} className="w-full h-[50%] shrink-0 relative overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
       </SmartField>
-      <div className="flex-1 flex flex-col p-8 justify-center relative border-t-[8px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-        <div style={{ position: 'relative', top: '-50px' }}>
+      <div className="flex-1 flex flex-col p-8 justify-start pt-[40px] relative border-t-[8px] border-white" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
+        <div className="">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shrink-0 shadow-lg bg-zinc-300">
               {brandAvatar ? (
@@ -3264,7 +3264,7 @@ export function SplitVariant53(props) {
         </SmartField>
         <div className="absolute bottom-0 left-0 w-full h-1 z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }}></div>
       </div>
-      <div className="flex-1 p-8 flex flex-col justify-center relative text-zinc-900 z-10" style={{ borderTop: `8px solid ${brandColor}` }}>
+      <div className="flex-1 p-8 flex flex-col justify-start pt-[40px] relative text-zinc-900 z-10" style={{ borderTop: `8px solid ${brandColor}` }}>
         <div className="absolute top-0 left-8 -translate-y-1/2 px-4 py-[0.45rem] text-white font-bold text-[10px] tracking-widest uppercase rounded-[8px]" style={{ backgroundColor: brandColor }}>
           <SmartField field="badge_text" {...sp}>
             <span
@@ -3276,7 +3276,7 @@ export function SplitVariant53(props) {
             </span>
           </SmartField>
         </div>
-        <div className="relative -top-[55px]">
+        <div className="">
           <div className="mb-4">
             <SmartField field="titulo" {...sp}>
               <h2
@@ -3898,7 +3898,7 @@ export function SplitVariant62(props) {
           </SmartField>
         </div>
       </div>
-      <div className="flex-1 w-full flex flex-col relative">
+      <div className="flex-1 w-full flex flex-col justify-start relative">
         <div className="p-8 pb-4 shrink-0">
           <SmartField field="texto_apoio" {...sp}>
             <p
@@ -3911,7 +3911,7 @@ export function SplitVariant62(props) {
             </p>
           </SmartField>
         </div>
-        <div className="w-full shrink-0 px-8 pb-8 flex" style={{ height: 'calc(50% + 60px)', fontFamily: textFont,  transform: 'translateY(35px)' }}>
+        <div className="w-full shrink-0 px-8 pb-8 flex mt-auto" style={{ height: 'calc(50% + 60px)', fontFamily: textFont,  transform: 'translateY(35px)' }}>
           <SmartField field="imagem" {...sp} className="w-full h-full rounded-2xl overflow-hidden relative shadow-inner border-4 border-zinc-100 bg-zinc-200">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
@@ -4214,7 +4214,7 @@ export function SplitVariant67(props) {
         </div>
       </div>
       
-      <div className="flex-1 w-full p-10 flex flex-col justify-center relative z-10 bg-white">
+      <div className="flex-1 w-full p-10 flex flex-col justify-start pt-[45px] relative z-10 bg-white">
         <div className="mb-6 -translate-y-[20px]">
           <SmartField field="texto_apoio" {...sp}>
             <p
@@ -4227,7 +4227,7 @@ export function SplitVariant67(props) {
             </p>
           </SmartField>
         </div>
-        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative border-2 border-zinc-50 shrink-0 -translate-y-[18px]">
+        <div className="w-full aspect-video bg-zinc-100 rounded-[32px] overflow-hidden relative border-2 border-zinc-50 shrink-0 -translate-y-[18px] mt-auto">
           <SmartField field="imagem" {...sp} className="w-full h-full">
             <ImageBg data={data} className="absolute inset-0" />
           </SmartField>
