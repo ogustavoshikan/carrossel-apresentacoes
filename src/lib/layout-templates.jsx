@@ -287,7 +287,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   }
 
   // Pre-configura imagem de fundo específica para as variantes solicitadas (Dia das Mães)
-  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [2, 3, 12, 14, 17, 23, 29, 31, 33, 35, 36, 39, 49, 51, 54].includes(variantIndex)) {
+  if ((layoutType === 'cover' || layoutType === 'cta' || layoutType === 'cover-extra' || layoutType === 'cta-extra') && [2, 3, 12, 14, 17, 23, 28, 29, 30, 31, 33, 35, 36, 39, 49, 51, 54].includes(variantIndex)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
