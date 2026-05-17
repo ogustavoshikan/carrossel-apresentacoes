@@ -1153,9 +1153,7 @@ export function SequenceVariant15(props) {
         counterBg={data.counterBg || "#EDEDED"} 
       />
       <div className="w-full h-[50%] relative z-0 bg-zinc-100 flex items-center justify-center overflow-hidden">
-        <ImageBg data={data} className="w-full h-full">
-          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-        </ImageBg>
+        <ImageBg data={data} className="w-full h-full" />
       </div>
 
       <div className="w-full h-[10px] z-10" style={{ backgroundColor: brandColor }} />
@@ -1500,7 +1498,6 @@ export function SequenceVariant19(props) {
       <div className="w-full h-[50%] relative z-0 bg-zinc-800 flex items-center justify-center overflow-hidden">
         <ImageBg data={data} className="w-full h-full">
            <div className="absolute inset-0 bg-black/10" />
-           <span className="text-white/20 text-[10px] font-bold uppercase tracking-widest">Aguardando Imagem</span>
         </ImageBg>
       </div>
 
@@ -1693,9 +1690,7 @@ export function SequenceVariant22(props) {
       />
       
       <div className="w-full h-[calc(50%+80px)] relative overflow-hidden bg-zinc-200 flex items-center justify-center">
-        <ImageBg data={data} className="w-full h-full">
-          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-        </ImageBg>
+        <ImageBg data={data} className="w-full h-full" />
       </div>
 
       <div className="flex-1 p-8 pt-6 flex flex-col justify-start relative z-10 bg-white">
@@ -1795,9 +1790,7 @@ export function SequenceVariant23(props) {
           className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden border-[6px] border-white bg-zinc-100 flex items-center justify-center"
           style={{ boxShadow: `0 20px 50px ${brandColor}26` }}
         >
-          <ImageBg data={data} className="w-full h-full">
-            <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-          </ImageBg>
+          <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
           className="absolute -bottom-5 right-6 px-5 py-2 text-white rounded-full flex items-center justify-center font-black text-[11px] uppercase tracking-widest shadow-xl font-text select-none"
@@ -2071,9 +2064,7 @@ export function SequenceVariant26(props) {
       <div 
         className="w-full h-[45%] mt-8 rounded-2xl overflow-hidden relative z-10 bg-zinc-100 flex items-center justify-center"
       >
-        <ImageBg data={data} className="w-full h-full">
-          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-        </ImageBg>
+        <ImageBg data={data} className="w-full h-full" />
       </div>
 
       <div className="flex-1 flex flex-col justify-end pt-8 pb-2 relative z-10 w-full">
@@ -2196,9 +2187,7 @@ export function SequenceVariant27(props) {
       </div>
 
       <div className="w-full h-[45%] mb-4 rounded-2xl overflow-hidden shadow-2xl relative z-10 bg-zinc-100 flex items-center justify-center">
-        <ImageBg data={data} className="w-full h-full">
-          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-        </ImageBg>
+        <ImageBg data={data} className="w-full h-full" />
       </div>
     </div>
   );
@@ -2233,9 +2222,7 @@ export function SequenceVariant28(props) {
       <div className="w-[65%] h-full bg-[#faf7f2] relative z-0" />
 
       <div className="absolute top-1/2 left-[35%] -translate-x-[calc(50%+15px)] -translate-y-1/2 w-[45%] h-[75%] rounded-[100px] overflow-hidden border-[3px] border-white z-10 bg-zinc-100 flex items-center justify-center">
-        <ImageBg data={data} className="w-full h-full">
-          <span className="text-zinc-400 text-[10px] font-bold uppercase tracking-widest opacity-40">Aguardando Imagem</span>
-        </ImageBg>
+        <ImageBg data={data} className="w-full h-full" />
       </div>
 
       
