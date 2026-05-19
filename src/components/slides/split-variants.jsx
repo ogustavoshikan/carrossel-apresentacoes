@@ -1847,46 +1847,50 @@ export function SplitVariant32(props) {
         <ImageBg data={data} className="absolute inset-0" />
       </div>
 
-      <div className="w-full h-0 border-t-[8px] border-white z-20" />
+      <div className="w-full h-2 bg-white z-20 relative -mt-[1px]" />
 
-      <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10" style={{fontFamily: textFont,  backgroundColor: brandColor }}>
-        <div className="mb-6 shrink-0">
-          <SmartField field="badge_text" {...sp}>
-            <span
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-              className="font-tag font-bold text-[10px] uppercase tracking-[0.2em] text-white border border-white/60 px-2.5 py-1 rounded-[8px] outline-none"
-            >
-              {data.badge_text || '13'}
-            </span>
-          </SmartField>
-        </div>
+      <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10 -mt-[2px]" style={{fontFamily: textFont,  backgroundColor: brandColor, boxShadow: `0 -2px 0 ${brandColor}` }}>
+        <div style={{ transform: 'translateY(-25px)' }}>
+          <div className="mb-6 shrink-0">
+            <SmartField field="badge_text" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-tag font-bold text-[10px] uppercase tracking-[0.2em] text-white border border-white/60 px-2.5 py-1 rounded-[8px] outline-none"
+              >
+                {data.badge_text || '13'}
+              </span>
+            </SmartField>
+          </div>
 
-        <div style={{ width: '3rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} className="mb-4 shrink-0" />
+          <SmartField field="detalhe" {...sp} className="mb-4 shrink-0">
+            <div style={{ width: '3rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} />
+          </SmartField>
 
-        <div className="mb-4 shrink-0">
-          <SmartField field="titulo" {...sp}>
-            <h2
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-title font-black leading-[0.9] tracking-tighter uppercase drop-shadow-md outline-none"
-              style={{ fontSize: `${36 * sTitle}px` }}
-            >
-              {data.titulo}
-            </h2>
-          </SmartField>
-        </div>
-        <div className="flex-1">
-          <SmartField field="texto_apoio" {...sp}>
-            <p
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text font-medium leading-relaxed text-white/90 outline-none"
-              style={{ fontSize: `${15 * sText}px` }}
-            >
-              {data.texto_apoio}
-            </p>
-          </SmartField>
+          <div className="mb-4 shrink-0">
+            <SmartField field="titulo" {...sp}>
+              <h2
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-title font-black leading-[0.9] tracking-tighter uppercase drop-shadow-md outline-none"
+                style={{ fontSize: `${36 * sTitle}px` }}
+              >
+                {data.titulo}
+              </h2>
+            </SmartField>
+          </div>
+          <div className="flex-1">
+            <SmartField field="texto_apoio" {...sp}>
+              <p
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-text font-medium leading-relaxed text-white/90 outline-none"
+                style={{ fontSize: `${15 * sText}px` }}
+              >
+                {data.texto_apoio}
+              </p>
+            </SmartField>
+          </div>
         </div>
       </div>
     </div>
@@ -2045,7 +2049,7 @@ export function SplitVariant35(props) {
         hideDot={true} 
       />
       <div className="h-[50%] w-full relative shrink-0 z-0">
-        <ImageBg data={data} className="absolute inset-0 opacity-90" />
+        <ImageBg data={data} className="absolute inset-0 opacity-100" />
       </div>
 
       <div className="w-full h-0 border-t-[8px] border-white z-20" />
@@ -2085,7 +2089,9 @@ export function SplitVariant35(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-          <div style={{ width: '3rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.2)' }} className="mt-4 shrink-0" />
+          <SmartField field="decoracao" {...sp}>
+            <div style={{ width: '3rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.2)' }} className="mt-4 shrink-0" />
+          </SmartField>
         </div>
       </div>
     </div>
@@ -2268,7 +2274,9 @@ export function SplitVariant38(props) {
               {data.texto_apoio}
             </p>
           </SmartField>
-          <div style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} className="mt-4 shrink-0" />
+          <SmartField field="detalhe" {...sp} className="mt-4 shrink-0">
+            <div style={{ width: '4rem', height: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.8)' }} />
+          </SmartField>
         </div>
       </div>
     </div>

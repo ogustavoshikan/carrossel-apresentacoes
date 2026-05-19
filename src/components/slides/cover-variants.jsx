@@ -1432,7 +1432,7 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
           }} 
         />
         <SmartField field="titulo" {...sp}>
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white drop-shadow-2xl" style={{ fontSize: `${70 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white" style={{ fontSize: `${70 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
