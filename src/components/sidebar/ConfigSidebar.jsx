@@ -1961,7 +1961,7 @@ export default function ConfigSidebar({
         </div>
 
           {/* Scroll to Top Button */}
-          {showScrollTop && (
+          {showScrollTop && activeTab === 'designs' && (
             <button
               onClick={scrollToTop}
               className="absolute bottom-[200px] right-6 w-8 h-8 bg-zinc-800/40 text-white/50 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/5 hover:bg-zinc-700/80 hover:text-white hover:scale-105 transition-all z-50 animate-in fade-in zoom-in"

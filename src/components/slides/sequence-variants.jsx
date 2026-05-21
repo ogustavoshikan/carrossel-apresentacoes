@@ -1060,7 +1060,8 @@ export function SequenceVariant14(props) {
           <ImageBg data={data} className="w-full h-full" />
         </div>
         <div 
-          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] border-[#faf7f2] font-text select-none"
+          className="absolute -bottom-4 -right-4 w-12 h-12 bg-[#ffffff] text-[#1A1A1A] rounded-full flex items-center justify-center font-black text-lg shadow-lg border-[3px] font-text select-none"
+          style={{ borderColor: brandColor }}
         >
           {step}
         </div>
@@ -1152,13 +1153,13 @@ export function SequenceVariant15(props) {
         counterColor={data.counterColor || "#1a1a1a"} 
         counterBg={data.counterBg || "#EDEDED"} 
       />
-      <div className="w-full h-[50%] relative z-0 bg-zinc-100 flex items-center justify-center overflow-hidden">
+      <div className="w-full h-[45%] relative z-0 bg-zinc-100 flex items-center justify-center overflow-hidden">
         <ImageBg data={data} className="w-full h-full" />
       </div>
 
       <div className="w-full h-[10px] z-10" style={{ backgroundColor: brandColor }} />
 
-      <div className="flex-1 flex flex-row z-10">
+      <div className="h-[55%] flex flex-row z-10">
         <div 
           className="w-[30%] flex items-center justify-center border-r border-zinc-200 bg-zinc-50"
           style={{fontFamily: textFont,  color: brandColor }}

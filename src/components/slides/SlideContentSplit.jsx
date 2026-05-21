@@ -64,7 +64,7 @@ export default function SlideContentSplit({
   const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
 
   return (
-    <div className="w-full h-full bg-surface-dark flex flex-col p-10 pb-16 relative" style={{ borderBottom: `10px solid ${brandColor}` }}>
+    <div className="w-full h-full bg-surface-dark flex flex-col pt-10 pb-16 px-[32px] relative" style={{ borderBottom: `10px solid ${brandColor}` }}>
       <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
         index={index + 1}
         total={slideCount}
@@ -109,7 +109,7 @@ export default function SlideContentSplit({
           )}
         </SmartElement>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-[6px]">
           <div className="h-[2px] w-5" style={{ backgroundColor: brandColor }} />
           <SmartElement
             slideIndex={index}
@@ -140,7 +140,7 @@ export default function SlideContentSplit({
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
           onSelectElement={onSelectElement}
-          className="mb-6"
+          className="mb-[14px]"
         >
           <h2
             contentEditable
@@ -167,7 +167,7 @@ export default function SlideContentSplit({
             suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="font-playfair text-zinc-400 outline-none antialiased line-clamp-3 overflow-hidden -translate-y-[2px]"
-            style={{ fontSize: `${18 * sText}px`, lineHeight: 1.6 }}
+            style={{ fontSize: `${21 * sText}px`, lineHeight: 1.6 }}
           >
             {data.texto_apoio}
           </p>
