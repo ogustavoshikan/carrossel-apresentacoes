@@ -4511,7 +4511,7 @@ export function CoverExtraVariant172({
     <div className="relative w-full h-full bg-zinc-900 overflow-hidden flex flex-col">
       
       {/* Top Image Block */}
-      <div className="h-[55%] w-full relative overflow-hidden shrink-0">
+      <div className="h-[53%] w-full relative overflow-hidden shrink-0 border-b-[8px] border-white">
          <ImageBg data={data} className="absolute inset-0" />
          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
          
@@ -4524,8 +4524,6 @@ export function CoverExtraVariant172({
 
       {/* Bottom Text Block */}
       <div className="flex-1 p-6 flex flex-col justify-center relative z-10" style={{ backgroundColor: brandColor }}>
-         {/* Detalhe de fita lateral */}
-         <div className="absolute top-0 left-6 w-12 h-1 bg-white pointer-events-none" />
 
          <div className="mt-4">
            <SmartField field="badge_text" {...sp}>
@@ -4542,7 +4540,7 @@ export function CoverExtraVariant172({
                contentEditable suppressContentEditableWarning
                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
                className="font-outfit text-white font-black uppercase leading-[0.85] tracking-tighter outline-none break-words"
-               style={{ fontSize: `${40 * sTitle}px` }}
+               style={{ fontSize: `${50 * sTitle}px` }}
              >
                {data.titulo || 'Absoluto'}
              </h2>
@@ -4576,150 +4574,6 @@ export function CoverExtraVariant172({
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 173 — THE TYPOGRAPHIC ECHO
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant173({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full bg-[#0A0A0A] overflow-hidden flex flex-col justify-end items-center border border-zinc-800">
-      <style dangerouslySetInnerHTML={{__html: `
-        .text-outline-light-173 { -webkit-text-stroke: 1px rgba(255,255,255,0.05); color: transparent; }
-      `}} />
-
-      {/* Background Texture (Echoing typography) */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none flex flex-col justify-start pt-4 gap-2 opacity-100 z-0">
-         {[...Array(6)].map((_, i) => (
-           <h2 key={i} className="font-outfit text-[4.5rem] font-black uppercase text-outline-light-173 leading-none tracking-tighter whitespace-nowrap transform -translate-x-4">
-             {data.titulo || 'IMPACTO SUPREMO'}
-           </h2>
-         ))}
-      </div>
-
-      {/* Imagem Flutuante */}
-      <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-square rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-10 shrink-0">
-        <ImageBg data={data} className="absolute inset-0" />
-      </div>
-
-      {/* Footer Card */}
-      <div className="relative w-[90%] bg-white rounded-xl mb-6 p-5 shadow-2xl flex justify-between items-center z-20">
-         <div>
-           <SmartField field="badge_text" {...sp}>
-             <span 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-               className="font-outfit text-[8px] uppercase tracking-[0.2em] font-bold block mb-1 outline-none" style={{ color: brandColor }}>
-               {data.badge_text || 'Nova Experiência'}
-             </span>
-           </SmartField>
-           <SmartField field="titulo" {...sp}>
-             <h3 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-               className="font-outfit text-black font-black uppercase leading-none tracking-tight outline-none break-words"
-               style={{ fontSize: `${30 * sTitle}px` }}
-             >
-               {data.titulo || 'Design Tátil'}
-             </h3>
-           </SmartField>
-         </div>
-         <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: brandColor }}>
-           <Fingerprint className="w-5 h-5 text-white" />
-         </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 174 — THE BRUTAL HORIZON
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant174({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full bg-zinc-950 overflow-hidden flex flex-col">
-      {/* Top Image */}
-      <div className="h-[55%] w-full relative shrink-0">
-        <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-90" />
-      </div>
-
-      {/* Brutalist Split & Footer */}
-      <div className="flex-1 relative p-8 flex flex-col justify-end overflow-hidden z-10" style={{ backgroundColor: brandColor }}>
-         {/* Linha de corte brutal */}
-         <div className="absolute top-0 left-0 w-full h-[2px] bg-white/30" />
-         {/* Gradiente interno sutil para não ficar chapado parecendo paint */}
-         <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none" />
-
-         <div className="relative z-10">
-           <SmartField field="titulo" {...sp}>
-             <h2 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-               className="font-outfit text-white font-black uppercase leading-[0.85] tracking-tighter drop-shadow-xl outline-none break-words"
-               style={{ fontSize: `${50 * sTitle}px` }}
-             >
-               {data.titulo || 'Sabor em\nEvidência'}
-             </h2>
-           </SmartField>
-           
-           <SmartField field="texto_apoio" {...sp}>
-             <p 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-               className="font-serif italic text-white/90 text-[13px] mt-4 mb-6 leading-relaxed max-w-[85%] outline-none break-words">
-               {data.texto_apoio || 'O contraste absoluto entre a simplicidade visual e a complexidade do paladar.'}
-             </p>
-           </SmartField>
-
-           <div className="flex items-center gap-3">
-              <SmartField field="badge_text" {...sp}>
-                <span 
-                  contentEditable suppressContentEditableWarning
-                  onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                  className="font-outfit text-white text-[10px] font-bold uppercase tracking-[0.2em] relative outline-none">
-                  {data.badge_text || 'Descubra'}
-                  <div className="absolute -bottom-1 left-0 w-full h-[1px] bg-white" />
-                </span>
-              </SmartField>
-              <MoveRight className="w-4 h-4 text-white" />
-           </div>
-         </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // EXTRA VARIANTE 176 — THE ORGANIC OVERLAP
@@ -4761,10 +4615,10 @@ export function CoverExtraVariant176({
              className="absolute -top-6 right-8 w-14 h-14 rounded-full flex items-center justify-center"
              style={{ backgroundColor: brandColor, boxShadow: `0 10px 20px ${brandColor}66` }}
            >
-              <MoveUpRight className="w-6 h-6 text-white" />
+              <ArrowRight className="w-6 h-6 text-white" />
            </div>
 
-           <div>
+           <div className="-translate-y-[15px]">
              <SmartField field="texto_apoio" {...sp}>
                <p 
                  contentEditable suppressContentEditableWarning
@@ -4802,82 +4656,6 @@ export function CoverExtraVariant176({
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 177 — THE OBSCURED EDGE
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant177({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full bg-zinc-950 overflow-hidden border border-white/5 flex flex-col">
-      <style dangerouslySetInnerHTML={{__html: `
-        .text-glow-177 { text-shadow: 0 0 40px ${brandColor}80; }
-      `}} />
-
-      {/* Tratamento na imagem para esconder pixels */}
-      <div className="absolute inset-0 h-[70%] shrink-0">
-         <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-50" />
-         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black pointer-events-none" />
-      </div>
-
-      {/* Acento Lateral Agressivo */}
-      <div 
-        className="absolute left-0 top-1/4 bottom-1/4 w-1.5 rounded-r-full"
-        style={{ backgroundColor: brandColor, boxShadow: `0 0 20px ${brandColor}CC` }}
-      />
-
-      <div className="absolute top-8 w-full px-8 flex justify-between items-center z-10 pointer-events-none">
-         <SmartField field="badge_text" {...sp}>
-           <span 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-             className="text-zinc-500 font-outfit text-[9px] uppercase tracking-[0.3em] font-bold outline-none pointer-events-auto block">
-             {data.badge_text || 'Concept 01'}
-           </span>
-         </SmartField>
-         <div className="w-8 h-[1px] bg-zinc-700" />
-      </div>
-
-      <div className="mt-auto p-8 relative z-10 flex flex-col justify-end h-[50%]">
-         <div className="border-l-2 pl-5" style={{ borderColor: brandColor }}>
-           <SmartField field="titulo" {...sp}>
-             <h2 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-               className="font-outfit text-white font-black uppercase leading-[0.85] tracking-tighter mb-4 text-glow-177 outline-none break-words"
-               style={{ fontSize: `${40 * sTitle}px` }}
-             >
-               {data.titulo || 'Impacto\nObscuro'}
-             </h2>
-           </SmartField>
-           <SmartField field="texto_apoio" {...sp}>
-             <p 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-               className="font-serif italic text-zinc-400 text-[13px] leading-relaxed max-w-[90%] outline-none break-words">
-               {data.texto_apoio || 'A arte de esconder as imperfeições e revelar apenas o desejo puro.'}
-             </p>
-           </SmartField>
-         </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // EXTRA VARIANTE 183 — THE PROFILE SPLIT
@@ -4893,9 +4671,8 @@ export function CoverExtraVariant183({
   return (
     <div className="relative w-full h-full bg-zinc-950 overflow-hidden flex flex-col">
       {/* Top Half Image */}
-      <div className="h-[55%] w-full relative overflow-hidden shrink-0">
+      <div className="h-[52%] w-full relative overflow-hidden shrink-0">
          <ImageBg data={data} className="absolute inset-0" />
-         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
          <div className="absolute top-6 left-6 flex items-center gap-2 pointer-events-none">
            <Sparkles className="w-4 h-4" style={{ color: brandColor }} />
            <span className="text-white font-outfit text-[9px] uppercase tracking-[0.3em] font-bold">Premium</span>
@@ -4903,51 +4680,49 @@ export function CoverExtraVariant183({
       </div>
 
       {/* Bottom Half Content */}
-      <div className="flex-1 bg-zinc-950 relative p-6 pt-10 flex flex-col justify-end z-10">
+      <div className="flex-1 bg-white relative p-6 pt-10 flex flex-col justify-end z-10">
          {/* Avatar quebrando a linha */}
          <div className="absolute -top-8 left-6">
-           <div className="p-1.5 bg-zinc-950 rounded-full shadow-2xl">
-              {brandAvatar ? (
-                <img src={brandAvatar} className="w-14 h-14 rounded-full object-cover border border-zinc-800" alt="Author" />
-              ) : (
-                <div className="w-14 h-14 rounded-full bg-zinc-800 border border-zinc-700" />
-              )}
-           </div>
+             {brandAvatar ? (
+               <img src={brandAvatar} className="w-14 h-14 rounded-full object-cover border-[4px] border-white shadow-2xl" alt="Author" />
+             ) : (
+               <div className="w-14 h-14 rounded-full bg-zinc-100 border-[4px] border-white shadow-2xl" />
+             )}
          </div>
 
-         <div className="mb-2">
-           <SmartField field="badge_text" {...sp}>
-             <span 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-               className="font-outfit text-[10px] font-black uppercase tracking-widest outline-none block"
-               style={{ color: brandColor }}
-             >
-               {data.badge_text || 'Dicas do Especialista'}
-             </span>
-           </SmartField>
+         <div className="-translate-y-[25px]"><div className="mb-2">
+            <SmartField field="badge_text" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-outfit text-[10px] font-black uppercase tracking-widest outline-none block"
+                style={{ color: brandColor }}
+              >
+                {data.badge_text || 'Dicas do Especialista'}
+              </span>
+            </SmartField>
          </div>
          <SmartField field="titulo" {...sp}>
            <h2 
              contentEditable suppressContentEditableWarning
              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-             className="font-outfit text-white font-black uppercase leading-[0.9] tracking-tighter outline-none break-words"
-             style={{ fontSize: `${45 * sTitle}px` }}
+             className="font-outfit text-[#1A1A1A] font-black uppercase leading-[0.9] tracking-tighter outline-none break-words"
+             style={{ fontSize: `${50 * sTitle}px` }}
            >
              {data.titulo || 'Segredo\nRevelado'}
            </h2>
-         </SmartField>
+         </SmartField></div>
          
-         <div className="mt-5 pt-5 border-t border-zinc-800 flex justify-between items-center">
-           <SmartField field="texto_apoio" {...sp}>
-             <p 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-               className="font-serif italic text-zinc-500 text-[13px] outline-none break-words flex-1 pr-4">
-               {data.texto_apoio || 'O toque sutil que transforma.'}
-             </p>
-           </SmartField>
-           <MoveUpRight className="w-5 h-5 text-zinc-600 shrink-0" />
+         <div className="mt-5 pt-5 border-t border-zinc-200 flex justify-between items-center">
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-serif italic text-[#52525b] text-[13px] outline-none break-words flex-1 pr-4">
+                {data.texto_apoio || 'O toque sutil que transforma.'}
+              </p>
+            </SmartField>
+            <MoveUpRight className="w-5 h-5 text-zinc-600 shrink-0" />
          </div>
       </div>
 
@@ -4976,7 +4751,7 @@ export function CoverExtraVariant185({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-zinc-950 overflow-hidden flex border border-white/5">
+    <div className="relative w-full h-full bg-zinc-950 overflow-hidden flex">
       {/* Bloco Sólido Esquerdo */}
       <div 
         className="w-[55%] p-6 flex flex-col justify-center relative z-10"
@@ -5023,7 +4798,14 @@ export function CoverExtraVariant185({
       </div>
 
       {/* O Botão de Intersecção */}
-      <div className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.3)] z-20 pointer-events-none">
+      <div 
+        className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-20 pointer-events-none"
+        style={{
+          '--tw-shadow': '0 5px 10px rgb(0 0 0 / 15%)',
+          '--tw-shadow-colored': '0 10px 20px var(--tw-shadow-color)',
+          boxShadow: 'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)'
+        }}
+      >
          <ArrowRight style={{ color: brandColor }} className="w-5 h-5" />
       </div>
 
@@ -5040,79 +4822,6 @@ export function CoverExtraVariant185({
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 186 — THE ARCH BLOCK
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant186({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div 
-      className="relative w-full h-full overflow-hidden p-3 flex flex-col"
-      style={{ backgroundColor: brandColor }}
-    >
-      {/* O Arco */}
-      <div className="h-[55%] w-full rounded-t-full overflow-hidden border-[6px] border-[#030303]/10 relative shadow-inner shrink-0">
-        <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-        <div className="absolute top-6 w-full flex justify-center pointer-events-none">
-          {isVerified && <BadgeCheck className="w-5 h-5 text-white drop-shadow-md" />}
-        </div>
-      </div>
-
-      {/* O Bloco de Texto */}
-      <div className="flex-1 mt-6 text-center flex flex-col items-center justify-center relative z-10">
-         <div 
-           className="bg-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] mb-4 shadow-lg"
-           style={{ color: brandColor }}
-         >
-           <SmartField field="badge_text" {...sp}>
-             <span 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-               className="outline-none block">
-               {data.badge_text || 'Exclusivo'}
-             </span>
-           </SmartField>
-         </div>
-         <SmartField field="titulo" {...sp}>
-           <h2 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-             className="font-outfit text-white font-black uppercase leading-none tracking-tighter outline-none break-words"
-             style={{ fontSize: `${50 * sTitle}px` }}
-           >
-             {data.titulo || 'A Arte do\nSabor'}
-           </h2>
-         </SmartField>
-         <div className="w-8 h-[2px] bg-white/30 mt-4 mb-3" />
-         <SmartField field="texto_apoio" {...sp}>
-           <p 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-             className="font-serif italic text-white/80 text-[13px] tracking-wide outline-none break-words max-w-[85%]">
-             {data.texto_apoio || 'Uma obra-prima comestível.'}
-           </p>
-         </SmartField>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={false}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // EXTRA VARIANTE 187 — THE MINIMAL PILLAR
@@ -5143,11 +4852,11 @@ export function CoverExtraVariant187({
 
       {/* Área de Conteúdo */}
       <div className="flex-1 relative flex flex-col justify-center overflow-hidden">
-         <div className="absolute top-6 right-0 w-[85%] h-[45%] rounded-l-2xl overflow-hidden shadow-2xl">
+         <div className="absolute top-6 left-6 right-6 h-[45%] rounded-2xl overflow-hidden">
             <ImageBg data={data} className="absolute inset-0" />
          </div>
          
-         <div className="relative z-10 px-6 mt-32 w-full">
+         <div className="relative z-10 px-6 mt-[133px] w-full">
             <SmartField field="titulo" {...sp}>
               <h2 
                 contentEditable suppressContentEditableWarning
@@ -5190,453 +4899,9 @@ export function CoverExtraVariant187({
   );
 }
 
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 188 — THE ELEVATED CARD
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant188({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
-  return (
-    <div className="relative w-full h-full bg-black overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-white/10">
-      {/* Background Imersivo */}
-      <div className="absolute inset-0 h-[70%]">
-         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none" />
-         <ImageBg data={data} className="absolute inset-0 opacity-80" />
-      </div>
 
-      {/* O Card Elevado */}
-      <div 
-        className="absolute bottom-0 w-full h-[40%] rounded-t-[2rem] p-6 shadow-[0_-20px_40px_rgba(0,0,0,0.4)] flex flex-col justify-between z-20"
-        style={{ backgroundColor: brandColor }}
-      >
-         
-         {/* Ícone flutuante estilo selo */}
-         <div 
-           className="absolute -top-7 right-8 w-14 h-14 bg-[#030303] rounded-full flex items-center justify-center shadow-xl border-4"
-           style={{ borderColor: brandColor }}
-         >
-            <ArrowUpRight className="text-white w-5 h-5" />
-         </div>
 
-         <div className="mt-2">
-            <SmartField field="badge_text" {...sp}>
-              <span 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="text-white/60 font-outfit text-[10px] uppercase tracking-[0.2em] font-bold mb-2 block outline-none">
-                {data.badge_text || 'Edição Limitada'}
-              </span>
-            </SmartField>
-            <SmartField field="titulo" {...sp}>
-              <h2 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-                className="text-white font-outfit font-black uppercase leading-[0.9] tracking-tight outline-none break-words"
-                style={{ fontSize: `${45 * sTitle}px` }}
-              >
-                {data.titulo || 'Supremacia'}
-              </h2>
-            </SmartField>
-            <SmartField field="texto_apoio" {...sp}>
-              <p 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="font-serif italic text-white/90 mt-3 text-[14px] outline-none break-words max-w-[85%]">
-                {data.texto_apoio || 'O indescritível em sua forma mais pura e sofisticada.'}
-              </p>
-            </SmartField>
-         </div>
-
-         <div className="w-full h-[1px] bg-gradient-to-r from-white/30 to-transparent mt-auto" />
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 193 — THE DIAGONAL EDGE
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant193({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full bg-zinc-900 overflow-hidden flex flex-col">
-      <div className="relative h-[65%] w-full overflow-hidden shrink-0">
-        <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
-        <div className="absolute top-5 left-5 flex items-center gap-2 pointer-events-none">
-           <span className="text-white font-outfit text-[10px] tracking-[0.2em] uppercase font-bold">
-             {showBrandHandle ? `@${brandHandle}` : 'Studio'}
-           </span>
-           {isVerified && <BadgeCheck className="w-4 h-4" style={{ color: brandColor }} />}
-        </div>
-      </div>
-      
-      {/* O Corte Diagonal */}
-      <div 
-        className="absolute bottom-0 left-0 w-full h-[45%] origin-bottom-right -skew-y-6 transform translate-y-4 pointer-events-none"
-        style={{ backgroundColor: brandColor }}
-      />
-      
-      <div 
-        className="absolute bottom-0 left-0 w-full h-[40%] p-6 flex flex-col justify-end z-10"
-        style={{ backgroundColor: brandColor }}
-      >
-         <div className="w-12 h-1 bg-white/30 mb-4 rounded-full pointer-events-none" />
-         <SmartField field="titulo" {...sp}>
-           <h2 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-             className="font-outfit text-white font-black uppercase leading-[0.9] tracking-tighter outline-none break-words"
-             style={{ fontSize: `${40 * sTitle}px` }}
-           >
-             {data.titulo || 'Título de\nImpacto'}
-           </h2>
-         </SmartField>
-         <SmartField field="texto_apoio" {...sp}>
-           <p 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-             className="font-serif italic text-white/80 text-[14px] mt-3 outline-none break-words">
-             {data.texto_apoio || 'Subtítulo descritivo e absurdamente convidativo.'}
-           </p>
-         </SmartField>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={false}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 194 — THE FLOATING SPOTLIGHT
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant194({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  // Helper function to extract rgba parts for the shadow
-  const getShadowColor = (hex) => {
-    let color = hex || '#DE1E4D';
-    if (color.startsWith('#')) {
-      let r = parseInt(color.slice(1, 3), 16) || 222;
-      let g = parseInt(color.slice(3, 5), 16) || 30;
-      let b = parseInt(color.slice(5, 7), 16) || 77;
-      return `rgba(${r}, ${g}, ${b}, 0.3)`;
-    }
-    return 'rgba(222, 30, 77, 0.3)';
-  };
-
-  return (
-    <div 
-      className="relative w-full h-full bg-black overflow-hidden ring-1 ring-white/5"
-      style={{ boxShadow: `0 0 50px ${getShadowColor(brandColor).replace('0.3', '0.15')}` }}
-    >
-      <ImageBg data={data} className="absolute inset-0 opacity-40" />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] pointer-events-none" />
-      
-      <div className="absolute top-6 w-full text-center flex justify-center items-center gap-2 opacity-70 pointer-events-none">
-        <span className="text-white font-outfit text-[9px] tracking-[0.3em] uppercase">
-          {showBrandHandle ? `@${brandHandle}` : 'Spotlight'}
-        </span>
-        <div className="w-1 h-1 rounded-full" style={{ backgroundColor: brandColor }} />
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
-         <div 
-           className="w-full bg-white rounded-[2rem] p-8 text-center pointer-events-auto relative overflow-hidden"
-           style={{ boxShadow: `0 20px 40px ${getShadowColor(brandColor)}` }}
-         >
-           <div className="absolute top-0 left-0 w-full h-1 pointer-events-none" style={{ backgroundColor: brandColor }} />
-           <SmartField field="badge_text" {...sp}>
-             <span 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-               className="font-outfit text-[10px] font-bold tracking-[0.2em] uppercase mb-4 block outline-none"
-               style={{ color: brandColor }}
-             >
-               {data.badge_text || 'Destaque'}
-             </span>
-           </SmartField>
-           <SmartField field="titulo" {...sp}>
-             <h2 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-               className="font-outfit text-black font-black uppercase leading-[0.9] tracking-tighter outline-none break-words"
-               style={{ fontSize: `${40 * sTitle}px` }}
-             >
-               {data.titulo || 'Título de\nImpacto'}
-             </h2>
-           </SmartField>
-           <SmartField field="texto_apoio" {...sp}>
-             <p 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-               className="font-serif italic text-zinc-500 text-[13px] mt-4 outline-none break-words">
-               {data.texto_apoio || 'Uma experiência indescritível para o seu paladar.'}
-             </p>
-           </SmartField>
-           <div className="mt-6 inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 pointer-events-none">
-              <ArrowRight className="w-4 h-4 text-black" />
-           </div>
-         </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 195 — THE LUXURY FRAME
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant195({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full overflow-hidden p-2 shadow-2xl flex flex-col" style={{ backgroundColor: brandColor }}>
-      <div className="w-full flex-1 bg-zinc-950 rounded-[1.25rem] relative overflow-hidden flex flex-col border border-white/10">
-        
-        <div className="flex-1 relative p-4 pb-0 shrink-0">
-          <div className="w-full h-full rounded-2xl overflow-hidden relative">
-            <ImageBg data={data} className="absolute inset-0" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          </div>
-        </div>
-
-        {/* Overlapping Text Box */}
-        <div className="relative z-10 bg-white mx-4 -mt-12 mb-4 rounded-xl p-5 shadow-2xl">
-          <SmartField field="texto_apoio" {...sp}>
-            <p 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-outfit text-[9px] font-bold tracking-[0.2em] uppercase text-center mb-2 outline-none break-words"
-              style={{ color: brandColor }}
-            >
-               {data.texto_apoio || 'Subtítulo Descritivo'}
-            </p>
-          </SmartField>
-          <SmartField field="titulo" {...sp}>
-            <h2 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-outfit text-black font-black uppercase text-center leading-none tracking-tight outline-none break-words"
-              style={{ fontSize: `${24 * sTitle}px` }}
-            >
-               {data.titulo || 'Título de Impacto'}
-            </h2>
-          </SmartField>
-          <div className="w-full flex justify-center mt-3 pointer-events-none">
-             <div className="w-8 h-[2px] bg-black/10 rounded-full" />
-          </div>
-        </div>
-
-        <div className="absolute top-8 left-8 pointer-events-none">
-           {isVerified && <BadgeCheck className="w-5 h-5 text-white/90 drop-shadow-md" />}
-        </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={false}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 196 — THE EDITORIAL SPLIT
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant196({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div 
-      className="relative w-full h-full overflow-hidden shadow-2xl flex flex-col"
-      style={{ backgroundColor: brandColor }}
-    >
-      <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
-         <div className="flex items-center gap-2 mb-6 pointer-events-none">
-           <Sparkles className="w-4 h-4 text-white" />
-           <span className="text-white font-outfit text-[10px] tracking-[0.2em] uppercase font-bold">
-             {showBrandHandle ? `@${brandHandle}` : 'Premium'}
-           </span>
-         </div>
-         
-         <SmartField field="titulo" {...sp}>
-           <h2 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-             className="font-outfit text-white font-black uppercase leading-[0.85] tracking-tighter outline-none break-words"
-             style={{ fontSize: `${50 * sTitle}px` }}
-           >
-             {data.titulo || 'Título\nDe\nImpacto'}
-           </h2>
-         </SmartField>
-         
-         <div className="mt-8 flex items-center justify-between">
-           <SmartField field="texto_apoio" {...sp}>
-             <p 
-               contentEditable suppressContentEditableWarning
-               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-               className="font-serif italic text-white/90 text-[14px] max-w-[70%] leading-tight outline-none break-words">
-               {data.texto_apoio || 'Subtítulo descritivo e extremamente convidativo.'}
-             </p>
-           </SmartField>
-           <ArrowUpRight className="w-6 h-6 text-white opacity-50 shrink-0 pointer-events-none" />
-         </div>
-      </div>
-
-      <div className="h-[35%] w-full relative overflow-hidden bg-black shrink-0">
-         <div 
-           className="absolute top-0 left-0 w-full h-8 z-10 pointer-events-none" 
-           style={{ background: `linear-gradient(to bottom, ${brandColor}, transparent)` }}
-         />
-         <ImageBg data={data} className="absolute inset-0 mix-blend-luminosity opacity-80" />
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
-
-// ═══════════════════════════════════════════════════════════
-// EXTRA VARIANTE 199 — GLASSMORPHISM PREMIUM
-// ═══════════════════════════════════════════════════════════
-export function CoverExtraVariant199({
-  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
-  isVerified, titleScale, textScale, showMetrics, onActionStart,
-  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
-}) {
-  const sTitle = titleScale / 100;
-  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
-
-  return (
-    <div className="relative w-full h-full overflow-hidden bg-zinc-800">
-      <ImageBg data={data} className="absolute inset-0 opacity-80" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 pointer-events-none" />
-
-      <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none">
-         <span className="backdrop-blur-md bg-black/40 text-white font-outfit text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 rounded-full border border-white/20">
-           {showBrandHandle ? `@${brandHandle}` : 'Premium'}
-         </span>
-         <Sparkles className="w-4 h-4" style={{ color: brandColor }} />
-      </div>
-
-      <div 
-        className="absolute bottom-4 left-4 right-4 backdrop-blur-xl bg-white/10 border border-white/20 p-5 rounded-xl border-t-2 z-10"
-        style={{ borderTopColor: brandColor }}
-      >
-         <SmartField field="titulo" {...sp}>
-           <h2 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-             className="font-outfit text-white font-bold mb-1 outline-none break-words"
-             style={{ fontSize: `${24 * sTitle}px` }}
-           >
-             {data.titulo || 'Visão Além'}
-           </h2>
-         </SmartField>
-         <SmartField field="texto_apoio" {...sp}>
-           <p 
-             contentEditable suppressContentEditableWarning
-             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-             className="text-zinc-300 text-[12px] font-light mb-4 leading-relaxed outline-none break-words">
-             {data.texto_apoio || 'Transparência que revela a verdadeira essência.'}
-           </p>
-         </SmartField>
-         <div 
-           className="w-full py-2 rounded text-white font-outfit text-[10px] font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 pointer-events-none"
-           style={{ backgroundColor: brandColor }}
-         >
-            <SmartField field="badge_text" {...sp}>
-              <span 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="outline-none block"
-              >
-                {data.badge_text || 'Deslize para ver'}
-              </span>
-            </SmartField>
-            <ArrowUpRight className="w-3 h-3" />
-         </div>
-      </div>
-
-      <SlideHeader
-        data={data} slideIndex={index} index={index + 1} total={slideCount}
-        brandHandle={brandHandle} showBrandHandle={false}
-        showSlideCounter={false}
-        brandAvatar={null} brandColor={brandColor} isVerified={isVerified}
-        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
-        hideDot={true}
-      />
-    </div>
-  );
-}
 
 // ═══════════════════════════════════════════════════════════
 // EXTRA VARIANTE 200 — EDITORIAL HIGH-FASHION
@@ -5704,6 +4969,660 @@ export function CoverExtraVariant200({
   );
 }
 
+// Auxiliar para extrair o texto limpo das spans editáveis de forma robusta
+function extractTextFromSpansHtml(htmlString) {
+  if (!htmlString) return '';
+  if (!htmlString.includes('<') && !htmlString.includes('>')) {
+    return htmlString.trim();
+  }
+  try {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlString;
+    const spans = tempDiv.getElementsByTagName('span');
+    if (spans.length > 0) {
+      const texts = [];
+      for (let i = 0; i < spans.length; i++) {
+        const txt = spans[i].textContent || spans[i].innerText || '';
+        if (txt.trim()) {
+          texts.push(txt.trim());
+        }
+      }
+      return texts.join('\n');
+    }
+    const textLines = tempDiv.innerText || tempDiv.textContent || '';
+    return textLines.split('\n').map(line => line.trim()).filter(Boolean).join('\n');
+  } catch (err) {
+    return htmlString.replace(/<[^>]+>/g, '\n')
+      .split('\n')
+      .map(line => line.trim())
+      .filter(Boolean)
+      .join('\n');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 201 — MINHA CONFEITARIA
+// ═══════════════════════════════════════════════════════════
+function sanitizeTextExtra201(value, defaultVal, templateDefaults = []) {
+  if (value === undefined || value === null) {
+    return defaultVal;
+  }
+
+  let text = '';
+  if (typeof value === 'object') {
+    if (Array.isArray(value)) {
+      text = value.map(item => {
+        if (typeof item === 'object' && item !== null) {
+          return item.text || item.value || JSON.stringify(item);
+        }
+        return String(item);
+      }).join('\n');
+    } else {
+      text = value.text || value.value || value.content || '';
+      if (!text) {
+        try {
+          const str = String(value);
+          if (str !== '[object Object]') {
+            text = str;
+          } else {
+            text = '';
+          }
+        } catch (e) {
+          text = '';
+        }
+      }
+    }
+  } else {
+    text = String(value);
+  }
+
+  // Se o texto contiver HTML, extrair apenas o texto das spans
+  if (text.includes('<') && text.includes('>')) {
+    text = extractTextFromSpansHtml(text);
+  }
+
+  text = text.trim();
+
+  const isObjectString = text === '[object Object]' || 
+                         text.includes('[object Object]') || 
+                         text.toLowerCase().includes('[object') || 
+                         text.toLowerCase().includes('object, object') ||
+                         text.toLowerCase() === 'object';
+                         
+  const isTemplateDefault = templateDefaults.some(d => d.toLowerCase().trim() === text.toLowerCase().trim());
+
+  if (!text || isObjectString || isTemplateDefault) {
+    return defaultVal;
+  }
+
+  return text;
+}
+
+export function CoverExtraVariant201({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  // Fallbacks de imagem solicitados no arquivo de texto
+  const defaultImage = "https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp";
+  const bgData = { ...data, imageUrl: data.imageUrl || defaultImage };
+
+  // Suporte a pílulas de texto baseadas no texto_apoio ou fallback do layout original
+  const textApoioDefault = "Por que escolher a\nConfeitaria da Mari\npara seu";
+  
+  // Sanitização ultra robusta para texto_apoio e titulo
+  const rawTextApoio = sanitizeTextExtra201(data.texto_apoio, textApoioDefault, [
+    'Subtítulo descritivo e convidativo',
+    'Subtítulo descritivo',
+    'Descrição detalhada e envolvente do conteúdo deste slide.'
+  ]);
+  
+  const pilulas = rawTextApoio ? rawTextApoio.split('\n') : [];
+  const pilulasHtml = pilulas.map(p => 
+    `<span class="bg-[#FAF6F0] text-[#3d1c13] text-[35px] font-extrabold px-1.5 py-0 leading-[1.0] rounded-md shadow-md tracking-tight whitespace-nowrap">${p}</span>`
+  ).join('\n');
+
+  const rawTitulo = sanitizeTextExtra201(data.titulo, 'Evento Corporativo?', [
+    'TOP 5', 
+    'TÍTULO DE IMPACTO', 
+    'TÍTULO DE\nIMPACTO', 
+    'TÍTULO DE\r\nIMPACTO',
+    'TÍTULO DE IMPACTO DO PRODUTO',
+    'Título do Conteúdo'
+  ]);
+
+  // Tratamento de exibição do nome do logotipo do cabeçalho
+  const logoMainWord = brandHandle ? (brandHandle.toLowerCase().includes('confeitaria') ? 'Confeitaria' : brandHandle) : 'Confeitaria';
+  const logoSubWord = brandHandle ? (brandHandle.toLowerCase().includes('confeitaria') ? `da ${brandHandle.replace(/confeitaria/gi, '').replace(/da|do|de/gi, '').trim()}` : '') : 'da Mari';
+
+  return (
+    <div className="relative w-full h-full bg-[#3d1c13] flex flex-col justify-between overflow-hidden font-outfit text-white">
+      {/* Círculos de fundo sutil */}
+      <div className="absolute top-[-10%] left-[-10%] w-[120%] aspect-square rounded-full border border-white/5 pointer-events-none flex items-center justify-center">
+        <div className="w-[80%] aspect-square rounded-full border border-white/5 flex items-center justify-center">
+          <div className="w-[60%] aspect-square rounded-full border border-white/5" />
+        </div>
+      </div>
+
+      {/* Top Header Logo */}
+      <div className="relative z-10 flex flex-col items-center pt-[17px] shrink-0">
+        {brandLogo && showBrandLogo ? (
+          <div className="w-10 h-10 rounded-full overflow-hidden mb-1">
+            <img src={brandLogo} alt="Logo" className="w-full h-full object-cover" />
+          </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <svg className="w-8 h-8 text-amber-500 fill-current" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="6 6" />
+              <circle cx="50" cy="50" r="25" className="text-[#DE1E4D]" />
+              <circle cx="50" cy="50" r="10" fill="#fff" />
+            </svg>
+            <div className="text-left">
+              <h1 className="text-[11px] font-black tracking-widest leading-none uppercase">{logoMainWord}</h1>
+              {logoSubWord && (
+                <p className="text-[9px] font-light tracking-wider leading-none text-zinc-300 mt-0.5">{logoSubWord}</p>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Middle Typographic Block */}
+      <div className="relative z-10 px-6 flex flex-col items-center text-center justify-center flex-1 min-h-0 mt-[-10px] pb-4">
+        <SmartField field="texto_apoio" {...sp}>
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => {
+              const cleanedText = extractTextFromSpansHtml(e.currentTarget.innerText);
+              onTextChange(index, 'texto_apoio', cleanedText);
+            }}
+            className="flex flex-col gap-[7px] items-center outline-none cursor-text select-text"
+            style={{ transform: `scale(${sText})` }}
+            dangerouslySetInnerHTML={{ __html: pilulasHtml }}
+          />
+        </SmartField>
+        
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-playfair italic text-white leading-none mt-0.5 drop-shadow-md outline-none cursor-text select-text break-words max-w-[340px]"
+            style={{ fontSize: `${60 * sTitle}px` }}
+          >
+            {rawTitulo}
+          </h2>
+        </SmartField>
+      </div>
+
+      {/* Badge posicionado exatamente na linha divisória */}
+      <div className="absolute bottom-[50%] left-1/2 z-20" style={{ transform: 'translate(-50%, 50%)' }}>
+        <SmartField field="badge_text" {...sp}>
+          <div className="bg-white text-black px-3 py-1 rounded-full text-[9px] font-bold tracking-wider uppercase flex items-center gap-1 shadow-md">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => {
+                let text = e.currentTarget.innerText.trim();
+                text = text.replace(/,?\s*\[object Object\]/gi, '').trim();
+                onTextChange(index, 'badge_text', text);
+              }}
+              className="outline-none cursor-text select-text"
+            >
+              {(() => {
+                let txt = data.badge_text;
+                if (typeof txt === 'object' && txt !== null) {
+                  txt = txt.text || txt.value || '';
+                }
+                if (typeof txt !== 'string') {
+                  txt = String(txt || '');
+                }
+                txt = txt.replace(/,?\s*\[object Object\]/gi, '').trim();
+                return txt || 'Passe para o lado';
+              })()}
+            </span>
+            <ArrowRight className="w-3 h-3 text-[#DE1E4D] shrink-0" />
+          </div>
+        </SmartField>
+      </div>
+
+      {/* Bottom Team/Chef Photo Container */}
+      <div className="h-[50%] w-full relative mt-auto border-t-2 border-[#FAF6F0]/20 shrink-0 overflow-hidden">
+        <ImageBg data={bgData} className="w-full h-full object-cover" />
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 202 — POST BRANCO CLÁSSICO
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant202({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  // Imagens padrão/fallback
+  const defaultImage = "https://confeitarparavender.com.br/wp-content/uploads/2025/07/Sabores-de-brigadeiro-mais-vendidos.jpg";
+  const bgData = { ...data, imageUrl: data.imageUrl || defaultImage };
+
+  const defaultAvatar = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop";
+  const avatarUrl = brandAvatar || defaultAvatar;
+
+  const authorName = brandHandle || 'Post Branco Clássico';
+  const authorUsername = brandHandle ? `@${brandHandle.toLowerCase().replace(/@/g, '')}` : '@postbrancoclassico';
+
+  return (
+    <div className="relative w-full h-full bg-white flex flex-col justify-between p-6 font-outfit text-zinc-900 border border-zinc-200 overflow-hidden">
+      {/* Header Autor */}
+      <div 
+        className="flex items-center gap-3 relative z-10 shrink-0"
+        style={{ transform: 'translate(20px, 35px)' }}
+      >
+        <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-zinc-100 shadow-sm relative shrink-0">
+          <img 
+            src={avatarUrl} 
+            className="w-full h-full object-cover" 
+            alt={authorName} 
+          />
+        </div>
+        <div className="text-left">
+          <h3 className="font-bold text-sm tracking-tight leading-tight flex items-center gap-1">
+            {authorName} {isVerified && <BadgeCheck className="w-4 h-4 text-[#DE1E4D] fill-current" />}
+          </h3>
+          {showBrandHandle && (
+            <p className="text-zinc-500 text-xs mt-0.5 leading-none">{authorUsername}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Main Question & Alert Block */}
+      <div className="flex flex-col gap-2 text-left relative z-10 mt-[40px] pl-[20px]">
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="text-[25px] font-black leading-tight tracking-tight text-black outline-none cursor-text select-text break-words max-w-[340px]"
+            style={{ fontSize: `${25 * sTitle}px` }}
+          >
+            {data.titulo || '6 sinais de que seu bolo vai afundar antes mesmo de sair do forno'}
+          </h2>
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-[#0a0a0a] text-xs leading-relaxed font-light mt-[10px] outline-none cursor-text select-text break-words max-w-[340px]"
+            style={{ fontSize: `${17 * sText}px` }}
+          >
+            {data.texto_apoio || 'Seu bolo cresce lindo, mas depois de sair do forno ele afunda no meio?\nO problema quase nunca é o forno!'}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* Bottom Cake Image Block */}
+      <div 
+        className="rounded-2xl overflow-hidden relative shadow-inner border border-zinc-100 shrink-0 mb-8 ml-[20px]"
+        style={{ height: 'calc(48% - 25px)', width: 'calc(100% - 30px)' }}
+      >
+        <ImageBg data={bgData} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 204 — Croissant / Bakery Sale
+// Capa premium com círculo central emoldurado, códigos promocionais verticais e tipografia outline repetida no background.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant204({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const accent = brandColor || '#af704c';
+
+  return (
+    <div className="relative w-full h-full bg-[#f1ede9] overflow-hidden flex flex-col justify-between py-8 px-6 font-outfit select-none shrink-0">
+      
+      {/* TEXTO DE OUTLINE REPETIDO ATRÁS (50% OFF) */}
+      <div className="absolute inset-y-12 inset-x-0 flex flex-col justify-center items-center pointer-events-none z-0 opacity-80 shrink-0" style={{ transform: 'translateY(55px)' }}>
+        <span className="text-[82px] font-black leading-none tracking-tighter select-none uppercase shrink-0" 
+              style={{ fontFamily: '"Poppins", "Inter", sans-serif', WebkitTextStroke: `1.2px ${accent}66`, color: 'transparent' }}>
+          {data.badge_text || '50% OFF'}
+        </span>
+        <span className="text-[82px] font-black leading-none tracking-tighter select-none uppercase shrink-0" 
+              style={{ fontFamily: '"Poppins", "Inter", sans-serif', marginTop: '-10px', WebkitTextStroke: `1.2px ${accent}66`, color: 'transparent' }}>
+          {data.badge_text || '50% OFF'}
+        </span>
+        <span className="text-[82px] font-black leading-none tracking-tighter select-none uppercase shrink-0" 
+              style={{ fontFamily: '"Poppins", "Inter", sans-serif', marginTop: '-10px', WebkitTextStroke: `1.2px ${accent}66`, color: 'transparent' }}>
+          {data.badge_text || '50% OFF'}
+        </span>
+        <span className="text-[82px] font-black leading-none tracking-tighter select-none uppercase shrink-0" 
+              style={{ fontFamily: '"Poppins", "Inter", sans-serif', marginTop: '-10px', WebkitTextStroke: `1.2px ${accent}66`, color: 'transparent' }}>
+          {data.badge_text || '50% OFF'}
+        </span>
+        <span className="text-[82px] font-black leading-none tracking-tighter select-none uppercase shrink-0" 
+              style={{ fontFamily: '"Poppins", "Inter", sans-serif', marginTop: '-10px', WebkitTextStroke: `1.2px ${accent}66`, color: 'transparent' }}>
+          {data.badge_text || '50% OFF'}
+        </span>
+      </div>
+
+      {/* Top Text Block */}
+      <div className="relative z-10 text-center shrink-0">
+        <SmartField field="titulo" {...sp}>
+          <h2 contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="text-[80px] leading-none font-black tracking-tight uppercase outline-none break-words max-w-full"
+              style={{ fontSize: `${80 * sTitle}px`, color: accent, transform: 'translateY(-5px)' }}>
+            {data.titulo || 'BAKERY SALE'}
+          </h2>
+        </SmartField>
+        
+        {/* Caramel horizontal stripe */}
+        <SmartField field="texto_apoio" {...sp} className="w-full mt-2 inline-block">
+          <div contentEditable suppressContentEditableWarning
+               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+               className="text-[#f1ede9] text-[14.5px] font-bold tracking-[0.25em] py-0.5 px-4 rounded-xs shadow-sm uppercase w-full outline-none break-words"
+               style={{ backgroundColor: accent, transform: 'translateY(-5px)' }}>
+            {data.texto_apoio || 'UP TO 50% OFF ON CROISSANTS'}
+          </div>
+        </SmartField>
+      </div>
+
+      {/* Center Plate and Croissant */}
+      <div className="relative z-10 w-[70%] aspect-square mx-auto my-auto flex items-center justify-center shrink-0">
+        <div className="absolute w-[85%] h-[85%] bg-black/10 blur-xl rounded-full translate-y-4 shrink-0" />
+        <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/40 bg-white shadow-xl relative shrink-0">
+          <ImageBg data={data} className="w-full h-full absolute inset-0 shrink-0">
+            {!data.imageUrl && (
+              <img 
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800&auto=format&fit=crop" 
+                className="w-full h-full object-cover scale-110" 
+                alt="Croissant Fallback" 
+              />
+            )}
+          </ImageBg>
+        </div>
+      </div>
+
+      {/* Promo codes banners nas laterais */}
+      <div className="absolute left-3 top-1/2 -translate-y-1/2 border text-[8px] font-bold tracking-[0.25em] py-3.5 px-1 bg-[#f1ede9]/90 backdrop-blur-xs rounded-sm shadow-xs uppercase [writing-mode:vertical-lr] rotate-180 pointer-events-none shrink-0" 
+           style={{ borderColor: accent, color: accent }}>
+        PROMO CODE - {data.badge_text || 'BAKE50'}
+      </div>
+
+      <div className="absolute right-3 top-1/2 -translate-y-1/2 border text-[8px] font-bold tracking-[0.25em] py-3.5 px-1 bg-[#f1ede9]/90 backdrop-blur-xs rounded-sm shadow-xs uppercase [writing-mode:vertical-lr] pointer-events-none shrink-0" 
+           style={{ borderColor: accent, color: accent }}>
+        PROMO CODE - {data.badge_text || 'BAKE50'}
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showBrandLogo={showBrandLogo} brandLogo={brandLogo}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 205 — Macarons / Spring Sale
+// Capa fashion com macarons decorativos em perspectiva, card central com borda fina e selo circular de especialista no topo.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant205({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = (titleScale || 100) / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const accent = brandColor || '#ff6b6b';
+  const bgImg = data.imageUrl || "https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=800&auto=format&fit=crop";
+  const avatarImg = brandAvatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop";
+
+  const cleanText = (str) => {
+    if (!str) return '';
+    return str
+      .replace(/<[^>]*>/g, '') // remove tags HTML como <br>
+      .replace(/&nbsp;/g, '')  // remove &nbsp;
+      .replace(/&#8203;/g, '') // remove zero-width space
+      .trim();
+  };
+
+  const hasTitle = cleanText(data.titulo);
+  const hasTextApoio = cleanText(data.texto_apoio);
+  const hasBadgeText = cleanText(data.badge_text);
+
+  return (
+    <div className="relative w-full h-full bg-[#f6ebdf] flex flex-col justify-center items-center font-outfit p-4 select-none shrink-0">
+      
+      {/* Elementos espalhados no fundo (Macarons/Flores) */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute -top-4 -left-4 w-28 h-28 rounded-full overflow-hidden opacity-90 rotate-[-12deg] shadow-lg">
+          <img src={bgImg} className="w-full h-full object-cover" alt="Macaron 1" />
+        </div>
+        <div className="absolute top-10 -right-8 w-24 h-24 rounded-full overflow-hidden opacity-80 rotate-[45deg] shadow-lg">
+          <img src={bgImg} className="w-full h-full object-cover grayscale" alt="Macaron 2" />
+        </div>
+        <div className="absolute -bottom-8 -left-8 w-36 h-36 rounded-full overflow-hidden opacity-95 rotate-[24deg] shadow-lg">
+          <img src={bgImg} className="w-full h-full object-cover scale-125" alt="Macaron 3" />
+        </div>
+        <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full overflow-hidden opacity-95 shadow-xl">
+          <img src={bgImg} className="w-full h-full object-cover scale-110" alt="Macaron 4" />
+        </div>
+      </div>
+
+      {/* Card Central com Borda */}
+      <div className="relative w-[92%] bg-white/95 backdrop-blur-md rounded-[2.5rem] py-5 px-6 border border-white flex flex-col items-center text-center z-10"
+           style={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}>
+        <div className="absolute inset-3 border border-zinc-200/60 rounded-[2rem] pointer-events-none" />
+
+        {/* Avatar Superior */}
+        <div className="absolute -top-8 w-16 h-16 rounded-full p-1 bg-white shadow-lg border border-zinc-100 flex items-center justify-center">
+          <img 
+            src={avatarImg} 
+            className="w-full h-full rounded-full object-cover border border-zinc-100" 
+            alt="Especialista" 
+          />
+        </div>
+
+        <div className="mt-4 flex flex-col items-center w-full">
+          <span className="text-zinc-500 text-[10px] tracking-[0.3em] font-bold uppercase mb-2 transform translate-y-[19px]">
+            SPECIAL OFFER
+          </span>
+          
+          <SmartField field="titulo" {...sp}>
+            <h2 contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="text-zinc-950 font-black text-4xl leading-none uppercase tracking-tight flex items-center justify-center gap-1.5 outline-none break-words max-w-full"
+                style={{ fontSize: `${40 * sTitle}px`, transform: 'translateY(20px)' }}>
+              {!hasTitle ? (
+                <>
+                  <span className="italic font-bold" style={{ color: accent }}>- SPRING</span>
+                  <span> SALE -</span>
+                </>
+              ) : data.titulo}
+            </h2>
+          </SmartField>
+
+          <SmartField field="texto_apoio" {...sp} className="w-full mt-4">
+            <p contentEditable suppressContentEditableWarning
+               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+               className="text-zinc-800 text-[11px] font-bold tracking-widest uppercase outline-none break-words max-w-full"
+               style={{ transform: 'translateY(17px)' }}>
+              {!hasTextApoio ? 'DESCONTOS DE ATÉ 50%' : data.texto_apoio}
+            </p>
+          </SmartField>
+        </div>
+
+        {/* Botão de Ação */}
+        <SmartField field="badge_text" {...sp} className="absolute -bottom-[37px] z-20">
+          <div className="text-white px-8 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.25em] transition-colors cursor-pointer flex items-center gap-2 border-2 border-white"
+               style={{ backgroundColor: accent }}>
+            <span contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                  className="outline-none break-words min-w-[50px] inline-block">
+              {!hasBadgeText ? 'COMPRE AGORA' : data.badge_text}
+            </span>
+            <ArrowRight className="w-3 h-3 shrink-0" />
+          </div>
+        </SmartField>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showBrandLogo={showBrandLogo} brandLogo={brandLogo}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 206 — Birthday Sale / Collage
+// Grade de collage de luxo com slots superior e inferior para fotos elegantes e banner central geométrico com brilhos.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant206({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const accent = brandColor || '#fbbf24';
+
+  const img0 = data.imageUrl || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop";
+  const img1 = "https://images.unsplash.com/photo-1535141192574-5d4897c13636?q=80&w=600&auto=format&fit=crop";
+  const img2 = "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop";
+  const img3 = "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=600&auto=format&fit=crop";
+  const img4 = data.imageUrl || "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop";
+  const img5 = "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-white flex flex-col justify-between py-2 px-2 font-outfit select-none shrink-0">
+      
+      {/* Grid Superior (3 fotos de doces) */}
+      <div className="grid grid-cols-3 gap-1.5 h-[28%] rounded-t-2xl overflow-hidden shrink-0">
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img0} className="w-full h-full object-cover" alt="Bolo 1" />
+        </div>
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img1} className="w-full h-full object-cover" alt="Bolo 2" />
+        </div>
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img2} className="w-full h-full object-cover" alt="Bolo 3" />
+        </div>
+      </div>
+
+      {/* Banner Central com Detalhes Geométricos e Brilhos */}
+      <div className="flex-1 my-2 flex flex-col justify-center items-center px-4 relative z-10 text-center shrink-0">
+        
+        {/* Brilhos SVG Geométricos */}
+        <div className="absolute left-6 top-1/2 opacity-80 animate-pulse" style={{ color: accent, transform: 'translateY(calc(-50% + 40px))' }}>
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+          </svg>
+        </div>
+        <div className="absolute right-6 top-1/2 opacity-80 animate-pulse" style={{ color: accent, transform: 'translateY(calc(-50% - 40px))' }}>
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+          </svg>
+        </div>
+
+        <SmartField field="badge_text" {...sp}>
+          <span contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="text-[10px] md:text-[11px] text-zinc-600 font-bold tracking-[0.35em] uppercase block mb-2 outline-none break-words max-w-full">
+            {data.badge_text || 'SPECIAL FOR YOU'}
+          </span>
+        </SmartField>
+
+        <SmartField field="titulo" {...sp}>
+          <h2 contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-serif text-[#1e1b4b] text-3xl md:text-[2.6rem] font-black tracking-normal leading-none uppercase my-1 outline-none break-words max-w-full"
+              style={{ fontSize: `${55 * sTitle}px` }}>
+            {data.titulo || 'BIRTHDAY SALE'}
+          </h2>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp} className="mt-2.5">
+          <p contentEditable suppressContentEditableWarning
+             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+             className="text-zinc-800 text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase outline-none break-words max-w-full">
+            {data.texto_apoio || '25% OFF ON ALL ITEMS'}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* Grid Inferior (3 fotos de doces) */}
+      <div className="grid grid-cols-3 gap-1.5 h-[28%] rounded-b-2xl overflow-hidden shrink-0">
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img3} className="w-full h-full object-cover" alt="Bolo 4" />
+        </div>
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img4} className="w-full h-full object-cover" alt="Bolo 5" />
+        </div>
+        <div className="relative overflow-hidden w-full h-full border border-black/5 bg-zinc-100 shrink-0">
+          <img src={img5} className="w-full h-full object-cover" alt="Bolo 6" />
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showBrandLogo={showBrandLogo} brandLogo={brandLogo}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -5763,21 +5682,18 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   165: CoverExtraVariant165,
   167: CoverExtraVariant167,
   172: CoverExtraVariant172,
-  173: CoverExtraVariant173,
-  174: CoverExtraVariant174,
   176: CoverExtraVariant176,
-  177: CoverExtraVariant177,
   183: CoverExtraVariant183,
   185: CoverExtraVariant185,
-  186: CoverExtraVariant186,
   187: CoverExtraVariant187,
-  188: CoverExtraVariant188,
-  193: CoverExtraVariant193,
-  194: CoverExtraVariant194,
-  195: CoverExtraVariant195,
-  196: CoverExtraVariant196,
-  199: CoverExtraVariant199,
+
+
   200: CoverExtraVariant200,
+  201: CoverExtraVariant201,
+  202: CoverExtraVariant202,
+  204: CoverExtraVariant204,
+  205: CoverExtraVariant205,
+  206: CoverExtraVariant206,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -6130,28 +6046,10 @@ export const COVER_EXTRA_VARIANT_META = [
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras172.png',
   },
   {
-    id: 173,
-    name: 'The Typographic Echo',
-    description: 'Fundo repetitivo de texto e imagem central destacada.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras173.png',
-  },
-  {
-    id: 174,
-    name: 'The Brutal Horizon',
-    description: 'Divisão inferior sólida vibrante sobre imagem escura.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras174.png',
-  },
-  {
     id: 176,
     name: 'The Organic Overlap',
     description: 'Card inferior arredondado avançando sobre o background fotográfico.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras176.png',
-  },
-  {
-    id: 177,
-    name: 'The Obscured Edge',
-    description: 'Borda lateral viva e tratamento escuro para elevar fotos difíceis.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras177.png',
   },
   {
     id: 183,
@@ -6166,57 +6064,47 @@ export const COVER_EXTRA_VARIANT_META = [
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras185.png',
   },
   {
-    id: 186,
-    name: 'The Arch Block',
-    description: 'Arco fotográfico superior clássico suportado por uma base colorida dominante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras186.png',
-  },
-  {
     id: 187,
     name: 'The Minimal Pillar',
     description: 'Pilar estreito esquerdo comportando o @handle, com imagem deslocada.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras187.png',
   },
-  {
-    id: 188,
-    name: 'The Elevated Card',
-    description: 'Fundo imersivo escurecido com grande cartão flutuante em baixo relevo colorido.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras188.png',
-  },
-  {
-    id: 193,
-    name: 'The Diagonal Edge',
-    description: 'Um corte angular extremamente elegante (skew) dividindo a imagem do bloco de título.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras193.png',
-  },
-  {
-    id: 194,
-    name: 'The Floating Spotlight',
-    description: 'Foco dramático com fundo escurecido e borrado, destacando um card central brilhante flutuante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras194.png',
-  },
-  {
-    id: 195,
-    name: 'The Luxury Frame',
-    description: 'Uma moldura premium sólida abraçando uma foto escurecida com uma caixa de texto clean sobreposta.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras195.png',
-  },
-  {
-    id: 196,
-    name: 'The Editorial Split',
-    description: 'Divisão horizontal majestosa, metade texto livre sob cor sólida, metade fotografia com tratamento.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras196.png',
-  },
-  {
-    id: 199,
-    name: 'Glassmorphism Premium',
-    description: 'Fundo fotográfico escuro cobrindo toda a capa com um painel inferior em efeito vidro jateado (glass).',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras199.png',
-  },
+
+
   {
     id: 200,
     name: 'Editorial High-Fashion',
     description: 'Faixa lateral colorida servindo como base estrutural com imagem ao lado contendo degradê dark no fundo.',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras200.png',
+  },
+  {
+    id: 201,
+    name: 'Minha Confeitaria',
+    description: 'Capa corporativa refinada de chocolate com circles concêntricos de fundo e pílulas de texto empilhadas.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras201.png',
+  },
+  {
+    id: 202,
+    name: 'Post Branco Clássico',
+    description: 'Capa educacional/autoridade elegante com avatar superior, título de impacto e fotografia na base.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras202.png',
+  },
+  {
+    id: 204,
+    name: 'Bakery Sale (Croissant)',
+    description: 'Capa premium com círculo central emoldurado, códigos promocionais verticais e tipografia outline repetida no background.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 205,
+    name: 'Spring Sale (Macaron)',
+    description: 'Capa fashion com macarons decorativos em perspectiva, card central com borda fina e selo circular de especialista no topo.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 206,
+    name: 'Birthday Sale (Collage)',
+    description: 'Grade de collage de luxo com slots superior e inferior para fotos elegantes e banner central geométrico com brilhos.',
+    thumbnailUrl: '',
   },
 ];
