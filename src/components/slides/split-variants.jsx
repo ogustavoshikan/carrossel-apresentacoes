@@ -1850,7 +1850,7 @@ export function SplitVariant32(props) {
       <div className="w-full h-2 bg-white z-20 relative -mt-[1px]" />
 
       <div className="w-full flex-1 p-8 flex flex-col justify-center relative z-10 -mt-[2px]" style={{ fontFamily: textFont, backgroundColor: brandColor, boxShadow: `0 -2px 0 ${brandColor}` }}>
-        <div style={{ transform: 'translateY(-25px)' }}>
+        <div style={{ transform: 'translateY(-25px)', height: '180px' }} className="flex flex-col justify-start">
           <div className="mb-6 shrink-0">
             <SmartField field="badge_text" {...sp}>
               <span
@@ -1885,7 +1885,7 @@ export function SplitVariant32(props) {
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
                 className="font-text font-medium leading-relaxed text-white/90 outline-none"
-                style={{ fontSize: `${19 * sText}px` }}
+                style={{ fontSize: `${23 * sText}px` }}
               >
                 {data.texto_apoio}
               </p>
