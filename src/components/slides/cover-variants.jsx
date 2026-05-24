@@ -114,17 +114,16 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
       />
       <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden">
         <ImageBg data={data} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/10 to-transparent" />
       </div>
 
-      <div className="flex-1 mt-[60%] p-10 flex flex-col justify-between relative border-t-[8px] border-white" style={{ backgroundColor: brandColor }}>
+      <div className="flex-1 mt-[65%] p-10 flex flex-col justify-between relative border-t-[8px] border-white" style={{ backgroundColor: brandColor }}>
         <div className="absolute top-[12px] left-10">
           <SmartField field="titulo" {...sp}>
             <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-title font-black text-white tracking-tighter whitespace-pre-line outline-none"
-              style={{ fontSize: `${85 * sTitle}px`, lineHeight: 0.85 }}
+              style={{ fontSize: `${82 * sTitle}px`, lineHeight: 0.85 }}
             >
               {data.titulo}
             </h2>
@@ -136,7 +135,7 @@ export function CoverVariant1({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text italic text-[#ffebeb] max-w-[320px] mb-7 outline-none"
+              className="font-text italic text-white max-w-[320px] mb-7 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
@@ -354,7 +353,7 @@ export function CoverVariant5({ data, index, brandColor, brandHandle, showBrandH
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="text-[#ffebeb] font-text outline-none"
+              className="text-white font-text outline-none"
               style={{ fontSize: `${20 * sText}px` }}
             >
               {data.texto_apoio}
@@ -764,7 +763,7 @@ export function CoverVariant12({ data, index, brandColor, brandHandle, titleScal
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-[#ffebeb] font-text italic outline-none max-w-[280px]"
+            className="text-white font-text italic outline-none max-w-[280px]"
             style={{ fontSize: `${24 * sText}px` }}
           >
             {data.texto_apoio}
@@ -807,7 +806,7 @@ export function CoverVariant13({ data, index, brandColor, brandHandle, titleScal
             <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text font-light text-[#ffebeb] text-[11px] tracking-widest uppercase leading-none outline-none"
+              className="font-text font-light text-white text-[11px] tracking-widest uppercase leading-none outline-none"
             >
               {data.texto_apoio}
             </p>
@@ -868,7 +867,7 @@ export function CoverVariant14({ data, index, brandColor, brandHandle, titleScal
           <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="text-white/80 tracking-widest text-[11px] uppercase font-bold font-text outline-none"
+            className="text-white tracking-widest text-[11px] uppercase font-bold font-text outline-none"
           >
             {data.texto_apoio}
           </p>
@@ -1411,7 +1410,7 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
               {data.badge_text || 'VOL. 14'}
             </span>
           </SmartField>
-          <span className="font-title font-bold tracking-widest text-[9px] text-white/80 uppercase">
+          <span className="font-title font-bold tracking-widest text-[9px] text-white uppercase">
             @{brandHandle || 'studio'}
           </span>
         </div>
@@ -1420,23 +1419,26 @@ export function CoverVariant26({ data, index, brandColor, brandHandle, titleScal
       <div className="w-full h-[45%] bg-zinc-300 relative shrink-0 z-0">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${imgUrl})`, backgroundPosition: 'center 50%' }} />
       </div>
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full px-6 z-30">
+      {/* Container do Título e da Linha Decorativa - cresce para cima */}
+      <div className="absolute left-6 w-[calc(100%-48px)] z-30 flex flex-col justify-end items-start" style={{ bottom: 'calc(48% + 15px)' }}>
         <div 
           style={{ 
             width: '4rem', 
             height: '0.25rem', 
-            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-            position: 'absolute',
-            top: '-2rem',
-            left: '1.5rem'
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            marginBottom: '27px'
           }} 
         />
         <SmartField field="titulo" {...sp}>
-          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.8] tracking-tighter uppercase whitespace-pre-line text-white" style={{ fontSize: `${70 * sTitle}px` }}>
+          <TextWrapper {...tw} as="h2" field="titulo" className="font-title font-black leading-[0.97] tracking-tighter uppercase whitespace-pre-line text-white" style={{ fontSize: `${54 * sTitle}px` }}>
             {slideData.titulo}
           </TextWrapper>
         </SmartField>
-        <SmartField field="texto_apoio" {...sp} className="mt-4">
+      </div>
+
+      {/* Container do Texto de Apoio - fixo no lugar */}
+      <div className="absolute top-[53%] left-6 z-30">
+        <SmartField field="texto_apoio" {...sp}>
           <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-[#1a1a1a] font-black tracking-[0.2em] text-[12px] uppercase bg-white inline-block px-4 py-1.5 shadow-xl">
             {slideData.texto_apoio}
           </TextWrapper>
@@ -2046,7 +2048,7 @@ export function CoverVariant37({ data, index, brandColor, titleScale, textScale,
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp}>
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-white/80 text-[12px] font-medium leading-snug" style={{ fontSize: `${12 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="font-text text-white text-[12px] font-medium leading-snug" style={{ fontSize: `${12 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -2148,7 +2150,7 @@ export function CoverVariant39({ data, index, brandColor, titleScale, textScale,
             </TextWrapper>
           </SmartField>
           <SmartField field="texto_apoio" {...sp} className="w-[90%]">
-            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-zinc-400 font-text font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
+            <TextWrapper {...tw} as="p" field="texto_apoio" className="text-white font-text font-medium leading-snug" style={{ fontSize: `${14 * sText}px` }}>
               {slideData.texto_apoio}
             </TextWrapper>
           </SmartField>
@@ -2587,7 +2589,7 @@ export function CoverVariant48(props) {
               <p 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="text-white/90 font-medium leading-snug w-[85%] outline-none" 
+                className="text-white font-medium leading-snug w-[85%] outline-none" 
                 style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
               >
                 {data.texto_apoio}
@@ -2854,7 +2856,7 @@ export function CoverVariant52(props) {
                   <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-medium leading-relaxed drop-shadow-md text-white/90 outline-none" 
+                    className="font-medium leading-relaxed drop-shadow-md text-white outline-none" 
                     style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
                   >
                     {data.texto_apoio}
@@ -2927,7 +2929,7 @@ export function CoverVariant53(props) {
                   <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-medium leading-relaxed text-white/90 outline-none" 
+                    className="font-medium leading-relaxed text-white outline-none" 
                     style={{ fontFamily: textFont, fontSize: `${15 * sText}px` }}
                   >
                     {data.texto_apoio}
@@ -2989,7 +2991,7 @@ export function CoverVariant54(props) {
                       <p 
                         contentEditable suppressContentEditableWarning
                         onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                        className="font-medium leading-relaxed text-white/90 outline-none" 
+                        className="font-medium leading-relaxed text-white outline-none" 
                         style={{ fontFamily: textFont, fontSize: `${16 * sText}px` }}
                       >
                         {data.texto_apoio}
@@ -3100,7 +3102,7 @@ export function CoverVariant56(props) {
                   <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-bold leading-relaxed text-white/80 uppercase tracking-widest outline-none" 
+                    className="font-bold leading-relaxed text-white uppercase tracking-widest outline-none" 
                     style={{ fontFamily: textFont, fontSize: `${14 * sText}px` }}
                   >
                     {data.texto_apoio}
@@ -3236,7 +3238,7 @@ export function CoverVariant58(props) {
                   <p 
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                    className="font-medium leading-relaxed text-white/90 outline-none" 
+                    className="font-medium leading-relaxed text-white outline-none" 
                     style={{ fontFamily: textFont, fontSize: `${18 * sText}px` }}
                   >
                     {data.texto_apoio}
@@ -3310,7 +3312,7 @@ export function CoverVariant59(props) {
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
                     className="font-medium leading-relaxed outline-none" 
-                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#e8e8e8' }}
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#ffffff' }}
                   >
                     {data.texto_apoio}
                   </p>
@@ -3440,7 +3442,7 @@ export function CoverVariant61(props) {
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
                     className="font-medium leading-relaxed outline-none" 
-                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#F5F5F5' }}
+                    style={{ fontFamily: textFont, fontSize: `${15 * sText}px`, color: '#ffffff' }}
                   >
                     {data.texto_apoio}
                   </p>
