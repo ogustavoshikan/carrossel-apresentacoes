@@ -2503,7 +2503,7 @@ export function CoverVariant46(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </div>
         <div className="bg-zinc-800 overflow-hidden relative">
-          <ImageBg data={data} className="absolute inset-0" style={{fontFamily: titleFont,  transform: 'scaleY(-1)' }} />
+          <ImageBg data={data} className="absolute inset-0" style={{fontFamily: titleFont}} />
         </div>
       </div>
 
@@ -3578,7 +3578,7 @@ export const COVER_VARIANT_META = [
   { id: 43, name: 'Repeat Text Focus', description: 'Texto repetido ao fundo com card de imagem central', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-43.png' },
   { id: 44, name: 'Floating Bubbles', description: 'Bolhas flutuantes com imagem e texto lateral elegante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-44.png' },
   { id: 45, name: 'Vertical Mirror CTA', description: 'Split vertical com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-45.png' },
-  { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa--46.png' },
+  { id: 46, name: 'Horizontal Mirror CTA', description: 'Split horizontal com CTA de arraste', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs-capa-46.png' },
   { id: 48, name: 'Split Number Dark', description: 'Fundo colorido com imagem superior e número gigante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-48.png' },
   { id: 49, name: 'Split Vert Typo', description: 'Divisão vertical com imagem e número gigante blend', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-49.png' },
   { id: 50, name: 'Massive Typo Frame', description: 'Moldura colorida com card de imagem e título de impacto', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas/designs_capa-50.png' },
