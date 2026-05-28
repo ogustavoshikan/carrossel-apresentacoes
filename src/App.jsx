@@ -4,7 +4,7 @@ import { useDragResize } from './hooks/useDragResize';
 import { generateCarouselContent, generateImageWithAI, generateSingleSlideContent } from './services/ai';
 import { exportAllToPNG, exportSlideToPNG } from './services/export';
 import { copyToClipboard } from './lib/clipboard';
-import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE } from './lib/design-tokens';
+import { BRAND_DEFAULTS, SLIDE_COUNT_RANGE, SYSTEM_FONTS, GOOGLE_FONTS_WEIGHTS } from './lib/design-tokens';
 import { createSlideFromTemplate } from './lib/layout-templates';
 import { LAYOUT_META } from './lib/layout-templates';
 import { getFavorites, saveFavorite, removeFavorite } from './lib/favorites';
@@ -171,10 +171,13 @@ export default function App() {
       });
     }
 
-    const families = Array.from(fontsInUse).map(f => {
-      const name = f.replace(/ /g, '+');
-      return `family=${name}:wght@400;500;700;800;900`;
-    }).join('&');
+    const families = Array.from(fontsInUse)
+      .filter(f => f && !SYSTEM_FONTS.includes(f))
+      .map(f => {
+        const name = f.replace(/ /g, '+');
+        const weights = GOOGLE_FONTS_WEIGHTS[f] || '400;700';
+        return `family=${name}:wght@${weights}`;
+      }).join('&');
     
     if (families) {
       const url = `https://fonts.googleapis.com/css2?${families}&display=swap`;

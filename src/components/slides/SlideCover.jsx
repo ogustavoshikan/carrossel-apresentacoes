@@ -114,12 +114,12 @@ export default function SlideCover({
             <ImageIcon className="w-8 h-8 text-zinc-700" />
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0808088c] via-[#080808]/10 to-transparent pointer-events-none" />
       </div>
 
       {/* Content area */}
       <div
-        className="flex-1 mt-[60%] p-10 flex flex-col justify-between relative"
+        className="flex-1 mt-[65%] p-10 flex flex-col justify-between relative"
         style={{ backgroundColor: brandColor }}
       >
         <div className="absolute -top-[31px] left-10">
@@ -138,7 +138,7 @@ export default function SlideCover({
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-title font-black text-white tracking-tighter whitespace-pre-line outline-none"
-              style={{ fontSize: `${86 * sTitle}px`, lineHeight: 0.8 }}
+              style={{ fontSize: `${80 * sTitle}px`, lineHeight: 0.8 }}
             >
               {data.titulo}
             </h2>
@@ -160,7 +160,7 @@ export default function SlideCover({
               contentEditable
               suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              className="font-text italic text-[#ffebeb] max-w-[320px] mb-6 outline-none"
+              className="font-text italic text-white max-w-[320px] mb-6 outline-none"
               style={{ fontSize: `${30 * sText}px`, lineHeight: 1.1 }}
             >
               {data.texto_apoio}
@@ -172,7 +172,7 @@ export default function SlideCover({
         {/* Action Button - Agora absoluto para não ser empurrado pelo conteúdo */}
         <div className="absolute bottom-10 right-10 z-10">
           <div 
-            className="flex items-center gap-3 bg-black/20 px-6 py-3 rounded-2xl backdrop-blur-2xl border border-white/10 relative z-10 pointer-events-auto"
+            className="flex items-center gap-3 px-6 py-3 rounded-2xl border border-white/10 relative z-10 pointer-events-auto"
             style={{ transform: 'translate(17.6px, 10px)' }}
           >
             <SmartElement

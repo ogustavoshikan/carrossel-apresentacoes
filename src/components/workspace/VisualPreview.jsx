@@ -519,7 +519,7 @@ export default function VisualPreview({
                       <div className="flex items-center gap-1.5">
                         {/* Botão Aleatório (Shuffle) fora do popover */}
                         {['cover', 'cover-extra', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'cta-extra', 'list', 'sequence'].includes(slide.layout) && (
-                          <Tooltip text="Variante Aleatória">
+                          <Tooltip text="Design Aleatório">
                             <button
                               onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide); }}
                               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all active:scale-90"

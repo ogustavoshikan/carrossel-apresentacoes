@@ -29,6 +29,50 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
   );
 }
 
+// ─── Helper: TextWrapper ────────────────────────────────────
+function TextWrapper({ 
+  field, 
+  index, 
+  onTextChange, 
+  as: Component = 'div', 
+  className, 
+  style, 
+  children, 
+  // Destructure and ignore these to prevent passing them to the DOM
+  data,
+  onActionStart,
+  selectedElement,
+  onSelectElement,
+  ...props 
+}) {
+  return (
+    <Component
+      contentEditable
+      suppressContentEditableWarning
+      onBlur={(e) => onTextChange && onTextChange(index, field, e.currentTarget.innerText)}
+      className={`outline-none ${className || ''}`}
+      style={style}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+}
+
+function getCorsSafeUrl(url) {
+  if (!url || typeof url !== 'string') return url;
+  if (
+    url.includes('unsplash.com') ||
+    url.includes('images.weserv.nl') ||
+    url.startsWith('/') ||
+    url.startsWith('data:') ||
+    url.startsWith('blob:')
+  ) {
+    return url;
+  }
+  return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
+}
+
 // ─── Helper: ImageBg ────────────────────────────────────────
 // Aceita props explícitas (imageUrl, imagePosition, imageScale) ou
 // faz fallback para data.imageUrl para compatibilidade retroativa.
@@ -4803,6 +4847,224 @@ export function SplitVariant75(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 76 — Fast Company Edition
+// Layout brutalista-editorial com noise filter, numeral gigante
+// e card centralizado com estrela de 4 pontas
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant76(props) {
+  const { data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const bgBase = data.bgColor || brandColor || '#fa0542';
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between py-8 font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10" style={{ backgroundColor: bgBase }}>
+      
+
+      {/* O NÚMERO GIGANTE FLUTUANTE NO FUNDO - SUBIDO PARA -top-36 */}
+      <div className="absolute -top-56 -left-14 text-[680px] font-serif normal font-medium text-white/[0.05] pointer-events-none select-none leading-none z-[2]">
+        {data.badge_text || (index + 1)}
+      </div>
+
+      {/* Top Right: Page Badge */}
+      <div className="absolute top-6 right-6 bg-white/95 font-outfit text-[10px] font-black px-3.5 py-1.5 rounded-full shadow-md z-[15] border border-white" style={{ color: bgBase }}>
+        {index + 1}/{slideCount}
+      </div>
+
+      {/* Header: Número + Título Principal (Linha horizontal removida) */}
+      <div className="relative z-10 flex gap-0 mt-8 items-start px-0">
+        
+        {/* Container Esquerdo para Número */}
+        <div className="flex flex-col relative w-[80px]">
+           <span className="font-serif italic text-white text-[58px] leading-[0.7] select-none font-medium pl-[22px] relative z-10" style={{ WebkitTextStroke: '1.5px #ffffff', color: 'transparent' }}>
+             {data.badge_text || `${index + 1}.`}
+           </span>
+        </div>
+
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <h2 className="font-serif text-white font-bold leading-snug tracking-tight text-left flex-1 filter drop-shadow-sm pr-6 mt-2.5 outline-none" style={{ fontFamily: titleFont, fontSize: `${20 * sTitle}px` }}>
+            {data.titulo || 'Quando uma marca deve usar a força dos influencers?'}
+          </h2>
+        </SmartField>
+      </div>
+
+      {/* Card Neo-Brutalista Central */}
+      <div className="relative z-10 w-[94%] bg-white rounded-r-[1.5rem] border-t-[1.5px] border-r-[1.5px] border-b-[1.5px] border-l-0 border-zinc-950 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-left my-auto py-6 pr-6 pl-8 ml-0">
+        
+        {/* Estrela de 4 pontas preta */}
+        <div className="absolute top-4 left-[-12px] bg-white text-zinc-950 z-20">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C12 6.62742 6.62742 12 0 12C6.62742 12 12 17.3726 12 24C12 17.3726 17.3726 12 24 12C17.3726 12 12 6.62742 12 0Z" />
+          </svg>
+        </div>
+
+        <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+          <p className="text-zinc-950 font-outfit leading-relaxed font-normal outline-none" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+            {data.texto_apoio || 'Os modelos de negócios evoluíram e se ampliaram. Somam-se a isso a penetração das redes sociais e a importância dos influenciadores. Na minha opinião, não vejo "quando" mas sim "como usar". Cabe ter clareza dos objetivos para guiar a estratégia, a plataforma social a ser utilizada, o tipo de influenciador, o jeito de construir a mensagem e a conexão com eles.'}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* Footer: BRAND & ARRASTE */}
+      <div className="relative z-10 w-full flex justify-between items-center pt-2 px-6">
+        
+        {/* Centered Brand Logo */}
+        <div className="flex-1 text-center font-serif text-[12.5px] tracking-[0.08em] text-white/95 font-black uppercase">
+          {brandHandle ? brandHandle.replace('@', '') : 'FAST COMPANY'}
+          <span className="block font-outfit text-[8px] tracking-[0.25em] font-medium text-white/80 mt-[1px]">BRASIL</span>
+        </div>
+
+        {/* Arraste Pill on Right */}
+        <div className="absolute bottom-1.5 right-6 bg-white text-zinc-950 px-4 py-1.5 rounded-full text-[10.5px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg hover:bg-zinc-100 transition-colors cursor-pointer border border-zinc-200">
+          <span>Arraste</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 text-zinc-950">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+
+      </div>
+
+      <svg 
+        className="absolute inset-0 w-full h-full pointer-events-none z-[100] opacity-[1.0]" 
+        style={{ mixBlendMode: 'overlay' }}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <filter id={`noiseFilter-76-${index}`}>
+            <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" stitchTiles="stitch" />
+            {/* Contraste em potência brutal (2.5) para grãos extremamente nítidos e marcantes em qualquer distância */}
+            <feColorMatrix type="matrix" values="2.5 0 0 0 -0.65  0 2.5 0 0 -0.65  0 0 2.5 0 -0.65  0 0 0 1 0" />
+          </filter>
+          <pattern id={`noisePattern-76-${index}`} width="150" height="150" patternUnits="userSpaceOnUse">
+            <rect width="150" height="150" fill="white" filter={`url(#noiseFilter-76-${index})`} />
+          </pattern>
+        </defs>
+        {/* Camadas sobrepostas quádruplas combinadas com a matriz de contraste e escala de visibilidade multi-escala */}
+        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
+        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
+        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
+        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
+      </svg>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 77 — Showcase Grid (Charity Bakes Split)
+// Quad-grid de imagens gastronômicas com card de evento central
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant77(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const bgBase = data.bgColor || '#ffffff'; 
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://i.etsystatic.com/20175028/r/il/18277f/3011567563/il_fullxfull.3011567563_2hoz.jpg");
+  const img2 = getCorsSafeUrl(data.imageUrl2 || "https://truffle-assets.tastemadecontent.net/84cnzp0itw1q_4NzdqDzoWcA2OkSe8yiEgW_trufas-de-chocolate_landscapeThumbnail_pt.jpeg");
+  const img3 = getCorsSafeUrl(data.imageUrl3 || "https://www.oetker.com.br/assets/recipes/assets/859bf909fb554fcca25fb90af3155117/1272x764/trufas-de-chocolate-com-leite-de-coco-e-avel.webp");
+  const img4 = getCorsSafeUrl(data.imageUrl4 || "https://static.wixstatic.com/media/0d72ca_e9ed1f55b3ef46c1ae8a01652b9c762f~mv2_d_1365_2048_s_2.jpg/v1/fit/w_500,h_500,q_90/file.jpg");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#1A1A1A]" style={{ backgroundColor: bgBase }}>
+      
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#1A1A1A" 
+          counterColor="#1A1A1A" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Grid Superior de Imagens */}
+      <div className="grid grid-cols-2 gap-2 h-[calc(28%+14px)] w-full">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
+          <img 
+            src={img1} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover" 
+            alt="Showcase 1" 
+          />
+        </SmartField>
+        <SmartField field="imagem2" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
+          <img 
+            src={img2} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover" 
+            alt="Showcase 2" 
+          />
+        </SmartField>
+      </div>
+
+      {/* Banner Central Tipográfico */}
+      <div className="flex-1 py-4 flex flex-col justify-center items-center px-6 relative z-10 text-center">
+        <SmartField field="subtitulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="p" field="subtitulo" className="text-[12.5px] text-[#1A1A1A] font-light tracking-wide leading-none mb-1 outline-none" style={{ fontFamily: textFont, fontSize: `${17 * sText}px` }}>
+            {data.subtitulo || 'Bakery sale for a cause'}
+          </TextWrapper>
+        </SmartField>
+
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-display font-bold text-[#1A1A1A] leading-[0.95] tracking-tight uppercase my-1 select-none outline-none" style={{ fontSize: `${60 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo || 'CHARITY BAKES'}
+          </TextWrapper>
+        </SmartField>
+
+        <div className="flex flex-col gap-1.5 mt-3 text-[#1A1A1A]">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="opacity-80 text-[11px] font-light leading-none mt-1 flex items-center justify-center gap-1.5 outline-none" style={{ fontFamily: textFont, fontSize: `${21 * sText}px` }}>
+              {data.texto_apoio || 'City market, City center'}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Grid Inferior de Imagens */}
+      <div className="grid grid-cols-2 gap-2 h-[calc(28%+14px)] w-full">
+        <SmartField field="imagem3" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
+          <img 
+            src={img3} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover" 
+            alt="Showcase 3" 
+          />
+        </SmartField>
+        <SmartField field="imagem4" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
+          <img 
+            src={img4} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover" 
+            alt="Showcase 4" 
+          />
+        </SmartField>
+      </div>
+
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -4878,6 +5140,8 @@ export const SPLIT_VARIANT_COMPONENTS = {
   73: SplitVariant73,
   74: SplitVariant74,
   75: SplitVariant75,
+  76: SplitVariant76,
+  77: SplitVariant77,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -4953,6 +5217,8 @@ export const SPLIT_VARIANT_META = [
   { id: 73, name: 'Author Edge Bot', description: 'Texto sobre cor da marca com imagem na base', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--73.png' },
   { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--74.png' },
   { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--75.png' },
+  { id: 76, name: 'Fast Company', description: 'Layout brutalista com injeção de textura granulada e card flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--76.png' },
+  { id: 77, name: 'Showcase Grid', description: 'Grade de 4 fotos reativas e banner central do Charity Bakes', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--77.png' },
 ];
 
 

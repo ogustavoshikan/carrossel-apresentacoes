@@ -28,7 +28,21 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
 // Apelido para SmartField usado em algumas variantes novas
 const SmartEl = SmartField;
 
-function TextWrapper({ field, index, onTextChange, as: Component = 'div', className, style, children, ...props }) {
+function TextWrapper({ 
+  field, 
+  index, 
+  onTextChange, 
+  as: Component = 'div', 
+  className, 
+  style, 
+  children, 
+  // Destructure and ignore these to prevent passing them to the DOM
+  data,
+  onActionStart,
+  selectedElement,
+  onSelectElement,
+  ...props 
+}) {
   return (
     <Component
       contentEditable
@@ -43,13 +57,23 @@ function TextWrapper({ field, index, onTextChange, as: Component = 'div', classN
   );
 }
 
+function sanitizeUnsplashUrl(url) {
+  if (!url || typeof url !== 'string' || !url.includes('unsplash.com')) return url;
+  // Se a URL contém 'q=' mas não tem '?', e tem o ID do Unsplash, insere o '?' antes do 'q='
+  if (url.includes('q=') && !url.includes('?')) {
+    return url.replace('q=', '?q=');
+  }
+  return url;
+}
+
 function ImageBg({ data, className = '', style = {}, children }) {
-  if (data.imageUrl) {
+  const imageUrl = sanitizeUnsplashUrl(data.imageUrl);
+  if (imageUrl) {
     return (
       <div
         className={`bg-cover ${className}`}
         style={{
-          backgroundImage: `url(${data.imageUrl})`,
+          backgroundImage: `url(${imageUrl})`,
           backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
           transform: `scale(${data.imageScale ?? 1})`,
           transformOrigin: 'center center',
@@ -1583,6 +1607,409 @@ export function ComparisonVariant37(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 38 — Waffle Clash (Cheese Waffles Before/After)
+// Lado a lado assimétrico com imagens flutuantes e ghost text
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant38(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const bgBase = data.bgColor || '#f2722b'; 
+  const accentColor = brandColor || '#fab818'; 
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgLeftMain = sanitizeUnsplashUrl(data.imageUrl) || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop";
+  const imgLeftSmall = sanitizeUnsplashUrl(data.imageUrl3) || "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop";
+  const imgRight = sanitizeUnsplashUrl(data.imageUrl2) || "https://images.unsplash.com/photo-1459789034005-ba29c5783491?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10" style={{ backgroundColor: bgBase }}>
+      
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-0 left-0 w-full p-10 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(255,255,255,0.2)" 
+          handleColor="#ffffff" 
+          counterColor="#ffffff" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Metade Esquerda: BEFORE */}
+      <div className="w-[50%] h-full flex flex-col justify-between py-10 px-4 relative border-r-[1px] border-black/10" style={{ backgroundColor: bgBase }}>
+        
+        {/* Ghost text background */}
+        <div className="absolute top-1/2 left-0 w-[160%] -translate-y-1/2 text-[90px] font-black tracking-tighter text-black/5 uppercase rotate-[-90deg] origin-left pointer-events-none whitespace-nowrap" style={{ fontFamily: titleFont }}>
+          {data.titulo || 'CHEESE WAFFLES'}
+        </div>
+
+        {/* Cabeçalho */}
+        <div className="text-center z-10 mt-10">
+          <SmartEl {...sp} field="titulo_a">
+            <TextWrapper {...sp} as="h2" field="titulo_a" className="text-white font-black leading-none uppercase tracking-tighter outline-none" style={{ fontFamily: titleFont, fontSize: `${30 * sTitle}px` }}>
+              {data.titulo_a || 'CHEESE'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+
+        {/* Prato de Ingredientes */}
+        <div className="relative w-[85%] aspect-square mx-auto my-auto flex items-center justify-center z-10">
+          {/* Prato menor flutuando */}
+          <div className="absolute top-[-10%] right-[-10%] w-[48%] aspect-square rounded-full border border-black/5 bg-white shadow-md p-1 z-20 overflow-hidden">
+            <img 
+              src={imgLeftSmall} 
+              className="w-full h-full rounded-full object-cover" 
+              alt="Ingredients small" 
+            />
+          </div>
+
+          {/* Prato principal */}
+          <div className="w-full h-full rounded-2xl overflow-hidden border border-black/10 bg-white/95 shadow-xl relative p-1">
+            <img 
+              src={imgLeftMain} 
+              className="w-full h-full object-cover object-bottom rounded-xl" 
+              alt="Ingredients before" 
+            />
+          </div>
+        </div>
+
+        {/* Botão Retangular: BEFORE */}
+        <div className="flex justify-center z-10">
+          <SmartEl {...sp} field="tag">
+            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-xs">
+              <TextWrapper {...sp} as="span" field="tag" className="font-black text-[13px] tracking-widest uppercase outline-none" style={{ color: bgBase, fontFamily: textFont }}>
+                {data.tag || 'BEFORE'}
+              </TextWrapper>
+            </div>
+          </SmartEl>
+        </div>
+
+      </div>
+
+      {/* Metade Direita: AFTER */}
+      <div className="w-[50%] h-full flex flex-col justify-between py-10 px-4 relative" style={{ backgroundColor: accentColor }}>
+        
+        {/* Ghost text background */}
+        <div className="absolute top-1/2 right-0 w-[160%] -translate-y-1/2 text-[90px] font-black tracking-tighter text-black/5 uppercase rotate-[90deg] origin-right pointer-events-none whitespace-nowrap" style={{ fontFamily: titleFont }}>
+          {data.titulo || 'CHEESE WAFFLES'}
+        </div>
+
+        {/* Cabeçalho */}
+        <div className="text-center z-10 mt-10">
+          <SmartEl {...sp} field="titulo_b">
+            <TextWrapper {...sp} as="h2" field="titulo_b" className="text-white font-black leading-none uppercase tracking-tighter outline-none" style={{ fontFamily: titleFont, fontSize: `${30 * sTitle}px` }}>
+              {data.titulo_b || 'WAFFLES'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+
+        {/* Waffle Pronto com decorativos */}
+        <div className="relative w-[85%] aspect-square mx-auto my-auto flex items-center justify-center z-10">
+          <div className="absolute inset-[-10px] rounded-full border-2 border-dashed border-white/20 animate-[spin_40s_linear_infinite]" />
+          
+          <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/80 bg-white/90 shadow-2xl relative p-1 hover:scale-105 transition-transform duration-700">
+            <img 
+              src={imgRight} 
+              className="w-full h-full object-cover rounded-full" 
+              alt="Waffle finished" 
+            />
+          </div>
+        </div>
+
+        {/* Botão Retangular: AFTER */}
+        <div className="flex justify-center z-10">
+          <SmartEl {...sp} field="texto_apoio">
+            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-xs">
+              <TextWrapper {...sp} as="span" field="texto_apoio" className="font-black text-[13px] tracking-widest uppercase outline-none" style={{ color: accentColor, fontFamily: textFont }}>
+                {data.texto_apoio || 'AFTER'}
+              </TextWrapper>
+            </div>
+          </SmartEl>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 39 — Sweet Rival (Cheap & Luxurious Cakes)
+// Dual Squircles com tipografia editorial de luxo
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant39(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const bgBase = data.bgColor || '#48332a'; 
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgLeft = sanitizeUnsplashUrl(data.imageUrl) || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop";
+  const imgRight = sanitizeUnsplashUrl(data.imageUrl2) || "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between py-10 px-6 font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10 text-[#ecdccb]" style={{ backgroundColor: bgBase }}>
+      
+      {/* Linhas cruzadas no fundo sutil */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-0 left-0 w-full p-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(255,255,255,0.1)" 
+          handleColor="#ecdccb" 
+          counterColor="#ecdccb" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Header: CHEAP AND LUXURIOUS */}
+      <div className="relative z-10 text-center mt-6 flex flex-col items-center">
+        {/* Linha/Selo Superior */}
+        <div className="text-[#ecdccb] mb-2 mt-4">
+          <svg className="w-8 h-8 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+            <path d="M3 20h18" strokeWidth="2"/>
+          </svg>
+        </div>
+        
+        <SmartEl {...sp} field="titulo">
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-serif text-white font-bold tracking-[0.05em] uppercase leading-none text-center outline-none" style={{ fontSize: `${25 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo || 'CHEAP AND LUXURIOUS'}
+          </TextWrapper>
+        </SmartEl>
+      </div>
+
+      {/* Dois Squircles Simétricos no Centro (Cake slices) */}
+      <div className="relative z-10 grid grid-cols-2 gap-4 px-2 my-auto">
+        
+        {/* Squircle 1 */}
+        <div className="relative aspect-square rounded-[2rem] bg-[#33221b]/80 border border-[#ecdccb]/10 p-2.5 flex items-center justify-center shadow-xl hover:scale-[1.02] transition-transform duration-500">
+          <div className="w-full h-full rounded-[1.65rem] overflow-hidden relative">
+            <img 
+              src={imgLeft} 
+              className="w-full h-full object-cover" 
+              alt="Squircle Left" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </div>
+
+        {/* Squircle 2 */}
+        <div className="relative aspect-square rounded-[2rem] bg-[#33221b]/80 border border-[#ecdccb]/10 p-2.5 flex items-center justify-center shadow-xl hover:scale-[1.02] transition-transform duration-500">
+          <div className="w-full h-full rounded-[1.65rem] overflow-hidden relative">
+            <img 
+              src={imgRight} 
+              className="w-full h-full object-cover" 
+              alt="Squircle Right" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </div>
+
+      </div>
+
+      {/* Seção Inferior: Slogan e Botões */}
+      <div className="relative z-10 flex flex-col items-center">
+        
+        <SmartEl {...sp} field="tag" className="mb-4">
+          <TextWrapper {...sp} as="p" field="tag" className="text-white text-[11px] font-bold tracking-[0.25em] uppercase text-center outline-none" style={{ fontSize: `${11 * sText}px`, fontFamily: textFont }}>
+            {data.tag || 'CHOOSE YOUR FAVORITE CAKES'}
+          </TextWrapper>
+        </SmartEl>
+
+        {/* Linha do Rodapé com os Textos laterais e Botão Central */}
+        <div className="w-full flex justify-between items-center gap-2">
+          <SmartEl {...sp} field="subtitulo" className="max-w-[85px]">
+            <TextWrapper {...sp} as="span" field="subtitulo" className="text-[8px] font-bold text-[#ecdccb]/60 uppercase tracking-widest text-left leading-tight block outline-none" style={{ fontFamily: textFont }}>
+              {data.subtitulo || 'GET 30% DISCOUNT ONLY FOR TODAY'}
+            </TextWrapper>
+          </SmartEl>
+
+          <SmartEl {...sp} field="cta_text">
+            <button 
+              className="hover:bg-[#DE1E4D] hover:text-white font-serif italic font-bold px-7 py-3 rounded-full text-xs shadow-[0_8px_20px_rgba(0,0,0,0.3)] transition-all uppercase whitespace-nowrap animate-pulse"
+              style={{ backgroundColor: brandColor || '#FAF1EA', color: brandColor ? '#ffffff' : '#3c1d0f' }}
+            >
+              <TextWrapper {...sp} as="span" field="cta_text" className="outline-none">
+                {data.cta_text || 'SHOP NOW'}
+              </TextWrapper>
+            </button>
+          </SmartEl>
+
+          <SmartEl {...sp} field="texto_apoio" className="max-w-[85px]">
+            <TextWrapper {...sp} as="span" field="texto_apoio" className="text-[8px] font-bold text-[#ecdccb]/60 uppercase tracking-widest text-right leading-tight block outline-none" style={{ fontFamily: textFont }}>
+              {data.texto_apoio || 'GET 30% DISCOUNT ONLY FOR TODAY'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 40 — Showcase Grid (Charity Bakes)
+// Quad-grid de imagens com card central e detalhes do evento
+// ═══════════════════════════════════════════════════════════
+export function ComparisonVariant40(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const bgBase = data.bgColor || '#d0bfaa'; 
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = sanitizeUnsplashUrl(data.imageUrl) || "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop";
+  const img2 = sanitizeUnsplashUrl(data.imageUrl2) || "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=600&auto=format&fit=crop";
+  const img3 = sanitizeUnsplashUrl(data.imageUrl3) || "https://images.unsplash.com/photo-1586985289688-ca9cf4993ec0?q=80&w=600&auto=format&fit=crop";
+  const img4 = sanitizeUnsplashUrl(data.imageUrl4) || "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between py-4 px-4 font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10 text-[#2d1b13]" style={{ backgroundColor: bgBase }}>
+      
+      {/* Slide Header flutuando no topo do container central */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#2d1b13" 
+          counterColor="#2d1b13" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Grid Superior de Imagens */}
+      <div className="grid grid-cols-2 gap-2 h-[26%] mt-6">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+          <img 
+            src={img1} 
+            className="w-full h-full object-cover" 
+            alt="Showcase 1" 
+          />
+        </div>
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+          <img 
+            src={img2} 
+            className="w-full h-full object-cover" 
+            alt="Showcase 2" 
+          />
+        </div>
+      </div>
+
+      {/* Banner Central Tipográfico */}
+      <div className="flex-1 my-2 flex flex-col justify-center items-center px-4 relative z-10 text-center">
+        <SmartEl {...sp} field="subtitulo">
+          <TextWrapper {...sp} as="p" field="subtitulo" className="text-[12.5px] text-[#553c2f] font-light tracking-wide leading-none mb-1 outline-none" style={{ fontFamily: textFont, fontSize: `${12.5 * sText}px` }}>
+            {data.subtitulo || 'Bakery sale for a cause'}
+          </TextWrapper>
+        </SmartEl>
+
+        <SmartEl {...sp} field="titulo">
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-display text-[#2d1b13] leading-[0.95] tracking-tight uppercase my-1 select-none outline-none" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo || 'CHARITY BAKES'}
+          </TextWrapper>
+        </SmartEl>
+
+        <div className="flex flex-col gap-1.5 mt-3 text-[#2d1b13]">
+          <SmartEl {...sp} field="tag">
+            <TextWrapper {...sp} as="p" field="tag" className="text-[12px] font-bold tracking-[0.05em] leading-none flex items-center justify-center gap-1.5 outline-none" style={{ fontFamily: textFont, fontSize: `${12 * sText}px` }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 opacity-85">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg> 
+              {data.tag || 'SAT & SUN, 9 a.m. to 1 p.m.'}
+            </TextWrapper>
+          </SmartEl>
+          
+          <SmartEl {...sp} field="texto_apoio">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="opacity-80 text-[11px] font-light leading-none mt-1 flex items-center justify-center gap-1.5 outline-none" style={{ fontFamily: textFont, fontSize: `${11 * sText}px` }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 opacity-70">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg> 
+              {data.texto_apoio || 'City market, City center'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
+      </div>
+
+      {/* Grid Inferior de Imagens */}
+      <div className="grid grid-cols-2 gap-2 h-[26%]">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+          <img 
+            src={img3} 
+            className="w-full h-full object-cover" 
+            alt="Showcase 3" 
+          />
+        </div>
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+          <img 
+            src={img4} 
+            className="w-full h-full object-cover" 
+            alt="Showcase 4" 
+          />
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
 // ==========================================
 // EXPORTS & METADATA
 // ==========================================
@@ -1613,6 +2040,9 @@ export const COMPARISON_VARIANT_COMPONENTS = {
   35: ComparisonVariant35,
   36: ComparisonVariant36,
   37: ComparisonVariant37,
+  38: ComparisonVariant38,
+  39: ComparisonVariant39,
+  40: ComparisonVariant40,
 };
 
 export const COMPARISON_VARIANT_META = [
@@ -1765,6 +2195,24 @@ export const COMPARISON_VARIANT_META = [
     nome: 'Bold Vertical',
     badge: 'NEW',
     thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/comparison-variants--37.png'
+  },
+  {
+    id: 38,
+    nome: 'Waffle Clash',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/comparison-variants--38.png'
+  },
+  {
+    id: 39,
+    nome: 'Sweet Rival',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/comparison-variants--39.png'
+  },
+  {
+    id: 40,
+    nome: 'Showcase Grid',
+    badge: 'NEW',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Comparacao/comparison-variants--40.png'
   },
 ];
 

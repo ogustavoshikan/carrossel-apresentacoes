@@ -4799,11 +4799,12 @@ export function CoverExtraVariant185({
 
       {/* O Botão de Intersecção */}
       <div 
-        className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-20 pointer-events-none"
+        className="absolute left-[55%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-20 pointer-events-none border-[3px]"
         style={{
           '--tw-shadow': '0 5px 10px rgb(0 0 0 / 15%)',
           '--tw-shadow-colored': '0 10px 20px var(--tw-shadow-color)',
-          boxShadow: 'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)'
+          boxShadow: 'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)',
+          borderColor: brandColor
         }}
       >
          <ArrowRight style={{ color: brandColor }} className="w-5 h-5" />
@@ -4841,13 +4842,13 @@ export function CoverExtraVariant187({
         className="w-14 h-full flex flex-col items-center py-8 shadow-[10px_0_20px_rgba(0,0,0,0.05)] z-20 shrink-0"
         style={{ backgroundColor: brandColor }}
       >
-         <div className="w-1 h-8 bg-white/40 rounded-full" />
+         <div className="w-1 h-8 bg-white/70 rounded-full" />
          <div className="flex-1 flex flex-col items-center justify-center pointer-events-none">
            <span className="text-white font-outfit text-[9px] uppercase tracking-[0.4em] -rotate-90 whitespace-nowrap font-bold">
              {showBrandHandle ? `@${brandHandle}` : 'Brand'}
            </span>
          </div>
-         <Plus className="w-4 h-4 text-white/50" />
+         <Plus className="w-4 h-4 text-white/70" />
       </div>
 
       {/* Área de Conteúdo */}
@@ -4873,14 +4874,14 @@ export function CoverExtraVariant187({
                  <p 
                    contentEditable suppressContentEditableWarning
                    onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                   className="font-serif italic text-zinc-500 text-[13px] max-w-[140px] leading-relaxed outline-none break-words">
+                   className="font-serif normal text-zinc-500 text-[13px] max-w-[140px] leading-relaxed outline-none break-words">
                    {data.texto_apoio || 'A definição absoluta do que é premium no seu feed.'}
                  </p>
                </SmartField>
             </div>
          </div>
 
-         <div className="absolute bottom-6 right-6 flex items-center gap-2 opacity-50 pointer-events-none">
+         <div className="absolute bottom-6 right-6 flex items-center gap-2 opacity-90 pointer-events-none">
             <span className="font-outfit text-zinc-400 text-[9px] uppercase tracking-widest font-bold">Deslize</span>
             <ChevronRight className="w-4 h-4" style={{ color: brandColor }} />
          </div>
@@ -4915,26 +4916,25 @@ export function CoverExtraVariant200({
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   return (
-    <div className="relative w-full h-full bg-[#EAE8E3] overflow-hidden flex border border-zinc-200">
+    <div className="relative w-full h-full bg-[#EAE8E3] overflow-hidden flex">
       <div 
-        className="w-10 flex flex-col items-center justify-between py-6 z-10 shrink-0 pointer-events-none"
+        className="w-14 flex flex-col items-center justify-between py-6 z-10 shrink-0 pointer-events-none"
         style={{ backgroundColor: brandColor }}
       >
-         <span className="text-white font-outfit font-bold text-[10px] -rotate-90 whitespace-nowrap mt-12 tracking-[0.3em] uppercase">
+         <span className="text-white/80 font-outfit font-bold text-[10px] -rotate-90 whitespace-nowrap mt-12 tracking-[0.3em] uppercase">
            Edição {String(index + 1).padStart(2, '0')}
          </span>
-         <div className="w-1 h-8 bg-white/40 rounded-full" />
+         <div className="w-1 h-12 bg-white/70 rounded-full" />
       </div>
       <div className="flex-1 relative overflow-hidden shrink-0">
-        <ImageBg data={data} className="absolute inset-0 mix-blend-multiply opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent pointer-events-none" />
+        <ImageBg data={data} className="absolute inset-0" />
         <div className="absolute bottom-0 left-0 p-5 z-10">
            <SmartField field="titulo" {...sp}>
              <h2 
                contentEditable suppressContentEditableWarning
                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
                className="font-outfit text-white font-black uppercase leading-[0.9] tracking-tighter outline-none break-words"
-               style={{ fontSize: `${44 * sTitle}px` }}
+               style={{ fontSize: `${65 * sTitle}px` }}
              >
                {data.titulo || `Alto\nPadrão`}
              </h2>
@@ -5233,7 +5233,7 @@ export function CoverExtraVariant202({
       {/* Header Autor */}
       <div 
         className="flex items-center gap-3 relative z-10 shrink-0"
-        style={{ transform: 'translate(20px, 35px)' }}
+        style={{ transform: 'translate(16px, 35px)' }}
       >
         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-zinc-100 shadow-sm relative shrink-0">
           <img 
@@ -5244,7 +5244,7 @@ export function CoverExtraVariant202({
         </div>
         <div className="text-left">
           <h3 className="font-bold text-sm tracking-tight leading-tight flex items-center gap-1">
-            {authorName} {isVerified && <BadgeCheck className="w-4 h-4 text-[#DE1E4D] fill-current" />}
+            {authorName} {isVerified && <BadgeCheck className="w-4 h-4 text-white shrink-0" style={{ fill: brandColor }} />}
           </h3>
           {showBrandHandle && (
             <p className="text-zinc-500 text-xs mt-0.5 leading-none">{authorUsername}</p>
@@ -5253,7 +5253,7 @@ export function CoverExtraVariant202({
       </div>
 
       {/* Main Question & Alert Block */}
-      <div className="flex flex-col gap-2 text-left relative z-10 mt-[40px] pl-[20px]">
+      <div className="flex flex-col gap-2 text-left relative z-10 mt-[40px] pl-[16px]">
         <SmartField field="titulo" {...sp}>
           <h2 
             contentEditable suppressContentEditableWarning
@@ -5270,7 +5270,7 @@ export function CoverExtraVariant202({
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="text-[#0a0a0a] text-xs leading-relaxed font-light mt-[10px] outline-none cursor-text select-text break-words max-w-[340px]"
-            style={{ fontSize: `${17 * sText}px` }}
+            style={{ fontSize: `${21 * sText}px` }}
           >
             {data.texto_apoio || 'Seu bolo cresce lindo, mas depois de sair do forno ele afunda no meio?\nO problema quase nunca é o forno!'}
           </p>
@@ -5279,8 +5279,8 @@ export function CoverExtraVariant202({
 
       {/* Bottom Cake Image Block */}
       <div 
-        className="rounded-2xl overflow-hidden relative shadow-inner border border-zinc-100 shrink-0 mb-8 ml-[20px]"
-        style={{ height: 'calc(48% - 25px)', width: 'calc(100% - 30px)' }}
+        className="rounded-[10px] overflow-hidden relative shadow-inner border border-zinc-100 shrink-0 mb-8 ml-[16px]"
+        style={{ height: 'calc(48% - 40px)', width: 'calc(100% - 30px)' }}
       >
         <ImageBg data={bgData} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
@@ -5532,7 +5532,7 @@ export function CoverExtraVariant206({
   const accent = brandColor || '#fbbf24';
 
   const img0 = data.imageUrl || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop";
-  const img1 = "https://images.unsplash.com/photo-1535141192574-5d4897c13636?q=80&w=600&auto=format&fit=crop";
+  const img1 = "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop";
   const img2 = "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop";
   const img3 = "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=600&auto=format&fit=crop";
   const img4 = data.imageUrl || "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop";

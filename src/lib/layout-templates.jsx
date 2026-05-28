@@ -338,9 +338,14 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
   }
 
-  // Pre-configura imagem de fundo para variantes específicas de Sequência (Image Anchor, Editorial Split, Cinematic Step, Image Frame, Magazine Bleed, Cinematic Panel, Clean Polaroid, Single Frame, Float Top, Float Bottom e Editorial Capsule)
-  if (layoutType === 'sequence' && (variantIndex === 10 || variantIndex === 11 || variantIndex === 12 || variantIndex === 13 || variantIndex === 14 || variantIndex === 18 || variantIndex === 21 || variantIndex === 22 || variantIndex === 25 || variantIndex === 26 || variantIndex === 27)) {
+  // Pre-configura imagem de fundo para variantes específicas de Sequência (Image Anchor, Cinematic Step, Image Frame, Magazine Bleed, Cinematic Panel, Clean Polaroid, Single Frame, Float Top e Float Bottom)
+  if (layoutType === 'sequence' && (variantIndex === 10 || variantIndex === 12 || variantIndex === 13 || variantIndex === 14 || variantIndex === 18 || variantIndex === 21 || variantIndex === 22 || variantIndex === 25 || variantIndex === 26)) {
     slide.imageUrl = 'https://images.weserv.nl/?url=https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2016/11/13-receitas-de-brigadeiros-gourmet-faceis.webp';
+  }
+
+  // Pre-configura imagem de fundo específica para as variantes de Sequência solicitadas (Dia das Mães)
+  if (layoutType === 'sequence' && [11, 27, 29, 31, 47, 50, 55, 56, 60, 61].includes(variantIndex)) {
+    slide.imageUrl = 'https://images.weserv.nl/?url=https://minhasreceitinhas.com.br/wp-content/uploads/2023/04/receitas-de-docinhos-caseiros-dia-das-maes-1.jpg';
   }
 
   return slide;

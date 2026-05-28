@@ -241,7 +241,7 @@ export default function SmartElement({
                  return (
                      <SafeEditable
                          tagName={Tag}
-                         html={originalChildren || ''}
+                         html={typeof originalChildren === 'string' ? originalChildren : (restProps.dangerouslySetInnerHTML?.__html || '')}
                          isEditing={isEditing}
                          externalOnKeyDown={originalOnKeyDown}
                          {...restProps}

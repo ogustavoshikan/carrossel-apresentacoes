@@ -134,9 +134,9 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
   ];
 
   const recentProjects = [
-    { title: "Designs de Capa", slides: 46, tag: "Cover", delay: "0", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png" },
-    { title: "Content Split", slides: 31, tag: "Split", delay: "100", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image3.png" },
-    { title: "Sequências Criativas", slides: 25, tag: "Sequência", delay: "200", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence-22.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image3.png" },
+    { title: "Designs de Capa", slides: 61, tag: "Cover", delay: "0", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(10).png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png" },
+    { title: "Content Split", slides: 77, tag: "Split", delay: "100", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout2_image3.png" },
+    { title: "Sequências Criativas", slides: 25, tag: "Sequência", delay: "200", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/designs_sequence-13.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout3_image3.png" },
     { title: "Layouts de CTA", slides: 18, tag: "CTA", delay: "300", image: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Layout4_image1.png", imageMiddle: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout4_image2.png", imageBack: "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/layout4_image3.png" }
   ];
 
@@ -168,9 +168,8 @@ export default function Home({ onStartProject, brandColor = '#DE1E4D' }) {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3 px-4 py-2 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-full shadow-inner">
-                <Activity size={14} className="animate-pulse" style={{ color: brandColor }} />
-                <span className="text-[10px] font-bold tracking-widest text-white/70 uppercase">Sistema Operacional</span>
+              <div className="flex items-center gap-3 px-4 py-2 bg-transparent border border-white/10 rounded-xl shadow-inner">
+                <span className="text-[10px] font-bold tracking-widest text-white/70 uppercase">Espaço de Criação</span>
                 <div className="h-4 w-px bg-white/20" />
                 <span className="text-[10px] font-black" style={{ color: brandColor }}>TM</span>
               </div>

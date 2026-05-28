@@ -906,7 +906,7 @@ export function SequenceVariant12(props) {
             as="h2" 
             field="titulo" 
             className="font-black leading-[0.9] uppercase tracking-tighter whitespace-pre-line font-text"
-            style={{ fontSize: `${53.85 * sTitle}px`, color: '#1a1a1a' }}
+            style={{ fontSize: `${52 * sTitle}px`, color: '#1a1a1a' }}
           >
             {data.titulo || 'A ESCOLHA\nDOS GRÃOS'}
           </TextWrapper>
@@ -2234,7 +2234,7 @@ export function SequenceVariant28(props) {
           style={{ 
             width: '3rem', 
             height: '0.25rem', 
-            backgroundColor: 'rgb(228 228 231 / var(--tw-bg-opacity, 1))' 
+            backgroundColor: brandColor 
           }} 
         />
 
@@ -2272,7 +2272,7 @@ export function SequenceVariant28(props) {
             as="p" 
             field="texto_apoio" 
             className="text-zinc-600 font-medium leading-relaxed w-full font-text"
-            style={{ fontSize: `${20 * sText}px` }}
+            style={{ fontSize: `${21 * sText}px` }}
           >
             {data.texto_apoio || 'O amador foca apenas na cobertura. O confeiteiro profissional entende a alma do produto.'}
           </TextWrapper>
@@ -2306,8 +2306,8 @@ export function SequenceVariant29(props) {
         counterBg={data.counterBg || "rgb(10 10 10 / 0.3)"} 
       />
       <div className="absolute inset-0">
-        <ImageBg data={data} className="absolute inset-0 w-full h-full opacity-40 mix-blend-luminosity" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at center, transparent 0%, #0a0a0a 80%)' }}></div>
+        <ImageBg data={data} className="absolute inset-0 w-full h-full opacity-40" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(circle, transparent 0%, rgb(10 10 10 / 70%) 90%)' }}></div>
       </div>
       <div className="relative z-10 flex flex-col items-center text-center w-full">
         <svg className="w-6 h-6 mb-6 transition-colors duration-500" style={{ color: brandColor }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -2457,52 +2457,56 @@ export function SequenceVariant31(props) {
       />
       <div className="absolute inset-0 z-0">
         <ImageBg data={data} className="absolute inset-0 w-full h-full" />
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
-      <div className="relative z-10 w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[32px] p-8 text-white shadow-2xl">
-        <div className="flex justify-between items-center mb-6">
-          <span className="font-bold tracking-[0.2em] text-[9px] uppercase text-white/60 font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
-          <div className="px-3 py-1 rounded-full text-white font-black text-xs transition-colors duration-500 shadow-md font-text" style={{ backgroundColor: brandColor }}>0{step}</div>
-        </div>
+      <div className="relative z-10 w-full rounded-[25px] text-white shadow-2xl overflow-hidden border border-white/20" style={{ backgroundColor: brandColor, paddingTop: '24.5px', paddingBottom: '24.5px' }}>
+        <div className="absolute inset-0 -z-10 backdrop-blur-2xl" />
+        <div className="relative px-6">
+          <div className="flex justify-between items-center mb-6">
+            <span className="font-bold tracking-[0.2em] text-[9px] uppercase text-white/60 font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
+            <div className="px-3 py-1 rounded-full text-white font-black text-xs transition-colors duration-500 shadow-md font-text relative -left-2" style={{ backgroundColor: brandColor, border: '1px solid #ffffff' }}>0{step}</div>
+          </div>
 
-        <SmartEl 
-          slideIndex={index} 
-          field="titulo" 
-          position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
-          onSelectElement={onSelectElement}
-          className="mb-3"
-        >
-          <TextWrapper 
-            {...tw} 
-            as="h3" 
+          <SmartEl 
+            slideIndex={index} 
             field="titulo" 
-            className="font-black uppercase tracking-tighter leading-[1] font-text line-clamp-3"
-            style={{ fontSize: `${30 * sTitle}px` }}
+            position={data.positions?.titulo || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
+            onSelectElement={onSelectElement}
+            className="mb-3 w-full"
           >
-            {data.titulo || 'TITULO AQUI'}
-          </TextWrapper>
-        </SmartEl>
+            <TextWrapper 
+              {...tw} 
+              as="h3" 
+              field="titulo" 
+              className="font-black uppercase tracking-tighter leading-[1] font-text line-clamp-3 w-full"
+              style={{ fontSize: `${40 * sTitle}px` }}
+            >
+              {data.titulo || 'TITULO AQUI'}
+            </TextWrapper>
+          </SmartEl>
 
-        <SmartEl 
-          slideIndex={index} 
-          field="texto_apoio" 
-          position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
-          onSelectElement={onSelectElement}
-        >
-          <TextWrapper 
-            {...tw} 
-            as="p" 
+          <SmartEl 
+            slideIndex={index} 
             field="texto_apoio" 
-            className="text-white/80 font-medium leading-relaxed font-title break-words max-w-full"
-            style={{ fontSize: `${13 * sText}px` }}
+            position={data.positions?.texto_apoio || { x: 0, y: 0, scale: 1 }}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
+            onSelectElement={onSelectElement}
+            className="w-full"
           >
-            {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
-          </TextWrapper>
-        </SmartEl>
+            <TextWrapper 
+              {...tw} 
+              as="p" 
+              field="texto_apoio" 
+              className="text-white/80 font-medium leading-relaxed font-title break-words w-full"
+              style={{ fontSize: `${18 * sText}px` }}
+            >
+              {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
+            </TextWrapper>
+          </SmartEl>
+        </div>
       </div>
     </div>
   );
@@ -2516,7 +2520,7 @@ export function SequenceVariant32(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#F4F1ED]">
+    <div className="w-full h-full flex flex-col relative overflow-hidden bg-[#FFFFFF]">
       <SlideHeader 
         {...props} 
         slideIndex={index} 
@@ -2532,12 +2536,12 @@ export function SequenceVariant32(props) {
           <div className="w-6 h-[1px] transition-colors duration-500" style={{ backgroundColor: brandColor }}></div>
           <span className="font-bold tracking-[0.2em] text-[8px] uppercase text-[#1A1A1A]/60 font-text">A COLEÇÃO</span>
         </div>
-        <h3 className="font-black text-[42px] leading-none tracking-tight text-[#1A1A1A] font-title">0{step}.</h3>
+        <h3 className="font-black text-[55px] leading-none tracking-tight text-[#1A1A1A] font-title">0{step}.</h3>
       </div>
       <div className="h-[45%] w-full relative z-10 border-y border-black/5 shadow-sm">
         <ImageBg data={data} className="absolute inset-0 w-full h-full" />
       </div>
-      <div className="h-[30%] w-full p-6 flex flex-col justify-between transition-colors duration-500 text-white" style={{ backgroundColor: brandColor }}>
+      <div className="h-[35%] w-full p-6 flex flex-col justify-between transition-colors duration-500 text-white" style={{ backgroundColor: brandColor }}>
         
         <SmartEl 
           slideIndex={index} 
@@ -2553,7 +2557,7 @@ export function SequenceVariant32(props) {
             as="h4" 
             field="titulo" 
             className="font-bold uppercase tracking-widest leading-tight font-text line-clamp-2"
-            style={{ fontSize: `${14 * sTitle}px` }}
+            style={{ fontSize: `${38 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -2572,7 +2576,7 @@ export function SequenceVariant32(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/80 font-medium leading-relaxed line-clamp-2 font-title break-words max-w-full"
-            style={{ fontSize: `${11 * sText}px` }}
+            style={{ fontSize: `${21 * sText}px` }}
           >
             {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
           </TextWrapper>
@@ -2619,7 +2623,7 @@ export function SequenceVariant33(props) {
             as="h3" 
             field="titulo" 
             className="font-black tracking-tight mb-6 mt-4 font-title"
-            style={{ fontSize: `${32 * sTitle}px` }}
+            style={{ fontSize: `${40 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -2644,7 +2648,7 @@ export function SequenceVariant33(props) {
               as="p" 
               field="texto_apoio" 
               className="text-[#1A1A1A]/70 font-medium leading-relaxed font-text"
-              style={{ fontSize: `${12 * sText}px` }}
+              style={{ fontSize: `${16 * sText}px` }}
             >
               {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
             </TextWrapper>
@@ -3454,7 +3458,7 @@ export function SequenceVariant48(props) {
               as="h3" 
               field="titulo" 
               className="font-black uppercase tracking-tighter leading-[0.9] font-text"
-              style={{ fontSize: `${30 * sTitle}px` }}
+              style={{ fontSize: `${45 * sTitle}px`, color: '#1A1A1A' }}
             >
               {data.titulo || 'TITULO AQUI'}
             </TextWrapper>
@@ -3473,8 +3477,8 @@ export function SequenceVariant48(props) {
               {...tw} 
               as="p" 
               field="texto_apoio" 
-              className="text-[#050505]/70 font-medium leading-relaxed font-title"
-              style={{ fontSize: `${13 * sText}px` }}
+              className="text-[#1A1A1A]/70 font-medium leading-relaxed font-title"
+              style={{ fontSize: `${21 * sText}px` }}
             >
               {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
             </TextWrapper>
@@ -3482,9 +3486,9 @@ export function SequenceVariant48(props) {
 
         </div>
       </div>
-      <div className="w-[45%] h-full p-4 pl-0 py-4">
-        <div className="w-full h-full rounded-[24px] overflow-hidden shadow-lg border border-black/5 relative">
-          <ImageBg data={data} className="w-full h-full absolute inset-0 opacity-90 grayscale-[30%]" />
+      <div className="w-[45%] h-full p-4 pl-0 py-4 relative z-0" style={{ marginLeft: '-12px', width: 'calc(45% + 12px)' }}>
+        <div className="w-full h-full rounded-[14px] overflow-hidden shadow-lg border border-black/5 relative">
+          <ImageBg data={data} className="w-full h-full absolute inset-0" />
         </div>
       </div>
     </div>
@@ -3563,7 +3567,7 @@ export function SequenceVariant50(props) {
   return (
     <div className="w-full h-full bg-[#0a0a0a] text-white relative flex flex-col justify-center p-12 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <ImageBg data={data} className="w-full h-full absolute inset-0 blur-sm opacity-[0.08]" />
+        <ImageBg data={data} className="w-full h-full absolute inset-0 opacity-[0.45]" />
       </div>
       <div className="absolute top-8 left-12 z-20">
         <span className="font-bold tracking-[0.2em] text-[9px] uppercase text-white/40 font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
@@ -3631,6 +3635,7 @@ export function SequenceVariant51(props) {
           <span className="font-bold tracking-[0.2em] text-[9px] uppercase text-white drop-shadow-md font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
         </div>
       </div>
+      <div className="w-full h-2 bg-white z-20 shrink-0"></div>
       <div className="h-[45%] w-full p-10 flex flex-col justify-center relative transition-colors duration-500" style={{ backgroundColor: brandColor }}>
         <span className="font-black text-8xl absolute -top-12 right-8 drop-shadow-xl text-white/90 font-text">0{step}.</span>
         
@@ -3648,7 +3653,7 @@ export function SequenceVariant51(props) {
             as="h3" 
             field="titulo" 
             className="font-black uppercase tracking-tighter leading-[0.9] font-text"
-            style={{ fontSize: `${36 * sTitle}px` }}
+            style={{ fontSize: `${48 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -3668,7 +3673,7 @@ export function SequenceVariant51(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/90 font-medium leading-relaxed font-title"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${19 * sText}px` }}
           >
             {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
           </TextWrapper>
@@ -3821,13 +3826,13 @@ export function SequenceVariant54(props) {
   return (
     <div className="w-full h-full bg-[#050505] relative overflow-hidden flex flex-col p-4">
       <div className="absolute inset-0 z-0">
-        <ImageBg data={data} className="w-full h-full absolute inset-0 opacity-60" />
+        <ImageBg data={data} className="w-full h-full absolute inset-0 opacity-70" />
       </div>
       <div className="absolute top-8 right-8 z-10 bg-white/20 backdrop-blur-md rounded-full px-4 py-1.5 shadow-sm">
         <span className="font-bold tracking-[0.2em] text-[9px] uppercase text-white font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
       </div>
-      <div className="mt-auto relative z-10 w-full bg-white rounded-[32px] p-8 pb-10 shadow-2xl flex flex-col border-b-8 transition-colors duration-500" style={{ borderColor: brandColor }}>
-        <div className="absolute -top-6 left-8 bg-[#050505] text-white rounded-2xl px-5 py-2 shadow-xl border-2 border-white">
+      <div className="mt-auto relative z-10 w-full bg-white rounded-[32px] p-8 pb-10 shadow-2xl flex flex-col border-b-[5px] border-t transition-colors duration-500" style={{ borderColor: brandColor }}>
+        <div className="absolute -top-6 left-8 bg-white text-[#1A1A1A] rounded-2xl px-5 py-2 shadow-xl border-2 transition-colors duration-500" style={{ borderColor: brandColor }}>
           <span className="font-black text-2xl leading-none font-text">0{step}</span>
         </div>
         
@@ -3947,16 +3952,14 @@ export function SequenceVariant56(props) {
   const tw = { index, onTextChange };
 
   return (
-    <div className="w-full h-full flex flex-row bg-[#FDFBF7] text-[#050505] p-4 relative overflow-hidden">
+    <div className="w-full h-full flex flex-row bg-[#FDFBF7] text-[#1A1A1A] p-4 relative overflow-hidden">
       <div className="absolute -right-10 top-10 font-black text-[250px] opacity-5 select-none pointer-events-none transition-colors duration-500 font-text" style={{ color: brandColor }}>{step}</div>
-      <div className="w-[45%] h-full rounded-[32px] overflow-hidden relative shadow-lg">
-        <ImageBg data={data} className="w-full h-full absolute inset-0 grayscale opacity-90" />
-        <div className="absolute inset-0 opacity-20 mix-blend-multiply transition-colors duration-500" style={{ backgroundColor: brandColor }}></div>
+      <div className="w-[45%] h-full rounded-[14px] overflow-hidden relative shadow-lg">
+        <ImageBg data={data} className="w-full h-full absolute inset-0" />
       </div>
-      <div className="w-[65%] h-max self-center -ml-16 bg-white rounded-[24px] p-8 shadow-2xl z-10 border border-black/5 flex flex-col">
+      <div className="h-max self-center bg-white rounded-[24px] px-6 py-8 z-10 border flex flex-col" style={{ width: 'calc(65% - 30px)', marginLeft: '-49px', borderColor: `${brandColor}4D`, '--tw-shadow': '0 10px 30px -17px rgb(222 30 77 / 60%)', '--tw-shadow-colored': '0 25px 50px -12px var(--tw-shadow-olor)', boxShadow: 'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)' }}>
         <div className="flex justify-between items-center mb-6">
           <span className="font-bold tracking-[0.2em] text-[8px] uppercase text-black/40 font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
-          <div className="px-3 py-1 rounded-full text-white font-black text-xs transition-colors duration-500 shadow-md font-text" style={{ backgroundColor: brandColor }}>0{step}</div>
         </div>
         
         <SmartEl 
@@ -3966,14 +3969,14 @@ export function SequenceVariant56(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'}
           onSelectElement={onSelectElement}
-          className="mb-3"
+          className="mb-3 w-full"
         >
           <TextWrapper 
             {...tw} 
             as="h3" 
             field="titulo" 
-            className="font-black uppercase tracking-tighter leading-[0.9] font-text"
-            style={{ fontSize: `${28 * sTitle}px` }}
+            className="font-black uppercase tracking-tighter leading-[0.9] font-text w-full"
+            style={{ fontSize: `${36 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -3986,13 +3989,14 @@ export function SequenceVariant56(props) {
           onActionStart={onActionStart}
           isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'}
           onSelectElement={onSelectElement}
+          className="w-full"
         >
           <TextWrapper 
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-black/70 font-bold leading-relaxed font-title"
-            style={{ fontSize: `${12 * sText}px` }}
+            className="text-black/70 font-bold leading-relaxed font-title w-full"
+            style={{ fontSize: `${18 * sText}px` }}
           >
             {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
           </TextWrapper>
@@ -4011,12 +4015,12 @@ export function SequenceVariant57(props) {
 
   return (
     <div className="w-full h-full flex flex-col relative bg-[#050505] text-white">
-      <div className="w-full h-[55%] relative">
+      <div className="w-full h-[51%] relative">
         <ImageBg data={data} className="w-full h-full absolute inset-0" />
-        <div className="absolute inset-0 transition-colors duration-700 mix-blend-multiply opacity-[0.35]" style={{ backgroundColor: brandColor }}></div>
       </div>
-      <div className="w-full h-[45%] p-8 pt-10 flex flex-col justify-center relative transition-colors duration-700" style={{ backgroundColor: brandColor }}>
-        <div className="absolute -top-6 left-8 bg-[#FDFBF7] text-[#050505] px-5 py-2 shadow-xl border-b-4 border-[#050505]">
+      <div className="w-full h-2 bg-white z-0 shrink-0"></div>
+      <div className="w-full h-[49%] p-8 pt-10 flex flex-col justify-center relative transition-colors duration-700" style={{ backgroundColor: brandColor }}>
+        <div className="absolute -top-6 left-8 bg-[#FDFBF7] text-[#1A1A1A] px-5 py-2 shadow-xl border-b-4 border-[#1A1A1A] rounded-[12px] z-30">
           <span className="font-black text-2xl leading-none font-text">PASSO 0{step}</span>
         </div>
         
@@ -4034,7 +4038,7 @@ export function SequenceVariant57(props) {
             as="h3" 
             field="titulo" 
             className="font-black uppercase tracking-tighter leading-[0.9] text-white font-text"
-            style={{ fontSize: `${32 * sTitle}px` }}
+            style={{ fontSize: `${45 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -4054,7 +4058,7 @@ export function SequenceVariant57(props) {
             as="p" 
             field="texto_apoio" 
             className="text-white/90 font-medium leading-relaxed drop-shadow-sm font-title"
-            style={{ fontSize: `${13 * sText}px` }}
+            style={{ fontSize: `${21 * sText}px` }}
           >
             {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
           </TextWrapper>
@@ -4093,8 +4097,8 @@ export function SequenceVariant58(props) {
             {...tw} 
             as="h3" 
             field="titulo" 
-            className="font-black text-[36px] uppercase tracking-tighter leading-[0.9] text-[#050505] font-text"
-            style={{ fontSize: `${36 * sTitle}px` }}
+            className="font-black text-[36px] uppercase tracking-tighter leading-[0.9] text-[#1A1A1A] font-text"
+            style={{ fontSize: `${60 * sTitle}px` }}
           >
             {data.titulo || 'TITULO AQUI'}
           </TextWrapper>
@@ -4113,15 +4117,15 @@ export function SequenceVariant58(props) {
             {...tw} 
             as="p" 
             field="texto_apoio" 
-            className="text-[#050505]/80 font-bold leading-relaxed font-title"
-            style={{ fontSize: `${13 * sText}px` }}
+            className="text-[#1A1A1A]/80 font-bold leading-relaxed font-title"
+            style={{ fontSize: `${21 * sText}px` }}
           >
             {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
           </TextWrapper>
         </SmartEl>
 
         <div className="mt-auto">
-          <div className="w-12 h-1.5 transition-colors duration-500" style={{ backgroundColor: brandColor }}></div>
+          <div className="w-12 h-1 transition-colors duration-500" style={{ backgroundColor: brandColor }}></div>
         </div>
       </div>
       <div className="w-[40%] h-full transition-colors duration-700 relative z-0 flex items-center shadow-[-20px_0_40px_rgba(0,0,0,0.05)]" style={{ backgroundColor: brandColor }}>
@@ -4273,8 +4277,7 @@ export function SequenceVariant61(props) {
   return (
     <div className="w-full h-full bg-white text-[#050505] relative flex flex-row shadow-inner">
       <div className="w-[45%] h-full relative overflow-hidden">
-        <ImageBg data={data} className="w-full h-full absolute inset-0 grayscale opacity-90" />
-        <div className="absolute inset-0 mix-blend-multiply opacity-60 transition-colors duration-500" style={{ backgroundColor: brandColor }}></div>
+        <ImageBg data={data} className="w-full h-full absolute inset-0" />
         <div className="absolute top-6 left-6 z-20">
           <span className="font-bold tracking-[0.2em] text-[10px] uppercase text-white drop-shadow-md font-text">{brandHandle || '@STUDIO_PREMIUM'}</span>
         </div>
@@ -4296,7 +4299,7 @@ export function SequenceVariant61(props) {
               as="h3" 
               field="titulo" 
               className="font-black uppercase tracking-tighter leading-[0.9] font-text"
-              style={{ fontSize: `${28 * sTitle}px` }}
+              style={{ fontSize: `${55 * sTitle}px`, color: '#1A1A1A' }}
             >
               {data.titulo || 'TITULO AQUI'}
             </TextWrapper>
@@ -4314,8 +4317,8 @@ export function SequenceVariant61(props) {
               {...tw} 
               as="p" 
               field="texto_apoio" 
-              className="text-[#050505]/80 font-medium leading-relaxed font-title"
-              style={{ fontSize: `${13 * sText}px` }}
+              className="text-[#1A1A1A]/80 font-medium leading-relaxed font-title"
+              style={{ fontSize: `${21 * sText}px` }}
             >
               {data.texto_apoio || 'Sua descrição detalhada vai aqui...'}
             </TextWrapper>
@@ -4489,17 +4492,10 @@ export const SEQUENCE_VARIANT_COMPONENTS = {
   30: SequenceVariant31,
   31: SequenceVariant32,
   32: SequenceVariant33,
-  33: SequenceVariant34,
-  34: SequenceVariant35,
-  35: SequenceVariant36,
   36: SequenceVariant37,
-  37: SequenceVariant38,
-  38: SequenceVariant39,
   39: SequenceVariant40,
-  40: SequenceVariant41,
   41: SequenceVariant42,
   42: SequenceVariant43,
-  43: SequenceVariant44,
   44: SequenceVariant45,
   45: SequenceVariant46,
   46: SequenceVariant47,
@@ -4533,7 +4529,7 @@ export const SEQUENCE_VARIANT_META = [
   { id: 10, name: 'Image Anchor', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence10.png' },
   { id: 11, name: 'Editorial Split', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence11.png' },
   { id: 12, name: 'Cinematic Step', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence12.png' },
-  { id: 13, name: 'Image Frame', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence13.png' },
+  { id: 13, name: 'Image Frame', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence-13.png' },
   { id: 14, name: 'Magazine Bleed', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence14.png' },
   { id: 15, name: 'Anchor Bottom', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence15.png' },
   { id: 16, name: 'Corner Bottom', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence16.png' },
@@ -4552,17 +4548,10 @@ export const SEQUENCE_VARIANT_META = [
   { id: 30, name: 'Frosted Narrative', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence30.png' },
   { id: 31, name: 'Block Footer', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence31.png' },
   { id: 32, name: 'Vertical Tab', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence32.png' },
-  { id: 33, name: 'Split Narrative', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence33.png' },
-  { id: 34, name: 'Split Narrative Alt', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence34.png' },
-  { id: 35, name: 'Gallery Focus', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence35.png' },
   { id: 36, name: 'Refined Step', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence36.png' },
-  { id: 37, name: 'Floating Showcase', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence37.png' },
-  { id: 38, name: 'Delicate Frame', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence38.png' },
   { id: 39, name: 'Sidebar Volume', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence39.png' },
-  { id: 40, name: 'Centered Shadow', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence40.png' },
   { id: 41, name: 'Overlap Quote', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence41.png' },
   { id: 42, name: 'Dark Divider', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence42.png' },
-  { id: 43, name: 'Classic Editorial Card', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence43.png' },
   { id: 44, name: 'Clean Accent', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence44.png' },
   { id: 45, name: 'Editorial Canvas', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence45.png' },
   { id: 46, name: 'Ethereal Float', badge: 'NEW', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence46.png' },
