@@ -259,6 +259,43 @@ export const CTA_EXTRA_VARIANT_META = [
     id: 170,
     name: 'Sweet Treat Haven',
     description: 'Design de donuts dividido 50/50 em tons pasteis com botão de ação arredondado na base.'
+  },
+  {
+    id: 171,
+    name: 'Bella Doceria para Festa',
+    description: 'Painel mostarda com design split em tons de rosa e verde para exibição de doces festivos.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra171.png'
+  },
+  {
+    id: 172,
+    name: 'Orçamento Festa Especial',
+    description: 'Layout rosa vibrante com marcas dágua de caligrafia, foco em orçamentos rápidos e contatos.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra172.png'
+  },
+  {
+    id: 173,
+    name: 'Delícia Pedido Rápido',
+    description: 'Card central elegante com sobreposição de imagem recortada e botão de encomenda destacado.'
+  },
+  {
+    id: 174,
+    name: 'Pink Pie Frosting',
+    description: 'Design rosa vibrante com formas interligadas creme e chantilly nos cantos com máscara de recorte.'
+  },
+  {
+    id: 175,
+    name: 'Torta de Frutas Real',
+    description: 'Design rosa suave com imagem central de torta recortada por máscara crimpada ondulada.'
+  },
+  {
+    id: 176,
+    name: 'Holiday Bake Sale',
+    description: 'Design promocional natalino com topo amarelo, base de cookies e card central rotacionado.'
+  },
+  {
+    id: 177,
+    name: 'Croissant Offer',
+    description: 'Design terracota com topo creme xadrez e grade de 3 croissants circulares com filtros.'
   }
 ];
 
@@ -2743,6 +2780,799 @@ export function CTAVariant170(props) {
   );
 }
 
+// ==========================================
+// CTA 171: BELLA DOCERIA - PARA FESTA
+// Design dividido verticalmente com painel amarelo mostarda na esquerda e split colorido na direita.
+// ==========================================
+export function CTAVariant171(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const parts = (data.titulo || 'Procurando o\nKit Festa\nideal?').split('\n');
+  const part1 = parts[0] || 'Procurando o';
+  const part2 = parts[1] || 'Kit Festa';
+  const part3 = parts[2] || 'ideal?';
+
+  const bellaCakePlaceholder = "https://images.unsplash.com/photo-1562777717-b61eb8f16b28?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex font-outfit select-none overflow-hidden bg-white shadow-2xl group">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Calistoga&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-calistoga { font-family: 'Calistoga', serif; }
+      `}} />
+
+      {/* LEFT PANEL: Amarelo Mostarda */}
+      <div className="w-[51%] h-full flex flex-col items-center justify-start pt-14 pb-8 relative z-10 px-3 text-center pointer-events-none" style={{ backgroundColor: brandColor || '#dfa828' }}>
+        
+        {/* SVG Pattern: Gotas/Folhas no canto inferior */}
+        <div className="absolute -bottom-8 -left-6 w-56 h-56 opacity-[0.15] pointer-events-none text-[#5e4104]">
+          <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(10, 70) scale(0.6) rotate(45)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(35, 65) scale(0.8) rotate(15)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(55, 80) scale(0.7) rotate(-20)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(5, 45) scale(0.75) rotate(70)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(25, 40) scale(0.9) rotate(35)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(45, 50) scale(0.6) rotate(0)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(70, 60) scale(0.8) rotate(-45)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(15, 20) scale(0.65) rotate(80)" />
+            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(40, 25) scale(0.7) rotate(45)" />
+          </svg>
+        </div>
+
+        {/* Top Text Group */}
+        <div className="flex flex-col items-center relative z-10 w-full pointer-events-auto">
+          <SmartElement slideIndex={index} field="titulo_part1" position={pos('titulo_part1')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo_part1'} onSelectElement={onSelectElement} className="w-full flex justify-center">
+            <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', `${e.currentTarget.innerText}\n${part2}\n${part3}`)} className="text-[#ffffff] font-calistoga text-[14px] leading-none mb-1.5 tracking-tight whitespace-nowrap outline-none" style={{ fontSize: `${45 * sTitle}px`, fontFamily: 'Calistoga, serif' }}>
+              {part1}
+            </h3>
+          </SmartElement>
+          <SmartElement slideIndex={index} field="titulo_part2" position={pos('titulo_part2')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo_part2'} onSelectElement={onSelectElement} className="w-full flex justify-center">
+            <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', `${part1}\n${e.currentTarget.innerText}\n${part3}`)} className="text-[#ffffff] font-calistoga text-[26px] leading-[0.95] tracking-tight whitespace-nowrap outline-none" style={{ fontSize: `${45 * sTitle}px`, fontFamily: 'Calistoga, serif' }}>
+              {part2}
+            </h1>
+          </SmartElement>
+          <SmartElement slideIndex={index} field="titulo_part3" position={pos('titulo_part3')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo_part3'} onSelectElement={onSelectElement} className="w-full flex justify-center">
+            <h3 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', `${part1}\n${part2}\n${e.currentTarget.innerText}`)} className="text-[#ffffff] font-calistoga text-[15px] leading-none mt-1 tracking-tight whitespace-nowrap outline-none" style={{ fontSize: `${45 * sTitle}px`, fontFamily: 'Calistoga, serif' }}>
+              {part3}
+            </h3>
+          </SmartElement>
+        </div>
+
+        {/* Divider Box (Nós te ajudamos!) */}
+        <div className="relative z-10 py-1.5 px-1 mt-6 mb-5 w-[85%] pointer-events-auto">
+          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="text-white text-[10px] font-medium tracking-wide outline-none" style={{ fontSize: `${30 * sText}px` }}>
+              {data.texto_apoio || 'Nós te ajudamos!'}
+            </p>
+          </SmartElement>
+        </div>
+
+        {/* CTA Bottom (Nos chame no direct!) */}
+        <div className="relative z-10 w-[85%] pointer-events-auto">
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="text-[#c82079] font-black text-[10px] uppercase tracking-widest leading-snug outline-none" style={{ fontSize: `${21 * sText}px` }}>
+              {data.cta_text || 'NOS CHAME NO DIRECT!'}
+            </p>
+          </SmartElement>
+        </div>
+
+        {/* Logo Bottom Left */}
+        <div className="relative z-10 mt-auto flex flex-col items-center justify-center pointer-events-auto">
+          <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="flex flex-col items-center">
+             <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-hand text-white text-[32px] leading-[0.6] tracking-tight pr-2 outline-none" style={{ fontFamily: 'Charmonman, cursive' }}>
+               {data.studio_text || brandHandle || 'Bella'}
+             </h2>
+             <span className="font-black text-white text-[6px] tracking-[0.25em] uppercase mt-1">
+               Confeitaria
+             </span>
+          </SmartElement>
+        </div>
+
+      </div>
+
+      {/* RIGHT PANEL: Bolo & Fundo Split */}
+      <div className="w-[49%] h-full relative pointer-events-auto">
+        <ImageBg 
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl || bellaCakePlaceholder}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full cursor-pointer"
+          placeholderText="Adicione uma Imagem"
+        />
+      </div>
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 172: ORÇAMENTO FESTA
+// Design de orçamento de bolo de festa com marcas d'água no fundo e botões e detalhes sofisticados.
+// ==========================================
+export function CTAVariant172(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const chocolateCakeWhole = "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#fcaebb] flex flex-col font-outfit select-none overflow-hidden text-[#2a1b18] shadow-2xl">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Background Text (Faint Script) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] flex items-center justify-center pointer-events-none z-0">
+        <span className="font-hand text-[200px] text-[#f89dae] leading-none transform -rotate-12 opacity-40 select-none" style={{ fontFamily: 'Charmonman, cursive' }}>
+          Doçura
+        </span>
+      </div>
+
+      {/* Header Typography */}
+      <div className="relative z-20 flex flex-col items-center mt-12 px-4 pointer-events-none">
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="relative -left-[15px] text-[8px] font-bold tracking-[0.1em] uppercase text-[#2a1b18] mb-[-4px] outline-none" style={{ fontSize: `${19 * sText}px` }}>
+            {data.badge_text || "SOLICITE SEU"}
+          </span>
+        </SmartElement>
+        
+        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-display text-[42px] leading-[0.85] tracking-tight text-[#2a1b18] -ml-2 drop-shadow-sm outline-none" style={{ fontSize: `${65 * sTitle}px`, fontFamily: 'Alfa Slab One, cursive' }}>
+            {data.titulo || "Orçamento"}
+          </h1>
+        </SmartElement>
+
+        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="relative left-[25px] text-[8px] font-bold tracking-[0.1em] uppercase text-[#2a1b18] mt-1.5 ml-14 outline-none" style={{ fontSize: `${18 * sText}px` }}>
+            {data.texto_apoio || "PARA SUA FESTA DE ANIVERSÁRIO"}
+          </span>
+        </SmartElement>
+      </div>
+
+      {/* Main Subject: Chocolate Cake */}
+      <div className="relative z-10 flex-1 flex items-center justify-center mt-1 pointer-events-auto">
+        <div className="w-[60%] aspect-[1.1] relative transition-transform duration-700">
+          <ImageBg 
+            data={data}
+            slideIndex={index}
+            imageUrl={data.imageUrl || chocolateCakeWhole}
+            imagePosition={data.imagePosition}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+            onSelectElement={onSelectElement}
+            className="w-full h-full drop-shadow-[0_25px_30px_rgba(42,27,24,0.4)] rounded-[3rem] cursor-pointer"
+            placeholderText="Adicione uma Imagem"
+          />
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="relative z-20 flex flex-col items-center pb-6 mt-2 pointer-events-none">
+        
+        {/* Dark Pill Button */}
+        <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <button contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="bg-[#1c1210] text-[#fcaebb] px-10 py-3.5 rounded-full text-[12px] font-bold tracking-widest hover:bg-black transition-colors shadow-xl mb-6 outline-none">
+            {data.cta_text || "entre em contato!"}
+          </button>
+        </SmartElement>
+
+        {/* Contact & Address Footer */}
+        <div className="w-[90%] flex items-center justify-between border-t border-[#2a1b18]/15 pt-4 px-1 pointer-events-auto">
+          
+          {/* WhatsApp */}
+          <div className="flex items-center gap-1.5 flex-1">
+            <svg className="w-4 h-4 text-[#2a1b18] fill-[#2a1b18] shrink-0" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.717-1.458L0 24zm6.59-4.846c1.6.95 3.16 1.449 4.814 1.451 5.4 0 9.794-4.35 9.797-9.7 0-2.592-1.01-5.029-2.846-6.866-1.836-1.836-4.274-2.846-6.86-2.848-5.394 0-9.79 4.352-9.794 9.702-.001 1.705.452 3.37 1.31 4.8l-.993 3.63 3.769-.974zm11.516-7.078c-.313-.156-1.85-.909-2.137-1.013-.287-.105-.497-.156-.708.156-.21.313-.815 1.013-.997 1.221-.183.208-.365.234-.678.078-1.572-.787-2.613-1.371-3.66-3.17-.278-.475.278-.44.795-1.472.087-.174.043-.327-.021-.453-.064-.127-.525-1.264-.72-1.734-.19-.459-.384-.396-.525-.403-.136-.007-.292-.008-.448-.008-.156 0-.41.059-.625.293-.215.234-.82.801-.82 1.953s.84 2.266.957 2.422c.117.156 1.653 2.508 4 3.508.558.232 1.002.371 1.344.48.56.177 1.069.152 1.472.092.45-.067 1.85-.75 2.112-1.439.262-.688.262-1.277.183-1.402-.078-.125-.287-.208-.6-.364z" />
+            </svg>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="flex flex-col leading-[1]">
+              <span className="text-[7.5px] font-medium text-[#2a1b18] block">WhatsApp</span>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="text-[8.5px] font-black tracking-tight outline-none block">{data.studio_text || "84 9 9999 0000"}</span>
+            </SmartElement>
+          </div>
+
+          {/* Address */}
+          <div className="flex items-center justify-center gap-1 flex-[1.2] border-x border-[#2a1b18]/20 px-2">
+            <svg className="w-[14px] h-[14px] text-[#2a1b18] shrink-0 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div className="flex flex-col items-center text-center leading-[1]">
+              <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="w-full">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="text-[7px] font-medium text-[#2a1b18] truncate max-w-[90px] block outline-none">{data.insta_ready || "Rua do Doce, 123"}</span>
+              </SmartElement>
+              <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement} className="w-full">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="text-[7px] font-medium text-[#2a1b18] truncate max-w-[90px] block outline-none">{data.slide_call || "Bairro das Festas - Cidade/UF"}</span>
+              </SmartElement>
+            </div>
+          </div>
+          
+          {/* Delivery Logos */}
+          <div className="flex items-center gap-1.5 flex-1 justify-end shrink-0">
+            <span className="font-display italic text-[11px] tracking-tighter text-[#2a1b18]">iFood</span>
+            <div className="leading-none text-center">
+              <span className="text-[7px] font-black block text-[#2a1b18]">UBER</span>
+              <span className="text-[9.5px] font-black block text-[#2a1b18]">eats</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 173: DELÍCIA PEDIDO
+// Card de pedido de delícias confeitaria com sobreposição de imagem de bolo realista na base.
+// ==========================================
+export function CTAVariant173(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const pinkVintageCake = "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#3c1b22] flex flex-col font-outfit select-none overflow-hidden text-[#111] rounded-[2rem] shadow-2xl border border-white/10">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Fundo com Pattern Sutil */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-[0.04]"
+           style={{
+             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 15c-3-5-10-7-15-2-5 5-5 12 0 17l15 15 15-15c5-5 5-12 0-17-5-5-12-3-15 2z' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M22 25h16M25 30h10' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")`,
+             backgroundSize: '80px 80px'
+           }}
+      />
+
+      {/* Arroba Topo */}
+      <div className="relative z-10 w-full text-center mt-6">
+        <span className="text-white text-[12px] font-medium tracking-wide">
+          {brandHandle || "@seuarroba"}
+        </span>
+      </div>
+
+      {/* Area Central: Card e Imagem */}
+      <div className="relative flex-1 flex flex-col items-center w-full mt-4">
+        
+        {/* Card Principal */}
+        <div className="relative w-[85%] bg-[#fde5da] rounded-[1.5rem] mt-6 px-6 pt-10 pb-12 shadow-[0_15px_30px_rgba(0,0,0,0.4)] z-20 flex flex-col items-center text-center pointer-events-none">
+          
+          {/* Ícone sobreposto no topo do card */}
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#fc6c65] w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 border-2 border-[#3c1b22]/10 pointer-events-none">
+            <svg className="w-6 h-6 text-[#3c1b22]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6M10 16h4" />
+            </svg>
+          </div>
+
+          {/* Texto do Card com Destaques */}
+          <div className="text-[20px] leading-[1.1] font-medium text-[#111] tracking-tight pointer-events-auto w-full">
+            <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="inline">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="outline-none inline-block mr-1">
+                {data.badge_text || "Toda"}
+              </span>
+            </SmartElement>
+
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="inline">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="text-[#fc6c65] font-bold outline-none inline-block">
+                {data.studio_text || "delícia"}
+              </span>
+            </SmartElement>
+            
+            <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="block mt-1">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="block whitespace-pre-line outline-none leading-[1.1]" style={{ fontSize: `${20 * sTitle}px` }}>
+                {data.titulo || "merece\nser saboreada...\nE a sua está só a um"}
+              </span>
+            </SmartElement>
+
+            <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="block mt-1">
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="block text-[#fc6c65] font-bold outline-none" style={{ fontSize: `${20 * sText}px` }}>
+                {data.texto_apoio || "pedido de distância!"}
+              </span>
+            </SmartElement>
+          </div>
+
+          {/* Botão em Pílula Sobrepondo a Base do Card */}
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-full flex justify-center px-4 pointer-events-auto">
+            <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement} className="w-full">
+              <button contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="bg-[#fc6c65] text-white w-full py-2.5 rounded-full text-[13px] font-bold tracking-wide shadow-[0_8px_20px_rgba(252,108,101,0.4)] transition-transform outline-none">
+                {data.cta_text || "Faça já sua encomenda!"}
+              </button>
+            </SmartElement>
+          </div>
+
+        </div>
+
+        {/* Imagem do Bolo de Cereja (Fundo) */}
+        <div className="absolute bottom-[-10%] w-[110%] aspect-[1.1] z-10 flex justify-center pointer-events-auto">
+          <ImageBg 
+            data={data}
+            slideIndex={index}
+            imageUrl={data.imageUrl || pinkVintageCake}
+            imagePosition={data.imagePosition}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+            onSelectElement={onSelectElement}
+            className="w-full h-full bg-contain bg-no-repeat bg-center drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)] cursor-pointer"
+            placeholderText="Adicione uma Imagem"
+          />
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 174: PINK PIE FROSTING
+// Design rosa vibrante com formas interligadas creme e chantilly nos cantos com máscara de recorte.
+// ==========================================
+export function CTAVariant174(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const parts = (data.titulo || "Nossos cupcakes,\nbolos e brownies\nestão esperando\npor você!").split('\n');
+  const line1 = parts[0] || "Nossos cupcakes,";
+  const line2 = parts[1] || "bolos e brownies";
+  const line3 = parts[2] || "estão esperando";
+  const line4 = parts[3] || "por você!";
+
+  const line3Parts = line3.split(' ');
+  const line3Start = line3Parts[0] || "estão";
+  const line3Bold = line3Parts.slice(1).join(' ') || "esperando";
+
+  const frostingSwirl = "https://images.unsplash.com/photo-1557925923-33b251ce324c?q=80&w=400&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#f93892] flex flex-col items-center justify-center font-outfit select-none overflow-hidden text-white rounded-[2rem] shadow-2xl border border-white/10">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+      `}} />
+
+      {/* Formas Geométricas de Fundo (Interlocking) */}
+      <div className="absolute top-0 right-0 w-[58%] h-[35%] bg-[#fbf8ea] rounded-bl-[3rem] pointer-events-none z-0 shadow-[-5px_5px_20px_rgba(249,56,146,0.5)]" />
+      <div className="absolute bottom-0 left-0 w-[55%] h-[32%] bg-[#fbf8ea] rounded-tr-[3rem] pointer-events-none z-0 shadow-[5px_-5px_20px_rgba(249,56,146,0.5)]" />
+
+      {/* Imagens de Chantilly / Merengue (Simulações usando máscara e drop-shadow para recortar o placeholder circular) */}
+      <div className="absolute top-[-8%] left-[5%] w-[48%] aspect-square z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)] pointer-events-auto">
+        <ImageBg 
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl || frostingSwirl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full bg-cover rounded-full transform -rotate-12 mix-blend-luminosity opacity-90 cursor-pointer"
+          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
+          placeholderText="Adicione uma Imagem"
+        />
+      </div>
+      
+      <div className="absolute bottom-[20%] right-[-20%] w-[65%] aspect-square z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)] pointer-events-auto">
+        <ImageBg 
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl || frostingSwirl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full bg-cover rounded-full transform rotate-[40deg] mix-blend-luminosity opacity-95 cursor-pointer"
+          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
+          placeholderText="Adicione uma Imagem"
+        />
+      </div>
+      
+      <div className="absolute bottom-[-15%] left-[-15%] w-[55%] aspect-square z-10 drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] pointer-events-auto">
+        <ImageBg 
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl || frostingSwirl}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full bg-cover rounded-full transform -rotate-[30deg] mix-blend-luminosity opacity-80 cursor-pointer"
+          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
+          placeholderText="Adicione uma Imagem"
+        />
+      </div>
+
+      {/* Textos Centralizados */}
+      <div className="relative z-20 text-center flex flex-col items-center justify-center mt-2 w-[90%] pointer-events-auto">
+        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="w-full">
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="text-[26px] font-light leading-[1.25] tracking-tight text-white drop-shadow-sm outline-none whitespace-pre-line" style={{ fontSize: `${26 * sTitle}px` }}>
+            {line1}<br/>
+            {line2}<br/>
+            {line3Start} <span className="font-bold tracking-normal">{line3Bold}</span><br/>
+            {line4}
+          </p>
+        </SmartElement>
+      </div>
+
+      {/* Logo Bottom Center */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-1.5 z-20 opacity-100 pointer-events-auto">
+        <svg className="w-[22px] h-[22px] fill-current text-white shrink-0" viewBox="0 0 24 24">
+          <path d="M12 2C9.5 2 7.2 3.8 6.5 6.2c-.4.1-.7.2-1 .5-.9.9-1 2.3-.3 3.3.6.9 1.6 1.1 2.5 1h.1L8.5 20c.1.6.6 1 1.2 1h4.6c.6 0 1.1-.4 1.2-1l.7-9h.1c.9.1 1.9-.1 2.5-1 .7-1 .6-2.4-.3-3.3-.3-.3-.6-.4-1-.5C16.8 3.8 14.5 2 12 2zm0 2c1.7 0 3.2 1.2 3.6 2.8.2 1.1.2 2.2-1.3 2.2-1.6 0-1.8 1.4-1.8 2 0 1.1-.9 2-2 2s-2-.9-2-2c0-.6-.2-2-1.8-2-1.5 0-1.5-1.1-1.3-2.2C7.8 5.2 9.3 4 12 4zm-1.8 8h3.6l-.6 7h-2.4l-.6-7z" />
+        </svg>
+        <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="font-outfit font-medium text-[20px] tracking-tight lowercase mt-0.5 outline-none block">
+            {data.studio_text || brandHandle || "pink pie"}
+          </span>
+        </SmartElement>
+      </div>
+
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 175: TORTA DE FRUTAS REAL
+// Design rosa suave com imagem central de torta recortada por máscara ondulada em formato de torta.
+// ==========================================
+export function CTAVariant175(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const berryPieTopDown = "https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#fdaeb8] flex flex-col font-outfit select-none overflow-hidden text-[#362728] rounded-[2rem] shadow-2xl border border-white/10">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Main Pie Image with Wavy Cutout Mask */}
+      <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[140%] aspect-square z-10 pointer-events-auto" style={{ filter: 'drop-shadow(0px 25px 25px rgba(0,0,0,0.45))' }}>
+         <div className="w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" style={{
+            WebkitMaskImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 100 10 C 115 10 120 20 130 15 C 140 10 145 25 155 25 C 165 25 175 35 180 45 C 185 55 175 65 185 75 C 195 85 185 95 190 105 C 195 115 185 120 185 130 C 185 140 170 145 165 155 C 160 165 150 160 140 170 C 130 180 125 175 115 185 C 105 195 95 185 85 185 C 75 185 70 195 60 185 C 50 175 40 180 35 170 C 30 160 20 165 15 155 C 10 145 15 135 10 125 C 5 115 15 105 10 95 C 5 85 15 75 15 65 C 15 55 5 45 15 35 C 25 25 35 30 45 20 C 55 10 65 20 75 15 C 85 10 90 10 100 10 Z'/%3E%3C/svg%3E")`,
+            maskImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 100 10 C 115 10 120 20 130 15 C 140 10 145 25 155 25 C 165 25 175 35 180 45 C 185 55 175 65 185 75 C 195 85 185 95 190 105 C 195 115 185 120 185 130 C 185 140 170 145 165 155 C 160 165 150 160 140 170 C 130 180 125 175 115 185 C 105 195 95 185 85 185 C 75 185 70 195 60 185 C 50 175 40 180 35 170 C 30 160 20 165 15 155 C 10 145 15 135 10 125 C 5 115 15 105 10 95 C 5 85 15 75 15 65 C 15 55 5 45 15 35 C 25 25 35 30 45 20 C 55 10 65 20 75 15 C 85 10 90 10 100 10 Z'/%3E%3C/svg%3E")`,
+            WebkitMaskSize: '100% 100%',
+            maskSize: '100% 100%',
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat'
+         }}>
+           <ImageBg 
+             data={data}
+             slideIndex={index}
+             imageUrl={data.imageUrl || berryPieTopDown}
+             imagePosition={data.imagePosition}
+             showMetrics={showMetrics}
+             onActionStart={onActionStart}
+             isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+             onSelectElement={onSelectElement}
+             className="w-full h-full bg-cover scale-[1.12] mt-[2%] cursor-pointer"
+             placeholderText="Adicione uma Imagem"
+           />
+         </div>
+      </div>
+
+      {/* Typography Area - Centered below pie */}
+      <div className="flex-1 flex flex-col items-center justify-end text-center px-6 z-20 pb-20 mt-[80%] pointer-events-none">
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <h2 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="text-[20px] font-medium tracking-tight text-[#362728] leading-none mb-1 outline-none">
+            {data.badge_text || "Venha provar nossas"}
+          </h2>
+        </SmartElement>
+        
+        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-lobster text-[38px] tracking-wide text-[#362728] leading-[0.9] drop-shadow-sm mb-4 outline-none" style={{ fontSize: `${38 * sTitle}px`, fontFamily: 'Lobster, cursive' }}>
+            {data.titulo || "Tortas variadas"}
+          </h1>
+        </SmartElement>
+
+        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="text-[12px] font-medium leading-[1.3] max-w-[260px] text-[#362728]/90 whitespace-pre-line outline-none" style={{ fontSize: `${12 * sText}px` }}>
+            {data.texto_apoio || "Desde as tradicionais tortas de frutas\naté as opções mais cremosas."}
+          </p>
+        </SmartElement>
+      </div>
+
+      {/* Absolute Footer */}
+      <div className="absolute bottom-6 w-full px-4 z-20 pointer-events-none">
+        <div className="flex items-center justify-between pointer-events-auto">
+          
+          {/* Left: WhatsApp */}
+          <div className="flex items-center gap-1.5 flex-[0.9]">
+            <div className="w-[18px] h-[18px] border-2 border-[#362728] rounded-full flex items-center justify-center shrink-0">
+              <svg className="w-2.5 h-2.5 fill-current text-[#362728]" viewBox="0 0 24 24"><path d="M12.031 21.171l-1.353-.086c-1.84-.117-3.567-.803-5.02-1.996L4.544 20l.965-1.127c-1.168-1.405-1.802-3.136-1.83-4.945-.04-2.584 1.057-4.986 2.92-6.505C8.423 5.926 10.984 5.3 13.56 5.67c2.563.367 4.78 1.776 6.096 3.967 1.309 2.18 1.488 4.793.491 7.127-.991 2.32-2.906 4.08-5.32 4.908-1.597.545-3.342.6-4.966.155l-1.83-.5z" /></svg>
+            </div>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement} className="flex flex-col leading-[1]">
+              <span className="text-[7.5px] font-medium text-[#362728]">WhatsApp</span>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="text-[8.5px] font-bold tracking-tight text-[#362728] outline-none">{data.studio_text || "84 9 9999 0000"}</span>
+            </SmartElement>
+          </div>
+
+          {/* Center: Address */}
+          <div className="flex items-center gap-1 flex-[1.3] pl-2 border-l border-[#362728]/15">
+            <svg className="w-[14px] h-[14px] text-[#362728] shrink-0 fill-none stroke-current" viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div className="flex flex-col leading-[1]">
+              <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement} className="w-full">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="text-[7.5px] font-medium text-[#362728] truncate max-w-[100px] block outline-none">{data.insta_ready || "Rua Antônio Carlos Barreto"}</span>
+              </SmartElement>
+              <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement} className="w-full">
+                <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="text-[7.5px] font-medium text-[#362728] truncate max-w-[100px] block outline-none">{data.slide_call || "Bairro Paulo Freire"}</span>
+              </SmartElement>
+            </div>
+          </div>
+          
+          {/* Right: Delivery Logos */}
+          <div className="flex items-center gap-1.5 pl-2 flex-[0.8] justify-end shrink-0">
+            <span className="font-display italic text-[11px] tracking-tighter text-[#362728]">iFood</span>
+            <div className="leading-none text-center">
+              <span className="text-[5px] font-black block text-[#362728]">UBER</span>
+              <span className="text-[7px] font-black block text-[#362728]">eats</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 176: HOLIDAY BAKE SALE
+// Design promocional natalino com topo amarelo, base de cookies e card central rotacionado.
+// ==========================================
+export function CTAVariant176(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const parts = (data.titulo || "Holiday\nBake Sale").split('\n');
+  const holidayTitle1 = parts[0] || "Holiday";
+  const holidayTitle2 = parts[1] || "Bake Sale";
+
+  const holidayCookies = "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden bg-[#ffd381] rounded-[2rem] shadow-2xl border border-white/10">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Fundo Metade Superior (Amarelo) */}
+      <div className="h-[48%] w-full bg-[#ffd381] z-0 pointer-events-none" />
+      
+      {/* Fundo Metade Inferior (Biscoitos) */}
+      <div className="h-[52%] w-full relative z-0 pointer-events-auto">
+        <ImageBg 
+          data={data}
+          slideIndex={index}
+          imageUrl={data.imageUrl || holidayCookies}
+          imagePosition={data.imagePosition}
+          showMetrics={showMetrics}
+          onActionStart={onActionStart}
+          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+          onSelectElement={onSelectElement}
+          className="w-full h-full bg-cover cursor-pointer"
+          placeholderText="Adicione uma Imagem"
+        />
+      </div>
+
+      {/* Bloco Central Branco/Creme */}
+      <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] bg-[#fffcf5] flex flex-col items-center justify-center px-4 py-10 shadow-2xl z-10 pointer-events-none">
+        
+        {/* Títulos em Cursive */}
+        <div className="flex flex-col items-center mb-8 w-full text-[#5a3825] pointer-events-auto">
+          <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="w-full flex flex-col items-center">
+            <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', `${e.currentTarget.innerText}\n${holidayTitle2}`)} className="font-lobster text-[56px] leading-[0.7] tracking-normal drop-shadow-sm transform -rotate-2 outline-none whitespace-nowrap" style={{ fontSize: `${56 * sTitle}px`, fontFamily: 'Lobster, cursive' }}>
+              {holidayTitle1}
+            </h1>
+            <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', `${holidayTitle1}\n${e.currentTarget.innerText}`)} className="font-lobster text-[64px] leading-[0.8] tracking-normal drop-shadow-sm transform -rotate-2 ml-4 mt-2 outline-none whitespace-nowrap" style={{ fontSize: `${64 * sTitle}px`, fontFamily: 'Lobster, cursive' }}>
+              {holidayTitle2}
+            </h1>
+          </SmartElement>
+        </div>
+
+        {/* Subtítulo Sans-Serif */}
+        <div className="pointer-events-auto">
+          <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement}>
+            <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit font-bold text-[14px] tracking-wide text-black text-center px-2 outline-none" style={{ fontSize: `${14 * sText}px` }}>
+              {data.texto_apoio || "UP TO 50% OFF on EVERYTHING!"}
+            </p>
+          </SmartElement>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+// ==========================================
+// CTA 177: CROISSANT OFFER
+// Design terracota com topo creme xadrez e grade de 3 croissants circulares com filtros.
+// ==========================================
+export function CTAVariant177(props) {
+  const { data, index, brandColor, brandHandle, titleScale, textScale, showMetrics, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const pos = (field) => data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+
+  const croissantStraw = "https://images.unsplash.com/photo-1623341214825-9f4f963727da?q=80&w=400&auto=format&fit=crop";
+  const croissantPlain = "https://images.unsplash.com/photo-1555507036-ab1f40ce88cb?q=80&w=400&auto=format&fit=crop";
+  const croissantBlue = "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=400&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden bg-[#923c1d] rounded-[2rem] shadow-2xl border border-white/10">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Top Half (Off-white with diagonal grid pattern) */}
+      <div className="absolute top-0 left-0 w-full h-[55%] bg-[#f4f2ef] z-0 pointer-events-none" 
+           style={{ 
+             backgroundImage: `linear-gradient(45deg, #e5e0d8 25%, transparent 25%, transparent 75%, #e5e0d8 75%, #e5e0d8), linear-gradient(45deg, #e5e0d8 25%, transparent 25%, transparent 75%, #e5e0d8 75%, #e5e0d8)`,
+             backgroundSize: `40px 40px`,
+             backgroundPosition: `0 0, 20px 20px`,
+             opacity: 0.6
+           }}
+      />
+
+      {/* Top Typography Content */}
+      <div className="relative z-10 flex flex-col items-center pt-10 px-4 text-center pointer-events-none">
+        <SmartElement slideIndex={index} field="badge_text" position={pos('badge_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'badge_text'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)} className="font-display text-[#e29b49] text-[18px] tracking-tight mb-[-5px] outline-none" style={{ fontFamily: 'Alfa Slab One, cursive' }}>
+            {data.badge_text || "SPECIAL OFFER"}
+          </span>
+        </SmartElement>
+        
+        <SmartElement slideIndex={index} field="titulo" position={pos('titulo')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <h1 contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)} className="font-display text-[#923c1d] text-[65px] leading-[0.85] tracking-tighter outline-none" style={{ fontSize: `${65 * sTitle}px`, fontFamily: 'Alfa Slab One, cursive' }}>
+            {data.titulo || "TODAY!"}
+          </h1>
+        </SmartElement>
+
+        <SmartElement slideIndex={index} field="texto_apoio" position={pos('texto_apoio')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'texto_apoio'} onSelectElement={onSelectElement} className="pointer-events-auto">
+          <p contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)} className="font-outfit text-[#923c1d] text-[13px] font-medium leading-[1.2] mt-4 whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${13 * sText}px` }}>
+            {data.texto_apoio || "Warm croissant straight from the oven\nFlaky, golden, and buttery perfection"}
+          </p>
+        </SmartElement>
+      </div>
+
+      {/* Wavy Divider separating top and bottom */}
+      <div className="absolute top-[48%] left-0 w-full z-20 pointer-events-none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-8 text-[#923c1d] fill-current">
+           <path d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
+
+      {/* Bottom Half (Terracotta) */}
+      <div className="relative z-30 flex-1 flex flex-col justify-end pb-8 pointer-events-none">
+        
+        {/* Croissants Grid */}
+        <div className="flex justify-between items-start w-full px-5 mb-8 pointer-events-auto">
+          
+          {/* Item 1 */}
+          <div className="flex flex-col items-center flex-1">
+            <div className="w-[85%] aspect-square rounded-full overflow-hidden flex items-center justify-center mb-3">
+               <img src={croissantStraw} className="w-[120%] h-[120%] object-cover object-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.4)] mix-blend-luminosity" style={{ filter: 'sepia(1) hue-rotate(15deg) saturate(3)' }} alt="Strawberry Croissant" />
+            </div>
+            <SmartElement slideIndex={index} field="studio_text" position={pos('studio_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'studio_text'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'studio_text', e.currentTarget.innerText)} className="text-[#f4f2ef] font-outfit font-light text-[10px] text-center px-1 whitespace-pre-line leading-tight outline-none block">
+                {data.studio_text || "Strawberry Cream"}
+              </span>
+            </SmartElement>
+          </div>
+
+          {/* Item 2 */}
+          <div className="flex flex-col items-center flex-1">
+            <div className="w-[85%] aspect-square rounded-full overflow-hidden flex items-center justify-center mb-3">
+               <ImageBg 
+                 data={data}
+                 slideIndex={index}
+                 imageUrl={data.imageUrl || croissantPlain}
+                 imagePosition={data.imagePosition}
+                 showMetrics={showMetrics}
+                 onActionStart={onActionStart}
+                 isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
+                 onSelectElement={onSelectElement}
+                 className="w-full h-full bg-cover drop-shadow-[0_10px_10px_rgba(0,0,0,0.4)] mix-blend-luminosity cursor-pointer"
+                 style={{ filter: 'sepia(1) hue-rotate(15deg) saturate(3)' }}
+                 placeholderText="Sesame"
+               />
+            </div>
+            <SmartElement slideIndex={index} field="insta_ready" position={pos('insta_ready')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'insta_ready'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'insta_ready', e.currentTarget.innerText)} className="text-[#f4f2ef] font-outfit font-light text-[10px] text-center px-1 whitespace-pre-line leading-tight outline-none block">
+                {data.insta_ready || "Sesame"}
+              </span>
+            </SmartElement>
+          </div>
+
+          {/* Item 3 */}
+          <div className="flex flex-col items-center flex-1">
+            <div className="w-[85%] aspect-square rounded-full overflow-hidden flex items-center justify-center mb-3">
+               <img src={croissantBlue} className="w-[120%] h-[120%] object-cover object-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.4)] mix-blend-luminosity" style={{ filter: 'sepia(1) hue-rotate(15deg) saturate(3)' }} alt="Blueberry Croissant" />
+            </div>
+            <SmartElement slideIndex={index} field="slide_call" position={pos('slide_call')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'slide_call'} onSelectElement={onSelectElement}>
+              <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)} className="text-[#f4f2ef] font-outfit font-light text-[10px] text-center px-1 whitespace-pre-line leading-tight outline-none block">
+                {data.slide_call || "Blueberry Cream"}
+              </span>
+            </SmartElement>
+          </div>
+
+        </div>
+
+        {/* Button */}
+        <div className="flex justify-center w-full pointer-events-auto">
+          <SmartElement slideIndex={index} field="cta_text" position={pos('cta_text')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'cta_text'} onSelectElement={onSelectElement}>
+            <button contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'cta_text', e.currentTarget.innerText)} className="border-2 border-[#e29b49] text-[#e29b49] font-display text-[12px] px-8 py-2.5 rounded-full hover:bg-[#e29b49] hover:text-[#923c1d] transition-colors shadow-sm tracking-wide outline-none" style={{ fontFamily: 'Alfa Slab One, cursive' }}>
+              {data.cta_text || "ORDER NOW"}
+            </button>
+          </SmartElement>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+
   export const CTA_EXTRA_VARIANT_COMPONENTS = {  101: CTAVariant101,
   102: CTAVariant102,
   104: CTAVariant104,
@@ -2786,4 +3616,11 @@ export function CTAVariant170(props) {
   168: CTAVariant168,
   169: CTAVariant169,
   170: CTAVariant170,
+  171: CTAVariant171,
+  172: CTAVariant172,
+  173: CTAVariant173,
+  174: CTAVariant174,
+  175: CTAVariant175,
+  176: CTAVariant176,
+  177: CTAVariant177,
 };
