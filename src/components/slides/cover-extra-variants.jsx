@@ -5621,7 +5621,650 @@ export function CoverExtraVariant206({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 207 — Mundo Cupcakes
+// Visualização com fundo rosa, banner chamativo, cupcakes flutuantes e rodapé alinhado.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant207({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
+  const cupcakeImg = data.imageUrl || "https://images.unsplash.com/photo-1587668178277-295251f900ce?q=80&w=600&auto=format&fit=crop";
+
+  const badgeVal = (typeof data.badge_text === 'string' ? data.badge_text : '') || 'Mari Confeitaria';
+  
+  const titleText = (typeof data.titulo === 'string' ? data.titulo : '') || 'TÍTULO DE IMPACTO';
+  const ctaText = (typeof data.texto_apoio === 'string' ? data.texto_apoio : '') || 'SUBTÍTULO DE IMPACTO';
+
+  return (
+    <div className="relative w-full h-full bg-[#FAF1EA] flex flex-col font-outfit select-none overflow-hidden shrink-0">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Charmonman:wght@700&display=swap');
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Top Logo */}
+      <div className="relative z-20 mt-6 flex justify-center w-full">
+        <SmartField field="badge_text" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="font-lobster text-[#ff2a85] text-[28px] drop-shadow-sm leading-none outline-none cursor-text select-text"
+          >
+            {badgeVal}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Pink Banner */}
+      <div className="absolute top-[16%] left-0 w-full bg-gradient-to-r from-[#ff1778] to-[#ff3d91] py-4 flex flex-col items-center justify-center z-10 shadow-lg shrink-0">
+        <SmartField field="titulo" {...sp}>
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="outline-none cursor-text select-text text-white font-black tracking-tighter uppercase text-center whitespace-pre-line"
+            style={{ transform: `scale(${sTitle})`, fontSize: `${60 * sTitle}px`, lineHeight: 0.95 }}
+          >
+            {titleText}
+          </h1>
+        </SmartField>
+        {/* Fake Lens Flare no Banner */}
+        <div className="absolute top-0 right-[15%] w-24 h-24 bg-white opacity-25 blur-2xl rounded-full mix-blend-overlay pointer-events-none" />
+      </div>
+
+      {/* Bottom Pink Blobs / Waves */}
+      <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[160%] h-[35%] bg-[#ff1778] z-0 rounded-t-[50%] pointer-events-none" />
+      <div className="absolute bottom-[-5%] left-[-25%] w-[60%] h-[25%] bg-[#ff1778] z-0 rounded-t-[50%] pointer-events-none" />
+      <div className="absolute bottom-[-5%] right-[-25%] w-[60%] h-[25%] bg-[#ff1778] z-0 rounded-t-[50%] pointer-events-none" />
+
+
+
+
+
+      {/* CTA Badge */}
+      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 bg-white px-6 py-2.5 rounded-[10px] shadow-[0_10px_20px_rgba(255,23,120,0.4)] z-40 whitespace-nowrap">
+        <SmartField field="texto_apoio" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-[#ff1778] text-[15px] font-medium tracking-wide outline-none cursor-text select-text whitespace-pre-line"
+            style={{ transform: `scale(${sText})` }}
+          >
+            {ctaText}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader para compatibilidade com handles/verificação */}
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 208 — Páscoa Grid
+// Ovos emoldurados em grid de 4 quadrantes, selo central e tipografia refinada.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant208({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const defaultImg1 = "https://images.unsplash.com/photo-1588661642828-577bf64871e8?q=80&w=600&auto=format&fit=crop";
+  const defaultImg2 = "https://images.unsplash.com/photo-1617466547610-cd388e6be0b1?q=80&w=600&auto=format&fit=crop";
+  const defaultImg3 = "https://images.unsplash.com/photo-1549488344-c7eb0751a44e?q=80&w=600&auto=format&fit=crop";
+
+  const img1 = data.imageUrl || defaultImg1;
+  const img2 = data.imageUrl2 || defaultImg2;
+  const img3 = data.imageUrl3 || defaultImg3;
+
+  const topTag = (typeof data.badge_text === 'string' ? data.badge_text : '') || 'Celebre do seu jeito';
+
+  const titleText = (typeof data.titulo === 'string' ? data.titulo : '') || 'FELIZ\nPÁSCOA';
+  const titleLines = titleText.split('\n');
+  const t1 = titleLines[0] || 'FELIZ';
+  const t2 = titleLines[1] || 'PÁSCOA';
+
+  const footText = (typeof data.texto_apoio === 'string' ? data.texto_apoio : '') || 'CALLEBAUT®\nBELGIUM 1911';
+  const footLines = footText.split('\n');
+  const brand = footLines[0] || 'CALLEBAUT®';
+  const subBrand = footLines[1] || 'BELGIUM 1911';
+
+  return (
+    <div className="relative w-full h-full bg-[#3d2c29] grid grid-cols-2 grid-rows-2 font-outfit select-none overflow-hidden shrink-0">
+      
+      {/* Grid Top Left (Ovo Rústico) */}
+      <div className="relative w-full h-full overflow-hidden bg-black z-0">
+        <img 
+          src={img1} 
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms]" 
+          alt="Chocolate Ovo 1" 
+          style={{
+            backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+            transform: `scale(${data.imageScale ?? 1})`,
+          }}
+        />
+      </div>
+
+      {/* Grid Top Right (Metade Ovo) */}
+      <div className="relative w-full h-full overflow-hidden bg-[#111] z-0">
+        <img 
+          src={img2} 
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms]" 
+          alt="Chocolate Ovo 2" 
+        />
+      </div>
+
+      {/* Grid Bottom Left (Text Block Marrom) */}
+      <div 
+        className="relative w-full h-full flex flex-col items-start justify-center p-6 z-10"
+        style={{ backgroundColor: brandColor || '#3d2c29' }}
+      >
+        
+        {/* Tag Cursiva */}
+        <div 
+          className="bg-transparent border-[1.5px] border-white px-4 py-1.5 mb-5 shadow-sm"
+          style={{ borderRadius: '10px' }}
+        >
+          <SmartField field="badge_text" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-serif italic text-white text-[13px] tracking-wide block whitespace-nowrap outline-none cursor-text select-text"
+            >
+              {topTag}
+            </span>
+          </SmartField>
+        </div>
+
+        {/* Título Principal Amarelo Mostarda / Dourado Claro */}
+        <SmartField field="titulo" {...sp}>
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="flex flex-col items-start leading-[1.05] tracking-tight text-[#f1cd93] outline-none cursor-text select-text"
+            style={{ transform: `scale(${sTitle})` }}
+          >
+            <span className="font-black text-[38px]">{t1}</span>
+            <span className="font-black text-[38px]">{t2}</span>
+          </div>
+        </SmartField>
+
+        {/* Logo Callebaut Mock (Rodapé Esquerdo) */}
+        <div className="absolute bottom-6 left-6 flex flex-col items-start">
+           <SmartField field="texto_apoio" {...sp}>
+             <div 
+               contentEditable suppressContentEditableWarning
+               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+               className="flex flex-col items-start outline-none cursor-text select-text"
+               style={{ transform: `scale(${sText})` }}
+             >
+               <span className="font-bold text-[#f1cd93] text-[9.5px] tracking-wider leading-none uppercase">{brand}</span>
+               <span className="font-medium text-[#f1cd93]/70 text-[6px] tracking-[0.25em] leading-tight uppercase mt-0.5">{subBrand}</span>
+             </div>
+           </SmartField>
+        </div>
+
+      </div>
+
+      {/* Grid Bottom Right (Torta Fundo Cinza/Pedra) */}
+      <div className="relative w-full h-full overflow-hidden bg-[#222] z-0">
+        <img 
+          src={img3} 
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms]" 
+          alt="Torta Sobremesa" 
+        />
+      </div>
+
+      {/* Selo Central (Círculo sobreposto nas 4 partes) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+        <div className="w-[60px] h-[60px] bg-[#e9c7a7] rounded-full flex items-center justify-center p-1 border-[1.5px] border-[#3d2c29]">
+           <div className="w-full h-full rounded-full border border-[#3d2c29] flex items-center justify-center relative overflow-hidden bg-transparent">
+             {brandLogo && (
+               <img src={brandLogo} className="w-full h-full object-cover" alt="Logo da Marca" />
+             )}
+           </div>
+        </div>
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 209 — Chocolate Instagramável
+// Fundo terracota, imagem de alta definição no split superior e tipografia arrojada.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant209({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const pastryImg = data.imageUrl || "https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?q=80&w=800&auto=format&fit=crop";
+
+  const titleText = (typeof data.titulo === 'string' ? data.titulo : '') || 'O PODER DO CHOCOLATE\n“INSTAGRAMÁVEL”';
+  const titleLines = titleText.split('\n');
+  const topText = titleLines[0] || 'O PODER DO CHOCOLATE';
+  const highlightText = titleLines[1] || '“INSTAGRAMÁVEL”';
+
+  const descText = (typeof data.texto_apoio === 'string' ? data.texto_apoio : '') || 'Alguns chocolates vendem\nantes mesmo da primeira mordida';
+
+  const badgeText = (typeof data.badge_text === 'string' ? data.badge_text : '') || 'CALLEBAUT®\nBELGIUM 1911';
+  const badgeLines = badgeText.split('\n');
+  const brand = badgeLines[0] || 'CALLEBAUT®';
+  const subBrand = badgeLines[1] || 'BELGIUM 1911';
+
+  return (
+    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden bg-white shrink-0">
+      
+      {/* Imagem Superior (Split 55%) */}
+      <div className="h-[55%] w-full relative bg-[#eedfcc] overflow-hidden shrink-0">
+        <img 
+          src={pastryImg} 
+          className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[1500ms]" 
+          alt="Chocolate Pastry" 
+          style={{
+            backgroundPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+            transform: `scale(${data.imageScale ?? 1})`,
+          }}
+        />
+      </div>
+
+      {/* Bloco Inferior Sólido (Terracota) */}
+      <div className="flex-1 bg-[#8c3527] px-8 py-8 flex flex-col justify-between relative z-10 w-full">
+
+        {/* Bloco de Títulos Superior */}
+        <SmartField field="titulo" {...sp}>
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="flex flex-col items-start mt-2 outline-none cursor-text select-text"
+            style={{ transform: `scale(${sTitle})` }}
+          >
+            <h3 className="text-[#f2e1c3] text-[20px] font-light tracking-[0.05em] uppercase leading-none mb-1.5">
+              {topText}
+            </h3>
+            <h1 className="text-[#f2e1c3] text-[40px] font-black tracking-tighter leading-none uppercase -ml-2">
+              {highlightText}
+            </h1>
+          </div>
+        </SmartField>
+
+        {/* Rodapé: Descrição + Logo Callebaut */}
+        <div className="flex justify-between items-end w-full mb-1">
+          
+          {/* Texto Descritivo */}
+          <SmartField field="texto_apoio" {...sp}>
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-[#f2e1c3] text-[15px] font-light leading-[1.3] tracking-wide text-left outline-none cursor-text select-text break-words max-w-[200px]"
+              style={{ transform: `scale(${sText})` }}
+            >
+              {descText.split('\n').map((line, i) => (
+                <span key={i} className="block">{line}</span>
+              ))}
+            </p>
+          </SmartField>
+
+          {/* Logo Section */}
+          <div className="flex flex-col items-center pl-2 shrink-0">
+            {/* Ícone das espirais celtas - Recriação fiel em SVG */}
+            <div className="w-8 h-8 flex items-center justify-center mb-1.5">
+               <svg className="w-full h-full text-[#f2e1c3] fill-current" viewBox="0 0 100 100">
+                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.2" />
+                 <path d="M 50 15 C 65 15, 75 25, 75 40 C 75 55, 60 65, 45 65 C 30 65, 20 50, 30 40" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                 <path d="M 85 65 C 85 80, 75 90, 60 90 C 45 90, 35 75, 45 60 C 55 45, 70 50, 80 60" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                 <path d="M 15 65 C 15 50, 25 40, 40 40 C 55 40, 65 55, 55 70 C 45 85, 30 80, 20 70" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+                 <circle cx="35" cy="38" r="4" />
+                 <circle cx="70" cy="55" r="4" />
+                 <circle cx="35" cy="68" r="4" />
+               </svg>
+            </div>
+            <SmartField field="badge_text" {...sp}>
+              <div 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="flex flex-col items-center outline-none cursor-text select-text"
+              >
+                <span className="font-bold text-[#f2e1c3] text-[9.5px] tracking-widest leading-none uppercase">
+                  {brand}
+                </span>
+                <span className="font-light text-[#f2e1c3]/80 text-[6.5px] tracking-[0.25em] leading-tight uppercase mt-1">
+                  {subBrand}
+                </span>
+              </div>
+            </SmartField>
+          </div>
+
+        </div>
+
+      </div>
+
+      <SlideHeader
+        data={data} slideIndex={index} index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        showSlideCounter={false}
+        brandAvatar={brandAvatar} brandColor={brandColor} isVerified={isVerified}
+        brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        hideDot={true}
+      />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 210 — Bolos da Semana
+// Estética vintage e retrô com listras de fundo, relevo, botão 3D e cursor.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant210({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const boloImg = data.imageUrl || "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop";
+  const mainTitle = (typeof data.titulo === 'string' ? data.titulo : '') || 'Bolos da Semana';
+
+  const badgeVal = (typeof data.badge_text === 'string' ? data.badge_text : '') || '#38\nALASKA';
+  const badgeLines = badgeVal.split('\n');
+  const bolosSemanaNumber = badgeLines[0] || '#38';
+  const bolosSemanaName = badgeLines[1] || 'ALASKA';
+
+  const descText = (typeof data.texto_apoio === 'string' ? data.texto_apoio : '') || 'BOLO BRANCO, RECHEIO DE CREME GELADO COM MORANGOS E MOUSSE BRANCA COM MORANGOS, COBERTURA DE MARSHMALLOW E MORANGOS.';
+
+  const handleVal = brandHandle || 'appsodie.com.br';
+
+  return (
+    <div className="relative w-full h-full bg-[#FAF1EA] flex flex-col font-outfit select-none overflow-hidden shrink-0">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&family=League+Gothic&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .font-gothic { font-family: 'League Gothic', sans-serif; }
+        
+        /* Efeito de listras verticais pro fundo */
+        .bg-stripes-210 {
+          background-color: #f5e4c3;
+          background-image: repeating-linear-gradient(90deg, transparent, transparent 35px, #e8c99b 35px, #e8c99b 70px);
+        }
+        
+        /* Efeito inset pra palavra SEMANA vazada */
+        .text-inset-shadow-210 {
+           color: #f5e4c3;
+           text-shadow: 1px 1px 2px rgba(0,0,0,0.3), inset 2px 2px 5px rgba(0,0,0,0.5);
+           -webkit-text-stroke: 1px #8b0000;
+        }
+      `}} />
+
+      {/* SlideHeader invisível para compatibilidade */}
+      <SlideHeader
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        brandAvatar={brandAvatar}
+        isVerified={isVerified}
+        index={index + 1}
+        className="opacity-0 absolute top-0 pointer-events-none"
+      />
+
+      {/* Slide Real da Capa 53 */}
+      <div className="relative w-full h-full bg-stripes-210 flex flex-col font-outfit overflow-hidden p-4">
+        
+        {/* Borda Dupla Vermelha */}
+        <div className="absolute inset-3 border-2 border-[#8b0000] rounded-sm pointer-events-none z-20" />
+        <div className="absolute inset-4 border border-[#8b0000]/50 rounded-sm pointer-events-none z-20" />
+
+        {/* Top: "Bolos da Semana" em fonte cursiva grossa vermelha */}
+        <div className="relative z-10 w-full text-center mt-6 drop-shadow-md">
+          <SmartField field="titulo" {...sp}>
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-hand text-[#8b0000] text-[48px] leading-[0.8] font-bold tracking-tight outline-none cursor-text select-text"
+              style={{ transform: `scale(${sTitle})` }}
+            >
+              {mainTitle}
+            </h1>
+          </SmartField>
+        </div>
+
+        {/* Left Side: Number & Name */}
+        <div className="absolute left-6 top-[25%] z-20 flex flex-col drop-shadow-md">
+          <SmartField field="badge_text" {...sp}>
+            <div 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="flex flex-col items-start outline-none cursor-text select-text"
+            >
+              <span className="font-gothic text-[#8b0000] text-[58px] leading-[0.8] tracking-tighter">
+                {bolosSemanaNumber}
+              </span>
+              <span className="font-gothic text-[#8b0000] text-[42px] leading-[0.85] tracking-tighter">
+                {bolosSemanaName}
+              </span>
+            </div>
+          </SmartField>
+        </div>
+
+        {/* Main Image: O Bolo de Morango */}
+        <div className="relative z-10 w-[120%] -ml-[10%] mt-8 flex items-center justify-center">
+           <img 
+             src={boloImg} 
+             className="w-full h-auto drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] filter sepia-[0.2] contrast-125 transition-transform duration-700" 
+             alt="Bolo Alaska"
+             style={{
+               objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+               transform: `scale(${data.imageScale ?? 1})`,
+             }}
+           />
+        </div>
+
+        {/* Bottom Elements: URL Button, Desc Box, Big Inset Text */}
+        <div className="absolute bottom-10 left-0 w-full px-6 flex flex-col items-center z-30">
+           
+           <div className="flex justify-between items-end w-full gap-2 relative">
+              {/* Fake 3D URL Button with Arrow Cursor */}
+              <div className="relative mb-2">
+                 <div className="bg-gradient-to-b from-[#fce96a] to-[#d69f20] border-[1.5px] border-[#8b0000] rounded-full px-3 py-1 flex items-center gap-1.5 shadow-[2px_2px_0px_#8b0000]">
+                    <div className="bg-[#8b0000] text-[#fce96a] text-[6px] font-bold px-1 rounded-sm uppercase tracking-widest">
+                       www
+                    </div>
+                    <span className="font-bold text-[#8b0000] text-[12px] tracking-tight pr-4">
+                       {handleVal}
+                    </span>
+                 </div>
+                 {/* Mouse cursor simulado */}
+                 <div className="absolute -bottom-4 right-0 w-6 h-6 bg-yellow-400 border border-[#8b0000] transform rotate-[-25deg] shadow-sm flex items-center justify-center" style={{ clipPath: 'polygon(0 0, 100% 40%, 60% 60%, 40% 100%)' }}>
+                    <div className="w-full h-full bg-yellow-400" />
+                 </div>
+              </div>
+
+              {/* Descrição Caixa Borda Arredondada */}
+              <div className="bg-[#f5e4c3] border-[1.5px] border-[#8b0000] rounded-xl px-3 py-2 w-[55%] shadow-[2px_2px_0px_#8b0000]">
+                <SmartField field="texto_apoio" {...sp}>
+                   <p 
+                     contentEditable suppressContentEditableWarning
+                     onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                     className="text-[#8b0000] font-bold text-[8px] leading-[1.2] text-center tracking-tight outline-none cursor-text select-text"
+                     style={{ transform: `scale(${sText})` }}
+                   >
+                      {descText}
+                   </p>
+                </SmartField>
+              </div>
+           </div>
+
+           {/* Giant SEMANA inset shadow text na base */}
+           <div className="w-full flex justify-center mt-2">
+              <span className="font-gothic text-[82px] tracking-tighter leading-[0.7] text-inset-shadow-210 uppercase">
+                 Semana
+              </span>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 211 — Azeites Trigopane
+// Layout split moderno com metade salada e metade bloco de cor sólida dourada com subtítulo branco que se estende.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant211({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const azeiteTitle = (typeof data.titulo === 'string' ? data.titulo : '') || 'AZEITES';
+  const azeiteSub = (typeof data.badge_text === 'string' ? data.badge_text : '') || 'Seu guia rápido sobre os\ntipos de azeites e suas\nutilizações culinárias.';
+  const azeiteDesc = (typeof data.texto_apoio === 'string' ? data.texto_apoio : '') || 'Você chega na\nprateleira do mercado\ne bate aquela dúvida:\nqual azeite levar? A\ndiferença vai muito\nalém do preço! Salve\neste post para não\nerrar na próxima\ncompra.';
+  
+  const cleanLogo = (brandHandle || 'Trigopane').replace('@', '');
+  const saladImg = data.imageUrl || "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden shrink-0">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&family=League+Gothic&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .font-gothic { font-family: 'League Gothic', sans-serif; }
+      `}} />
+
+      {/* SlideHeader invisível para compatibilidade */}
+      <SlideHeader
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        brandAvatar={brandAvatar}
+        isVerified={isVerified}
+        index={index + 1}
+        className="opacity-0 absolute top-0 pointer-events-none"
+      />
+
+      <div className="relative w-full h-full flex overflow-hidden" style={{ backgroundColor: brandColor || '#c3a436' }}>
+        
+        {/* METADE DIREITA: Imagem da Salada/Azeite */}
+        <div className="absolute right-0 top-0 w-[55%] h-full">
+           <img 
+             src={saladImg} 
+             className="w-full h-full object-cover transition-transform duration-[1500ms]" 
+             alt="Salada com Azeite" 
+             style={{
+               objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+               transform: `scale(${data.imageScale ?? 1})`,
+             }}
+           />
+           {/* Leve sombra interna na borda esquerda da imagem para separar da cor sólida */}
+           <div className="absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-black/20 to-transparent pointer-events-none" />
+        </div>
+
+        {/* METADE ESQUERDA: Bloco de Cor Sólida e Textos */}
+        <div className="relative w-[45%] h-full flex flex-col pt-12 pb-8 z-10">
+          
+          {/* Título Gigante */}
+          <div className="pl-6 w-[200%] relative z-20">
+            <SmartField field="titulo" {...sp}>
+              <h1 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-outfit font-black text-[56px] leading-[0.8] tracking-tighter text-white uppercase drop-shadow-sm outline-none cursor-text select-text"
+                style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
+              >
+                {azeiteTitle}
+              </h1>
+            </SmartField>
+          </div>
+
+          {/* Bloco Branco de Subtítulo (Sobrepondo a imagem) */}
+          <div className="mt-6 ml-6 bg-white w-[160%] py-4 px-5 shadow-lg relative z-20">
+            <SmartField field="badge_text" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-outfit text-[#222] text-[12px] font-medium leading-[1.3] whitespace-pre-line tracking-tight outline-none cursor-text select-text"
+              >
+                {azeiteSub}
+              </p>
+            </SmartField>
+          </div>
+
+          {/* Parágrafo Alinhado à Direita (dentro do bloco de fundo) */}
+          <div className="mt-6 px-3 flex-1 flex flex-col items-end text-right">
+            <SmartField field="texto_apoio" {...sp}>
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="font-outfit text-white text-[11.5px] font-light leading-[1.3] whitespace-pre-line opacity-95 outline-none cursor-text select-text"
+                style={{ transform: `scale(${sText})`, transformOrigin: 'right center' }}
+              >
+                {azeiteDesc}
+              </p>
+            </SmartField>
+          </div>
+
+          {/* Logo Trigopane no Rodapé */}
+          <div className="pl-4 mt-auto">
+            <div className="bg-[#b31b2c] w-[110px] h-10 flex flex-col justify-center rounded-r-full shadow-md relative overflow-hidden transition-all duration-300">
+              {/* Fake brush stroke yellow line */}
+              <div className="absolute bottom-1.5 left-2 w-[85%] h-1 bg-[#fde160] transform -rotate-2 rounded-full opacity-90" />
+              
+              <span className="font-serif italic font-bold text-white text-[18px] ml-4 drop-shadow-sm relative z-10 leading-none pb-1">
+                {cleanLogo}
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+}
 
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
@@ -5686,14 +6329,17 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   183: CoverExtraVariant183,
   185: CoverExtraVariant185,
   187: CoverExtraVariant187,
-
-
   200: CoverExtraVariant200,
   201: CoverExtraVariant201,
   202: CoverExtraVariant202,
   204: CoverExtraVariant204,
   205: CoverExtraVariant205,
   206: CoverExtraVariant206,
+  207: CoverExtraVariant207,
+  208: CoverExtraVariant208,
+  209: CoverExtraVariant209,
+  210: CoverExtraVariant210,
+  211: CoverExtraVariant211,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -6043,7 +6689,7 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 172,
     name: 'The Editorial Split',
     description: 'Corte brutal horizontal, texto esmagando a imagem',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras172.png',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras-172.png',
   },
   {
     id: 176,
@@ -6093,7 +6739,7 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 204,
     name: 'Bakery Sale (Croissant)',
     description: 'Capa premium com círculo central emoldurado, códigos promocionais verticais e tipografia outline repetida no background.',
-    thumbnailUrl: '',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras204.png',
   },
   {
     id: 205,
@@ -6105,6 +6751,36 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 206,
     name: 'Birthday Sale (Collage)',
     description: 'Grade de collage de luxo com slots superior e inferior para fotos elegantes e banner central geométrico com brilhos.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 207,
+    name: 'Mundo Cupcakes',
+    description: 'Visualização com fundo rosa, banner chamativo, cupcakes flutuantes e rodapé alinhado.',
+    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras207.png',
+  },
+  {
+    id: 208,
+    name: 'Páscoa Grid (Celebre do seu jeito)',
+    description: 'Ovos emoldurados em grid de 4 quadrantes, selo central e tipografia refinada.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 209,
+    name: 'Chocolate Instagramável',
+    description: 'Fundo terracota, imagem de alta definição no split superior e tipografia arrojada.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 210,
+    name: 'Bolos da Semana',
+    description: 'Estética vintage e retrô com listras de fundo, relevo, botão 3D e cursor.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 211,
+    name: 'Azeites Trigopane',
+    description: 'Layout split moderno com metade salada e metade bloco de cor sólida dourada com subtítulo branco que se estende.',
     thumbnailUrl: '',
   },
 ];
