@@ -202,6 +202,99 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
   opacity: 1;
   transform: translateY(0);
 }
+
+/* POPUP ALERTA */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 0, 6, 0.85);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.popup-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border-rose);
+  border-radius: var(--r);
+  padding: 36px 32px;
+  max-width: 420px;
+  width: 100%;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+.popup-overlay.show .popup-card {
+  transform: scale(1);
+  opacity: 1;
+}
+.popup-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--rose-glow);
+  border: 1px solid var(--border-rose);
+  color: var(--rose);
+  font-size: 24px;
+  margin-bottom: 20px;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232,56,109,0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 0 15px 5px rgba(232,56,109,0.25); }
+}
+.popup-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.popup-desc {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.popup-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--rose);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(232,56,109,0.2);
+}
+.popup-btn:hover {
+  background: #f44c7f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232,56,109,0.35);
+}
+.popup-btn:active {
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
@@ -611,7 +704,39 @@ document.addEventListener('DOMContentLoaded', () => {
   
   elementsToReveal.forEach(el => observer.observe(el));
 });
+
+// Lógica do Popup de Alerta de Novidades
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.getElementById('new-features-popup');
+  if (popup && !sessionStorage.getItem('dismissed_features_alert')) {
+    setTimeout(() => {
+      popup.classList.add('show');
+    }, 300);
+  }
+});
+
+function closeFeaturesPopup() {
+  const popup = document.getElementById('new-features-popup');
+  if (popup) {
+    popup.classList.remove('show');
+    sessionStorage.setItem('dismissed_features_alert', 'true');
+  }
+}
 </script>
+
+<!-- Novos Designs Alerta Popup -->
+<div id="new-features-popup" class="popup-overlay">
+  <div class="popup-card">
+    <div class="popup-icon-wrapper">
+      ⚡
+    </div>
+    <h2 class="popup-title">Novidades no Ar!</h2>
+    <p class="popup-desc">
+      Adicionamos novas funcionalidades e designs ao Carrossel Studio. Para conferir todas as Variantes/Designs recentes, role a página até o fim!
+    </p>
+    <button onclick="closeFeaturesPopup()" class="popup-btn">Explorar Novidades</button>
+  </div>
+</div>
 
 </body>
 </html>
