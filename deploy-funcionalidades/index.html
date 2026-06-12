@@ -21,6 +21,10 @@
   --brand-1: #E8386D;
   --brand-2: #009468;
   --brand-3: #E5A70B;
+  --violet: #7C3AED;
+  --violet-light: #A78BFA;
+  --violet-glow: rgba(124,58,237,0.18);
+  --border-violet: rgba(124,58,237,0.3);
   --r: 14px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -183,12 +187,229 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 /* DIVIDER FULL */
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
 
+/* === SEÇÃO 5: CANVAS EDITOR === */
+
+/* Badge NOVO animado */
+.badge-novo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(167,139,250,0.12));
+  border: 1px solid var(--border-violet);
+  border-radius: 100px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--violet-light);
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.badge-novo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.15), transparent);
+  animation: shimmer 2.4s infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.badge-novo .badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--violet-light);
+  animation: pulseDot 1.5s infinite ease-in-out;
+  flex-shrink: 0;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Wrapper da seção Canvas com glow especial */
+.canvas-editor-section {
+  position: relative;
+  overflow: hidden;
+}
+.canvas-editor-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(124,58,237,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Número 05 em violet */
+.feat-num-canvas {
+  font-family: 'Outfit', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(124,58,237,0.22);
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  margin-top: -8px;
+}
+
+/* Layout da seção Canvas Editor */
+.canvas-editor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Preview da interface do Canvas Editor */
+.canvas-preview-wrapper {
+  position: relative;
+}
+.canvas-preview-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124,58,237,0.22) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 24px;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.canvas-preview-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--border-violet);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.15);
+  display: block;
+  overflow: hidden;
+  background: #0d0011;
+}
+.canvas-preview-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.canvas-preview-img:hover img {
+  transform: scale(1.018);
+}
+.canvas-preview-caption {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+  color: var(--violet-light);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+/* Info col do canvas */
+.canvas-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+/* Card de destaque principal */
+.canvas-highlight-card {
+  background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(124,58,237,0.04) 100%);
+  border: 1px solid var(--border-violet);
+  border-radius: var(--r);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.canvas-highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--violet), var(--violet-light), var(--violet));
+}
+.canvas-highlight-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+.canvas-highlight-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.canvas-highlight-desc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.canvas-highlight-desc strong {
+  color: var(--violet-light);
+}
+
+/* Chips de capacidades */
+.canvas-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.chip-violet {
+  background: rgba(124,58,237,0.12);
+  color: var(--violet-light);
+  border: 1px solid var(--border-violet);
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* Tag violet */
+.tag-violet{background:rgba(124,58,237,0.12);color:var(--violet-light);border:1px solid var(--border-violet);}
+
+/* Faixa de aviso premium */
+.canvas-coming-banner {
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(167,139,250,0.08));
+  border: 1px solid var(--border-violet);
+  border-radius: var(--r);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.canvas-coming-banner .banner-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.canvas-coming-banner p {
+  font-size: 12.5px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+.canvas-coming-banner p strong {
+  color: var(--violet-light);
+}
+
 @media(max-width:768px){
   .nav-links{display:none;}
   .manual-layout{flex-direction:column;}
   .manual-image-col{width:100%;}
   .direto-layout,.favs-layout{grid-template-columns:1fr;}
   .brand-slides{grid-template-columns:repeat(3,1fr);}
+  .canvas-editor-layout{grid-template-columns:1fr;}
 }
 
 /* SCROLL REVEAL EFFECT */
@@ -307,6 +528,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
     <a class="nav-link" href="#manual">Modo Manual</a>
     <a class="nav-link" href="#direto">Modo Direto</a>
     <a class="nav-link" href="#favs">Favoritos</a>
+    <a class="nav-link" href="#canvas" style="color:var(--violet-light);background:rgba(124,58,237,0.1);border:1px solid var(--border-violet);">✦ Canvas Editor</a>
   </div>
 </nav>
 
@@ -666,6 +888,75 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 
 <div class="divider"></div>
 
+<!-- ══════════════════════════════════════
+     SEÇÃO 5 — CANVAS EDITOR
+══════════════════════════════════════ -->
+<section class="feat canvas-editor-section" id="canvas">
+  <div class="container">
+    <div class="feat-header">
+      <div class="feat-num-canvas">05</div>
+      <div class="feat-meta">
+        <div class="badge-novo"><span class="badge-dot"></span>Novidade Premium</div>
+        <div class="feat-tag" style="color:var(--violet-light);margin-top:6px;">Editor Criativo</div>
+        <h2 class="feat-title">Canvas Editor:<br>crie e edite do zero.</h2>
+        <p class="feat-desc">A nova página do Carrossel Studio onde você tem controle total — crie designs do zero com liberdade criativa ou edite qualquer design existente diretamente no canvas.</p>
+      </div>
+    </div>
+
+    <div class="canvas-editor-layout">
+      <!-- Preview da interface -->
+      <div class="canvas-preview-wrapper">
+        <div class="canvas-preview-glow"></div>
+        <div class="canvas-preview-img">
+          <img src="canvas-editor-interface.png" alt="Interface do Canvas Editor — Carrossel Studio" loading="lazy">
+        </div>
+        <p class="canvas-preview-caption">Interface do Canvas Editor · Carrossel Studio</p>
+      </div>
+
+      <!-- Informações -->
+      <div class="canvas-info-col">
+
+        <!-- Card de destaque principal -->
+        <div class="canvas-highlight-card">
+          <span class="canvas-highlight-icon">🎨</span>
+          <div class="canvas-highlight-title">Um editor feito para você criar sem limites</div>
+          <div class="canvas-highlight-desc">
+            O Canvas Editor é a evolução natural do Carrossel Studio. Com uma interface intuitiva inspirada nas melhores ferramentas do mercado, agora você pode <strong>começar do zero</strong> ou <strong>editar qualquer design existente</strong> — com total liberdade.
+          </div>
+          <div class="canvas-chips">
+            <span class="chip-violet">Criar do zero</span>
+            <span class="chip-violet">Editar designs</span>
+            <span class="chip-violet">Texto livre</span>
+            <span class="chip-violet">Elementos</span>
+            <span class="chip-violet">Fotos & Uploads</span>
+            <span class="chip-violet">Redimensionar</span>
+          </div>
+        </div>
+
+        <!-- Cards de como funciona -->
+        <div class="info-card" style="border-color:var(--border-violet);">
+          <div class="ic-title">⚙️ O que você pode fazer</div>
+          <div class="step-list" style="margin-top:10px;">
+            <div class="step"><div class="step-n" style="background:var(--violet-glow);border-color:var(--border-violet);color:var(--violet-light);">1</div><div class="step-text"><strong>Abra o Canvas Editor</strong> a partir de qualquer slide gerado ou diretamente pela barra lateral</div></div>
+            <div class="step"><div class="step-n" style="background:var(--violet-glow);border-color:var(--border-violet);color:var(--violet-light);">2</div><div class="step-text">Adicione <strong>textos, fotos, elementos e fundos</strong> com controle total de posicionamento</div></div>
+            <div class="step"><div class="step-n" style="background:var(--violet-glow);border-color:var(--border-violet);color:var(--violet-light);">3</div><div class="step-text">Aplique <strong>seus estilos de marca</strong> — cores, fontes e identidade visual preservados automaticamente</div></div>
+            <div class="step"><div class="step-n" style="background:var(--violet-glow);border-color:var(--border-violet);color:var(--violet-light);">4</div><div class="step-text"><strong>Exporte ou adicione</strong> o slide diretamente ao seu carrossel em produção</div></div>
+          </div>
+        </div>
+
+        <!-- Banner de destaque -->
+        <div class="canvas-coming-banner">
+          <span class="banner-icon">✦</span>
+          <p><strong>A maior adição ao Carrossel Studio até hoje.</strong> O Canvas Editor transforma a plataforma de um gerador de carrosséis em uma ferramenta criativa completa — do conceito ao design final.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 
 
 <!-- FOOTER -->
@@ -673,7 +964,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
   <div class="container">
     <p>
       <strong>Carrossel Studio v4.0</strong> — Apresentação de Funcionalidades · 2026<br>
-      Esta apresentação destaca as 4 principais funcionalidades da plataforma.<br>
+      Esta apresentação destaca as 5 principais funcionalidades da plataforma.<br>
       Para acesso à galeria completa de 200+ designs, consulte a <strong>Estante de Designs</strong>.
     </p>
   </div>
