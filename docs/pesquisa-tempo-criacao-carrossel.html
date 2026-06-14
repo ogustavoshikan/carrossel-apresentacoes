@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrossel Studio — Pesquisa: Tempo de Criação de Conteúdo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #E8386D;
+  --rose-light: #FF6B9D;
+  --rose-dark: #B5274F;
+  --gold: #F5A623;
+  --gold-light: #FFD166;
+  --green: #4ADE80;
+  --blue: #60A5FA;
+  --bg: #0A0609;
+  --bg-card: #120910;
+  --bg-card-2: #1A1020;
+  --border: rgba(255,255,255,0.06);
+  --border-rose: rgba(232,56,109,0.28);
+  --border-gold: rgba(245,166,35,0.28);
+  --text: #F5EEF2;
+  --text-2: #B89AA8;
+  --text-3: #6E4E5C;
+  --r: 16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,6,9,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+.nav-brand{font-family:'Outfit',sans-serif;font-size:15px;font-weight:800;color:#fff;}
+.nav-brand span{color:var(--rose);}
+.nav-tag{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:rgba(245,166,35,0.09);border:1px solid rgba(245,166,35,0.28);padding:4px 14px;border-radius:100px;}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 90px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 85% 65% at 50% -5%,rgba(232,56,109,0.18) 0%,transparent 65%),radial-gradient(ellipse 55% 45% at 85% 85%,rgba(245,166,35,0.08) 0%,transparent 60%),radial-gradient(ellipse 45% 40% at 10% 70%,rgba(96,165,250,0.05) 0%,transparent 60%);pointer-events:none;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid rgba(232,56,109,0.35);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--rose-light);background:rgba(232,56,109,0.07);margin-bottom:40px;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(38px,6.5vw,82px);font-weight:900;line-height:1.03;letter-spacing:-0.03em;margin-bottom:16px;}
+.hero h1 .l1{display:block;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero h1 .l2{display:block;background:linear-gradient(135deg,var(--rose),var(--rose-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,2vw,20px);color:var(--text-2);margin-bottom:60px;max-width:600px;line-height:1.7;}
+
+/* HERO STATS */
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;justify-content:center;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:rgba(255,255,255,0.02);backdrop-filter:blur(12px);}
+.hstat{display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 36px;border-right:1px solid var(--border);}
+.hstat:last-child{border-right:none;}
+.hstat .v{font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:#fff;}
+.hstat .v.rose{color:var(--rose);}
+.hstat .v.gold{color:var(--gold);}
+.hstat .v.green{color:var(--green);}
+.hstat .l{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);}
+
+/* LAYOUT */
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+.section{padding:100px 0;}
+.sec-tag{font-size:9px;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.sec-tag::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-rose),transparent);}
+.sec-tag.gold-tag{color:var(--gold);}
+.sec-tag.gold-tag::after{background:linear-gradient(90deg,var(--border-gold),transparent);}
+.sec-title{font-family:'Outfit',sans-serif;font-size:clamp(24px,4vw,46px);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:14px;}
+.sec-desc{font-size:15px;color:var(--text-2);max-width:600px;line-height:1.8;margin-bottom:52px;}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+
+/* CARD */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:border-color .25s,transform .25s;}
+.card:hover{border-color:rgba(232,56,109,0.2);transform:translateY(-2px);}
+.card-rose{border-color:var(--border-rose);background:linear-gradient(135deg,rgba(232,56,109,0.06),var(--bg-card));}
+.card-gold{border-color:var(--border-gold);background:linear-gradient(135deg,rgba(245,166,35,0.06),var(--bg-card));}
+.card-dark{background:var(--bg-card-2);}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr;}.hstat{border-right:none;border-bottom:1px solid var(--border);}.hstat:last-child{border-bottom:none;}}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;}
+.badge-rose{background:rgba(232,56,109,0.14);color:var(--rose);border:1px solid rgba(232,56,109,0.28);}
+.badge-gold{background:rgba(245,166,35,0.12);color:var(--gold);border:1px solid rgba(245,166,35,0.28);}
+.badge-green{background:rgba(74,222,128,0.1);color:var(--green);border:1px solid rgba(74,222,128,0.22);}
+.badge-red{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25);}
+
+/* NÚMEROS GRANDES */
+.big-n{font-family:'Outfit',sans-serif;font-size:44px;font-weight:900;line-height:1;letter-spacing:-0.02em;}
+.n-lbl{font-size:10px;font-weight:700;color:var(--text-3);margin-top:6px;text-transform:uppercase;letter-spacing:0.1em;}
+.n-desc{font-size:13px;color:var(--text-2);margin-top:9px;line-height:1.55;}
+
+/* CHECK LIST */
+.cklist{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:14px;}
+.cklist li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-2);line-height:1.5;}
+.cklist li::before{content:'✓';color:var(--rose);font-weight:800;font-size:12px;margin-top:1px;flex-shrink:0;}
+.cklist.bad li::before{content:'✗';color:#f87171;}
+.cklist.gold li::before{content:'✓';color:var(--gold);}
+
+/* ICON BOX */
+.ibox{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.ibox-rose{background:rgba(232,56,109,0.12);}
+.ibox-gold{background:rgba(245,166,35,0.1);}
+.ibox-green{background:rgba(74,222,128,0.1);}
+.ibox-blue{background:rgba(96,165,250,0.1);}
+.ibox-red{background:rgba(239,68,68,0.1);}
+
+/* QUOTE */
+.quote{border-left:3px solid var(--rose);padding:20px 24px;background:rgba(232,56,109,0.05);border-radius:0 14px 14px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--text);line-height:1.7;margin:32px 0;}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+thead th{text-align:left;padding:12px 16px;background:rgba(255,255,255,0.03);color:var(--text-3);font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+tbody td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-2);vertical-align:top;}
+tbody tr:hover td{background:rgba(255,255,255,0.015);}
+tbody td:first-child{color:var(--text);font-weight:500;}
+.col-bad{color:#f87171 !important;font-weight:600;}
+.col-good{color:var(--green) !important;font-weight:600;}
+.col-mid{color:var(--gold) !important;font-weight:600;}
+
+/* COMPARISON TABLE */
+.vs-table{width:100%;border-collapse:collapse;font-size:13.5px;border-radius:16px;overflow:hidden;}
+.vs-table thead th{padding:14px 20px;font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;}
+.vs-table thead .th-trad{background:rgba(239,68,68,0.1);color:#f87171;border-right:1px solid rgba(239,68,68,0.15);}
+.vs-table thead .th-cs{background:rgba(232,56,109,0.12);color:var(--rose-light);}
+.vs-table thead .th-feat{background:rgba(255,255,255,0.03);color:var(--text-3);border-right:1px solid var(--border);}
+.vs-table tbody td{padding:13px 20px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.vs-table tbody .td-feat{font-weight:600;color:var(--text);border-right:1px solid var(--border);background:rgba(255,255,255,0.015);}
+.vs-table tbody .td-trad{color:#f87171;border-right:1px solid rgba(239,68,68,0.1);background:rgba(239,68,68,0.03);}
+.vs-table tbody .td-cs{color:var(--green);background:rgba(74,222,128,0.03);}
+.vs-table tbody tr:hover td{filter:brightness(1.05);}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:20px;padding:0 0 0 0;}
+.tl-left{display:flex;flex-direction:column;align-items:center;width:48px;flex-shrink:0;}
+.tl-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.tl-dot.bad{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);}
+.tl-dot.good{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);}
+.tl-line{width:2px;flex:1;background:var(--border);margin-top:4px;min-height:20px;}
+.tl-item:last-child .tl-line{display:none;}
+.tl-content{padding:0 0 28px 0;flex:1;}
+.tl-title{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;margin-bottom:5px;}
+.tl-time{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:2px 10px;border-radius:100px;margin-bottom:8px;}
+.tl-time.bad{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.22);}
+.tl-time.good{background:rgba(74,222,128,0.1);color:var(--green);border:1px solid rgba(74,222,128,0.2);}
+.tl-desc{font-size:13px;color:var(--text-2);line-height:1.6;}
+
+/* VERDICT BOX */
+.verdict{background:linear-gradient(135deg,rgba(232,56,109,0.1),rgba(245,166,35,0.05));border:1px solid var(--border-rose);border-radius:24px;padding:56px;text-align:center;position:relative;overflow:hidden;}
+.verdict::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(232,56,109,0.08),transparent);pointer-events:none;}
+.verdict h2{font-family:'Outfit',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:900;color:#fff;margin-bottom:12px;position:relative;}
+.verdict p{color:var(--text-2);max-width:620px;margin:0 auto 36px;font-size:15px;line-height:1.75;position:relative;}
+.verdict-numbers{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;}
+.vnum{padding:24px 32px;border-radius:16px;text-align:center;}
+.vnum.trad{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);}
+.vnum.cs{background:rgba(232,56,109,0.1);border:1px solid var(--border-rose);}
+.vnum .vv{font-family:'Outfit',sans-serif;font-size:38px;font-weight:900;line-height:1;}
+.vnum .vl{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-top:6px;}
+.vs-badge{display:flex;align-items:center;justify-content:center;padding:12px 20px;font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:var(--gold);}
+
+/* SOURCE NOTE */
+.src{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--text-3);margin-top:6px;}
+.src::before{content:'📎';}
+
+/* HIGHLIGHT BAR */
+.hl-bar{background:linear-gradient(90deg,rgba(232,56,109,0.12),rgba(245,166,35,0.08),rgba(232,56,109,0.12));border:1px solid rgba(232,56,109,0.22);border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.hl-bar-icon{font-size:22px;flex-shrink:0;}
+.hl-bar-text{font-size:14px;color:var(--text-2);line-height:1.55;}
+.hl-bar-text strong{color:#fff;}
+
+/* PROGRESS BAR */
+.prog-wrap{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+.prog-row{display:flex;flex-direction:column;gap:5px;}
+.prog-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;}
+.prog-label span:first-child{color:var(--text-2);font-weight:500;}
+.prog-label span:last-child{font-weight:700;font-size:13px;}
+.prog-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:100px;transition:width 0.5s ease;}
+.prog-fill.bad{background:linear-gradient(90deg,#ef4444,#f87171);}
+.prog-fill.good{background:linear-gradient(90deg,var(--rose),var(--rose-light));}
+
+/* FOOTNOTE */
+.fnote{font-size:11px;color:var(--text-3);margin-top:6px;line-height:1.6;}
+
+h3.ct{font-family:'Outfit',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px;}
+h4.st{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:52px 0;text-align:center;}
+.footer p{font-size:11px;color:var(--text-3);line-height:2;max-width:640px;margin:0 auto;}
+.footer strong{color:var(--text-2);}
+
+/* SCROLL FADE-IN */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+.fade-up{animation:fadeUp .6s ease both;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">Carrossel <span>Studio</span></div>
+  <div class="nav-tag">Pesquisa · Maio 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-badge">📊 Relatório de Pesquisa Comparativa · Criação de Conteúdo 2026</div>
+  <h1>
+    <span class="l1">Quanto tempo você perde</span>
+    <span class="l2">criando carrossel?</span>
+  </h1>
+  <p class="hero-sub">Uma análise comparativa entre o fluxo tradicional de criação de conteúdo e o que é possível com uma ferramenta especializada como o Carrossel Studio.</p>
+
+  <div class="hero-stats">
+    <div class="hstat">
+      <span class="v rose">~3h</span>
+      <span class="l">Criação tradicional</span>
+    </div>
+    <div class="hstat">
+      <span class="v gold">&lt; 1min</span>
+      <span class="l">Com IA no Carrossel Studio</span>
+    </div>
+    <div class="hstat">
+      <span class="v green">95%</span>
+      <span class="l">Redução de tempo estimada</span>
+    </div>
+    <div class="hstat">
+      <span class="v" style="color:var(--blue)">200+</span>
+      <span class="l">Slides prontos disponíveis</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 1: O PROBLEMA -->
+<section class="section">
+  <div class="container">
+    <div class="sec-tag">01 — O Cenário Atual</div>
+    <h2 class="sec-title">O processo tradicional é lento, manual e frustrante.</h2>
+    <p class="sec-desc">Criar conteúdo de qualidade para o Instagram sem uma ferramenta especializada envolve uma série de etapas que consomem tempo valioso — tempo que poderia ser investido no negócio em si.</p>
+
+    <div class="hl-bar">
+      <div class="hl-bar-icon">📌</div>
+      <div class="hl-bar-text">
+        Segundo pesquisas sobre criação de conteúdo para redes sociais, <strong>criadores de conteúdo gastam entre 2 e 6 horas por semana apenas na produção visual de carrosséis</strong> — sem considerar planejamento, revisão e agendamento de publicações. Em ferramentas genéricas como Canva, PowerPoint ou Photoshop, o processo é totalmente manual e sem inteligência contextual.
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="ibox ibox-red">⏳</div>
+        <h3 class="ct">Tempo excessivo</h3>
+        <p class="n-desc">Um carrossel profissional no Canva ou Photoshop exige entre 1h30 e 4h de trabalho apenas para montagem visual — sem contar pesquisa de referências, criação de texto e exportação.</p>
+        <div class="src">Estimativa baseada em relatos de criadores de conteúdo profissionais</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">🎨</div>
+        <h3 class="ct">Cor aplicada slide a slide</h3>
+        <p class="n-desc">Em ferramentas genéricas, alterar a paleta de cores significa ajustar elemento por elemento, slide por slide. Num carrossel de 8 slides, isso pode significar dezenas de cliques manuais.</p>
+        <div class="src">Comportamento padrão de Canva, PowerPoint, Keynote e similares</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">📝</div>
+        <h3 class="ct">Texto criado do zero</h3>
+        <p class="n-desc">Sem suporte de IA especializada, o criador precisa redigir título, subtítulo, corpo e CTA para cada slide individualmente — um processo que exige conhecimento de copywriting e consome 30–60 min por carrossel.</p>
+        <div class="src">Estimativa média para produtores de conteúdo sem IA</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">🔍</div>
+        <h3 class="ct">Busca manual de imagens</h3>
+        <p class="n-desc">O criador acessa separadamente sites como Unsplash ou Google Imagens, faz download, posiciona e ajusta cada imagem manualmente em cada slide — sem qualidade garantida e sem sistema de busca integrado.</p>
+        <div class="src">Fluxo padrão em editores tradicionais sem integrações</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">🗂️</div>
+        <h3 class="ct">Escolha de layout demorada</h3>
+        <p class="n-desc">Sem uma biblioteca de slides prontos por tipo (capa, lista, CTA, comparativo…), o criador precisa construir cada layout do zero ou adaptar templates genéricos que não comunicam o nicho corretamente.</p>
+        <div class="src">Problema recorrente em ferramentas de propósito geral</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">🔁</div>
+        <h3 class="ct">Retrabalho constante</h3>
+        <p class="n-desc">Sem sistema de favoritos ou reutilização, cada novo carrossel começa do zero. Layouts que funcionaram bem no passado precisam ser recriados ou "copiados" manualmente de publicações anteriores.</p>
+        <div class="src">Problema de produtividade amplamente relatado por social media managers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 2: BREAKDOWN DETALHADO DE TEMPO -->
+<section class="section">
+  <div class="container">
+    <div class="sec-tag">02 — Análise de Tempo</div>
+    <h2 class="sec-title">O tempo real, etapa por etapa.</h2>
+    <p class="sec-desc">Mapeamos cada etapa do processo de criação de um carrossel típico de 8 slides em ferramentas tradicionais versus o Carrossel Studio.</p>
+
+    <div class="g2" style="margin-bottom:40px;align-items:start;">
+
+      <!-- COLUNA TRADICIONAL -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div class="badge badge-red" style="font-size:10px;padding:4px 12px;">⚠ Fluxo Tradicional</div>
+          <span style="font-size:12px;color:var(--text-3);">Canva / PowerPoint / Photoshop</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">🔍</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 15–30 min</div>
+              <div class="tl-title">Pesquisa de referências visuais</div>
+              <div class="tl-desc">Busca manual por inspirações no Pinterest, Instagram ou outros carrosséis. Sem ponto de partida claro, o criador navega sem direção definida.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">📝</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 30–60 min</div>
+              <div class="tl-title">Criação dos textos</div>
+              <div class="tl-desc">Redação manual de título, subtítulo, corpo de texto e CTA para cada slide. Sem IA para auxiliar, exige habilidade de copywriting e múltiplas revisões.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">🎨</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 20–45 min</div>
+              <div class="tl-title">Seleção e aplicação de layouts</div>
+              <div class="tl-desc">Busca por templates adequados ao nicho, geralmente genéricos. Adaptação visual manual para cada tipo de slide (capa, conteúdo, CTA, lista…).</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">🖌️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 20–40 min</div>
+              <div class="tl-title">Aplicação de identidade visual (cores)</div>
+              <div class="tl-desc">Troca de cor elemento por elemento em cada slide. Sem sistema de tema global, cada objeto — fundo, texto, bordas, ícones — precisa ser recolorido individualmente.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">🖼️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 15–30 min</div>
+              <div class="tl-title">Busca e inserção de imagens</div>
+              <div class="tl-desc">Acesso a sites externos de banco de imagens, download individual, importação para a ferramenta e ajuste de posição/escala para cada slide.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot bad">✅</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time bad">⏱ 15–30 min</div>
+              <div class="tl-title">Revisão, ajustes e exportação</div>
+              <div class="tl-desc">Revisão visual de coerência entre slides, ajustes de alinhamento, exportação individual ou em lote — muitas vezes em formatos não otimizados para o Instagram.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-dark" style="margin-top:8px;padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:12px;color:var(--text-3);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Tempo total estimado</span>
+            <span class="badge badge-red">Por carrossel</span>
+          </div>
+          <div class="big-n" style="color:#f87171;">1h55 – 3h35</div>
+          <div class="n-desc">Para um profissional experiente em ferramentas tradicionais. Iniciantes podem ultrapassar 4–5 horas por carrossel.</div>
+        </div>
+      </div>
+
+      <!-- COLUNA CARROSSEL STUDIO -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div class="badge badge-rose" style="font-size:10px;padding:4px 12px;">✨ Carrossel Studio</div>
+          <span style="font-size:12px;color:var(--text-3);">Modo IA + Modo Manual</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">🤖</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ &lt; 30 seg</div>
+              <div class="tl-title">Geração do carrossel com IA</div>
+              <div class="tl-desc">Um único prompt e a IA gera o carrossel completo: capa, slides de conteúdo e CTA — com texto otimizado para o nicho e estrutura profissional.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">🎨</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ 5–10 seg</div>
+              <div class="tl-title">Aplicação de identidade visual</div>
+              <div class="tl-desc">Troca de cor inteligente em todos os slides simultaneamente com um único seletor. Toda a paleta é atualizada em tempo real, preservando contraste e hierarquia visual.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">🗂️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ 30 seg – 2 min</div>
+              <div class="tl-title">Seleção ou troca de layout</div>
+              <div class="tl-desc">Biblioteca com 200+ slides prontos em 10 categorias. Modo Manual para escolha inteligente slide a slide. Modo Direto para criação de slide único isolado.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">🖼️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ 10–30 seg</div>
+              <div class="tl-title">Imagens integradas no próprio app</div>
+              <div class="tl-desc">Busca integrada no Unsplash, Pexels e Pixabay diretamente no editor. Ajuste de posição e zoom com sliders. Sem sair do app, sem downloads manuais.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">✏️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ Opcional</div>
+              <div class="tl-title">Ajustes finos de texto</div>
+              <div class="tl-desc">Edição inline diretamente nos slides. Se necessário, o chat com IA reescreve trechos específicos em segundos. Textos já saem estruturados para o Instagram.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot good">📤</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-time good">⚡ 10–20 seg</div>
+              <div class="tl-title">Exportação em PNG</div>
+              <div class="tl-desc">Exportação individual ou em lote diretamente para PNG otimizado para o Instagram. Sem conversões, sem etapas extras.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-rose" style="margin-top:8px;padding:20px 24px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:12px;color:var(--text-3);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">Tempo total estimado</span>
+            <span class="badge badge-rose">Modo IA</span>
+          </div>
+          <div class="big-n" style="color:var(--rose-light);">&lt; 1–5 min</div>
+          <div class="n-desc">Do zero ao PNG exportado. Modo Manual pode levar até 15 min para carrosséis altamente customizados.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BARRA DE PROGRESSO VISUAL -->
+    <div class="card card-dark" style="padding:32px;">
+      <h4 class="st" style="margin-bottom:20px;">⏱ Comparativo visual de tempo (carrossel de 8 slides)</h4>
+      <div class="prog-wrap">
+        <div class="prog-row">
+          <div class="prog-label">
+            <span>Canva / PowerPoint / Photoshop</span>
+            <span class="col-bad">~3h</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill bad" style="width:100%"></div></div>
+        </div>
+        <div class="prog-row">
+          <div class="prog-label">
+            <span>Instagram Stories nativo</span>
+            <span class="col-mid">~1h30</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill bad" style="width:50%;opacity:0.75;"></div></div>
+        </div>
+        <div class="prog-row">
+          <div class="prog-label">
+            <span>Canva + ChatGPT (fluxo híbrido)</span>
+            <span class="col-mid">~50 min</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill bad" style="width:28%;opacity:0.6;"></div></div>
+        </div>
+        <div class="prog-row">
+          <div class="prog-label">
+            <span>Carrossel Studio — Modo Manual</span>
+            <span class="col-good">~10–15 min</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill good" style="width:8%;"></div></div>
+        </div>
+        <div class="prog-row">
+          <div class="prog-label">
+            <span>Carrossel Studio — Modo IA</span>
+            <span class="col-good">&lt; 1 min</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill good" style="width:2%;"></div></div>
+        </div>
+      </div>
+      <p class="fnote" style="margin-top:16px;">* Estimativas baseadas em fluxos reais de produção. Tempos variam conforme complexidade do carrossel e experiência do criador.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 3: TABELA COMPARATIVA COMPLETA -->
+<section class="section">
+  <div class="container">
+    <div class="sec-tag">03 — Comparação de Recursos</div>
+    <h2 class="sec-title">Ferramenta genérica versus ferramenta especializada.</h2>
+    <p class="sec-desc">Uma análise direta dos recursos disponíveis em ferramentas tradicionais comparados ao que o Carrossel Studio entrega nativamente.</p>
+
+    <div class="tbl-wrap">
+      <table class="vs-table" style="border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <thead>
+          <tr>
+            <th class="th-feat" style="width:30%;">Recurso</th>
+            <th class="th-trad" style="text-align:center;">Canva / PPT / Photoshop</th>
+            <th class="th-cs" style="text-align:center;">✦ Carrossel Studio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-feat">Geração de carrossel completo com IA</td>
+            <td class="td-trad" style="text-align:center;">✗ Não disponível</td>
+            <td class="td-cs" style="text-align:center;">✓ &lt; 1 minuto (beta)</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Geração de post único com IA</td>
+            <td class="td-trad" style="text-align:center;">✗ Não disponível</td>
+            <td class="td-cs" style="text-align:center;">✓ Modo Direto</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Troca de cor em todos os slides simultaneamente</td>
+            <td class="td-trad" style="text-align:center;">✗ Manual, elemento por elemento</td>
+            <td class="td-cs" style="text-align:center;">✓ 1 clique, todos os slides</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Biblioteca de slides prontos por categoria</td>
+            <td class="td-trad" style="text-align:center;">⚠ Templates genéricos</td>
+            <td class="td-cs" style="text-align:center;">✓ 200+ em 10 categorias</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Escolha inteligente de slides (Modo Manual)</td>
+            <td class="td-trad" style="text-align:center;">✗ Não existe</td>
+            <td class="td-cs" style="text-align:center;">✓ Seleção por tipo de slide</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Slide isolado / post único (Modo Direto)</td>
+            <td class="td-trad" style="text-align:center;">⚠ Possível, mas sem fluxo dedicado</td>
+            <td class="td-cs" style="text-align:center;">✓ Modo específico para isso</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Banco de imagens integrado</td>
+            <td class="td-trad" style="text-align:center;">⚠ Apenas Canva (limitado)</td>
+            <td class="td-cs" style="text-align:center;">✓ Unsplash + Pexels + Pixabay</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Favoritos para reutilização</td>
+            <td class="td-trad" style="text-align:center;">✗ Não existe nativamente</td>
+            <td class="td-cs" style="text-align:center;">✓ Sistema de favoritos</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Exportação direta para PNG (pronto para Instagram)</td>
+            <td class="td-trad" style="text-align:center;">⚠ Requer configurações manuais</td>
+            <td class="td-cs" style="text-align:center;">✓ Exportação otimizada em 1 clique</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Novos designs adicionados regularmente</td>
+            <td class="td-trad" style="text-align:center;">⚠ Atualizações lentas e genéricas</td>
+            <td class="td-cs" style="text-align:center;">✓ Atualizações diárias de features e designs</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Especialização no nicho</td>
+            <td class="td-trad" style="text-align:center;">✗ Ferramenta genérica</td>
+            <td class="td-cs" style="text-align:center;">✓ Focado em carrossel/post para Instagram</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Chat com IA para ajuste de textos</td>
+            <td class="td-trad" style="text-align:center;">✗ Fora do app</td>
+            <td class="td-cs" style="text-align:center;">✓ Integrado no editor</td>
+          </tr>
+          <tr>
+            <td class="td-feat">Curva de aprendizado</td>
+            <td class="td-trad" style="text-align:center;">⚠ Alta (especialmente Photoshop)</td>
+            <td class="td-cs" style="text-align:center;">✓ Intuitivo e especializado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fnote" style="margin-top:14px;">⚠ = Disponível parcialmente ou com limitações significativas. ✗ = Não disponível. ✓ = Disponível nativamente.</p>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 4: CUSTO DE TEMPO ACUMULADO -->
+<section class="section">
+  <div class="container">
+    <div class="sec-tag gold-tag">04 — Impacto Acumulado</div>
+    <h2 class="sec-title">O custo real de criar carrossel manualmente.</h2>
+    <p class="sec-desc">Quando multiplicamos o tempo perdido por semana ao longo de um mês ou um ano, os números revelam um problema sério de produtividade.</p>
+
+    <div class="g4" style="margin-bottom:32px;">
+      <div class="card">
+        <div class="ibox ibox-red">📅</div>
+        <div class="big-n col-bad">~3h</div>
+        <div class="n-lbl">Por carrossel (tradicional)</div>
+        <div class="n-desc">Tempo médio para criar um carrossel de qualidade em ferramentas genéricas, do zero ao arquivo exportado.</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">📆</div>
+        <div class="big-n col-bad">~12h</div>
+        <div class="n-lbl">Por mês (4 carrosséis)</div>
+        <div class="n-desc">Publicando apenas 1 carrossel por semana. Tempo que poderia ser investido em vendas, atendimento ou criação de produto.</div>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-red">🗓️</div>
+        <div class="big-n col-bad">~144h</div>
+        <div class="n-lbl">Por ano</div>
+        <div class="n-desc">Seis dias inteiros de trabalho perdidos apenas criando carrosséis manualmente. Um recurso precioso desperdiçado em tarefas automatizáveis.</div>
+      </div>
+      <div class="card card-rose">
+        <div class="ibox ibox-rose">✨</div>
+        <div class="big-n" style="color:var(--rose-light);">&lt; 4h</div>
+        <div class="n-lbl">Ano inteiro com Carrossel Studio IA</div>
+        <div class="n-desc">O mesmo volume de 48 carrosséis no ano inteiro levaria menos de 4 horas com o Modo IA — uma economia de 140+ horas anuais.</div>
+      </div>
+    </div>
+
+    <div class="hl-bar">
+      <div class="hl-bar-icon">💡</div>
+      <div class="hl-bar-text">
+        <strong>Para um pequeno empreendedor</strong> que produz 4 carrosséis por mês, o fluxo tradicional consome aproximadamente <strong>12 horas mensais</strong> apenas em criação visual. Com o Carrossel Studio no Modo IA, esse mesmo volume é produzido em <strong>menos de 20 minutos</strong>, liberando tempo para o que realmente gera receita.
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:32px;align-items:start;">
+      <div class="card card-dark">
+        <h4 class="st" style="color:#f87171;">❌ O que o criador perde com o fluxo tradicional</h4>
+        <ul class="cklist bad">
+          <li>Horas semanais em tarefas repetitivas e mecânicas</li>
+          <li>Consistência visual difícil de manter entre carrosséis</li>
+          <li>Textos sem estratégia por falta de suporte especializado</li>
+          <li>Energia criativa gasta em ajustes técnicos, não em ideias</li>
+          <li>Dificuldade de escalar a produção de conteúdo</li>
+          <li>Dependência de habilidade técnica em design</li>
+          <li>Risco de abandono da estratégia por sobrecarga</li>
+        </ul>
+      </div>
+      <div class="card card-rose">
+        <h4 class="st" style="color:var(--rose-light);">✦ O que o Carrossel Studio entrega</h4>
+        <ul class="cklist">
+          <li>Carrossel completo gerado por IA em menos de 1 minuto</li>
+          <li>Identidade visual aplicada com 1 clique em todos os slides</li>
+          <li>Textos estruturados para Instagram gerados automaticamente</li>
+          <li>200+ layouts prontos com novos designs adicionados diariamente</li>
+          <li>Modo Manual para escolha inteligente de slides por tipo</li>
+          <li>Modo Direto para criação de post/slide único e isolado</li>
+          <li>Favoritos para reutilizar carrosséis que performaram bem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 5: DIFERENCIAIS EXCLUSIVOS -->
+<section class="section">
+  <div class="container">
+    <div class="sec-tag">05 — Diferenciais do Carrossel Studio</div>
+    <h2 class="sec-title">Uma ferramenta pensada especificamente para isso.</h2>
+    <p class="sec-desc">Enquanto ferramentas genéricas oferecem recursos amplos mas rasos, o Carrossel Studio é construído para um único propósito: criar carrosséis e posts para Instagram de forma rápida, profissional e inteligente.</p>
+
+    <div class="g3" style="margin-bottom:32px;">
+      <div class="card card-rose">
+        <div class="ibox ibox-rose">🤖</div>
+        <h3 class="ct">IA Nativa — não é um add-on</h3>
+        <p class="n-desc">A geração por IA é parte central do fluxo, não um recurso secundário. O app usa Gemini e GPT-4o para gerar carrossel completo, post único, textos e imagens — sem sair do editor.</p>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-rose">🎨</div>
+        <h3 class="ct">Troca de cor inteligente</h3>
+        <p class="n-desc">Um único seletor de cor atualiza toda a paleta de todos os slides simultaneamente. O que leva dezenas de cliques no Canva, leva 1 segundo aqui.</p>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-gold">📚</div>
+        <h3 class="ct">200+ slides prontos</h3>
+        <p class="n-desc">Biblioteca curada em 10 categorias: Cover, Split, List, Comparison, CTA, BigNumber, Quote, Sequence e variantes extras — com novos designs adicionados diariamente.</p>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-rose">🖱️</div>
+        <h3 class="ct">Modo Manual — escolha inteligente</h3>
+        <p class="n-desc">Selecione slides por tipo (capa, conteúdo, CTA…) e monte seu carrossel de forma estruturada, com controle total sobre cada posição.</p>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-green">⚡</div>
+        <h3 class="ct">Modo Direto — post único isolado</h3>
+        <p class="n-desc">Para quando você quer criar apenas um slide para postar de forma isolada — sem a estrutura de um carrossel completo. Ideal para posts simples de feed.</p>
+      </div>
+      <div class="card">
+        <div class="ibox ibox-gold">❤️</div>
+        <h3 class="ct">Favoritos para reutilização</h3>
+        <p class="n-desc">Salve carrosséis que performaram bem para reutilizar com facilidade. Sem refazer do zero, sem perder tempo procurando layouts antigos.</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      "A diferença entre uma ferramenta genérica e uma especializada não está apenas nos recursos — está no tempo que você não precisa gastar configurando o que já deveria estar pronto. No Carrossel Studio, a premissa é: abriu, criou, exportou."
+    </div>
+
+    <div class="hl-bar">
+      <div class="hl-bar-icon">🔄</div>
+      <div class="hl-bar-text">
+        <strong>Atualizações diárias:</strong> diferente de ferramentas consolidadas que lançam atualizações em ciclos longos, o Carrossel Studio recebe novas features, novos designs e melhorias de forma contínua — o que significa que a ferramenta fica cada vez mais poderosa sem que o usuário precise fazer nada.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SEÇÃO 6: VEREDICTO -->
+<section class="section">
+  <div class="container">
+    <div class="verdict">
+      <h2>Conclusão da Pesquisa</h2>
+      <p>A diferença de tempo entre o fluxo tradicional e o Carrossel Studio não é marginal — é estrutural. Ferramentas genéricas foram construídas para múltiplos propósitos, o que as torna adequadas mas nunca ideais para criação de carrosséis. O Carrossel Studio foi construído do zero para esse único objetivo.</p>
+
+      <div class="verdict-numbers">
+        <div class="vnum trad">
+          <div class="vv" style="color:#f87171;">~3h</div>
+          <div class="vl">Criação tradicional</div>
+        </div>
+        <div class="vs-badge">versus</div>
+        <div class="vnum cs">
+          <div class="vv" style="color:var(--rose-light);">&lt; 1min</div>
+          <div class="vl">Carrossel Studio IA</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin-left:auto;margin-right:auto;margin-top:40px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:center;">
+          <div style="font-size:9px;color:var(--text-3);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Tempo economizado/mês</div>
+          <div style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:#fff;">~12h</div>
+        </div>
+        <div style="background:rgba(232,56,109,0.08);border:1px solid var(--border-rose);border-radius:14px;padding:18px;text-align:center;">
+          <div style="font-size:9px;color:var(--rose);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Redução de tempo</div>
+          <div style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:var(--rose-light);">~95%</div>
+        </div>
+        <div style="background:rgba(245,166,35,0.06);border:1px solid var(--border-gold);border-radius:14px;padding:18px;text-align:center;">
+          <div style="font-size:9px;color:var(--gold);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Horas economizadas/ano</div>
+          <div style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:var(--gold);">140+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      <strong>Carrossel Studio v4.0 Gold Edition</strong> — Pesquisa Comparativa de Criação de Conteúdo · Maio 2026<br>
+      Estimativas de tempo baseadas em fluxos reais de produção em ferramentas tradicionais e no Carrossel Studio.<br>
+      Tempos de criação com IA referem-se ao Modo IA, atualmente em fase beta. Tempos de criação manual podem variar.<br><br>
+      <strong>Documento elaborado para fins de comunicação e posicionamento de produto.</strong>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

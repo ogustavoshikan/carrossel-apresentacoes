@@ -1,0 +1,217 @@
+FASE 11 — TEMPLATE BRIDGE 80/20
+
+OBJETIVO
+
+Transformar os 300+ templates existentes em templates editáveis dentro do Canvas Editor sem recriar toda a biblioteca em Konva.
+
+Adotar oficialmente a arquitetura híbrida 80/20 validada na auditoria:
+
+* JSX/Tailwind permanece responsável pelos elementos decorativos congelados.
+* Canvas permanece responsável pelos elementos editáveis.
+
+---
+
+REGRA ARQUITETURAL Nº 1
+
+Nenhum template poderá ser convertido manualmente.
+
+Criar infraestrutura genérica baseada em metadados.
+
+Criar:
+
+src/services/templateBridge/
+
+* extractEditableSlots.ts
+* createCanvasElements.ts
+* applyBrandTokens.ts
+* templateRegistry.ts
+
+Todos os templates futuros deverão reutilizar essa infraestrutura.
+
+---
+
+REGRA ARQUITETURAL Nº 2
+
+A primeira implementação deverá suportar apenas os 12 layouts lógicos identificados na auditoria:
+
+1. Cover
+2. Content
+3. Big Number
+4. List
+5. Quote
+6. Split
+7. Comparison
+8. Timeline
+9. Gallery
+10. CTA
+11. Checklist
+12. Dual Mockup
+
+Não implementar tratamento específico para 300 variantes.
+
+Variantes visuais herdam automaticamente o comportamento do layout base.
+
+---
+
+REGRA ARQUITETURAL Nº 3
+
+Elementos protegidos permanecem congelados.
+
+Não converter para Canvas:
+
+* Noise overlays
+* Blur blobs
+* Decorative lines
+* Device frames
+* Decorative ornaments
+* Footer structures
+
+Esses elementos continuam renderizados no JSX.
+
+---
+
+FUNCIONALIDADE 1
+
+Sistema de Slots Editáveis
+
+Criar metadados padronizados:
+
+templateSlot
+
+Exemplo:
+
+headline
+subheadline
+avatar
+heroImage
+backgroundCard
+cta
+
+O Bridge deverá localizar esses slots e criar elementos Canvas equivalentes.
+
+---
+
+FUNCIONALIDADE 2
+
+Text Bridge
+
+Converter automaticamente:
+
+Headline
+Subheadline
+CTA
+Handle
+Body text
+
+para TextElements nativos.
+
+Preservar:
+
+* posição
+* tamanho
+* alinhamento
+* cor
+* peso
+* fonte
+
+---
+
+FUNCIONALIDADE 3
+
+Image Bridge
+
+Converter:
+
+* avatar
+* screenshots
+* imagens principais
+
+para ImageElements conectados ao Asset Registry.
+
+Substituição deve funcionar imediatamente através do Inspector.
+
+---
+
+FUNCIONALIDADE 4
+
+Font Registry Runtime
+
+Ao abrir template:
+
+* detectar fontes necessárias
+* registrar no Font Registry
+* carregar sob demanda
+
+Evitar carregamento global de todas as famílias.
+
+---
+
+FUNCIONALIDADE 5
+
+Brand Kit Runtime
+
+Criar aplicação automática.
+
+Quando usuário selecionar Brand Kit:
+
+Atualizar:
+
+* cores editáveis
+* textos editáveis
+* cards editáveis
+
+Sem alterar elementos congelados.
+
+---
+
+FUNCIONALIDADE 6
+
+Modo Editar Template
+
+Adicionar botão:
+
+"Editar no Canvas"
+
+Fluxo:
+
+Template
+↓
+Bridge
+↓
+Canvas
+↓
+Slots convertidos
+
+---
+
+FUNCIONALIDADE 7
+
+Persistência
+
+Salvar:
+
+templateId
+templateVariant
+
+em cada página.
+
+Permitir reabertura futura sem perda de vínculo.
+
+---
+
+CRITÉRIO DE ACEITE
+
+A fase será considerada concluída apenas quando:
+
+* Cover funcionar.
+* Content funcionar.
+* List funcionar.
+* Quote funcionar.
+* Split funcionar.
+* CTA funcionar.
+* Font Registry carregar fontes sob demanda.
+* Asset Registry suportar substituição de imagens.
+* Brand Kit aplicar cores automaticamente.
+* Nenhum template exigir código específico manual.
+* TypeScript estrito compilar sem erros.
+* Build Vite compilar sem warnings.

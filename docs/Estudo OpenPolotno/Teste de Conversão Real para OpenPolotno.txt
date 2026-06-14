@@ -1,0 +1,74 @@
+# Teste de Conversão Real para OpenPolotno
+
+Objetivo:
+
+Parar de estimar.
+
+Quero converter templates reais.
+
+---
+
+Selecionar:
+
+* 10 templates reais do Carrossel Studio
+
+Escolher os mais diferentes possíveis.
+
+Incluir:
+
+* capa
+* comparação
+* lista
+* CTA
+* showcase
+* grid
+* métrica
+* timeline
+* benefícios
+* produto
+
+---
+
+Para cada template:
+
+1. Identificar todos os elementos existentes
+2. Converter para JSON OpenPolotno
+3. Executar store.loadJSON()
+4. Gerar screenshot do resultado
+5. Comparar visualmente com o original
+
+---
+
+Criar tabela:
+
+| Template | Igual | Pequenas diferenças | Diferenças relevantes | Quebrou |
+| -------- | ----- | ------------------- | --------------------- | ------- |
+
+---
+
+Listar:
+
+* elementos que converteram perfeitamente
+* elementos que precisaram adaptação
+* elementos que não possuem equivalente
+
+---
+
+Responder:
+
+1. Quantos dos 10 templates ficaram visualmente equivalentes?
+2. Qual a taxa real de compatibilidade?
+3. Quais problemas apareceram na prática?
+4. O parser consegue lidar com todos os padrões encontrados?
+5. Precisamos de múltiplos parsers por categoria?
+
+---
+
+Conclusão:
+
+Classificar a migração como:
+
+* Praticamente automática
+* Semi-automática
+* Requer revisão humana frequente
+* Não recomendada

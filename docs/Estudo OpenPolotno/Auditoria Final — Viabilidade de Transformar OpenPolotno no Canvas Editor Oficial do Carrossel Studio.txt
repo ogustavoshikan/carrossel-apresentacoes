@@ -1,0 +1,221 @@
+Auditoria Final — Viabilidade de Transformar OpenPolotno no Canvas Editor Oficial do Carrossel Studio
+
+Cole exatamente isso para a IA:
+
+OBJETIVO
+
+Realizar uma auditoria técnica completa do OpenPolotno focada exclusivamente na utilização dele como Canvas Editor principal do Carrossel Studio.
+
+O objetivo NÃO é analisar templates.
+
+O objetivo é descobrir tudo que ainda depende da Polotno e tudo que precisará ser substituído para que o sistema seja 100% independente.
+
+CONTEXTO
+
+O OpenPolotno já foi executado localmente.
+
+Testes realizados:
+
+Exportação PNG funcionando
+Exportação PDF funcionando
+Canvas funcionando
+Edição de textos funcionando
+Upload de imagens funcionando
+
+Também já foi validado que:
+
+Templates são armazenáveis via JSON
+Templates podem ser salvos no Supabase
+A conversão dos templates do Carrossel Studio é viável
+
+Agora precisamos descobrir se existe qualquer dependência escondida da Polotno.
+
+O QUE AUDITAR
+
+Faça uma varredura completa do repositório.
+
+Identifique:
+
+1. Todas as chamadas para api.polotno.com
+
+Listar:
+
+arquivo
+linha
+endpoint
+finalidade
+
+Exemplo:
+
+get-google-fonts
+get-unsplash
+get-videos
+get-templates
+remove-background
+ai-text
+qualquer outro
+2. Todas as dependências de serviços externos
+
+Mapear:
+
+Unsplash
+Pexels
+Google Fonts
+Remove.bg
+OpenAI
+Gemini
+Cloudinary
+qualquer outro
+
+Informar:
+
+obrigatório?
+opcional?
+substituível?
+3. Menus da sidebar
+
+Para cada menu:
+
+Templates
+Photos
+Videos
+Text
+Elements
+Shapes
+Uploads
+Background
+etc
+
+Informar:
+
+Funciona sem Polotno?
+
+SIM ou NÃO
+
+O que precisa substituir?
+Grau de dificuldade
+
+BAIXO
+MÉDIO
+ALTO
+
+4. Fontes
+
+Descobrir:
+
+Como o OpenPolotno carrega fontes.
+
+Precisamos saber:
+
+lista vem da Polotno?
+arquivos de fontes vêm da Polotno?
+apenas catálogo?
+existe dependência real?
+
+Mostrar estratégia para:
+
+usar Google Fonts diretamente
+usar fontes locais
+usar fontes do Carrossel Studio
+5. Shapes e Elements
+
+Descobrir:
+
+De onde vêm:
+
+círculos
+quadrados
+setas
+estrelas
+ícones
+
+Perguntas:
+
+estão no repositório?
+vêm da API?
+vêm de CDN?
+
+Informar exatamente o que precisaria ser feito para termos nossa própria biblioteca.
+
+6. Uploads
+
+Auditar:
+
+imagens
+SVG
+vídeos
+PDFs
+
+Descobrir:
+
+Se existe alguma dependência da Polotno.
+
+7. Exportações
+
+Auditar:
+
+PNG
+JPG
+PDF
+SVG
+
+Responder:
+
+totalmente locais?
+dependem de API?
+dependem de licença?
+8. Engine do Canvas
+
+Analisar:
+
+Konva
+MobX
+React
+
+Responder:
+
+Existe alguma parte da renderização do canvas que ainda depende da Polotno?
+
+Ou o canvas inteiro funciona localmente?
+
+Mostrar evidências encontradas.
+
+9. Recursos Premium da Polotno
+
+Identificar tudo que NÃO está presente no OpenPolotno.
+
+Exemplos:
+
+background remover
+AI tools
+stock assets
+rich text avançado
+qualquer outro
+
+Criar tabela:
+
+Recurso | Existe no OpenPolotno? | Como substituir
+
+10. Veredito Final
+
+Responder objetivamente:
+
+Podemos usar o OpenPolotno como base do Canvas Editor do Carrossel Studio?
+
+SIM ou NÃO
+
+O que precisaria ser substituído?
+Quantos dias de trabalho seriam necessários?
+Qual o risco técnico?
+
+BAIXO
+MÉDIO
+ALTO
+
+Existe algum bloqueio jurídico ou técnico identificado?
+
+Se existir, mostrar evidências concretas.
+
+Não fazer suposições.
+
+Citar arquivos reais encontrados no repositório.

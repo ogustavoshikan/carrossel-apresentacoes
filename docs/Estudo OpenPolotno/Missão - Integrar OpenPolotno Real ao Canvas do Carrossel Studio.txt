@@ -1,0 +1,226 @@
+# Missão: Integrar OpenPolotno Real ao Canvas do Carrossel Studio
+
+## Contexto
+
+A fase de limpeza arquitetural foi concluída com sucesso.
+
+O editor legado foi removido.
+A navegação foi reorganizada.
+A página Canvas já existe como placeholder.
+
+Agora iniciaremos a primeira integração real do OpenPolotno.
+
+---
+
+# Objetivo desta Etapa
+
+Substituir completamente o placeholder atual da página Canvas pelo OpenPolotno funcional.
+
+Importante:
+
+Esta tarefa NÃO inclui:
+
+* Supabase
+* Salvamento de projetos
+* Carregamento de projetos
+* Templates próprios
+* Migração dos 300 templates
+* IA
+* Gemini
+* Exportações customizadas
+* Integrações externas
+
+Queremos apenas validar a engine.
+
+---
+
+# Escopo Exato
+
+Implementar o OpenPolotno puro.
+
+Sem customizações complexas.
+
+Sem adaptações prematuras.
+
+Sem engenharia adicional.
+
+O objetivo é colocar o editor oficial rodando dentro do Carrossel Studio.
+
+---
+
+# Requisitos
+
+Ao abrir:
+
+Canvas
+
+o usuário deve visualizar:
+
+* Sidebar OpenPolotno
+* Toolbar OpenPolotno
+* Workspace OpenPolotno
+* Página vazia pronta para edição
+
+---
+
+# Funcionalidades Obrigatórias
+
+Validar funcionamento real das seguintes ações:
+
+### Texto
+
+O usuário deve conseguir:
+
+* Adicionar texto
+* Editar texto
+* Alterar fonte
+* Alterar tamanho
+* Alterar cor
+* Mover texto
+
+---
+
+### Shapes
+
+O usuário deve conseguir:
+
+* Inserir formas
+* Redimensionar
+* Rotacionar
+* Alterar cores
+
+---
+
+### Seleção
+
+Validar:
+
+* Seleção de elementos
+* Multiseleção
+* Transformer
+* Resize
+* Rotate
+
+---
+
+### Workspace
+
+Validar:
+
+* Zoom
+* Pan
+* Centralização
+* Guias visuais nativas
+
+---
+
+### Exportação
+
+Validar pelo menos:
+
+* PNG
+
+Objetivo:
+
+Criar um texto qualquer e exportar uma imagem.
+
+---
+
+# Regras Arquiteturais
+
+Não conectar Supabase.
+
+Não criar tabela.
+
+Não salvar JSON.
+
+Não criar sistema de projetos.
+
+Não criar parser.
+
+Não criar migração.
+
+Não criar compatibilidade com o editor antigo.
+
+Não reutilizar componentes do canvas legado.
+
+Não criar wrappers desnecessários.
+
+Não criar abstrações futuras.
+
+Nesta etapa queremos apenas o OpenPolotno funcionando.
+
+---
+
+# Dependências
+
+Utilizar apenas o que for necessário para executar o OpenPolotno de forma estável.
+
+Caso existam incompatibilidades de versão:
+
+* React
+* Konva
+* React-Konva
+* Blueprint
+* MobX
+* MobX-State-Tree
+
+corrigir na raiz do problema.
+
+Não implementar gambiarras temporárias.
+
+Documentar qualquer ajuste realizado.
+
+---
+
+# Critério de Sucesso
+
+A tarefa será considerada concluída apenas quando for possível executar o seguinte fluxo:
+
+Abrir Canvas
+
+↓
+
+Editor OpenPolotno aparece
+
+↓
+
+Adicionar texto
+
+↓
+
+Mover texto
+
+↓
+
+Adicionar shape
+
+↓
+
+Alterar propriedades
+
+↓
+
+Exportar PNG
+
+↓
+
+Arquivo exportado corretamente
+
+---
+
+# Entregáveis
+
+Ao final da implementação apresentar:
+
+1. Lista dos arquivos criados.
+2. Lista dos arquivos modificados.
+3. Dependências instaladas ou alteradas.
+4. Ajustes de compatibilidade realizados.
+5. Captura ou descrição detalhada do estado final da interface.
+6. Resultado dos testes realizados.
+7. Confirmação explícita de que o OpenPolotno está operando dentro do Canvas do Carrossel Studio.
+
+Objetivo final desta fase:
+
+Transformar a página Canvas de um placeholder estático em um editor OpenPolotno totalmente funcional e operacional dentro do Carrossel Studio.

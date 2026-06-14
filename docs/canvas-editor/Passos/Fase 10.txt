@@ -1,0 +1,251 @@
+FASE 10 — DOCUMENT ENGINE & MULTI-PAGE PROFISSIONAL
+Objetivo
+
+Transformar o Canvas atual de "editor de slide único" para "editor de documento/carrossel completo".
+
+O usuário deve conseguir:
+
+criar slides
+duplicar slides
+deletar slides
+reordenar slides
+navegar rapidamente
+visualizar miniaturas
+trabalhar com 20+ páginas sem perda de performance
+Regra Arquitetural nº 1
+
+Não criar lógica de páginas dentro do Canvas.
+
+Criar camada própria:
+
+src/services/document/
+
+Separar:
+
+createPage.ts
+duplicatePage.ts
+deletePage.ts
+reorderPages.ts
+generateThumbnail.ts
+Regra Arquitetural nº 2
+
+O Canvas continua renderizando SOMENTE:
+
+activePage
+
+Nunca:
+
+pages[]
+
+inteiro.
+
+Regra Arquitetural nº 3
+
+Miniaturas não podem renderizar Konva completo.
+
+Seria um desastre de performance.
+
+Implementar:
+
+thumbnail cache
+
+Estrutura:
+
+PageThumbnail {
+  pageId: string
+  preview: string
+  updatedAt: number
+}
+
+As miniaturas devem ser:
+
+PNG
+baixa resolução
+cacheadas
+
+Geradas apenas:
+
+criação
+duplicação
+edição concluída
+
+Nunca durante drag.
+
+FUNCIONALIDADE 1
+Sidebar de Slides
+
+Criar painel dedicado.
+
+Visual semelhante:
+
+┌────────────┐
+│ Slide 01   │
+│ thumbnail  │
+└────────────┘
+
+┌────────────┐
+│ Slide 02   │
+│ thumbnail  │
+└────────────┘
+
+Mostrar:
+
+número
+preview
+slide ativo
+FUNCIONALIDADE 2
+Novo Slide
+
+Botão:
+
++ Novo Slide
+
+Ao criar:
+
+createPage({
+  backgroundColor: atual
+})
+
+Slide nasce vazio.
+
+FUNCIONALIDADE 3
+Duplicar Slide
+
+Botão:
+
+Duplicar
+
+Duplicar:
+
+elementos
+background
+configurações
+
+Não duplicar:
+
+IDs
+
+Gerar novos IDs.
+
+FUNCIONALIDADE 4
+Reordenação
+
+Implementar:
+
+Drag & Drop
+
+nas miniaturas.
+
+Mover:
+
+Slide 3
+↓
+entre Slide 8 e 9
+
+Atualizar:
+
+pages[]
+
+Sem alterar conteúdo.
+
+FUNCIONALIDADE 5
+Deletar Slide
+
+Proteção obrigatória.
+
+Se existir apenas:
+
+1 slide
+
+não permitir exclusão.
+
+Se existir mais:
+
+Confirmar exclusão
+FUNCIONALIDADE 6
+Navegação Rápida
+
+Atalhos:
+
+PageDown
+Próximo Slide
+
+PageUp
+Slide Anterior
+
+Opcional:
+
+Ctrl + Shift + →
+Ctrl + Shift + ←
+FUNCIONALIDADE 7
+Histórico Compatível
+
+Undo/Redo precisa entender:
+
+criação
+duplicação
+remoção
+reordenação
+
+de páginas.
+
+Snapshots continuam limpos.
+
+Sem gravar estados intermediários.
+
+FUNCIONALIDADE 8
+Preparação para Template Bridge
+
+Cada página deve suportar:
+
+templateId?: string
+templateVariant?: string
+
+Ainda não utilizar.
+
+Apenas preparar infraestrutura.
+
+FUNCIONALIDADE 9
+Virtualização
+
+Se houver:
+
+50+
+slides
+
+Renderizar somente:
+
+slide visível
++ próximos
+
+na sidebar.
+
+Nunca a lista inteira.
+
+FUNCIONALIDADE 10
+Estrutura para Exportação Futura
+
+Preparar interface:
+
+ExportJob {
+  pageIds: string[]
+}
+
+Sem implementar exportação ainda.
+
+Somente deixar a arquitetura pronta.
+
+Critério de Aceite
+
+A Fase 10 será considerada concluída apenas quando:
+
+Criar slide funcionar.
+Duplicar slide funcionar.
+Reordenar funcionar.
+Excluir funcionar.
+Miniaturas forem cacheadas.
+Canvas renderizar apenas página ativa.
+Undo/Redo funcionar com páginas.
+50+ slides não causarem queda perceptível de performance.
+TypeScript estrito compilar sem erros.
+Build Vite compilar sem warnings.

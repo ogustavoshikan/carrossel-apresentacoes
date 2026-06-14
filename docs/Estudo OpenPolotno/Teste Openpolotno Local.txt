@@ -1,0 +1,202 @@
+# Teste de Independência Real do OpenPolotno
+
+Objetivo:
+
+Determinar se o OpenPolotno consegue funcionar como editor de produção sem depender da infraestrutura da Polotno.
+
+Não analisar código.
+
+Executar o projeto localmente e realizar testes práticos.
+
+---
+
+# Etapa 1 — Instalação
+
+1. Clonar o repositório.
+2. Instalar dependências.
+3. Executar localmente.
+4. Confirmar que o editor abre normalmente.
+
+Informar:
+
+* versão Node utilizada
+* comandos executados
+* erros encontrados
+
+---
+
+# Etapa 2 — Mapear Requisições
+
+Abrir DevTools → Network.
+
+Registrar TODAS as requisições realizadas.
+
+Classificar:
+
+* api.polotno.com
+* polotno.com
+* cdnjs
+* unsplash
+* pexels
+* google fonts
+* outros
+
+Criar tabela com:
+
+* URL
+* método
+* finalidade
+* obrigatória ou opcional
+
+---
+
+# Etapa 3 — Bloquear Polotno
+
+Bloquear completamente:
+
+api.polotno.com
+
+e
+
+polotno.com
+
+Pode ser via:
+
+* hosts
+* proxy
+* DevTools request blocking
+* interceptação
+
+Confirmar que nenhum request chega nesses domínios.
+
+---
+
+# Etapa 4 — Testes do Editor
+
+Após bloquear Polotno:
+
+Testar:
+
+✅ criar projeto
+
+✅ adicionar texto
+
+✅ editar texto
+
+✅ mover elementos
+
+✅ resize
+
+✅ rotate
+
+✅ zoom
+
+✅ layers
+
+✅ duplicar elementos
+
+✅ excluir elementos
+
+✅ múltipla seleção
+
+✅ undo
+
+✅ redo
+
+Informar o resultado de cada item.
+
+---
+
+# Etapa 5 — Uploads
+
+Com Polotno bloqueado:
+
+Testar:
+
+✅ upload de imagem
+
+✅ mover imagem
+
+✅ redimensionar imagem
+
+✅ exportar imagem com upload
+
+---
+
+# Etapa 6 — Exportação
+
+Com Polotno bloqueado:
+
+Testar:
+
+✅ PNG
+
+✅ JPG
+
+✅ SVG
+
+✅ PDF
+
+Para cada formato informar:
+
+* funciona
+* falha
+* mensagem de erro
+
+---
+
+# Etapa 7 — Menus
+
+Verificar individualmente:
+
+* Templates
+* Photos
+* Videos
+* Text
+* Shapes
+* Elements
+* Background
+* Uploads
+
+Informar:
+
+Funciona sem Polotno?
+
+SIM ou NÃO.
+
+---
+
+# Etapa 8 — Dependência Real
+
+Classificar cada funcionalidade:
+
+| Funcionalidade | Funciona sem Polotno? |
+| -------------- | --------------------- |
+| Canvas         | Sim/Não               |
+| Export         | Sim/Não               |
+| Templates      | Sim/Não               |
+| Fotos          | Sim/Não               |
+| Vídeos         | Sim/Não               |
+| Shapes         | Sim/Não               |
+| Fonts          | Sim/Não               |
+| AI             | Sim/Não               |
+
+---
+
+# Resultado Final
+
+Responder apenas:
+
+1. O Canvas funciona sem Polotno?
+2. O Export funciona sem Polotno?
+3. Quais recursos quebram?
+4. Quais recursos continuam funcionando?
+5. Quanto esforço é necessário para substituir o que quebrou?
+6. O OpenPolotno pode ser utilizado como base do Carrossel Studio?
+
+Classificação final:
+
+* Pode usar imediatamente
+* Pode usar após pequenas modificações
+* Pode usar após modificações moderadas
+* Não recomendado

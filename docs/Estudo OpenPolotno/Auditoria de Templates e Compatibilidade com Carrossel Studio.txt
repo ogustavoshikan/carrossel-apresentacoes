@@ -1,0 +1,218 @@
+# Auditoria de Templates e Compatibilidade com Carrossel Studio
+
+Objetivo:
+
+Determinar se o sistema de templates do OpenPolotno pode ser utilizado como base para os templates do Carrossel Studio e qual será o esforço real de integração.
+
+Não focar em APIs.
+
+Não focar em Unsplash.
+
+Não focar em Pexels.
+
+Não focar em Fonts.
+
+Focar exclusivamente na estrutura dos templates.
+
+---
+
+# Parte 1 — Localizar Sistema de Templates
+
+Identificar:
+
+* store.loadJSON()
+* store.toJSON()
+* importações relacionadas a templates
+* serialização
+* deserialização
+
+Mapear todos os arquivos envolvidos.
+
+Informar:
+
+* caminho dos arquivos
+* responsabilidade de cada um
+
+---
+
+# Parte 2 — Estrutura Completa do JSON
+
+Gerar exemplos reais.
+
+Não inventar exemplos.
+
+Extrair exemplos do próprio código.
+
+Mostrar:
+
+* página
+* texto
+* imagem
+* shape
+* background
+* layers
+
+Exibir JSON real.
+
+---
+
+# Parte 3 — Anatomia de um Template
+
+Explicar detalhadamente:
+
+Como um template é armazenado.
+
+Exemplo:
+
+* width
+* height
+* pages
+* children
+* fonts
+* assets
+
+Identificar campos obrigatórios.
+
+Identificar campos opcionais.
+
+---
+
+# Parte 4 — Processo de Carregamento
+
+Mapear o fluxo:
+
+Template JSON
+↓
+store.loadJSON()
+↓
+Store
+↓
+Canvas
+
+Explicar cada etapa.
+
+---
+
+# Parte 5 — Processo de Salvamento
+
+Mapear:
+
+Canvas
+↓
+Store
+↓
+store.toJSON()
+↓
+JSON
+
+Explicar exatamente o que é exportado.
+
+---
+
+# Parte 6 — Compatibilidade com Carrossel Studio
+
+Responder:
+
+Se eu tiver hoje 300 templates no Carrossel Studio:
+
+Qual seria o caminho mais simples?
+
+A) Converter templates atuais para JSON OpenPolotno
+
+B) Recriar templates dentro do OpenPolotno
+
+C) Misturar os dois
+
+Justificar tecnicamente.
+
+---
+
+# Parte 7 — Criação de Biblioteca Própria
+
+Responder:
+
+É possível criar:
+
+* aba Templates própria
+* categorias
+* busca
+* favoritos
+* premium/free
+* thumbnails
+
+sem depender da Polotno?
+
+Mostrar quais componentes precisariam ser alterados.
+
+---
+
+# Parte 8 — Assets Embutidos
+
+Investigar:
+
+Como imagens são armazenadas.
+
+Como fontes são armazenadas.
+
+Como SVGs são armazenados.
+
+Responder:
+
+Os templates são portáveis?
+
+Ou dependem de URLs externas?
+
+---
+
+# Parte 9 — Importação em Massa
+
+Responder:
+
+Seria possível criar um sistema que:
+
+1. Salva template no Supabase
+2. Lista template na biblioteca
+3. Usuário clica
+4. store.loadJSON(template)
+
+Sem alterações profundas?
+
+Sim ou Não.
+
+Justificar.
+
+---
+
+# Parte 10 — Avaliação Final
+
+Responder objetivamente:
+
+1. O formato de template do OpenPolotno é bom?
+2. É adequado para um SaaS?
+3. Escala para centenas de templates?
+4. Escala para milhares de templates?
+5. É adequado para o Carrossel Studio?
+
+Classificar:
+
+* Excelente
+* Bom
+* Regular
+* Ruim
+
+Justificar tecnicamente.
+
+---
+
+# Conclusão Obrigatória
+
+Responder:
+
+Se o objetivo for transformar o OpenPolotno no Canvas Editor principal do Carrossel Studio, o sistema de templates é:
+
+* Pronto para uso
+* Requer pequenas adaptações
+* Requer adaptações moderadas
+* Requer refatoração pesada
+
+Explicar exatamente o motivo.
