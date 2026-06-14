@@ -44,6 +44,21 @@ body {
   white-space: pre-wrap;
 }
 
+/* Corrigir o contorno de foco padrão do browser no clique (mouse),
+   mas mantê-lo ativo e bonito para acessibilidade via teclado. */
+button:focus,
+a:focus,
+[role="button"]:focus {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-brand, #DE1E4D);
+  outline-offset: 2px;
+}
+
 /* ========================================
    SCROLLBAR CUSTOMIZADA
    ======================================== */
@@ -284,4 +299,21 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+/* ==========================================================================
+   Ordenação de Camadas (Textos acima de Imagens e Overlays)
+   Garante que títulos, textos de apoio, tags e botões editáveis fiquem sempre
+   com z-index superior, posicionados acima de fotos e overlays no Canvas.
+   ========================================================================== */
+[id$="-titulo"],
+[id$="-texto_apoio"],
+[id$="-tag"],
+[id$="-citacao"],
+[id$="-autor"],
+[id$="-badge_text"],
+[id$="-insta_ready"],
+[id$="-cta_text"],
+[id$="-cta_button"] {
+  z-index: 30 !important;
 }

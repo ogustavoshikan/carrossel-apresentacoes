@@ -17,6 +17,29 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
     // rotate      → currentRotation     (nunca toca nas demais)
     let currentX, currentY, currentScale, currentWidth, currentRotation;
 
+    // Fix overflow: durante resize-width, os ancestrais com overflow:hidden clipam o texto
+    // que cresce para baixo ao quebrar de linha. Temporariamente, libera o overflow.
+    const savedOverflows = [];
+    if (actionInfo?.type === 'resize-width') {
+      const targetEl = document.getElementById(`smart-${actionInfo.index}-${actionInfo.field}`);
+      const slideCard = document.getElementById(`slide-card-${actionInfo.index}`);
+      if (targetEl && slideCard) {
+        let node = targetEl.parentElement;
+        while (node && node !== slideCard.parentElement) {
+          const computedStyle = window.getComputedStyle(node);
+          if (
+            computedStyle.overflow === 'hidden' ||
+            computedStyle.overflowX === 'hidden' ||
+            computedStyle.overflowY === 'hidden'
+          ) {
+            savedOverflows.push({ node, origOverflow: node.style.overflow });
+            node.style.overflow = 'visible';
+          }
+          node = node.parentElement;
+        }
+      }
+    }
+
     const handleMouseMove = (e) => {
       if (!actionInfo) return;
 
@@ -92,37 +115,49 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
         const boundedMax = actionInfo.constraints?.maxWidth || (actionInfo.slideWidth || 9999);
         const newWidth = Math.max(MIN_WIDTH, Math.min(boundedMax, actionInfo.origWidth + (dx / actionInfo.origScale)));
 
-        currentWidth = newWidth;
         targetElement.style.width = `${newWidth}px`;
+        targetElement.style.minWidth = 'min-content';
         targetElement.style.maxWidth = 'none';
+        targetElement.style.height = 'auto';
+
+        // Força a largura do div interno imediatamente (sem aguardar transição CSS de width: 100%)
+        // A transição CSS do filho com `width: 100%` pode atrasar o reflow do texto.
+        const innerContentDiv = targetElement.querySelector('[data-smart-content]');
+        if (innerContentDiv) {
+          innerContentDiv.style.width = `${newWidth}px`;
+          innerContentDiv.style.minWidth = 'min-content';
+          innerContentDiv.style.height = 'auto';
+        }
         
         // Remove a restrição visual em tempo real no elemento interno (Tailwind max-w classes)
         const innerTextChild = targetElement.querySelector('h1, h2, h3, h4, p, span');
         if (innerTextChild) {
           innerTextChild.style.maxWidth = 'none';
+          innerTextChild.style.minWidth = 'min-content';
+          innerTextChild.style.height = 'auto';
+          innerTextChild.style.minHeight = 'auto';
+          innerTextChild.style.overflow = 'visible';
+          innerTextChild.style.webkitLineClamp = 'unset';
+          innerTextChild.style.lineClamp = 'unset';
+          innerTextChild.style.whiteSpace = 'pre-wrap';
+          innerTextChild.style.textOverflow = 'clip';
         }
 
-        // --- COMPENSAÇÃO DE ALINHAMENTO (UX Fix) ---
-        // Se o elemento estiver dentro de um flexbox centralizado (ex: items-center ou justify-center), 
-        // aumentar a largura empurra a borda esquerda e a direita ao mesmo tempo. 
-        // Para garantir que o redimensionador estique "apenas para a direita" (mantendo a esquerda imóvel),
-        // aplicamos metade do delta na translação de X.
-        const parent = targetElement.parentElement;
-        if (parent) {
-          const pStyle = window.getComputedStyle(parent);
-          const isFlexColCenter = pStyle.display === 'flex' && pStyle.flexDirection.includes('column') && pStyle.alignItems === 'center';
-          const isFlexRowCenter = pStyle.display === 'flex' && pStyle.flexDirection.includes('row') && pStyle.justifyContent === 'center';
-          
-          if (isFlexColCenter || isFlexRowCenter) {
-            const widthDiff = newWidth - actionInfo.origWidth;
-            currentX = actionInfo.origX + (widthDiff / 2);
-            targetElement.style.transform = `translate(${currentX}px, ${actionInfo.origY}px) scale(${actionInfo.origScale}) rotate(${actionInfo.origRotation || 0}deg)`;
+        // Mede a largura física real do elemento imposta pelo min-content no DOM (evita encolher abaixo da maior palavra)
+        const realWidth = targetElement.getBoundingClientRect().width / actionInfo.origScale;
+        if (newWidth < realWidth) {
+          targetElement.style.width = `${realWidth}px`;
+          if (innerContentDiv) {
+            innerContentDiv.style.width = `${realWidth}px`;
           }
+          currentWidth = realWidth;
+        } else {
+          currentWidth = newWidth;
         }
 
         const metricsTag = document.getElementById(`metrics-${actionInfo.index}`);
         if (metricsTag) {
-          metricsTag.innerText = `[ W:${Math.round(newWidth)}px ]`;
+          metricsTag.innerText = `[ W:${Math.round(currentWidth)}px ]`;
         }
       } else if (actionInfo.type === 'rotate') {
          const elRect = targetElement.getBoundingClientRect();
@@ -218,6 +253,29 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
       }
 
       setActionInfo(null);
+      // Após resize-width: limpar o width explícito do div interno para voltar ao w-full natural
+      // (React re-renderiza o wrapper externo com pos.width; o filho deve usar 100% disso)
+      if (actionInfo.type === 'resize-width') {
+        const targetEl = document.getElementById(`smart-${actionInfo.index}-${actionInfo.field}`);
+        const innerDiv = targetEl?.querySelector('[data-smart-content]');
+        if (innerDiv) {
+          innerDiv.style.width = '';
+          innerDiv.style.minWidth = '';
+          innerDiv.style.height = '';
+        }
+        const innerTextChild = targetEl?.querySelector('h1, h2, h3, h4, p, span');
+        if (innerTextChild) {
+          innerTextChild.style.maxWidth = '';
+          innerTextChild.style.minWidth = '';
+          innerTextChild.style.height = '';
+          innerTextChild.style.minHeight = '';
+          innerTextChild.style.overflow = '';
+          innerTextChild.style.webkitLineClamp = '';
+          innerTextChild.style.lineClamp = '';
+          innerTextChild.style.whiteSpace = '';
+          innerTextChild.style.textOverflow = '';
+        }
+      }
       currentX = undefined;
       currentY = undefined;
       currentScale = undefined;
@@ -237,6 +295,10 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('touchmove', handleMouseMove);
       window.removeEventListener('touchend', handleMouseUp);
+      // Restaurar overflow dos ancestrais que foram liberados durante o resize-width
+      savedOverflows.forEach(({ node, origOverflow }) => {
+        node.style.overflow = origOverflow;
+      });
     };
   }, [actionInfo, setSlides, slides, selectedElements]);
 
@@ -323,17 +385,35 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
             }
           }
 
-          // Limpar o transform e width do DOM diretamente (o hook escreve diretamente no DOM)
+          // Limpar o transform, width e height do DOM diretamente (o hook escreve diretamente no DOM)
           for (const field of Object.keys(s.positions || {})) {
             const el = document.getElementById(`smart-${index}-${field}`);
             if (el) {
               el.style.transform = '';
               el.style.width = '';
+              el.style.minWidth = '';
               el.style.maxWidth = '';
+              el.style.height = '';
               
+              // Limpar também o div interno (data-smart-content) que pode ter width/height diretos
+              const innerContentDiv = el.querySelector('[data-smart-content]');
+              if (innerContentDiv) {
+                innerContentDiv.style.width = '';
+                innerContentDiv.style.minWidth = '';
+                innerContentDiv.style.height = '';
+              }
+
               const innerTextChild = el.querySelector('h1, h2, h3, h4, p, span');
               if (innerTextChild) {
                 innerTextChild.style.maxWidth = '';
+                innerTextChild.style.minWidth = '';
+                innerTextChild.style.height = '';
+                innerTextChild.style.minHeight = '';
+                innerTextChild.style.overflow = '';
+                innerTextChild.style.webkitLineClamp = '';
+                innerTextChild.style.lineClamp = '';
+                innerTextChild.style.whiteSpace = '';
+                innerTextChild.style.textOverflow = '';
               }
             }
           }

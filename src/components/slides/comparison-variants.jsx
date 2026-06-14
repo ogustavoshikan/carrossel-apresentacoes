@@ -1624,7 +1624,7 @@ export function ComparisonVariant38(props) {
   const imgRight = sanitizeUnsplashUrl(data.imageUrl2) || "https://images.unsplash.com/photo-1459789034005-ba29c5783491?q=80&w=600&auto=format&fit=crop";
 
   return (
-    <div className="relative w-full h-full flex font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10" style={{ backgroundColor: bgBase }}>
+    <div className="relative w-full h-full flex font-outfit select-none overflow-hidden rounded-slide shadow-2xl" style={{ backgroundColor: bgBase }}>
       
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-0 left-0 w-full p-10 z-50 pointer-events-none">
@@ -1657,8 +1657,10 @@ export function ComparisonVariant38(props) {
       <div className="w-[50%] h-full flex flex-col justify-between py-10 px-4 relative border-r-[1px] border-black/10" style={{ backgroundColor: bgBase }}>
         
         {/* Ghost text background */}
-        <div className="absolute top-1/2 left-0 w-[160%] -translate-y-1/2 text-[90px] font-black tracking-tighter text-black/5 uppercase rotate-[-90deg] origin-left pointer-events-none whitespace-nowrap" style={{ fontFamily: titleFont }}>
-          {data.titulo || 'CHEESE WAFFLES'}
+        <div className="absolute left-0 top-0 bottom-0 w-6 flex items-center justify-center pointer-events-none overflow-visible z-0">
+          <div className="-rotate-90 whitespace-nowrap text-[90px] font-black tracking-tighter text-black/5 uppercase" style={{ fontFamily: titleFont }}>
+            {data.titulo_a || 'CHEESE'}
+          </div>
         </div>
 
         {/* Cabeçalho */}
@@ -1672,15 +1674,6 @@ export function ComparisonVariant38(props) {
 
         {/* Prato de Ingredientes */}
         <div className="relative w-[85%] aspect-square mx-auto my-auto flex items-center justify-center z-10">
-          {/* Prato menor flutuando */}
-          <div className="absolute top-[-10%] right-[-10%] w-[48%] aspect-square rounded-full border border-black/5 bg-white shadow-md p-1 z-20 overflow-hidden">
-            <img 
-              src={imgLeftSmall} 
-              className="w-full h-full rounded-full object-cover" 
-              alt="Ingredients small" 
-            />
-          </div>
-
           {/* Prato principal */}
           <div className="w-full h-full rounded-2xl overflow-hidden border border-black/10 bg-white/95 shadow-xl relative p-1">
             <img 
@@ -1694,7 +1687,7 @@ export function ComparisonVariant38(props) {
         {/* Botão Retangular: BEFORE */}
         <div className="flex justify-center z-10">
           <SmartEl {...sp} field="tag">
-            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-xs">
+            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-[10px]">
               <TextWrapper {...sp} as="span" field="tag" className="font-black text-[13px] tracking-widest uppercase outline-none" style={{ color: bgBase, fontFamily: textFont }}>
                 {data.tag || 'BEFORE'}
               </TextWrapper>
@@ -1708,8 +1701,10 @@ export function ComparisonVariant38(props) {
       <div className="w-[50%] h-full flex flex-col justify-between py-10 px-4 relative" style={{ backgroundColor: accentColor }}>
         
         {/* Ghost text background */}
-        <div className="absolute top-1/2 right-0 w-[160%] -translate-y-1/2 text-[90px] font-black tracking-tighter text-black/5 uppercase rotate-[90deg] origin-right pointer-events-none whitespace-nowrap" style={{ fontFamily: titleFont }}>
-          {data.titulo || 'CHEESE WAFFLES'}
+        <div className="absolute right-0 top-0 bottom-0 w-6 flex items-center justify-center pointer-events-none overflow-visible z-0">
+          <div className="rotate-90 whitespace-nowrap text-[90px] font-black tracking-tighter text-black/5 uppercase" style={{ fontFamily: titleFont }}>
+            {data.titulo_b || 'WAFFLES'}
+          </div>
         </div>
 
         {/* Cabeçalho */}
@@ -1723,9 +1718,9 @@ export function ComparisonVariant38(props) {
 
         {/* Waffle Pronto com decorativos */}
         <div className="relative w-[85%] aspect-square mx-auto my-auto flex items-center justify-center z-10">
-          <div className="absolute inset-[-10px] rounded-full border-2 border-dashed border-white/20 animate-[spin_40s_linear_infinite]" />
+          <div className="absolute inset-[-10px] rounded-full border-2 border-dashed border-white/20" />
           
-          <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/80 bg-white/90 shadow-2xl relative p-1 hover:scale-105 transition-transform duration-700">
+          <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/80 bg-white/90 shadow-2xl relative p-1">
             <img 
               src={imgRight} 
               className="w-full h-full object-cover rounded-full" 
@@ -1737,7 +1732,7 @@ export function ComparisonVariant38(props) {
         {/* Botão Retangular: AFTER */}
         <div className="flex justify-center z-10">
           <SmartEl {...sp} field="texto_apoio">
-            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-xs">
+            <div className="bg-white px-8 py-2.5 shadow-md border border-black/5 rounded-[10px]">
               <TextWrapper {...sp} as="span" field="texto_apoio" className="font-black text-[13px] tracking-widest uppercase outline-none" style={{ color: accentColor, fontFamily: textFont }}>
                 {data.texto_apoio || 'AFTER'}
               </TextWrapper>
@@ -1933,14 +1928,14 @@ export function ComparisonVariant40(props) {
 
       {/* Grid Superior de Imagens */}
       <div className="grid grid-cols-2 gap-2 h-[26%] mt-6">
-        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100">
           <img 
             src={img1} 
             className="w-full h-full object-cover" 
             alt="Showcase 1" 
           />
         </div>
-        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100">
           <img 
             src={img2} 
             className="w-full h-full object-cover" 
@@ -1958,7 +1953,7 @@ export function ComparisonVariant40(props) {
         </SmartEl>
 
         <SmartEl {...sp} field="titulo">
-          <TextWrapper {...sp} as="h2" field="titulo" className="font-display text-[#2d1b13] leading-[0.95] tracking-tight uppercase my-1 select-none outline-none" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont }}>
+          <TextWrapper {...sp} as="h2" field="titulo" className="font-title font-black text-[#2d1b13] leading-[0.95] tracking-tight uppercase my-1 select-none outline-none" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont, fontWeight: 900 }}>
             {data.titulo || 'CHARITY BAKES'}
           </TextWrapper>
         </SmartEl>
@@ -1990,14 +1985,14 @@ export function ComparisonVariant40(props) {
 
       {/* Grid Inferior de Imagens */}
       <div className="grid grid-cols-2 gap-2 h-[26%]">
-        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100">
           <img 
             src={img3} 
             className="w-full h-full object-cover" 
             alt="Showcase 3" 
           />
         </div>
-        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100 shadow-md">
+        <div className="relative overflow-hidden w-full h-full rounded-2xl border border-black/5 bg-zinc-100">
           <img 
             src={img4} 
             className="w-full h-full object-cover" 

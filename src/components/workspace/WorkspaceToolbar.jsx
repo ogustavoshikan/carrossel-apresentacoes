@@ -26,7 +26,8 @@ export default function WorkspaceToolbar({
   isExporting,
   copiedIndex,
   brandColor,
-  onInstagramPreview
+  onInstagramPreview,
+  onEditInCanvas
 }) {
   return (
     <div className="relative z-20 flex items-center justify-between bg-surface-dark/40 border-b border-white/5 p-2 w-full font-sans">
@@ -103,6 +104,16 @@ export default function WorkspaceToolbar({
           <span>
             {copiedIndex === 'all' ? 'Copiado' : 'Copiar'}
           </span>
+        </button>
+
+        {/* Editar no Canvas */}
+        <button
+          onClick={onEditInCanvas}
+          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl outline-none ring-0 border-none transition-all text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-white hover:bg-zinc-900/80"
+          title="Editar este carrossel de forma avançada no Canvas"
+        >
+          <Zap className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+          <span>Editar no Canvas</span>
         </button>
 
         {/* Export */}

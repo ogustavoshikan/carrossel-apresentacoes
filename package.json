@@ -9,19 +9,32 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@blueprintjs/core": "^5.19.0",
+    "@blueprintjs/icons": "^5.23.0",
     "clsx": "^2.1.1",
+    "konva": "^10.3.0",
     "lucide-react": "^0.468.0",
+    "openpolotno": "file:docs/Estudo_OpenPolotno_Repo",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-draggable": "^4.5.0",
+    "react-konva": "^19.2.4",
     "react-markdown": "^10.1.0",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "zustand": "^5.0.14"
+  },
+  "overrides": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
+    "typescript": "^6.0.3",
     "vite": "^6.0.5"
   }
 }

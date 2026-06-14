@@ -293,6 +293,78 @@ export default function ConfigSidebar({
               </div>
             </CollapsibleSection>
 
+            {/* === Bloco de Estilo e Efeitos do Slide === */}
+            <CollapsibleSection title="ESTILO E EFEITOS" defaultOpen={true}>
+              <div className="flex flex-col gap-3.5 py-1">
+                <div className="flex items-center justify-between py-2.5 bg-surface-card/30 rounded-xl px-3 border border-white/5">
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-zinc-200 tracking-wide flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                      Textura de Ruído
+                    </span>
+                    <span className="text-[10px] text-zinc-500 leading-tight mt-0.5">Adiciona grão brutalista sobre o slide</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSlides(prev => prev.map((s, i) => 
+                        i === selectedElement.slideIndex 
+                          ? { ...s, enableNoise: !s.enableNoise, noiseTarget: s.noiseTarget || 'background' } 
+                          : s
+                      ));
+                    }}
+                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                      slide.enableNoise ? 'bg-emerald-500' : 'bg-zinc-800'
+                    }`}
+                  >
+                    <span
+                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                        slide.enableNoise ? 'translate-x-5' : 'translate-x-0'
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                {/* Seletor Segmentado de Alvo do Ruído */}
+                {slide.enableNoise && (
+                  <div className="flex flex-col gap-1.5 bg-surface-card/20 p-2.5 rounded-xl border border-white/5">
+                    <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">
+                      Alvo do Ruído
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 bg-black/40 p-1 rounded-lg border border-white/5">
+                      <button
+                        onClick={() => {
+                          setSlides(prev => prev.map((s, i) => 
+                            i === selectedElement.slideIndex ? { ...s, noiseTarget: 'background' } : s
+                          ));
+                        }}
+                        className={`py-1.5 px-2 text-[9px] font-black uppercase tracking-wider rounded transition-all ${
+                          (slide.noiseTarget || 'background') === 'background'
+                            ? 'bg-zinc-800 text-white shadow-sm'
+                            : 'text-zinc-500 hover:text-zinc-300'
+                        }`}
+                      >
+                        Apenas Fundo/Texto
+                      </button>
+                      <button
+                        onClick={() => {
+                          setSlides(prev => prev.map((s, i) => 
+                            i === selectedElement.slideIndex ? { ...s, noiseTarget: 'all' } : s
+                          ));
+                        }}
+                        className={`py-1.5 px-2 text-[9px] font-black uppercase tracking-wider rounded transition-all ${
+                          slide.noiseTarget === 'all'
+                            ? 'bg-zinc-800 text-white shadow-sm'
+                            : 'text-zinc-500 hover:text-zinc-300'
+                        }`}
+                      >
+                        Slide Inteiro
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </CollapsibleSection>
+
             {/* === Bloco de Imagem(ns) do Slide === */}
             {(() => {
               // Mapeamento de quantos slots de imagem cada variant suporta

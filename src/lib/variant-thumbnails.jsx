@@ -1560,21 +1560,75 @@ export const VARIANT_THUMBNAILS = {
       </div>
     ),
     207: ({ brandColor: accent }) => (
-      <div className="w-full h-full flex overflow-hidden relative bg-white border border-zinc-200 rounded-[4px] shrink-0">
-        <div className="w-[58%] h-full p-1.5 flex flex-col justify-between relative z-10 shrink-0">
-          <div className="flex flex-col gap-0.5 pt-1 shrink-0">
-            <div className="w-[70%] h-[2.5px] rounded-full" style={{ backgroundColor: accent }} />
-            <div className="w-[55%] h-[2.5px] rounded-full" style={{ backgroundColor: accent }} />
-            <div className="w-[40%] h-[2.5px] rounded-full" style={{ backgroundColor: accent }} />
+      <div className="w-full h-full flex flex-col justify-between overflow-hidden relative bg-[#FAF1EA] border border-zinc-200 rounded-[4px] shrink-0">
+        <div className="absolute top-1 w-full flex justify-center shrink-0">
+          <div className="w-[30%] h-[2px] bg-[#ff2a85] rounded-full" />
+        </div>
+        <div className="absolute top-[16%] left-0 w-full bg-[#ff1778] py-1 flex flex-col items-center justify-center z-10 shrink-0">
+          <div className="w-[60%] h-[3px] bg-white rounded-full my-[0.5px]" />
+          <div className="w-[50%] h-[3px] bg-white rounded-full my-[0.5px]" />
+        </div>
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[160%] h-[35%] bg-[#ff1778] z-0 rounded-t-[50%] shrink-0" />
+        <div className="absolute top-[34%] w-full h-[60%] z-20 flex justify-center items-center shrink-0">
+          <div className="w-[45%] aspect-square rounded-full border border-zinc-200 bg-zinc-300 opacity-80 shrink-0" style={{ background: img }} />
+        </div>
+        <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 bg-white px-2 py-0.5 rounded shadow-sm z-30 shrink-0">
+          <div className="w-8 h-[2px] bg-[#ff1778] rounded-full" />
+        </div>
+      </div>
+    ),
+    208: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#3d2c29] grid grid-cols-2 grid-rows-2 border border-zinc-200 rounded-[4px] overflow-hidden relative shrink-0">
+        <div className="w-full h-full bg-zinc-300 opacity-60 border-r border-b border-[#3d2c29] shrink-0" style={{ background: img }} />
+        <div className="w-full h-full bg-zinc-300 opacity-40 border-l border-b border-[#3d2c29] shrink-0" style={{ background: img }} />
+        <div className="w-full h-full bg-[#3d2c29] flex flex-col justify-center p-1 border-r border-t border-[#3d2c29] shrink-0">
+          <div className="w-[80%] h-[1.5px] bg-[#e9c7a7] rounded-full mb-1" />
+          <div className="w-[60%] h-[3px] bg-[#f1cd93] rounded-full my-[0.5px]" />
+          <div className="w-[45%] h-[3px] bg-[#f1cd93] rounded-full my-[0.5px]" />
+        </div>
+        <div className="w-full h-full bg-zinc-300 opacity-50 border-l border-t border-[#3d2c29] shrink-0" style={{ background: img }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-3 h-3 rounded-full bg-[#e9c7a7] border border-[#3d2c29] shrink-0" />
+      </div>
+    ),
+    209: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col border border-zinc-200 rounded-[4px] overflow-hidden relative bg-white shrink-0">
+        <div className="h-[55%] w-full bg-zinc-300 opacity-60 shrink-0" style={{ background: img }} />
+        <div className="flex-1 bg-[#8c3527] p-1.5 flex flex-col justify-between shrink-0">
+          <div className="flex flex-col gap-0.5 pt-0.5 shrink-0">
+            <div className="w-[50%] h-[1.5px] bg-[#f2e1c3] rounded-full" />
+            <div className="w-[70%] h-[3px] bg-[#f2e1c3] rounded-full" />
           </div>
-          <div className="flex flex-col gap-0.5 pb-1 shrink-0">
-            <div className="w-[80%] h-[1.5px] rounded-full font-sans" style={{ backgroundColor: accent }} />
-            <div className="w-[50%] h-[1.5px] rounded-full font-sans" style={{ backgroundColor: accent }} />
+          <div className="flex justify-between items-end shrink-0">
+            <div className="w-[45%] h-[1.5px] bg-[#f2e1c3] rounded-full mb-0.5" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#f2e1c3] opacity-80 shrink-0" />
           </div>
         </div>
-        <div className="flex-1 h-full opacity-60 relative shrink-0" style={{ background: img }} />
-        <div className="absolute top-1/2 left-[58%] -translate-x-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white border-2 border-zinc-100 shadow-md p-[1px] flex items-center justify-center shrink-0">
-          <div className="w-full h-full rounded-full bg-[#3c1d0f] opacity-80 shrink-0" />
+      </div>
+    ),
+    210: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col border border-zinc-200 rounded-[4px] overflow-hidden relative bg-[#FAF1EA] p-0.5 shrink-0">
+        <div className="absolute inset-0.5 border border-[#8b0000] rounded-[2px] pointer-events-none" />
+        <div className="w-full h-[25%] flex justify-center mt-1 z-10">
+          <div className="w-[50%] h-[2.5px] bg-[#8b0000] rounded-full" />
+        </div>
+        <div className="w-[85%] aspect-square mx-auto rounded-full bg-zinc-300 opacity-60 border border-[#8b0000]/20 z-10 shrink-0" style={{ background: img }} />
+        <div className="absolute bottom-1 w-full px-1.5 flex flex-col items-center gap-0.5 z-10">
+          <div className="flex justify-between items-center w-full gap-0.5">
+            <div className="w-[30%] h-[2px] bg-[#d69f20] rounded-full" />
+            <div className="w-[45%] h-[2px] bg-[#8b0000] rounded-full" />
+          </div>
+          <div className="w-[60%] h-[3px] bg-[#8b0000]/60 rounded-full mt-0.5" />
+        </div>
+      </div>
+    ),
+    211: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex border border-zinc-200 rounded-[4px] overflow-hidden relative bg-[#c3a436] shrink-0">
+        <div className="absolute right-0 top-0 w-[55%] h-full bg-zinc-300 opacity-60" style={{ background: img }} />
+        <div className="relative w-[45%] h-full flex flex-col pt-2 pb-1.5 pl-1.5 z-10">
+          <div className="w-[80%] h-[3px] bg-white rounded-full" />
+          <div className="mt-1 bg-white w-[130%] h-[5px] shadow-sm z-20" />
+          <div className="mt-2 w-[85%] h-[1.5px] bg-white/70 rounded-full" />
+          <div className="mt-auto bg-[#b31b2c] w-[20px] h-2 rounded-r-full" />
         </div>
       </div>
     ),
@@ -2490,7 +2544,442 @@ export const VARIANT_THUMBNAILS = {
           <div className="rounded-md" style={{ background: img }} />
         </div>
       </div>
-    )
+    ),
+    78: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-white">
+        {/* Esquerdo: Amarelo Mostarda */}
+        <div className="w-[48%] h-full bg-[#dfa828] flex flex-col items-center justify-center p-1 relative">
+          <div className="w-[70%] h-[3px] bg-[#c82079] rounded-full mb-1" />
+          <div className="w-[85%] h-[2.5px] bg-[#c82079] rounded-full mb-1" />
+          <div className="w-[50%] h-[2px] bg-[#c82079] rounded-full" />
+        </div>
+        {/* Direito: Split Rosa/Verde */}
+        <div className="flex-1 h-full relative flex items-center justify-center">
+          <div className="absolute inset-0 flex flex-col">
+            <div className="h-[75%] bg-[#eb0e92]" />
+            <div className="h-[25%] bg-[#1ea496]" />
+          </div>
+          <div className="w-[80%] aspect-square bg-[#3f3f46] rounded-full border border-white/20 relative z-10" />
+        </div>
+      </div>
+    ),
+    79: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between overflow-hidden bg-[#fcaebb] text-[#3a2829] p-1">
+        <div className="relative w-full h-[50%] flex justify-center items-start mt-[-2%]">
+          <div className="w-[80%] aspect-square rounded-full bg-[#3f3f46] border-2 border-[#fcaebb] shadow-md" />
+        </div>
+        <div className="flex flex-col items-center gap-0.5 justify-center py-1">
+          <div className="w-[50%] h-[2px] bg-[#3a2829] rounded-full" />
+          <div className="w-[70%] h-[3.5px] bg-[#3a2829] rounded-full mt-0.5" />
+        </div>
+        <div className="w-full px-1 pb-1 flex justify-between gap-1 items-center">
+          <div className="w-1.5 h-1.5 rounded-full border border-[#3a2829]" />
+          <div className="w-3 h-1 bg-[#3a2829]/50 rounded-full" />
+          <div className="w-2 h-1 bg-[#3a2829]/30 rounded-full" />
+        </div>
+      </div>
+    ),
+    80: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between p-1.5 overflow-hidden bg-[#f8f5ee]">
+        <div className="flex flex-col gap-1 mt-1">
+          <div className="w-[75%] h-[3.5px] bg-[#402c25] rounded-full" />
+          <div className="w-[50%] h-[2px] bg-[#402c25] rounded-full" />
+        </div>
+        <div className="relative flex-1 w-full my-1">
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[70%] aspect-[4/5] bg-[#3f3f46] border border-[#f29020] rounded-[1rem_0.5rem_1.5rem_0.8rem]" />
+          <div className="absolute top-1/4 left-1 w-5 h-2.5 bg-[#f29020] rounded-full rotate-[-12deg]" />
+        </div>
+        <div className="bg-[#f29020] p-1 rounded-md flex justify-between items-center gap-1">
+          <div className="w-[60%] h-[2.5px] bg-white rounded-full" />
+          <div className="w-4 h-2 bg-[#c5d833] rounded-full" />
+        </div>
+      </div>
+    ),
+    81: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between overflow-hidden bg-[#1dbdb2] p-1 relative text-[#5c2d1b]">
+        <div className="absolute bottom-0 w-full h-[15%] bg-[#ff5e4d]" />
+        <div className="w-[50%] h-[3px] bg-white/70 rounded-full mx-auto mt-2 relative z-10" />
+        <div className="flex flex-col items-center gap-0.5 mt-1 relative z-10">
+          <div className="w-[60%] h-[3.5px] bg-[#fcf0d1] rounded-full" />
+          <div className="w-[45%] h-[2.5px] bg-[#fcf0d1] rounded-full" />
+        </div>
+        <div className="relative z-10 w-[88%] bg-[#fdf5cc] border border-[#5c2d1b] rounded-xl p-1.5 flex flex-col gap-2 mx-auto my-auto shadow-sm">
+          <div className="flex justify-between items-center gap-0.5">
+            <div className="w-4 h-4 rounded-full bg-[#3f3f46] border border-[#ff5e4d]" />
+            <div className="w-4 h-4 rounded-full bg-[#3f3f46] border border-[#ff5e4d]" />
+            <div className="w-4 h-4 rounded-full bg-[#3f3f46] border border-[#ff5e4d]" />
+          </div>
+          <div className="w-[60%] h-[4px] bg-[#ab4a2c] rounded-full mx-auto" />
+        </div>
+        <div className="w-full px-1.5 pb-1 flex justify-between gap-1 items-center relative z-10 text-[5px] text-white/90">
+          <div className="w-5 h-[1.5px] bg-white/40 rounded-full" />
+          <div className="w-5 h-[1.5px] bg-white/40 rounded-full" />
+        </div>
+      </div>
+    ),
+    82: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between p-1.5 overflow-hidden bg-[#fde5ec] relative">
+        <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-[#ef3d76] opacity-60" />
+        <div className="absolute -bottom-8 -right-8 w-20 h-20 rounded-full bg-[#ef3d76] opacity-60" />
+        <div className="w-[84%] bg-white rounded-xl p-2 pb-0 flex flex-col gap-1.5 shadow-md mx-auto my-auto relative z-10 overflow-hidden">
+          <div className="flex items-center gap-1.5">
+            <div className="w-3.5 h-3.5 rounded-full bg-[#fde5ec]" />
+            <div className="flex flex-col gap-0.5">
+              <div className="w-6 h-[1.5px] bg-[#ef3d76] rounded-full" />
+              <div className="w-4 h-[1px] bg-zinc-300 rounded-full" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-0.5">
+            <div className="w-[90%] h-[3px] bg-[#ef3d76] rounded-full" />
+            <div className="w-[70%] h-[2px] bg-zinc-400 rounded-full" />
+          </div>
+          <div className="w-[110%] -ml-[5%] h-10 bg-[#3f3f46] rounded-t-md" />
+        </div>
+      </div>
+    ),
+    83: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex flex-col justify-between overflow-hidden bg-[#00a8a8] text-white">
+        <div className="w-full h-[55%] relative overflow-hidden bg-[#55c5c5] shrink-0">
+          <div className="absolute inset-0 bg-[#e6007e] origin-top-left rotate-[15deg] scale-125" />
+          <div className="absolute bottom-0 w-full h-[60%] bg-[#3f3f46] border-t border-black/35 rounded-t-sm shadow-inner" />
+        </div>
+        <div className="flex-1 flex items-center justify-between p-1.5 gap-1 shrink-0 bg-[#00a8a8]">
+          <div className="flex flex-col gap-1 flex-1">
+            <div className="w-[80%] h-[3px] bg-white rounded-full" />
+            <div className="w-[60%] h-[2px] bg-[#442614] rounded-full" />
+          </div>
+          <div className="w-[1px] h-6 bg-white/60 shrink-0" />
+          <div className="flex flex-col items-end gap-1 flex-1">
+            <div className="w-[70%] h-[1.5px] bg-[#442614] rounded-full" />
+            <div className="w-6 h-3 bg-white/20 rounded-sm" />
+          </div>
+        </div>
+      </div>
+    ),
+    84: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#f64c1c] flex flex-col select-none overflow-hidden relative">
+        <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-[#f64c1c] text-white px-2 py-0.5 rounded-full border border-white/20 shadow-sm scale-75">
+          <div className="w-6 h-[2px] bg-white rounded-full" />
+        </div>
+        <div className="absolute top-1 left-1/2 -translate-x-1/2 bg-white rounded-b-md px-1 py-0.5 shadow-sm z-20 flex items-center justify-center gap-0.5 scale-75 origin-top">
+          <div className="w-3 h-3 rounded-full bg-[#3c1d0f]" />
+          <div className="w-4 h-[2px] bg-[#3c1d0f] rounded-full" />
+        </div>
+        <div className="flex w-full h-[50%]">
+          <div className="w-1/2 h-full relative border-r border-b border-white/20 bg-zinc-700" />
+          <div className="w-1/2 h-full relative border-b border-white/20 bg-zinc-700" />
+        </div>
+        <div className="flex w-full h-[50%]">
+          <div className="w-1/2 h-full relative border-r border-white/20 bg-zinc-700" />
+          <div className="w-1/2 h-full bg-zinc-700" />
+        </div>
+      </div>
+    ),
+    85: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#efede7] flex flex-col items-center justify-between overflow-hidden p-1.5 relative text-[#432311]">
+        <div className="absolute top-0 left-[-10%] w-6 h-6 bg-[#432311] rotate-12 opacity-90 blur-[1px]" />
+        <div className="absolute bottom-0 right-[-10%] w-8 h-8 bg-[#432311] -rotate-12 opacity-90 blur-[1px]" />
+        <div className="relative z-10 flex items-center gap-1 scale-75 origin-top mt-1">
+          <div className="w-4 h-4 rounded-full bg-[#3c1d0f]" />
+          <div className="w-6 h-[2px] bg-[#3c1d0f] rounded-full" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center gap-0.5 w-full px-2 mt-0.5">
+          <div className="w-[60%] h-[3px] bg-[#432311] rounded-full" />
+          <div className="w-[45%] h-[2.5px] bg-[#e9582d] rounded-full" />
+        </div>
+        <div className="relative z-10 w-[75%] aspect-[4/3] rounded-md bg-[#3f3f46] border border-white/10 shadow-sm" />
+        <div className="relative z-10 flex flex-col items-center gap-0.5 w-full px-2 mb-1">
+          <div className="w-[85%] h-[2px] bg-[#432311] rounded-full" />
+          <div className="w-[60%] h-[2px] bg-[#e9582d] rounded-full" />
+        </div>
+      </div>
+    ),
+    86: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#FAF1EA] flex flex-col justify-between overflow-hidden relative">
+        <div className="h-[46%] w-full bg-[#3f3f46]" />
+        <div className="flex-1 bg-white p-2 relative flex flex-col justify-center items-center gap-1">
+          <div className="absolute left-1.5 top-1.5 bottom-1.5 w-[0.5px] bg-[#d56b82]/40" />
+          <div className="absolute right-1.5 top-1.5 bottom-1.5 w-[0.5px] bg-[#d56b82]/40" />
+          <div className="w-[70%] h-[3px] bg-zinc-800 rounded-full" />
+          <div className="w-[50%] h-[1.5px] bg-zinc-400 rounded-full" />
+          <div className="w-3 h-[0.5px] bg-zinc-200 my-0.5" />
+          <div className="w-[60%] h-[2px] bg-zinc-700 rounded-full" />
+        </div>
+      </div>
+    ),
+    87: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#efe7cc] flex flex-col justify-between overflow-hidden relative">
+        <div className="h-[54%] w-full bg-[#3f3f46]" />
+        <div className="absolute top-[54%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-[#f6921e] rounded-full px-2 py-0.5 border border-white/10 shadow-sm scale-75">
+          <div className="w-10 h-[2px] bg-white rounded-full" />
+        </div>
+        <div className="flex-1 flex flex-col justify-center items-center gap-1.5 p-2 bg-[#efe7cc] pt-3">
+          <div className="w-[80%] h-[2px] bg-[#3d2b1f] rounded-full" />
+          <div className="w-6 h-[2px] text-[#f6921e] border-y border-current opacity-80" />
+          <div className="w-[45%] h-[2.5px] bg-[#3d2b1f] rounded-full" />
+        </div>
+      </div>
+    ),
+    88: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#BF7ADD] flex flex-col justify-between overflow-hidden relative">
+        {/* Elipse decorativa inferior */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-[30%] rounded-[50%] bg-[#32024F]" />
+        {/* Base escura */}
+        <div className="absolute bottom-0 left-0 w-full h-[25%] bg-[#32024F]" />
+        {/* Moldura interna */}
+        <div className="absolute inset-0.5 border border-[#471463]/40 pointer-events-none" />
+        {/* Badge topo esquerdo */}
+        <div className="absolute top-[10%] left-[8%] w-6 h-3 rounded-full bg-[#EFD08D] flex items-center justify-center shadow-sm scale-75 origin-top-left">
+          <div className="w-3 h-[1px] bg-[#32024F]" />
+        </div>
+        {/* Imagem central */}
+        <div className="absolute top-[20%] left-1/4 w-1/2 h-[45%] rounded-md bg-[#3f3f46] border border-white/10 shadow-sm" />
+        {/* Textos na base */}
+        <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[70%] h-[2px] bg-white rounded-full" />
+        <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[45%] h-[1.5px] bg-white/70 rounded-full" />
+      </div>
+    ),
+    89: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#f9f9f9] flex flex-col justify-between overflow-hidden relative p-1 text-[#333] rounded-sm">
+        {/* Título superior */}
+        <div className="flex flex-col items-center gap-[2px] mt-1 shrink-0">
+          <div className="w-10 h-[2.5px] bg-[#4a592d] rounded-full" />
+          <div className="w-6 h-[1.5px] bg-[#4a592d] rounded-full" />
+        </div>
+        {/* Imagem central */}
+        <div className="w-[85%] h-[40%] bg-[#3f3f46] rounded-md mx-auto -mt-2 opacity-90 shadow-sm" />
+        {/* Bloco de descrição com botão */}
+        <div className="w-[75%] bg-white rounded-lg p-1 shadow-sm mx-auto -mt-5 relative z-10 flex flex-col items-center gap-[2px] border border-zinc-200">
+          <div className="w-full h-[1.5px] bg-[#555] rounded-full" />
+          <div className="w-[80%] h-[1.5px] bg-[#555] rounded-full" />
+          <div className="w-8 h-2 bg-[#c4d646] rounded-full mt-1" />
+        </div>
+      </div>
+    ),
+    90: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fdfafb] flex flex-col justify-between overflow-hidden relative p-1 text-zinc-900 rounded-sm">
+        {/* Fundo degradê */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ffe1ed]/50 to-transparent pointer-events-none" />
+        {/* Letreiro gigante pink */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-10 space-y-[2px] font-black text-center text-[#ff2a70]">
+          <div className="text-[12px] leading-none">BROWNIE</div>
+          <div className="text-[12px] leading-none">BROWNIE</div>
+        </div>
+        {/* Logo superior */}
+        <div className="flex flex-col items-center gap-[2px] mt-1 z-10">
+          <div className="w-4 h-[2px] bg-[#ff2a70] rounded-full" />
+          {/* Badge pink */}
+          <div className="bg-[#ff2a70] px-2 py-[1.5px] mt-0.5 rounded-[1px]">
+            <div className="w-6 h-[1.5px] bg-white rounded-full" />
+          </div>
+        </div>
+        {/* Brownie imagem */}
+        <div className="w-[85%] h-[40%] bg-[#5A3825]/90 rounded-sm mx-auto z-10 relative mt-1">
+          {/* Tooltip */}
+          <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 bg-white rounded-[1px] px-1 py-[0.5px] shadow-sm">
+            <div className="w-4 h-[1px] bg-[#ff2a70]" />
+          </div>
+        </div>
+        {/* Curva inferior */}
+        <div className="absolute bottom-[-10%] left-0 w-full h-[15%] bg-[#ff2a70] rounded-t-full z-20" />
+      </div>
+    ),
+    91: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fdfafb] flex flex-col justify-between overflow-hidden relative p-1 text-zinc-900 rounded-sm">
+        {/* Fundo degradê */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ffe1ed]/50 to-transparent pointer-events-none" />
+        {/* Letreiro gigante pink */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-10 space-y-[2px] font-black text-center text-[#ff2a70]">
+          <div className="text-[12px] leading-none">CUPCAKE</div>
+          <div className="text-[12px] leading-none">CUPCAKE</div>
+        </div>
+        {/* Logo superior */}
+        <div className="flex flex-col items-center gap-[2px] mt-1 z-10">
+          <div className="w-6 h-[2px] bg-[#ff2a70] rounded-full" />
+        </div>
+        {/* Caixa cupcake imagem */}
+        <div className="w-[85%] h-[40%] bg-[#3f3f46] rounded-sm mx-auto z-10 relative mt-1">
+          {/* Tooltip */}
+          <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 bg-white rounded-[1px] px-1 py-[0.5px] shadow-sm">
+            <div className="w-4 h-[1px] bg-[#ff2a70]" />
+          </div>
+        </div>
+        {/* Curva inferior com botão */}
+        <div className="absolute bottom-[-5%] left-0 w-full h-[20%] bg-[#ff2a70] rounded-t-full z-20 flex items-center justify-center">
+          <div className="w-6 h-[2.5px] bg-white rounded-full -translate-y-0.5" />
+        </div>
+      </div>
+    ),
+    92: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#ff7a7a] flex flex-col justify-between overflow-hidden relative p-1 text-[#ffebe4] rounded-sm">
+        {/* Top Text / Title */}
+        <div className="flex flex-col gap-[1px] mt-1.5 ml-1 z-10">
+          <div className="w-4 h-[1px] bg-[#ffebe4]/60 rounded-full" />
+          <div className="w-7 h-[2px] bg-[#ffebe4] rounded-full" />
+          <div className="w-5 h-[2px] bg-[#ffebe4] rounded-full" />
+        </div>
+        {/* Brigadeiros flutuantes em formato de "?" */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {[
+            { top: '15%', left: '46%' },
+            { top: '10%', left: '65%' },
+            { top: '18%', left: '80%' },
+            { top: '32%', left: '75%' },
+            { top: '45%', left: '60%' },
+            { top: '58%', left: '55%' },
+            { top: '75%', left: '55%' } // The Dot
+          ].map((pos, idx) => (
+            <div 
+              key={idx} 
+              className="absolute w-2 h-2 rounded-full bg-[#2a130c] border-[0.5px] border-[#1a0a05]"
+              style={{ top: pos.top, left: pos.left }}
+            />
+          ))}
+        </div>
+        {/* Footer */}
+        <div className="flex justify-between items-center mt-auto mb-1 z-10 px-0.5">
+          <div className="w-4 h-[2px] bg-[#ffebe4] rounded-full" />
+          <div className="w-6 h-[4px] bg-[#6b3127] rounded-full" />
+        </div>
+      </div>
+    ),
+    93: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fdf5f7] flex overflow-hidden relative rounded-sm text-[#ff4b82]">
+        {/* Lado esquerdo (Imagem) */}
+        <div className="w-[45%] h-full bg-[#3f3f46]" />
+        {/* Lado direito */}
+        <div className="w-[55%] h-full flex flex-col justify-center items-start pl-1 pr-0.5 gap-[1.5px]">
+          <div className="w-4 h-[2px] bg-[#ff4b82] rounded-full self-center mb-1.5" />
+          <div className="w-[85%] h-[2.5px] bg-[#ff4b82] rounded-full" />
+          <div className="w-[75%] h-[2.5px] bg-[#ff4b82] rounded-full" />
+          <div className="w-[80%] h-[2.5px] bg-[#ff4b82] rounded-full" />
+          <div className="w-[85%] h-[3.5px] bg-[#ff4b82] px-0.5 py-[0.5px] mt-[1px]">
+            <div className="w-full h-full bg-white" />
+          </div>
+        </div>
+      </div>
+    ),
+    94: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#8ac1e6] flex flex-col overflow-hidden relative p-1 rounded-sm">
+        {/* Card bicolor esquerdo */}
+        <div className="absolute top-2 left-[5%] w-[52%] h-[68%] rounded-sm overflow-hidden flex flex-col z-10 shadow-sm">
+          <div className="bg-[#fe4eb3] h-[45%] p-0.5 flex items-center">
+            <div className="w-[80%] h-[1.5px] bg-white rounded-full" />
+          </div>
+          <div className="bg-[#f8f4e2] flex-1 p-0.5 flex flex-col gap-[1px]">
+            <div className="w-[90%] h-[1px] bg-[#2a6878] rounded-full" />
+            <div className="w-[70%] h-[1px] bg-[#2a6878] rounded-full" />
+          </div>
+        </div>
+        {/* Imagem do brownie à direita sobreposta */}
+        <div className="absolute top-[25%] right-[-5%] w-[55%] aspect-square bg-[#3f3f46] rounded-sm rotate-[-2deg] z-20 shadow-md" />
+        {/* Footer */}
+        <div className="absolute bottom-1.5 left-1 right-1 flex justify-between items-center z-20 px-0.5">
+          <div className="w-4 h-[1px] bg-white rounded-full" />
+          <div className="w-4 h-[1px] bg-white rounded-full" />
+        </div>
+      </div>
+    ),
+    95: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fcdced] flex flex-col items-center justify-between overflow-hidden relative p-1 text-[#1a1a1a] rounded-sm">
+        {/* Onda inferior */}
+        <div className="absolute bottom-0 left-0 w-full h-[45%] bg-[#ec7ba3] z-0" />
+        {/* Cabeçalho */}
+        <div className="flex flex-col items-center z-10 mt-1">
+          <div className="w-4 h-[1px] bg-[#1a1a1a]/40 rounded-full mb-[1px]" />
+          <div className="w-7 h-[2px] bg-[#1a1a1a] rounded-full" />
+        </div>
+        {/* Sorvete / Copo central */}
+        <div className="w-[45%] h-[35%] bg-[#3f3f46] z-10 relative mb-4 shadow-sm" style={{ clipPath: 'polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 90% 100%, 10% 100%)' }}>
+          {/* Guardanapo sob o copo */}
+          <div className="absolute bottom-[-3px] w-[140%] h-[3px] bg-white/95 rounded-sm -translate-x-[15%]" />
+        </div>
+        {/* Anotações simplificadas laterais */}
+        <div className="absolute top-[40%] left-[8%] w-3 h-[1px] bg-[#1a1a1a]/50" />
+        <div className="absolute top-[42%] right-[8%] w-3 h-[1px] bg-[#1a1a1a]/50" />
+      </div>
+    ),
+    210: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#e81b85] flex flex-col justify-end overflow-hidden relative p-1 rounded-sm">
+        {/* Fundo azul claro e slots de fotos */}
+        <div className="absolute inset-0 bg-[#98cbf1] z-0" />
+        <div className="absolute inset-0 bg-[#e81b85] z-10" />
+        {/* Imagem superior direita */}
+        <div className="absolute top-0 right-0 w-[55%] h-[50%] bg-zinc-300 opacity-80 rounded-bl-[16px] z-10 shrink-0" style={{ background: img }} />
+        {/* Imagem inferior direita */}
+        <div className="absolute bottom-0 right-0 w-[30%] h-[30%] bg-zinc-300 opacity-60 rounded-tl-[12px] z-10 shrink-0" style={{ background: img }} />
+        {/* Texto editável simulado */}
+        <div className="relative z-20 flex flex-col pt-[20%] gap-1 select-none">
+          <div className="w-[45%] h-[4px] bg-white rounded-full opacity-90" />
+          <div className="w-[60%] h-[6px] bg-white rounded-full opacity-90 mt-1" />
+          <div className="w-[40%] h-[5px] bg-[#00c814] rounded-md opacity-90 mt-1" />
+        </div>
+        {/* Autor */}
+        <div className="relative z-20 flex items-center gap-1 mt-auto mb-1">
+          <div className="w-2.5 h-2.5 rounded-full bg-white opacity-85 shrink-0" />
+          <div className="flex flex-col gap-[1px]">
+            <div className="w-6 h-[1.5px] bg-white opacity-85 rounded-full" />
+            <div className="w-4 h-[1px] bg-white opacity-60 rounded-full" />
+          </div>
+        </div>
+      </div>
+    ),
+    211: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#ffbd00] flex flex-col items-center justify-between overflow-hidden relative p-1 text-[#6b0c19] rounded-sm">
+        {/* Corte superior direito */}
+        <div className="absolute top-0 right-0 w-8 h-8 bg-zinc-300 opacity-80 rounded-bl-lg border border-[#ffbd00] z-10" style={{ background: img }} />
+        {/* Tag topo */}
+        <div className="w-[45%] h-[2.5px] border border-[#6b0c19] rounded-full mt-1.5 z-20" />
+        {/* Título garrafal */}
+        <div className="flex flex-col items-center gap-0.5 z-20 mt-1">
+          <div className="w-8 h-[1.5px] bg-[#6b0c19] opacity-70 rounded-full" />
+          <div className="w-12 h-[3.5px] bg-[#6b0c19] rounded-full" />
+          <div className="relative w-full flex justify-center h-[6px] mt-[1px]">
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-[4px] bg-[#6b0c19] rounded-full" />
+          </div>
+        </div>
+        {/* Imagem base */}
+        <div className="w-[85%] h-[40%] bg-zinc-300 opacity-70 rounded-tr-[16px] z-10 shrink-0 transform -rotate-[4deg] self-start mt-auto ml-[-5px]" style={{ background: img }} />
+        {/* Caixa de texto direita */}
+        <div className="absolute bottom-[25%] right-1 bg-[#6b0c19] p-1 rounded-tl-md rounded-br-md z-20">
+          <div className="w-4 h-[1.5px] bg-[#ffbd00] rounded-full my-[0.5px]" />
+          <div className="w-3 h-[1.5px] bg-[#ffbd00] rounded-full my-[0.5px]" />
+        </div>
+      </div>
+    ),
+    212: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#e0aa00] border border-zinc-200 rounded-sm overflow-hidden flex flex-col relative shrink-0">
+        <div className="absolute inset-0 flex flex-col z-10">
+          {/* Bloco 1 */}
+          <div className="flex-[1.2] relative bg-zinc-300 border-b border-[#33180c] shrink-0" style={{ background: img }}>
+            {/* Header */}
+            <div className="absolute top-0 left-0 w-full h-[30%] bg-[#fcae12] flex flex-col items-center justify-center border-b border-[#33180c] z-20">
+              <div className="w-[30%] h-[2.5px] bg-[#33180c] rounded-full" />
+              <div className="w-[45%] h-[2px] bg-[#d95229] rounded-sm mt-[1px]" />
+            </div>
+            {/* Preço e título */}
+            <div className="absolute bottom-1 right-1 flex flex-col items-end gap-0.5 scale-90">
+              <div className="w-6 h-[2.5px] bg-white rounded-full" />
+              <div className="bg-[#fcae12] w-5 h-[3px] rounded-xs" />
+            </div>
+          </div>
+          {/* Bloco 2 */}
+          <div className="flex-1 relative bg-zinc-400 border-b border-[#33180c] shrink-0" style={{ background: img }}>
+            <div className="absolute bottom-1 left-1 flex flex-col items-start gap-0.5 scale-90">
+              <div className="w-6 h-[2.5px] bg-white rounded-full" />
+              <div className="bg-[#fcae12] w-5 h-[3px] rounded-xs" />
+            </div>
+          </div>
+          {/* Bloco 3 */}
+          <div className="flex-1 relative bg-zinc-300 shrink-0" style={{ background: img }}>
+            <div className="absolute bottom-1 right-1 flex flex-col items-end gap-0.5 scale-90">
+              <div className="w-6 h-[2.5px] bg-white rounded-full" />
+              <div className="bg-[#fcae12] w-5 h-[3px] rounded-xs" />
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
   },
   'big-number': {
     0: ({ brandColor: accent }) => (
@@ -5529,6 +6018,94 @@ export const VARIANT_THUMBNAILS = {
         </div>
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 w-[60%] h-3.5 rounded-full border border-[#374151] flex items-center justify-center" style={{ backgroundColor: accent }}>
           <div className="w-[40%] h-[1px] bg-[#374151]/60" />
+        </div>
+      </div>
+    ),
+    171: ({ brandColor: accent }) => (
+      <div className="w-full h-full flex overflow-hidden bg-white relative">
+        {/* Painel Amarelo Esquerdo */}
+        <div className="w-[48%] h-full bg-[#dfa828] flex flex-col items-center justify-center p-1 relative z-10 gap-0.5">
+          <div className="w-[80%] h-[3px] bg-[#c82079] rounded-full" />
+          <div className="w-[50%] h-[1.5px] bg-[#c82079] rounded-full" />
+          <div className="w-[60%] h-[1px] bg-white/80 rounded-full mt-1" />
+        </div>
+        {/* Painel Direito Split e Bolo */}
+        <div className="flex-1 h-full relative flex items-center justify-center">
+          <div className="absolute inset-0 flex flex-col">
+            <div className="h-[75%] w-full bg-[#eb0e92]" />
+            <div className="h-[25%] w-full bg-[#1ea496]" />
+          </div>
+          <div className="relative z-10 w-[70%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+        </div>
+      </div>
+    ),
+    172: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fcaebb] flex flex-col overflow-hidden relative items-center justify-between p-2">
+        <div className="flex flex-col items-center gap-0.5 mt-1">
+          <div className="w-[40%] h-[1px] bg-[#2a1b18]/60" />
+          <div className="w-[70%] h-[4px] bg-[#2a1b18] rounded-full" />
+          <div className="w-[60%] h-[1px] bg-[#2a1b18]/60" />
+        </div>
+        <div className="w-[55%] aspect-square rounded-2xl bg-zinc-800 my-1" style={{ background: img }} />
+        <div className="w-[50%] h-3 bg-[#1c1210] rounded-full flex items-center justify-center">
+          <div className="w-[30%] h-[1px] bg-[#fcaebb]/80" />
+        </div>
+      </div>
+    ),
+    173: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#3c1b22] flex flex-col overflow-hidden relative items-center p-2">
+        <div className="w-[30%] h-[1px] bg-white/60 mb-2" />
+        <div className="w-[85%] bg-[#fde5da] rounded-xl p-1.5 flex flex-col items-center gap-1 relative z-20 shadow-md">
+          <div className="w-2 h-2 rounded bg-[#fc6c65]" />
+          <div className="w-[70%] h-[3px] bg-[#111] rounded-full" />
+          <div className="w-[50%] h-[1.5px] bg-zinc-600 rounded-full" />
+          <div className="w-[80%] h-3 bg-[#fc6c65] rounded-full mt-1" />
+        </div>
+        <div className="absolute bottom-[-10%] w-[70%] aspect-square rounded-full bg-zinc-800 z-10" style={{ background: img }} />
+      </div>
+    ),
+    174: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#f93892] flex flex-col overflow-hidden relative items-center justify-center p-2">
+        <div className="absolute top-0 right-0 w-[58%] h-[35%] bg-[#fbf8ea] rounded-bl-xl" />
+        <div className="absolute bottom-0 left-0 w-[55%] h-[32%] bg-[#fbf8ea] rounded-tr-xl" />
+        <div className="absolute top-[-5%] left-[5%] w-[45%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+        <div className="absolute bottom-[20%] right-[-15%] w-[55%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[45%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+        <div className="relative z-10 w-[70%] h-[3px] bg-white rounded-full" />
+        <div className="relative z-10 w-[50%] h-[1.5px] bg-white/60 rounded-full mt-1" />
+      </div>
+    ),
+    175: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#fdaeb8] flex flex-col overflow-hidden relative items-center justify-between p-2">
+        <div className="absolute -top-[10%] w-[110%] aspect-square rounded-full bg-zinc-800 border-4 border-[#fdaeb8] border-dashed" style={{ background: img }} />
+        <div className="flex flex-col items-center gap-1 mt-auto mb-4 w-full">
+          <div className="w-[60%] h-[2.5px] bg-[#362728]/80 rounded-full" />
+          <div className="w-[80%] h-[4px] bg-[#362728] rounded-full" />
+          <div className="w-[70%] h-[1.5px] bg-[#362728]/60 rounded-full" />
+        </div>
+      </div>
+    ),
+    176: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#ffd381] flex flex-col overflow-hidden relative">
+        <div className="h-[48%] w-full bg-[#ffd381]" />
+        <div className="h-[52%] w-full bg-zinc-800" style={{ background: img }} />
+        <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] bg-[#fffcf5] rounded-md py-3 px-1.5 flex flex-col items-center gap-1 shadow-md z-10">
+          <div className="w-[70%] h-[4px] bg-[#5a3825] rounded-full" />
+          <div className="w-[80%] h-[4px] bg-[#5a3825] rounded-full" />
+          <div className="w-[60%] h-[1.5px] bg-zinc-800 rounded-full mt-1" />
+        </div>
+      </div>
+    ),
+    177: ({ brandColor: accent }) => (
+      <div className="w-full h-full bg-[#923c1d] flex flex-col overflow-hidden relative">
+        <div className="h-[52%] w-full bg-[#f4f2ef]/80" />
+        <div className="flex-1 flex flex-col justify-end p-2 gap-2 relative z-10">
+          <div className="flex justify-between w-full px-1">
+            <div className="w-[28%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+            <div className="w-[28%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+            <div className="w-[28%] aspect-square rounded-full bg-zinc-800" style={{ background: img }} />
+          </div>
+          <div className="w-[50%] h-3 border border-[#e29b49] rounded-full mx-auto" />
         </div>
       </div>
     ),

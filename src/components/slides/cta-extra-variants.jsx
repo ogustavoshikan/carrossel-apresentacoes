@@ -2809,23 +2809,8 @@ export function CTAVariant171(props) {
       `}} />
 
       {/* LEFT PANEL: Amarelo Mostarda */}
-      <div className="w-[51%] h-full flex flex-col items-center justify-start pt-14 pb-8 relative z-10 px-3 text-center pointer-events-none" style={{ backgroundColor: brandColor || '#dfa828' }}>
+      <div className="w-[50%] h-full flex flex-col items-center justify-start pt-14 pb-8 relative z-10 px-3 text-center pointer-events-none" style={{ backgroundColor: brandColor || '#dfa828' }}>
         
-        {/* SVG Pattern: Gotas/Folhas no canto inferior */}
-        <div className="absolute -bottom-8 -left-6 w-56 h-56 opacity-[0.15] pointer-events-none text-[#5e4104]">
-          <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(10, 70) scale(0.6) rotate(45)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(35, 65) scale(0.8) rotate(15)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(55, 80) scale(0.7) rotate(-20)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(5, 45) scale(0.75) rotate(70)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(25, 40) scale(0.9) rotate(35)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(45, 50) scale(0.6) rotate(0)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(70, 60) scale(0.8) rotate(-45)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(15, 20) scale(0.65) rotate(80)" />
-            <path d="M10,0 C10,0 20,15 20,25 C20,35 10,40 10,40 C10,40 0,35 0,25 C0,15 10,0 10,0 Z" transform="translate(40, 25) scale(0.7) rotate(45)" />
-          </svg>
-        </div>
-
         {/* Top Text Group */}
         <div className="flex flex-col items-center relative z-10 w-full pointer-events-auto">
           <SmartElement slideIndex={index} field="titulo_part1" position={pos('titulo_part1')} showMetrics={showMetrics} onActionStart={onActionStart} isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'titulo_part1'} onSelectElement={onSelectElement} className="w-full flex justify-center">
@@ -2877,8 +2862,61 @@ export function CTAVariant171(props) {
 
       </div>
 
+      {/* SVG Pattern: Dona Jura Fitas */}
+      <svg viewBox="0 0 1026.6 1350" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0 1020 C 15 1025, 96 1040, 78 1169 L 76 1169 C 72 1120, 15 1112, 0 1100 Z" fill="#ffd9e233" />
+        <path d="M 0 1116 C 22 1129, 79 1149, 58 1224 L 54 1233 C 25 1268, -5 1208, 0 1194 Z" fill="#ffd9e233" />
+        <path d="M 8 1248 C 20 1282, 56 1302, 53 1343 L 52 1341 C 11 1279, -32 1322, 0 1216 Z" fill="#ffd9e233" />
+        <path d="M 157 1041 C 209 1117, 111 1191, 98 1135 L 99 1131 C 108 1100, 155 1076, 146 1023 Z" fill="#ffd9e233" />
+        <path d="M 57 1050 C 38 1027, 58 1010, 64 1017 L 65 1019 C 71 1035, 64 1027, 71 1063 Z" fill="#ffd9e233" />
+        <path d="M 96 1133 C 133 1033, 90 1021, 76 1049 L 76 1049 C 73 1079, 98 1090, 94 1133 Z" fill="#ffd9e233" />
+        <path d="M 120 1087 C 160 1037, 131 1009, 118 1030 L 122 1027 C 107 1034, 127 1060, 119 1084 Z" fill="#ffd9e233" />
+        <path d="M 180 1089 C 233 1032, 190 1007, 176 1026 L 179 1023 C 150 1039, 192 1070, 179 1086 Z" fill="#ffd9e233" />
+        <path d="M 214 1184 C 249 1277, 185 1283, 180 1260 L 180 1254 C 180 1242, 218 1228, 211 1185 Z" fill="#ffd9e233" />
+        <path d="M 219 1283 C 298 1348, 193 1430, 171 1413 L 186 1398 C 176 1369, 257 1342, 217 1284 Z" fill="#ffd9e233" />
+        <path d="M 285 1118 C 329 1244, 262 1253, 258 1218 L 258 1214 C 262 1181, 284 1162, 283 1118 Z" fill="#ffd9e233" />
+        <path d="M 303 1194 C 348 1307, 255 1274, 290 1238 L 295 1230 C 284 1246, 307 1222, 301 1194 Z" fill="#ffd9e233" />
+        <path d="M 268 1060 C 308 1214, 206 1216, 221 1161 L 225 1153 C 248 1126, 266 1111, 266 1060 Z" fill="#ffd9e233" />
+        <path d="M 302 1277 C 329 1394, 206 1353, 281 1308 L 261 1324 C 285 1298, 304 1308, 297 1276 Z" fill="#ffd9e233" />
+        <path d="M 256 1029 C 252 1178, 164 1160, 181 1102 L 188 1091 C 210 1066, 246 1057, 252 1031 Z" fill="#ffd9e233" />
+        <path d="M 210 1068 C 223 1040, 255 1041, 240 1025 L 243 1031 C 236 1009, 211 1020, 208 1068 Z" fill="#ffd9e233" />
+        <path d="M 231 1137 C 193 1200, 174 1154, 191 1150 L 193 1149 C 216 1145, 216 1143, 230 1135 Z" fill="#ffd9e233" />
+        <path d="M 176 1117 C 181 1179, 123 1158, 156 1137 L 152 1140 C 161 1133, 167 1129, 174 1116 Z" fill="#ffd9e233" />
+        <path d="M 410 1237 C 461 1375, 317 1385, 374 1308 L 378 1304 C 416 1265, 405 1256, 407 1237 Z" fill="#ffd9e233" />
+        <path d="M 440 1152 C 498 1226, 375 1253, 403 1206 L 406 1204 C 446 1188, 443 1170, 437 1153 Z" fill="#ffd9e233" />
+        <path d="M 289 1028 C 323 1072, 381 1089, 410 1059 L 415 1050 C 431 985, 334 1045, 314 1036 Z" fill="#ffd9e233" />
+        <path d="M 459 1296 C 449 1350, 536 1416, 412 1397 L 420 1385 C 423 1344, 449 1318, 457 1296 Z" fill="#ffd9e233" />
+        <path d="M 275 1024 C 267 1116, 360 1213, 388 1142 L 388 1139 C 386 1086, 316 1081, 289 1041 Z" fill="#ffd9e233" />
+        <path d="M 301 1143 C 301 1226, 372 1297, 400 1262 L 402 1258 C 410 1214, 347 1206, 313 1160 Z" fill="#ffd9e233" />
+        <path d="M 312 1313 C 308 1408, 400 1502, 425 1431 L 425 1428 C 423 1375, 353 1352, 327 1334 Z" fill="#ffd9e233" />
+        <path d="M 241 1195 C 208 1254, 248 1326, 290 1299 L 293 1295 C 305 1269, 251 1261, 244 1216 Z" fill="#ffd9e233" />
+        <path d="M 302 1339 C 275 1358, 306 1473, 348 1446 L 351 1442 C 363 1416, 309 1408, 302 1363 Z" fill="#ffd9e233" />
+        <path d="M 316 1308 C 321 1235, 320 1295, 321 1230 L 340 1254 C 386 1293, 362 1366, 317 1314 Z" fill="#ffd9e233" />
+        <path d="M 417 1340 C 387 1360, 377 1366, 388 1369 L 395 1371 C 402 1374, 409 1368, 418 1341 Z" fill="#ffd9e233" />
+        <path d="M 519 1320 C 519 1359, 529 1350, 475 1350 L 472 1350 C 453 1312, 472 1277, 474 1254 Z" fill="#ffd9e233" />
+        <path d="M 471 1131 C 441 1190, 471 1239, 493 1218 L 494 1216 C 503 1188, 481 1198, 474 1153 Z" fill="#ffd9e233" />
+        <path d="M 355 1085 C 387 1118, 435 1113, 446 1101 L 450 1096 C 464 1050, 397 1090, 374 1086 Z" fill="#ffd9e233" />
+        <path d="M 388 1115 C 421 1145, 450 1162, 465 1137 L 467 1134 C 475 1098, 430 1114, 407 1115 Z" fill="#ffd9e233" />
+        <path d="M 424 1067 C 477 1047, 493 1072, 510 1064 L 518 1059 C 536 1004, 453 1011, 422 1064 Z" fill="#ffd9e233" />
+        <path d="M 462 1071 C 466 1079, 502 1109, 519 1096 L 519 1077 C 520 1040, 514 1096, 463 1068 Z" fill="#ffd9e233" />
+        <path d="M 504 1104 C 507 1104, 521 1113, 519 1111 L 519 1096 C 520 1099, 512 1104, 505 1101 Z" fill="#ffd9e233" />
+        <path d="M 325 1166 C 353 1193, 424 1209, 434 1168 L 434 1161 C 415 1114, 375 1197, 326 1165 Z" fill="#ffd9e233" />
+        <path d="M 453 1080 C 476 1106, 476 1156, 519 1156 L 519 1118 C 494 1116, 480 1086, 454 1079 Z" fill="#ffd9e233" />
+        <path d="M 480 1144 C 480 1146, 490 1176, 519 1198 L 519 1164 C 499 1162, 490 1152, 482 1143 Z" fill="#ffd9e233" />
+        <path d="M 488 1182 C 485 1184, 499 1187, 519 1224 L 519 1201 C 507 1194, 541 1216, 490 1181 Z" fill="#ffd9e233" />
+        <path d="M 425 1335 C 435 1292, 437 1316, 465 1270 L 468 1264 C 494 1207, 416 1158, 423 1335 Z" fill="#ffd9e233" />
+        <path d="M 519 1296 C 519 1253, 519 1277, 519 1256 L 519 1246 C 518 1191, 428 1228, 519 1298 Z" fill="#ffd9e233" />
+        <path d="M 83 1199 C 79 1142, 108 1150, 112 1160 L 113 1163 C 114 1175, 94 1177, 85 1199 Z" fill="#ffd9e233" />
+        <path d="M 69 1311 C 40 1170, 196 1119, 207 1199 L 207 1202 C 191 1271, 94 1205, 71 1311 Z" fill="#ffd9e233" />
+        <path d="M 77 1350 C 75 1229, 172 1237, 188 1283 L 189 1289 C 188 1324, 153 1325, 119 1350 Z" fill="#ffd9e233" />
+        <path d="M 150 1350 C 159 1342, 174 1334, 186 1309 L 190 1303 C 203 1289, 233 1310, 213 1350 Z" fill="#ffd9e233" />
+        <path d="M 37 1247 C 58 1238, 65 1300, 62 1327 L 58 1326 C 65 1305, 5 1263, 39 1246 Z" fill="#ffd9e233" />
+        <path d="M -3 1355 C 0 1310, 24 1322, 33 1333 L 32 1332 C 77 1373, 10 1345, -3 1354 Z" fill="#ffd9e233" />
+        <path d="M 26 1427 C 22 1370, 51 1378, 55 1388 L 56 1391 C 57 1403, 54 1398, 28 1427 Z" fill="#ffd9e233" />
+      </svg>
+
       {/* RIGHT PANEL: Bolo & Fundo Split */}
-      <div className="w-[49%] h-full relative pointer-events-auto">
+      <div className="w-[50%] h-full relative pointer-events-auto">
         <ImageBg 
           data={data}
           slideIndex={index}
@@ -3153,10 +3191,8 @@ export function CTAVariant174(props) {
   const line3Start = line3Parts[0] || "estão";
   const line3Bold = line3Parts.slice(1).join(' ') || "esperando";
 
-  const frostingSwirl = "https://images.unsplash.com/photo-1557925923-33b251ce324c?q=80&w=400&auto=format&fit=crop";
-
   return (
-    <div className="relative w-full h-full bg-[#f93892] flex flex-col items-center justify-center font-outfit select-none overflow-hidden text-white rounded-[2rem] shadow-2xl border border-white/10">
+    <div className="relative w-full h-full bg-[#f93892] flex flex-col items-center justify-center font-outfit select-none overflow-hidden text-white shadow-2xl">
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
@@ -3169,54 +3205,12 @@ export function CTAVariant174(props) {
       <div className="absolute top-0 right-0 w-[58%] h-[35%] bg-[#fbf8ea] rounded-bl-[3rem] pointer-events-none z-0 shadow-[-5px_5px_20px_rgba(249,56,146,0.5)]" />
       <div className="absolute bottom-0 left-0 w-[55%] h-[32%] bg-[#fbf8ea] rounded-tr-[3rem] pointer-events-none z-0 shadow-[5px_-5px_20px_rgba(249,56,146,0.5)]" />
 
-      {/* Imagens de Chantilly / Merengue (Simulações usando máscara e drop-shadow para recortar o placeholder circular) */}
-      <div className="absolute top-[-8%] left-[5%] w-[48%] aspect-square z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)] pointer-events-auto">
-        <ImageBg 
-          data={data}
-          slideIndex={index}
-          imageUrl={data.imageUrl || frostingSwirl}
-          imagePosition={data.imagePosition}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
-          onSelectElement={onSelectElement}
-          className="w-full h-full bg-cover rounded-full transform -rotate-12 mix-blend-luminosity opacity-90 cursor-pointer"
-          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
-          placeholderText="Adicione uma Imagem"
-        />
-      </div>
-      
-      <div className="absolute bottom-[20%] right-[-20%] w-[65%] aspect-square z-10 drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)] pointer-events-auto">
-        <ImageBg 
-          data={data}
-          slideIndex={index}
-          imageUrl={data.imageUrl || frostingSwirl}
-          imagePosition={data.imagePosition}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
-          onSelectElement={onSelectElement}
-          className="w-full h-full bg-cover rounded-full transform rotate-[40deg] mix-blend-luminosity opacity-95 cursor-pointer"
-          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
-          placeholderText="Adicione uma Imagem"
-        />
-      </div>
-      
-      <div className="absolute bottom-[-15%] left-[-15%] w-[55%] aspect-square z-10 drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] pointer-events-auto">
-        <ImageBg 
-          data={data}
-          slideIndex={index}
-          imageUrl={data.imageUrl || frostingSwirl}
-          imagePosition={data.imagePosition}
-          showMetrics={showMetrics}
-          onActionStart={onActionStart}
-          isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'image'}
-          onSelectElement={onSelectElement}
-          className="w-full h-full bg-cover rounded-full transform -rotate-[30deg] mix-blend-luminosity opacity-80 cursor-pointer"
-          style={{ WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 70%)', maskImage: 'radial-gradient(circle, black 65%, transparent 70%)' }}
-          placeholderText="Adicione uma Imagem"
-        />
-      </div>
+      {/* Ponto de luz no canto superior esquerdo */}
+      <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.60)_0%,_rgba(255,255,255,0.20)_35%,_transparent_75%)] pointer-events-none z-10" />
+
+      {/* Ponto de luz no centro */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.18)_0%,_transparent_70%)] pointer-events-none z-10" />
+
 
       {/* Textos Centralizados */}
       <div className="relative z-20 text-center flex flex-col items-center justify-center mt-2 w-[90%] pointer-events-auto">
@@ -3379,7 +3373,7 @@ export function CTAVariant176(props) {
   const holidayCookies = "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop";
 
   return (
-    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden bg-[#ffd381] rounded-[2rem] shadow-2xl border border-white/10">
+    <div className="relative w-full h-full flex flex-col font-outfit select-none overflow-hidden bg-[#ffd381] shadow-2xl">
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
@@ -3409,7 +3403,7 @@ export function CTAVariant176(props) {
       </div>
 
       {/* Bloco Central Branco/Creme */}
-      <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] bg-[#fffcf5] flex flex-col items-center justify-center px-4 py-10 shadow-2xl z-10 pointer-events-none">
+      <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] bg-[#fffcf5] flex flex-col items-center justify-center px-4 py-10 shadow-2xl z-10 pointer-events-none rounded-[15px]">
         
         {/* Títulos em Cursive */}
         <div className="flex flex-col items-center mb-8 w-full text-[#5a3825] pointer-events-auto">

@@ -96,7 +96,9 @@ export default function SmartElement({
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale}) rotate(${pos.rotation || 0}deg)`,
             zIndex: isActive ? 60 : (showMetrics ? 50 : 40),
             transformOrigin: 'center center',
-            ...(pos.width ? { width: `${pos.width}px`, maxWidth: 'none' } : {}),
+            // Quando a largura é controlada por resize, altura deve ser auto para
+            // expandir para baixo conforme o texto quebra de linha.
+            ...(pos.width ? { width: `${pos.width}px`, minWidth: 'min-content', maxWidth: 'none', height: 'auto' } : {}),
             ...externalStyle,
           }}
           ref={elRef}
@@ -207,13 +209,15 @@ export default function SmartElement({
 
       {/* Conteúdo */}
       <div
-        className={`w-full h-full outline-none transition-all relative z-10 ${
+        data-smart-content="true"
+        className={`w-full outline-none transition-colors relative z-10 ${
           isActive
             ? 'outline outline-2 outline-offset-4 outline-[var(--color-brand)] bg-[var(--color-brand)]/5 ring-4 ring-black/20 rounded-sm'
             : showMetrics
               ? 'outline outline-1 outline-dashed outline-[var(--color-brand)]/50 bg-[var(--color-brand)]/10'
               : 'hover:outline hover:outline-1 hover:outline-dashed hover:outline-[var(--color-brand)]/50'
         }`}
+        style={pos.width ? { height: 'auto', minWidth: 'min-content' } : {}}
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
@@ -230,7 +234,17 @@ export default function SmartElement({
                 textAlign: pos.align || child.props.style?.textAlign,
                 lineHeight: pos.lineHeight !== undefined ? pos.lineHeight : child.props.style?.lineHeight,
                 letterSpacing: pos.letterSpacing !== undefined ? `${pos.letterSpacing}px` : child.props.style?.letterSpacing,
-                ...(pos.width ? { maxWidth: 'none' } : {}),
+                ...(pos.width ? {
+                  maxWidth: 'none',
+                  minWidth: 'min-content',
+                  height: 'auto',
+                  minHeight: 'auto',
+                  overflow: 'visible',
+                  WebkitLineClamp: 'unset',
+                  lineClamp: 'unset',
+                  whiteSpace: 'pre-wrap',
+                  textOverflow: 'clip',
+                } : {}),
              };
              
              if (isEditable) {

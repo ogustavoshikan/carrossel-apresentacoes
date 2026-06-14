@@ -4010,7 +4010,7 @@ export function SplitVariant63(props) {
           <ImageBg data={data} className="absolute inset-0" />
         </SmartField>
       </div>
-      <div className="w-[45%] h-full flex flex-col justify-center p-10 shrink-0 relative z-10 shadow-[-20px_0_50px_rgba(0,0,0,0.1)]" style={{ backgroundColor: brandColor }}>
+      <div className="w-[47%] h-full flex flex-col justify-center p-10 shrink-0 relative z-10 shadow-[-20px_0_50px_rgba(0,0,0,0.1)]" style={{ backgroundColor: brandColor }}>
         <div className="mb-6">
           <SmartField field="tag" {...sp}>
             <span
@@ -4039,7 +4039,7 @@ export function SplitVariant63(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="font-text text-white/90 font-medium leading-relaxed outline-none"
-            style={{ fontSize: `${14 * sText}px` }}
+            style={{ fontSize: `${17 * sText}px` }}
           >
             {data.texto_apoio}
           </p>
@@ -4867,11 +4867,6 @@ export function SplitVariant76(props) {
         {data.badge_text || (index + 1)}
       </div>
 
-      {/* Top Right: Page Badge */}
-      <div className="absolute top-6 right-6 bg-white/95 font-outfit text-[10px] font-black px-3.5 py-1.5 rounded-full shadow-md z-[15] border border-white" style={{ color: bgBase }}>
-        {index + 1}/{slideCount}
-      </div>
-
       {/* Header: Número + Título Principal (Linha horizontal removida) */}
       <div className="relative z-10 flex gap-0 mt-8 items-start px-0">
         
@@ -4884,7 +4879,7 @@ export function SplitVariant76(props) {
 
         <SmartField field="titulo" data={data} index={index} {...sp}>
           <h2 className="font-serif text-white font-bold leading-snug tracking-tight text-left flex-1 filter drop-shadow-sm pr-6 mt-2.5 outline-none" style={{ fontFamily: titleFont, fontSize: `${20 * sTitle}px` }}>
-            {data.titulo || 'Quando uma marca deve usar a força dos influencers?'}
+             {data.titulo || 'Quando uma marca deve usar a força dos influencers?'}
           </h2>
         </SmartField>
       </div>
@@ -4926,27 +4921,6 @@ export function SplitVariant76(props) {
 
       </div>
 
-      <svg 
-        className="absolute inset-0 w-full h-full pointer-events-none z-[100] opacity-[1.0]" 
-        style={{ mixBlendMode: 'overlay' }}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <filter id={`noiseFilter-76-${index}`}>
-            <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" stitchTiles="stitch" />
-            {/* Contraste em potência brutal (2.5) para grãos extremamente nítidos e marcantes em qualquer distância */}
-            <feColorMatrix type="matrix" values="2.5 0 0 0 -0.65  0 2.5 0 0 -0.65  0 0 2.5 0 -0.65  0 0 0 1 0" />
-          </filter>
-          <pattern id={`noisePattern-76-${index}`} width="150" height="150" patternUnits="userSpaceOnUse">
-            <rect width="150" height="150" fill="white" filter={`url(#noiseFilter-76-${index})`} />
-          </pattern>
-        </defs>
-        {/* Camadas sobrepostas quádruplas combinadas com a matriz de contraste e escala de visibilidade multi-escala */}
-        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
-        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
-        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
-        <rect width="100%" height="100%" fill={`url(#noisePattern-76-${index})`} />
-      </svg>
     </div>
   );
 }
@@ -5065,6 +5039,2768 @@ export function SplitVariant77(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 78 — Studio Doceria Kit Festa (Capa 16)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant78(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1562777717-b61eb8f16b28?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white bg-white">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#5e4104" 
+          counterColor="#5e4104" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+      `}} />
+
+      {/* ================= CAPA 16: STUDIO DOCERIA - KIT FESTA ================= */}
+      <div className="relative w-full h-full flex font-outfit select-none overflow-hidden bg-white">
+        
+        {/* LEFT PANEL: Amarelo Mostarda (Dinâmico com brandColor) */}
+        <div className="w-[51%] h-full flex flex-col items-center justify-start pt-14 pb-8 relative z-10 px-3 text-center" style={{ backgroundColor: brandColor || '#dfa828' }}>
+          
+          {/* SVG Pattern: Gotas/Folhas no canto inferior (proporções preservadas via wrapper de 48%) */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <svg viewBox="0 0 1026.6 1350" preserveAspectRatio="none" className="absolute inset-y-0 left-0 h-full w-[208.33%] max-w-none pointer-events-none" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 1020 C 15 1025, 96 1040, 78 1169 L 76 1169 C 72 1120, 15 1112, 0 1100 Z" fill="#ffd9e233" />
+              <path d="M 0 1116 C 22 1129, 79 1149, 58 1224 L 54 1233 C 25 1268, -5 1208, 0 1194 Z" fill="#ffd9e233" />
+              <path d="M 8 1248 C 20 1282, 56 1302, 53 1343 L 52 1341 C 11 1279, -32 1322, 0 1216 Z" fill="#ffd9e233" />
+              <path d="M 157 1041 C 209 1117, 111 1191, 98 1135 L 99 1131 C 108 1100, 155 1076, 146 1023 Z" fill="#ffd9e233" />
+              <path d="M 57 1050 C 38 1027, 58 1010, 64 1017 L 65 1019 C 71 1035, 64 1027, 71 1063 Z" fill="#ffd9e233" />
+              <path d="M 96 1133 C 133 1033, 90 1021, 76 1049 L 76 1049 C 73 1079, 98 1090, 94 1133 Z" fill="#ffd9e233" />
+              <path d="M 120 1087 C 160 1037, 131 1009, 118 1030 L 122 1027 C 107 1034, 127 1060, 119 1084 Z" fill="#ffd9e233" />
+              <path d="M 180 1089 C 233 1032, 190 1007, 176 1026 L 179 1023 C 150 1039, 192 1070, 179 1086 Z" fill="#ffd9e233" />
+              <path d="M 214 1184 C 249 1277, 185 1283, 180 1260 L 180 1254 C 180 1242, 218 1228, 211 1185 Z" fill="#ffd9e233" />
+              <path d="M 219 1283 C 298 1348, 193 1430, 171 1413 L 186 1398 C 176 1369, 257 1342, 217 1284 Z" fill="#ffd9e233" />
+              <path d="M 285 1118 C 329 1244, 262 1253, 258 1218 L 258 1214 C 262 1181, 284 1162, 283 1118 Z" fill="#ffd9e233" />
+              <path d="M 303 1194 C 348 1307, 255 1274, 290 1238 L 295 1230 C 284 1246, 307 1222, 301 1194 Z" fill="#ffd9e233" />
+              <path d="M 268 1060 C 308 1214, 206 1216, 221 1161 L 225 1153 C 248 1126, 266 1111, 266 1060 Z" fill="#ffd9e233" />
+              <path d="M 302 1277 C 329 1394, 206 1353, 281 1308 L 261 1324 C 285 1298, 304 1308, 297 1276 Z" fill="#ffd9e233" />
+              <path d="M 256 1029 C 252 1178, 164 1160, 181 1102 L 188 1091 C 210 1066, 246 1057, 252 1031 Z" fill="#ffd9e233" />
+              <path d="M 210 1068 C 223 1040, 255 1041, 240 1025 L 243 1031 C 236 1009, 211 1020, 208 1068 Z" fill="#ffd9e233" />
+              <path d="M 231 1137 C 193 1200, 174 1154, 191 1150 L 193 1149 C 216 1145, 216 1143, 230 1135 Z" fill="#ffd9e233" />
+              <path d="M 176 1117 C 181 1179, 123 1158, 156 1137 L 152 1140 C 161 1133, 167 1129, 174 1116 Z" fill="#ffd9e233" />
+              <path d="M 410 1237 C 461 1375, 317 1385, 374 1308 L 378 1304 C 416 1265, 405 1256, 407 1237 Z" fill="#ffd9e233" />
+              <path d="M 440 1152 C 498 1226, 375 1253, 403 1206 L 406 1204 C 446 1188, 443 1170, 437 1153 Z" fill="#ffd9e233" />
+              <path d="M 289 1028 C 323 1072, 381 1089, 410 1059 L 415 1050 C 431 985, 334 1045, 314 1036 Z" fill="#ffd9e233" />
+              <path d="M 459 1296 C 449 1350, 536 1416, 412 1397 L 420 1385 C 423 1344, 449 1318, 457 1296 Z" fill="#ffd9e233" />
+              <path d="M 275 1024 C 267 1116, 360 1213, 388 1142 L 388 1139 C 386 1086, 316 1081, 289 1041 Z" fill="#ffd9e233" />
+              <path d="M 301 1143 C 301 1226, 372 1297, 400 1262 L 402 1258 C 410 1214, 347 1206, 313 1160 Z" fill="#ffd9e233" />
+              <path d="M 312 1313 C 308 1408, 400 1502, 425 1431 L 425 1428 C 423 1375, 353 1352, 327 1334 Z" fill="#ffd9e233" />
+              <path d="M 241 1195 C 208 1254, 248 1326, 290 1299 L 293 1295 C 305 1269, 251 1261, 244 1216 Z" fill="#ffd9e233" />
+              <path d="M 302 1339 C 275 1358, 306 1473, 348 1446 L 351 1442 C 363 1416, 309 1408, 302 1363 Z" fill="#ffd9e233" />
+              <path d="M 316 1308 C 321 1235, 320 1295, 321 1230 L 340 1254 C 386 1293, 362 1366, 317 1314 Z" fill="#ffd9e233" />
+              <path d="M 417 1340 C 387 1360, 377 1366, 388 1369 L 395 1371 C 402 1374, 409 1368, 418 1341 Z" fill="#ffd9e233" />
+              <path d="M 519 1320 C 519 1359, 529 1350, 475 1350 L 472 1350 C 453 1312, 472 1277, 474 1254 Z" fill="#ffd9e233" />
+              <path d="M 471 1131 C 441 1190, 471 1239, 493 1218 L 494 1216 C 503 1188, 481 1198, 474 1153 Z" fill="#ffd9e233" />
+              <path d="M 355 1085 C 387 1118, 435 1113, 446 1101 L 450 1096 C 464 1050, 397 1090, 374 1086 Z" fill="#ffd9e233" />
+              <path d="M 388 1115 C 421 1145, 450 1162, 465 1137 L 467 1134 C 475 1098, 430 1114, 407 1115 Z" fill="#ffd9e233" />
+              <path d="M 424 1067 C 477 1047, 493 1072, 510 1064 L 518 1059 C 536 1004, 453 1011, 422 1064 Z" fill="#ffd9e233" />
+              <path d="M 462 1071 C 466 1079, 502 1109, 519 1096 L 519 1077 C 520 1040, 514 1096, 463 1068 Z" fill="#ffd9e233" />
+              <path d="M 504 1104 C 507 1104, 521 1113, 519 1111 L 519 1096 C 520 1099, 512 1104, 505 1101 Z" fill="#ffd9e233" />
+              <path d="M 325 1166 C 353 1193, 424 1209, 434 1168 L 434 1161 C 415 1114, 375 1197, 326 1165 Z" fill="#ffd9e233" />
+              <path d="M 453 1080 C 476 1106, 476 1156, 519 1156 L 519 1118 C 494 1116, 480 1086, 454 1079 Z" fill="#ffd9e233" />
+              <path d="M 480 1144 C 480 1146, 490 1176, 519 1198 L 519 1164 C 499 1162, 490 1152, 482 1143 Z" fill="#ffd9e233" />
+              <path d="M 488 1182 C 485 1184, 499 1187, 519 1224 L 519 1201 C 507 1194, 541 1216, 490 1181 Z" fill="#ffd9e233" />
+              <path d="M 425 1335 C 435 1292, 437 1316, 465 1270 L 468 1264 C 494 1207, 416 1158, 423 1335 Z" fill="#ffd9e233" />
+              <path d="M 519 1296 C 519 1253, 519 1277, 519 1256 L 519 1246 C 518 1191, 428 1228, 519 1298 Z" fill="#ffd9e233" />
+              <path d="M 83 1199 C 79 1142, 108 1150, 112 1160 L 113 1163 C 114 1175, 94 1177, 85 1199 Z" fill="#ffd9e233" />
+              <path d="M 69 1311 C 40 1170, 196 1119, 207 1199 L 207 1202 C 191 1271, 94 1205, 71 1311 Z" fill="#ffd9e233" />
+              <path d="M 77 1350 C 75 1229, 172 1237, 188 1283 L 189 1289 C 188 1324, 153 1325, 119 1350 Z" fill="#ffd9e233" />
+              <path d="M 150 1350 C 159 1342, 174 1334, 186 1309 L 190 1303 C 203 1289, 233 1310, 213 1350 Z" fill="#ffd9e233" />
+              <path d="M 37 1247 C 58 1238, 65 1300, 62 1327 L 58 1326 C 65 1305, 5 1263, 39 1246 Z" fill="#ffd9e233" />
+              <path d="M -3 1355 C 0 1310, 24 1322, 33 1333 L 32 1332 C 77 1373, 10 1345, -3 1354 Z" fill="#ffd9e233" />
+              <path d="M 26 1427 C 22 1370, 51 1378, 55 1388 L 56 1391 C 57 1403, 54 1398, 28 1427 Z" fill="#ffd9e233" />
+            </svg>
+          </div>
+
+          {/* Top Text Group */}
+          <div className="flex flex-col items-center relative z-10 w-full mt-3">
+            <SmartField field="bellaTitle1" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="h3" field="bellaTitle1" className="text-white font-bold text-[14px] leading-none mb-1.5 tracking-tight w-full whitespace-nowrap outline-none" style={{ fontSize: `${32 * sText}px` }}>
+                {data.bellaTitle1 || "Procurando o"}
+              </TextWrapper>
+            </SmartField>
+
+            <SmartField field="titulo" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="h1" field="titulo" className="text-white font-display text-[26px] leading-[0.95] tracking-tight w-full whitespace-nowrap outline-none" style={{ fontSize: `${50 * sTitle}px` }}>
+                {data.titulo || "Kit Festa"}
+              </TextWrapper>
+            </SmartField>
+
+            <SmartField field="bellaTitle3" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="h3" field="bellaTitle3" className="text-white font-bold text-[15px] leading-none mt-1 tracking-tight w-full whitespace-nowrap outline-none" style={{ fontSize: `${32 * sText}px` }}>
+                {data.bellaTitle3 || "ideal?"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+
+          {/* CTA Bottom (Nos chame no direct!) - Colocado no lugar do texto_apoio */}
+          <div className="relative z-10 py-1.5 px-1 mt-6 mb-5 w-[85%]">
+            <SmartField field="bellaBottomText" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="p" field="bellaBottomText" className="text-white font-black text-[10px] uppercase tracking-widest leading-snug outline-none" style={{ fontSize: `${20 * sText}px` }}>
+                {data.bellaBottomText || "NOS CHAME NO DIRECT!"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+
+          {/* Logo posicionado acima do padrão de gotas/folhas da base */}
+          <div className="relative z-20 mt-4 mb-24 flex flex-col items-center justify-center">
+            <SmartField field="bellaLogoText" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="h2" field="bellaLogoText" className="font-hand text-white text-[40px] leading-[0.6] tracking-tight pr-2 outline-none">
+                {data.bellaLogoText || "Studio"}
+              </TextWrapper>
+            </SmartField>
+            <span className="font-black text-white text-[9px] tracking-[0.25em] uppercase mt-1">
+              Confeitaria
+            </span>
+          </div>
+
+        </div>
+
+        {/* RIGHT PANEL: Imagem Completa */}
+        <SmartField field="imagem" data={data} index={index} {...sp} className="flex-1 h-full relative overflow-hidden bg-zinc-100">
+          <img 
+            src={img1} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+            alt="Naked Cake" 
+          />
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 79 — Tortas Variadas (Capa 31)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant79(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#3a2829] bg-[#fcaebb]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#3a2829" 
+          counterColor="#3a2829" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      <div className="relative w-full h-full bg-[#de1e4d] flex flex-col font-outfit select-none overflow-hidden text-[#3a2829]">
+        
+        {/* Typography Content */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 z-20 mt-[-5%] min-h-0">
+          <SmartField field="tag" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="h2" field="tag" className="text-[20px] font-semibold tracking-tight text-[#3a2829] leading-none mb-1 outline-none" style={{ fontSize: `${40 * sText}px` }}>
+              {data.tag || "Venha provar nossas"}
+            </TextWrapper>
+          </SmartField>
+
+          <SmartField field="titulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="h1" field="titulo" className="font-lobster text-[36px] tracking-wide text-[#3a2829] leading-none mb-4 drop-shadow-sm outline-none" style={{ fontSize: `${42 * sTitle}px` }}>
+              {data.titulo || "Tortas variadas"}
+            </TextWrapper>
+          </SmartField>
+
+          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="min-h-0">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[12px] font-medium leading-snug max-w-[240px] text-[#3a2829]/90 outline-none" style={{ fontSize: `${25 * sText}px` }}>
+              {data.texto_apoio || "Desde as tradicionais tortas de frutas até as opções mais cremosas."}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Footer */}
+        <div className="w-full px-4 pb-6 mt-auto shrink-0">
+          <div className="flex items-center justify-between">
+            
+            {/* Left: WhatsApp */}
+            <div className="flex items-center gap-1.5 flex-1">
+              <div className="w-[18px] h-[18px] border-2 border-[#3a2829] rounded-full flex items-center justify-center">
+                <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 21.171l-1.353-.086c-1.84-.117-3.567-.803-5.02-1.996L4.544 20l.965-1.127c-1.168-1.405-1.802-3.136-1.83-4.945-.04-2.584 1.057-4.986 2.92-6.505C8.423 5.926 10.984 5.3 13.56 5.67c2.563.367 4.78 1.776 6.096 3.967 1.309 2.18 1.488 4.793.491 7.127-.991 2.32-2.906 4.08-5.32 4.908-1.597.545-3.342.6-4.966.155l-1.83-.5z" /></svg>
+              </div>
+              <div className="flex flex-col leading-[1]">
+                <span className="text-[7.5px] font-medium text-[#3a2829]">WhatsApp</span>
+                <SmartField field="tortaVarPhone" data={data} index={index} {...sp}>
+                  <TextWrapper {...sp} as="span" field="tortaVarPhone" className="text-[8.5px] font-black tracking-tight outline-none">
+                    {data.tortaVarPhone || "84 9 9999 0000"}
+                  </TextWrapper>
+                </SmartField>
+              </div>
+            </div>
+
+            {/* Center: Address */}
+            <div className="flex items-center gap-1 flex-[1.2] border-l border-[#3a2829]/20 pl-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-[14px] h-[14px] text-[#3a2829] shrink-0">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <div className="flex flex-col leading-[1]">
+                <SmartField field="tortaVarAddress1" data={data} index={index} {...sp}>
+                  <TextWrapper {...sp} as="span" field="tortaVarAddress1" className="text-[7.5px] font-medium text-[#3a2829] truncate max-w-[90px] outline-none">
+                    {data.tortaVarAddress1 || "Rua Antônio Carlos Barreto"}
+                  </TextWrapper>
+                </SmartField>
+                <SmartField field="tortaVarAddress2" data={data} index={index} {...sp}>
+                  <TextWrapper {...sp} as="span" field="tortaVarAddress2" className="text-[7.5px] font-medium text-[#3a2829] truncate max-w-[90px] outline-none">
+                    {data.tortaVarAddress2 || "Bairro Paulo Freire"}
+                  </TextWrapper>
+                </SmartField>
+              </div>
+            </div>
+            
+            {/* Right: Logos */}
+            <div className="flex items-center gap-1.5 pl-2 flex-[0.8] justify-end">
+              <span className="font-display italic text-[11px] tracking-tighter text-[#3a2829]">iFood</span>
+              <div className="leading-none text-center">
+                <span className="text-[5px] font-black block text-[#3a2829]">UBER</span>
+                <span className="text-[7px] font-black block text-[#3a2829]">eats</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 80 — Bolo de Cenoura (Capa 21)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant80(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1600626333392-202605332717?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#402c25] bg-[#f8f5ee]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#402c25" 
+          counterColor="#402c25" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+      `}} />
+
+      {/* Background Graphics & Big 'C' */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <span className="absolute -top-10 -left-10 text-[20rem] font-outfit font-bold text-[#f29020] opacity-10 leading-none select-none">C</span>
+        {/* Formas Orgânicas Pequenas */}
+        <svg className="absolute top-20 right-10 w-16 h-16 text-[#c5d833]" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M30,10 Q50,0 70,10 Q90,20 90,50 Q90,80 70,90 Q50,100 30,90 Q10,80 10,50 Q10,20 30,10 Z" />
+        </svg>
+        <svg className="absolute bottom-32 left-10 w-12 h-12 text-[#f29020]" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M20,30 Q40,10 60,30 Q80,50 80,70 Q80,90 60,90 Q40,90 20,70 Q0,50 20,30 Z" />
+        </svg>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col h-full p-6 mt-6">
+        <div className="mt-8 shrink-0">
+          <SmartField field="titulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="h1" field="titulo" className="font-serif text-[#402c25] text-[2.5rem] font-bold leading-tight tracking-tight outline-none" style={{ fontSize: `${40 * sTitle}px` }}>
+              {data.titulo || "BOLO DE CENOURA"}
+            </TextWrapper>
+          </SmartField>
+
+          <SmartField field="subtitulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif text-[#402c25] text-lg font-normal leading-tight mt-2 outline-none" style={{ fontSize: `${18 * sText}px` }}>
+              {data.subtitulo || "Com cobertura crocante de chocolate"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Organic Image Container */}
+        <div className="relative flex-1 my-6 min-h-0">
+          <SmartField field="imagem" data={data} index={index} {...sp} className="absolute top-1/2 right-0 transform -translate-y-1/2 w-[85%] aspect-[4/5] bg-[#c5d833] rounded-[4rem_2rem_5rem_3rem] overflow-hidden border-4 border-[#f29020] shadow-lg">
+            <img src={img1} className="w-full h-full object-cover" alt="Bolo de Cenoura" />
+          </SmartField>
+
+          {/* Sticker */}
+          <div className="absolute top-1/4 right-[55%] bg-[#f29020] text-white px-4 py-2 rounded-full transform -rotate-12 shadow-md flex items-center gap-1">
+            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M2 12h20M2 12l5-5M2 12l5 5" />
+            </svg>
+            <SmartField field="cenouraSticker" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="cenouraSticker" className="text-xs font-bold tracking-wide whitespace-nowrap outline-none">
+                {data.cenouraSticker || "Receita no forno!"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+        </div>
+
+        {/* Bottom Block */}
+        <div className="bg-[#f29020] p-5 rounded-2xl flex items-center justify-between relative z-10 shrink-0">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="max-w-[60%]">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-white text-xs font-medium leading-snug outline-none" style={{ fontSize: `${12 * sText}px` }}>
+              {data.texto_apoio || "A torta perfeita para o seu café da tarde. Simples, fofinha e irresistível!"}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="cenouraBtn" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="button" field="cenouraBtn" className="bg-[#c5d833] text-white font-outfit font-bold text-xs px-5 py-2.5 rounded-full uppercase tracking-wider hover:bg-[#b0c22a] transition-colors outline-none">
+              {data.cenouraBtn || "VER RECEITA"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 81 — Qual Favorito (Capa 36)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant81(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1569864358642-9d1684040f43?q=80&w=600&auto=format&fit=crop");
+  const img2 = getCorsSafeUrl(data.imageUrl2 || "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600&auto=format&fit=crop");
+  const img3 = getCorsSafeUrl(data.imageUrl3 || "https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-[#1dbdb2] text-[#5c2d1b]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#5c2d1b" 
+          counterColor="#5c2d1b" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Fundo com textura "noise" pesada simulando papel */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-40 mix-blend-color-burn" 
+           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
+      />
+
+      {/* Fita Laranja Inferior */}
+      <div className="absolute bottom-0 w-full h-[15%] bg-[#ff5e4d] z-0" />
+
+      {/* Arroba e Header */}
+      <div className="relative z-10 w-full text-center mt-8">
+        <SmartField field="favArroba" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="span" field="favArroba" className="text-white text-[10px] font-medium tracking-wide outline-none">
+            {data.favArroba || brandHandle || "@comamorconfeito"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Título Principal (Estilo Retro Rounded) */}
+      <div className="relative z-20 flex flex-col items-center justify-center mt-6 mb-4">
+         <SmartField field="favTitle1" data={data} index={index} {...sp}>
+           <TextWrapper {...sp} as="h2" field="favTitle1" className="font-display text-[#fcf0d1] text-[36px] leading-[0.8] tracking-wider transform -rotate-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '2px 3px 0px #ab4a2c', fontSize: `${36 * sTitle}px` }}>
+             {data.favTitle1 || "Qual o seu"}
+           </TextWrapper>
+         </SmartField>
+         <SmartField field="titulo" data={data} index={index} {...sp}>
+           <TextWrapper {...sp} as="h1" field="titulo" className="font-display text-[#fcf0d1] text-[48px] leading-[0.85] tracking-tight transform -rotate-2 -ml-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '3px 4px 0px #ab4a2c', fontSize: `${48 * sTitle}px` }}>
+             {data.titulo || "FAVORITO?"}
+           </TextWrapper>
+         </SmartField>
+      </div>
+
+      {/* Card Central (Amarelo Pastel) */}
+      <div className="relative z-20 flex-1 flex flex-col items-center w-full px-5 mt-2 min-h-0">
+         <div className="w-full bg-[#fdf5cc] border-[2px] border-[#5c2d1b] rounded-3xl pb-10 pt-6 px-3 shadow-sm relative">
+            
+            {/* Grid dos 3 Itens */}
+            <div className="flex justify-between items-start gap-1">
+              
+              {/* Item 1 */}
+              <div className="flex flex-col items-center flex-1">
+                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                    {/* SVG Starburst Azul */}
+                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                    </svg>
+                    {/* Imagem Redonda */}
+                    <SmartField field="imagem" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                      <img src={img1} className="w-full h-full object-cover" alt="Macarons" />
+                    </SmartField>
+                 </div>
+                 <SmartField field="favItem1" data={data} index={index} {...sp}>
+                   <TextWrapper {...sp} as="p" field="favItem1" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                     {data.favItem1 || "Macarons\nmacios"}
+                   </TextWrapper>
+                 </SmartField>
+              </div>
+
+              {/* Item 2 */}
+              <div className="flex flex-col items-center flex-1">
+                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                    {/* SVG Starburst Azul */}
+                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                    </svg>
+                    {/* Imagem Redonda */}
+                    <SmartField field="imagem2" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                      <img src={img2} className="w-full h-full object-cover scale-125" alt="Cookie" />
+                    </SmartField>
+                 </div>
+                 <SmartField field="favItem2" data={data} index={index} {...sp}>
+                   <TextWrapper {...sp} as="p" field="favItem2" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                     {data.favItem2 || "Cookies\ncrocantes"}
+                   </TextWrapper>
+                 </SmartField>
+              </div>
+
+              {/* Item 3 */}
+              <div className="flex flex-col items-center flex-1">
+                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                    {/* SVG Starburst Azul */}
+                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                    </svg>
+                    {/* Imagem Redonda */}
+                    <SmartField field="imagem3" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                      <img src={img3} className="w-full h-full object-cover scale-150" alt="Brigadeiro" />
+                    </SmartField>
+                 </div>
+                 <SmartField field="favItem3" data={data} index={index} {...sp}>
+                   <TextWrapper {...sp} as="p" field="favItem3" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                     {data.favItem3 || "Brigadeiros\ncremosos"}
+                   </TextWrapper>
+                 </SmartField>
+              </div>
+
+            </div>
+
+            {/* Botão de CTA flutuando sobre a borda inferior do card */}
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+               <SmartField field="favBtn" data={data} index={index} {...sp}>
+                 <TextWrapper {...sp} as="button" field="favBtn" className="bg-[#ab4a2c] text-white px-6 py-2.5 rounded-2xl text-[12px] font-outfit tracking-wide hover:scale-105 transition-transform border border-[#5c2d1b] outline-none">
+                   {data.favBtn || "Deixa nos comentários!"}
+                 </TextWrapper>
+               </SmartField>
+            </div>
+         </div>
+      </div>
+
+      {/* Rodapé na Fita Laranja */}
+      <div className="relative z-20 flex justify-between items-center w-full px-6 pb-6 mt-auto shrink-0">
+         <SmartField field="favContact" data={data} index={index} {...sp} className="flex-1 text-left">
+           <TextWrapper {...sp} as="span" field="favContact" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
+             {data.favContact || "(11) 1234-5678 - telefone e whatsapp"}
+           </TextWrapper>
+         </SmartField>
+         <div className="h-4 w-[1px] bg-white opacity-40 mx-2 shrink-0" />
+         <SmartField field="favAddress" data={data} index={index} {...sp} className="flex-1 text-right">
+           <TextWrapper {...sp} as="span" field="favAddress" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
+             {data.favAddress || "Rua do Doce, n° 105"}
+           </TextWrapper>
+         </SmartField>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 82 — Lembrete Cheesecake (Capa 38)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant82(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop");
+  const imgMorango = "https://images.unsplash.com/photo-1518015527376-7871b6d05f32?q=80&w=200&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#d94a6b] bg-[#fde5ec]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#d94a6b" 
+          counterColor="#d94a6b" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Background Blobs Corners (Ondas do Topo e da Base) */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Ondas do Topo (Desce -> Sobe -> Desce -> Sobe) */}
+        <svg className="absolute top-0 left-0 w-full h-[9%] text-[#ef3d76] opacity-80" viewBox="0 0 1000 100" fill="currentColor" preserveAspectRatio="none">
+          <path d="M 0,0 L 1000,0 L 1000,80 C 950,80 916,20 833,20 C 750,20 716,80 666,80 C 583,80 550,20 500,20 C 416,20 383,80 333,80 C 250,80 216,20 166,20 C 83,20 50,80 0,80 Z" />
+        </svg>
+        {/* Ondas da Base (Sobe -> Desce -> Sobe -> Desce) */}
+        <svg className="absolute bottom-0 left-0 w-full h-[9%] text-[#ef3d76] opacity-80" viewBox="0 0 1000 100" fill="currentColor" preserveAspectRatio="none">
+          <path d="M 0,100 L 1000,100 L 1000,20 C 950,20 916,80 833,80 C 750,80 716,20 666,20 C 583,20 550,80 500,80 C 416,80 383,20 333,20 C 250,20 216,80 166,80 C 83,80 50,20 0,20 Z" />
+        </svg>
+      </div>
+
+      {/* Card Central Branco */}
+      <div 
+        style={{ width: 'calc(82% - 14px)', top: '68.8px' }}
+        className="relative z-20 h-[63%] bg-white rounded-xl shadow-[0_25px_55px_rgba(0,0,0,0.12)] p-6 pb-0 flex flex-col items-start overflow-hidden mx-auto my-auto mt-6 mb-4 shrink-0"
+      >
+        
+        {/* Header: Logo e Arroba */}
+        <div className="flex items-center gap-3 mb-4 w-full shrink-0">
+          <div className="w-9 h-9 bg-[#fde5ec] border border-[#ef3d76]/20 rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
+             <span className="font-lobster text-[#ef3d76] text-xs z-10">C</span>
+             <svg className="absolute w-full h-full text-[#ef3d76] opacity-30" viewBox="0 0 24 24" fill="currentColor">
+               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+             </svg>
+          </div>
+          <div className="flex flex-col items-start relative -top-[5px]">
+            <SmartField field="lembreteLogo" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="lembreteLogo" className="font-display text-[#ef3d76] text-xl tracking-tight leading-none mb-0.5 mt-[9px] relative top-[5px] inline-block outline-none">
+                {data.lembreteLogo || "Mari Confeitaria"}
+              </TextWrapper>
+            </SmartField>
+            <SmartField field="lembreteArroba" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="lembreteArroba" className="font-outfit text-zinc-400 text-[10px] font-medium tracking-wide outline-none">
+                {data.lembreteArroba || brandHandle || "@comie_bomboniere"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+        </div>
+
+        {/* Texto Principal (Mix Bold / Light) */}
+        <div className="w-full text-left mb-5 shrink-0">
+          <p className="text-[15px] font-medium leading-[1.25] tracking-tight text-[#f77e9e]" style={{ fontSize: `${23 * sText}px` }}>
+            <SmartField field="titulo" data={data} index={index} {...sp} className="inline">
+              <TextWrapper {...sp} as="span" field="titulo" className="outline-none whitespace-pre-line">
+                {data.titulo || "Lembrete rápido: o doce que você não para de pensar está aqui na Comiê"}
+              </TextWrapper>
+            </SmartField>
+          </p>
+        </div>
+
+        {/* Imagem do Cheesecake (Com Overlap para baixo) */}
+        <SmartField field="imagem" data={data} index={index} {...sp} className="relative w-[110%] -ml-[5%] h-32 mt-2 bg-zinc-100 rounded-t-xl overflow-hidden shadow-inner flex-1 min-h-0">
+          <img 
+            src={img1} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover object-bottom" 
+            alt="Cheesecake" 
+          />
+        </SmartField>
+
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 83 — Bella Vontade Doce (Capa 46)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant83(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white bg-[#00a8a8]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#white" 
+          counterColor="#white" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Top Split Background (Turquoise & Magenta) */}
+      <div className="absolute top-0 left-0 w-full h-[55%] bg-[#55c5c5] z-0 overflow-hidden shrink-0">
+         {/* Bloco Magenta Angulado */}
+         <div className="absolute top-[-20%] left-[-30%] w-[100%] h-[150%] bg-[#e6007e] transform rotate-[15deg] z-0" />
+         
+         {/* Gotas de Chocolate Flutuantes (Simuladas) */}
+         <div className="absolute top-[8%] right-[25%] w-5 h-5 bg-[#3a2012] rounded-full blur-[1.5px] opacity-90 shadow-sm" />
+         <div className="absolute top-[25%] left-[8%] w-4 h-4 bg-[#3a2012] rounded-full blur-[1px] opacity-80 shadow-sm" />
+         <div className="absolute bottom-[20%] right-[10%] w-6 h-6 bg-[#3a2012] rounded-full blur-[2px] opacity-90 transform -rotate-12 shadow-md" />
+      </div>
+
+      {/* Main Image: Cookie/Pie on Bamboo Board */}
+      <div className="relative z-10 w-full h-[55%] flex items-end justify-center mt-[-4%] shrink-0">
+         {/* Contêiner da tábua rotacionado sutilmente */}
+         <SmartField field="imagem" data={data} index={index} {...sp} className="w-[125%] ml-[-5%] overflow-hidden">
+            <img 
+              src={img1} 
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)] transform -rotate-2" 
+              alt="Cookie Pie on Board" 
+            />
+         </SmartField>
+      </div>
+
+      {/* Bottom Content Area */}
+      <div className="relative z-20 flex-1 flex items-center justify-between px-6 pb-4 min-h-0 bg-[#00a8a8]">
+         
+         {/* Left Side: Typography */}
+         <div className="flex flex-col flex-[1.2] items-start pt-2 min-w-0">
+            <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
+              <TextWrapper {...sp} as="h1" field="titulo" className="font-outfit font-black text-[34px] leading-[0.9] tracking-tighter text-white drop-shadow-sm mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${34 * sTitle}px` }}>
+                {data.titulo || "VONTADE\nDE DOCE?"}
+              </TextWrapper>
+            </SmartField>
+            <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+              <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif font-bold text-[#442614] text-[26px] leading-[0.95] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${26 * sText}px` }}>
+                {data.subtitulo || "A Bella vai\naté você!"}
+              </TextWrapper>
+            </SmartField>
+         </div>
+
+         {/* Vertical Divider */}
+         <div className="w-[1.5px] bg-white h-[65%] mx-3 opacity-90 rounded-full shrink-0" />
+
+         {/* Right Side: CTA & Logo */}
+         <div className="flex flex-col flex-1 items-end justify-between h-full pt-4 pb-2 min-w-0">
+            <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full text-right mb-auto min-h-0">
+              <TextWrapper {...sp} as="p" field="texto_apoio" className="font-outfit font-light text-[#442614] text-[13.5px] leading-[1.2] text-right whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${13.5 * sText}px` }}>
+                {data.texto_apoio || "Clique no link\nda bio e peça agora!"}
+              </TextWrapper>
+            </SmartField>
+            
+            {/* Logo "Bella Doceria" */}
+            <div className="flex flex-col items-center mt-4 shrink-0">
+               <SmartField field="bellaVontadeLogo" data={data} index={index} {...sp}>
+                 <TextWrapper {...sp} as="span" field="bellaVontadeLogo" className="font-lobster text-white text-[32px] leading-none drop-shadow-sm tracking-wide outline-none">
+                   {data.bellaVontadeLogo || "Bella"}
+                 </TextWrapper>
+               </SmartField>
+               <SmartField field="bellaVontadeLogoSub" data={data} index={index} {...sp}>
+                 <TextWrapper {...sp} as="span" field="bellaVontadeLogoSub" className="font-outfit font-black text-white text-[6.5px] tracking-[0.35em] uppercase mt-0.5 outline-none">
+                   {data.bellaVontadeLogoSub || "DOCERIA"}
+                 </TextWrapper>
+               </SmartField>
+            </div>
+         </div>
+
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant84(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=600&auto=format&fit=crop");
+  const img2 = getCorsSafeUrl(data.imageUrl2 || "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=600&auto=format&fit=crop");
+  const img3 = getCorsSafeUrl(data.imageUrl3 || "https://images.unsplash.com/photo-1505394033-7303e47a76c5?q=80&w=600&auto=format&fit=crop");
+  const img4 = getCorsSafeUrl(data.imageUrl4 || "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full bg-[#f64c1c] flex flex-col font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.15)" 
+          handleColor="white" 
+          counterColor="white" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Pílula Central Absoluta com Z-Index alto */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 bg-[#f64c1c] text-white px-5 py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+        <SmartField field="subtitulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="span" field="subtitulo" className="font-bold text-[16px] tracking-wide block leading-none outline-none text-center" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
+            {data.subtitulo || "Qual o melhor?"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Logo Branco Flutuante (Centralizado Horizontalmente, ancorado ao Topo) */}
+      <div className="absolute top-[52px] left-1/2 -translate-x-1/2 bg-white rounded-b-2xl px-3 pb-2.5 pt-2 shadow-lg z-20 flex items-center justify-center gap-1.5 border-b border-x border-black/5">
+        <div className="w-[30px] h-[30px] relative shrink-0">
+          <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+            <circle cx="50" cy="50" r="45" fill="#3c1d0f" />
+            <circle cx="50" cy="50" r="35" fill="#fcaebb" />
+            <circle cx="50" cy="50" r="15" fill="#f64c1c" />
+            <circle cx="50" cy="25" r="4" fill="#fcae12" />
+            <circle cx="50" cy="75" r="4" fill="#fcae12" />
+            <circle cx="25" cy="50" r="4" fill="#fcae12" />
+            <circle cx="75" cy="50" r="4" fill="#fcae12" />
+          </svg>
+        </div>
+        <div className="flex flex-col text-left shrink-0">
+          <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#3c1d0f] font-bold text-[8px] leading-none tracking-tight uppercase outline-none">
+              {data.halloweenLogoTop || "Confeitaria"}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#3c1d0f] font-normal text-[8px] leading-none tracking-tight outline-none mt-0.5">
+              {data.halloweenLogoBottom || "da Luana"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Top Half Grid */}
+      <div className="flex w-full h-[50%]">
+        {/* Quadrante 1 */}
+        <div className="w-1/2 h-full relative border-r border-b border-white/20 bg-zinc-800">
+          <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+            <img src={img1} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 1" />
+          </SmartField>
+          <div className="absolute top-[52px] left-3 bg-[#f64c1c] text-white w-8 h-8 rounded-br-2xl rounded-tl-md flex items-center justify-center shadow-md z-10 pointer-events-none">
+            <span className="font-black text-xl">1</span>
+          </div>
+        </div>
+        {/* Quadrante 2 */}
+        <div className="w-1/2 h-full relative border-b border-white/20 bg-zinc-800">
+          <SmartField field="imagem2" data={data} index={index} {...sp} className="w-full h-full">
+            <img src={img2} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 2" />
+          </SmartField>
+          <div className="absolute top-[52px] right-3 bg-[#f64c1c] text-white w-8 h-8 rounded-bl-2xl rounded-tr-md flex items-center justify-center shadow-md z-10 pointer-events-none">
+            <span className="font-black text-xl">2</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Half Grid */}
+      <div className="flex w-full h-[50%]">
+        {/* Quadrante 3 */}
+        <div className="w-1/2 h-full relative border-r border-white/20 bg-zinc-800">
+          <SmartField field="imagem3" data={data} index={index} {...sp} className="w-full h-full">
+            <img src={img3} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 3" />
+          </SmartField>
+          <div className="absolute top-3 left-3 bg-[#f64c1c] text-white w-8 h-8 rounded-tr-2xl rounded-bl-md flex items-center justify-center shadow-md z-10 pointer-events-none">
+            <span className="font-black text-xl">3</span>
+          </div>
+        </div>
+        {/* Quadrante 4 */}
+        <div className="w-1/2 h-full relative bg-zinc-800">
+          <SmartField field="imagem4" data={data} index={index} {...sp} className="w-full h-full">
+            <img src={img4} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 4" />
+          </SmartField>
+          <div className="absolute top-3 right-3 bg-[#f64c1c] text-white w-8 h-8 rounded-tl-2xl rounded-br-md flex items-center justify-center shadow-md z-10 pointer-events-none">
+            <span className="font-black text-xl">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant85(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-between font-montserrat select-none overflow-hidden text-[#432311] py-8 rounded-slide shadow-2xl bg-[#efede7]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.06)" 
+          handleColor="#432311" 
+          counterColor="#432311" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&family=League+Gothic&family=Montserrat:wght@400;600;800;900&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .font-gothic { font-family: 'League Gothic', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Padrões de Mandalas Simulados (SVGs de Fundo para textura) */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04] z-0">
+         {/* Center */}
+         <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64" viewBox="0 0 100 100" fill="currentColor">
+           <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" strokeDasharray="15 10"/>
+           <circle cx="50" cy="50" r="25" fill="currentColor" />
+         </svg>
+         {/* Top Left */}
+         <svg className="absolute -top-10 -left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15"/>
+           <circle cx="50" cy="50" r="15" fill="currentColor" />
+         </svg>
+         {/* Top Right */}
+         <svg className="absolute -top-10 -right-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15"/>
+           <circle cx="50" cy="50" r="15" fill="currentColor" />
+         </svg>
+      </div>
+
+      {/* Elementos Blurry (Blocos de Chocolate Fora de Foco) */}
+      <div className="absolute top-0 left-[-15%] w-32 h-32 bg-[#432311] rotate-12 blur-[6px] opacity-90 shadow-2xl z-10 pointer-events-none" />
+      <div className="absolute bottom-[-5%] right-[-10%] w-40 h-40 bg-[#432311] -rotate-12 blur-[8px] opacity-90 shadow-2xl z-10 pointer-events-none" />
+
+      {/* Header: Logo da Luana */}
+      <div className="relative z-20 flex flex-col items-center mt-6">
+        <div className="flex items-center justify-center gap-2">
+          <div className="w-[38px] h-[38px] relative shrink-0">
+            <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-sm">
+              <circle cx="50" cy="50" r="45" fill="#3c1d0f" />
+              <circle cx="50" cy="50" r="35" fill="#fcaebb" />
+              <circle cx="50" cy="50" r="15" fill="#e9582d" />
+              <circle cx="50" cy="25" r="4" fill="#fcae12" />
+              <circle cx="50" cy="75" r="4" fill="#fcae12" />
+              <circle cx="25" cy="50" r="4" fill="#fcae12" />
+              <circle cx="75" cy="50" r="4" fill="#fcae12" />
+            </svg>
+          </div>
+          <div className="flex flex-col text-left justify-center pt-0.5 shrink-0">
+            <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#3c1d0f] font-bold text-[10.5px] leading-none tracking-tight outline-none">
+                {data.halloweenLogoTop || "Confeitaria"}
+              </TextWrapper>
+            </SmartField>
+            <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#3c1d0f] font-normal text-[10px] leading-none tracking-tight outline-none mt-0.5">
+                {data.halloweenLogoBottom || "da Luana"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+        </div>
+      </div>
+
+      {/* Título Principal Bicolor com Linhas Horizontais */}
+      <div className="relative z-20 flex flex-col items-center mt-3 mb-2 w-full px-6 text-center">
+        <div className="flex items-center w-full justify-center gap-3">
+           <div className="h-[3.5px] w-12 bg-[#432311] rounded-full shrink-0" />
+           <SmartField field="titulo" data={data} index={index} {...sp} className="shrink-0">
+             <TextWrapper {...sp} as="h1" field="titulo" className="font-montserrat font-black text-[38px] leading-none tracking-tight text-[#432311] outline-none" style={{ fontSize: `${38 * sTitle}px` }}>
+               {data.titulo || "TORTA"}
+             </TextWrapper>
+           </SmartField>
+           <div className="h-[3.5px] w-12 bg-[#432311] rounded-full shrink-0" />
+        </div>
+        <SmartField field="titulo2" data={data} index={index} {...sp} className="w-full mt-1">
+          <TextWrapper {...sp} as="h1" field="titulo2" className="font-montserrat font-black text-[36px] leading-[0.8] tracking-tight text-[#e9582d] outline-none" style={{ fontSize: `${36 * sTitle}px` }}>
+            {data.titulo2 || "INTENSA"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Imagem Central Arredondada (Bolo Texturizado) */}
+      <div className="relative z-20 w-[88%] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-white">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+          <img 
+            src={img1} 
+            className="w-full h-full object-cover object-bottom" 
+            alt="Fatia de Torta Intensa" 
+            crossOrigin="anonymous"
+          />
+        </SmartField>
+      </div>
+
+      {/* Textos Inferiores (Descrição + Destaque) */}
+      <div className="relative z-20 flex flex-col items-center text-center px-6 mt-4">
+         <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+           <TextWrapper {...sp} as="p" field="subtitulo" className="font-montserrat font-semibold text-[13.5px] leading-[1.3] text-[#432311] mb-4 outline-none" style={{ fontSize: `${13.5 * sText}px` }}>
+             {data.subtitulo || "Sabor intenso de chocolate e base crocante de biscoito transformam essa sobremesa em um clássico familiar que atravessa gerações."}
+           </TextWrapper>
+         </SmartField>
+         
+         <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
+           <TextWrapper {...sp} as="h3" field="texto_apoio" className="font-montserrat font-extrabold text-[18px] leading-[1.1] tracking-tight text-[#e9582d] whitespace-pre-line outline-none" style={{ fontSize: `${18 * sText}px` }}>
+             {data.texto_apoio || "Todo mundo adora essa\ntorta de chocolate!"}
+           </TextWrapper>
+         </SmartField>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant86(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1535141192574-5d4897c13636?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full bg-[#FAF1EA] flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-zinc-800">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#333" 
+          counterColor="#333" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Imagem Superior */}
+      <div className="h-[48%] w-full relative bg-zinc-200 shrink-0">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+          <img 
+            src={img1} 
+            className="absolute inset-0 w-full h-full object-cover object-center" 
+            alt="Product Image" 
+            crossOrigin="anonymous" 
+          />
+        </SmartField>
+      </div>
+
+      {/* Área Inferior com linhas rosas laterais */}
+      <div className="flex-1 bg-white p-6 relative flex flex-col justify-center items-center text-center">
+        {/* Linhas Laterais Rosas */}
+        <div className="absolute left-6 top-6 bottom-6 w-[1.5px] bg-[#d56b82]/40 rounded-full pointer-events-none" />
+        <div className="absolute right-6 top-6 bottom-6 w-[1.5px] bg-[#d56b82]/40 rounded-full pointer-events-none" />
+        
+        <div className="w-full px-6 flex flex-col items-center">
+          <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="h2" field="titulo" className="font-serif text-[#333] text-[34px] font-bold leading-none outline-none text-center" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont }}>
+              {data.titulo || "Charity Bake Sale"}
+            </TextWrapper>
+          </SmartField>
+          
+          <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full mt-2">
+            <TextWrapper {...sp} as="p" field="subtitulo" className="text-zinc-500 font-light text-[12px] tracking-wide outline-none text-center" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
+              {data.subtitulo || "come and taste the best cake"}
+            </TextWrapper>
+          </SmartField>
+          
+          <div className="w-8 h-[1px] bg-zinc-200 my-4 shrink-0" />
+          
+          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#333] font-outfit font-medium text-xs tracking-wider uppercase outline-none text-center" style={{ fontSize: `${12 * sText}px` }}>
+              {data.texto_apoio || "09 AM-05 PM January 22-24"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant87(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full bg-[#efe7cc] flex flex-col font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#3d2b1f]">
+      {/* Slide Header flutuando no topo */}
+      <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.1)" 
+          handleColor="#3d2b1f" 
+          counterColor="#3d2b1f" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Metade Superior: Imagem com Corte Seco Fiel ao Original */}
+      <div className="h-[56%] w-full relative overflow-hidden bg-[#222] shrink-0">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+          <img 
+            src={img1} 
+            crossOrigin="anonymous"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-95" 
+            alt="Cinnamon Rolls" 
+          />
+        </SmartField>
+      </div>
+
+      {/* Pílula Laranja Fixada Exatamente no Meio do Eixo (Corte) */}
+      <div className="absolute top-[56%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-full flex justify-center px-4 pointer-events-none">
+        <div className="bg-[#f6921e] text-white px-5 py-[10px] rounded-full shadow-sm pointer-events-auto">
+          <SmartField field="titulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="titulo" className="text-[13.5px] font-black uppercase tracking-wide block text-center whitespace-nowrap outline-none" style={{ fontSize: `${13.5 * sTitle}px`, fontFamily: titleFont }}>
+              {data.titulo || "HOMEMADE CINNAMON ROLLS"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Metade Inferior: Textos e Botão */}
+      <div className="flex-1 flex flex-col justify-center items-center text-center px-8 pt-8 pb-4 bg-[#efe7cc]">
+        <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+          <TextWrapper {...sp} as="p" field="subtitulo" className="text-[#3d2b1f] text-[13px] font-normal leading-[1.35] max-w-[270px] outline-none text-center" style={{ fontSize: `${13 * sText}px`, fontFamily: textFont }}>
+            {data.subtitulo || "Start your morning with a delicious coffee-infused twist on the classic breakfast favorite."}
+          </TextWrapper>
+        </SmartField>
+
+        {/* Onda Laranja Desenhada em Curva de Bézier Fiel */}
+        <div className="my-5 text-[#f6921e] shrink-0">
+          <svg width="65" height="12" viewBox="0 0 100 15" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M 5,7.5 Q 12.5,0 20,7.5 T 35,7.5 T 50,7.5 T 65,7.5 T 80,7.5 T 95,7.5" />
+          </svg>
+        </div>
+
+        <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
+          <TextWrapper {...sp} as="span" field="texto_apoio" className="text-[#3d2b1f] font-black text-[16px] tracking-widest uppercase outline-none cursor-pointer block text-center" style={{ fontSize: `${16 * sText}px` }}>
+            {data.texto_apoio || "ORDER NOW"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant88(props) {
+  const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-[#BF7ADD]">
+      
+      {/* 1. O Fundo em SVG nativo para manter as elipses e proporções exatas do Figma */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 1088 1358" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="filter1_n_0_1" x="-51" y="0" width="1206" height="1350" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="9064" />
+              <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+              <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+                <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+              <feFlood floodColor="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+              <feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+              <feMerge result="effect1_noise_0_1">
+                <feMergeNode in="shape" />
+                <feMergeNode in="color1" />
+              </feMerge>
+            </filter>
+          </defs>
+          {/* Fundo base lilás com filtro de ruído */}
+          <rect width="1088" height="1358" fill="#BF7ADD" filter="url(#filter1_n_0_1)" />
+          {/* Elipse decorativa central inferior */}
+          <ellipse cx="552" cy="895" rx="603" ry="178" fill="#32024F" />
+          {/* Retângulo da base */}
+          <rect x="0" y="823" width="1088" height="555" rx="11" fill="#32024F" />
+
+
+        </svg>
+      </div>
+
+      {/* 2. Slide Header flutuando no topo com Z-Index alto */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(255,255,255,0.15)" 
+          handleColor="white" 
+          counterColor="white" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* 3. Badge no Topo Esquerdo */}
+      <div className="absolute top-[8.5%] left-[10.5%] z-20 px-5 py-2.5 bg-[#EFD08D] rounded-full flex items-center justify-center shadow-md">
+        <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="span" field="texto_apoio" className="font-outfit font-black text-[#32024F] text-[13px] tracking-widest uppercase outline-none whitespace-nowrap" style={{ fontSize: `${13 * sText}px` }}>
+            {data.texto_apoio || "BAKERY"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* 4. Imagem Central do Produto */}
+      <div className="absolute top-[18.9%] left-[24.3%] w-[51.2%] h-[47%] z-20 flex items-center justify-center">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full rounded-2xl overflow-hidden">
+          <img 
+            src={img1} 
+            crossOrigin="anonymous" 
+            className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]" 
+            alt="Chocolate Product" 
+          />
+        </SmartField>
+      </div>
+
+      {/* 5. Área de Textos Inferior (sobreposta ao fundo roxo escuro) */}
+      <div className="absolute top-[67%] left-0 w-full h-[33%] z-20 flex flex-col items-center justify-start text-center px-12 pt-4">
+        
+        {/* Título Principal */}
+        <div className="w-full mb-3">
+          <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="h2" field="titulo" className="font-serif text-white text-[48px] font-bold leading-none tracking-tight outline-none" style={{ fontSize: `${48 * sTitle}px`, fontFamily: titleFont }}>
+              {data.titulo || "CHARITY BAKE SALE"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Subtítulo */}
+        <div className="w-full">
+          <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="p" field="subtitulo" className="font-outfit text-white/90 text-[22px] font-semibold tracking-wider uppercase outline-none" style={{ fontSize: `${22 * sText}px`, fontFamily: textFont }}>
+              {data.subtitulo || "HOMEMADE CHOCOLATE"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+export function SplitVariant89(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgUrl = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1587241321921-91a834d6d191?q=80&w=600&auto=format&fit=crop");
+
+  return (
+    <div className="w-full h-full bg-[#f9f9f9] flex flex-col justify-between py-6 font-outfit select-none overflow-hidden text-[#333] relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="#4a592d" 
+          counterColor="#4a592d" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Top Content */}
+      <div className="text-center mt-8 relative z-20 shrink-0">
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h1" field="titulo" className="font-serif text-[40px] font-bold leading-none tracking-tight text-[#4a592d] outline-none" style={{ fontSize: `${40 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo || "Torta de limão"}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="subtitulo" data={data} index={index} {...sp} className="mt-1">
+          <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif text-[18px] font-normal leading-none text-[#4a592d] outline-none" style={{ fontSize: `${18 * sText}px`, fontFamily: textFont }}>
+            {data.subtitulo || "com merengue"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Center Content: Image & Description Box */}
+      <div className="flex-1 flex flex-col items-center justify-center relative z-10 -mt-2">
+        {/* Main Image */}
+        <div className="relative w-[110%] -ml-[5%] aspect-[4/3] flex items-center justify-center">
+          <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+            <img 
+              src={imgUrl} 
+              crossOrigin="anonymous" 
+              className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] scale-110" 
+              alt="Torta de Limão com Merengue" 
+            />
+          </SmartField>
+        </div>
+
+        {/* Description Box with Button */}
+        <div className="w-[88%] bg-white rounded-3xl shadow-[0_5px_20px_rgba(0,0,0,0.08)] p-5 pt-6 -mt-12 relative z-20 flex flex-col items-center border border-zinc-100">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="text-center text-[13px] leading-relaxed font-normal text-[#555] outline-none" style={{ fontSize: `${13 * sText}px`, fontFamily: textFont }}>
+              {data.texto_apoio || "Massa amanteigada crocante, recheio cremoso e azedinho na medida certa, finalizada com um merengue maçaricado super leve e saboroso."}
+            </TextWrapper>
+          </SmartField>
+
+          <SmartField field="tag" data={data} index={index} {...sp} className="mt-4">
+            <TextWrapper {...sp} as="button" field="tag" className="bg-[#c4d646] text-white font-outfit font-bold text-xs px-6 py-3 rounded-full uppercase tracking-wider hover:bg-[#b3c535] transition-colors shadow-md outline-none block" style={{ fontSize: `${12 * sText}px`, fontFamily: tagFont }}>
+              {data.tag || "FAÇA SUA ENCOMENDA"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Bottom Decoration (Lemons SVG placeholder) */}
+      <div className="absolute bottom-0 left-0 w-full h-[20%] pointer-events-none overflow-hidden z-0">
+        <svg className="absolute bottom-[-10%] left-[-15%] w-[60%] h-auto text-[#c4d646] opacity-90" viewBox="0 0 200 200" fill="currentColor">
+          <path d="M100,100 C120,80 150,80 170,100 C190,120 190,150 170,170 C150,190 120,190 100,170 C80,150 80,120 100,100 Z" />
+          <circle cx="60" cy="140" r="30" fill="#f2e205" />
+          <circle cx="140" cy="60" r="25" fill="#f2e205" />
+          <path d="M40,180 Q60,160 80,180 Q100,200 80,220" stroke="currentColor" strokeWidth="4" fill="none"/>
+        </svg>
+        <svg className="absolute bottom-[-5%] right-[-10%] w-[50%] h-auto text-[#f2e205] opacity-95" viewBox="0 0 200 200" fill="currentColor">
+          <circle cx="100" cy="100" r="50" />
+          <path d="M140,120 C160,100 190,100 210,120 C230,140 230,170 210,190" fill="#c4d646" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant90(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full bg-[#fdfafb] flex flex-col font-outfit select-none overflow-hidden text-zinc-900 relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .text-outline-pink-v90 { 
+          -webkit-text-stroke: 4px #ff2a70; 
+          color: transparent; 
+        }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="#ff2a70" 
+          counterColor="#ff2a70" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Radial Gradient Background (Soft Pink center to white) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ffe1ed_0%,transparent_70%)] pointer-events-none z-0 opacity-70" />
+
+      {/* Floating Chocolate Chunks (Blurred) */}
+      <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+        <div className="absolute top-[12%] right-[10%] w-8 h-8 bg-[#5A3825] rounded-sm transform rotate-[25deg] blur-[2px] opacity-90 shadow-lg" />
+        <div className="absolute top-[25%] left-[5%] w-6 h-6 bg-[#5A3825] rounded-sm transform -rotate-12 blur-[4px] opacity-80" />
+        <div className="absolute bottom-[18%] right-[5%] w-10 h-10 bg-[#5A3825] rounded-sm transform rotate-45 blur-[5px] opacity-80" />
+      </div>
+
+      {/* Gigantic Repeated Background Text (Hollow Pink) */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 w-full overflow-hidden space-y-[-2rem]">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="text-[85px] font-display text-outline-pink-v90 uppercase leading-[0.8] tracking-tighter whitespace-nowrap opacity-100 select-none">
+            {data.subtitulo || "BROWNIE"}
+          </div>
+        ))}
+      </div>
+
+      {/* Top Content: Logo & Pink Badge */}
+      <div className="relative z-20 flex flex-col items-center mt-8 gap-6 shrink-0">
+        {/* Fake Logo */}
+        <SmartField field="tag" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="div" field="tag" className="font-hand text-[#ff2a70] text-3xl font-bold tracking-tight drop-shadow-sm outline-none" style={{ fontFamily: tagFont }}>
+            {data.tag || "Comiê"}
+          </TextWrapper>
+        </SmartField>
+
+        {/* Pink Rectangular Badge */}
+        <div className="bg-[#ff2a70] text-white px-5 py-1.5 shadow-[0_8px_15px_rgba(255,42,112,0.3)]">
+          <SmartField field="titulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="titulo" className="text-[26px] font-display leading-none uppercase tracking-tighter block mt-1 outline-none" style={{ fontSize: `${26 * sTitle}px`, fontFamily: titleFont }}>
+              {data.titulo || "CHEGOU A VEZ DO"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Main Subject: Tooltip (Image Removed) */}
+      <div className="relative z-30 flex-1 flex flex-col items-center justify-center w-full mt-2">
+        <div className="relative z-10">
+          {/* Tooltip Dialog Box Pointing Up */}
+          <div className="bg-white px-5 py-2 rounded-sm shadow-xl z-20 whitespace-nowrap relative">
+            <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="texto_apoio" className="text-[#ff2a70] text-sm font-semibold tracking-wide outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+                {data.texto_apoio || "Faça seu pedido hoje"}
+              </TextWrapper>
+            </SmartField>
+            {/* CSS Triangle (Arrow pointing up) */}
+            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-transparent border-b-white" />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Pink Curve */}
+      <div className="absolute bottom-[-15%] left-0 w-[150%] h-[25%] bg-[#ff2a70] rounded-t-[100%] -translate-x-[15%] z-20 pointer-events-none" />
+    </div>
+  );
+}
+
+export function SplitVariant91(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  return (
+    <div className="w-full h-full bg-[#fdfafb] flex flex-col font-outfit select-none overflow-hidden text-zinc-900 relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .text-outline-pink-v91 { 
+          -webkit-text-stroke: 4px #ff2a70; 
+          color: transparent; 
+        }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="#ff2a70" 
+          counterColor="#ff2a70" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Radial Gradient Background (Soft Pink center to white) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ffe1ed_0%,transparent_70%)] pointer-events-none z-0 opacity-70" />
+
+      {/* Floating Chocolate Chunks (Blurred) */}
+      <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+        <div className="absolute top-[12%] right-[10%] w-8 h-8 bg-[#5A3825] rounded-sm transform rotate-[25deg] blur-[2px] opacity-90 shadow-lg" />
+        <div className="absolute top-[25%] left-[5%] w-6 h-6 bg-[#5A3825] rounded-sm transform -rotate-12 blur-[4px] opacity-80" />
+        <div className="absolute bottom-[18%] right-[5%] w-10 h-10 bg-[#5A3825] rounded-sm transform rotate-45 blur-[5px] opacity-80" />
+      </div>
+
+      {/* Gigantic Repeated Background Text (Hollow Pink) */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 w-full overflow-hidden space-y-[-2rem]">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="text-[85px] font-display text-outline-pink-v91 uppercase leading-[0.8] tracking-tighter whitespace-nowrap opacity-100 select-none">
+            {data.titulo || "CUPCAKE"}
+          </div>
+        ))}
+      </div>
+
+      {/* Top Content: Logo */}
+      <div className="relative z-20 flex flex-col items-center mt-8 gap-6 shrink-0">
+        <SmartField field="tag" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="div" field="tag" className="font-hand text-[#ff2a70] text-3xl font-bold tracking-tight drop-shadow-sm outline-none" style={{ fontFamily: tagFont }}>
+            {data.tag || "Doçura"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Main Subject: Tooltip (Image Removed) */}
+      <div className="relative z-30 flex-1 flex flex-col items-center justify-center w-full mt-2">
+        <div className="relative z-10">
+          {/* Tooltip Dialog Box Pointing Up */}
+          <div className="bg-white px-5 py-2 rounded-sm shadow-xl z-20 whitespace-nowrap relative">
+            <SmartField field="subtitulo" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="subtitulo" className="text-[#ff2a70] text-sm font-semibold tracking-wide outline-none" style={{ fontSize: `${14 * sTitle}px`, fontFamily: textFont }}>
+                {data.subtitulo || "Peça a sua hoje"}
+              </TextWrapper>
+            </SmartField>
+            {/* CSS Triangle (Arrow pointing up) */}
+            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-transparent border-b-white" />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Pink Curve & Button */}
+      <div className="absolute bottom-0 left-0 w-full h-[25%] z-20 pointer-events-none">
+        <div className="absolute bottom-[-15%] left-0 w-[150%] h-full bg-[#ff2a70] rounded-t-[100%] -translate-x-[15%]" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-auto">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="button" field="texto_apoio" className="bg-white text-[#ff2a70] font-outfit font-bold text-xs px-8 py-3 rounded-full uppercase tracking-wider hover:bg-zinc-100 transition-colors shadow-md outline-none block" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
+              {data.texto_apoio || "ORDER NOW"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant92(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgUrl = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1615756402431-7299066060c5?q=80&w=200&auto=format&fit=crop");
+
+  const tagLines = (data.tag || "Não sabe o que pedir?\nEntão vai de...").split('\n');
+  const tag1 = tagLines[0] || "";
+  const tag2 = tagLines[1] || "";
+
+  const titleLines = (data.titulo || "Briga\ndeiro").split('\n');
+  const title1 = titleLines[0] || "";
+  const title2 = titleLines[1] || "";
+
+  const tooltipLines = (data.texto_apoio || "Brigadeiro\nTradicional").split('\n');
+  const tool1 = tooltipLines[0] || "";
+  const tool2 = tooltipLines[1] || "";
+
+  return (
+    <div className="w-full h-full bg-[#ff7a7a] flex flex-col justify-between font-outfit select-none overflow-hidden text-[#ffebe4] relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(255,255,255,0.15)" 
+          handleColor="#ffebe4" 
+          counterColor="#ffebe4" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Fundo suave com radial gradient rosa mais claro */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,#ff9696_0%,transparent_60%)] pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#ff9696_0%,transparent_60%)] pointer-events-none z-0" />
+
+      {/* Top Text (Não sabe o que pedir?) */}
+      <div className="relative z-20 mt-12 ml-6">
+        <SmartField field="tag" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="div" field="tag" className="text-[11px] font-normal leading-tight outline-none" style={{ fontFamily: tagFont }}>
+            <p className="text-[11px] font-normal leading-tight">{tag1}</p>
+            {tag2 && <p className="text-[11px] font-bold leading-tight">{tag2}</p>}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Main Title (Briga deiro) */}
+      <div className="relative z-10 pl-5 mt-1">
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h1" field="titulo" className="font-serif text-[4.2rem] leading-[0.8] tracking-[-0.03em] font-medium text-[#ffebe4] drop-shadow-sm outline-none" style={{ fontSize: `${67.2 * sTitle}px`, fontFamily: titleFont }}>
+            {title1}<br/>{title2}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* The Brigadeiro Question Mark Graphic */}
+      <div className="absolute inset-0 z-20 pointer-events-none">
+        {[
+          { top: '8%', left: '46%' },
+          { top: '4%', left: '63%' },
+          { top: '10%', left: '79%' },
+          { top: '23%', left: '85%' },
+          { top: '35%', left: '74%' },
+          { top: '45%', left: '60%' },
+          { top: '58%', left: '55%' },
+          { top: '75%', left: '53%' } // The Dot
+        ].map((pos, idx) => (
+          <div 
+            key={idx} 
+            className="absolute w-14 h-14 rounded-full shadow-[0_8px_15px_rgba(0,0,0,0.3)] bg-[#2a130c] border-[3px] border-[#1a0a05] flex items-center justify-center overflow-hidden transform transition-transform duration-500 hover:scale-110 pointer-events-auto"
+            style={{ top: pos.top, left: pos.left }}
+          >
+            <img 
+              src={imgUrl} 
+              crossOrigin="anonymous"
+              alt="Brigadeiro" 
+              className="w-full h-full object-cover opacity-90 mix-blend-screen"
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_20%,#2a130c_120%)]" />
+          </div>
+        ))}
+
+        {/* Tooltip para o Brigadeiro Tradicional */}
+        <div className="absolute top-[61%] left-[75%] flex items-center">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="div" field="texto_apoio" className="text-left text-[#ffebe4] outline-none" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
+              <span className="block text-[9px] font-bold uppercase tracking-wider">{tool1}</span>
+              {tool2 && <span className="block text-[8px] font-light uppercase tracking-wider opacity-90">{tool2}</span>}
+            </TextWrapper>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Bottom Footer (Logo & Button) */}
+      <div className="relative z-30 flex justify-between items-center mb-6 px-6 mt-auto pointer-events-auto">
+        <div className="flex flex-col items-center">
+          <SmartField field="subtitulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="subtitulo" className="font-lobster text-[#ffebe4] text-[26px] leading-none drop-shadow-sm outline-none" style={{ fontFamily: titleFont }}>
+              {data.subtitulo || "Saboralia"}
+            </TextWrapper>
+          </SmartField>
+          <span className="text-[5px] font-black uppercase tracking-[0.3em] opacity-80 mt-1">
+            Confeitaria
+          </span>
+        </div>
+
+        {/* Peça Agora Button */}
+        <button className="bg-[#6b3127] text-white font-outfit font-bold text-[10px] px-6 py-2.5 rounded-full shadow-[0_5px_15px_rgba(107,49,39,0.4)] hover:bg-[#52251d] transition-colors pointer-events-auto">
+          Peça agora!
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant93(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgUrl = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1527515862127-a4fc05baf7a5?q=80&w=600&auto=format&fit=crop");
+  const flyingDonutUrl = getCorsSafeUrl("https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=600&auto=format&fit=crop");
+
+  const titleLines = (data.titulo || "E VOCÊ?\nFEZ SEU\nPEDIDO\nDE HOJE?").split('\n');
+  const line1 = titleLines[0] || "";
+  const line2 = titleLines[1] || "";
+  const line3 = titleLines[2] || "";
+  const line4 = titleLines[3] || "";
+
+  return (
+    <div className="w-full h-full bg-[#fdf5f7] flex font-outfit select-none overflow-hidden text-[#ff4b82] relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .text-outline-pink-light-v93 { -webkit-text-stroke: 3px #ff4b82; color: transparent; }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="#ff4b82" 
+          counterColor="#ff4b82" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Fundo com texto vazado lateral rotacionado ("DONUT") */}
+      <div className="absolute top-[25%] right-[-15%] text-[140px] font-black leading-none opacity-10 pointer-events-none -rotate-90 origin-right whitespace-nowrap text-outline-pink-light-v93 select-none">
+        <SmartField field="subtitulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="span" field="subtitulo" className="outline-none">
+            {data.subtitulo || "DONUT"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Left Side: Donuts Stack Vertical */}
+      <div className="w-[45%] h-full relative z-10 shadow-[10px_0_25px_rgba(0,0,0,0.15)] bg-white overflow-hidden">
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+          <img 
+            src={imgUrl} 
+            crossOrigin="anonymous"
+            className="absolute left-[-20%] top-[-5%] w-[150%] h-[110%] object-cover object-left" 
+            alt="Donuts Stack Vertical" 
+          />
+        </SmartField>
+      </div>
+
+      {/* Right Side: Tipografia Agressiva */}
+      <div className="w-[55%] h-full flex flex-col justify-center items-start pl-5 pr-3 relative z-20">
+
+        {/* Logo Comiê (Topo centralizado no próprio bloco) */}
+        <div className="absolute top-12 left-0 w-full flex justify-center pointer-events-auto">
+          <SmartField field="tag" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="div" field="tag" className="font-lobster text-[28px] tracking-widest text-[#ff4b82] drop-shadow-sm outline-none" style={{ fontFamily: tagFont }}>
+              {data.tag || "Comiê"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Mini donut flutuante borrado no canto superior direito */}
+        <img 
+          src={flyingDonutUrl} 
+          crossOrigin="anonymous"
+          className="absolute top-[18%] right-2 w-8 h-8 object-cover rounded-full shadow-md blur-[1px] rotate-12 opacity-90" 
+          alt="Mini donut blur" 
+        />
+
+        {/* Bloco de Texto Ultra-Bold Esmagado */}
+        <div className="flex flex-col items-start w-full mt-10 space-y-[-2px] pointer-events-auto">
+          <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="div" field="titulo" className="outline-none" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont }}>
+              <h2 className="text-[34px] font-black leading-[0.9] uppercase tracking-tighter w-full text-left" style={{ fontSize: 'inherit' }}>
+                {line1}
+              </h2>
+              {line2 && (
+                <h2 className="text-[34px] font-black leading-[0.9] uppercase tracking-tighter w-full text-left" style={{ fontSize: 'inherit' }}>
+                  {line2}
+                </h2>
+              )}
+              {line3 && (
+                <h2 className="text-[34px] font-black leading-[0.9] uppercase tracking-tighter w-full text-left" style={{ fontSize: 'inherit' }}>
+                  {line3}
+                </h2>
+              )}
+              {/* Linha 4 com Background Sólido */}
+              {line4 && (
+                <div className="bg-[#ff4b82] text-white px-2 py-0 mt-2 -ml-1 shadow-sm block w-fit">
+                  <h2 className="text-[34px] font-black leading-[0.95] uppercase tracking-tighter pt-1 pb-[1px]" style={{ fontSize: 'inherit' }}>
+                    {line4}
+                  </h2>
+                </div>
+              )}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export function SplitVariant94(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgUrl = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=800&auto=format&fit=crop");
+  
+  const descLines = (data.texto_apoio || "Um pedaço\nde felicidade\ncom bastante\nchocolate.\nna sua casa!").split('\n');
+
+  return (
+    <div className="w-full h-full bg-[linear-gradient(145deg,#8ac1e6_0%,#558aa5_100%)] flex flex-col font-outfit select-none overflow-hidden text-white relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(255,255,255,0.2)" 
+          handleColor="#ffffff" 
+          counterColor="#ffffff" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Main Card (Split Pink/Cream) */}
+      <div className="absolute top-12 left-[8%] w-[52%] h-[68%] rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)] flex flex-col z-10 pointer-events-auto">
+        
+        {/* Top Pink Section */}
+        <div className="bg-[#fe4eb3] h-[45%] p-5 flex flex-col justify-center">
+          <SmartField field="titulo" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="h2" field="titulo" className="text-[24px] font-bold leading-[1.1] tracking-tight text-white whitespace-pre-line drop-shadow-sm outline-none" style={{ fontSize: `${24 * sTitle}px`, fontFamily: titleFont }}>
+              {data.titulo || "Brownie de\nchocolate!"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+        
+        {/* Bottom Cream Section */}
+        <div className="bg-[#f8f4e2] flex-1 p-5 pt-6 flex flex-col justify-start">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="div" field="texto_apoio" className="text-[#2a6878] text-[16px] font-normal leading-[1.35] tracking-tight outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
+              {descLines.map((line, idx) => {
+                 if (idx === 1 || idx === 3) return <span key={idx} className="font-bold block">{line}</span>;
+                 return <span key={idx} className="block">{line}</span>;
+              })}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+      </div>
+
+      {/* Product Image Overlapping */}
+      <div className="absolute top-[28%] right-[-15%] w-[68%] aspect-square z-20 pointer-events-none drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)] transform hover:scale-105 transition-transform duration-700">
+        <div className="w-full h-full rounded-[2rem] overflow-hidden rotate-[-2deg] pointer-events-auto">
+          <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+            <img 
+              src={imgUrl} 
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover scale-110 object-center" 
+              alt="Stacked Brownies" 
+            />
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between z-20 px-1 opacity-90 pointer-events-auto">
+        
+        {/* Pink Pie Logo */}
+        <div className="flex items-center gap-1.5 flex-1">
+          <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
+            <path d="M12 2a5 5 0 0 0-5 5v2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v2H9V7a3 3 0 0 1 3-3zm-7 9h14v2H5v-2zm2 4h10v3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-3z" />
+          </svg>
+          <SmartField field="tag" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="tag" className="text-[11px] font-bold tracking-widest lowercase mt-0.5 outline-none" style={{ fontFamily: tagFont }}>
+              {data.tag || "pink pie"}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Delivery Logos */}
+        <div className="flex items-center gap-1.5 flex-[0.8] justify-center text-white">
+          <span className="font-display italic text-[13px] tracking-tighter text-white">iFood</span>
+          <div className="leading-[0.8] text-center border-l border-white/40 pl-1.5 ml-0.5">
+            <span className="text-[5px] font-black block">UBER</span>
+            <span className="text-[7px] font-black block">eats</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
+
+
+export function SplitVariant95(props) {
+  const { 
+    data, index, brandColor, brandHandle, isVerified, slideCount, 
+    titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
+    titleFont, textFont, tagFont
+  } = props;
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imgUrl = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&auto=format&fit=crop");
+
+  const leftLines = (data.tag || "Fresh\nStrawberry").split('\n');
+  const left1 = leftLines[0] || "";
+  const left2 = leftLines[1] || "";
+
+  const rightLines = (data.texto_apoio || "Black\nChocolate").split('\n');
+  const right1 = rightLines[0] || "";
+  const right2 = rightLines[1] || "";
+
+  return (
+    <div className="w-full h-full bg-[#fcdced] flex flex-col items-center font-outfit select-none overflow-hidden text-[#1a1a1a] relative rounded-slide">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Alfa Slab One', cursive; }
+        .font-hand { font-family: 'Charmonman', cursive; }
+        .font-lobster { font-family: 'Lobster', cursive; }
+      `}} />
+
+      {/* Slide Header */}
+      <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={props.showBrandHandle} 
+          brandColor={brandColor} 
+          isVerified={isVerified} 
+          showSlideCounter={props.showSlideCounter} 
+          slideCounterPosition={props.slideCounterPosition} 
+          brandAvatar={props.brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="#1a1a1a" 
+          counterColor="#1a1a1a" 
+          brandLogo={props.brandLogo} 
+          showBrandLogo={props.showBrandLogo} 
+          className="pointer-events-auto"
+        />
+      </div>
+
+      {/* Background Ondas (Rosa mais escuro na base) */}
+      <div className="absolute bottom-0 left-0 w-full h-[45%] bg-[#ec7ba3] z-0" />
+      {/* Divisor em SVG para a onda */}
+      <svg className="absolute top-[54%] left-0 w-full h-12 text-[#ec7ba3] z-0 transform -translate-y-[90%]" preserveAspectRatio="none" viewBox="0 0 1440 320" fill="currentColor">
+        <path d="M0,160L80,144C160,128,320,96,480,106.7C640,117,800,171,960,176C1120,181,1280,139,1360,117.3L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+      </svg>
+
+      {/* Textos de Cabeçalho */}
+      <div className="relative z-20 flex flex-col items-center mt-10">
+        <SmartField field="subtitulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h2" field="subtitulo" className="font-hand text-[32px] tracking-tight text-[#1a1a1a] drop-shadow-sm mb-[-12px] outline-none" style={{ fontFamily: tagFont }}>
+            {data.subtitulo || "Today's Special"}
+          </TextWrapper>
+        </SmartField>
+
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h1" field="titulo" className="font-serif font-black text-[62px] leading-none tracking-tighter text-[#1a1a1a] outline-none" style={{ fontSize: `${62 * sTitle}px`, fontFamily: titleFont }}>
+            {data.titulo || "Ice Cream"}
+          </TextWrapper>
+        </SmartField>
+      </div>
+
+      {/* Elemento Central: Copo e Guardanapo */}
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center w-full mt-2">
+        
+        {/* Anotações e Setas (SVGs customizados) */}
+        {/* Esquerda */}
+        <div className="absolute top-[35%] left-[8%] flex flex-col items-center pointer-events-auto">
+          <svg className="w-16 h-12 text-[#1a1a1a] mb-1" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M60 40 Q 30 10 5 30" strokeLinecap="round" />
+            <path d="M5 30 L 15 25 M 5 30 L 12 37" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <SmartField field="tag" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="tag" className="font-hand text-[18px] leading-tight text-center text-[#1a1a1a] whitespace-pre-line mt-[-5px] outline-none" style={{ fontFamily: tagFont }}>
+              {left1}
+              {left2 && <span className="block">{left2}</span>}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Direita */}
+        <div className="absolute top-[38%] right-[8%] flex flex-col items-center pointer-events-auto">
+          <svg className="w-16 h-12 text-[#1a1a1a] mb-1" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M5 25 Q 35 5 60 25" strokeLinecap="round" />
+            <path d="M60 25 L 50 20 M 60 25 L 55 33" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <SmartField field="texto_apoio" data={data} index={index} {...sp}>
+            <TextWrapper {...sp} as="span" field="texto_apoio" className="font-hand text-[18px] leading-tight text-center text-[#1a1a1a] whitespace-pre-line mt-[-5px] outline-none" style={{ fontFamily: tagFont }}>
+              {right1}
+              {right2 && <span className="block">{right2}</span>}
+            </TextWrapper>
+          </SmartField>
+        </div>
+
+        {/* Copo */}
+        <div className="relative flex flex-col items-center w-[55%] mt-2 z-10 hover:-translate-y-2 transition-transform duration-700">
+          
+          {/* Guardanapo sob o copo */}
+          <div className="absolute bottom-[-15px] w-[140%] h-12 bg-white/95 rounded-sm shadow-[0_15px_15px_rgba(200,60,100,0.3)] transform -rotate-2 z-0 skew-x-12" />
+          <div className="absolute bottom-[-8px] w-[130%] h-8 bg-white rounded-sm shadow-md transform rotate-1 z-0 skew-x-[-12deg]" />
+
+          {/* Imagem do copo cortada verticalmente */}
+          <div className="relative w-full aspect-[2/3] z-10 drop-shadow-xl overflow-visible">
+            <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
+              <img 
+                src={imgUrl} 
+                crossOrigin="anonymous"
+                className="w-full h-full object-cover object-bottom" 
+                style={{ 
+                  WebkitMaskImage: 'polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 90% 100%, 10% 100%)',
+                  maskImage: 'polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 90% 100%, 10% 100%)'
+                }}
+                alt="Ice Cream Cup" 
+              />
+            </SmartField>
+          </div>
+        </div>
+      </div>
+
+      {/* Botão de Rodapé */}
+      <div className="relative z-30 mb-8 mt-4 pointer-events-auto">
+        <button className="bg-[#1c1c1c] text-[#fcdced] font-serif font-bold text-[14px] px-8 py-3 rounded-full hover:bg-black transition-colors shadow-lg tracking-wide">
+          Order Now
+        </button>
+      </div>
+
+    </div>
+  );
+}
+
+export function SplitVariant210({
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+  titleScale, textScale, showMetrics, onActionStart, onTextChange,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const cursoLabel = data.tag || "CURSO DE";
+  const titleText = data.titulo || "Mini caseirinhos\nGourmet";
+  const titleLines = titleText.split('\n');
+  const cursoTitle1 = titleLines[0] || '';
+  const cursoTitle2 = titleLines[1] || '';
+
+  const inscricoesText = data.sub_titulo || "Inscrições";
+  const abertasText = data.badge_text || "Abertas";
+
+  const authorData = data.texto_apoio || "Chef Valeria Miranda\n@chefvaleriamiranda";
+  const authorLines = authorData.split('\n');
+  const cursoAuthorName = authorLines[0] || '';
+  const cursoAuthorHandle = authorLines[1] || '';
+
+  const imgBox = data.imageUrl || "https://images.unsplash.com/photo-1612203985729-70726954388c?q=80&w=600&auto=format&fit=crop";
+  const imgKinder = "https://images.unsplash.com/photo-1621304598583-9b0d2d3460f9?q=80&w=400&auto=format&fit=crop";
+  const avatarImage = brandAvatar || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=150&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#e81b85] flex flex-col font-outfit select-none overflow-hidden text-white">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .text-stroke-curso { -webkit-text-stroke: 7px #e81b85; paint-order: stroke fill; }
+        .text-stroke-curso-thin { -webkit-text-stroke: 3px #e81b85; paint-order: stroke fill; }
+      `}} />
+
+      {/* Fundo Azul Claro Base */}
+      <div className="absolute inset-0 bg-[#98cbf1] z-0 pointer-events-none" />
+
+      {/* Máscara Magenta */}
+      <div className="absolute inset-0 bg-[#e81b85] z-10" />
+
+      {/* Imagem Superior Direita (Bolo na Caixa) */}
+      <div className="absolute top-0 right-0 w-[60%] h-[55%] bg-[#98cbf1] rounded-bl-[80px] z-10 overflow-hidden shadow-[-5px_5px_15px_rgba(0,0,0,0.1)] transition-transform duration-700 origin-top-right">
+        <ImageBg imageUrl={imgBox} className="w-full h-full" />
+      </div>
+
+      {/* Imagem Inferior Direita (Chocolate/Wafer) */}
+      <div className="absolute bottom-0 right-0 w-[35%] h-[35%] bg-[#98cbf1] rounded-tl-[50px] z-10 overflow-hidden shadow-[-5px_-5px_15px_rgba(0,0,0,0.1)] transition-transform duration-700 origin-bottom-right flex items-center justify-center">
+        <ImageBg imageUrl={imgKinder} className="w-[120%] h-[120%]" />
+      </div>
+
+      {/* Área de Conteúdo Tipográfico */}
+      <div className="relative z-20 flex flex-col pt-[28%] px-5 h-full">
+        
+        {/* Badge "CURSO DE" & Título Script */}
+        <div className="flex flex-col items-start ml-2 relative">
+          <SmartField field="tag" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="bg-[#00aeeF] text-white text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-[3px] absolute -top-3 left-[28%] z-30 shadow-md outline-none cursor-text select-text"
+            >
+              {cursoLabel}
+            </span>
+          </SmartField>
+            
+          <div className="relative z-20">
+            <SmartField field="titulo" {...sp}>
+              <h2 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                className="font-lobster text-[46px] leading-[0.85] text-white text-stroke-curso-thin drop-shadow-md outline-none cursor-text select-text whitespace-pre-wrap"
+                style={{ fontSize: `${46 * sTitle}px` }}
+              >
+                {cursoTitle1}<br/>{cursoTitle2}
+              </h2>
+            </SmartField>
+          </div>
+        </div>
+
+        {/* Texto Gigante "INSCRIÇÕES" */}
+        <div className="mt-4 -ml-2 relative z-30">
+          <SmartField field="sub_titulo" {...sp}>
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'sub_titulo', e.currentTarget.innerText)}
+              className="font-outfit font-black text-[56px] leading-[0.8] text-white tracking-tighter text-stroke-curso drop-shadow-lg outline-none cursor-text select-text"
+              style={{ fontSize: `${56 * sTitle}px` }}
+            >
+              {inscricoesText}
+            </h1>
+          </SmartField>
+        </div>
+
+        {/* Caixa Verde "ABERTAS" */}
+        <div className="relative mt-2 -ml-3 z-40">
+          <div className="bg-[#00c814] px-5 pt-1.5 pb-0 rounded-2xl shadow-[0_10px_20px_rgba(0,200,20,0.4)] inline-block relative">
+            <SmartField field="badge_text" {...sp}>
+              <h1 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="font-outfit font-black text-[62px] leading-[0.85] text-white tracking-tighter drop-shadow-sm outline-none cursor-text select-text"
+                style={{ fontSize: `${62 * sTitle}px` }}
+              >
+                {abertasText}
+              </h1>
+            </SmartField>
+            
+            {/* Selo Checkmark */}
+            <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#00c814] rounded-full flex items-center justify-center z-50">
+              <div className="absolute inset-[-4px] border-[2px] border-dashed border-white rounded-full opacity-80" />
+              <div className="w-full h-full bg-[#00c814] rounded-full border-2 border-white flex items-center justify-center relative z-10">
+                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Rodapé: Avatar e Info do Autor */}
+        <div className="absolute bottom-10 left-5 z-20 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-md shrink-0">
+            <img src={avatarImage} className="w-full h-full object-cover" alt="Author" />
+          </div>
+          <SmartField field="texto_apoio" {...sp}>
+            <div 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="flex flex-col outline-none cursor-text select-text text-left"
+              style={{ fontSize: `${11 * sText}px` }}
+            >
+              <span className="font-outfit font-bold text-[11px] leading-tight text-white tracking-wide" style={{ fontSize: 'inherit' }}>
+                {cursoAuthorName}
+              </span>
+              <span className="font-outfit font-light text-[10px] leading-tight text-white/90 tracking-wide" style={{ fontSize: `${10/11 * 11 * sText}px` }}>
+                {cursoAuthorHandle}
+              </span>
+            </div>
+          </SmartField>
+        </div>
+
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="#e81b85" />
+    </div>
+  );
+}
+
+export function SplitVariant211({
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+  titleScale, textScale, showMetrics, onActionStart, onTextChange,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const crepeTag = data.tag || "CREPE LA CASA";
+  const titleLines = (data.titulo || "ESSE CREPE DEVERIA VIR COM\nAVISO DE\nRISCO").split('\n');
+  const t1 = titleLines[0] || '';
+  const t2 = titleLines[1] || '';
+  const t3 = titleLines[2] || '';
+
+  const crepeBoxText = data.texto_apoio || "PORQUE\nVOCÊ NÃO VAI\nCONSEGUIR\nPARAR NO\nPRIMEIRO.";
+
+  const imgHeld = data.imageUrl || "https://images.unsplash.com/photo-1598215438188-7517c222ba81?q=80&w=600&auto=format&fit=crop";
+  const imgCorner = "https://images.unsplash.com/photo-1589304010639-6cb8f1e58288?q=80&w=400&auto=format&fit=crop";
+
+  return (
+    <div className="relative w-full h-full bg-[#ffbd00] flex flex-col font-outfit select-none overflow-hidden text-[#6b0c19]">
+      
+      {/* Fundo com Textura de Ondas Suaves */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-10" 
+           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C50,20 150,60 200,40 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,80 C50,60 150,100 200,80 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,120 C50,100 150,140 200,120 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3C/svg%3E")`, backgroundSize: '150% 150%', backgroundPosition: 'center' }} 
+      />
+
+      {/* Elemento de Canto Superior Direito (Corte) */}
+      <div className="absolute -top-6 -right-6 w-36 h-36 bg-white z-10 transform rotate-12 rounded-2xl shadow-[-5px_5px_15px_rgba(107,12,25,0.15)] overflow-hidden border-4 border-[#ffbd00]">
+        <ImageBg imageUrl={imgCorner} className="w-[120%] h-[120%]" />
+      </div>
+
+      {/* Tag Superior */}
+      <div className="relative z-20 flex justify-center mt-8">
+        <SmartField field="tag" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="border-[1.5px] border-[#6b0c19] text-[#6b0c19] px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest bg-transparent backdrop-blur-sm outline-none cursor-text select-text"
+          >
+            {crepeTag}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Tipografia Central Garrafal */}
+      <div className="relative z-20 flex flex-col items-center text-center mt-8 px-4 w-full">
+        <SmartField field="titulo" {...sp}>
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="flex flex-col items-center outline-none whitespace-pre-wrap cursor-text select-text"
+          >
+            <h3 className="font-outfit font-black text-[13px] tracking-wide text-[#6b0c19] mb-1" style={{ fontSize: `${13 * sTitle}px` }}>
+              {t1}
+            </h3>
+            
+            <div className="flex flex-col items-center mt-[-5px]">
+              <h1 className="font-outfit font-black text-[62px] leading-[0.8] tracking-tighter text-[#6b0c19]" style={{ fontSize: `${62 * sTitle}px` }}>
+                {t2}
+              </h1>
+              
+              {/* Efeito Risco Duplo (Preenchido + Contorno Offset) */}
+              <div className="relative w-full flex justify-center h-[75px] mt-1">
+                {/* Stroke de Fundo (Branco) */}
+                <span className="absolute top-[4px] left-[52%] -translate-x-1/2 font-outfit font-black text-[70px] leading-[0.8] tracking-tighter text-transparent z-0" 
+                      style={{ WebkitTextStroke: '3px white', fontSize: `${70 * sTitle}px` }}>
+                  {t3}
+                </span>
+                {/* Texto Principal */}
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 font-outfit font-black text-[70px] leading-[0.8] tracking-tighter text-[#6b0c19] z-10"
+                      style={{ fontSize: `${70 * sTitle}px` }}>
+                  {t3}
+                </span>
+              </div>
+            </div>
+          </div>
+        </SmartField>
+      </div>
+
+      {/* Imagem Principal do Crepe (Base) */}
+      <div className="absolute bottom-[-10%] left-[-15%] w-[120%] h-[60%] z-10 flex items-end justify-start pointer-events-none">
+        <div className="relative w-full h-full transform -rotate-[8deg] drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]">
+          <ImageBg 
+            imageUrl={imgHeld}
+            className="w-full h-full rounded-tr-[4rem]" 
+            style={{ WebkitMaskImage: 'radial-gradient(circle, black 80%, transparent 95%)', maskImage: 'radial-gradient(circle, black 80%, transparent 95%)' }}
+          />
+        </div>
+      </div>
+
+      {/* Caixa Lateral Direita "Porque..." */}
+      <div className="absolute bottom-[28%] right-5 bg-[#6b0c19] text-[#ffbd00] pl-5 pr-8 py-4 rounded-tl-[1.5rem] rounded-br-[1.5rem] shadow-xl z-30">
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-outfit font-bold text-[11px] leading-[1.3] tracking-wide text-left whitespace-pre-line outline-none cursor-text select-text"
+            style={{ fontSize: `${11 * sText}px` }}
+          >
+            {crepeBoxText}
+          </p>
+        </SmartField>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#6b0c19" counterColor="#6b0c19" counterBg="#ffbd00" />
+    </div>
+  );
+}
+
+export function SplitVariant212({
+  data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+  titleScale, textScale, showMetrics, onActionStart, onTextChange,
+  selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const pascoaTopText = data.tag || "PÁSCOA";
+
+  const logoLines = (data.sub_titulo || "Casa de Bolos\nBolos caseiros feitos com carinho").split('\n');
+  const logoText = logoLines[0] || '';
+  const logoSubText = logoLines[1] || '';
+
+  const titleData = data.titulo || "Brownie\nsimples|Brownie\nc/ nozes|Brownie\nc/ pistache";
+  const itemsTitles = titleData.split('|');
+  const b1Title = itemsTitles[0] || "Brownie\nsimples";
+  const b2Title = itemsTitles[1] || "Brownie\nc/ nozes";
+  const b3Title = itemsTitles[2] || "Brownie\nc/ pistache";
+
+  const pricesData = data.texto_apoio || "50|55|60";
+  const itemsPrices = pricesData.split('|');
+  const b1Price = itemsPrices[0] || "50";
+  const b2Price = itemsPrices[1] || "55";
+  const b3Price = itemsPrices[2] || "60";
+
+  const img1 = data.imageUrl || "https://images.unsplash.com/photo-1604423043492-4138e5158b15?q=80&w=600&auto=format&fit=crop";
+  const img2 = "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=600&auto=format&fit=crop";
+  const img3 = "https://images.unsplash.com/photo-1614777986387-015c2a8cca1c?q=80&w=600&auto=format&fit=crop";
+
+  const updateTitleItem = (itemIdx, newText) => {
+    const arr = [b1Title, b2Title, b3Title];
+    arr[itemIdx] = newText.replace(/\|/g, ''); // Evitar que o pipe quebre o split
+    onTextChange(index, 'titulo', arr.join('|'));
+  };
+
+  const updatePriceItem = (itemIdx, newText) => {
+    const arr = [b1Price, b2Price, b3Price];
+    arr[itemIdx] = newText.replace(/\|/g, '');
+    onTextChange(index, 'texto_apoio', arr.join('|'));
+  };
+
+  return (
+    <div className="relative w-full h-full bg-[#fcaebb] flex flex-col font-outfit select-none overflow-hidden text-[#432311]">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        .font-lobster { font-family: 'Lobster', cursive; }
+        .text-shadow-dark { text-shadow: 1px 2px 4px rgba(0,0,0,0.8); }
+      `}} />
+
+      <div className="absolute inset-0 bg-[#e0aa00] z-0" />
+      <div className="absolute inset-0 flex flex-col z-10">
+        
+        {/* Bloco 1 */}
+        <div className="flex-[1.2] relative bg-[#fffdfb] overflow-hidden border-b-4 border-[#33180c]">
+          
+          {/* Top Header Card */}
+          <div className="absolute top-0 left-0 w-full h-[30%] bg-[#fcae12] flex items-center justify-center border-b-[5px] border-[#33180c] z-20">
+             <div className="absolute top-[-10px] w-48 h-20 bg-[#33180c] rounded-full blur-[10px] opacity-20" />
+             <div className="relative flex flex-col items-center mt-3 drop-shadow-[0_4px_4px_rgba(51,24,12,0.8)]">
+               
+               <SmartField field="tag" {...sp}>
+                 <span 
+                   contentEditable suppressContentEditableWarning
+                   onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                   className="font-display text-[46px] leading-[0.8] tracking-widest text-[#fcae12] outline-none cursor-text select-text" 
+                   style={{ WebkitTextStroke: '3px #33180c', textShadow: '2px 4px 0 #33180c', fontSize: `${46 * sTitle}px` }}
+                 >
+                   {pascoaTopText}
+                 </span>
+               </SmartField>
+
+               <div className="bg-white px-3 py-1 rounded border border-[#33180c] shadow-sm transform -rotate-2 mt-[-5px] flex flex-col items-center">
+                 <SmartField field="sub_titulo" {...sp}>
+                   <div className="outline-none text-center">
+                     <span 
+                       contentEditable suppressContentEditableWarning
+                       onBlur={(e) => {
+                         onTextChange(index, 'sub_titulo', `${e.currentTarget.innerText}\n${logoSubText}`);
+                       }}
+                       className="font-lobster text-[#d95229] text-[18px] leading-none drop-shadow-sm pr-1 cursor-text select-text"
+                     >
+                       {logoText}
+                     </span>
+                     <span 
+                       contentEditable suppressContentEditableWarning
+                       onBlur={(e) => {
+                         onTextChange(index, 'sub_titulo', `${logoText}\n${e.currentTarget.innerText}`);
+                       }}
+                       className="block text-[#a0381f] text-[5.5px] font-outfit font-medium text-center italic tracking-wider mt-0.5 cursor-text select-text"
+                     >
+                       {logoSubText}
+                     </span>
+                   </div>
+                 </SmartField>
+               </div>
+
+             </div>
+          </div>
+
+          <ImageBg imageUrl={img1} className="w-full h-full" />
+
+          {/* Text & Price Info */}
+          <div className="absolute bottom-4 right-4 text-right flex flex-col items-end drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+             <SmartField field="titulo" {...sp}>
+               <span 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updateTitleItem(0, e.currentTarget.innerText)}
+                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                 style={{ fontSize: `${32 * sTitle}px` }}
+               >
+                 {b1Title}
+               </span>
+             </SmartField>
+             <SmartField field="texto_apoio" {...sp}>
+               <div 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updatePriceItem(0, e.currentTarget.innerText)}
+                 className="bg-[#fcae12] px-4 py-1.5 shadow-[2px_3px_0px_#33180c] flex items-start outline-none cursor-text select-text"
+               >
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">R$</span>
+                  <span className="text-[#33180c] font-display text-[26px] ml-0.5" style={{ fontSize: `${26 * sText}px` }}>{b1Price}</span>
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">,00</span>
+               </div>
+             </SmartField>
+          </div>
+
+          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#33180c] transform rotate-45 z-20" />
+        </div>
+
+        {/* Bloco 2 */}
+        <div className="flex-1 relative bg-[#e5dfd3] overflow-hidden border-b-4 border-[#33180c]">
+          <ImageBg imageUrl={img2} className="w-full h-full" />
+          
+          <div className="absolute bottom-4 left-4 text-left flex flex-col items-start drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+             <SmartField field="titulo" {...sp}>
+               <span 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updateTitleItem(1, e.currentTarget.innerText)}
+                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                 style={{ fontSize: `${32 * sTitle}px` }}
+               >
+                 {b2Title}
+               </span>
+             </SmartField>
+             <SmartField field="texto_apoio" {...sp}>
+               <div 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updatePriceItem(1, e.currentTarget.innerText)}
+                 className="bg-[#fcae12] px-4 py-1.5 shadow-[2px_3px_0px_#33180c] flex items-start outline-none cursor-text select-text"
+               >
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">R$</span>
+                  <span className="text-[#33180c] font-display text-[26px] ml-0.5" style={{ fontSize: `${26 * sText}px` }}>{b2Price}</span>
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">,00</span>
+               </div>
+             </SmartField>
+          </div>
+
+          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#33180c] transform rotate-45 z-20" />
+        </div>
+
+        {/* Bloco 3 */}
+        <div className="flex-1 relative bg-[#f1f0ee] overflow-hidden">
+          <ImageBg imageUrl={img3} className="w-full h-full object-bottom" />
+          
+          <div className="absolute bottom-4 right-4 text-right flex flex-col items-end drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+             <SmartField field="titulo" {...sp}>
+               <span 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updateTitleItem(2, e.currentTarget.innerText)}
+                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                 style={{ fontSize: `${32 * sTitle}px` }}
+               >
+                 {b3Title}
+               </span>
+             </SmartField>
+             <SmartField field="texto_apoio" {...sp}>
+               <div 
+                 contentEditable suppressContentEditableWarning
+                 onBlur={(e) => updatePriceItem(2, e.currentTarget.innerText)}
+                 className="bg-[#fcae12] px-4 py-1.5 shadow-[2px_3px_0px_#33180c] flex items-start outline-none cursor-text select-text"
+               >
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">R$</span>
+                  <span className="text-[#33180c] font-display text-[26px] ml-0.5" style={{ fontSize: `${26 * sText}px` }}>{b3Price}</span>
+                  <span className="text-[#33180c] font-outfit font-bold text-[10px] mt-1">,00</span>
+               </div>
+             </SmartField>
+          </div>
+        </div>
+
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={false}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
+        handleColor="#33180c" counterColor="#33180c" counterBg="#fcae12" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -5142,6 +7878,27 @@ export const SPLIT_VARIANT_COMPONENTS = {
   75: SplitVariant75,
   76: SplitVariant76,
   77: SplitVariant77,
+  78: SplitVariant78,
+  79: SplitVariant79,
+  80: SplitVariant80,
+  81: SplitVariant81,
+  82: SplitVariant82,
+  83: SplitVariant83,
+  84: SplitVariant84,
+  85: SplitVariant85,
+  86: SplitVariant86,
+  87: SplitVariant87,
+  88: SplitVariant88,
+  89: SplitVariant89,
+  90: SplitVariant90,
+  91: SplitVariant91,
+  92: SplitVariant92,
+  93: SplitVariant93,
+  94: SplitVariant94,
+  95: SplitVariant95,
+  210: SplitVariant210,
+  211: SplitVariant211,
+  212: SplitVariant212,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -5218,8 +7975,26 @@ export const SPLIT_VARIANT_META = [
   { id: 74, name: 'Author Badge Bottom', description: 'Texto no topo com imagem e badge de autor', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--74.png' },
   { id: 75, name: 'Author Modern Reverse', description: 'Texto no topo com avatar e imagem arredondada', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--75.png' },
   { id: 76, name: 'Fast Company', description: 'Layout brutalista com injeção de textura granulada e card flutuante', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--76.png' },
-  { id: 77, name: 'Showcase Grid', description: 'Grade de 4 fotos reativas e banner central do Charity Bakes', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--77.png' },
+  { id: 77, name: 'Showcase Grid', description: 'Grade de 4 fotos reativas e banner central do Charity Bakes', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split77.png' },
+  { id: 78, name: 'Studio Doceria - Kit Festa', description: 'Layout amarelo e rosa mostarda para kits festivos', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--78.png' },
+  { id: 79, name: 'Tortas Variadas', description: 'Design rosa com recorte circular e rodapé de contato', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--79.png' },
+  { id: 80, name: 'Bolo de Cenoura', description: 'Estilo rústico moderno com sticker e base laranja', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--80.png' },
+  { id: 81, name: 'Qual o seu Favorito?', description: 'Card com 3 itens gastronômicos e estrela starburst', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--81.png' },
+  { id: 82, name: 'Lembrete Cheesecake', description: 'Card flutuante com morangos e cheesecake estourado', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split82.png' },
+  { id: 83, name: 'Bella Vontade Doce', description: 'Split angulado magenta e turquesa com fatia de torta', thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Conteudo/designs_split--83.png' },
+  { id: 84, name: 'Halloween Luana Grid', description: 'Grade 2x2 com números e logo centralizado flutuante' },
+  { id: 85, name: 'Torta Intensa', description: 'Mandala de fundo com chocolate flutuante e imagem central' },
+  { id: 86, name: 'Charity Sale', description: 'Layout branco com linhas rosas laterais e imagem superior' },
+  { id: 87, name: 'Cinnamon Rolls', description: 'Corte seco com pílula de título central e onda de divisão' },
+  { id: 88, name: 'Chocolate Community', description: 'Estilo chocolate figma com elipse roxa e base escura' },
+  { id: 89, name: 'Torta de Limão', description: 'Layout com merengue maçaricado, caixa de descrição e limões em SVG' },
+  { id: 90, name: 'Brownie Promo', description: 'Letreiro gigante vazado pink hot, tooltip no brownie e curva na base' },
+  { id: 91, name: 'Cupcake Box', description: 'Tema rosa vibrante com letreiro vazado cupcake, tooltip e caixa flutuante' },
+  { id: 92, name: 'Brigadeiro Question', description: 'Forminhas de brigadeiro flutuantes em ponto de interrogação sobre fundo coral' },
+  { id: 93, name: 'Pedido de Hoje', description: 'Split vertical com imagem à esquerda e tipografia brutalista à direita' },
+  { id: 94, name: 'Pink Pie Brownie', description: 'Fundo azul, card bicolor rosa e creme e imagem de brownie rotacionada' },
+  { id: 95, name: 'Ice Cream Special', description: 'Ondas rosas na base, anotações caligráficas com setas e sorvete em copo geométrico' },
+  { id: 210, name: 'Curso Inscrições (Infoproduto)', description: 'Estética magenta de lançamento com layout de blocos arredondados e box verde destacado.' },
+  { id: 211, name: 'Crepe Aviso de Risco', description: 'Design amarelo e vinho marcante com contorno offset na palavra central e caixa informativa.' },
+  { id: 212, name: 'Páscoa Casa de Bolos', description: 'Layout 3-tier para brownies com tags de preços e cabeçalho vintage em estilo cartoon.' },
 ];
-
-
-

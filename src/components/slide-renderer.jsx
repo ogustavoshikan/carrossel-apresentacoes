@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SlideCover from './slides/SlideCover';
 import SlideContentSplit from './slides/SlideContentSplit';
 import SlideBigNumber from './slides/SlideBigNumber';
@@ -84,6 +84,59 @@ export default function SlideRenderer({
   const Component = LAYOUT_MAP[data.layout];
   if (!Component) return null;
 
+  // Efeito colateral para injeção dinâmica de ruído estritamente no background da variante (primeiro filho)
+  useEffect(() => {
+    // 1. Caso o ruído esteja inativo, ou seja a Variante 76 (que já tem o seu próprio ruído hardcoded), ou o alvo seja o slide inteiro ('all')
+    if (
+      !data.enableNoise || 
+      (data.noiseTarget === 'all') || 
+      (data.layout === 'content-split' && data.splitVariantIndex === 76)
+    ) {
+      const existing = document.getElementById(`noise-svg-global-${index}`);
+      if (existing) existing.remove();
+      return;
+    }
+
+    // 2. Buscamos a div raiz da variante para injetar o ruído como primeiro filho
+    const slideCard = document.getElementById(`slide-card-${index}`);
+    if (!slideCard) return;
+
+    // A div da variante é a primeira div filha direta dentro do slide-card
+    const variantDiv = slideCard.querySelector('div:first-child');
+    if (!variantDiv) return;
+
+    // 3. Verifica e insere a textura de ruído — deposita apenas grãos, sem repintar o fundo
+    let noiseSvg = variantDiv.querySelector(`#noise-svg-global-${index}`);
+    if (!noiseSvg) {
+      noiseSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      noiseSvg.setAttribute("id", `noise-svg-global-${index}`);
+      noiseSvg.setAttribute("class", "absolute inset-0 w-full h-full pointer-events-none opacity-[1.0]");
+      noiseSvg.setAttribute("viewBox", "0 0 1088 1358");
+      noiseSvg.style.mixBlendMode = "normal";
+      noiseSvg.style.zIndex = "1"; // Acima do background sólido, abaixo de todos os textos, tags, imagens e contadores
+      variantDiv.insertBefore(noiseSvg, variantDiv.firstChild);
+    }
+
+    // fill="transparent": não repinta o fundo — apenas deposita os grãos de ruído por cima
+    noiseSvg.innerHTML = `
+      <defs>
+        <filter id="noiseFilter-global-${index}" x="0" y="0" width="1088" height="1358" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="9064" />
+          <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+          <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+            <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+          </feComponentTransfer>
+          <feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+          <feComposite operator="in" in2="coloredNoise1" in="color1Flood" result="color1" />
+          <feMerge>
+            <feMergeNode in="color1" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect width="1088" height="1358" fill="transparent" filter="url(#noiseFilter-global-${index})" />
+    `;
+  }, [data.enableNoise, data.noiseTarget, index, data.layout, data.splitVariantIndex]);
+
   // Variáveis de fonte específicas do slide ou globais
   const slideStyles = {
     '--font-title': data.titleFont || globalTitleFont,
@@ -119,6 +172,32 @@ export default function SlideRenderer({
         showSlideCounter={showSlideCounter}
         slideCounterPosition={slideCounterPosition}
       />
+
+      {/* Camada Global de Ruído/Grão (Sobre todo o slide) */}
+      {data.enableNoise && data.noiseTarget === 'all' && !(data.layout === 'content-split' && data.splitVariantIndex === 76) && (
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none opacity-[1.0] z-[100]" 
+          viewBox="0 0 1088 1358"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id={`noiseFilter-global-${index}`} x="0" y="0" width="1088" height="1358" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="9064" />
+              <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+              <feComponentTransfer in="alphaNoise" result="coloredNoise1">
+                <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feFlood floodColor="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+              <feComposite operator="in" in2="coloredNoise1" in="color1Flood" result="color1" />
+              <feMerge>
+                <feMergeNode in="color1" />
+              </feMerge>
+            </filter>
+          </defs>
+          {/* fill transparent: não sobrepõe cor de fundo — apenas deposita grão por cima do slide */}
+          <rect width="1088" height="1358" fill="transparent" filter={`url(#noiseFilter-global-${index})`} />
+        </svg>
+      )}
 
       {/* Camada Global de Clones (Duplicação T5.3) */}
       {data.clonedFields && data.clonedFields.length > 0 && (
