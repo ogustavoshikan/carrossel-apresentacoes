@@ -7725,8 +7725,6 @@ export function SplitVariant212({
                </span>
              </SmartField>
           </div>
-
-          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 transform rotate-45 z-20" style={{ backgroundColor: brandColor }} />
         </div>
 
         {/* Bloco 2 */}
@@ -7745,8 +7743,6 @@ export function SplitVariant212({
                </span>
              </SmartField>
           </div>
-
-          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 transform rotate-45 z-20" style={{ backgroundColor: brandColor }} />
         </div>
 
         {/* Bloco 3 */}
