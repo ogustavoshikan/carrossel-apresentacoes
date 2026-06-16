@@ -210,7 +210,7 @@ export default function SmartElement({
       {/* Conteúdo */}
       <div
         data-smart-content="true"
-        className={`w-full outline-none transition-colors relative z-10 ${
+        className={`w-full h-full outline-none transition-colors relative z-10 ${
           isActive
             ? 'outline outline-2 outline-offset-4 outline-[var(--color-brand)] bg-[var(--color-brand)]/5 ring-4 ring-black/20 rounded-sm'
             : showMetrics

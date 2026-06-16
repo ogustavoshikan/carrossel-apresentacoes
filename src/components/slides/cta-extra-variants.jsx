@@ -9,236 +9,236 @@ export const CTA_EXTRA_VARIANT_META = [
     id: 101,
     name: 'The Dark Luxury',
     description: 'Foco absoluto em salvar o post. Ícone gigante, fundo escuro.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra101.png' // Add proper thumbnail later
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra101.png' // Add proper thumbnail later
   },
   {
     id: 102,
     name: 'The Editorial Index',
     description: 'Limpo, claro, estruturado como o índice de uma revista de luxo.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra102.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra102.png'
   },
   {
     id: 104,
     name: 'The Cinematic Glass',
     description: 'Altamente visual. Usa a foto do produto por trás de um bloco desfocado.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra104.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra104.png'
   },
   {
     id: 109,
     name: 'The Solid Contrast',
     description: 'Zero efeitos. Fundo preto puro, tipografia branca impecável.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra109.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra109.png'
   },
   {
     id: 110,
     name: 'The Clean Magazine',
     description: 'Flat design absoluto. Foto de um lado, bloco sólido do outro. Sem sombras.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra-110.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra-110.png'
   },
   {
     id: 111,
     name: 'The Flat Crimson',
     description: 'Um bloco de cor maciço. Nada de blurs, sombras ou texturas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra111.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra111.png'
   },
   {
     id: 113,
     name: 'The Swiss Split',
     description: 'Metade cor sólida, metade off-white. Contraste absoluto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra113.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra113.png'
   },
   {
     id: 114,
     name: 'The Pure Typography',
     description: 'Apenas texto. Layout focado em opções de ação limpas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra114.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra114.png'
   },
 
   {
     id: 117,
     name: 'The Poetic Serif',
     description: 'Fundo claro, letras gigantes e itálicos delicados.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra117.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra117.png'
   },
   {
     id: 118,
     name: 'The Elegant Sentence',
     description: 'As ações estão embutidas diretamente no texto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra118.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra118.png'
   },
   {
     id: 120,
     name: 'The Floating Words',
     description: 'Escuro, dramático, usando a quebra de linha para criar arte.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra120.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra120.png'
   },
   {
     id: 122,
     name: 'The Light Whisper',
     description: 'Tema claro. Letras minúsculas gigantes.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra122.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra122.png'
   },
   {
     id: 124,
     name: 'The Absolute Focus',
     description: 'Uma única frase monumental.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra124.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra124.png'
   },
   {
     id: 126,
     name: 'The Framed Split',
     description: 'Borda grossa colorida, imagem com margens, divisão de cards na base.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra126.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra126.png'
   },
   {
     id: 127,
     name: 'The Dark Line',
     description: 'Dark mode absoluto, separador fino, tipografia limpa.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra127.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra127.png'
   },
   {
     id: 128,
     name: 'The Red Sidebar',
     description: 'Barra lateral vibrante, imagem dominante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra128.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra128.png'
   },
   {
     id: 129,
     name: 'The Overlap Badge',
     description: 'Card flutuante sobre imagem escurecida, badge circular de ação.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra129.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra129.png'
   },
   {
     id: 130,
     name: 'The Floating Center',
     description: 'Fundo creme, imagem central arredondada com sombra suave.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra130.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra130.png'
   },
   {
     id: 131,
     name: 'The Split Overlap',
     description: 'Topo sólido colorido, imagem rompendo a linha de divisão.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra131.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra131.png'
   },
   {
     id: 132,
     name: 'The Square Action',
     description: 'Design limpo, botões quadrados e tipografia impactante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra132.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra132.png'
   },
   {
     id: 133,
     name: 'The Action Overlap',
     description: 'Fundo imagem escura com card de encerramento e ícone flutuante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra133.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra133.png'
   },
   {
     id: 136,
     name: 'The Sharp Minimal',
     description: 'Design ultra clean com lista elegante e botão quadrado vibrante.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra136.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra136.png'
   },
   {
     id: 139,
     name: 'The Elegant Frame',
     description: 'Moldura fina dupla, imagem isolada e tipografia serifada sofisticada.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra139.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra139.png'
   },
   {
     id: 140,
     name: 'The Red Pillar',
     description: 'Pilar colorido na base com botão sólido e tipografia monumental.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra140.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra140.png'
   },
   {
     id: 141,
     name: 'The Red Sidebar Conclusion',
     description: 'Barra lateral vibrante, foco tipográfico monumental e lista de ações.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra141.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra141.png'
   },
   {
     id: 142,
     name: 'The Triptych Action Pillars',
     description: 'Design tríptico com 3 pilares de ação sólidos (Gostar, Partilhar, Salvar).',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra142.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra142.png'
   },
   {
     id: 143,
     name: 'The Elegant Conclusion Frame',
     description: 'Moldura fina, foto de perfil centralizada e estética de galeria de arte.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra143.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra143.png'
   },
   {
     id: 144,
     name: 'The Minimalist Synthesis',
     description: 'Topo colorido fino, tipografia mista e grid de ações baseada em linhas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra144.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra144.png'
   },
   {
     id: 145,
     name: 'The Crimson Base',
     description: 'Topo creme com imagem central e base vermelha sólida para ação.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra145.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra145.png'
   },
   {
     id: 146,
     name: 'The Overlap Pill',
     description: 'Design dividido no topo com pílula de ação sobrepondo a divisão.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra146.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra146.png'
   },
   {
     id: 151,
     name: 'The Crown Vignette',
     description: 'Vinheta dramática, ícone de coroa vibrante e tipografia monumental.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra151.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra151.png'
   },
   {
     id: 153,
     name: 'The Crimson Top Action',
     description: 'Bloco colorido dominante no topo, foto central e imagem na base.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra153.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra153.png'
   },
   {
     id: 155,
     name: 'The Red Bottom Overlap',
     description: 'Imagem no topo, bloco colorido na base e perfil sobrepondo a divisão.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra155.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra155.png'
   },
   {
     id: 156,
     name: 'The Synthesis Block',
     description: 'Borda grossa colorida, foco central massivo na ação e divisões geométricas.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra156.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra156.png'
   },
   {
     id: 158,
     name: 'The Golden Ratio',
     description: 'Proporções perfeitas, linhas finas, branco absoluto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra158.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra158.png'
   },
   {
     id: 160,
     name: 'The Glass Echo',
     description: 'Imagem de fundo total, desfoque de vidro maciço, elementos cristalinos.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra160.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra160.png'
   },
   {
     id: 162,
     name: 'The Pure Typography',
     description: 'A tipografia limpa, minimalismo absoluto.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra162.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra162.png'
   },
   {
     id: 165,
     name: 'The Hovering Squares',
     description: 'Três botões quadrados flutuantes na base sobre fundo creme. Elegância editorial.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra165.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra165.png'
   },
   {
     id: 166,
     name: 'The Floating Pills',
     description: 'Pílulas horizontais empilhadas substituindo blocos pesados. Elegância máxima.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra166.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra166.png'
   },
   {
     id: 167,
@@ -264,13 +264,13 @@ export const CTA_EXTRA_VARIANT_META = [
     id: 171,
     name: 'Bella Doceria para Festa',
     description: 'Painel mostarda com design split em tons de rosa e verde para exibição de doces festivos.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra171.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra171.png'
   },
   {
     id: 172,
     name: 'Orçamento Festa Especial',
     description: 'Layout rosa vibrante com marcas dágua de caligrafia, foco em orçamentos rápidos e contatos.',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA%20Extras/designs_cta-extra172.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra172.png'
   },
   {
     id: 173,

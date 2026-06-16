@@ -1100,7 +1100,7 @@ export default function App() {
               if (coverVar === 4 || coverVar === 0) {
                 children.push({ id: `cover4-outer-bg-${index}`, type: 'figure', x: 0, y: 0, width: 1080, height: 1350, fill: '#E5E5E5' });
                 children.push({ id: `cover4-inner-card-${index}`, type: 'figure', x: 16, y: 16, width: 1048, height: 1318, fill: '#000000', stroke: '#FFFFFF', strokeWidth: 12 });
-                const imgUrl = slide.image || slide.imageUrl || 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_10%20(6).png';
+                const imgUrl = slide.image || slide.imageUrl || '/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_10%20(6).png';
                 const imgPos = slide.positions?.['image'] || slide.positions?.['imagem'] || {};
                 children.push({ id: `cover4-img-${index}`, type: 'image', x: imgPos.x !== undefined ? imgPos.x : 28, y: imgPos.y !== undefined ? imgPos.y : 28, width: imgPos.width || 1024, height: imgPos.height || 1294, src: imgUrl, opacity: 0.95 });
                 children.push({ id: `cover4-overlay-${index}`, type: 'figure', x: 28, y: 28, width: 1024, height: 1294, fill: '#000000', opacity: 0.5 });
@@ -1112,7 +1112,7 @@ export default function App() {
                 if (titleEl) children.push(titleEl);
                 if (bodyEl) children.push(bodyEl);
               } else {
-                const imgUrl = slide.image || slide.imageUrl || 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_10%20(6).png';
+                const imgUrl = slide.image || slide.imageUrl || '/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_10%20(6).png';
                 const imgPos = slide.positions?.['image'] || slide.positions?.['imagem'] || {};
                 children.push({ id: `cover1-img-${index}`, type: 'image', x: imgPos.x !== undefined ? imgPos.x : 0, y: imgPos.y !== undefined ? imgPos.y : 0, width: imgPos.width || 1080, height: imgPos.height || 750, src: imgUrl });
                 children.push({ id: `cover1-rect-${index}`, type: 'figure', x: 0, y: 750, width: 1080, height: 600, fill: gradientColor1 || '#DE1E4D' });
@@ -1164,7 +1164,7 @@ export default function App() {
                 const titleEl = createText(slide.titulo || slide.title || 'Vitrine de Resultados', 'titulo', 48, 80, 150, 920, 80, '#FFFFFF', '900', 'left');
                 if (tagEl) children.push(tagEl);
                 if (titleEl) children.push(titleEl);
-                const imgUrl = slide.image || slide.imageUrl || 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(5).png';
+                const imgUrl = slide.image || slide.imageUrl || '/thumbnails/TIAJOANABRIGADEIROS_slide_1%20(5).png';
                 const imgPos = slide.positions?.['image'] || slide.positions?.['imagem'] || {};
                 children.push({ id: `showcase-card-${index}`, type: 'figure', x: imgPos.x !== undefined ? imgPos.x : 80, y: imgPos.y !== undefined ? imgPos.y : 260, width: imgPos.width || 920, height: imgPos.height || 620, fill: '#18181B', stroke: '#F59E0B', strokeWidth: 1, cornerRadius: 24 });
                 children.push({ id: `showcase-img-${index}`, type: 'image', x: (imgPos.x !== undefined ? imgPos.x : 80) + 20, y: (imgPos.y !== undefined ? imgPos.y : 260) + 20, width: (imgPos.width || 920) - 40, height: (imgPos.height || 620) - 40, src: imgUrl, cornerRadius: 16 });
@@ -1203,7 +1203,7 @@ export default function App() {
               }
             } else {
               if (splitVar === 1 || layout.startsWith('content-split')) {
-                const imgUrl = slide.image || slide.imageUrl || 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png';
+                const imgUrl = slide.image || slide.imageUrl || '/thumbnails/TIAJOANABRIGADEIROS_slide_1%20(7).png';
                 const imgPos = slide.positions?.['image'] || slide.positions?.['imagem'] || {};
                 children.push({ id: `split1-img-${index}`, type: 'image', x: imgPos.x !== undefined ? imgPos.x : 80, y: imgPos.y !== undefined ? imgPos.y : 160, width: imgPos.width || 920, height: imgPos.height || 350, src: imgUrl, cornerRadius: 32 });
                 children.push({ id: `split1-line-${index}`, type: 'figure', x: 80, y: 560, width: 40, height: 3, fill: gradientColor1 || '#DE1E4D' });
@@ -1223,7 +1223,7 @@ export default function App() {
                 children.push({ id: `split-hr-${index}`, type: 'figure', x: 80, y: 340, width: 120, height: 3, fill: '#38BDF8', opacity: 0.8 });
                 const bodyEl = createText(slide.texto_apoio || slide.body_text || slide.desc || 'Texto explicativo do slide', 'texto_apoio', 30, 80, 380, 500, 520, '#D4D4D8', 'normal', 'left');
                 if (bodyEl) children.push(bodyEl);
-                const imgUrl = slide.image || slide.imageUrl || 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(7).png';
+                const imgUrl = slide.image || slide.imageUrl || '/thumbnails/TIAJOANABRIGADEIROS_slide_1%20(7).png';
                 const imgPos = slide.positions?.['image'] || slide.positions?.['imagem'] || {};
                 children.push({ id: `split-img-${index}`, type: 'image', x: imgPos.x !== undefined ? imgPos.x : 620, y: imgPos.y !== undefined ? imgPos.y : 180, width: imgPos.width || 380, height: imgPos.height || 900, src: imgUrl, cornerRadius: 24 });
                 const footerEl = createText(slide.social || slide.social_text || brandHandle || '@carrossel.studio', 'footer', 22, 80, 1210, 400, 40, gradientColor1 || '#DE1E4D', 'bold', 'left');

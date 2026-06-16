@@ -357,60 +357,60 @@ export const LAYOUT_META = [
     key: 'cover',
     label: 'Capa',
     description: 'Slide de abertura com imagem de fundo',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/TIAJOANABRIGADEIROS_slide_1%20(14).png'
+    thumbnailUrl: '/thumbnails/TIAJOANABRIGADEIROS_slide_1%20(14).png'
   },
   {
     key: 'content-split',
     label: 'Conteúdo',
     description: 'Imagem + tag + título + texto',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_content-split.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_content-split.png'
   },
   {
     key: 'big-number',
     label: 'Número de Impacto',
     description: 'Estatística ou dado de destaque',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_big-number.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_big-number.png'
   },
   {
     key: 'quote',
     label: 'Citação',
     description: 'Frase de impacto com autor',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_quote.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_quote.png'
   },
   {
     key: 'comparison',
     label: 'Comparação',
     description: 'Mercado vs Marca em tabela',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_comparison.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_comparison.png'
   },
   {
     key: 'list',
     label: 'Lista',
     description: 'Lista estruturada com bullets',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_List.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_List.png'
   },
   {
     key: 'cta',
     label: 'CTA',
     description: 'Call to action — slide de fechamento',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/wireframe_menu_CTA.png'
+    thumbnailUrl: '/thumbnails/wireframe_menu_CTA.png'
   },
   {
     key: 'cover-extra',
     label: 'Capas\nExtras',
     description: 'Capas extras com estilos e fontes alternativos',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Capas%20Extras/capas_extras104.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20Capas%20Extras/capas_extras104.png'
   },
   {
     key: 'sequence',
     label: 'Sequência',
     description: 'Passo a passo ou fluxo de conteúdo',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20Sequencias/designs_sequence12.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20Sequencias/designs_sequence12.png'
   },
   {
     key: 'cta-extra',
     label: 'CTAs\nExtras',
     description: 'CTAs extras com estilos e fontes alternativos',
-    thumbnailUrl: 'https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Thumbnails%20CTA/designs_cta18.png'
+    thumbnailUrl: '/thumbnails/Thumbnails%20CTA/designs_cta18.png'
   },
 ];

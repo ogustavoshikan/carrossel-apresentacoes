@@ -84,6 +84,54 @@ export default function SlideRenderer({
   const Component = LAYOUT_MAP[data.layout];
   if (!Component) return null;
 
+  // Efeito colateral para injeção dinâmica de imagem de fundo personalizada
+  useEffect(() => {
+    const slideCard = document.getElementById(`slide-card-${index}`);
+    if (!slideCard) return;
+
+    const rendererWrapper = slideCard.querySelector('div:first-child');
+    if (!rendererWrapper) return;
+
+    // A div raiz da variante real é a primeira div filha de rendererWrapper
+    const variantDiv = rendererWrapper.querySelector('div:first-child') || rendererWrapper;
+
+    const bgId = `custom-bg-${index}`;
+
+    if (data.enableCustomBg && data.customBgImage) {
+      let customBgDiv = variantDiv.querySelector(`#${bgId}`);
+      if (!customBgDiv) {
+        customBgDiv = document.createElement("div");
+        customBgDiv.setAttribute("id", bgId);
+        customBgDiv.setAttribute("class", "absolute inset-0 w-full h-full pointer-events-none");
+        customBgDiv.style.backgroundSize = "cover";
+        customBgDiv.style.backgroundPosition = "center";
+        customBgDiv.style.zIndex = "0";
+        variantDiv.insertBefore(customBgDiv, variantDiv.firstChild);
+      }
+      customBgDiv.style.backgroundImage = `url(${data.customBgImage})`;
+      customBgDiv.style.opacity = `${(data.customBgOpacity ?? 100) / 100}`;
+    } else {
+      const existing = variantDiv.querySelector(`#${bgId}`);
+      if (existing) {
+        existing.remove();
+      }
+    }
+  }, [
+    data.enableCustomBg, 
+    data.customBgImage, 
+    data.customBgOpacity, 
+    index, 
+    data.layout, 
+    data.splitVariantIndex, 
+    data.coverVariantIndex, 
+    data.bigNumberVariantIndex, 
+    data.quoteVariantIndex, 
+    data.comparisonVariantIndex, 
+    data.listVariantIndex, 
+    data.ctaVariantIndex, 
+    data.sequenceVariantIndex
+  ]);
+
   // Efeito colateral para injeção dinâmica de ruído estritamente no background da variante (primeiro filho)
   useEffect(() => {
     // 1. Caso o ruído esteja inativo, ou seja a Variante 76 (que já tem o seu próprio ruído hardcoded), ou o alvo seja o slide inteiro ('all')
@@ -110,12 +158,15 @@ export default function SlideRenderer({
     if (!noiseSvg) {
       noiseSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       noiseSvg.setAttribute("id", `noise-svg-global-${index}`);
-      noiseSvg.setAttribute("class", "absolute inset-0 w-full h-full pointer-events-none opacity-[1.0]");
+      noiseSvg.setAttribute("class", "absolute inset-0 w-full h-full pointer-events-none");
       noiseSvg.setAttribute("viewBox", "0 0 1088 1358");
       noiseSvg.style.mixBlendMode = "normal";
       noiseSvg.style.zIndex = "1"; // Acima do background sólido, abaixo de todos os textos, tags, imagens e contadores
       variantDiv.insertBefore(noiseSvg, variantDiv.firstChild);
     }
+
+    // Atualiza a opacidade do ruído de forma dinâmica (preservando o padrão de 100% de intensidade)
+    noiseSvg.style.opacity = `${(data.noiseOpacity ?? 100) / 100}`;
 
     // fill="transparent": não repinta o fundo — apenas deposita os grãos de ruído por cima
     noiseSvg.innerHTML = `
@@ -135,7 +186,7 @@ export default function SlideRenderer({
       </defs>
       <rect width="1088" height="1358" fill="transparent" filter="url(#noiseFilter-global-${index})" />
     `;
-  }, [data.enableNoise, data.noiseTarget, index, data.layout, data.splitVariantIndex]);
+  }, [data.enableNoise, data.noiseTarget, data.noiseOpacity, index, data.layout, data.splitVariantIndex]);
 
   // Variáveis de fonte específicas do slide ou globais
   const slideStyles = {
@@ -176,7 +227,8 @@ export default function SlideRenderer({
       {/* Camada Global de Ruído/Grão (Sobre todo o slide) */}
       {data.enableNoise && data.noiseTarget === 'all' && !(data.layout === 'content-split' && data.splitVariantIndex === 76) && (
         <svg 
-          className="absolute inset-0 w-full h-full pointer-events-none opacity-[1.0] z-[100]" 
+          className="absolute inset-0 w-full h-full pointer-events-none z-[100]" 
+          style={{ opacity: (data.noiseOpacity ?? 100) / 100 }}
           viewBox="0 0 1088 1358"
           xmlns="http://www.w3.org/2000/svg"
         >

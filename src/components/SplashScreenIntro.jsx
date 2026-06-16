@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const IMAGES = [
-  "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_1%20(4).png",
-  "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_1%20(5).png",
-  "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_4.png",
-  "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/designs_sequence-13.png",
-  "https://wpkufemyqzwkylrfkihp.supabase.co/storage/v1/object/public/Carrossel%20Studio/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_2%20(6).png",
+  "/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_1%20(4).png",
+  "/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_1%20(5).png",
+  "/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_4.png",
+  "/thumbnails/Pagina%20inicio/designs_sequence-13.png",
+  "/thumbnails/Pagina%20inicio/TIAJOANABRIGADEIROS_slide_2%20(6).png",
 ];
 
 const STAGE_W      = 680;
