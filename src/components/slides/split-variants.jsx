@@ -9282,6 +9282,296 @@ export function SplitVariant224(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 225 — Açaí Textura
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant225(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "TEXTURA";
+  const desc = data.texto_apoio || "A alta viscosidade do açaí e\ndo sorvete demanda <b>dosadores\npotentes e precisos para garantir\num peso final exato</b>, sem variações\nque causem prejuízo ao produtor\nou ao consumidor.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1590165482129-1b8b27698780?q=80&w=1000&auto=format&fit=crop";
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = brandColor || data.accentColor || "#d6102c";
+  const borderColor = data.borderColor || "#fde047";
+
+  return (
+    <div 
+      id="template_12" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-4 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Caixa de Destaque Central */}
+      <div 
+        id="t12-red-box" 
+        className="relative w-[90%] shadow-xl flex flex-col items-center mt-20"
+        style={{ 
+          backgroundColor: colorAccent,
+          borderRadius: '24px',
+          paddingTop: '96px',
+          paddingBottom: '40px',
+          paddingLeft: '32px',
+          paddingRight: '32px'
+        }}
+      >
+        {/* Container da Imagem do Produto (Círculo sobreposto) */}
+        <SmartField field="imagem" {...sp} className="absolute left-1/2 -translate-x-1/2 aspect-square flex justify-center drop-shadow-xl z-20"
+          style={{ 
+            width: '180px',
+            height: '180px',
+            top: '-80px'
+          }}
+        >
+          {imageUrl ? (
+            <img 
+              id="t12-img" 
+              src={getCorsSafeUrl(imageUrl)} 
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover rounded-full border-solid" 
+              style={{
+                borderColor: borderColor,
+                borderWidth: '6px'
+              }}
+              alt="Açaí"
+            />
+          ) : (
+            <div className="w-full h-full bg-zinc-900/10 flex items-center justify-center rounded-full">
+              <ImageIcon className="w-8 h-8 text-zinc-400" />
+            </div>
+          )}
+        </SmartField>
+
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-6">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-black text-white text-center uppercase tracking-wide outline-none whitespace-pre-line"
+            style={{ fontSize: `${32 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Descrição / Texto */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-light text-white text-center outline-none whitespace-pre-line"
+            style={{ fontSize: `${17.6 * sText}px`, lineHeight: '1.4' }}
+            dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 226 — Benefícios (Curva)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant226(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const desc = data.texto_apoio || "Consumido diariamente,\no suco de laranja auxilia as defesas\ndo corpo e <b>ajuda a proteger</b> contra\n<b>gripes e resfriados.</b>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=1000&auto=format&fit=crop";
+  const colorBg = data.backgroundColor || "#ff7500";
+  const colorAccent = brandColor || data.accentColor || "#ffffff";
+
+  return (
+    <div 
+      id="template_13" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Imagem Superior com Curva */}
+      <SmartField field="imagem" {...sp} className="absolute top-0 left-0 w-full h-[65%] overflow-hidden z-10 bg-white"
+        style={{ 
+          borderBottomLeftRadius: '50% 20%', 
+          borderBottomRightRadius: '50% 20%' 
+        }}
+      >
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+
+      {/* Área Inferior */}
+      <div 
+        id="t13-bottom" 
+        className="absolute bottom-0 left-0 w-full h-[35%] flex items-center justify-center z-20 p-8"
+      >
+        {/* Box com contorno */}
+        <div 
+          id="t13-outline-box" 
+          className="w-[95%] text-center flex flex-col justify-center border"
+          style={{ 
+            borderColor: colorAccent,
+            borderRadius: '40px',
+            padding: '32px 16px',
+            borderWidth: '2px',
+            borderStyle: 'solid'
+          }}
+        >
+          {/* Descrição / Benefícios */}
+          <SmartField field="texto_apoio" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+              className="font-sans font-light tracking-wide text-center outline-none whitespace-pre-line"
+              style={{ 
+                color: colorAccent,
+                fontSize: `${19.2 * sText}px`,
+                lineHeight: '1.4'
+              }}
+              dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+        </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 227 — Tropisuco
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant227(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "O irmão ciumento que\nnão divide o irmão,\n<b>e nem o Tropisuco</b>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1000&auto=format&fit=crop";
+  const colorBg = data.backgroundColor || "#f47920";
+  const colorAccent = brandColor || data.accentColor || "#ffffff";
+
+  return (
+    <div 
+      id="template_15" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ 
+        backgroundColor: colorBg,
+        padding: '20px 24px 32px 24px'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Container da Imagem Central */}
+      <SmartField field="imagem" {...sp} className="w-full flex-1 overflow-hidden shadow-sm relative z-10"
+        style={{ 
+          borderRadius: '40px'
+        }}
+      >
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+      
+      {/* Área de Rodapé */}
+      <div 
+        className="w-full shrink-0 flex items-end justify-between z-10"
+        style={{ 
+          paddingTop: '24px', 
+          paddingLeft: '4px', 
+          paddingRight: '4px' 
+        }}
+      >
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-[80%]">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-light outline-none"
+            style={{ 
+              color: colorAccent,
+              fontSize: `${25.6 * sTitle}px`,
+              lineHeight: '1.05',
+              letterSpacing: '-0.8px'
+            }}
+            dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Logo Laranja / Suco */}
+        <div className="w-[20%] flex justify-end pb-1">
+          <svg 
+            id="t15-logo" 
+            viewBox="0 0 100 100" 
+            className="drop-shadow-sm"
+            style={{ 
+              width: '56px', 
+              height: '56px',
+              fill: colorAccent 
+            }}
+          >
+            <circle cx="50" cy="70" r="26" />
+            <path d="M47,43 Q20,35 30,15 Q48,25 47,43 Z" />
+            <path d="M53,43 Q80,25 70,5 Q52,15 53,43 Z" />
+          </svg>
+        </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+
 
 // ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
@@ -9394,6 +9684,9 @@ export const SPLIT_VARIANT_COMPONENTS = {
   222: SplitVariant222,
   223: SplitVariant223,
   224: SplitVariant224,
+  225: SplitVariant225,
+  226: SplitVariant226,
+  227: SplitVariant227,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -9504,4 +9797,7 @@ export const SPLIT_VARIANT_META = [
   { id: 222, name: 'Festa Junina (Card Base)', description: 'Layout de Festa Junina com imagem de fundo, círculos e card flutuante inferior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split222.png' },
   { id: 223, name: 'Empreendedor', description: 'Layout editorial com imagem de fundo e caixa flutuante superior contendo dois parágrafos de texto.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split223.png' },
   { id: 224, name: 'Sundae (Red Box)', description: 'Caixa de destaque superior colorida com texto e imagem centralizada de produto na base.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split224.png' },
+  { id: 225, name: 'Açaí Textura', description: 'Caixa vermelha centralizada sobreposta por imagem circular de produto com borda amarela.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split225.png' },
+  { id: 226, name: 'Benefícios (Curva)', description: 'Layout com imagem superior em arco e caixa de texto inferior contornada.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split226.png' },
+  { id: 227, name: 'Tropisuco', description: 'Imagem emoldurada centralizada com título na base e logo do copo de suco.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split227.png' },
 ];
