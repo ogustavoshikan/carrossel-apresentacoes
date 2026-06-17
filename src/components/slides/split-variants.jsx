@@ -8105,6 +8105,880 @@ export function SplitVariant215(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
+// VARIANTE 216 — Clean Tweet
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant216(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const name = data.tag || "Bruna Rebelo";
+  const handle = brandHandle || "@brunarebelo";
+  const title = data.titulo || "5 sinais de que seu brigadeiro vai cristalizar antes de ir para a forminha";
+  const description = data.texto_apoio || "O seu doce fica arenoso ou duro muito rápido? O erro quase nunca é a marca do leite condensado, mas sim a técnica de cocção!";
+  const footerLeft = data.badge_text || "ESTÚDIO DE CONFEITARIA";
+  
+  const avatarUrl = brandAvatar || "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=150";
+  const imageUrl = data.imageUrl || "https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2018/02/ganhar-dinheiro-vendendo-brigadeiro.webp";
+  const accentColor = brandColor || "#DE1E4D";
+
+  return (
+    <div id="container-clean" className="w-full h-full bg-white text-zinc-950 p-6 flex flex-col justify-between transition-all duration-300 relative select-none">
+      
+      <div className="space-y-4">
+        {/* Header com Perfil */}
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-full overflow-hidden border border-zinc-200 shrink-0">
+            <img src={avatarUrl} crossOrigin="anonymous" className="w-full h-full object-cover" alt="Avatar" />
+          </div>
+          <div className="leading-tight">
+            <div className="flex items-center gap-1">
+              <SmartField field="tag" {...sp}>
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+                  className="font-sans font-extrabold text-sm tracking-tight text-zinc-900 outline-none block"
+                >
+                  {name}
+                </span>
+              </SmartField>
+              {isVerified && (
+                <svg className="w-4 h-4 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              )}
+            </div>
+            <span className="text-xs text-zinc-500 font-medium block">{handle}</span>
+          </div>
+        </div>
+
+        {/* Manchete Impactante */}
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-sans font-extrabold leading-snug text-zinc-950 tracking-tight outline-none"
+            style={{ fontSize: `${20 * sTitle}px` }}
+          >
+            {title}
+          </h2>
+        </SmartField>
+
+        {/* Texto Descritivo */}
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-zinc-600 font-normal leading-relaxed outline-none"
+            style={{ fontSize: `${12 * sText}px` }}
+          >
+            {description}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* Imagem do Doce */}
+      <SmartField field="imagem" {...sp} className="relative flex-1 min-h-[180px] rounded-2xl overflow-hidden border border-zinc-100/80 mt-4 shadow-inner">
+        <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0 w-full h-full transition-all duration-500 transform hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+      </SmartField>
+
+      {/* Rodapé Sutil do Post */}
+      <div className="mt-4 pt-3 border-t border-zinc-100 flex justify-between items-center text-[10px] font-bold text-zinc-400 tracking-wider">
+        <SmartField field="badge_text" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="outline-none block"
+          >
+            {footerLeft}
+          </span>
+        </SmartField>
+        <span className="flex items-center gap-1 uppercase" style={{ color: accentColor }}>
+          ARRASTA PARA O LADO
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </span>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio integrado de forma sutil no topo para numeração de página */}
+      <div className="absolute top-2 right-6 pointer-events-none">
+        <SlideHeader 
+          data={data} 
+          slideIndex={index} 
+          onActionStart={onActionStart} 
+          selectedElement={selectedElement} 
+          onSelectElement={onSelectElement} 
+          index={index + 1} 
+          total={slideCount} 
+          brandHandle={brandHandle} 
+          showBrandHandle={false} 
+          brandColor={brandColor} 
+          isVerified={false} 
+          showSlideCounter={showSlideCounter} 
+          slideCounterPosition={slideCounterPosition} 
+          brandAvatar={brandAvatar} 
+          hideDot={true} 
+          counterBg="rgba(0,0,0,0.05)" 
+          handleColor="transparent" 
+          counterColor="#9ca3af" 
+          brandLogo={brandLogo} 
+          showBrandLogo={false} 
+          className="pointer-events-auto"
+        />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 217 — Choux Lab (4 Quadrantes)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant217(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
+    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const q1Img = data.imageUrl || "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80";
+  const q2Img = data.imageUrl2 || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80";
+  const q3Img = data.imageUrl3 || "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80";
+  const q4Img = data.imageUrl4 || "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80";
+
+  const q1Text = data.q1Text !== undefined ? data.q1Text : "chouxcotorta";
+  const q2Text = data.q2Text !== undefined ? data.q2Text : "cream cheese da casa";
+  const q3Text = data.q3Text !== undefined ? data.q3Text : "doce de leite de ovelha";
+  const q4Text = data.q4Text !== undefined ? data.q4Text : "choux cream";
+
+  return (
+    <div id="tpl-choux_lab" className="w-full h-full grid grid-cols-2 grid-rows-2 relative transition-all duration-300 overflow-hidden bg-black select-none">
+      {/* Overlay de Ruído Geral */}
+      <div id="noise-overlay" className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-20 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] z-20"></div>
+
+      {/* Quadrante 1 (Top-Left) */}
+      <div className="relative overflow-hidden flex items-center justify-center border-r border-b border-white/5 group">
+        <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full">
+          <ImageBg data={data} imageUrl={q1Img} imagePosition={data.imagePosition} imageScale={data.imageScale} className="absolute inset-0 w-full h-full transition-transform duration-700 scale-100 group-hover:scale-105" />
+        </SmartField>
+        <div id="q1_overlay_div" className="absolute inset-0 bg-black/15 transition-opacity duration-300 pointer-events-none"></div>
+        <SmartField field="q1Text" {...sp} className="relative z-10 px-4">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'q1Text', e.currentTarget.innerText)}
+            className="text-white font-sans text-sm font-medium text-center filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] outline-none block"
+            style={{ fontSize: `${14 * sTitle}px` }}
+          >
+            {q1Text}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Quadrante 2 (Top-Right) */}
+      <div className="relative overflow-hidden flex items-center justify-center border-b border-white/5 group">
+        <SmartField field="imagem2" {...sp} className="absolute inset-0 w-full h-full">
+          <ImageBg data={data} imageUrl={q2Img} imagePosition={data.imagePosition2 ?? data.imagePosition} imageScale={data.imageScale2 ?? data.imageScale} className="absolute inset-0 w-full h-full transition-transform duration-700 scale-100 group-hover:scale-105" />
+        </SmartField>
+        <div id="q2_overlay_div" className="absolute inset-0 bg-black/25 transition-opacity duration-300 pointer-events-none"></div>
+        <SmartField field="q2Text" {...sp} className="relative z-10 px-4">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'q2Text', e.currentTarget.innerText)}
+            className="text-white font-sans text-sm font-medium text-center filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] outline-none block"
+            style={{ fontSize: `${14 * sTitle}px` }}
+          >
+            {q2Text}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Quadrante 3 (Bottom-Left) */}
+      <div className="relative overflow-hidden flex items-center justify-center border-r border-white/5 group">
+        <SmartField field="imagem3" {...sp} className="absolute inset-0 w-full h-full">
+          <ImageBg data={data} imageUrl={q3Img} imagePosition={data.imagePosition3 ?? data.imagePosition} imageScale={data.imageScale3 ?? data.imageScale} className="absolute inset-0 w-full h-full transition-transform duration-700 scale-100 group-hover:scale-105" />
+        </SmartField>
+        <div id="q3_overlay_div" className="absolute inset-0 bg-black/15 transition-opacity duration-300 pointer-events-none"></div>
+        <SmartField field="q3Text" {...sp} className="relative z-10 px-4">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'q3Text', e.currentTarget.innerText)}
+            className="text-white font-sans text-sm font-medium text-center filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] outline-none block"
+            style={{ fontSize: `${14 * sTitle}px` }}
+          >
+            {q3Text}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Quadrante 4 (Bottom-Right) */}
+      <div className="relative overflow-hidden flex items-center justify-center group">
+        <SmartField field="imagem4" {...sp} className="absolute inset-0 w-full h-full">
+          <ImageBg data={data} imageUrl={q4Img} imagePosition={data.imagePosition4 ?? data.imagePosition} imageScale={data.imageScale4 ?? data.imageScale} className="absolute inset-0 w-full h-full transition-transform duration-700 scale-100 group-hover:scale-105" />
+        </SmartField>
+        <div id="q4_overlay_div" className="absolute inset-0 bg-black/10 transition-opacity duration-300 pointer-events-none"></div>
+        <SmartField field="q4Text" {...sp} className="relative z-10 px-4">
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'q4Text', e.currentTarget.innerText)}
+            className="text-white font-sans text-sm font-medium text-center filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] outline-none block"
+            style={{ fontSize: `${14 * sTitle}px` }}
+          >
+            {q4Text}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.3)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 218 — Açaí Grid Showcase
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant218(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
+    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const bgColor = brandColor || '#f2d022';
+  const texture = data.texture !== undefined ? data.texture : true;
+  const padding = data.padding !== undefined ? data.padding : 8;
+  const gap = data.gap !== undefined ? data.gap : 6;
+  const radius = data.radius !== undefined ? data.radius : 0;
+
+  const defaultImages = [
+    'https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1517881917430-e70dfb3610aa?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400',
+    'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=400'
+  ];
+
+  const gridImages = Array.from({ length: 12 }).map((_, i) => {
+    const key = i === 0 ? 'imageUrl' : `imageUrl${i + 1}`;
+    return data[key] || defaultImages[i];
+  });
+
+  const linenStyle = texture ? {
+    backgroundImage: `
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 4px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 4px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 2px, transparent 2px, transparent 6px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 2px, transparent 2px, transparent 6px)
+    `
+  } : {};
+
+  return (
+    <div 
+      className="w-full h-full relative flex items-center justify-center transition-all duration-300 overflow-hidden"
+      style={{ 
+        backgroundColor: bgColor,
+        ...linenStyle
+      }}
+    >
+      {/* Wrapper para controlar a margem interna (Padding) dinamicamente */}
+      <div 
+        className="w-full h-full flex items-center justify-center"
+        style={{ padding: `${padding}%` }}
+      >
+        {/* Grid 3x4 de Imagens */}
+        <div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+            width: '100%',
+            height: '100%',
+            gap: `${gap}px`
+          }}
+        >
+          {gridImages.map((imgSrc, i) => {
+            const fieldName = i === 0 ? 'imagem' : `imagem${i + 1}`;
+            return (
+              <div 
+                key={i} 
+                className="w-full h-full overflow-hidden bg-neutral-800/10 relative"
+                style={{ borderRadius: `${radius}px` }}
+              >
+                <SmartField field={fieldName} {...sp} className="absolute inset-0 w-full h-full">
+                  <ImageBg 
+                    data={data} 
+                    imageUrl={imgSrc} 
+                    imagePosition={data[`imagePosition${i === 0 ? '' : i + 1}`]} 
+                    imageScale={data[`imageScale${i === 0 ? '' : i + 1}`]} 
+                    className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" 
+                  />
+                </SmartField>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="rgba(255,255,255,0.4)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 219 — Tributo Curvo
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant219(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
+    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const bgColor = brandColor || data.bgColor || '#ea580c';
+  const lines = data.lines !== undefined ? data.lines : true;
+  const topSmallText = data.tag !== undefined ? data.tag : '15/3 - DIA DO CONSUMIDOR';
+  const topMainText = data.titulo || 'AGRADECEMOS A CADA UM DOS NOSSOS CONSUMIDORES';
+  const bottomText = data.texto_apoio || 'Sem o apoio e parceria de vocês, nossa jornada não seria possível';
+  const brandText = brandHandle || data.badge_text || 'gourmet lab';
+  const iconType = data.iconType || 'stars_users';
+
+  // Dicionário de ilustrações SVG reativas ao tema
+  const vectorIllustrations = {
+    stars_users: (
+      <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Três Estrelas no Topo */}
+        <polygon points="50,6 53,16 63,16 55,22 58,32 50,26 42,32 45,22 37,16 47,16" fill="white"/>
+        <polygon points="30,14 32.5,21 39.5,21 34,25.5 36,32.5 30,28 24,32.5 26,25.5 20.5,21 27.5,21" fill="white" opacity={0.8}/>
+        <polygon points="70,14 72.5,21 79.5,21 74,25.5 76,32.5 70,28 64,32.5 66,25.5 60.5,21 67.5,21" fill="white" opacity={0.8}/>
+        
+        {/* Corações de Parceria Laterais */}
+        <path d="M12,40 C8,35 2,38 2,44 C2,50 12,56 12,56 C12,56 22,50 22,44 C22,38 16,35 12,40 Z" fill="none" stroke="white" strokeWidth={2}/>
+        <path d="M18,52 C15,48 11,50 11,54 C11,58 18,62 18,62 C18,62 25,58 25,54 C25,50 21,48 18,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7}/>
+        
+        <path d="M88,40 C84,35 78,38 78,44 C78,50 88,56 88,56 C88,56 98,50 98,44 C98,38 92,35 88,40 Z" fill="none" stroke="white" strokeWidth={2}/>
+        <path d="M82,52 C79,48 75,50 75,54 C75,58 82,62 82,62 C82,62 89,58 89,54 C89,50 85,48 82,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7}/>
+
+        {/* Clientes Centralizados */}
+        <circle cx="50" cy="46" r="11" fill="white"/>
+        <path d="M32,74 C32,60 40,54 50,54 C60,54 68,60 68,74 Z" fill="white"/>
+        
+        {/* Cliente Esquerdo */}
+        <circle cx="34" cy="52" r="8" fill="white" opacity={0.9}/>
+        <path d="M20,74 C20,64 26,60 34,60 C38,60 41,61 43,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9}/>
+        <path d="M20,74 C20,64 26,60 34,60 C36,60 39,61 41,62" fill="white" opacity={0.9}/>
+
+        {/* Cliente Direito */}
+        <circle cx="66" cy="52" r="8" fill="white" opacity={0.9}/>
+        <path d="M80,74 C80,64 74,60 66,60 C62,60 59,61 57,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9}/>
+        <path d="M80,74 C80,64 74,60 66,60 C64,60 61,61 59,62" fill="white" opacity={0.9}/>
+      </svg>
+    ),
+    gourmet_chef: (
+      <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Brilhos e Estrelas */}
+        <polygon points="20,25 22,30 27,30 23,33 25,38 20,35 15,38 17,33 13,30 18,30" fill="white"/>
+        <polygon points="80,25 82,30 87,30 83,33 85,38 80,35 75,38 77,33 73,30 78,30" fill="white"/>
+        <polygon points="50,5 52,10 57,10 53,13 55,18 50,15 45,18 47,13 43,10 48,10" fill="white"/>
+
+        {/* Chapéu de Chef Elegante */}
+        <path d="M30,55 C25,55 22,48 27,42 C22,35 32,25 40,30 C45,20 55,20 60,30 C68,25 78,35 73,42 C78,48 75,55 70,55 Z" fill="white"/>
+        <rect x="33" y="53" width="34" height="12" rx="4" fill="white" stroke={bgColor} strokeWidth={2}/>
+        <line x1="42" y1="53" x2="42" y2="65" stroke={bgColor} strokeWidth={1.5}/>
+        <line x1="50" y1="53" x2="50" y2="65" stroke={bgColor} strokeWidth={1.5}/>
+        <line x1="58" y1="53" x2="58" y2="65" stroke={bgColor} strokeWidth={1.5}/>
+
+        {/* Talheres cruzados festivos */}
+        <path d="M35,78 L45,68" stroke="white" strokeWidth={3} strokeLinecap="round"/>
+        <path d="M65,78 L55,68" stroke="white" strokeWidth={3} strokeLinecap="round"/>
+      </svg>
+    ),
+    sweet_celebration: (
+      <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Balão de Amor Superior */}
+        <path d="M50,12 C46,4 32,4 32,16 C32,28 50,40 50,40 C50,40 68,28 68,16 C68,4 54,4 50,12 Z" fill="white"/>
+        
+        {/* Prato do Bolo */}
+        <line x1="20" y1="75" x2="80" y2="75" stroke="white" strokeWidth={4} strokeLinecap="round"/>
+        <path d="M35,75 L42,88 L58,88 L65,75" fill="white" opacity={0.9}/>
+
+        {/* Bolo de 2 Andares */}
+        <rect x="28" y="52" width="44" height="23" rx="3" fill="white"/>
+        <rect x="35" y="36" width="30" height="16" rx="2" fill="white" opacity={0.95}/>
+        
+        {/* Velinhas acesas */}
+        <line x1="50" y1="36" x2="50" y2="28" stroke="white" strokeWidth={2}/>
+        <path d="M50,28 C50,28 48,25 50,22 C52,25 50,28 50,28 Z" fill={bgColor}/>
+
+        {/* Detalhes de Confeitos com a cor dinâmica de fundo */}
+        <circle cx="34" cy="62" r="2.5" fill={bgColor}/>
+        <circle cx="45" cy="64" r="2.5" fill={bgColor}/>
+        <circle cx="56" cy="61" r="2.5" fill={bgColor}/>
+        <circle cx="66" cy="63" r="2.5" fill={bgColor}/>
+      </svg>
+    )
+  };
+
+  return (
+    <div className="w-full h-full relative flex flex-col justify-between bg-white transition-all duration-300 select-none overflow-hidden">
+      
+      {/* Linhas Geométricas Sutis de Fundo (Fundo Branco do Rodapé) */}
+      {lines && (
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+          <div className="absolute w-[120px] h-[120px] border border-neutral-400 rotate-[15deg] left-[-20px] bottom-[10%]"></div>
+          <div className="absolute w-[180px] h-[180px] border border-neutral-400 rotate-[-12deg] right-[-40px] bottom-[-20px]"></div>
+          <div className="absolute w-[150px] h-[150px] border border-neutral-400 rotate-[45deg] left-[25%] bottom-[-50px]"></div>
+        </div>
+      )}
+
+      {/* Cúpula Colorida Superior (Arco Orgânico) */}
+      <div 
+        className="w-full h-[68%] relative flex flex-col items-center justify-between py-[12%] px-[8%] text-center z-10 transition-all duration-300" 
+        style={{ 
+          backgroundColor: bgColor, 
+          borderRadius: '0 0 50% 50% / 0 0 22% 22%' 
+        }}
+      >
+        {/* Tag Superior */}
+        <SmartField field="tag" {...sp}>
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            className="text-[10px] font-extrabold uppercase tracking-widest text-white/90 outline-none block"
+            style={{ fontSize: `${10 * sText}px` }}
+          >
+            {topSmallText}
+          </span>
+        </SmartField>
+        
+        {/* Ilustração Vetorial Dinâmica Centralizada */}
+        <div className="w-24 h-24 my-auto flex items-center justify-center text-white">
+          {vectorIllustrations[iconType] || vectorIllustrations.stars_users}
+        </div>
+
+        {/* Texto de Gratidão Principal */}
+        <SmartField field="titulo" {...sp} className="max-w-[90%]">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="text-white font-extrabold leading-tight tracking-tight uppercase outline-none"
+            style={{ fontSize: `${20 * sTitle}px` }}
+          >
+            {topMainText}
+          </h2>
+        </SmartField>
+      </div>
+
+      {/* Conteúdo de Rodapé (Fundo Branco) */}
+      <div className="h-[32%] w-full flex flex-col justify-between items-center text-center px-[8%] pb-[8%] pt-[4%] z-10 relative">
+        {/* Frase de Parceria */}
+        <SmartField field="texto_apoio" {...sp} className="max-w-[85%] my-auto">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="text-neutral-500 font-semibold leading-relaxed outline-none"
+            style={{ fontSize: `${12 * sText}px` }}
+          >
+            {bottomText}
+          </p>
+        </SmartField>
+        
+        {/* Logo Textual da Assinatura */}
+        <SmartField field="badge_text" {...sp}>
+          <div className="flex items-center gap-1.5 justify-center">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+              className="font-extrabold text-sm tracking-tight text-neutral-800 outline-none block"
+            >
+              {brandText}
+            </span>
+            {/* Logo Dot */}
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-500"></span>
+          </div>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(255,255,255,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 220 — Cupcake Retro (Doçura)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant220(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "Doces Retrô";
+  const description = data.texto_apoio || "Coleção Exclusiva Anos 70";
+  const cta = data.badge_text !== undefined ? data.badge_text : "Peça o Seu!";
+  
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=1080&auto=format&fit=crop";
+  const backgroundColor = brandColor || data.backgroundColor || "#ec4899";
+  const backgroundColorLight = data.backgroundColorLight || "#f9a8d4";
+  const accentColor = data.accentColor || "#facc15";
+  const textColor = data.textColor || "#ffffff";
+  const footerColor = data.footerColor || "#0f172a";
+
+  return (
+    <div 
+      id="tpl-cupcake" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none transition-all duration-300 font-sans"
+      style={{ background: `radial-gradient(circle, ${backgroundColorLight} 0%, ${backgroundColor} 100%)` }}
+    >
+      {/* Estilos locais para garantir independência de CSS global */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Inter:wght@300;400;600;800&display=swap');
+        
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+        @keyframes float-mid {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(-6deg); }
+        }
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.03); }
+        }
+        
+        .animate-float-1 { animation: float-slow 6s ease-in-out infinite; }
+        .animate-float-2 { animation: float-mid 5s ease-in-out infinite; }
+        .animate-bounce-subtle { animation: bounce-subtle 3s ease-in-out infinite; }
+        
+        .text-stroke-1 {
+            -webkit-text-stroke: 1.5px currentColor;
+            color: transparent;
+        }
+      `}} />
+
+      {/* Text Repeating Background */}
+      <div 
+        className="absolute inset-x-0 top-12 flex flex-col items-center justify-center select-none pointer-events-none opacity-20 font-bebas tracking-wide leading-none text-stroke-1"
+        style={{ color: textColor }}
+      >
+        <div className="text-[5.5rem] tracking-widest">CUPCAKE</div>
+        <div className="text-[5.5rem] tracking-widest mt-[-0.8rem]">CUPCAKE</div>
+        <div className="text-[5.5rem] tracking-widest mt-[-0.8rem]">CUPCAKE</div>
+      </div>
+
+      {/* Floaty Chocolates (Vetor SVG) */}
+      <svg 
+        className="absolute top-24 left-8 w-12 h-12 animate-float-1 pointer-events-none opacity-70" 
+        viewBox="0 0 24 24" 
+        fill="currentColor"
+        style={{ color: backgroundColorLight }}
+      >
+        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z"/>
+      </svg>
+      <svg 
+        className="absolute bottom-32 right-8 w-10 h-10 animate-float-2 pointer-events-none opacity-60" 
+        viewBox="0 0 24 24" 
+        fill="currentColor"
+        style={{ color: backgroundColorLight }}
+      >
+        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z"/>
+      </svg>
+
+      {/* Main Image Frame */}
+      <SmartField field="imagem" {...sp} className="absolute left-8 right-8 top-16 bottom-[130px] bg-white rounded-[2rem] shadow-2xl p-4 flex flex-col border-4 border-white overflow-hidden">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full rounded-[1.5rem]" />
+      </SmartField>
+
+      {/* Bouncy Badge / Tag */}
+      {cta && (
+        <SmartField field="badge_text" {...sp} className="absolute top-12 right-6 animate-bounce-subtle z-20">
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+            className="text-slate-900 px-4 py-2 font-black text-xs uppercase tracking-wider rounded-2xl shadow-xl border-2 border-slate-900 flex items-center justify-center transform rotate-12 outline-none"
+            style={{ backgroundColor: accentColor }}
+          >
+            {cta}
+          </div>
+        </SmartField>
+      )}
+
+      {/* Base Curve & CTA Section */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-[110px] flex flex-col items-center justify-center text-center rounded-t-[2.5rem] shadow-[0_-15px_30px_rgba(0,0,0,0.3)] z-10 px-8"
+        style={{ 
+          backgroundColor: footerColor, 
+          borderTop: `4px solid ${accentColor}`
+        }}
+      >
+        <SmartField field="titulo" {...sp}>
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-pacifico leading-tight outline-none"
+            style={{ color: textColor, fontSize: `${24 * sTitle}px` }}
+          >
+            {title1}
+          </h2>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp} className="mt-0.5">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-bold tracking-widest uppercase lbl-description outline-none"
+            style={{ color: backgroundColorLight, fontSize: `${10 * sText}px` }}
+          >
+            {description}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 221 — Feedback (Prova Social)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant221(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const brand = data.tag || brandHandle || "ANA ROSA";
+  const brandSub = data.badge_text || "CONFEITARIA";
+  const titleBg = data.favTitle1 || "FEEDBACK";
+  const titleFg = data.titulo || "de clientes";
+  const text = data.texto_apoio || "BOA TARDE, ANA! TUDO BEM?!\nQUERIA TE AGRADECER PELO BOLO... ALÉM DE LINDO, SUPER SABOROSO! QUATRO LEITES COM MORANGO É MINHA PAIXÃO, MAS ESSE MARTA ROCHA ESTÁ ROUBANDO MEU CORAÇÃO!!\nRECOMENDO SEMPRE!! PARABÉNS PELO SEU TRABALHO! E OBRIGADA!!";
+  const name = data.favName || "Rithiely Knoth";
+  
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1080&auto=format&fit=crop";
+  const backgroundColor = brandColor || data.backgroundColor || "#e61159";
+  const boxColor = data.boxColor || "#ff85b3";
+
+  // Conversão rápida de hex para rgb para opacidade
+  const hexToRgb = (hex) => {
+    if (!hex) return "255, 133, 179";
+    const cleanHex = hex.replace('#', '');
+    if (cleanHex.length === 3) {
+      const r = parseInt(cleanHex[0] + cleanHex[0], 16);
+      const g = parseInt(cleanHex[1] + cleanHex[1], 16);
+      const b = parseInt(cleanHex[2] + cleanHex[2], 16);
+      return `${r}, ${g}, ${b}`;
+    }
+    const r = parseInt(cleanHex.substring(0, 2), 16);
+    const g = parseInt(cleanHex.substring(2, 4), 16);
+    const b = parseInt(cleanHex.substring(4, 6), 16);
+    return `${r}, ${g}, ${b}`;
+  };
+
+  const rgbBoxColor = hexToRgb(boxColor);
+
+  return (
+    <div 
+      id="tpl_feedback" 
+      className="w-full h-full relative overflow-hidden flex select-none transition-all duration-300"
+      style={{ backgroundColor }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Great+Vibes&family=Montserrat:wght@400;700&family=Inter:wght@400;700&display=swap');
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Lado Esquerdo: Imagem com Borda Arredondada Estilizada */}
+      <SmartField field="imagem" {...sp} className="w-[58%] h-full relative p-8 shrink-0">
+        <div className="w-full h-full relative overflow-hidden bg-white rounded-tl-[1rem] rounded-tr-[5rem] rounded-bl-[5rem] rounded-br-[1rem] shadow-[10px_0_30px_rgba(0,0,0,0.2)] border-[8px] border-white z-10">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        </div>
+      </SmartField>
+
+      {/* Lado Direito: Conteúdo e Texto */}
+      <div className="w-[48%] h-full absolute right-0 top-0 flex flex-col pt-16 pr-12 pb-16 pl-4 z-20">
+        
+        {/* Header / Logo Area */}
+        <div className="flex flex-col items-center justify-center w-full mb-12 relative z-20">
+          <svg className="w-12 h-12 mb-2 text-white/80" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5V9.5C10 8.67 10.67 8 11.5 8h1c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5zm2-6.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/>
+          </svg>
+          <SmartField field="tag" {...sp}>
+            <h3 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+              className="text-white text-2xl font-cinzel tracking-[0.15em] leading-none mb-1 outline-none block text-center"
+            >
+              {brand}
+            </h3>
+          </SmartField>
+          <div className="flex items-center gap-2 text-white/80">
+            <div className="w-4 h-[1px] bg-white/50"></div>
+            <SmartField field="badge_text" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="text-xs font-sans tracking-[0.2em] font-light uppercase outline-none block"
+              >
+                {brandSub}
+              </span>
+            </SmartField>
+            <div className="w-4 h-[1px] bg-white/50"></div>
+          </div>
+        </div>
+
+        {/* Título "Feedback de clientes" Sobreposto */}
+        <div className="relative flex items-center justify-center mb-10 ml-[-4rem] z-20">
+          <SmartField field="favTitle1" {...sp} className="absolute -top-4 w-[120%] text-center left-[-10%] select-none">
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'favTitle1', e.currentTarget.innerText)}
+              className="font-cinzel font-black tracking-widest uppercase outline-none"
+              style={{ color: `rgba(${rgbBoxColor}, 0.3)`, fontSize: `${70 * sTitle}px` }}
+            >
+              {titleBg}
+            </h2>
+          </SmartField>
+          <h2 
+            className="font-cinzel font-black tracking-widest uppercase absolute -top-4 w-[120%] text-center left-[-10%] select-none pointer-events-none" 
+            style={{ color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.7)', fontSize: `${70 * sTitle}px` }}
+          >
+            {titleBg}
+          </h2>
+          
+          <SmartField field="titulo" {...sp} className="z-10 pb-4 mt-6 transform -rotate-2">
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-script text-white drop-shadow-md outline-none block leading-none text-center"
+              style={{ fontSize: `${80 * sTitle}px` }}
+            >
+              {titleFg}
+            </h1>
+          </SmartField>
+        </div>
+
+        {/* Balão de Depoimento */}
+        <div 
+          id="tpl_feedback_box" 
+          className="w-[115%] ml-[-15%] flex-1 rounded-[3rem] shadow-xl p-8 relative flex flex-col justify-center border-[3px] border-white/20 z-20"
+          style={{ backgroundColor: boxColor }}
+        >
+          <SmartField field="texto_apoio" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              className="text-white font-sans font-bold text-center uppercase tracking-wide outline-none whitespace-pre-line leading-relaxed"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {text}
+            </p>
+          </SmartField>
+
+          {/* Assinatura do Nome */}
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full flex justify-center items-end h-20">
+            <SmartField field="favName" {...sp} className="z-30 mr-4 shrink-0">
+              <div 
+                className="text-white px-8 py-3 rounded-full shadow-lg border-[4px] border-white"
+                style={{ backgroundColor }}
+              >
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'favName', e.currentTarget.innerText)}
+                  className="font-display font-bold tracking-tight outline-none block"
+                  style={{ fontSize: `${20 * sTitle}px` }}
+                >
+                  {name}
+                </span>
+              </div>
+            </SmartField>
+            
+            <svg className="w-16 h-16 text-white drop-shadow-md z-10 shrink-0" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+        </div>
+        
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
 
@@ -8206,6 +9080,12 @@ export const SPLIT_VARIANT_COMPONENTS = {
   213: SplitVariant213,
   214: SplitVariant214,
   215: SplitVariant215,
+  216: SplitVariant216,
+  217: SplitVariant217,
+  218: SplitVariant218,
+  219: SplitVariant219,
+  220: SplitVariant220,
+  221: SplitVariant221,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -8307,4 +9187,10 @@ export const SPLIT_VARIANT_META = [
   { id: 213, name: 'Day M', description: 'Arco côncavo superior com mockup flutuante centralizado e botão de chamada de ação.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split213.png' },
   { id: 214, name: 'Orange Routine', description: 'Design minimalista com ícone geométrico e painel em arco portal com sangramento total.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split214.png' },
   { id: 215, name: 'Recipe Red', description: 'Layout de receita com imagem superior de canto arredondado e badge de destaque.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split215.png' },
+  { id: 216, name: 'Clean Tweet', description: 'Layout no formato de tweet com imagem interna e assinatura do perfil.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split216.png' },
+  { id: 217, name: 'Choux Lab (4 Quadrantes)', description: 'Grid com 4 fotos e rótulos de texto independentes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split217.png' },
+  { id: 218, name: 'Açaí Grid Showcase', description: 'Grelha 3x4 com textura de tecido e cantos arredondados ajustáveis.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split218.png' },
+  { id: 219, name: 'Tributo Curvo', description: 'Cúpula curva superior colorida com ilustrações vetoriais dinâmicas.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split219.png' },
+  { id: 220, name: 'Cupcake Retro (Doçura)', description: 'Design vintage com imagem moldurada, textos grandes estilizados e chocolates flutuantes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split220.png' },
+  { id: 221, name: 'Feedback (Prova Social)', description: 'Layout de depoimento com imagem arredondada deslocada e balão de texto em destaque.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split221.png' },
 ];
