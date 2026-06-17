@@ -8972,11 +8972,316 @@ export function SplitVariant221(props) {
         brandHandle={brandHandle} showBrandHandle={showBrandHandle}
         brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 222 — Festa Junina / Card Base
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant222(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const desc = data.texto_apoio || "Durante essa época, a demanda por doces de festa junina, shots de licor artesanal e bolos no pote dispara, e o desafio para quem produz é embalar um alto volume de unidades por dia, <span class='font-bold text-[#c92a2a]'>mantendo o padrão, a qualidade e a segurança do produto.</span>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1000&auto=format&fit=crop";
+  const colorAccent = brandColor || data.accentColor || "#c92a2a";
+  const colorBg = data.backgroundColor || "#ffffff";
+
+  // Substitui a cor de destaque original no texto formatado com HTML pela cor dinâmica configurada
+  const processedDesc = desc.replace(/#c92a2a/g, colorAccent);
+
+  // Converte a cor de fundo hexadecimal para RGBA com 90% de opacidade para simular o white/90 com blur
+  const hexToRgba = (hex, alpha) => {
+    if (!hex) return `rgba(255, 255, 255, ${alpha})`;
+    const cleanHex = hex.replace('#', '');
+    let r, g, b;
+    if (cleanHex.length === 3) {
+      r = parseInt(cleanHex[0] + cleanHex[0], 16);
+      g = parseInt(cleanHex[1] + cleanHex[1], 16);
+      b = parseInt(cleanHex[2] + cleanHex[2], 16);
+    } else {
+      r = parseInt(cleanHex.substring(0, 2), 16);
+      g = parseInt(cleanHex.substring(2, 4), 16);
+      b = parseInt(cleanHex.substring(4, 6), 16);
+    }
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  return (
+    <div 
+      id="template_09" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pacifico&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Imagem de Fundo (Preenchendo tudo) */}
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full">
+        <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0 w-full h-full" />
+      </SmartField>
+
+      {/* Elementos Decorativos (Círculos no Fundo com mix-blend-multiply e blur) */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 overflow-hidden mix-blend-multiply">
+        <div 
+          id="t9-circle1" 
+          className="absolute rounded-full bg-slate-400/50 blur-sm"
+          style={{ width: '350px', height: '350px', top: '-100px', left: '100px' }}
+        ></div>
+        <div 
+          id="t9-circle2" 
+          className="absolute rounded-full bg-slate-400/40 blur-sm"
+          style={{ width: '250px', height: '250px', top: '100px', left: '350px' }}
+        ></div>
+        <div 
+          id="t9-circle3" 
+          className="absolute rounded-full bg-rose-400/40 blur-sm"
+          style={{ width: '450px', height: '450px', top: '350px', left: '-100px' }}
+        ></div>
+      </div>
+
+      {/* Card Flutuante Inferior */}
+      <div 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[42%] backdrop-blur-md z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex items-center justify-center p-8 px-12"
+        style={{ 
+          backgroundColor: hexToRgba(colorBg, 0.9),
+          borderRadius: '3rem 3rem 0 0'
+        }}
+      >
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-[#4a4a4a] text-center font-light leading-relaxed outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: processedDesc }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
         hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
         handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
     </div>
   );
 }
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 223 — Empreendedor
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant223(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title2 = data.titulo || "Mesmo aos pequenos empreendedores,\né possível profissionalizar a produção\npara obter um resultando consistente\ne trazer credibilidade à marca.";
+  const desc = data.texto_apoio || "Com uma seladora manual e selos\nde proteção (plástico ou alumínio), as\nembalagens ficam seguras, padronizadas\ne com uma boa apresentação.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1589363460779-cbdf170e1239?q=80&w=1000";
+  
+  const colorBg = data.backgroundColor || "#eceae6";
+  const colorAccent = brandColor || data.accentColor || "#3d3d3d";
+
+  // Converte a cor de fundo hexadecimal para RGBA com 95% de opacidade para simular a translucidez com blur
+  const hexToRgba = (hex, alpha) => {
+    if (!hex) return `rgba(236, 234, 230, ${alpha})`;
+    const cleanHex = hex.replace('#', '');
+    let r, g, b;
+    if (cleanHex.length === 3) {
+      r = parseInt(cleanHex[0] + cleanHex[0], 16);
+      g = parseInt(cleanHex[1] + cleanHex[1], 16);
+      b = parseInt(cleanHex[2] + cleanHex[2], 16);
+    } else {
+      r = parseInt(cleanHex.substring(0, 2), 16);
+      g = parseInt(cleanHex.substring(2, 4), 16);
+      b = parseInt(cleanHex.substring(4, 6), 16);
+    }
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  return (
+    <div 
+      id="template_10" 
+      className="w-full h-full relative overflow-hidden flex select-none bg-white font-sans transition-all duration-300"
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Imagem de Fundo */}
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full">
+        <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0 w-full h-full" />
+      </SmartField>
+
+      {/* Elementos Decorativos (Círculos no Fundo com mix-blend-multiply e blur) */}
+      <div className="absolute bottom-0 right-0 w-full h-full pointer-events-none z-10 overflow-hidden mix-blend-multiply">
+        <div 
+          id="t10-circle1" 
+          className="absolute rounded-full bg-stone-400/40 blur-md"
+          style={{ width: '450px', height: '450px', bottom: '-100px', right: '50px' }}
+        ></div>
+        <div 
+          id="t10-circle2" 
+          className="absolute rounded-full bg-rose-900/20 blur-md"
+          style={{ width: '550px', height: '550px', bottom: '150px', right: '-150px' }}
+        ></div>
+      </div>
+
+      {/* Card Flutuante Superior */}
+      <div 
+        id="t10-card" 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[92%] backdrop-blur-md z-20 shadow-[0_10px_30px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center p-8 pb-10"
+        style={{ 
+          backgroundColor: hexToRgba(colorBg, 0.95),
+          borderRadius: '0 0 3rem 3rem'
+        }}
+      >
+        <SmartField field="titulo" {...sp} className="mb-4">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-sans text-center outline-none whitespace-pre-line"
+            style={{ color: colorAccent, fontSize: `${18 * sTitle}px`, lineHeight: '1.4' }}
+          >
+            {title2}
+          </p>
+        </SmartField>
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-sans font-bold text-center outline-none whitespace-pre-line"
+            style={{ color: colorAccent, fontSize: `${20 * sText}px`, lineHeight: '1.4' }}
+          >
+            {desc}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 224 — Sundae (Red Box)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant224(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "MIX DE\nACOMPANHAMENTOS";
+  const desc = data.texto_apoio || "Muitas vezes, sorvetes e açaí vêm\ncom um mix de acompanhamentos\n(pedaços de frutas, granolas ou\ngranulados), que <b>não podem ser\ntriturados pelo sistema de dosagem.</b>\nPor isso, exigem dosadores específicos.";
+  const imageUrl = data.imageUrl || "https://png.pngtree.com/png-vector/20231020/ourmid/pngtree-sundae-ice-cream-with-chocolate-syrup-png-image_10237731.png";
+  
+  const colorAccent = brandColor || data.accentColor || "#d6102c";
+  const colorBg = data.backgroundColor || "#ffffff";
+
+  return (
+    <div 
+      id="template_11" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Caixa de Destaque Superior (Red Box) */}
+      <div 
+        id="t11-red-box" 
+        className="absolute top-0 left-0 w-full h-[70%] flex flex-col items-center justify-start z-10 shadow-lg px-8 pt-16"
+        style={{ 
+          backgroundColor: colorAccent,
+          borderRadius: '0 0 4rem 4rem'
+        }}
+      >
+        <SmartField field="titulo" {...sp} className="mb-4">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-sans font-black text-white text-center uppercase outline-none whitespace-pre-line"
+            style={{ fontSize: `${32 * sTitle}px`, lineHeight: '1.2' }}
+          >
+            {title1}
+          </h1>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-light text-white text-center outline-none whitespace-pre-line"
+            style={{ fontSize: `${16 * sText}px`, lineHeight: '1.4' }}
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Container da Imagem Central/Produto */}
+      <SmartField field="imagem" {...sp} className="absolute left-1/2 -translate-x-1/2 z-20 flex justify-center w-[300px] bottom-[30px]">
+        {imageUrl ? (
+          <img 
+            src={getCorsSafeUrl(imageUrl)} 
+            crossOrigin="anonymous" 
+            className="w-full object-contain drop-shadow-2xl max-h-[300px]" 
+            alt="Sundae" 
+          />
+        ) : (
+          <div className="w-40 h-40 bg-zinc-900/10 flex items-center justify-center rounded-full">
+            <ImageIcon className="w-8 h-8 text-zinc-400" />
+          </div>
+        )}
+      </SmartField>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
 
 // ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
@@ -9086,6 +9391,9 @@ export const SPLIT_VARIANT_COMPONENTS = {
   219: SplitVariant219,
   220: SplitVariant220,
   221: SplitVariant221,
+  222: SplitVariant222,
+  223: SplitVariant223,
+  224: SplitVariant224,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -9193,4 +9501,7 @@ export const SPLIT_VARIANT_META = [
   { id: 219, name: 'Tributo Curvo', description: 'Cúpula curva superior colorida com ilustrações vetoriais dinâmicas.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split219.png' },
   { id: 220, name: 'Cupcake Retro (Doçura)', description: 'Design vintage com imagem moldurada, textos grandes estilizados e chocolates flutuantes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split220.png' },
   { id: 221, name: 'Feedback (Prova Social)', description: 'Layout de depoimento com imagem arredondada deslocada e balão de texto em destaque.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split221.png' },
+  { id: 222, name: 'Festa Junina (Card Base)', description: 'Layout de Festa Junina com imagem de fundo, círculos e card flutuante inferior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split222.png' },
+  { id: 223, name: 'Empreendedor', description: 'Layout editorial com imagem de fundo e caixa flutuante superior contendo dois parágrafos de texto.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split223.png' },
+  { id: 224, name: 'Sundae (Red Box)', description: 'Caixa de destaque superior colorida com texto e imagem centralizada de produto na base.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split224.png' },
 ];
