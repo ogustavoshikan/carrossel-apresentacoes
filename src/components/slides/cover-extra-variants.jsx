@@ -6266,6 +6266,445 @@ export function CoverExtraVariant211({
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 212 — Template Side Pill (Destaque Lateral)
+// Design premium assimétrico com pílula lateral e destaque de produto.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant212({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const finalBgColor = brandColor || '#E85382';
+  const finalSecColor = '#B02055'; // Cor secundária original
+  
+  const finalTitle = data.titulo || 'Como\nfidelizar\no seu\ncliente\nneste\nNatal';
+  const finalAuthorName = data.texto_apoio || 'May Bittencourt';
+  const finalAuthorHandle = brandHandle || '@maybittencourtdoceria';
+  const finalBadgeText = data.slide_call || 'Arraste pra o lado';
+  const finalAvatarUrl = brandAvatar || 'https://randomuser.me/api/portraits/women/44.jpg';
+
+  return (
+    <div 
+      id="tpl_side_pill" 
+      className="w-full h-full relative overflow-hidden select-none"
+      style={{ 
+        '--color-bg': finalBgColor,
+        '--color-secondary': finalSecColor,
+        backgroundColor: 'var(--color-bg)',
+        fontFamily: '"Inter", sans-serif'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-serif {
+          font-family: 'Playfair Display', serif;
+        }
+      `}} />
+
+      {/* SlideHeader invisível para compatibilidade (ocultando elementos desnecessários) */}
+      <SlideHeader
+        data={data}
+        slideIndex={index}
+        index={index + 1}
+        total={slideCount}
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        brandAvatar={brandAvatar}
+        isVerified={isVerified}
+        showBrandHandle={false}
+        showSlideCounter={false}
+        showBrandLogo={false}
+        hideDot={true}
+      />
+
+      {/* Pill Lateral Direita (Branca translúcida para criar o tom rosa claro perfeito sobre o fundo) */}
+      <div 
+        className="absolute top-0 right-0 w-[48px] h-full rounded-l-[20px] shadow-[-4px_0_10px_rgba(0,0,0,0.05)] bg-white/95 z-[5]"
+      />
+      
+      {/* Área de Conteúdo (88% da largura esquerda) */}
+      <div className="w-[352px] h-full relative z-20">
+        
+        {/* Header do Autor (Logo e Perfil) */}
+        <div className="absolute top-[40px] w-full flex justify-center items-center gap-3">
+          {finalAvatarUrl && (
+            <img 
+              id="tsp-logo" 
+              src={finalAvatarUrl} 
+              crossOrigin="anonymous"
+              className="w-8 h-8 rounded-full object-cover shadow-sm"
+              alt="Logo"
+            />
+          )}
+          <div className="flex flex-col justify-center">
+            <SmartField field="texto_apoio" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+                className="text-[11px] font-bold text-white leading-none tracking-wide outline-none cursor-text select-text"
+              >
+                {finalAuthorName}
+              </span>
+            </SmartField>
+            <span id="tsp-desc" className="text-[9px] font-light text-white/80 leading-tight mt-0.5">
+              {finalAuthorHandle}
+            </span>
+          </div>
+        </div>
+
+        {/* Título Principal */}
+        <div className="absolute top-[70px] right-[40px] text-right max-w-[85%] z-20 drop-shadow-md">
+          <SmartField field="titulo" {...sp}>
+            <h1 
+              id="tsp-title1" 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="text-[55px] font-serif font-semibold leading-[0.95] text-white m-0 outline-none cursor-text select-text whitespace-pre-line"
+              style={{ transform: `scale(${sTitle})`, transformOrigin: 'right center' }}
+            >
+              {finalTitle}
+            </h1>
+          </SmartField>
+        </div>
+
+        {/* Badge Flutuante */}
+        {finalBadgeText && (
+          <div className="absolute top-[340px] right-[60px] z-30">
+            <div 
+              className="bg-white/90 backdrop-blur-sm rounded-lg px-5 py-2 shadow-lg flex items-center gap-3 border-l-2"
+              style={{ borderColor: 'var(--color-bg)' }}
+            >
+              <SmartField field="slide_call" {...sp}>
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
+                  className="text-[10px] font-bold uppercase tracking-widest whitespace-nowrap outline-none cursor-text select-text block"
+                  style={{ color: 'var(--color-secondary)' }}
+                >
+                  {finalBadgeText}
+                </span>
+              </SmartField>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 213 — Template Corp Fórum (Corporate Forum)
+// Capa corporativa institucional com formas geométricas e imagem de destaque inferior.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant213({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const finalBgColor = '#F5F5F5'; // Fundo fixo cinza claro
+  const finalSecColor = brandColor || '#E3000F'; // Cor secundária é a cor da marca
+
+  const finalTitle = data.titulo || 'O PRIMEIRO\nFÓRUM DE\n<b>NETWORKING\nPROFISSIONAL</b>\nDE SERGIPE.';
+  const finalDesc = data.texto_apoio || 'O evento que reuniu lideranças para transformar a economia real do estado.';
+  const finalImageUrl = data.imageUrl || 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1080';
+  const finalLogoUrl = brandLogo || 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/BNI_logo.svg/1024px-BNI_logo.svg.png';
+  const finalBadgeText = data.slide_call || 'Deslize para o lado';
+
+  return (
+    <div 
+      id="tpl_corp_forum" 
+      className="w-full h-full relative overflow-hidden flex flex-col justify-between select-none bg-[#F5F5F5]"
+      style={{ 
+        '--color-bg': finalBgColor,
+        '--color-secondary': finalSecColor,
+        backgroundColor: 'var(--color-bg)',
+        fontFamily: '"Inter", sans-serif'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Oswald:wght@300;400;500;700;900&display=swap');
+        .font-oswald {
+          font-family: 'Oswald', sans-serif;
+        }
+        #tcf-title b {
+          color: var(--color-secondary);
+          font-weight: inherit;
+        }
+        #tcf-title span {
+          color: var(--color-secondary);
+        }
+      `}} />
+
+      {/* SlideHeader invisível para compatibilidade */}
+      <SlideHeader
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        brandAvatar={brandAvatar}
+        isVerified={isVerified}
+        index={index + 1}
+        className="opacity-0 absolute top-0 pointer-events-none"
+      />
+
+      {/* Formas Geométricas do Fundo (Lado Direito) */}
+      <div 
+        className="absolute top-0 right-0 w-[302.4px] h-[810px] z-0 transition-colors duration-300"
+        style={{ backgroundColor: 'var(--color-secondary)' }}
+      />
+      <div 
+        className="absolute top-0 right-[302.4px] w-[270px] h-[297px] z-0 rounded-tl-[108px] transition-colors duration-300"
+        style={{ backgroundColor: 'var(--color-secondary)' }}
+      />
+
+      {/* Logo no Canto Superior Direito */}
+      {showBrandLogo && finalLogoUrl && (
+        <div className="absolute top-[108px] right-[54px] z-10 w-[194.4px] flex justify-center">
+          <img 
+            id="tcf-logo" 
+            src={finalLogoUrl} 
+            crossOrigin="anonymous"
+            className="w-full h-auto object-contain max-h-[80px]" 
+            alt="Logo"
+          />
+        </div>
+      )}
+
+      {/* Bloco de Textos e Conteúdo (Lado Esquerdo) */}
+      <div className="absolute top-[108px] left-[86.4px] w-[648px] z-10 flex flex-col">
+        <SmartField field="titulo" {...sp}>
+          <h1 
+            id="tcf-title" 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="text-[91.8px] font-black leading-[1] uppercase text-black tracking-tighter font-oswald m-0 outline-none cursor-text select-text"
+            style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
+            dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp}>
+          <p 
+            id="tcf-desc" 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="mt-[64.8px] text-[34.56px] font-bold text-gray-500 uppercase leading-[1.3] w-[95%] tracking-wide m-0 outline-none cursor-text select-text"
+            style={{ transform: `scale(${sText})`, transformOrigin: 'left center' }}
+            dangerouslySetInnerHTML={{ __html: finalDesc.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Indicador de Deslize */}
+        {finalBadgeText && (
+          <div className="mt-[86.4px] flex items-center gap-[27px]">
+            <SmartField field="slide_call" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
+                className="text-[27px] font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
+              >
+                {finalBadgeText}
+              </span>
+            </SmartField>
+            <div 
+              className="w-[54px] h-[54px] rounded-full border-[3.24px] border-black flex items-center justify-center shrink-0"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="w-[27px] h-[27px] text-black" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth="3"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Imagem de Fundo (Parte Inferior 40%) */}
+      {finalImageUrl && (
+        <div className="absolute bottom-0 left-0 w-full h-[540px] z-20 shadow-2xl overflow-hidden">
+          <img 
+            id="tcf-image" 
+            src={finalImageUrl} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover border-t-[10.8px] border-white transition-transform duration-700" 
+            alt="Destaque"
+            style={{
+              objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+              transform: `scale(${data.imageScale ?? 1})`,
+              transformOrigin: 'center center',
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXTRA VARIANTE 214 — Template Corp Notícias (Corporate News)
+// Template de notícias institucionais com header sólido, tipografia marcante e imagem inferior.
+// ═══════════════════════════════════════════════════════════
+export function CoverExtraVariant214({
+  data, index, brandColor, brandHandle, showBrandHandle, brandAvatar,
+  isVerified, titleScale, textScale, showMetrics, onActionStart,
+  onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
+}) {
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+
+  const finalBgColor = '#FFFFFF'; // Fundo fixo branco
+  const finalSecColor = brandColor || '#E3000F'; // Cor secundária é a cor da marca
+
+  const finalTitle = data.titulo || '100 EMPRESÁRIOS.\nUMA MESA.\n<b>NEGÓCIOS REAIS.</b>';
+  const finalSubtitle = data.badge_text || 'NOTÍCIAS';
+  const finalImageUrl = data.imageUrl || 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1080';
+  const finalLogoUrl = brandLogo || 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/BNI_logo.svg/1024px-BNI_logo.svg.png';
+  const finalBadgeText = data.slide_call || 'Deslize para o lado';
+
+  return (
+    <div 
+      id="tpl_corp_news" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none bg-white"
+      style={{ 
+        '--color-bg': finalBgColor,
+        '--color-secondary': finalSecColor,
+        backgroundColor: 'var(--color-bg)',
+        fontFamily: '"Inter", sans-serif'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Oswald:wght@300;400;500;700;900&display=swap');
+        .font-oswald {
+          font-family: 'Oswald', sans-serif;
+        }
+        #tcn-title b {
+          color: var(--color-secondary);
+          font-weight: inherit;
+        }
+        #tcn-title span {
+          color: var(--color-secondary);
+        }
+      `}} />
+
+      {/* SlideHeader invisível para compatibilidade */}
+      <SlideHeader
+        brandHandle={brandHandle}
+        brandColor={brandColor}
+        brandAvatar={brandAvatar}
+        isVerified={isVerified}
+        index={index + 1}
+        className="opacity-0 absolute top-0 pointer-events-none"
+      />
+
+      {/* Header Superior */}
+      <div 
+        className="w-full flex flex-col z-20 transition-colors duration-300"
+        style={{ backgroundColor: 'var(--color-secondary)' }}
+      >
+        {showBrandLogo && finalLogoUrl && (
+          <div className="h-[151.2px] flex items-center justify-center pt-[21.6px] pb-[10.8px]">
+            <img 
+              id="tcn-logo" 
+              src={finalLogoUrl} 
+              crossOrigin="anonymous"
+              className="h-[65%] w-auto object-contain max-h-[90px]" 
+              alt="Logo"
+            />
+          </div>
+        )}
+        
+        {finalSubtitle && (
+          <div className="w-full bg-black/20 py-[10.8px] text-center">
+            <SmartField field="badge_text" {...sp}>
+              <span 
+                id="tcn-subtitle" 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
+                className="text-white text-[30.24px] font-bold tracking-widest uppercase outline-none cursor-text select-text block"
+              >
+                {finalSubtitle}
+              </span>
+            </SmartField>
+          </div>
+        )}
+      </div>
+
+      {/* Bloco de Textos (Meio) */}
+      <div className="flex-1 flex flex-col justify-center px-[86.4px] relative z-10 mt-[21.6px]">
+        <SmartField field="titulo" {...sp}>
+          <h1 
+            id="tcn-title" 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="text-[108px] font-black leading-[0.95] uppercase text-black tracking-tighter font-oswald mb-[64.8px] m-0 outline-none cursor-text select-text"
+            style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
+            dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        {finalBadgeText && (
+          <div className="flex items-center gap-[21.6px]">
+            <SmartField field="slide_call" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
+                className="text-[27px] font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
+              >
+                {finalBadgeText}
+              </span>
+            </SmartField>
+            <div 
+              className="w-[54px] h-[54px] rounded-full border-[3.24px] border-black flex items-center justify-center shrink-0"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="w-[27px] h-[27px]" 
+                style={{ color: 'var(--color-secondary)' }}
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth="3"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Imagem de Fundo (Parte Inferior 50%) */}
+      {finalImageUrl && (
+        <div className="w-full h-[675px] relative z-0 overflow-hidden">
+          <img 
+            id="tcn-image" 
+            src={finalImageUrl} 
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover transition-transform duration-700" 
+            alt="Notícia"
+            style={{
+              objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,
+              transform: `scale(${data.imageScale ?? 1})`,
+              transformOrigin: 'center center',
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export const COVER_EXTRA_VARIANT_COMPONENTS = {
   101: CoverExtraVariant101,
   102: CoverExtraVariant102,
@@ -6340,6 +6779,9 @@ export const COVER_EXTRA_VARIANT_COMPONENTS = {
   209: CoverExtraVariant209,
   210: CoverExtraVariant210,
   211: CoverExtraVariant211,
+  212: CoverExtraVariant212,
+  213: CoverExtraVariant213,
+  214: CoverExtraVariant214,
 };
 
 export const COVER_EXTRA_VARIANT_META = [
@@ -6781,6 +7223,24 @@ export const COVER_EXTRA_VARIANT_META = [
     id: 211,
     name: 'Azeites Trigopane',
     description: 'Layout split moderno com metade salada e metade bloco de cor sólida dourada com subtítulo branco que se estende.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 212,
+    name: 'Side Pill (Destaque Lateral)',
+    description: 'Design premium assimétrico com pílula lateral e destaque de produto.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 213,
+    name: 'Corp Fórum',
+    description: 'Capa corporativa institucional com formas geométricas e imagem de destaque inferior.',
+    thumbnailUrl: '',
+  },
+  {
+    id: 214,
+    name: 'Corp Notícias',
+    description: 'Template de notícias institucionais com header sólido, tipografia marcante e imagem inferior.',
     thumbnailUrl: '',
   },
 ];

@@ -9571,8 +9571,2574 @@ export function SplitVariant227(props) {
   );
 }
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 228 — Ice Cream Info
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant228(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "BAIXA\nTEMPERATURA";
+  const title2 = data.subtitulo || "O QUE EXIGE UM FLUXO CONTÍNUO\n E RÁPIDO DE DOSAGEM.";
+  const extra1 = data.texto_apoio || "O produto precisa ser envasado\n em baixas temperaturas <strong class='font-bold text-black'>para\n manter sua consistência ideal</strong> e\n evitar o descongelamento parcial";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1556910103-1c02745a872e?auto=format&fit=crop&w=1000";
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = brandColor || data.accentColor || "#d61a3c";
+
+  return (
+    <div 
+      id="template_19" 
+      className="w-full h-full relative overflow-hidden flex flex-col justify-center px-10 gap-6 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Título Principal */}
+      <SmartField field="titulo" {...sp} className="w-full">
+        <h1 
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+          className="font-sans font-black uppercase leading-tight tracking-tight outline-none whitespace-pre-line"
+          style={{ color: colorAccent, fontSize: `${36 * sTitle}px` }}
+          dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
+        />
+      </SmartField>
+      
+      {/* Container da Imagem Central */}
+      <SmartField field="imagem" {...sp} className="w-full h-[192px] rounded-2xl border-[2.5px] overflow-hidden shrink-0 shadow-sm"
+        style={{ borderColor: colorAccent }}
+      >
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+      
+      {/* Bloco de Textos Descritivos */}
+      <div id="t19-text-block" className="flex flex-col gap-4">
+        {/* Descrição Longa */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-neutral-800 leading-[1.4] font-light outline-none whitespace-pre-line"
+            style={{ fontSize: `${19.2 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: extra1.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+        {/* Destaque Final */}
+        <SmartField field="subtitulo" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
+            className="font-sans font-bold uppercase tracking-wide outline-none whitespace-pre-line"
+            style={{ color: colorAccent, fontSize: `${16.8 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: title2.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 229 — Conteúdo
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant229(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "CONTEÚDO PROGRAMÁTICO";
+  const title2 = data.subtitulo || "Cocada de Verão";
+  const extra1 = data.subtitulo2 || data.extra1 || "Poderia Ser Um Bolo de Rolo";
+  const desc = data.texto_apoio || "• Crocante de limão\n• Biscuit de coco torrado\n• Geleia de abacaxi e Caramelo de coco\n• Mousse de coco com limão\n• Glaçagem branca e gourmet\n• Decoração de chocolate";
+  const extra2 = data.extra2 || "• Crocante de amêndoas\n• Biscuit genoise\n• Geleia de goiaba\n• Mousse de goiaba\n• Glaçagem rosa\n• Decoração de chocolate";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600";
+  const imageUrl2 = data.imageUrl2 || "https://images.unsplash.com/photo-1514845585565-df0abf4d048d?auto=format&fit=crop&w=600";
+  const colorBg = data.backgroundColor || "#fdbf0f";
+  const colorAccent = brandColor || data.accentColor || "#ffffff";
+
+  return (
+    <div 
+      id="template_20" 
+      className="w-full h-full relative overflow-hidden flex flex-col px-8 py-10 gap-6 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Ícone de Culinária Superior */}
+      <div 
+        id="t20-icon" 
+        className="w-8 h-8 border flex items-center justify-center shrink-0"
+        style={{ borderColor: colorAccent }}
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          style={{ color: colorAccent }}
+        >
+          <path d="M2 12h20"/>
+          <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/>
+          <path d="M4 8h16"/>
+          <path d="M12 2v2"/>
+          <path d="m9 2 .5 2"/>
+          <path d="m15 2-.5 2"/>
+        </svg>
+      </div>
+
+      {/* Seção do Título Principal */}
+      <div className="mb-2">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            className="font-sans font-medium tracking-wide uppercase outline-none"
+            style={{ color: colorAccent, fontSize: `${26 * sTitle}px` }}
+          >
+            {title1}
+          </h1>
+        </SmartField>
+        <div 
+          id="t20-line" 
+          className="h-[1.5px] w-[80%] mt-2 opacity-60"
+          style={{ backgroundColor: colorAccent }}
+        ></div>
+      </div>
+
+      {/* Bloco de Conteúdo 1 */}
+      <div className="flex flex-col gap-2.5">
+        <SmartField field="subtitulo" {...sp} className="w-full">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+            className="font-sans font-medium outline-none"
+            style={{ color: colorAccent, fontSize: `${20 * sText}px` }}
+          >
+            {title2}
+          </h2>
+        </SmartField>
+        <div className="flex gap-4 items-center">
+          <SmartField field="imagem" {...sp} className="w-[45%] aspect-square shrink-0 shadow-md">
+            <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+          </SmartField>
+          <SmartField field="texto_apoio" {...sp} className="flex-1">
+            <div 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+              className="font-sans leading-[1.7] font-light outline-none whitespace-pre-line"
+              style={{ color: colorAccent, fontSize: `${12.8 * sText}px` }}
+              dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
+            ></div>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Bloco de Conteúdo 2 */}
+      <div className="flex flex-col gap-2.5">
+        <SmartField field="subtitulo2" {...sp} className="w-full">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo2', e.currentTarget.innerText)}
+            className="font-sans font-medium outline-none"
+            style={{ color: colorAccent, fontSize: `${20 * sText}px` }}
+          >
+            {extra1}
+          </h2>
+        </SmartField>
+        <div className="flex gap-4 items-center">
+          <SmartField field="imageUrl2" {...sp} className="w-[45%] aspect-square shrink-0 shadow-md">
+            {imageUrl2 ? (
+              <img 
+                src={getCorsSafeUrl(imageUrl2)} 
+                crossOrigin="anonymous" 
+                className="w-full h-full object-cover" 
+                alt="Conteúdo 2" 
+              />
+            ) : (
+              <div className="w-full h-full bg-zinc-900/10 flex items-center justify-center">
+                <ImageIcon className="w-8 h-8 text-zinc-400" />
+              </div>
+            )}
+          </SmartField>
+          <SmartField field="extra2" {...sp} className="flex-1">
+            <div 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
+              className="font-sans leading-[1.7] font-light outline-none whitespace-pre-line"
+              style={{ color: colorAccent, fontSize: `${12.8 * sText}px` }}
+              dangerouslySetInnerHTML={{ __html: extra2.replace(/\n/g, '<br />') }}
+            ></div>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 230 — Corporate
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant230(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "Agentes de IA\nem milissegundos.\nMas quem fecha\no contrato?";
+  const title2 = data.subtitulo || "82%";
+  const extra1 = data.extra1 || "BNI";
+  const desc = data.texto_apoio || "A Apple acaba de lançar <strong class='font-bold'>agentes de IA ultra-rápidos</strong>. Processam dados em milissegundos. Automatizam tarefas complexas. <strong class='font-bold'>Mas o mercado de alto ticket continua exigindo algo que nenhum chip produz: confiança humana.</strong>";
+  const extra2 = data.extra2 || "dos contratos B2B de alto ticket são\nfechados por indicação pessoal";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000";
+  const colorBg = data.backgroundColor || "#f4f4f6";
+  const colorAccent = brandColor || data.accentColor || "#e11b22";
+
+  return (
+    <div 
+      id="template_21" 
+      className="w-full h-full relative overflow-hidden flex select-none bg-white font-sans transition-all duration-300"
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Archivo Black', sans-serif; }
+      `}} />
+
+      {/* Imagem de Fundo Lateral (Direita) */}
+      <SmartField field="imagem" {...sp} className="absolute top-0 right-0 w-[42%] h-full z-0">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+
+      {/* Painel de Fundo da Esquerda */}
+      <div 
+        id="t21-bg" 
+        className="absolute top-0 left-0 w-[65%] h-full z-10" 
+        style={{ backgroundColor: colorBg }}
+      ></div>
+      
+      {/* Container de Conteúdo Esquerdo */}
+      <div className="relative z-10 w-[65%] h-full flex flex-col justify-center px-8">
+        {/* Logo / Badge */}
+        <SmartField field="extra1" {...sp} className="absolute top-8 left-8">
+          <div 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+            className="font-display font-black text-[28px] tracking-tighter outline-none"
+            style={{ color: colorAccent }}
+          >
+            {extra1}
+          </div>
+        </SmartField>
+
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-4">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-bold leading-[1.1] text-black tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${30 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Descrição Longa */}
+        <SmartField field="texto_apoio" {...sp} className="w-full pr-4">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans leading-relaxed text-black font-medium outline-none whitespace-pre-line"
+            style={{ fontSize: `${12.8 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Card de Estatística Inferior */}
+      <div 
+        id="t21-stat-card" 
+        className="absolute bottom-10 left-8 w-[82%] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex items-center p-4 gap-4 z-20 border border-neutral-100"
+      >
+        {/* Número de Destaque */}
+        <SmartField field="subtitulo" {...sp} className="shrink-0">
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+            className="font-display font-black text-[56px] text-black leading-none tracking-tighter outline-none"
+          >
+            {title2}
+          </span>
+        </SmartField>
+        {/* Texto descritivo da estatística */}
+        <SmartField field="extra2" {...sp} className="flex-1">
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
+            className="font-sans text-[12px] leading-[1.3] text-black font-medium outline-none whitespace-pre-line block"
+            dangerouslySetInnerHTML={{ __html: extra2.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 231 — Açaí Textura Premium
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant231(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title1 = data.titulo || "TEXTURA";
+  const desc = data.texto_apoio || "A alta viscosidade do açaí e\ndo sorvete demanda <b>dosadores\npotentes e precisos para garantir\num peso final exato</b>, sem variações\nque causem prejuízo ao produtor\nou ao consumidor.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1590165482129-1b8b27698780?q=80&w=1000&auto=format&fit=crop";
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = brandColor || data.accentColor || "#d6102c";
+  const borderColor = data.borderColor || "#fde047";
+
+  return (
+    <div 
+      id="template_12" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-4 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Caixa de Destaque Central */}
+      <div 
+        id="t12-red-box" 
+        className="relative w-[90%] shadow-xl flex flex-col items-center mt-20"
+        style={{ 
+          backgroundColor: colorAccent,
+          borderRadius: '24px',
+          paddingTop: '96px',
+          paddingBottom: '40px',
+          paddingLeft: '32px',
+          paddingRight: '32px'
+        }}
+      >
+        {/* Container da Imagem do Produto (Círculo sobreposto) */}
+        <SmartField field="imagem" {...sp} className="absolute left-1/2 -translate-x-1/2 aspect-square flex justify-center drop-shadow-xl z-20"
+          style={{ 
+            width: '180px',
+            height: '180px',
+            top: '-80px'
+          }}
+        >
+          {imageUrl ? (
+            <img 
+              id="t12-img" 
+              src={getCorsSafeUrl(imageUrl)} 
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover rounded-full border-solid" 
+              style={{
+                borderColor: borderColor,
+                borderWidth: '6px'
+              }}
+              alt="Açaí"
+            />
+          ) : (
+            <div className="w-full h-full bg-zinc-900/10 flex items-center justify-center rounded-full">
+              <ImageIcon className="w-8 h-8 text-zinc-400" />
+            </div>
+          )}
+        </SmartField>
+
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-6">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-black text-white text-center uppercase tracking-wide outline-none whitespace-pre-line"
+            style={{ fontSize: `${32 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Descrição / Texto */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-light text-white text-center outline-none whitespace-pre-line"
+            style={{ fontSize: `${17.6 * sText}px`, lineHeight: '1.4' }}
+            dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 232 — Template Promo Páscoa
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant232(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1541744573515-478c90ff39ef?q=80&w=1080&auto=format&fit=crop";
+  const title = data.titulo || "O Ranking de\nPáscoa já começou!";
+  const subtitle = data.texto_apoio || "Garanta o seu lugar entre\nos 2.000 premiados.";
+  const colorBg = data.backgroundColor || "#f8eee1";
+  const colorText = data.textColor || "#311b11";
+
+  return (
+    <div 
+      id="tpl_promo_pascoa" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Área da imagem superior */}
+      <SmartField field="imagem" {...sp} className="w-full h-[62%] relative z-10 rounded-b-[32px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+
+      {/* Conteúdo inferior de texto e elementos de design */}
+      <div className="w-full h-[38%] flex flex-col items-center justify-center text-center px-8 relative z-0">
+        {/* Estrela SVG Decorativa */}
+        <div className="absolute left-[8%] top-[20%] pointer-events-none opacity-80">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill={colorText} xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
+        </div>
+
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-2">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-serif font-black leading-[1.1] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${34 * sTitle}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Subtítulo */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-light leading-[1.2] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${22 * sText}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: subtitle.replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 233 — Restaurante Trio
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant233(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const title = data.titulo || 'KOTORI';
+  const handle = data.extra1 || brandHandle || '@KOTORI.SP';
+  const address = data.extra2 || 'R. Cônego Eugênio Leite, 639 - Pinheiros';
+  const hours = data.texto_apoio || 'Ter. a sex.: 19h-23h / Sáb.: 12h-16h e 19h-23h';
+  
+  const imageUrl1 = data.imageUrl || 'https://images.unsplash.com/photo-1615361200141-f45040f367be?q=80&w=1080&auto=format&fit=crop';
+  const imageUrl2 = data.imageUrl2 || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1080&auto=format&fit=crop';
+  const imageUrl3 = data.imageUrl3 || 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1080&auto=format&fit=crop';
+  
+  const colorBg = data.backgroundColor || '#9e4b32';
+  const colorText = data.textColor || '#f4ebd9';
+  const colorCircle1 = data.extraColor || '#c07452';
+  const colorCircle2 = data.extraColor2 || '#8a3e26';
+
+  return (
+    <div 
+      id="tpl_restaurant_trio" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Círculos Decorativos de Fundo */}
+      <div 
+        className="absolute -bottom-16 -right-16 w-[350px] h-[350px] rounded-full border-[40px] opacity-80 pointer-events-none z-0" 
+        style={{ borderColor: colorCircle1 }}
+      ></div>
+      <div 
+        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border-[60px] opacity-80 pointer-events-none z-0" 
+        style={{ borderColor: colorCircle2 }}
+      ></div>
+
+      {/* Conteúdo de Texto Superior */}
+      <div className="w-full pt-12 px-8 pb-4 z-10 flex flex-col">
+        <div className="flex items-baseline gap-3 mb-2 flex-wrap">
+          <SmartField field="titulo" {...sp} className="shrink-0">
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+              className="font-display font-black leading-none tracking-tighter uppercase outline-none" 
+              style={{ fontSize: `${48 * sTitle}px`, color: colorText }}
+            >
+              {title}
+            </h1>
+          </SmartField>
+          
+          <SmartField field="extra1" {...sp} className="shrink-0">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+              className="font-sans font-bold text-[16px] tracking-wide outline-none" 
+              style={{ color: colorText }}
+            >
+              {handle}
+            </span>
+          </SmartField>
+        </div>
+
+        <SmartField field="extra2" {...sp} className="w-full mb-1">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+            className="font-sans font-light text-[16px] tracking-wide outline-none whitespace-pre-line" 
+            style={{ color: colorText }}
+          >
+            {address}
+          </p>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            className="font-serif italic font-light text-[14px] tracking-wide outline-none whitespace-pre-line" 
+            style={{ color: colorText }}
+          >
+            {hours}
+          </p>
+        </SmartField>
+      </div>
+
+      {/* Imagens (Trio Vertical) */}
+      <div className="flex-1 w-full px-8 pb-8 flex flex-col gap-3 z-10 min-h-0">
+        <SmartField field="imagem" {...sp} className="w-full h-[28%] overflow-hidden bg-black/10 rounded-sm shadow-md">
+          <ImageBg data={data} imageUrl={imageUrl1} className="w-full h-full" />
+        </SmartField>
+        <SmartField field="imagem2" {...sp} className="w-full h-[32%] overflow-hidden bg-black/10 rounded-sm shadow-md">
+          <ImageBg data={data} imageUrl={imageUrl2} className="w-full h-full" />
+        </SmartField>
+        <SmartField field="imagem3" {...sp} className="w-full flex-1 overflow-hidden bg-black/10 rounded-sm shadow-md">
+          <ImageBg data={data} imageUrl={imageUrl3} className="w-full h-full" />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
 
 
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 234 — Mosaico 3x3
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant234(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const text = data.titulo || "12 itens\nprodução\n<span class=\"font-bold\">artesanal</span>\npadaria\n<span class=\"font-bold\">Nauta</span>";
+  const colorBg = data.backgroundColor || "#e86b24";
+  const colorText = data.textColor || "#ffffff";
+
+  const img1 = data.imageUrl || "https://images.unsplash.com/photo-1509365465994-3e8412e84d4b?q=80&w=400&auto=format&fit=crop";
+  const img2 = data.imageUrl2 || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=400&auto=format&fit=crop";
+  const img3 = data.imageUrl3 || "https://images.unsplash.com/photo-1626844131082-256783844137?q=80&w=400&auto=format&fit=crop";
+  const img4 = data.imageUrl4 || "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=400&auto=format&fit=crop";
+  const img5 = data.imageUrl5 || "https://images.unsplash.com/photo-1612203985729-70726954388c?q=80&w=400&auto=format&fit=crop";
+  const img6 = data.imageUrl6 || "https://images.unsplash.com/photo-1551106652-a5bcf4b29ce6?q=80&w=400&auto=format&fit=crop";
+  const img7 = data.imageUrl7 || "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=400&auto=format&fit=crop";
+  const img8 = data.imageUrl8 || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=400&auto=format&fit=crop";
+
+  return (
+    <div 
+      id="tpl_grid_center_text" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <div className="w-full h-full grid grid-cols-3 grid-rows-3 gap-0" style={{ backgroundColor: colorBg }}>
+        {/* Linha 1 */}
+        <SmartField field="imagem" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img1} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+        <SmartField field="imagem2" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img2} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+        <SmartField field="imagem3" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img3} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+
+        {/* Linha 2 */}
+        <SmartField field="imagem4" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img4} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+        
+        <div className="w-full h-full flex items-center justify-center p-3 text-center bg-transparent z-10">
+          <SmartField field="titulo" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+              className="font-sans leading-[1] tracking-tighter outline-none whitespace-pre-line block" 
+              style={{ fontSize: `${20 * sTitle}px`, color: colorText }}
+              dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+        </div>
+        
+        <SmartField field="imagem5" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img5} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+
+        {/* Linha 3 */}
+        <SmartField field="imagem6" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img6} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+        <SmartField field="imagem7" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img7} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+        <SmartField field="imagem8" {...sp} className="w-full h-full overflow-hidden bg-white">
+          <ImageBg data={data} imageUrl={img8} className="w-full h-full mix-blend-multiply opacity-95" />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 235 — Promo Plataforma
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant235(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const bgImg = data.imageUrl || "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=1080&auto=format&fit=crop";
+  const product = data.imageUrl2 || "https://images.unsplash.com/photo-1600189020473-b2585f6e85d9?q=80&w=800&auto=format&fit=crop";
+  const logo = data.imageUrl3 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  
+  const title1 = data.titulo || "Pão de queijo";
+  const title2 = data.subtitulo || "Solves everything.";
+  const tag1 = data.extra1 || "FAST";
+  const tag2 = data.extra2 || "HOT";
+  const tag3 = data.extra3 || "FRESH.";
+  const cta = data.extra4 || "Order now.";
+  const price = data.extra5 || "2,95";
+  const currency = data.extra6 || "€";
+  const colorBottom = brandColor || data.backgroundColor2 || "#6104e8";
+
+  return (
+    <div 
+      id="tpl_promo_plataforma" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: '#ffffff' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Top Image Area */}
+      <SmartField field="imagem" {...sp} className="w-full h-[65%] relative z-0">
+        <ImageBg data={data} imageUrl={bgImg} className="w-full h-full" />
+      </SmartField>
+
+      {/* Bottom Solid Color Area */}
+      <div 
+        className="w-full h-[35%] relative z-10 flex px-8 items-center justify-end" 
+        style={{ backgroundColor: colorBottom }}
+      >
+        {/* Floating Platform (Left) */}
+        <div className="absolute left-6 bottom-[15%] w-[45%] h-auto z-20">
+          <div className="relative w-full pb-[15%]">
+            <div className="absolute bottom-0 w-full h-[16px] rounded-full bg-black/20 blur-md"></div>
+            <div className="absolute bottom-[4px] w-full h-full bg-gradient-to-t from-white/10 to-transparent rounded-t-[24px] opacity-50"></div>
+            
+            {/* Product PNG */}
+            <SmartField field="imagem2" {...sp} className="w-[90%] mx-auto relative z-20">
+              <img 
+                id="tpl_plat_product" 
+                src={getCorsSafeUrl(product)} 
+                className="w-full object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.4)] transform -translate-y-[10%]" 
+                crossOrigin="anonymous"
+                alt="Produto"
+              />
+            </SmartField>
+            
+            {/* Price Pill */}
+            <div 
+              className="absolute bottom-0 -right-4 rounded-full px-3 py-1 flex items-baseline gap-0.5 shadow-lg border border-white/10 z-30"
+              style={{ backgroundColor: brandColor || '#a35dd7' }}
+            >
+              <SmartField field="extra6" {...sp} className="shrink-0">
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'extra6', e.currentTarget.innerText)}
+                  className="font-sans font-bold text-white text-[10px] outline-none"
+                >
+                  {currency}
+                </span>
+              </SmartField>
+              <SmartField field="extra5" {...sp} className="shrink-0">
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'extra5', e.currentTarget.innerText)}
+                  className="font-display font-black text-white text-[20px] leading-none tracking-tighter outline-none"
+                >
+                  {price}
+                </span>
+              </SmartField>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Text Content */}
+        <div className="w-[48%] flex flex-col pt-4">
+          <SmartField field="titulo" {...sp} className="w-full mb-1">
+            <h2 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+              className="font-sans font-bold text-white leading-[1.1] tracking-tight outline-none whitespace-pre-line"
+              style={{ fontSize: `${22 * sTitle}px` }}
+              dangerouslySetInnerHTML={{ __html: title1.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+          
+          <SmartField field="subtitulo" {...sp} className="w-full mb-2">
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
+              className="font-serif italic font-medium text-[#e0e565] leading-[1.0] tracking-tighter drop-shadow-sm outline-none whitespace-pre-line"
+              style={{ fontSize: `${30 * sTitle}px` }}
+              dangerouslySetInnerHTML={{ __html: title2.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+          
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <SmartField field="extra1" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+                className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
+              >
+                {tag1}
+              </span>
+            </SmartField>
+            <span className="w-[1px] h-3 bg-white/30"></span>
+            <SmartField field="extra2" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+                className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
+              >
+                {tag2}
+              </span>
+            </SmartField>
+            <span className="w-[1px] h-3 bg-white/30"></span>
+            <SmartField field="extra3" {...sp}>
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
+                className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
+              >
+                {tag3}
+              </span>
+            </SmartField>
+          </div>
+          
+          <SmartField field="extra4" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerHTML)}
+              className="font-sans font-bold text-white tracking-tight outline-none whitespace-pre-line"
+              style={{ fontSize: `${16 * sText}px` }}
+              dangerouslySetInnerHTML={{ __html: cta.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+        </div>
+      </div>
+
+      {/* Logo (Top Right) */}
+      <SmartField field="imagem3" {...sp} className="absolute top-10 right-10 h-8 z-30">
+        {logo ? (
+          <img 
+            id="tpl_plat_logo" 
+            src={getCorsSafeUrl(logo)} 
+            className="h-full object-contain filter brightness-0 invert drop-shadow-md" 
+            crossOrigin="anonymous"
+            alt="Logo"
+          />
+        ) : (
+          <div className="h-full w-8 bg-white/10 rounded" />
+        )}
+      </SmartField>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(255,255,255,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 236 — Rotina Suco
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant236(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const topText = data.titulo || "Pronto para beber, fácil de encontrar\ne simples de incluir na rotina:";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1527661591450-b4dca88926d1?q=80&w=1080&auto=format&fit=crop";
+  const bottomText = data.texto_apoio || "seja no <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">café da manhã</span>, na saída\ncom os <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">amigos</span> ou nos\nencontros de <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">família</span>.";
+  
+  const colorBg = data.backgroundColor || "#0a4b2c";
+  const colorTopText = data.textColor || "#ffffff";
+  const colorBottomLight = data.extraColor || "#fad570";
+  const colorBottomBold = brandColor || data.accentColor || "#e88912";
+
+  return (
+    <div 
+      id="tpl_juice_routine" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center justify-between py-12 px-8 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Texto Superior */}
+      <div className="w-full text-center z-10 pt-4">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-light leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
+            style={{ fontSize: `${20 * sTitle}px`, color: colorTopText }}
+            dangerouslySetInnerHTML={{ __html: topText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Imagem Central e Vetor de Fruta */}
+      <div className="relative w-full h-[52%] flex items-center justify-center z-10 my-2">
+        {/* Folha/Vetor Decorativo no topo do container */}
+        <div className="absolute -top-[20px] left-1/2 transform -translate-x-1/2 z-20 drop-shadow-md pointer-events-none">
+          <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 35 C 20 35, 10 60, 10 80 C 10 100, 30 115, 50 115 C 70 115, 90 100, 90 80 C 90 60, 80 35, 50 35 Z" fill={colorBottomLight}/>
+            <path d="M55 30 C 55 10, 75 5, 85 5 C 85 25, 65 30, 55 30 Z" fill="#ffffff"/>
+            <path d="M45 32 C 30 28, 15 15, 20 5 C 40 10, 50 22, 45 32 Z" fill="#996238"/>
+          </svg>
+        </div>
+        
+        {/* Container da Imagem */}
+        <SmartField field="imagem" {...sp} className="w-full h-full rounded-[24px] overflow-hidden shadow-2xl relative border border-black/10">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        </SmartField>
+      </div>
+
+      {/* Texto Inferior */}
+      <div className="w-full text-center z-10 pb-4">
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
+            style={{ '--text-bottom-bold': colorBottomBold, color: colorBottomLight, fontSize: `${19 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: bottomText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorTopText} counterColor={colorTopText} counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 237 — Promo Páscoa (ID 237)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant237(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1541744573515-478c90ff39ef?q=80&w=1080&auto=format&fit=crop";
+  const title = data.titulo || "O Ranking de\nPáscoa já começou!";
+  const subtitle = data.texto_apoio || "Garanta o seu lugar entre\nos 2.000 premiados.";
+  const colorBg = data.backgroundColor || "#f8eee1";
+  const colorText = data.textColor || "#311b11";
+
+  return (
+    <div 
+      id="tpl_promo_pascoa" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Área da imagem superior */}
+      <SmartField field="imagem" {...sp} className="w-full h-[62%] relative z-10 rounded-b-[32px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+
+      {/* Conteúdo inferior de texto e elementos de design */}
+      <div className="w-full h-[38%] flex flex-col items-center justify-center text-center px-8 relative z-0">
+        {/* Estrela SVG Decorativa */}
+        <div className="absolute left-[8%] top-[20%] pointer-events-none opacity-80">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill={colorText} xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+          </svg>
+        </div>
+
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-2">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-serif font-black leading-[1.1] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${34 * sTitle}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Subtítulo */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <h2 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-light leading-[1.2] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${22 * sText}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: subtitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 238 — Promo Benefícios
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant238(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop";
+  const badgeUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  const title = data.titulo || "Por que\napostar\n<span style=\"box-shadow: inset 0 -22px 0 var(--accent);\">no NY Roll?</span>";
+  
+  const t1 = data.extra1 || "Segurança";
+  const d1 = data.extra2 || "Resultados padronizados e alta qualidade.";
+  const t2 = data.extra3 || "Agilidade";
+  const d2 = data.extra4 || "Performance para as horas de maior demanda.";
+  const t3 = data.extra5 || "Lucratividade";
+  const d3 = data.extra6 || "Item visualmente incrível e com alto valor agregado.";
+  
+  const colorBg = data.backgroundColor || "#11065e";
+  const colorAccent = brandColor || data.accentColor || "#ff5400";
+
+  return (
+    <div 
+      id="tpl_promo_benefits" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ 
+        '--bg-main': colorBg, 
+        '--accent': colorAccent,
+        backgroundColor: 'var(--bg-main)'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Image Area */}
+      <SmartField field="imagem" {...sp} className="absolute top-0 left-0 w-[84%] h-[64%] bg-white">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full shadow-[0_10px_30px_rgba(0,0,0,0.4)]" />
+      </SmartField>
+
+      {/* Left Title Area */}
+      <div className="absolute bottom-[12%] left-[8%] w-[42%] z-10">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-bold leading-[1.25] text-white tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${26 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Right Orange Box */}
+      <div 
+        className="absolute bottom-0 right-4 w-[46%] h-[58%] z-20 px-6 py-6 flex flex-col justify-center gap-4 shadow-[-15px_15px_30px_rgba(0,0,0,0.25)]" 
+        style={{ backgroundColor: 'var(--accent)' }}
+      >
+        {/* Badge */}
+        <SmartField field="imagem2" {...sp} className="absolute -top-[15%] right-[8%] w-16 h-16 z-30">
+          {badgeUrl ? (
+            <img 
+              id="tpl_promo_badge" 
+              src={getCorsSafeUrl(badgeUrl)} 
+              className="w-full h-full object-contain drop-shadow-xl" 
+              style={{ filter: 'brightness(0) invert(1)' }} 
+              crossOrigin="anonymous"
+              alt="Selo"
+            />
+          ) : (
+            <div className="w-full h-full bg-white/10 rounded-full" />
+          )}
+        </SmartField>
+
+        {/* Item 1 */}
+        <div className="flex flex-col gap-0.5">
+          <SmartField field="extra1" {...sp} className="w-full">
+            <h3 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+              className="font-sans font-bold text-white leading-none outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {t1}
+            </h3>
+          </SmartField>
+          <SmartField field="extra2" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+              className="font-sans text-white/95 leading-tight font-light outline-none"
+              style={{ fontSize: `${12 * sText}px` }}
+            >
+              {d1}
+            </p>
+          </SmartField>
+        </div>
+
+        {/* Item 2 */}
+        <div className="flex flex-col gap-0.5">
+          <SmartField field="extra3" {...sp} className="w-full">
+            <h3 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
+              className="font-sans font-bold text-white leading-none outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {t2}
+            </h3>
+          </SmartField>
+          <SmartField field="extra4" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerText)}
+              className="font-sans text-white/95 leading-tight font-light outline-none"
+              style={{ fontSize: `${12 * sText}px` }}
+            >
+              {d2}
+            </p>
+          </SmartField>
+        </div>
+
+        {/* Item 3 */}
+        <div className="flex flex-col gap-0.5">
+          <SmartField field="extra5" {...sp} className="w-full">
+            <h3 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra5', e.currentTarget.innerText)}
+              className="font-sans font-bold text-white leading-none outline-none"
+              style={{ fontSize: `${16 * sText}px` }}
+            >
+              {t3}
+            </h3>
+          </SmartField>
+          <SmartField field="extra6" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra6', e.currentTarget.innerText)}
+              className="font-sans text-white/95 leading-tight font-light outline-none"
+              style={{ fontSize: `${12 * sText}px` }}
+            >
+              {d3}
+            </p>
+          </SmartField>
+        </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 239 — Promo Panettone
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant239(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=1080&auto=format&fit=crop";
+  const text = data.titulo || "Serão <span class=\"font-bold\">1.000</span> premiados nesta edição, mil histórias de conquista.<br><span class=\"font-bold text-[52px] tracking-tighter\">Mil revendedores realizando desejos!</span>";
+  const colorBg = data.backgroundColor || "#f9ede2";
+  const colorText = data.textColor || "#2b1810";
+
+  return (
+    <div 
+      id="tpl_promo_panettone" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center px-8 pt-12 select-none font-sans transition-all duration-300"
+      style={{ 
+        '--bg-main': colorBg, 
+        '--text-main': colorText,
+        backgroundColor: 'var(--bg-main)'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Top Text Box */}
+      <div 
+        className="w-full border-2 rounded-[24px] px-8 py-6 flex flex-col justify-center text-center z-10 relative bg-transparent" 
+        style={{ borderColor: 'var(--text-main)' }}
+      >
+        <SmartField field="titulo" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-serif leading-[1.2] tracking-tight outline-none whitespace-pre-line" 
+            style={{ fontSize: `${18 * sTitle}px`, color: 'var(--text-main)' }}
+            dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Spacer */}
+      <div className="h-6 w-full shrink-0"></div>
+
+      {/* Bottom Image */}
+      <div className="w-full flex-1 relative overflow-hidden rounded-t-[24px] z-10 shadow-[0_-5px_20px_rgba(0,0,0,0.08)]">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 240 — Vitrine Produto
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant240(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1620189507195-68309c04c4d0?q=80&w=1080&auto=format&fit=crop";
+  const t1 = data.extra1 || "CAIXA";
+  const th = data.extra2 || "CORAÇÃO";
+  const t2 = data.extra3 || "DIAMOND";
+  const body = data.texto_apoio || "A caixa mede 14,3 x 3,5 cm (LxA) e possui capacidade para 200g. Acompanha forma plástica modelo coração lapidado.";
+  const swipe = data.extra4 || "arrasta pro lado";
+  
+  const colorBg = data.backgroundColor || "#e8a274";
+  const colorText = data.textColor || "#3a1e0b";
+  const colorHigh = brandColor || data.accentColor || "#f5e4c3";
+
+  return (
+    <div 
+      id="tpl_product_box" 
+      className="w-full h-full relative overflow-hidden flex flex-col pt-12 px-8 pb-8 select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap');
+        .font-display { font-family: 'Anton', sans-serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Imagem do Produto (Centralizada com Sombra) */}
+      <div className="w-full h-[58%] flex justify-center items-start z-10 relative">
+        <SmartField field="imagem" {...sp} className="w-[90%] h-full relative">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full shadow-[0_10px_20px_rgba(0,0,0,0.15)]" />
+        </SmartField>
+      </div>
+
+      {/* Área de Textos */}
+      <div className="w-full mt-4 flex flex-col z-20">
+        {/* Título Multi-Cor com Transformação Vertical */}
+        <h1 
+          className="font-display font-black uppercase leading-none tracking-tighter origin-left transform scale-y-125 mb-4 flex gap-2 flex-wrap"
+          style={{ fontSize: `${28 * sTitle}px` }}
+        >
+          <SmartField field="extra1" {...sp} className="shrink-0">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)} style={{ color: colorText }} className="outline-none">{t1}</span>
+          </SmartField>
+          <SmartField field="extra2" {...sp} className="shrink-0">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)} style={{ color: colorHigh }} className="outline-none">{th}</span>
+          </SmartField>
+          <SmartField field="extra3" {...sp} className="shrink-0">
+            <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)} style={{ color: colorText }} className="outline-none">{t2}</span>
+          </SmartField>
+        </h1>
+        
+        {/* Descrição */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans font-medium leading-[1.3] outline-none whitespace-pre-line" 
+            style={{ fontSize: `${14 * sText}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Indicador de Swipe (Arraste pro lado) */}
+      <div 
+        className="absolute bottom-6 right-8 flex items-center gap-1.5 z-30 opacity-90 pointer-events-none" 
+        style={{ color: colorText }}
+      >
+        <svg className="w-4 h-4 transform -rotate-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-5-5m0 0l-5 5m5-5v12"></path>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 11V6a3 3 0 016 0v2"></path>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17 11v6a5 5 0 01-10 0V8"></path>
+        </svg>
+        <SmartField field="extra4" {...sp} className="shrink-0 pointer-events-auto">
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerText)}
+            className="font-sans font-medium tracking-wide outline-none text-[10px]"
+          >
+            {swipe}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 241 — Produto Split
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant241(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Heart%20with%20ribbon/3D/heart_with_ribbon_3d.png";
+  const title = data.titulo || "Lata de Coração\ncom bombons <span class=\"italic font-light\">100g</span>";
+  const body = data.texto_apoio || "Lata em formato de coração\ncom 8 bombons nos sabores avelã e doce de leite.";
+  
+  const colorTop = data.backgroundColor2 || "#faeadb";
+  const colorBottom = brandColor || data.backgroundColor || "#7a3623";
+  const colorText = data.textColor || "#fdf3e7";
+
+  return (
+    <div 
+      id="tpl_product_split" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBottom }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+      `}} />
+
+      {/* Top Section (Fundo Claro com Borda Arredondada Inferior) */}
+      <div 
+        className="w-full h-[65%] relative z-10 flex items-center justify-center rounded-b-[32px] shadow-sm"
+        style={{ backgroundColor: colorTop }}
+      >
+        {/* Imagem do Produto */}
+        <SmartField field="imagem" {...sp} className="w-[85%] h-[85%] relative z-10 flex justify-center items-center">
+          <img 
+            id="tpl_product_split_img" 
+            src={getCorsSafeUrl(imageUrl)} 
+            className="w-full h-full object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.25)]" 
+            crossOrigin="anonymous"
+            alt="Produto"
+          />
+        </SmartField>
+        
+        {/* Estrela Quatro Pontas Centralizada */}
+        <svg 
+          className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-10 h-10 z-20 drop-shadow-md pointer-events-none" 
+          style={{ color: colorBottom }}
+          viewBox="0 0 24 24" 
+          fill="currentColor"
+        >
+          <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z"/>
+        </svg>
+      </div>
+      
+      {/* Bottom Section (Fundo Escuro) */}
+      <div className="w-full h-[35%] relative z-0 flex flex-col items-center justify-center px-8 pt-6 pb-4 text-center">
+        {/* Título Serifado */}
+        <SmartField field="titulo" {...sp} className="w-full mb-2">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-serif font-bold leading-[1.1] outline-none whitespace-pre-line" 
+            style={{ fontSize: `${24 * sTitle}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        {/* Descrição */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-[32px] font-normal leading-[1.4] w-[90%] outline-none whitespace-pre-line block animate-none" 
+            style={{ fontSize: `${12.8 * sText}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(255,255,255,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 242 — Passo a Passo
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant242(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20cook/3D/man_cook_3d.png";
+  const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  const watermark = data.extra1 || "Delatte";
+  const number = data.extra2 || "1";
+  const tag = data.extra3 || "1º Erro";
+  const title = data.titulo || "Usar\nchocolate\nbaixa\nqualidade";
+  
+  const colorBg = data.backgroundColor || "#e8e6e1";
+  const colorAccent = brandColor || data.accentColor || "#c21010";
+
+  const watermarkHtml = `${watermark}<br />${watermark}<br />${watermark}`;
+
+  return (
+    <div 
+      id="tpl_listicle_step" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Watermark Background */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-[0.03] z-0 transform -rotate-12 scale-125">
+        <span 
+          id="tpl_listicle_watermark" 
+          className="font-sans font-black text-black tracking-tighter leading-none text-center select-none"
+          style={{ fontSize: '90px' }}
+          dangerouslySetInnerHTML={{ __html: watermarkHtml.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+        />
+      </div>
+
+      {/* Logo */}
+      <SmartField field="imagem2" {...sp} className="absolute top-8 w-full flex justify-center z-20 h-10">
+        {logoUrl ? (
+          <img 
+            id="tpl_listicle_logo" 
+            src={getCorsSafeUrl(logoUrl)} 
+            className="h-full object-contain drop-shadow-md" 
+            crossOrigin="anonymous"
+            alt="Logo"
+          />
+        ) : (
+          <div className="h-full w-10 bg-white/10 rounded" />
+        )}
+      </SmartField>
+
+      {/* Giant Number Background */}
+      <div className="absolute top-[8%] left-4 z-10 w-[120px] flex justify-center">
+        <SmartField field="extra2" {...sp} className="w-full text-center">
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+            className="font-sans font-black leading-none tracking-tighter outline-none block" 
+            style={{ color: colorAccent, textShadow: '0 5px 15px rgba(0,0,0,0.08)', fontSize: `${240 * sTitle}px` }}
+          >
+            {number}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* Floating Tag */}
+      <div className="absolute top-[18%] left-12 bg-white px-3 py-1 shadow-md transform -rotate-2 z-40 border border-neutral-100">
+        <SmartField field="extra3" {...sp} className="w-full">
+          <span 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
+            className="font-sans font-black tracking-tight outline-none block" 
+            style={{ color: colorAccent, fontSize: `${16 * sText}px` }}
+          >
+            {tag}
+          </span>
+        </SmartField>
+      </div>
+
+      {/* 3D Character */}
+      <SmartField field="imagem" {...sp} className="absolute bottom-[-2%] left-[-8%] w-[200px] h-[250px] z-30">
+        <img 
+          id="tpl_listicle_img" 
+          src={getCorsSafeUrl(imageUrl)} 
+          className="w-full h-full object-contain drop-shadow-[10px_10px_20px_rgba(0,0,0,0.25)]" 
+          crossOrigin="anonymous"
+          alt="Personagem"
+        />
+      </SmartField>
+
+      {/* Title Content */}
+      <div className="absolute top-[32%] left-[42%] z-20 w-[55%] pl-2">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans font-black leading-[1.05] tracking-tight outline-none whitespace-pre-line" 
+            style={{ fontSize: `${30 * sTitle}px`, color: colorAccent }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Carousel Dots */}
+      <div className="absolute bottom-8 right-8 flex gap-2 z-20">
+        <div className="w-3 h-3 rounded-full shadow-sm" style={{ backgroundColor: colorAccent }}></div>
+        <div className="w-3 h-3 rounded-full border-[1.5px] bg-transparent" style={{ borderColor: colorAccent }}></div>
+        <div className="w-3 h-3 rounded-full border-[1.5px] bg-transparent" style={{ borderColor: colorAccent }}></div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorAccent} counterColor={colorAccent} counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 246 — Portfólio Agência iPhone
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant246(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=1080&auto=format&fit=crop";
+  const bg1Url = data.imageUrl2 || "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop";
+  const bg2Url = data.imageUrl3 || "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop";
+  const logoUrl = data.imageUrl4 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  
+  const title = data.titulo || "PRECISA DE POSTS CATIVANTES E ESTRATÉGIAS SOB MEDIDA?";
+  const body = data.texto_apoio || "Vamos elevar sua presença online para o próximo nível. Não espere mais, dê o primeiro passo para o sucesso hoje mesmo!";
+  const cta = data.extra1 || "VAMOS ABRIR ESSA PORTA JUNTOS!";
+  const phone = data.extra2 || "62 98230-4734";
+  
+  const colorBg = brandColor || data.backgroundColor || "#e64f22";
+  const colorText = data.textColor || "#ffffff";
+
+  return (
+    <div 
+      id="tpl_agency_mockup_246" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ 
+        '--bg-main': colorBg,
+        backgroundColor: 'var(--bg-main)'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Lado Esquerdo: Mockups Flutuantes */}
+      <div className="w-[52%] h-full relative z-10 overflow-hidden">
+        
+        {/* Post Fundo 1 (Canto Superior Esq) */}
+        <SmartField field="imagem2" {...sp} className="absolute -top-[2%] -left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform -rotate-12 p-1 pb-4 z-0 opacity-90">
+          <ImageBg data={data} imageUrl={bg1Url} className="w-full aspect-square rounded-[12px]" />
+          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+          </div>
+        </SmartField>
+
+        {/* Post Fundo 2 (Canto Inferior Esq) */}
+        <SmartField field="imagem3" {...sp} className="absolute -bottom-[5%] left-[5%] w-[120px] rounded-[16px] bg-white shadow-lg transform rotate-12 p-1 pb-4 z-0 opacity-90">
+          <ImageBg data={data} imageUrl={bg2Url} className="w-full aspect-square rounded-[12px]" />
+          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+          </div>
+        </SmartField>
+
+        {/* iPhone Mockup Principal */}
+        <div className="absolute top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-20 flex flex-col items-center justify-center rotate-[8deg]">
+          {/* Tela do iPhone */}
+          <div className="w-[94%] h-[97%] bg-white rounded-[24px] relative overflow-hidden flex flex-col">
+            {/* Notch */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[45px] h-[10px] bg-gray-900 rounded-b-lg z-30"></div>
+
+            {/* Mini Instagram UI - Header */}
+            <div className="pt-4 pb-1.5 px-2.5 flex items-center gap-1.5 border-b border-gray-100 bg-white z-20">
+              <div className="w-4 h-4 bg-gray-200 rounded-full flex items-center justify-center text-gray-400">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </div>
+              <div className="flex-1">
+                <div className="w-10 h-1 bg-gray-200 rounded mb-0.5"></div>
+                <div className="w-6 h-0.5 bg-gray-100 rounded"></div>
+              </div>
+            </div>
+
+            {/* Mini Instagram UI - Imagem Principal */}
+            <SmartField field="imagem" {...sp} className="w-full flex-1 relative bg-gray-50">
+              <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0 w-full h-full" />
+            </SmartField>
+
+            {/* Mini Instagram UI - Footer */}
+            <div className="p-2.5 flex justify-between items-center bg-white z-20 border-t border-gray-100">
+              <div className="flex gap-1.5">
+                <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Lado Direito: Textos e Call to Action */}
+      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-20">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-display font-black text-white leading-[1.05] tracking-tighter uppercase drop-shadow-sm outline-none whitespace-pre-line"
+            style={{ fontSize: `${20 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp} className="w-full mt-4">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-white/95 font-light leading-snug outline-none whitespace-pre-line"
+            style={{ fontSize: `${11 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* CTA Box */}
+        <SmartField field="extra1" {...sp} className="mt-6">
+          <div className="border-[2px] border-white rounded-[16px] py-1.5 px-3 w-fit hover:bg-white hover:text-black transition-colors duration-300 cursor-default">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+              className="font-sans font-medium text-white uppercase tracking-wider text-inherit outline-none text-[10px]"
+            >
+              {cta}
+            </span>
+          </div>
+        </SmartField>
+
+        {/* Contato */}
+        <div className="mt-4 flex flex-col gap-1">
+          <span className="font-sans text-[8px] text-white/80 uppercase tracking-widest font-semibold">ENTRE EM CONTATO:</span>
+          <div className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+            <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+                className="font-display font-bold text-white tracking-tight leading-none outline-none text-[16px]"
+              >
+                {phone}
+              </span>
+            </SmartField>
+          </div>
+        </div>
+
+        {/* Logo */}
+        <SmartField field="imagem4" {...sp} className="absolute bottom-6 right-8 h-8 z-30">
+          {logoUrl ? (
+            <img 
+              id="tpl_agency_logo_246" 
+              src={getCorsSafeUrl(logoUrl)} 
+              className="h-full object-contain drop-shadow-md" 
+              style={{ filter: 'brightness(0) invert(1)' }}
+              crossOrigin="anonymous"
+              alt="Logo"
+            />
+          ) : (
+            <div className="h-full w-8 bg-white/10 rounded" />
+          )}
+        </SmartField>
+
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(255,255,255,0.08)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 247 — Portfólio Agência Mockup
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant247(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=1080&auto=format&fit=crop";
+  const bg1Url = data.imageUrl2 || "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop";
+  const bg2Url = data.imageUrl3 || "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop";
+  const logoUrl = data.imageUrl4 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  
+  const title = data.titulo || "PRECISA DE POSTS CATIVANTES E ESTRATÉGIAS SOB MEDIDA?";
+  const body = data.texto_apoio || "Vamos elevar sua presença online para o próximo nível. Não espere mais, dê o primeiro passo para o sucesso hoje mesmo!";
+  const cta = data.extra1 || "VAMOS ABRIR ESSA PORTA JUNTOS!";
+  const phone = data.extra2 || "62 98230-4734";
+  
+  const colorBg = brandColor || data.backgroundColor || "#e64f22";
+  const colorText = data.textColor || "#ffffff";
+
+  return (
+    <div 
+      id="tpl_agency_mockup_247" 
+      className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
+      style={{ 
+        '--bg-main': colorBg,
+        backgroundColor: 'var(--bg-main)'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Lado Esquerdo: Mockups Flutuantes */}
+      <div className="w-[52%] h-full relative z-10 overflow-hidden">
+        
+        {/* Post Fundo 1 (Canto Superior Esq) */}
+        <SmartField field="imagem2" {...sp} className="absolute -top-[2%] -left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform -rotate-12 p-1 pb-4 z-0 opacity-90">
+          <ImageBg data={data} imageUrl={bg1Url} className="w-full aspect-square rounded-[12px]" />
+          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+          </div>
+        </SmartField>
+
+        {/* Post Fundo 2 (Canto Inferior Esq) */}
+        <SmartField field="imagem3" {...sp} className="absolute -bottom-[5%] left-[5%] w-[120px] rounded-[16px] bg-white shadow-lg transform rotate-12 p-1 pb-4 z-0 opacity-90">
+          <ImageBg data={data} imageUrl={bg2Url} className="w-full aspect-square rounded-[12px]" />
+          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+          </div>
+        </SmartField>
+
+        {/* iPhone Mockup Principal */}
+        <div className="absolute top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-20 flex flex-col items-center justify-center rotate-[8deg]">
+          {/* Tela do iPhone */}
+          <div className="w-[94%] h-[97%] bg-white rounded-[24px] relative overflow-hidden flex flex-col">
+            {/* Notch */}
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[45px] h-[10px] bg-gray-900 rounded-b-lg z-30"></div>
+
+            {/* Mini Instagram UI - Header */}
+            <div className="pt-4 pb-1.5 px-2.5 flex items-center gap-1.5 border-b border-gray-100 bg-white z-20">
+              <div className="w-4 h-4 bg-gray-200 rounded-full flex items-center justify-center text-gray-400">
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </div>
+              <div className="flex-1">
+                <div className="w-10 h-1 bg-gray-200 rounded mb-0.5"></div>
+                <div className="w-6 h-0.5 bg-gray-100 rounded"></div>
+              </div>
+            </div>
+
+            {/* Mini Instagram UI - Imagem Principal */}
+            <SmartField field="imagem" {...sp} className="w-full flex-1 relative bg-gray-50">
+              <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0 w-full h-full" />
+            </SmartField>
+
+            {/* Mini Instagram UI - Footer */}
+            <div className="p-2.5 flex justify-between items-center bg-white z-20 border-t border-gray-100">
+              <div className="flex gap-1.5">
+                <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Lado Direito: Textos e Call to Action */}
+      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-20">
+        <SmartField field="titulo" {...sp} className="w-full">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-display font-black text-white leading-[1.05] tracking-tighter uppercase drop-shadow-sm outline-none whitespace-pre-line"
+            style={{ fontSize: `${20 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp} className="w-full mt-4">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-white/95 font-light leading-snug outline-none whitespace-pre-line"
+            style={{ fontSize: `${11 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* CTA Box */}
+        <SmartField field="extra1" {...sp} className="mt-6">
+          <div className="border-[2px] border-white rounded-[16px] py-1.5 px-3 w-fit hover:bg-white hover:text-black transition-colors duration-300 cursor-default">
+            <span 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+              className="font-sans font-medium text-white uppercase tracking-wider text-inherit outline-none text-[10px]"
+            >
+              {cta}
+            </span>
+          </div>
+        </SmartField>
+
+        {/* Contato */}
+        <div className="mt-4 flex flex-col gap-1">
+          <span className="font-sans text-[8px] text-white/80 uppercase tracking-widest font-semibold">ENTRE EM CONTATO:</span>
+          <div className="flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+            </svg>
+            <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
+              <span 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+                className="font-display font-bold text-white tracking-tight leading-none outline-none text-[16px]"
+              >
+                {phone}
+              </span>
+            </SmartField>
+          </div>
+        </div>
+
+        {/* Logo */}
+        <SmartField field="imagem4" {...sp} className="absolute bottom-6 right-8 h-8 z-30">
+          {logoUrl ? (
+            <img 
+              id="tpl_agency_logo_247" 
+              src={getCorsSafeUrl(logoUrl)} 
+              className="h-full object-contain drop-shadow-md" 
+              style={{ filter: 'brightness(0) invert(1)' }}
+              crossOrigin="anonymous"
+              alt="Logo"
+            />
+          ) : (
+            <div className="h-full w-8 bg-white/10 rounded" />
+          )}
+        </SmartField>
+
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor={colorText} counterColor={colorText} counterBg="rgba(255,255,255,0.08)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 248 — Social Meme (Estilo Confeitunes)
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant248(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#aa131c";
+  const colorCard = data.backgroundColor2 || "#ffffff";
+  const authorName = data.extra1 || brandHandle || "Confeitunes";
+  const authorHandle = data.extra2 || (brandHandle ? "@" + brandHandle.replace("@", "") : "@confeitunes");
+  const verified = isVerified !== false;
+  const mainText = data.titulo || "Quando falo que hoje é o último dia para encomendas de Natal";
+  const subText = data.subtitulo || "Meus Clientes:";
+  const footerText = data.texto_apoio || "Embalagens limitadas.\nConfira os sabores disponíveis e reserve agora mesmo pelo link azul na bio do perfil.";
+  const avatarUrl = data.imageUrl2 || brandAvatar || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23e11d48'><circle cx='50' cy='50' r='50'/><text x='50' y='58' font-size='32' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>C</text></svg>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&q=80&w=600";
+
+  return (
+    <div 
+      id="tpl_social_meme_248" 
+      className="w-full h-full relative overflow-hidden flex flex-col justify-between select-none p-6 box-border transition-all duration-300"
+      style={{ 
+        backgroundColor: colorBg
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans-meme { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .text-shadow-premium {
+          text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+      `}} />
+
+      {/* Card Branco Estilo Tweet / Post Social */}
+      <div 
+        id="meme-card" 
+        className="rounded-[24px] p-5 shadow-xl flex flex-col gap-4 box-border font-sans-meme"
+        style={{ backgroundColor: colorCard }}
+      >
+        {/* Header do Autor do Post */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <SmartField field="imagem2" {...sp} className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shrink-0">
+              <img 
+                id="meme-preview-avatar" 
+                className="w-full h-full object-cover" 
+                src={getCorsSafeUrl(avatarUrl)} 
+                crossOrigin="anonymous"
+                alt="Avatar" 
+              />
+            </SmartField>
+            
+            <div className="flex flex-col justify-center leading-tight">
+              <div className="flex items-center gap-1.5">
+                <SmartField field="extra1" {...sp} className="shrink-0">
+                  <span 
+                    contentEditable suppressContentEditableWarning
+                    onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+                    className="font-extrabold text-[#111827] text-[13px] tracking-tight outline-none"
+                  >
+                    {authorName}
+                  </span>
+                </SmartField>
+                
+                {verified && (
+                  <svg 
+                    id="meme-display-verified" 
+                    className="h-3.5 w-3.5 text-sky-500 flex-shrink-0" 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path fillRule="evenodd" d="M6.267 3.455a.75.75 0 00-.708-.523 4.25 4.25 0 00-4.25 4.25 1.25 1.25 0 01-.15.584.75.75 0 00.323.978l1.58.825a.75.75 0 001.037-.323 1.25 1.25 0 011.666-.667.75.75 0 00.978-.323l.825-1.58a1.25 1.25 0 01.584-.15.75.75 0 00.978-.323l.825-1.58a.75.75 0 00-.323-.978 1.25 1.25 0 01-.15-.584zm5.111.455a.75.75 0 01.708.523 4.25 4.25 0 014.25 4.25c0 .2.05.39.15.584a.75.75 0 01-.323.978l-1.58.825a.75.75 0 01-1.037-.323 1.25 1.25 0 01-1.666-.667.75.75 0 00.978-.323l.825-1.58a1.25 1.25 0 01.584-.15.75.75 0 00.978-.323l.825-1.58a.75.75 0 00-.323-.978 1.25 1.25 0 01-.15-.584z" clipRule="evenodd" />
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                  </svg>
+                )}
+              </div>
+              <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
+                <span 
+                  contentEditable suppressContentEditableWarning
+                  onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
+                  className="text-[10px] text-gray-500 font-medium outline-none"
+                >
+                  {authorHandle}
+                </span>
+              </SmartField>
+            </div>
+          </div>
+        </div>
+
+        {/* Textos do Post */}
+        <div className="flex flex-col gap-1.5">
+          <SmartField field="titulo" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+              className="text-gray-800 font-bold text-[13px] leading-[1.35] tracking-tight m-0 outline-none whitespace-pre-line block"
+              style={{ fontSize: `${13 * sTitle}px` }}
+              dangerouslySetInnerHTML={{ __html: mainText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+          {subText && (
+            <SmartField field="subtitulo" {...sp} className="w-full">
+              <p 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
+                className="text-gray-600 font-semibold text-[11px] m-0 outline-none whitespace-pre-line block"
+                style={{ fontSize: `${11 * sText}px` }}
+                dangerouslySetInnerHTML={{ __html: subText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+              />
+            </SmartField>
+          )}
+        </div>
+
+        {/* Imagem Meme Principal */}
+        <SmartField field="imagem" {...sp} className="w-full h-[180px] rounded-[12px] overflow-hidden border border-gray-100 relative">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        </SmartField>
+      </div>
+
+      {/* Rodapé Texto Fora do Card */}
+      <div className="text-center px-4 font-sans-meme">
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="text-white text-[10px] font-semibold tracking-wide leading-[1.45] m-0 text-shadow-premium outline-none whitespace-pre-line block"
+            dangerouslySetInnerHTML={{ __html: footerText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 243 — Convite Negócios BNI
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant243(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=1080&auto=format&fit=crop";
+  const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  const kicker = data.extra1 || "SUA EMPRESA";
+  const title = data.titulo || "ENTRA EM CAMPO OU CONTINUARÁ NO BANCO DE RESERVAS?";
+  const body = data.texto_apoio || "Proteja o seu mercado na sua região e garanta a exclusividade da sua cadeira antes que o seu principal concorrente o faça. <span class=\"font-bold text-black\">Visite uma reunião de negócios de elite como convidado.</span>";
+  const cta = data.extra2 || "Comente <span class=\"font-black tracking-wide\">NEGÓCIOS</span> aqui embaixo e nós enviamos o seu convite exclusivo no seu direct.";
+  const colorCta = brandColor || data.accentColor || "#d81b21";
+
+  return (
+    <div 
+      id="tpl_business_invite" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center select-none font-sans transition-all duration-300"
+      style={{ 
+        '--bg-cta': colorCta
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Montserrat', sans-serif; }
+      `}} />
+
+      {/* Background Img */}
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full z-0">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-10 pointer-events-none"></div>
+
+      {/* Top Logo */}
+      <SmartField field="imagem2" {...sp} className="absolute top-10 w-full flex justify-center z-20 h-8">
+        {logoUrl ? (
+          <img 
+            id="tpl_business_logo" 
+            src={getCorsSafeUrl(logoUrl)} 
+            className="h-full object-contain drop-shadow-lg" 
+            style={{ filter: 'brightness(0) invert(1)' }}
+            crossOrigin="anonymous"
+            alt="Logo"
+          />
+        ) : (
+          <div className="h-full w-10 bg-white/10 rounded" />
+        )}
+      </SmartField>
+
+      {/* Main White Card */}
+      <div className="relative z-20 w-[84%] bg-white rounded-[24px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[12%]">
+          {/* Subtítulo / Linha Fina */}
+          <SmartField field="extra1" {...sp} className="w-full mb-1">
+            <h3 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+              className="font-sans text-gray-800 font-medium uppercase tracking-widest text-center outline-none"
+              style={{ fontSize: `${12 * sText}px` }}
+            >
+              {kicker}
+            </h3>
+          </SmartField>
+
+          {/* Título Principal */}
+          <SmartField field="titulo" {...sp} className="w-full mb-3">
+            <h1 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+              className="font-display font-black uppercase text-black leading-[1.15] text-center outline-none"
+              style={{ fontSize: `${22 * sTitle}px` }}
+              dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+
+          {/* Corpo do Texto */}
+          <SmartField field="texto_apoio" {...sp} className="w-full">
+            <p 
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+              className="font-sans text-gray-800 text-center leading-[1.45] outline-none"
+              style={{ fontSize: `${12.8 * sText}px` }}
+              dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+            />
+          </SmartField>
+
+          {/* Botão CTA */}
+          <div 
+            className="absolute -bottom-7 w-[95%] rounded-[16px] py-3 px-4 shadow-lg flex items-center justify-center border-[3px] border-white" 
+            style={{ backgroundColor: colorCta }}
+          >
+            <SmartField field="extra2" {...sp} className="w-full flex justify-center">
+              <p 
+                id="tpl_business_cta" 
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
+                className="font-sans text-white leading-tight text-center font-light outline-none"
+                style={{ fontSize: `${12 * sText}px` }}
+                dangerouslySetInnerHTML={{ __html: cta.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+              />
+            </SmartField>
+          </div>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 244 — Citação Negócios
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant244(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1080&auto=format&fit=crop";
+  const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  const p1 = data.titulo || "Se é o mais inteligente da mesa, <span class=\"font-black text-black\">está na mesa errada.</span> O sucesso nos negócios não é um evento isolado, é uma <span class=\"font-black text-black\">consequência do meio</span> em que se move.";
+  const p2 = data.texto_apoio || "No BNI, não oferecemos apenas contatos; oferecemos um <span class=\"font-black text-black\">conselho consultivo</span> formado por empresários que já chegaram onde pretende chegar.";
+  
+  const colorCard = data.backgroundColor2 || "#ffffff";
+  const colorText = data.textColor || "#111827";
+
+  return (
+    <div 
+      id="tpl_business_quote" 
+      className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center select-none font-sans transition-all duration-300"
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      {/* Background Img */}
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full z-0">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/60 z-10 pointer-events-none"></div>
+
+      {/* Top Logo */}
+      <SmartField field="imagem2" {...sp} className="absolute top-10 w-full flex justify-center z-20 h-8">
+        {logoUrl ? (
+          <img 
+            id="tpl_business_quote_logo" 
+            src={getCorsSafeUrl(logoUrl)} 
+            className="h-full object-contain drop-shadow-md" 
+            crossOrigin="anonymous"
+            alt="Logo"
+          />
+        ) : (
+          <div className="h-full w-10 bg-white/10 rounded" />
+        )}
+      </SmartField>
+
+      {/* Main White Card */}
+      <div 
+        id="tpl_business_quote_card" 
+        className="relative z-20 w-[84%] rounded-[24px] shadow-2xl flex flex-col px-8 py-10 mt-16"
+        style={{ backgroundColor: colorCard }}
+      >
+        <SmartField field="titulo" {...sp} className="w-full mb-4">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${16 * sTitle}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: p1.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+        
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
+            style={{ fontSize: `${16 * sText}px`, color: colorText }}
+            dangerouslySetInnerHTML={{ __html: p2.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 245 — Corp Split Card
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant245(props) {
+  const { 
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1080&auto=format&fit=crop";
+  const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
+  const title = data.titulo || "CAMPANHAS NÃO<br>RESOLVEM <span style=\"color: var(--accent);\">FALTA<br>DE CONFIANÇA.</span>";
+  const body = data.texto_apoio || "No marketing, o <span class=\"font-bold\">custo de aquisição (CAC)</span> dispara quando o cliente não conhece a sua entrega. Pode ter o <span class=\"font-bold\">melhor criativo</span> do mercado, mas se a primeira reunião for 'fria', <span class=\"font-bold\">o ciclo de vendas</span> será longo e desgastante. O mercado de <span class=\"font-bold\">serviços premium</span> exige algo que o <span class=\"font-bold\">tráfego pago não compra: o aval prévio.</span>";
+  
+  const colorBg = data.backgroundColor || "#f8f9fa";
+  const colorAccent = brandColor || data.accentColor || "#cf2027";
+
+  return (
+    <div 
+      id="tpl_corp_split_card" 
+      className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
+      style={{ 
+        '--accent': colorAccent, 
+        '--bg-top': colorBg,
+        backgroundColor: 'var(--bg-top)'
+      }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Anton', sans-serif; }
+      `}} />
+
+      {/* Grid Pattern Background */}
+      <div 
+        className="absolute top-0 left-0 w-full h-[65%] pointer-events-none opacity-[0.15] z-0" 
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 15 v10 M15 20 h10' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`, 
+          backgroundSize: '40px 40px', 
+          backgroundPosition: 'center' 
+        }}
+      />
+
+      {/* Top Half */}
+      <div className="w-full h-[65%] flex flex-col items-center pt-8 px-8 z-10">
+        {/* Logo */}
+        <SmartField field="imagem2" {...sp} className="h-8 object-contain mb-4 z-20">
+          {logoUrl ? (
+            <img 
+              id="tpl_corp_logo" 
+              src={getCorsSafeUrl(logoUrl)} 
+              className="h-full object-contain drop-shadow-sm" 
+              crossOrigin="anonymous"
+              alt="Logo"
+            />
+          ) : (
+            <div className="h-full w-8 bg-black/10 rounded" />
+          )}
+        </SmartField>
+        
+        {/* Main Title */}
+        <SmartField field="titulo" {...sp} className="w-full z-20">
+          <h1 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-display leading-[0.9] text-center uppercase tracking-tight text-black outline-none whitespace-pre-line" 
+            style={{ transform: 'scaleY(1.15)', fontSize: `${28 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* Bottom Half (Image) */}
+      <SmartField field="imagem" {...sp} className="w-full h-[35%] relative z-0">
+        <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+      </SmartField>
+
+      {/* Floating White Card */}
+      <div className="absolute top-[48%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-4 z-20">
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p 
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans leading-[1.5] text-gray-900 tracking-tight outline-none"
+            style={{ fontSize: `${12.5 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+      </div>
+
+      {/* SlideHeader do Carrossel Studio */}
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
 // ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
@@ -9687,6 +12253,27 @@ export const SPLIT_VARIANT_COMPONENTS = {
   225: SplitVariant225,
   226: SplitVariant226,
   227: SplitVariant227,
+  228: SplitVariant228,
+  229: SplitVariant229,
+  230: SplitVariant230,
+  231: SplitVariant231,
+  232: SplitVariant232,
+  233: SplitVariant233,
+  234: SplitVariant234,
+  235: SplitVariant235,
+  236: SplitVariant236,
+  237: SplitVariant237,
+  238: SplitVariant238,
+  239: SplitVariant239,
+  240: SplitVariant240,
+  241: SplitVariant241,
+  242: SplitVariant242,
+  243: SplitVariant243,
+  244: SplitVariant244,
+  245: SplitVariant245,
+  246: SplitVariant246,
+  247: SplitVariant247,
+  248: SplitVariant248,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -9800,4 +12387,25 @@ export const SPLIT_VARIANT_META = [
   { id: 225, name: 'Açaí Textura', description: 'Caixa vermelha centralizada sobreposta por imagem circular de produto com borda amarela.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split225.png' },
   { id: 226, name: 'Benefícios (Curva)', description: 'Layout com imagem superior em arco e caixa de texto inferior contornada.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split226.png' },
   { id: 227, name: 'Tropisuco', description: 'Imagem emoldurada centralizada com título na base e logo do copo de suco.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split227.png' },
+  { id: 228, name: 'Ice Cream Info', description: 'Layout vertical com título em destaque, imagem central e bloco descritivo inferior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split228.png' },
+  { id: 229, name: 'Conteúdo', description: 'Layout de conteúdo programático com ícone de culinária, dois blocos e duas fotos com listas.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split229.png' },
+  { id: 230, name: 'Corporate', description: 'Layout editorial com corte de imagem na direita, badge superior e card de estatística inferior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--230.png' },
+  { id: 231, name: 'Açaí Textura Premium', description: 'Caixa vermelha centralizada sobreposta por imagem circular de produto com borda amarela.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--225.png' },
+  { id: 232, name: 'Promo Páscoa', description: 'Imagem superior rounded com estrela decorativa e base de texto.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--232.png' },
+  { id: 233, name: 'Restaurante Trio', description: 'Trio vertical de imagens com círculos decorativos de fundo e letreiro superior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--233.png' },
+  { id: 234, name: 'Mosaico 3x3', description: 'Grade 3x3 de fotos com bloco central de texto descritivo.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split234.png' },
+  { id: 235, name: 'Promo Plataforma', description: 'Imagem de fundo com plataforma flutuante de produto e pílula de preço.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split235.png' },
+  { id: 236, name: 'Rotina Suco', description: 'Estrutura vertical com imagem em arco, vetor de folha decorativo e textos focados.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split236.png' },
+  { id: 237, name: 'Promo Páscoa Premium', description: 'Imagem superior rounded com estrela decorativa e base de texto (ID 237).', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--232.png' },
+  { id: 238, name: 'Promo Benefícios', description: 'Bloco de imagem e box lateral orange com tópicos e badge sobrepostos.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split238.png' },
+  { id: 239, name: 'Promo Panettone', description: 'Caixa de contorno com texto superior e imagem arredondada na base.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split239.png' },
+  { id: 240, name: 'Vitrine Produto', description: 'Imagem centralizada com sombra e título tricolor estilizado em letras garrafais.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split240.png' },
+  { id: 241, name: 'Produto Split', description: 'Top section de cantos arredondados contendo produto sobre estrela decorativa e base escura.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split241.png' },
+  { id: 242, name: 'Passo a Passo', description: 'Design com personagem 3D flutuante, número gigante de fundo, tag e bolinhas de carrossel.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split242.png' },
+  { id: 243, name: 'Convite Negócios BNI', description: 'Fundo escuro fotográfico com cartão centralizado branco de convite e botão de chamada destacado.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split243.png' },
+  { id: 244, name: 'Citação Negócios', description: 'Layout editorial com logo no topo, dois parágrafos destacados em caixa central e imagem de fundo.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split244.png' },
+  { id: 245, name: 'Corp Split Card', description: 'Design quadriculado com título Anton, imagem na base e cartão flutuante de texto ao centro.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split245.png' },
+  { id: 246, name: 'Portfólio Agência iPhone', description: 'Mockups flutuantes com um iPhone em destaque contendo o feed do Instagram.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split246.png' },
+  { id: 247, name: 'Portfólio Agência Mockup', description: 'Estrutura de mockups de posts flutuantes e iPhone com feed dinâmico.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split247.png' },
+  { id: 248, name: 'Social Meme (Confeitunes)', description: 'Card de post estilo tweet com avatar, nome de usuário, verificado, texto do meme e imagem interna.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split248.png' },
 ];

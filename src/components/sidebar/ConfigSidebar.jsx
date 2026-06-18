@@ -29,6 +29,8 @@ import {
   Copy,
   Trash2,
   ArrowUp,
+  FileImage,
+  Move,
 } from 'lucide-react';
 import { FONT_SCALE_RANGE, SLIDE_COUNT_RANGE, FONT_OPTIONS } from '../../lib/design-tokens';
 import { CONTENT_LIBRARY } from '../../lib/content-library';
@@ -516,6 +518,198 @@ export default function ConfigSidebar({
                         className="cs-range w-full" 
                       />
                     </div>
+                  </div>
+                )}
+
+                {/* Seleção de Figura / Imagem Overlay */}
+                <div className="flex items-center justify-between py-2.5 bg-surface-card/30 rounded-xl px-3 border border-white/5 mt-1.5">
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-zinc-200 tracking-wide flex items-center gap-1.5">
+                      <FileImage className="w-3.5 h-3.5 text-orange-400" />
+                      Figura / Imagem
+                    </span>
+                    <span className="text-[10px] text-zinc-500 leading-tight mt-0.5">Adiciona uma figura ou imagem customizada reposicionável no slide</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSlides(prev => prev.map((s, i) => 
+                        i === selectedElement.slideIndex 
+                          ? { 
+                              ...s, 
+                              enableSvgOverlay: !s.enableSvgOverlay, 
+                              svgOverlayOpacity: s.svgOverlayOpacity ?? 100,
+                              svgOverlaySource: s.svgOverlaySource || 'computer',
+                              positions: {
+                                ...(s.positions || {}),
+                                svgOverlay: s.positions?.svgOverlay || { x: 0, y: 0, scale: 1, rotation: 0 }
+                              }
+                            } 
+                          : s
+                      ));
+                    }}
+                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                      slide.enableSvgOverlay ? 'bg-emerald-500' : 'bg-zinc-800'
+                    }`}
+                  >
+                    <span
+                      className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                        slide.enableSvgOverlay ? 'translate-x-5' : 'translate-x-0'
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                {slide.enableSvgOverlay && (
+                  <div className="flex flex-col gap-3 bg-surface-card/20 p-2.5 rounded-xl border border-white/5">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">
+                        Origem da Imagem
+                      </span>
+                      <div className="grid grid-cols-1 gap-1.5 bg-black/40 p-1 rounded-lg border border-white/5">
+                        <button
+                          className="py-1.5 px-2 text-[9px] font-black uppercase tracking-wider rounded bg-zinc-800 text-white shadow-sm text-center"
+                          disabled
+                        >
+                          Meu Computador
+                        </button>
+                      </div>
+                    </div>
+
+                    {slide.svgOverlayContent ? (
+                      <div className="space-y-3">
+                        <div 
+                          className="w-full h-24 rounded-lg bg-zinc-950/50 border border-white/10 relative overflow-hidden flex items-center justify-center group/svgpreview p-2 cursor-pointer"
+                          onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: 'svgOverlay' })}
+                        >
+                          <img 
+                            src={slide.svgOverlayContent} 
+                            className="max-w-full max-h-full object-contain pointer-events-none" 
+                            alt="Preview da Imagem" 
+                          />
+                          <label className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover/svgpreview:opacity-100 transition-opacity cursor-pointer">
+                            <Upload className="w-5 h-5 text-white" />
+                            <input 
+                              type="file" 
+                              accept="image/*" 
+                              className="hidden" 
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (!file) return;
+                                const reader = new FileReader();
+                                reader.onload = (ev) => {
+                                  setSlides(prev => prev.map((s, idx) => 
+                                    idx === selectedElement.slideIndex 
+                                      ? { ...s, svgOverlayContent: ev.target.result } 
+                                      : s
+                                  ));
+                                };
+                                reader.readAsDataURL(file);
+                              }} 
+                            />
+                          </label>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Opacidade</span>
+                            <span className="text-[9px] font-mono text-zinc-500">{slide.svgOverlayOpacity ?? 100}%</span>
+                          </div>
+                          <input 
+                            type="range" 
+                            min="0" 
+                            max="100" 
+                            value={slide.svgOverlayOpacity ?? 100} 
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setSlides(prev => prev.map((s, idx) => 
+                                idx === selectedElement.slideIndex 
+                                  ? { ...s, svgOverlayOpacity: parseInt(val, 10) } 
+                                  : s
+                              ));
+                            }} 
+                            className="cs-range w-full" 
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-600">Escala</span>
+                            <span className="text-[9px] font-mono text-zinc-500">{((slide.positions?.svgOverlay?.scale ?? 1) * 100).toFixed(0)}%</span>
+                          </div>
+                          <input 
+                            type="range" 
+                            min="0.1" 
+                            max="3" 
+                            step="0.05"
+                            value={slide.positions?.svgOverlay?.scale ?? 1} 
+                            onChange={(e) => {
+                              const val = parseFloat(e.target.value);
+                              setSlides(prev => prev.map((s, idx) => {
+                                if (idx !== selectedElement.slideIndex) return s;
+                                const pos = s.positions?.svgOverlay || { x: 0, y: 0, scale: 1, rotation: 0 };
+                                return {
+                                  ...s,
+                                  positions: {
+                                    ...(s.positions || {}),
+                                    svgOverlay: { ...pos, scale: val }
+                                  }
+                                };
+                              }));
+                            }} 
+                            className="cs-range w-full" 
+                          />
+                        </div>
+
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => setSelectedElement({ slideIndex: selectedElement.slideIndex, field: 'svgOverlay' })}
+                            className="flex-1 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 hover:border-emerald-500/40 transition-all flex items-center justify-center gap-1.5"
+                          >
+                            <Move className="w-3 h-3" />
+                            Ajustar Posição
+                          </button>
+                          
+                          <button
+                            onClick={() => {
+                              setSlides(prev => prev.map((s, idx) => 
+                                idx === selectedElement.slideIndex 
+                                  ? { ...s, svgOverlayContent: undefined } 
+                                  : s
+                              ));
+                            }}
+                            className="py-1.5 px-3 rounded-lg text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 hover:border-rose-500/40 transition-all flex items-center justify-center gap-1.5"
+                            title="Remover Imagem"
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <label className="flex flex-col items-center justify-center gap-2 h-20 border-2 border-dashed border-border-subtle rounded-lg text-zinc-600 hover:text-zinc-400 hover:border-zinc-600 transition-colors cursor-pointer">
+                        <Upload className="w-5 h-5" />
+                        <span className="text-[9px] font-bold uppercase tracking-widest">
+                          Escolher Imagem
+                        </span>
+                        <input 
+                          type="file" 
+                          accept="image/*" 
+                          className="hidden" 
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (!file) return;
+                            const reader = new FileReader();
+                            reader.onload = (ev) => {
+                              setSlides(prev => prev.map((s, idx) => 
+                                idx === selectedElement.slideIndex 
+                                  ? { ...s, svgOverlayContent: ev.target.result } 
+                                  : s
+                              ));
+                            };
+                            reader.readAsDataURL(file);
+                          }} 
+                        />
+                      </label>
+                    )}
                   </div>
                 )}
               </div>

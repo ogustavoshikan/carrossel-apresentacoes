@@ -224,6 +224,34 @@ export default function SlideRenderer({
         slideCounterPosition={slideCounterPosition}
       />
 
+      {/* Camada de Imagem/SVG Overlay (No Topo) */}
+      {data.enableSvgOverlay && data.svgOverlayContent && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-30 flex items-center justify-center">
+          <SmartElement
+            slideIndex={index}
+            field="svgOverlay"
+            position={data.positions?.svgOverlay || { x: 0, y: 0, scale: 1, rotation: 0 }}
+            showMetrics={showMetrics}
+            onActionStart={onActionStart}
+            isSelected={selectedElement?.slideIndex === index && selectedElement?.field === 'svgOverlay'}
+            onSelectElement={onSelectElement}
+          >
+            <img 
+              src={data.svgOverlayContent} 
+              className="pointer-events-auto object-contain select-none transition-opacity duration-150" 
+              style={{ 
+                opacity: (data.svgOverlayOpacity ?? 100) / 100,
+                width: '240px',
+                height: 'auto',
+                maxWidth: '1088px',
+                maxHeight: '1358px'
+              }}
+              alt="Overlay Imagem/SVG" 
+            />
+          </SmartElement>
+        </div>
+      )}
+
       {/* Camada Global de Ruído/Grão (Sobre todo o slide) */}
       {data.enableNoise && data.noiseTarget === 'all' && !(data.layout === 'content-split' && data.splitVariantIndex === 76) && (
         <svg 
