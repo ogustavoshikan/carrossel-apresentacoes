@@ -6643,8 +6643,8 @@ export function CoverExtraVariant214({
         )}
         
         {finalSubtitle && (
-          <div className="w-full bg-black/20 py-[3.48px] text-center">
-            <SmartField field="badge_text" {...sp}>
+          <div className="w-full bg-black/20 py-[3.48px] flex items-center justify-center text-center">
+            <SmartField field="badge_text" {...sp} className="inline-block">
               <span 
                 id="tcn-subtitle" 
                 contentEditable suppressContentEditableWarning
@@ -6659,21 +6659,21 @@ export function CoverExtraVariant214({
       </div>
 
       {/* Bloco de Textos (Meio) */}
-      <div className="flex-1 flex flex-col justify-center px-[86.4px] relative z-10 mt-[21.6px] min-h-0">
-        <SmartField field="titulo" {...sp}>
+      <div className="flex-1 flex flex-col justify-center px-[32px] relative z-10 mt-[8px] min-h-0">
+        <SmartField field="titulo" {...sp} maxCustomWidth={240}>
           <h1 
             id="tcn-title" 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="text-[56px] font-black leading-[0.95] uppercase text-black tracking-tighter font-oswald mb-[64.8px] m-0 outline-none cursor-text select-text"
-            style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
+            className="font-black leading-[0.95] uppercase text-black tracking-tighter font-oswald mb-[24px] m-0 outline-none cursor-text select-text"
+            style={{ fontSize: `${56 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
         
         {finalBadgeText && (
-          <div className="flex items-center gap-[21.6px]">
-            <SmartField field="slide_call" {...sp}>
+          <div className="flex items-center gap-3">
+            <SmartField field="slide_call" {...sp} maxCustomWidth={180}>
               <span 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
@@ -6683,11 +6683,11 @@ export function CoverExtraVariant214({
               </span>
             </SmartField>
             <div 
-              className="w-[54px] h-[54px] rounded-full border-[3.24px] border-black flex items-center justify-center shrink-0"
+              className="w-6 h-6 rounded-full border-[1.5px] border-black flex items-center justify-center shrink-0"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                className="w-[27px] h-[27px]" 
+                className="w-3 h-3" 
                 style={{ color: 'var(--color-secondary)' }}
                 fill="none" 
                 viewBox="0 0 24 24" 
