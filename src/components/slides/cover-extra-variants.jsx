@@ -6276,6 +6276,7 @@ export function CoverExtraVariant212({
   onTextChange, selectedElement, onSelectElement, brandLogo, showBrandLogo, slideCount
 }) {
   const sTitle = titleScale / 100;
+  const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
 
   const finalBgColor = brandColor || '#E85382';
@@ -6493,7 +6494,7 @@ export function CoverExtraVariant213({
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="text-[45px] font-black leading-[1] uppercase text-black tracking-tighter font-oswald m-0 outline-none cursor-text select-text"
-            style={{ fontSize: `${45 * sTitle}px` }}
+            style={{ fontSize: `${52 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -6504,7 +6505,7 @@ export function CoverExtraVariant213({
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="mt-6 font-bold text-gray-500 uppercase leading-[1.3] w-[95%] tracking-wide m-0 outline-none cursor-text select-text"
-            style={{ fontSize: `${13 * sText}px` }}
+            style={{ fontSize: `${19 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: finalDesc.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -6517,7 +6518,7 @@ export function CoverExtraVariant213({
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
                 className="font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
-                style={{ fontSize: `${10 * sText}px` }}
+                style={{ fontSize: `${13 * sText}px` }}
               >
                 {finalBadgeText}
               </span>
@@ -6542,7 +6543,7 @@ export function CoverExtraVariant213({
 
       {/* Imagem de Fundo (Parte Inferior 40%) */}
       {finalImageUrl && (
-        <div className="absolute bottom-0 left-0 w-full h-[40%] z-20 shadow-2xl overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-[42%] z-20 shadow-2xl overflow-hidden">
           <img 
             id="tcf-image" 
             src={finalImageUrl} 
@@ -6608,41 +6609,47 @@ export function CoverExtraVariant214({
         }
       `}} />
 
-      {/* SlideHeader invisível para compatibilidade */}
+      {/* SlideHeader invisível para compatibilidade (ocultando elementos redundantes) */}
       <SlideHeader
+        data={data}
+        slideIndex={index}
+        index={index + 1}
+        total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         brandAvatar={brandAvatar}
         isVerified={isVerified}
-        index={index + 1}
-        className="opacity-0 absolute top-0 pointer-events-none"
+        showBrandHandle={false}
+        showSlideCounter={false}
+        showBrandLogo={false}
+        hideDot={true}
       />
 
       {/* Header Superior */}
       <div 
-        className="w-full flex flex-col z-20 transition-colors duration-300"
+        className="w-full flex flex-col z-20 transition-colors duration-300 shrink-0"
         style={{ backgroundColor: 'var(--color-secondary)' }}
       >
         {showBrandLogo && finalLogoUrl && (
-          <div className="h-[151.2px] flex items-center justify-center pt-[21.6px] pb-[10.8px]">
+          <div className="h-[55px] flex items-center justify-center pt-[16.2px] pb-[8.1px]">
             <img 
               id="tcn-logo" 
               src={finalLogoUrl} 
               crossOrigin="anonymous"
-              className="h-[65%] w-auto object-contain max-h-[90px]" 
+              className="h-[65%] w-auto object-contain max-h-[60px]" 
               alt="Logo"
             />
           </div>
         )}
         
         {finalSubtitle && (
-          <div className="w-full bg-black/20 py-[10.8px] text-center">
+          <div className="w-full bg-black/20 py-[3.48px] text-center">
             <SmartField field="badge_text" {...sp}>
               <span 
                 id="tcn-subtitle" 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="text-white text-[30.24px] font-bold tracking-widest uppercase outline-none cursor-text select-text block"
+                className="text-white text-[12.44px] font-bold tracking-[0.25em] uppercase outline-none cursor-text select-text block"
               >
                 {finalSubtitle}
               </span>
@@ -6652,13 +6659,13 @@ export function CoverExtraVariant214({
       </div>
 
       {/* Bloco de Textos (Meio) */}
-      <div className="flex-1 flex flex-col justify-center px-[86.4px] relative z-10 mt-[21.6px]">
+      <div className="flex-1 flex flex-col justify-center px-[86.4px] relative z-10 mt-[21.6px] min-h-0">
         <SmartField field="titulo" {...sp}>
           <h1 
             id="tcn-title" 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="text-[108px] font-black leading-[0.95] uppercase text-black tracking-tighter font-oswald mb-[64.8px] m-0 outline-none cursor-text select-text"
+            className="text-[56px] font-black leading-[0.95] uppercase text-black tracking-tighter font-oswald mb-[64.8px] m-0 outline-none cursor-text select-text"
             style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
             dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -6670,7 +6677,7 @@ export function CoverExtraVariant214({
               <span 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
-                className="text-[27px] font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
+                className="text-[10px] font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
               >
                 {finalBadgeText}
               </span>
@@ -6696,7 +6703,7 @@ export function CoverExtraVariant214({
 
       {/* Imagem de Fundo (Parte Inferior 50%) */}
       {finalImageUrl && (
-        <div className="w-full h-[675px] relative z-0 overflow-hidden">
+        <div className="w-full h-[44%] shrink-0 relative z-0 overflow-hidden">
           <img 
             id="tcn-image" 
             src={finalImageUrl} 
