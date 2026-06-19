@@ -12057,17 +12057,24 @@ export function SplitVariant245(props) {
       }}
     >
       <style dangerouslySetInnerHTML={{__html: `
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
-        .font-display { font-family: 'Anton', sans-serif; }
+        .font-display { font-family: 'Oswald', sans-serif; }
+        #tpl_corp_split_card h1 b {
+          color: var(--accent);
+          font-weight: inherit;
+        }
+        #tpl_corp_split_card h1 span {
+          color: var(--accent);
+        }
       `}} />
 
       {/* Grid Pattern Background */}
       <div 
-        className="absolute top-0 left-0 w-full h-[65%] pointer-events-none opacity-[0.15] z-0" 
+        className="absolute top-0 left-0 w-full h-[65%] pointer-events-none opacity-[0.12] z-0" 
         style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 15 v10 M15 20 h10' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`, 
-          backgroundSize: '40px 40px', 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 30 0 L 0 0 0 30' fill='none' stroke='%23000000' stroke-width='0.5'/%3E%3C/svg%3E")`, 
+          backgroundSize: '30px 30px', 
           backgroundPosition: 'center' 
         }}
       />
@@ -12094,8 +12101,8 @@ export function SplitVariant245(props) {
           <h1 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-display leading-[0.9] text-center uppercase tracking-tight text-black outline-none whitespace-pre-line" 
-            style={{ transform: 'scaleY(1.15)', fontSize: `${28 * sTitle}px` }}
+            className="font-display font-black leading-[1] text-center uppercase tracking-tighter text-black outline-none whitespace-pre-line m-0" 
+            style={{ fontSize: `${52 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -12107,13 +12114,13 @@ export function SplitVariant245(props) {
       </SmartField>
 
       {/* Floating White Card */}
-      <div className="absolute top-[48%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-4 z-20">
+      <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-4 z-50">
         <SmartField field="texto_apoio" {...sp} className="w-full">
           <p 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] text-gray-900 tracking-tight outline-none"
-            style={{ fontSize: `${12.5 * sText}px` }}
+            style={{ fontSize: `${19.5 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
