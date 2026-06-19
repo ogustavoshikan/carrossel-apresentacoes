@@ -9,9 +9,18 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 // renderiza um layout visual diferente, preservando dados dinâmicos.
 // ============================================================
 
-// ─── Helper: SmartField ──────────────────────────────────────
-function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, style, children }) {
-  const pos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, style, children, rotation, forceX, forceY }) {
+  const basePos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
+  const pos = { ...basePos };
+  if (rotation !== undefined && basePos.rotation === undefined) {
+    pos.rotation = rotation;
+  }
+  if (forceX !== undefined) {
+    pos.x = forceX;
+  }
+  if (forceY !== undefined) {
+    pos.y = forceY;
+  }
   return (
     <SmartElement
       slideIndex={index}
@@ -11325,10 +11334,10 @@ export function SplitVariant246(props) {
       `}} />
 
       {/* Lado Esquerdo: Mockups Flutuantes */}
-      <div className="w-[52%] h-full relative z-10 overflow-hidden">
+      <div className="w-[52%] h-full relative z-20">
         
         {/* Post Fundo 1 (Canto Superior Esq) */}
-        <SmartField field="imagem2" {...sp} className="absolute -top-[2%] -left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform -rotate-12 p-1 pb-4 z-0 opacity-90">
+        <SmartField field="imagem2" rotation={350} {...sp} className="absolute -top-[12%] left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform rotate-[350deg] p-1 pb-4 z-0 opacity-90">
           <ImageBg data={data} imageUrl={bg1Url} className="w-full aspect-square rounded-[12px]" />
           <div className="absolute bottom-1.5 left-2.5 flex gap-1">
             <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
@@ -11337,7 +11346,7 @@ export function SplitVariant246(props) {
         </SmartField>
 
         {/* Post Fundo 2 (Canto Inferior Esq) */}
-        <SmartField field="imagem3" {...sp} className="absolute -bottom-[5%] left-[5%] w-[120px] rounded-[16px] bg-white shadow-lg transform rotate-12 p-1 pb-4 z-0 opacity-90">
+        <SmartField field="imagem3" rotation={350} {...sp} className="absolute -bottom-[55%] left-[45%] w-[120px] rounded-[16px] bg-white shadow-lg transform rotate-[350deg] p-1 pb-4 z-0 opacity-90">
           <ImageBg data={data} imageUrl={bg2Url} className="w-full aspect-square rounded-[12px]" />
           <div className="absolute bottom-1.5 left-2.5 flex gap-1">
             <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
@@ -11346,7 +11355,7 @@ export function SplitVariant246(props) {
         </SmartField>
 
         {/* iPhone Mockup Principal */}
-        <div className="absolute top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-20 flex flex-col items-center justify-center rotate-[8deg]">
+        <div className="absolute top-1/2 left-[62%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-50 flex flex-col items-center justify-center rotate-[-10deg]">
           {/* Tela do iPhone */}
           <div className="w-[94%] h-[97%] bg-white rounded-[24px] relative overflow-hidden flex flex-col">
             {/* Notch */}
@@ -11389,7 +11398,7 @@ export function SplitVariant246(props) {
       </div>
 
       {/* Lado Direito: Textos e Call to Action */}
-      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-20">
+      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-10">
         <SmartField field="titulo" {...sp} className="w-full">
           <h1 
             contentEditable suppressContentEditableWarning
@@ -11515,28 +11524,10 @@ export function SplitVariant247(props) {
       `}} />
 
       {/* Lado Esquerdo: Mockups Flutuantes */}
-      <div className="w-[52%] h-full relative z-10 overflow-hidden">
-        
-        {/* Post Fundo 1 (Canto Superior Esq) */}
-        <SmartField field="imagem2" {...sp} className="absolute -top-[2%] -left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform -rotate-12 p-1 pb-4 z-0 opacity-90">
-          <ImageBg data={data} imageUrl={bg1Url} className="w-full aspect-square rounded-[12px]" />
-          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
-            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
-            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-          </div>
-        </SmartField>
-
-        {/* Post Fundo 2 (Canto Inferior Esq) */}
-        <SmartField field="imagem3" {...sp} className="absolute -bottom-[5%] left-[5%] w-[120px] rounded-[16px] bg-white shadow-lg transform rotate-12 p-1 pb-4 z-0 opacity-90">
-          <ImageBg data={data} imageUrl={bg2Url} className="w-full aspect-square rounded-[12px]" />
-          <div className="absolute bottom-1.5 left-2.5 flex gap-1">
-            <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
-            <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
-          </div>
-        </SmartField>
+      <div className="w-[52%] h-full relative z-20">
 
         {/* iPhone Mockup Principal */}
-        <div className="absolute top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-20 flex flex-col items-center justify-center rotate-[8deg]">
+        <div className="absolute top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 w-[155px] h-[310px] bg-gray-900 rounded-[28px] shadow-2xl border-[2px] border-gray-300 z-20 flex flex-col items-center justify-center -rotate-[15deg]">
           {/* Tela do iPhone */}
           <div className="w-[94%] h-[97%] bg-white rounded-[24px] relative overflow-hidden flex flex-col">
             {/* Notch */}
@@ -11579,7 +11570,7 @@ export function SplitVariant247(props) {
       </div>
 
       {/* Lado Direito: Textos e Call to Action */}
-      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-20">
+      <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-10">
         <SmartField field="titulo" {...sp} className="w-full">
           <h1 
             contentEditable suppressContentEditableWarning
