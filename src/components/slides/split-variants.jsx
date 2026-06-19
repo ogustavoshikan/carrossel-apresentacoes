@@ -11820,8 +11820,7 @@ export function SplitVariant243(props) {
 
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=1080&auto=format&fit=crop";
   const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  const kicker = data.extra1 || "SUA EMPRESA";
-  const title = data.titulo || "ENTRA EM CAMPO OU CONTINUARÁ NO BANCO DE RESERVAS?";
+  const title = data.titulo || "SUA EMPRESA ENTRA EM CAMPO OU CONTINUARÁ NO BANCO DE RESERVAS?";
   const body = data.texto_apoio || "Proteja o seu mercado na sua região e garanta a exclusividade da sua cadeira antes que o seu principal concorrente o faça. <span class=\"font-bold text-black\">Visite uma reunião de negócios de elite como convidado.</span>";
   const cta = data.extra2 || "Comente <span class=\"font-black tracking-wide\">NEGÓCIOS</span> aqui embaixo e nós enviamos o seu convite exclusivo no seu direct.";
   const colorCta = brandColor || data.accentColor || "#d81b21";
@@ -11841,50 +11840,40 @@ export function SplitVariant243(props) {
       `}} />
 
       {/* Background Img */}
-      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
-      </SmartField>
+      </div>
       
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/80 z-10 pointer-events-none"></div>
 
       {/* Top Logo */}
-      <SmartField field="imagem2" {...sp} className="absolute top-10 w-full flex justify-center z-20 h-8">
-        {logoUrl ? (
-          <img 
-            id="tpl_business_logo" 
-            src={getCorsSafeUrl(logoUrl)} 
-            className="h-full object-contain drop-shadow-lg" 
-            style={{ filter: 'brightness(0) invert(1)' }}
-            crossOrigin="anonymous"
-            alt="Logo"
-          />
-        ) : (
-          <div className="h-full w-10 bg-white/10 rounded" />
-        )}
-      </SmartField>
+      <div className="absolute top-10 left-0 w-full flex justify-center z-20 pointer-events-none">
+        <SmartField field="imagem2" {...sp} forceX={0} forceY={0} className="h-8 pointer-events-auto flex justify-center items-center">
+          {logoUrl ? (
+            <img 
+              id="tpl_business_logo" 
+              src={getCorsSafeUrl(logoUrl)} 
+              className="h-full object-contain drop-shadow-lg" 
+              style={{ filter: 'brightness(0) invert(1)' }}
+              crossOrigin="anonymous"
+              alt="Logo"
+            />
+          ) : (
+            <div className="h-full w-10 bg-white/10 rounded" />
+          )}
+        </SmartField>
+      </div>
 
       {/* Main White Card */}
-      <div className="relative z-20 w-[84%] bg-white rounded-[24px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[12%]">
-          {/* Subtítulo / Linha Fina */}
-          <SmartField field="extra1" {...sp} className="w-full mb-1">
-            <h3 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
-              className="font-sans text-gray-800 font-medium uppercase tracking-widest text-center outline-none"
-              style={{ fontSize: `${12 * sText}px` }}
-            >
-              {kicker}
-            </h3>
-          </SmartField>
-
+      <div className="relative z-20 w-[84%] bg-white rounded-[16px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[22%]">
           {/* Título Principal */}
           <SmartField field="titulo" {...sp} className="w-full mb-3">
             <h1 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="font-display font-black uppercase text-black leading-[1.15] text-center outline-none"
-              style={{ fontSize: `${22 * sTitle}px` }}
+              style={{ fontSize: `${28 * sTitle}px` }}
               dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
@@ -11895,7 +11884,7 @@ export function SplitVariant243(props) {
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
               className="font-sans text-gray-800 text-center leading-[1.45] outline-none"
-              style={{ fontSize: `${12.8 * sText}px` }}
+              style={{ fontSize: `${18 * sText}px` }}
               dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
@@ -11911,7 +11900,7 @@ export function SplitVariant243(props) {
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
                 className="font-sans text-white leading-tight text-center font-light outline-none"
-                style={{ fontSize: `${12 * sText}px` }}
+                style={{ fontSize: `${18 * sText}px` }}
                 dangerouslySetInnerHTML={{ __html: cta.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
               />
             </SmartField>
@@ -11963,40 +11952,42 @@ export function SplitVariant244(props) {
       `}} />
 
       {/* Background Img */}
-      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full z-0">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
-      </SmartField>
+      </div>
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/60 z-10 pointer-events-none"></div>
 
       {/* Top Logo */}
-      <SmartField field="imagem2" {...sp} className="absolute top-10 w-full flex justify-center z-20 h-8">
-        {logoUrl ? (
-          <img 
-            id="tpl_business_quote_logo" 
-            src={getCorsSafeUrl(logoUrl)} 
-            className="h-full object-contain drop-shadow-md" 
-            crossOrigin="anonymous"
-            alt="Logo"
-          />
-        ) : (
-          <div className="h-full w-10 bg-white/10 rounded" />
-        )}
-      </SmartField>
+      <div className="absolute top-10 left-0 w-full flex justify-center z-20 pointer-events-none">
+        <SmartField field="imagem2" {...sp} forceX={0} forceY={0} className="h-8 pointer-events-auto flex justify-center items-center">
+          {logoUrl ? (
+            <img 
+              id="tpl_business_quote_logo" 
+              src={getCorsSafeUrl(logoUrl)} 
+              className="h-full object-contain drop-shadow-md" 
+              crossOrigin="anonymous"
+              alt="Logo"
+            />
+          ) : (
+            <div className="h-full w-10 bg-white/10 rounded" />
+          )}
+        </SmartField>
+      </div>
 
       {/* Main White Card */}
       <div 
         id="tpl_business_quote_card" 
-        className="relative z-20 w-[84%] rounded-[24px] shadow-2xl flex flex-col px-8 py-10 mt-16"
-        style={{ backgroundColor: colorCard }}
+        className="relative z-20 w-[84%] rounded-[24px] shadow-2xl flex flex-col p-6"
+        style={{ backgroundColor: colorCard, marginTop: '35px' }}
       >
         <SmartField field="titulo" {...sp} className="w-full mb-4">
           <p 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
-            style={{ fontSize: `${16 * sTitle}px`, color: colorText }}
+            style={{ fontSize: `${23 * sTitle}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: p1.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -12006,7 +11997,7 @@ export function SplitVariant244(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
-            style={{ fontSize: `${16 * sText}px`, color: colorText }}
+            style={{ fontSize: `${23 * sText}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: p2.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
