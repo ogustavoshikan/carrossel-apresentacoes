@@ -98,7 +98,11 @@ export default function SmartElement({
             transformOrigin: 'center center',
             // Quando a largura é controlada por resize, altura deve ser auto para
             // expandir para baixo conforme o texto quebra de linha.
-            ...(pos.width ? { width: `${pos.width}px`, minWidth: 'min-content', maxWidth: 'none', height: 'auto' } : { width: 'fit-content' }),
+            ...(pos.width
+              ? { width: `${pos.width}px`, minWidth: 'min-content', maxWidth: 'none', height: 'auto' }
+              : (field?.toLowerCase().includes('imagem') || field?.toLowerCase().includes('logo'))
+                ? {}
+                : { width: 'fit-content' }),
             ...externalStyle,
           }}
           ref={elRef}
