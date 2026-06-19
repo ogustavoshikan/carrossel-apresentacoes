@@ -6341,11 +6341,12 @@ export function CoverExtraVariant212({
             />
           )}
           <div className="flex flex-col justify-center">
-            <SmartField field="texto_apoio" {...sp}>
+            <SmartField field="texto_apoio" {...sp} maxCustomWidth={250}>
               <span 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-                className="text-[11px] font-bold text-white leading-none tracking-wide outline-none cursor-text select-text"
+                className="text-[11px] font-bold text-white leading-none tracking-wide outline-none cursor-text select-text block"
+                style={{ fontSize: `${11 * sText}px` }}
               >
                 {finalAuthorName}
               </span>
@@ -6358,13 +6359,13 @@ export function CoverExtraVariant212({
 
         {/* Título Principal */}
         <div className="absolute top-[70px] right-[40px] text-right max-w-[85%] z-20 drop-shadow-md">
-          <SmartField field="titulo" {...sp}>
+          <SmartField field="titulo" {...sp} maxCustomWidth={299}>
             <h1 
               id="tsp-title1" 
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="text-[55px] font-serif font-semibold leading-[0.95] text-white m-0 outline-none cursor-text select-text whitespace-pre-line"
-              style={{ transform: `scale(${sTitle})`, transformOrigin: 'right center' }}
+              className="font-serif font-semibold leading-[0.95] text-white m-0 outline-none cursor-text select-text whitespace-pre-line"
+              style={{ fontSize: `${55 * sTitle}px` }}
             >
               {finalTitle}
             </h1>
@@ -6378,12 +6379,12 @@ export function CoverExtraVariant212({
               className="bg-white/90 backdrop-blur-sm rounded-lg px-5 py-2 shadow-lg flex items-center gap-3 border-l-2"
               style={{ borderColor: 'var(--color-bg)' }}
             >
-              <SmartField field="slide_call" {...sp}>
+              <SmartField field="slide_call" {...sp} maxCustomWidth={180}>
                 <span 
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
-                  className="text-[10px] font-bold uppercase tracking-widest whitespace-nowrap outline-none cursor-text select-text block"
-                  style={{ color: 'var(--color-secondary)' }}
+                  className="font-bold uppercase tracking-widest whitespace-nowrap outline-none cursor-text select-text block"
+                  style={{ color: 'var(--color-secondary)', fontSize: `${10 * sText}px` }}
                 >
                   {finalBadgeText}
                 </span>
@@ -6408,6 +6409,7 @@ export function CoverExtraVariant213({
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
+  const [logoError, setLogoError] = React.useState(false);
 
   const finalBgColor = '#F5F5F5'; // Fundo fixo cinza claro
   const finalSecColor = brandColor || '#E3000F'; // Cor secundária é a cor da marca
@@ -6443,81 +6445,89 @@ export function CoverExtraVariant213({
         }
       `}} />
 
-      {/* SlideHeader invisível para compatibilidade */}
+      {/* SlideHeader invisível para compatibilidade (ocultando elementos redundantes) */}
       <SlideHeader
+        data={data}
+        slideIndex={index}
+        index={index + 1}
+        total={slideCount}
         brandHandle={brandHandle}
         brandColor={brandColor}
         brandAvatar={brandAvatar}
         isVerified={isVerified}
-        index={index + 1}
-        className="opacity-0 absolute top-0 pointer-events-none"
+        showBrandHandle={false}
+        showSlideCounter={false}
+        showBrandLogo={false}
+        hideDot={true}
       />
 
       {/* Formas Geométricas do Fundo (Lado Direito) */}
       <div 
-        className="absolute top-0 right-0 w-[302.4px] h-[810px] z-0 transition-colors duration-300"
+        className="absolute top-0 right-0 w-[28%] h-[60%] z-0 transition-colors duration-300"
         style={{ backgroundColor: 'var(--color-secondary)' }}
       />
       <div 
-        className="absolute top-0 right-[302.4px] w-[270px] h-[297px] z-0 rounded-tl-[108px] transition-colors duration-300"
+        className="absolute top-0 right-[28%] w-[25%] h-[28%] z-0 rounded-tl-[40px] transition-colors duration-300"
         style={{ backgroundColor: 'var(--color-secondary)' }}
       />
 
       {/* Logo no Canto Superior Direito */}
-      {showBrandLogo && finalLogoUrl && (
-        <div className="absolute top-[108px] right-[54px] z-10 w-[194.4px] flex justify-center">
+      {showBrandLogo && finalLogoUrl && !logoError && (
+        <div className="absolute top-[50px] right-[25px] z-10 w-[72px] flex justify-center">
           <img 
             id="tcf-logo" 
             src={finalLogoUrl} 
             crossOrigin="anonymous"
-            className="w-full h-auto object-contain max-h-[80px]" 
+            onError={() => setLogoError(true)}
+            className="w-full h-auto object-contain max-h-[30px]" 
             alt="Logo"
           />
         </div>
       )}
 
       {/* Bloco de Textos e Conteúdo (Lado Esquerdo) */}
-      <div className="absolute top-[108px] left-[86.4px] w-[648px] z-10 flex flex-col">
-        <SmartField field="titulo" {...sp}>
+      <div className="absolute top-[50px] left-[32px] w-[240px] z-10 flex flex-col">
+        <SmartField field="titulo" {...sp} maxCustomWidth={240}>
           <h1 
             id="tcf-title" 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="text-[91.8px] font-black leading-[1] uppercase text-black tracking-tighter font-oswald m-0 outline-none cursor-text select-text"
-            style={{ transform: `scale(${sTitle})`, transformOrigin: 'left center' }}
+            className="text-[45px] font-black leading-[1] uppercase text-black tracking-tighter font-oswald m-0 outline-none cursor-text select-text"
+            style={{ fontSize: `${45 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: finalTitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
         
-        <SmartField field="texto_apoio" {...sp}>
+        <SmartField field="texto_apoio" {...sp} maxCustomWidth={240}>
           <p 
             id="tcf-desc" 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
-            className="mt-[64.8px] text-[34.56px] font-bold text-gray-500 uppercase leading-[1.3] w-[95%] tracking-wide m-0 outline-none cursor-text select-text"
-            style={{ transform: `scale(${sText})`, transformOrigin: 'left center' }}
+            className="mt-6 font-bold text-gray-500 uppercase leading-[1.3] w-[95%] tracking-wide m-0 outline-none cursor-text select-text"
+            style={{ fontSize: `${13 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: finalDesc.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
 
         {/* Indicador de Deslize */}
         {finalBadgeText && (
-          <div className="mt-[86.4px] flex items-center gap-[27px]">
-            <SmartField field="slide_call" {...sp}>
+          <div className="mt-8 flex items-center gap-3">
+            <SmartField field="slide_call" {...sp} maxCustomWidth={180}>
               <span 
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerText)}
-                className="text-[27px] font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
+                className="font-bold text-black uppercase tracking-wider outline-none cursor-text select-text block"
+                style={{ fontSize: `${10 * sText}px` }}
               >
                 {finalBadgeText}
               </span>
             </SmartField>
             <div 
-              className="w-[54px] h-[54px] rounded-full border-[3.24px] border-black flex items-center justify-center shrink-0"
+              className="w-6 h-6 rounded-full border-[1.5px] border-black flex items-center justify-center shrink-0"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                className="w-[27px] h-[27px] text-black" 
+                className="w-3 h-3 text-black" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor" 
@@ -6532,12 +6542,12 @@ export function CoverExtraVariant213({
 
       {/* Imagem de Fundo (Parte Inferior 40%) */}
       {finalImageUrl && (
-        <div className="absolute bottom-0 left-0 w-full h-[540px] z-20 shadow-2xl overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-[40%] z-20 shadow-2xl overflow-hidden">
           <img 
             id="tcf-image" 
             src={finalImageUrl} 
             crossOrigin="anonymous"
-            className="w-full h-full object-cover border-t-[10.8px] border-white transition-transform duration-700" 
+            className="w-full h-full object-cover border-t-4 border-white transition-transform duration-700" 
             alt="Destaque"
             style={{
               objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`,

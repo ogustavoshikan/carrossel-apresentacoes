@@ -5,7 +5,7 @@ import { useSelectedElements } from '../lib/selection-context';
 /**
  * Componente isolado para proteger a edição RTF do React Reconciliation
  */
-const SafeEditable = React.forwardRef(({ html, tagName: Tag, onHtmlBlur, isEditing, externalOnKeyDown, ...props }, forwardedRef) => {
+const SafeEditable = React.forwardRef(({ html, tagName: Tag, onHtmlBlur, isEditing, externalOnKeyDown, dangerouslySetInnerHTML, ...props }, forwardedRef) => {
   const localRef = useRef(null);
   const ref = forwardedRef || localRef;
 
@@ -98,7 +98,7 @@ export default function SmartElement({
             transformOrigin: 'center center',
             // Quando a largura é controlada por resize, altura deve ser auto para
             // expandir para baixo conforme o texto quebra de linha.
-            ...(pos.width ? { width: `${pos.width}px`, minWidth: 'min-content', maxWidth: 'none', height: 'auto' } : {}),
+            ...(pos.width ? { width: `${pos.width}px`, minWidth: 'min-content', maxWidth: 'none', height: 'auto' } : { width: 'fit-content' }),
             ...externalStyle,
           }}
           ref={elRef}

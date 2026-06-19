@@ -56,9 +56,17 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
         let newX = actionInfo.origX + dx;
         let newY = actionInfo.origY + dy;
 
-        // BOUNDS: clamp para não ultrapassar as bordas do slide
+        // BOUNDS: clamp para não ultrapassar as bordas do slide (relaxado se inconsistente)
         if (actionInfo.constraints) {
-          const { minX, maxX, minY, maxY } = actionInfo.constraints;
+          let { minX, maxX, minY, maxY } = actionInfo.constraints;
+          if (minX > maxX) {
+            minX = -9999;
+            maxX = 9999;
+          }
+          if (minY > maxY) {
+            minY = -9999;
+            maxY = 9999;
+          }
           newX = Math.max(minX, Math.min(maxX, newX));
           newY = Math.max(minY, Math.min(maxY, newY));
         }
@@ -112,7 +120,10 @@ export function useDragResize(slides, setSlides, selectedElements = new Set()) {
 
       } else if (actionInfo.type === 'resize-width') {
         const MIN_WIDTH = 80;
-        const boundedMax = actionInfo.constraints?.maxWidth || (actionInfo.slideWidth || 9999);
+        let boundedMax = actionInfo.constraints?.maxWidth || (actionInfo.slideWidth || 9999);
+        if (boundedMax < MIN_WIDTH) {
+          boundedMax = 9999;
+        }
         const newWidth = Math.max(MIN_WIDTH, Math.min(boundedMax, actionInfo.origWidth + (dx / actionInfo.origScale)));
 
         targetElement.style.width = `${newWidth}px`;
