@@ -6345,7 +6345,7 @@ export function SplitVariant88(props) {
   const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=600&auto=format&fit=crop");
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-[#BF7ADD]">
+    <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-white" style={{ backgroundColor: "#ffffff" }}>
       
       {/* 1. O Fundo em SVG nativo para manter as elipses e proporções exatas do Figma */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
@@ -6368,12 +6368,12 @@ export function SplitVariant88(props) {
               </feMerge>
             </filter>
           </defs>
-          {/* Fundo base lilás com filtro de ruído */}
-          <rect width="1088" height="1358" fill="#BF7ADD" filter="url(#filter1_n_0_1)" />
+          {/* Fundo base lilás sem filtro de ruído */}
+          <rect width="1088" height="1358" fill="#ffffff" />
           {/* Elipse decorativa central inferior */}
-          <ellipse cx="552" cy="895" rx="603" ry="178" fill="#32024F" />
+          <ellipse cx="552" cy="895" rx="603" ry="178" fill={brandColor || "#32024F"} />
           {/* Retângulo da base */}
-          <rect x="0" y="823" width="1088" height="555" rx="11" fill="#32024F" />
+          <rect x="0" y="823" width="1088" height="555" rx="11" fill={brandColor || "#32024F"} />
 
 
         </svg>
