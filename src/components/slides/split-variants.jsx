@@ -6013,7 +6013,7 @@ export function SplitVariant85(props) {
   const img1 = getCorsSafeUrl(data.imageUrl || "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop");
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-between font-montserrat select-none overflow-hidden text-[#432311] py-8 rounded-slide shadow-2xl bg-[#efede7]">
+    <div className="relative w-full h-full flex flex-col items-center justify-between font-montserrat select-none overflow-hidden text-[#1A1A1A] py-8 rounded-slide shadow-2xl bg-[#efede7]" style={{ borderBottom: `15px solid ${brandColor || '#e9582d'}` }}>
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
         <SlideHeader 
@@ -6033,8 +6033,8 @@ export function SplitVariant85(props) {
           brandAvatar={props.brandAvatar} 
           hideDot={true} 
           counterBg="rgba(0,0,0,0.06)" 
-          handleColor="#432311" 
-          counterColor="#432311" 
+          handleColor="#1A1A1A" 
+          counterColor="#1A1A1A" 
           brandLogo={props.brandLogo} 
           showBrandLogo={props.showBrandLogo} 
           className="pointer-events-auto"
@@ -6053,7 +6053,7 @@ export function SplitVariant85(props) {
       `}} />
 
       {/* Padrões de Mandalas Simulados (SVGs de Fundo para textura) */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.04] z-0">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.04] z-0 hidden">
          {/* Center */}
          <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64" viewBox="0 0 100 100" fill="currentColor">
            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" strokeDasharray="15 10"/>
@@ -6072,11 +6072,10 @@ export function SplitVariant85(props) {
       </div>
 
       {/* Elementos Blurry (Blocos de Chocolate Fora de Foco) */}
-      <div className="absolute top-0 left-[-15%] w-32 h-32 bg-[#432311] rotate-12 blur-[6px] opacity-90 shadow-2xl z-10 pointer-events-none" />
-      <div className="absolute bottom-[-5%] right-[-10%] w-40 h-40 bg-[#432311] -rotate-12 blur-[8px] opacity-90 shadow-2xl z-10 pointer-events-none" />
+
 
       {/* Header: Logo da Luana */}
-      <div className="relative z-20 flex flex-col items-center mt-6">
+      <div className="relative z-20 flex flex-col items-center -mt-2">
         <div className="flex items-center justify-center gap-2">
           <div className="w-[38px] h-[38px] relative shrink-0">
             <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-sm">
@@ -6091,12 +6090,12 @@ export function SplitVariant85(props) {
           </div>
           <div className="flex flex-col text-left justify-center pt-0.5 shrink-0">
             <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
-              <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#3c1d0f] font-bold text-[10.5px] leading-none tracking-tight outline-none">
+              <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#1A1A1A] font-bold text-[10.5px] leading-none tracking-tight outline-none">
                 {data.halloweenLogoTop || "Confeitaria"}
               </TextWrapper>
             </SmartField>
             <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
-              <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#3c1d0f] font-normal text-[10px] leading-none tracking-tight outline-none mt-0.5">
+              <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#1A1A1A] font-normal text-[10px] leading-none tracking-tight outline-none mt-0.5">
                 {data.halloweenLogoBottom || "da Luana"}
               </TextWrapper>
             </SmartField>
@@ -6107,16 +6106,14 @@ export function SplitVariant85(props) {
       {/* Título Principal Bicolor com Linhas Horizontais */}
       <div className="relative z-20 flex flex-col items-center mt-3 mb-2 w-full px-6 text-center">
         <div className="flex items-center w-full justify-center gap-3">
-           <div className="h-[3.5px] w-12 bg-[#432311] rounded-full shrink-0" />
            <SmartField field="titulo" data={data} index={index} {...sp} className="shrink-0">
-             <TextWrapper {...sp} as="h1" field="titulo" className="font-montserrat font-black text-[38px] leading-none tracking-tight text-[#432311] outline-none" style={{ fontSize: `${38 * sTitle}px` }}>
+             <TextWrapper {...sp} as="h1" field="titulo" className="font-montserrat font-black text-[38px] leading-none tracking-tight text-[#1A1A1A] outline-none" style={{ fontSize: `${55 * sTitle}px` }}>
                {data.titulo || "TORTA"}
              </TextWrapper>
            </SmartField>
-           <div className="h-[3.5px] w-12 bg-[#432311] rounded-full shrink-0" />
         </div>
         <SmartField field="titulo2" data={data} index={index} {...sp} className="w-full mt-1">
-          <TextWrapper {...sp} as="h1" field="titulo2" className="font-montserrat font-black text-[36px] leading-[0.8] tracking-tight text-[#e9582d] outline-none" style={{ fontSize: `${36 * sTitle}px` }}>
+          <TextWrapper {...sp} as="h1" field="titulo2" className="font-montserrat font-black text-[36px] leading-[0.8] tracking-tight outline-none" style={{ fontSize: `${50 * sTitle}px`, color: brandColor || "#e9582d" }}>
             {data.titulo2 || "INTENSA"}
           </TextWrapper>
         </SmartField>
@@ -6127,7 +6124,12 @@ export function SplitVariant85(props) {
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
           <img 
             src={img1} 
-            className="w-full h-full object-cover object-bottom" 
+            className="w-full h-full object-cover" 
+            style={{
+              transform: `scale(${data.imageScale ?? 1})`,
+              transformOrigin: 'center center',
+              objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`
+            }}
             alt="Fatia de Torta Intensa" 
             crossOrigin="anonymous"
           />
@@ -6137,14 +6139,14 @@ export function SplitVariant85(props) {
       {/* Textos Inferiores (Descrição + Destaque) */}
       <div className="relative z-20 flex flex-col items-center text-center px-6 mt-4">
          <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
-           <TextWrapper {...sp} as="p" field="subtitulo" className="font-montserrat font-semibold text-[13.5px] leading-[1.3] text-[#432311] mb-4 outline-none" style={{ fontSize: `${13.5 * sText}px` }}>
+           <TextWrapper {...sp} as="p" field="subtitulo" className="font-montserrat font-semibold text-[13.5px] leading-[1.3] text-[#1A1A1A] mb-4 outline-none" style={{ fontSize: `${20 * sText}px` }}>
              {data.subtitulo || "Sabor intenso de chocolate e base crocante de biscoito transformam essa sobremesa em um clássico familiar que atravessa gerações."}
            </TextWrapper>
          </SmartField>
          
          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
-           <TextWrapper {...sp} as="h3" field="texto_apoio" className="font-montserrat font-extrabold text-[18px] leading-[1.1] tracking-tight text-[#e9582d] whitespace-pre-line outline-none" style={{ fontSize: `${18 * sText}px` }}>
-             {data.texto_apoio || "Todo mundo adora essa\ntorta de chocolate!"}
+           <TextWrapper {...sp} as="h3" field="texto_apoio" className="font-montserrat font-extrabold text-[18px] leading-[1.1] tracking-tight outline-none" style={{ fontSize: `${22 * sText}px`, color: brandColor || "#e9582d" }}>
+             {data.texto_apoio || "Todo mundo adora essa torta de chocolate!"}
            </TextWrapper>
          </SmartField>
       </div>
