@@ -9,7 +9,7 @@ import SlideHeader, { SlideFooterPlaceholder } from '../slide-header';
 // renderiza um layout visual diferente, preservando dados dinâmicos.
 // ============================================================
 
-function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, style, children, rotation, forceX, forceY }) {
+function SmartField({ data, index, field, showMetrics, onActionStart, selectedElement, onSelectElement, className, style, children, rotation, forceX, forceY, forceWidth, forceScale }) {
   const basePos = data.positions?.[field] || { x: 0, y: 0, scale: 1 };
   const pos = { ...basePos };
   if (rotation !== undefined && basePos.rotation === undefined) {
@@ -20,6 +20,12 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
   }
   if (forceY !== undefined) {
     pos.y = forceY;
+  }
+  if (forceWidth !== undefined) {
+    pos.width = forceWidth;
+  }
+  if (forceScale !== undefined) {
+    pos.scale = forceScale;
   }
   return (
     <SmartElement
@@ -6629,7 +6635,7 @@ export function SplitVariant90(props) {
         {[...Array(4)].map((_, i) => {
           const bgWord = (data.subtitulo || "BROWNIE").trim().split(/\s+/)[0] || "BROWNIE";
           return (
-            <div key={i} className="text-[65px] font-display text-outline-pink-v90 uppercase leading-[1.25] tracking-[-0.08em] whitespace-nowrap opacity-100 select-none">
+            <div key={i} className="text-[65px] font-display text-outline-pink-v90 uppercase leading-[1.4] tracking-[-0.08em] whitespace-nowrap opacity-100 select-none">
               {bgWord}
             </div>
           );
@@ -6648,7 +6654,7 @@ export function SplitVariant90(props) {
         {/* Pink Rectangular Badge */}
         <div className="bg-[#ff2a70] text-white px-5 py-1.5 shadow-[0_8px_15px_rgba(255,42,112,0.3)]">
           <SmartField field="titulo" data={data} index={index} {...sp}>
-            <TextWrapper {...sp} as="span" field="titulo" className="text-[26px] font-outfit font-bold leading-none uppercase tracking-tighter block mt-1 outline-none" style={{ fontSize: `${26 * sTitle}px`, fontFamily: "'Outfit', sans-serif" }}>
+            <TextWrapper {...sp} as="span" field="titulo" className="text-[26px] font-outfit font-bold leading-none uppercase tracking-tighter block mt-1 outline-none" style={{ fontSize: `${54 * sTitle}px`, fontFamily: "'Outfit', sans-serif" }}>
               {data.titulo || "CHEGOU A VEZ DO"}
             </TextWrapper>
           </SmartField>
@@ -6661,7 +6667,7 @@ export function SplitVariant90(props) {
           {/* Tooltip Dialog Box Pointing Up */}
           <div className="bg-white px-5 py-2 rounded-sm shadow-xl z-20 whitespace-nowrap relative">
             <SmartField field="texto_apoio" data={data} index={index} {...sp}>
-              <TextWrapper {...sp} as="span" field="texto_apoio" className="text-[#ff2a70] text-sm font-semibold tracking-wide outline-none" style={{ fontSize: `${14 * sText}px`, fontFamily: textFont }}>
+              <TextWrapper {...sp} as="span" field="texto_apoio" className="text-[#ff2a70] text-sm font-semibold tracking-wide outline-none" style={{ fontSize: `${19 * sText}px`, fontFamily: textFont }}>
                 {data.texto_apoio || "Faça seu pedido hoje"}
               </TextWrapper>
             </SmartField>
@@ -8173,7 +8179,7 @@ export function SplitVariant216(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-sans font-extrabold leading-snug text-zinc-950 tracking-tight outline-none"
-            style={{ fontSize: `${20 * sTitle}px` }}
+            style={{ fontSize: `${30 * sTitle}px` }}
           >
             {title}
           </h2>
@@ -8185,7 +8191,7 @@ export function SplitVariant216(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="text-zinc-600 font-normal leading-relaxed outline-none"
-            style={{ fontSize: `${12 * sText}px` }}
+            style={{ fontSize: `${20 * sText}px` }}
           >
             {description}
           </p>
@@ -8884,28 +8890,7 @@ export function SplitVariant221(props) {
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5V9.5C10 8.67 10.67 8 11.5 8h1c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5zm2-6.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/>
             </svg>
           )}
-          <SmartField field="tag" {...sp}>
-            <h3 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              className="text-white text-2xl font-cinzel tracking-[0.15em] leading-none mb-1 outline-none block text-center"
-            >
-              {brand}
-            </h3>
-          </SmartField>
-          <div className="flex items-center gap-2 text-white/80">
-            <div className="w-4 h-[1px] bg-white/50"></div>
-            <SmartField field="badge_text" {...sp}>
-              <span 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
-                className="text-xs font-sans tracking-[0.2em] font-light uppercase outline-none block"
-              >
-                {brandSub}
-              </span>
-            </SmartField>
-            <div className="w-4 h-[1px] bg-white/50"></div>
-          </div>
+
         </div>
 
         {/* Título "Feedback de clientes" Sobreposto */}
@@ -8919,10 +8904,11 @@ export function SplitVariant221(props) {
                 color: 'transparent', 
                 WebkitTextStroke: '1px rgba(255,255,255,0.7)', 
                 fontSize: `${54 * sTitle}px`,
-                transform: 'translateX(105px)'
+                transform: 'translate(25px, -60px)',
+                whiteSpace: 'nowrap'
               }}
             >
-              {titleBg}
+              {titleBg.replace(/[\r\n]+/g, ' ').replace(/<br\s*\/?>/gi, ' ')}
             </h2>
           </SmartField>
           
@@ -9457,9 +9443,9 @@ export function SplitVariant226(props) {
           id="t13-outline-box" 
           className="w-[95%] text-center flex flex-col justify-center border"
           style={{ 
-            borderColor: '#000000',
-            borderRadius: '40px',
-            padding: '32px 16px',
+            borderColor: '#ffffff8a',
+            borderRadius: '25px',
+            padding: '18px 8px',
             borderWidth: '2px',
             borderStyle: 'solid'
           }}
@@ -9629,7 +9615,7 @@ export function SplitVariant228(props) {
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
           className="font-sans font-black uppercase leading-tight tracking-tight outline-none whitespace-pre-line"
-          style={{ color: '#ffffff', fontSize: `${36 * sTitle}px` }}
+          style={{ color: '#ffffff', fontSize: `${38 * sTitle}px` }}
           dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
         />
       </SmartField>
@@ -9649,7 +9635,7 @@ export function SplitVariant228(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-white leading-[1.4] font-light outline-none whitespace-pre-line"
-            style={{ fontSize: `${19.2 * sText}px` }}
+            style={{ fontSize: `${21 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: extra1.replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -9659,7 +9645,7 @@ export function SplitVariant228(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
             className="font-sans font-bold uppercase tracking-wide outline-none whitespace-pre-line"
-            style={{ color: '#ffffff', fontSize: `${16.8 * sText}px` }}
+            style={{ color: '#ffffff', fontSize: `${18.8 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: title2.replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -9851,12 +9837,12 @@ export function SplitVariant230(props) {
   const sText = textScale / 100;
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
 
-  const title1 = data.titulo || "Agentes de IA\nem milissegundos.\nMas quem fecha\no contrato?";
-  const title2 = data.subtitulo || "82%";
-  const extra1 = data.extra1 || "BNI";
-  const desc = data.texto_apoio || "A Apple acaba de lançar <strong class='font-bold'>agentes de IA ultra-rápidos</strong>. Processam dados em milissegundos. Automatizam tarefas complexas. <strong class='font-bold'>Mas o mercado de alto ticket continua exigindo algo que nenhum chip produz: confiança humana.</strong>";
-  const extra2 = data.extra2 || "dos contratos B2B de alto ticket são\nfechados por indicação pessoal";
-  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000";
+  const title1 = data.titulo || "O segredo dos\ndoces finos que\nvendem mais\ntodos os dias.";
+  const title2 = data.subtitulo || "94%";
+  const extra1 = data.extra1 || "Mari Confeitaria";
+  const desc = data.texto_apoio || "Dominar a <strong class='font-bold'>confeitaria artesanal</strong> vai muito além de seguir receitas. O mercado atual exige apresentação impecável, sabor inesquecível e <strong class='font-bold'>estratégia de cardápio inteligente</strong> para transformar simples ingredientes em uma marca de sucesso.";
+  const extra2 = data.extra2 || "das pessoas compram doces pela\napresentação e beleza visual.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=1000";
   const colorBg = data.backgroundColor || "#f4f4f6";
   const colorAccent = brandColor || data.accentColor || "#e11b22";
 
@@ -9872,26 +9858,26 @@ export function SplitVariant230(props) {
         .font-display { font-family: 'Archivo Black', sans-serif; }
       `}} />
 
-      {/* Imagem de Fundo Lateral (Direita) - 40% de largura */}
-      <SmartField field="imagem" {...sp} forceX={0} forceY={0} className="absolute top-0 right-0 w-[40%] h-full z-10">
+      {/* Imagem de Fundo Lateral (Direita) - 42% de largura */}
+      <SmartField field="imagem" {...sp} forceX={0} forceY={0} forceWidth={null} forceScale={1} className="absolute top-0 right-0 w-[42%] h-full z-10" style={{ zIndex: 10 }}>
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </SmartField>
 
-      {/* Painel de Fundo da Esquerda - 60% de largura */}
+      {/* Painel de Fundo da Esquerda - 58% de largura */}
       <div 
         id="t21-bg" 
-        className="absolute top-0 left-0 w-[60%] h-full z-0" 
+        className="absolute top-0 left-0 w-[58%] h-full z-0" 
         style={{ backgroundColor: colorBg }}
       ></div>
       
-      {/* Container de Conteúdo Esquerdo - 60% de largura */}
-      <div className="relative z-10 w-[60%] h-full flex flex-col justify-center px-8">
+      {/* Container de Conteúdo Esquerdo - 58% de largura */}
+      <div className="relative z-10 w-[58%] h-full flex flex-col justify-center pl-6 pr-14">
         {/* Logo / Badge */}
-        <SmartField field="extra1" {...sp} className="absolute top-8 left-8">
+        <SmartField field="extra1" {...sp} forceX={0} forceY={0} className="absolute top-8 right-14">
           <div 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
-            className="font-display font-black text-[28px] tracking-tighter outline-none"
+            className="font-display font-black text-[23px] tracking-tighter outline-none"
             style={{ color: colorAccent }}
           >
             {extra1}
@@ -9899,7 +9885,7 @@ export function SplitVariant230(props) {
         </SmartField>
 
         {/* Título Principal */}
-        <SmartField field="titulo" {...sp} className="w-full mb-4">
+        <SmartField field="titulo" {...sp} forceX={0} forceY={0} className="mb-4">
           <h1 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
@@ -9910,12 +9896,12 @@ export function SplitVariant230(props) {
         </SmartField>
 
         {/* Descrição Longa */}
-        <SmartField field="texto_apoio" {...sp} className="w-full pr-4">
+        <SmartField field="texto_apoio" {...sp} forceX={0} forceY={0} className="pr-4">
           <p 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-relaxed text-black font-medium outline-none whitespace-pre-line"
-            style={{ fontSize: `${12.8 * sText}px` }}
+            style={{ fontSize: `${16.8 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -9924,7 +9910,8 @@ export function SplitVariant230(props) {
       {/* Card de Estatística Inferior */}
       <div 
         id="t21-stat-card" 
-        className="absolute bottom-10 left-10 w-[83%] h-[70px] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex items-center py-2 px-5 gap-4 z-20 border border-neutral-100"
+        className="absolute bottom-10 left-4 w-[83%] h-[70px] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex items-center py-2 px-5 gap-4 z-20 border border-neutral-100"
+        style={{ zIndex: 20 }}
       >
         {/* Número de Destaque */}
         <SmartField field="subtitulo" {...sp} forceX={0} forceY={0} className="shrink-0">
@@ -9937,7 +9924,7 @@ export function SplitVariant230(props) {
           </span>
         </SmartField>
         {/* Texto descritivo da estatística */}
-        <SmartField field="extra2" {...sp} forceX={0} forceY={0} className="flex-1 line-clamp-2 overflow-hidden">
+        <SmartField field="extra2" {...sp} forceX={0} forceY={0} className="flex-1 max-w-[280px]" style={data.positions?.extra2?.width ? {} : { width: 'auto' }}>
           <span 
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
@@ -10340,7 +10327,7 @@ export function SplitVariant234(props) {
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="font-sans leading-[1] tracking-tighter outline-none whitespace-pre-line block" 
-              style={{ fontSize: `${20 * sTitle}px`, color: colorText }}
+              style={{ fontSize: `${32 * sTitle}px`, color: colorText }}
               dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
@@ -10668,7 +10655,7 @@ export function SplitVariant237(props) {
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1541744573515-478c90ff39ef?q=80&w=1080&auto=format&fit=crop";
   const title = data.titulo || "O Ranking de\nPáscoa já começou!";
   const subtitle = data.texto_apoio || "Garanta o seu lugar entre\nos 2.000 premiados.";
-  const colorBg = data.backgroundColor || "#f8eee1";
+  const colorBg = data.backgroundColor || "#ffffff";
   const colorText = data.textColor || "#311b11";
 
   return (
@@ -10684,7 +10671,7 @@ export function SplitVariant237(props) {
       `}} />
 
       {/* Área da imagem superior */}
-      <SmartField field="imagem" {...sp} className="w-full h-[62%] relative z-10 rounded-b-[32px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.1)]">
+      <SmartField field="imagem" {...sp} className="w-full h-[59%] relative z-10 rounded-b-[32px] overflow-hidden shadow-[0_10px_20px_rgba(0,0,0,0.1)] border-b-[3px] border-white">
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </SmartField>
 
@@ -10703,7 +10690,7 @@ export function SplitVariant237(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-serif font-black leading-[1.1] tracking-tight outline-none whitespace-pre-line"
-            style={{ fontSize: `${34 * sTitle}px`, color: colorText }}
+            style={{ fontSize: `${50 * sTitle}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -10714,7 +10701,7 @@ export function SplitVariant237(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans font-light leading-[1.2] tracking-tight outline-none whitespace-pre-line"
-            style={{ fontSize: `${22 * sText}px`, color: colorText }}
+            style={{ fontSize: `${32 * sText}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: subtitle.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -10913,14 +10900,14 @@ export function SplitVariant239(props) {
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=1080&auto=format&fit=crop";
-  const text = data.titulo || "Serão <span class=\"font-bold\">1.000</span> premiados nesta edição, mil histórias de conquista.<br><span class=\"font-bold text-[52px] tracking-tighter\">Mil revendedores realizando desejos!</span>";
+  const text = data.titulo || "Serão <span class=\"font-bold\">1.000</span> premiados nesta edição, mil histórias de conquista. <span class=\"font-bold\">Mil revendedores realizando desejos!</span>";
   const colorBg = data.backgroundColor || "#f9ede2";
   const colorText = data.textColor || "#2b1810";
 
   return (
     <div 
       id="tpl_promo_panettone" 
-      className="w-full h-full relative overflow-hidden flex flex-col items-center px-8 pt-12 select-none font-sans transition-all duration-300"
+      className="w-full h-full relative overflow-hidden flex flex-col items-center px-8 pt-12 pb-12 select-none font-sans transition-all duration-300"
       style={{ 
         '--bg-main': colorBg, 
         '--text-main': colorText,
@@ -10943,7 +10930,7 @@ export function SplitVariant239(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-serif leading-[1.2] tracking-tight outline-none whitespace-pre-line" 
-            style={{ fontSize: `${18 * sTitle}px`, color: 'var(--text-main)' }}
+            style={{ fontSize: `${30 * sTitle}px`, color: 'var(--text-main)' }}
             dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -10953,7 +10940,7 @@ export function SplitVariant239(props) {
       <div className="h-6 w-full shrink-0"></div>
 
       {/* Bottom Image */}
-      <div className="w-full flex-1 relative overflow-hidden rounded-t-[24px] z-10 shadow-[0_-5px_20px_rgba(0,0,0,0.08)]">
+      <div className="w-full flex-1 relative overflow-hidden rounded-[24px] z-10 shadow-[0_-5px_20px_rgba(0,0,0,0.08)]">
         <SmartField field="imagem" {...sp} className="w-full h-full">
           <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
         </SmartField>

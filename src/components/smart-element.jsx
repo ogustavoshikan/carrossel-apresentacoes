@@ -91,7 +91,7 @@ export default function SmartElement({
 
   return (
       <div
-          className={`group/smart relative ${className || ''}`}
+          className={`group/smart ${className?.includes('absolute') ? '' : 'relative'} ${className || ''}`}
           style={{
             transform: `translate(${pos.x}px, ${pos.y}px) scale(${pos.scale}) rotate(${pos.rotation || 0}deg)`,
             zIndex: isActive ? 60 : (showMetrics ? 50 : 40),
