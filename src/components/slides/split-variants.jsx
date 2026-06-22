@@ -5831,13 +5831,13 @@ export function SplitVariant83(props) {
          {/* Left Side: Typography */}
          <div className="flex flex-col flex-[1.2] items-start pt-2 min-w-0">
             <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
-              <TextWrapper {...sp} as="h1" field="titulo" className="font-outfit font-black text-[34px] leading-[0.9] tracking-tighter text-white drop-shadow-sm mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${34 * sTitle}px` }}>
+              <TextWrapper {...sp} as="h1" field="titulo" className="font-outfit font-black text-[34px] leading-[0.9] tracking-tighter text-white drop-shadow-sm mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px` }}>
                 {data.titulo || "VONTADE\nDE DOCE?"}
               </TextWrapper>
             </SmartField>
             <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
-              <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif font-bold text-[#442614] text-[26px] leading-[0.95] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${26 * sText}px` }}>
-                {data.subtitulo || "A Bella vai\naté você!"}
+              <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif font-bold text-[#442614] text-[26px] leading-[0.95] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${33 * sText}px` }}>
+                {data.subtitulo || "A Mari vai\naté você!"}
               </TextWrapper>
             </SmartField>
          </div>
@@ -5848,7 +5848,7 @@ export function SplitVariant83(props) {
          {/* Right Side: CTA & Logo */}
          <div className="flex flex-col flex-1 items-end justify-between h-full pt-4 pb-2 min-w-0">
             <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full text-right mb-auto min-h-0">
-              <TextWrapper {...sp} as="p" field="texto_apoio" className="font-outfit font-light text-[#442614] text-[13.5px] leading-[1.2] text-right whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${13.5 * sText}px` }}>
+              <TextWrapper {...sp} as="p" field="texto_apoio" className="font-outfit font-light text-[#442614] text-[13.5px] leading-[1.2] text-right whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${25 * sText}px` }}>
                 {data.texto_apoio || "Clique no link\nda bio e peça agora!"}
               </TextWrapper>
             </SmartField>
@@ -5857,12 +5857,12 @@ export function SplitVariant83(props) {
             <div className="flex flex-col items-center mt-4 shrink-0">
                <SmartField field="bellaVontadeLogo" data={data} index={index} {...sp}>
                  <TextWrapper {...sp} as="span" field="bellaVontadeLogo" className="font-lobster text-white text-[32px] leading-none drop-shadow-sm tracking-wide outline-none">
-                   {data.bellaVontadeLogo || "Bella"}
+                   {data.bellaVontadeLogo || "Mari"}
                  </TextWrapper>
                </SmartField>
                <SmartField field="bellaVontadeLogoSub" data={data} index={index} {...sp}>
                  <TextWrapper {...sp} as="span" field="bellaVontadeLogoSub" className="font-outfit font-black text-white text-[6.5px] tracking-[0.35em] uppercase mt-0.5 outline-none">
-                   {data.bellaVontadeLogoSub || "DOCERIA"}
+                   {data.bellaVontadeLogoSub || "Confeitaria"}
                  </TextWrapper>
                </SmartField>
             </div>
@@ -5921,42 +5921,6 @@ export function SplitVariant84(props) {
         .font-lobster { font-family: 'Lobster', cursive; }
       `}} />
 
-      {/* Pílula Central Absoluta com Z-Index alto */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-[#f64c1c] text-white px-5 py-2.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-        <SmartField field="subtitulo" data={data} index={index} {...sp}>
-          <TextWrapper {...sp} as="span" field="subtitulo" className="font-bold text-[16px] tracking-wide block leading-none outline-none text-center" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
-            {data.subtitulo || "Qual o melhor?"}
-          </TextWrapper>
-        </SmartField>
-      </div>
-
-      {/* Logo Branco Flutuante (Centralizado Horizontalmente, ancorado ao Topo) */}
-      <div className="absolute top-[52px] left-1/2 -translate-x-1/2 bg-white rounded-b-2xl px-3 pb-2.5 pt-2 shadow-lg z-30 flex items-center justify-center gap-1.5 border-b border-x border-black/5">
-        <div className="w-[30px] h-[30px] relative shrink-0">
-          <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-            <circle cx="50" cy="50" r="45" fill="#3c1d0f" />
-            <circle cx="50" cy="50" r="35" fill="#fcaebb" />
-            <circle cx="50" cy="50" r="15" fill="#f64c1c" />
-            <circle cx="50" cy="25" r="4" fill="#fcae12" />
-            <circle cx="50" cy="75" r="4" fill="#fcae12" />
-            <circle cx="25" cy="50" r="4" fill="#fcae12" />
-            <circle cx="75" cy="50" r="4" fill="#fcae12" />
-          </svg>
-        </div>
-        <div className="flex flex-col text-left shrink-0">
-          <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
-            <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#3c1d0f] font-bold text-[8px] leading-none tracking-tight uppercase outline-none">
-              {data.halloweenLogoTop || "Mari"}
-            </TextWrapper>
-          </SmartField>
-          <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
-            <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#3c1d0f] font-normal text-[8px] leading-none tracking-tight outline-none mt-0.5">
-              {data.halloweenLogoBottom || "Confeita"}
-            </TextWrapper>
-          </SmartField>
-        </div>
-      </div>
-
       {/* Top Half Grid */}
       <div className="flex w-full h-[50%]">
         {/* Quadrante 1 */}
@@ -5964,7 +5928,10 @@ export function SplitVariant84(props) {
           <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img1} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 1" />
           </SmartField>
-          <div className="absolute top-3 left-3 bg-[#f64c1c] text-white w-8 h-8 rounded-br-2xl rounded-tl-md flex items-center justify-center shadow-md z-30 pointer-events-none">
+          <div 
+            className="absolute top-0 left-3 text-white w-8 h-8 rounded-b-2xl rounded-tl-md flex items-center justify-center shadow-md z-50 pointer-events-none"
+            style={{ backgroundColor: brandColor || '#f64c1c' }}
+          >
             <span className="font-black text-xl">1</span>
           </div>
         </div>
@@ -5973,7 +5940,10 @@ export function SplitVariant84(props) {
           <SmartField field="imagem2" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img2} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 2" />
           </SmartField>
-          <div className="absolute top-3 right-3 bg-[#f64c1c] text-white w-8 h-8 rounded-bl-2xl rounded-tr-md flex items-center justify-center shadow-md z-30 pointer-events-none">
+          <div 
+            className="absolute top-0 right-3 text-white w-8 h-8 rounded-b-2xl flex items-center justify-center shadow-md z-50 pointer-events-none"
+            style={{ backgroundColor: brandColor || '#f64c1c' }}
+          >
             <span className="font-black text-xl">2</span>
           </div>
         </div>
@@ -5986,7 +5956,10 @@ export function SplitVariant84(props) {
           <SmartField field="imagem3" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img3} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 3" />
           </SmartField>
-          <div className="absolute top-3 left-3 bg-[#f64c1c] text-white w-8 h-8 rounded-tr-2xl rounded-bl-md flex items-center justify-center shadow-md z-30 pointer-events-none">
+          <div 
+            className="absolute top-0 left-3 text-white w-8 h-8 rounded-b-2xl rounded-tl-md flex items-center justify-center shadow-md z-50 pointer-events-none"
+            style={{ backgroundColor: brandColor || '#f64c1c' }}
+          >
             <span className="font-black text-xl">3</span>
           </div>
         </div>
@@ -5995,10 +5968,25 @@ export function SplitVariant84(props) {
           <SmartField field="imagem4" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img4} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 4" />
           </SmartField>
-          <div className="absolute top-3 right-3 bg-[#f64c1c] text-white w-8 h-8 rounded-tl-2xl rounded-br-md flex items-center justify-center shadow-md z-30 pointer-events-none">
+          <div 
+            className="absolute top-0 right-3 text-white w-8 h-8 rounded-b-2xl flex items-center justify-center shadow-md z-50 pointer-events-none"
+            style={{ backgroundColor: brandColor || '#f64c1c' }}
+          >
             <span className="font-black text-xl">4</span>
           </div>
         </div>
+      </div>
+
+      {/* Pílula Central Absoluta com Z-Index alto (renderizada no final para sobrepor todas as imagens) */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white px-5 py-2.5 rounded-[10px] shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
+        style={{ backgroundColor: brandColor || '#f64c1c' }}
+      >
+        <SmartField field="subtitulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="span" field="subtitulo" className="font-bold text-[16px] tracking-wide block leading-none outline-none text-center" style={{ fontSize: `${20 * sText}px`, fontFamily: textFont }}>
+            {data.subtitulo || "Qual o melhor?"}
+          </TextWrapper>
+        </SmartField>
       </div>
     </div>
   );
@@ -6091,12 +6079,12 @@ export function SplitVariant85(props) {
           <div className="flex flex-col text-left justify-center pt-0.5 shrink-0">
             <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
               <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#1A1A1A] font-bold text-[10.5px] leading-none tracking-tight outline-none">
-                {data.halloweenLogoTop || "Confeitaria"}
+                {data.halloweenLogoTop || "Mari"}
               </TextWrapper>
             </SmartField>
             <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
               <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#1A1A1A] font-normal text-[10px] leading-none tracking-tight outline-none mt-0.5">
-                {data.halloweenLogoBottom || "da Luana"}
+                {data.halloweenLogoBottom || "Confeitaria"}
               </TextWrapper>
             </SmartField>
           </div>
@@ -6120,7 +6108,7 @@ export function SplitVariant85(props) {
       </div>
 
       {/* Imagem Central Arredondada (Bolo Texturizado) */}
-      <div className="relative z-20 w-[88%] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-white">
+      <div className="relative z-20 w-[88%] aspect-[4/3] rounded-[1.5625rem] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-white">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
           <img 
             src={img1} 
@@ -6131,7 +6119,7 @@ export function SplitVariant85(props) {
               objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`
             }}
             alt="Fatia de Torta Intensa" 
-            crossOrigin="anonymous"
+            crossOrigin={img1?.startsWith('blob:') || img1?.startsWith('data:') ? undefined : "anonymous"}
           />
         </SmartField>
       </div>

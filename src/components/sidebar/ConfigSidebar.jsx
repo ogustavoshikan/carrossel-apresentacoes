@@ -719,7 +719,8 @@ export default function ConfigSidebar({
             {(() => {
               // Mapeamento de quantos slots de imagem cada variant suporta
               const MULTI_IMAGE_SLOTS = {
-                'content-split': { 27: 4, 28: 2, 29: 2, 30: 2, 31: 2 },
+                'content-split': { 27: 4, 28: 2, 29: 2, 30: 2, 31: 2, 77: 4, 81: 3, 84: 4, 229: 2 },
+                'comparison': { 0: 2 },
               };
               const variantKey = slide.layout === 'content-split' ? (slide.splitVariantIndex || 0) : 0;
               const totalSlots = MULTI_IMAGE_SLOTS[slide.layout]?.[variantKey] || 1;
