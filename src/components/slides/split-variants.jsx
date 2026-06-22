@@ -10540,7 +10540,7 @@ export function SplitVariant235(props) {
 }
 
 // ═══════════════════════════════════════════════════════════
-// VARIANTE 236 — Rotina Suco
+// VARIANTE 236 — Sua Rotina
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant236(props) {
   const { 
@@ -10557,7 +10557,7 @@ export function SplitVariant236(props) {
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1527661591450-b4dca88926d1?q=80&w=1080&auto=format&fit=crop";
   const bottomText = data.texto_apoio || "seja no <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">café da manhã</span>, na saída\ncom os <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">amigos</span> ou nos\nencontros de <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">família</span>.";
   
-  const colorBg = data.backgroundColor || "#0a4b2c";
+  const colorBg = brandColor || (data.backgroundColor === "#0a4b2c" ? brandColor : data.backgroundColor) || "#000000";
   const colorTopText = data.textColor || "#ffffff";
   const colorBottomLight = data.extraColor || "#fad570";
   const colorBottomBold = brandColor || data.accentColor || "#e88912";
@@ -10580,7 +10580,7 @@ export function SplitVariant236(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans font-light leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
-            style={{ fontSize: `${20 * sTitle}px`, color: colorTopText }}
+            style={{ fontSize: `${30 * sTitle}px`, color: colorTopText }}
             dangerouslySetInnerHTML={{ __html: topText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -10588,15 +10588,6 @@ export function SplitVariant236(props) {
 
       {/* Imagem Central e Vetor de Fruta */}
       <div className="relative w-full h-[52%] flex items-center justify-center z-10 my-2">
-        {/* Folha/Vetor Decorativo no topo do container */}
-        <div className="absolute -top-[20px] left-1/2 transform -translate-x-1/2 z-20 drop-shadow-md pointer-events-none">
-          <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 35 C 20 35, 10 60, 10 80 C 10 100, 30 115, 50 115 C 70 115, 90 100, 90 80 C 90 60, 80 35, 50 35 Z" fill={colorBottomLight}/>
-            <path d="M55 30 C 55 10, 75 5, 85 5 C 85 25, 65 30, 55 30 Z" fill="#ffffff"/>
-            <path d="M45 32 C 30 28, 15 15, 20 5 C 40 10, 50 22, 45 32 Z" fill="#996238"/>
-          </svg>
-        </div>
-        
         {/* Container da Imagem */}
         <SmartField field="imagem" {...sp} className="w-full h-full rounded-[24px] overflow-hidden shadow-2xl relative border border-black/10">
           <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
@@ -10610,7 +10601,7 @@ export function SplitVariant236(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
-            style={{ '--text-bottom-bold': colorBottomBold, color: colorBottomLight, fontSize: `${19 * sText}px` }}
+            style={{ '--text-bottom-bold': '#000000', color: '#ffffff', fontSize: `${25 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: bottomText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -11124,7 +11115,7 @@ export function SplitVariant241(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-serif font-bold leading-[1.1] outline-none whitespace-pre-line" 
-            style={{ fontSize: `${24 * sTitle}px`, color: colorText }}
+            style={{ fontSize: `${40 * sTitle}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -11135,7 +11126,7 @@ export function SplitVariant241(props) {
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-[32px] font-normal leading-[1.4] w-[90%] outline-none whitespace-pre-line block animate-none" 
-            style={{ fontSize: `${12.8 * sText}px`, color: colorText }}
+            style={{ fontSize: `${20 * sText}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
@@ -11815,9 +11806,9 @@ export function SplitVariant243(props) {
 
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=1080&auto=format&fit=crop";
   const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  const title = data.titulo || "SUA EMPRESA ENTRA EM CAMPO OU CONTINUARÁ NO BANCO DE RESERVAS?";
-  const body = data.texto_apoio || "Proteja o seu mercado na sua região e garanta a exclusividade da sua cadeira antes que o seu principal concorrente o faça. <span class=\"font-bold text-black\">Visite uma reunião de negócios de elite como convidado.</span>";
-  const cta = data.extra2 || "Comente <span class=\"font-black tracking-wide\">NEGÓCIOS</span> aqui embaixo e nós enviamos o seu convite exclusivo no seu direct.";
+  const title = data.titulo || "Seu próximo evento terá um bolo comum ou uma experiência inesquecível?";
+  const body = data.texto_apoio || "Não deixe a sobremesa ser apenas mais um detalhe da festa. Criamos bolos e doces personalizados que encantam pela aparência e conquistam pelo sabor. <span class=\"font-bold text-black\">Reserve sua data antes que a agenda feche.</span>";
+  const cta = data.extra2 || "<span class=\"font-black tracking-wide\">Comente 🍰 aqui embaixo e receba nosso catálogo no direct.</span>";
   const colorCta = brandColor || data.accentColor || "#d81b21";
 
   return (
@@ -11859,7 +11850,7 @@ export function SplitVariant243(props) {
       </SmartField>
 
       {/* Main White Card */}
-      <div className="relative z-20 w-[84%] bg-white rounded-[24px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[25%]">
+      <div className="relative z-20 w-[84%] bg-white rounded-[24px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[30%]">
           {/* Título Principal */}
           <SmartField field="titulo" {...sp} className="w-full mb-3">
             <h1 
@@ -12098,7 +12089,7 @@ export function SplitVariant245(props) {
       </SmartField>
 
       {/* Floating White Card */}
-      <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-4 z-50">
+      <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-[0.7rem] z-50">
         <SmartField field="texto_apoio" {...sp} className="w-full">
           <p 
             contentEditable suppressContentEditableWarning
@@ -12377,7 +12368,7 @@ export const SPLIT_VARIANT_META = [
   { id: 233, name: 'Restaurante Trio', description: 'Trio vertical de imagens com círculos decorativos de fundo e letreiro superior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--233.png' },
   { id: 234, name: 'Mosaico 3x3', description: 'Grade 3x3 de fotos com bloco central de texto descritivo.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split234.png' },
   { id: 235, name: 'Promo Plataforma', description: 'Imagem de fundo com plataforma flutuante de produto e pílula de preço.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split235.png' },
-  { id: 236, name: 'Rotina Suco', description: 'Estrutura vertical com imagem em arco, vetor de folha decorativo e textos focados.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split236.png' },
+  { id: 236, name: 'Sua Rotina', description: 'Estrutura vertical com imagem em arco, vetor de folha decorativo e textos focados.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split236.png' },
   { id: 237, name: 'Promo Páscoa Premium', description: 'Imagem superior rounded com estrela decorativa e base de texto (ID 237).', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--232.png' },
   { id: 238, name: 'Promo Benefícios', description: 'Bloco de imagem e box lateral orange com tópicos e badge sobrepostos.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split238.png' },
   { id: 239, name: 'Promo Panettone', description: 'Caixa de contorno com texto superior e imagem arredondada na base.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split239.png' },

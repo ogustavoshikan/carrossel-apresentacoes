@@ -57,6 +57,66 @@ const CollapsibleSection = ({ title, defaultOpen = true, children }) => {
   );
 };
 
+// Funções utilitárias para o Destaque da Palavra
+const parseHtmlToWords = (html) => {
+  if (typeof window === 'undefined') return [];
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html || '';
+  
+  const words = [];
+  Array.from(tempDiv.childNodes).forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.nodeValue;
+      const parts = text.split(/(\s+)/);
+      parts.forEach(part => {
+        if (part.trim()) {
+          words.push({ text: part, isHighlighted: false });
+        } else if (part) {
+          words.push({ text: part, isSpace: true });
+        }
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const isColorSpan = node.tagName === 'SPAN' && (node.style.color || node.getAttribute('style')?.includes('color'));
+      const text = node.textContent;
+      const parts = text.split(/(\s+)/);
+      parts.forEach(part => {
+        if (part.trim()) {
+          words.push({ text: part, isHighlighted: !!isColorSpan });
+        } else if (part) {
+          words.push({ text: part, isSpace: true });
+        }
+      });
+    }
+  });
+  return words;
+};
+
+const rebuildHtmlFromWords = (words, accentColor) => {
+  return words.map(w => {
+    if (w.isSpace) {
+      return w.text;
+    }
+    if (w.isHighlighted) {
+      return `<span style="color: ${accentColor};">${w.text}</span>`;
+    }
+    return w.text;
+  }).join('');
+};
+
+const toggleWord = (words, targetWordIndex) => {
+  let currentWordCount = 0;
+  return words.map(w => {
+    if (w.isSpace) return w;
+    if (currentWordCount === targetWordIndex) {
+      const updated = { ...w, isHighlighted: !w.isHighlighted };
+      currentWordCount++;
+      return updated;
+    }
+    currentWordCount++;
+    return w;
+  });
+};
+
 /**
  * ConfigSidebar — Sidebar de configurações do Carrossel Studio.
  * Contém: Carrossel Setup (handle, cor, verificado, fontes) + Master Prompt + geração.
@@ -137,6 +197,7 @@ export default function ConfigSidebar({
   const [showContentLib, setShowContentLib] = React.useState(false);
   const [activeNiche, setActiveNiche] = React.useState('confeitaria');
   const [selectionColor, setSelectionColor] = React.useState('');
+  const [openFieldSettings, setOpenFieldSettings] = React.useState({});
 
   const scrollContainerRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = React.useState(false);
@@ -182,6 +243,45 @@ export default function ConfigSidebar({
 
   if (isInspectorActive) {
     const slide = slides[selectedElement.slideIndex] || {};
+
+    const updateFieldProp = (field, prop, valueOrFn) => {
+      setSlides(prev => prev.map((s, i) => {
+        if (i === selectedElement.slideIndex) {
+          const rawPos = s.positions?.[field] || {};
+          const currentPos = {
+            x: rawPos.x ?? 0,
+            y: rawPos.y ?? 0,
+            scale: rawPos.scale ?? 1,
+            ...rawPos
+          };
+          const getValueFallback = (p) => {
+            if (currentPos[p] !== undefined) return currentPos[p];
+            if (p === 'lineHeight') return 1.0;
+            if (p === 'letterSpacing') return 0;
+            return undefined;
+          };
+          const newValue = typeof valueOrFn === 'function' ? valueOrFn(getValueFallback(prop)) : valueOrFn;
+          return {
+            ...s,
+            positions: {
+              ...(s.positions || {}),
+              [field]: {
+                ...currentPos,
+                [prop]: newValue
+              }
+            }
+          };
+        }
+        return s;
+      }));
+    };
+
+    const adjustFieldProp = (field, prop, delta) => {
+      updateFieldProp(field, prop, v => {
+        const val = v !== undefined ? v : (prop === 'lineHeight' ? 1.0 : 0);
+        return parseFloat((val + delta).toFixed(2));
+      });
+    };
 
     // Múltiplos Focos (Todo o Slide)
     if (!selectedElement.field) {
@@ -807,6 +907,11 @@ export default function ConfigSidebar({
 
             {['titulo', 'texto_apoio', 'citacao', 'autor', 'dado_destaque', 'contexto_dado', 'slide_call', 'insta_ready', 'cta_text', 'cta_button', 'badge_text', 'studio_text'].map(key => {
               if (slide[key] === undefined) return null;
+              
+              const isTitleOrText = key === 'titulo' || key === 'texto_apoio';
+              const fieldPos = slide.positions?.[key] || { x: 0, y: 0, scale: 1 };
+              const isSettingsOpen = !!openFieldSettings[key];
+
               return (
                 <div key={key} className="bg-surface-card border border-border-subtle p-4 rounded-xl flex flex-col gap-3">
                   <div className="flex justify-between items-center mb-1">
@@ -825,6 +930,274 @@ export default function ConfigSidebar({
                     }}
                     className="cs-textarea min-h-20 w-full p-3 font-outfit text-sm text-zinc-200"
                   />
+
+                  {isTitleOrText && (
+                    <div className="mt-2 pt-2 border-t border-white/5 space-y-3">
+                      <button
+                        onClick={() => setOpenFieldSettings(prev => ({ ...prev, [key]: !prev[key] }))}
+                        className="w-full py-2 px-3 bg-zinc-900/80 hover:bg-zinc-900 border border-white/5 rounded-lg flex items-center justify-between text-xs font-bold text-zinc-400 hover:text-white transition-all"
+                      >
+                        <span className="flex items-center gap-1.5 uppercase tracking-wider text-[10px]">
+                          <Settings className="w-3.5 h-3.5 text-zinc-500" />
+                          Design & Destaque
+                        </span>
+                        <ChevronDown className={cn("w-4 h-4 transition-transform", isSettingsOpen && "rotate-180")} />
+                      </button>
+
+                      {isSettingsOpen && (
+                        <div className="space-y-4 pt-2 animate-in fade-in slide-in-from-top-1 duration-150">
+                          {/* 1. DESTAQUE DA PALAVRA */}
+                          <div className="bg-zinc-950/40 p-3 rounded-lg border border-white/5 space-y-2">
+                            <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">
+                              Destaque da Palavra
+                            </span>
+                            <p className="text-[9px] text-zinc-600 leading-tight">
+                              Clique em uma palavra abaixo para realçá-la na cor de acento ({gradientColor1}).
+                            </p>
+                            
+                            {(() => {
+                              const rawContent = slide[key] || '';
+                              const parsedWords = parseHtmlToWords(rawContent);
+                              const textWords = parsedWords.filter(w => !w.isSpace);
+                              
+                              if (textWords.length === 0) {
+                                return (
+                                  <span className="text-[9px] text-zinc-600 italic">Sem palavras disponíveis para destacar.</span>
+                                );
+                              }
+
+                              return (
+                                <div className="flex flex-wrap gap-1.5 pt-1">
+                                  {textWords.map((word, wordIdx) => {
+                                    return (
+                                      <button
+                                        key={wordIdx}
+                                        onClick={() => {
+                                          const updatedWords = toggleWord(parsedWords, wordIdx);
+                                          const newHtml = rebuildHtmlFromWords(updatedWords, gradientColor1);
+                                          setSlides(prev => prev.map((s, idx) => 
+                                            idx === selectedElement.slideIndex ? { ...s, [key]: newHtml } : s
+                                          ));
+                                        }}
+                                        className={cn(
+                                          "px-2.5 py-1 text-[10px] font-bold rounded-lg border transition-all active:scale-95",
+                                          word.isHighlighted
+                                            ? "border-opacity-50 text-white font-black shadow-md"
+                                            : "bg-zinc-900 border-white/5 text-zinc-400 hover:text-zinc-200"
+                                        )}
+                                        style={word.isHighlighted ? { backgroundColor: `${gradientColor1}20`, borderColor: gradientColor1, color: gradientColor1 } : {}}
+                                      >
+                                        {word.text}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              );
+                            })()}
+                          </div>
+
+                          {/* 2. TIPOGRAFIA DO CAMPO */}
+                          <div className="space-y-3">
+                            {/* Fonte */}
+                            <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-1.5">
+                              <label className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">Fonte do Campo</label>
+                              <select
+                                value={fieldPos.fontFamily || ''}
+                                onChange={(e) => updateFieldProp(key, 'fontFamily', e.target.value)}
+                                className="cs-input text-xs py-1.5 w-full bg-zinc-900 border border-white/10 rounded text-zinc-300 outline-none"
+                              >
+                                <option value="">(Usar Padrão do Slide)</option>
+                                {FONT_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                              </select>
+                            </div>
+
+                            {/* Tamanho (Escala) */}
+                            <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-2">
+                              <div className="flex justify-between items-center">
+                                <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500">Tamanho (Escala)</span>
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() => updateFieldProp(key, 'scale', 1)}
+                                    title="Resetar"
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                                  >
+                                    <RotateCcw className="w-2.5 h-2.5" />
+                                  </button>
+                                  <button 
+                                    onClick={() => adjustFieldProp(key, 'scale', -0.05)}
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                  >
+                                    -
+                                  </button>
+                                  <span className="text-[9px] font-mono text-zinc-200 min-w-[30px] text-center">
+                                    {(fieldPos.scale !== undefined ? fieldPos.scale : 1.0).toFixed(2)}x
+                                  </span>
+                                  <button 
+                                    onClick={() => adjustFieldProp(key, 'scale', 0.05)}
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </div>
+                              <input
+                                type="range"
+                                min="0.3"
+                                max="3"
+                                step="0.02"
+                                value={fieldPos.scale !== undefined ? fieldPos.scale : 1.0}
+                                onChange={(e) => updateFieldProp(key, 'scale', parseFloat(e.target.value))}
+                                className="cs-range w-full"
+                              />
+                            </div>
+
+                            {/* Espaçamento Letras */}
+                            <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-2">
+                              <div className="flex justify-between items-center">
+                                <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500">Espaçamento Letras</span>
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() => updateFieldProp(key, 'letterSpacing', 0)}
+                                    title="Resetar"
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                                  >
+                                    <RotateCcw className="w-2.5 h-2.5" />
+                                  </button>
+                                  <button 
+                                    onClick={() => adjustFieldProp(key, 'letterSpacing', -0.5)}
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                  >
+                                    -
+                                  </button>
+                                  <span className="text-[9px] font-mono text-zinc-200 min-w-[30px] text-center">
+                                    {(fieldPos.letterSpacing || 0).toFixed(1)}
+                                  </span>
+                                  <button 
+                                    onClick={() => adjustFieldProp(key, 'letterSpacing', 0.5)}
+                                    className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </div>
+                              <input
+                                type="range"
+                                min="-5"
+                                max="20"
+                                step="0.5"
+                                value={fieldPos.letterSpacing || 0}
+                                onChange={(e) => updateFieldProp(key, 'letterSpacing', parseFloat(e.target.value))}
+                                className="cs-range w-full"
+                              />
+                            </div>
+
+                            {/* Peso da Fonte */}
+                            <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-1.5">
+                              <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">Peso da Fonte</span>
+                              <div className="grid grid-cols-5 gap-1">
+                                {[100, 200, 300, 400, 500, 600, 700, 800, 900].map(w => {
+                                  const defaultWeight = key === 'titulo' ? 800 : 400;
+                                  const isActive = (fieldPos.fontWeight !== undefined ? fieldPos.fontWeight : defaultWeight) === w;
+                                  return (
+                                    <button
+                                      key={w}
+                                      onClick={() => updateFieldProp(key, 'fontWeight', w)}
+                                      className={cn(
+                                        "py-1 text-[9px] font-bold rounded-lg border transition-all",
+                                        isActive 
+                                          ? "bg-zinc-800 text-white border-white/20" 
+                                          : "bg-zinc-900/50 text-zinc-500 border-transparent hover:text-zinc-300"
+                                      )}
+                                    >
+                                      {w}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+
+                            {/* Cor do Campo */}
+                            <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-1.5">
+                              <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500 block">Cor do Campo</span>
+                              <div className="relative flex items-center bg-zinc-900 rounded p-1 gap-1 border border-white/5">
+                                <label className="flex-shrink-0 cursor-pointer relative w-4 h-4 rounded-sm border border-white/20 block">
+                                  <input
+                                    type="color"
+                                    value={fieldPos.color || '#ffffff'}
+                                    onChange={(e) => updateFieldProp(key, 'color', e.target.value)}
+                                    className="absolute w-0 h-0 opacity-0 pointer-events-none"
+                                  />
+                                  <span
+                                    className="absolute inset-0 rounded-sm"
+                                    style={{ backgroundColor: fieldPos.color || '#ffffff' }}
+                                  />
+                                </label>
+                                <input 
+                                  type="text" 
+                                  value={fieldPos.color || ''}
+                                  placeholder="#FFFFFF"
+                                  onChange={(e) => updateFieldProp(key, 'color', e.target.value)}
+                                  className="flex-1 bg-transparent text-xs font-mono text-zinc-300 px-1 outline-none uppercase"
+                                />
+                                {fieldPos.color && (
+                                  <button
+                                    onClick={() => updateFieldProp(key, 'color', undefined)}
+                                    title="Resetar cor do texto"
+                                    className="w-3.5 h-3.5 bg-zinc-700 hover:bg-rose-500 border border-black/40 rounded-full flex items-center justify-center text-white shadow transition-colors"
+                                  >
+                                    <X className="w-2 h-2" />
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Altura da Linha (Apenas Título) */}
+                            {key === 'titulo' && (
+                              <div className="bg-zinc-950/20 p-2.5 rounded-lg border border-white/5 space-y-2">
+                                <div className="flex justify-between items-center">
+                                  <span className="text-[9px] uppercase font-bold tracking-widest text-zinc-500">Espaçamento Entre Linhas</span>
+                                  <div className="flex items-center gap-1">
+                                    <button
+                                      onClick={() => updateFieldProp(key, 'lineHeight', undefined)}
+                                      title="Resetar"
+                                      className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-rose-500/20 rounded text-zinc-600 hover:text-rose-400 transition-colors select-none active:scale-90"
+                                    >
+                                      <RotateCcw className="w-2.5 h-2.5" />
+                                    </button>
+                                    <button 
+                                      onClick={() => adjustFieldProp(key, 'lineHeight', -0.05)}
+                                      className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                    >
+                                      -
+                                    </button>
+                                    <span className="text-[9px] font-mono text-zinc-200 min-w-[30px] text-center">
+                                      {(fieldPos.lineHeight !== undefined ? fieldPos.lineHeight : 1.0).toFixed(2)}x
+                                    </span>
+                                    <button 
+                                      onClick={() => adjustFieldProp(key, 'lineHeight', 0.05)}
+                                      className="w-4 h-4 flex items-center justify-center bg-zinc-900 hover:bg-zinc-800 rounded text-zinc-400 hover:text-white transition-colors text-[10px] font-bold select-none active:scale-90"
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                </div>
+                                <input
+                                  type="range"
+                                  min="0.5"
+                                  max="2"
+                                  step="0.05"
+                                  value={fieldPos.lineHeight !== undefined ? fieldPos.lineHeight : 1.0}
+                                  onChange={(e) => updateFieldProp(key, 'lineHeight', parseFloat(e.target.value))}
+                                  className="cs-range w-full"
+                                />
+                              </div>
+                            )}
+
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               );
             })}
