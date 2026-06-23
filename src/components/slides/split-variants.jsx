@@ -12551,8 +12551,8 @@ export function SplitVariant251(props) {
       </SmartField>
 
       <div
-        className="absolute bottom-[8%] right-0 w-[92%] rounded-l-[40px] py-[24px] pl-[32px] pr-[24px] flex flex-col justify-center text-right z-10 shadow-2xl transition-colors overflow-hidden"
-        style={{ backgroundColor: colorBg }}
+        className="absolute bottom-[8%] right-0 w-[65%] rounded-l-[25px] py-[24px] pl-[32px] pr-[24px] flex flex-col justify-center text-right z-[70] shadow-2xl transition-colors overflow-hidden"
+        style={{ backgroundColor: brandColor || colorBg }}
       >
         <SmartField field="titulo" {...sp} className="w-full mb-[8px]">
           <p

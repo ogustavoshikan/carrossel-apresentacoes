@@ -371,6 +371,30 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
       slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=2000&auto=format&fit=crop';
     } else if (variantKey === 254) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1509365465994-3e61c56cb3c0?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 255) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 256) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 257) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 258) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop';
+    } else if (variantKey === 259) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 260) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop';
+    } else if (variantKey === 261) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1080&auto=format&fit=crop';
+    } else if (variantKey === 262) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 263) {
+      slide.imageUrl = 'https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-confident-businessman-in-suit-png-image_10204780.png';
+    } else if (variantKey === 264) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1616031037011-08bc3e8631bc?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 265) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1548907040-4d42b52125b0?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 266) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop';
     }
   }
 
