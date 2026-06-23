@@ -45,20 +45,20 @@ function SmartField({ data, index, field, showMetrics, onActionStart, selectedEl
 }
 
 // ─── Helper: TextWrapper ────────────────────────────────────
-function TextWrapper({ 
-  field, 
-  index, 
-  onTextChange, 
-  as: Component = 'div', 
-  className, 
-  style, 
-  children, 
+function TextWrapper({
+  field,
+  index,
+  onTextChange,
+  as: Component = 'div',
+  className,
+  style,
+  children,
   // Destructure and ignore these to prevent passing them to the DOM
   data,
   onActionStart,
   selectedElement,
   onSelectElement,
-  ...props 
+  ...props
 }) {
   return (
     <Component
@@ -4876,7 +4876,7 @@ export function SplitVariant76(props) {
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between py-8 font-outfit select-none overflow-hidden rounded-slide shadow-2xl border border-white/10" style={{ backgroundColor: bgBase }}>
-      
+
 
       {/* O NÚMERO GIGANTE FLUTUANTE NO FUNDO - SUBIDO PARA -top-36 */}
       <div className="absolute -top-56 -left-14 text-[680px] font-serif normal font-medium text-white/[0.05] pointer-events-none select-none leading-none z-[2]">
@@ -4885,24 +4885,24 @@ export function SplitVariant76(props) {
 
       {/* Header: Número + Título Principal (Linha horizontal removida) */}
       <div className="relative z-10 flex gap-0 mt-8 items-start px-0">
-        
+
         {/* Container Esquerdo para Número */}
         <div className="flex flex-col relative w-[80px]">
-           <span className="font-serif italic text-white text-[58px] leading-[0.7] select-none font-medium pl-[22px] relative z-10" style={{ WebkitTextStroke: '1.5px #ffffff', color: 'transparent' }}>
-             {data.badge_text || `${index + 1}.`}
-           </span>
+          <span className="font-serif italic text-white text-[58px] leading-[0.7] select-none font-medium pl-[22px] relative z-10" style={{ WebkitTextStroke: '1.5px #ffffff', color: 'transparent' }}>
+            {data.badge_text || `${index + 1}.`}
+          </span>
         </div>
 
         <SmartField field="titulo" data={data} index={index} {...sp}>
           <h2 className="font-serif text-white font-bold leading-snug tracking-tight text-left flex-1 filter drop-shadow-sm pr-6 mt-2.5 outline-none" style={{ fontFamily: titleFont, fontSize: `${20 * sTitle}px` }}>
-             {data.titulo || 'Quando uma marca deve usar a força dos influencers?'}
+            {data.titulo || 'Quando uma marca deve usar a força dos influencers?'}
           </h2>
         </SmartField>
       </div>
 
       {/* Card Neo-Brutalista Central */}
       <div className="relative z-10 w-[94%] bg-white rounded-r-[1.5rem] border-t-[1.5px] border-r-[1.5px] border-b-[1.5px] border-l-0 border-zinc-950 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-left my-auto py-6 pr-6 pl-8 ml-0">
-        
+
         {/* Estrela de 4 pontas preta */}
         <div className="absolute top-4 left-[-12px] bg-white text-zinc-950 z-20">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -4919,7 +4919,7 @@ export function SplitVariant76(props) {
 
       {/* Footer: BRAND & ARRASTE */}
       <div className="relative z-10 w-full flex justify-between items-center pt-2 px-6">
-        
+
         {/* Centered Brand Logo */}
         <div className="flex-1 text-center font-serif text-[12.5px] tracking-[0.08em] text-white/95 font-black uppercase">
           {brandHandle ? brandHandle.replace('@', '') : 'FAST COMPANY'}
@@ -4949,7 +4949,7 @@ export function SplitVariant77(props) {
   const { data, index, brandColor, brandHandle, isVerified, slideCount, titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement, titleFont, textFont } = props;
   const sTitle = titleScale / 100;
   const sText = textScale / 100;
-  const bgBase = data.bgColor || '#ffffff'; 
+  const bgBase = data.bgColor || '#ffffff';
   const sp = { data, index, onActionStart, selectedElement, onSelectElement, onTextChange };
 
   const img1 = getCorsSafeUrl(data.imageUrl || "https://i.etsystatic.com/20175028/r/il/18277f/3011567563/il_fullxfull.3011567563_2hoz.jpg");
@@ -4959,30 +4959,30 @@ export function SplitVariant77(props) {
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#1A1A1A]" style={{ backgroundColor: bgBase }}>
-      
+
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#1A1A1A" 
-          counterColor="#1A1A1A" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#1A1A1A"
+          counterColor="#1A1A1A"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -4990,19 +4990,19 @@ export function SplitVariant77(props) {
       {/* Grid Superior de Imagens */}
       <div className="grid grid-cols-2 gap-2 h-[calc(28%+14px)] w-full">
         <SmartField field="imagem" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
-          <img 
-            src={img1} 
+          <img
+            src={img1}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover" 
-            alt="Showcase 1" 
+            className="w-full h-full object-cover"
+            alt="Showcase 1"
           />
         </SmartField>
         <SmartField field="imagem2" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
-          <img 
-            src={img2} 
+          <img
+            src={img2}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover" 
-            alt="Showcase 2" 
+            className="w-full h-full object-cover"
+            alt="Showcase 2"
           />
         </SmartField>
       </div>
@@ -5033,19 +5033,19 @@ export function SplitVariant77(props) {
       {/* Grid Inferior de Imagens */}
       <div className="grid grid-cols-2 gap-2 h-[calc(28%+14px)] w-full">
         <SmartField field="imagem3" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
-          <img 
-            src={img3} 
+          <img
+            src={img3}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover" 
-            alt="Showcase 3" 
+            className="w-full h-full object-cover"
+            alt="Showcase 3"
           />
         </SmartField>
         <SmartField field="imagem4" data={data} index={index} {...sp} className="relative overflow-hidden w-full h-full rounded-none bg-zinc-100 shadow-md">
-          <img 
-            src={img4} 
+          <img
+            src={img4}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover" 
-            alt="Showcase 4" 
+            className="w-full h-full object-cover"
+            alt="Showcase 4"
           />
         </SmartField>
       </div>
@@ -5069,32 +5069,33 @@ export function SplitVariant78(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white bg-white">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#5e4104" 
-          counterColor="#5e4104" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#5e4104"
+          counterColor="#5e4104"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-display { font-family: 'Alfa Slab One', cursive; }
@@ -5103,10 +5104,10 @@ export function SplitVariant78(props) {
 
       {/* ================= CAPA 16: STUDIO DOCERIA - KIT FESTA ================= */}
       <div className="relative w-full h-full flex font-outfit select-none overflow-hidden bg-white">
-        
+
         {/* LEFT PANEL: Amarelo Mostarda (Dinâmico com brandColor) */}
         <div className="w-[51%] h-full flex flex-col items-center justify-start pt-14 pb-8 relative z-10 px-3 text-center" style={{ backgroundColor: brandColor || '#dfa828' }}>
-          
+
           {/* SVG Pattern: Gotas/Folhas no canto inferior (proporções preservadas via wrapper de 48%) */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
             <svg viewBox="0 0 1026.6 1350" preserveAspectRatio="none" className="absolute inset-y-0 left-0 h-full w-[208.33%] max-w-none pointer-events-none" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -5208,11 +5209,11 @@ export function SplitVariant78(props) {
 
         {/* RIGHT PANEL: Imagem Completa */}
         <SmartField field="imagem" data={data} index={index} {...sp} className="flex-1 h-full relative overflow-hidden bg-zinc-100">
-          <img 
-            src={img1} 
+          <img
+            src={img1}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
-            alt="Naked Cake" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            alt="Naked Cake"
           />
         </SmartField>
       </div>
@@ -5233,32 +5234,33 @@ export function SplitVariant79(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#3a2829] bg-[#fcaebb]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#3a2829" 
-          counterColor="#3a2829" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#3a2829"
+          counterColor="#3a2829"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5268,7 +5270,7 @@ export function SplitVariant79(props) {
       `}} />
 
       <div className="relative w-full h-full bg-[#de1e4d] flex flex-col font-outfit select-none overflow-hidden text-[#3a2829]">
-        
+
         {/* Typography Content */}
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 z-20 mt-[-5%] min-h-0">
           <SmartField field="tag" data={data} index={index} {...sp}>
@@ -5293,7 +5295,7 @@ export function SplitVariant79(props) {
         {/* Footer */}
         <div className="w-full px-4 pb-6 mt-auto shrink-0">
           <div className="flex items-center justify-between">
-            
+
             {/* Left: WhatsApp */}
             <div className="flex items-center gap-1.5 flex-1">
               <div className="w-[18px] h-[18px] border-2 border-[#3a2829] rounded-full flex items-center justify-center">
@@ -5328,7 +5330,7 @@ export function SplitVariant79(props) {
                 </SmartField>
               </div>
             </div>
-            
+
             {/* Right: Logos */}
             <div className="flex items-center gap-1.5 pl-2 flex-[0.8] justify-end">
               <span className="font-display italic text-[11px] tracking-tighter text-[#3a2829]">iFood</span>
@@ -5361,32 +5363,33 @@ export function SplitVariant80(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#402c25] bg-[#f8f5ee]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#402c25" 
-          counterColor="#402c25" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#402c25"
+          counterColor="#402c25"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5476,32 +5479,33 @@ export function SplitVariant81(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-[#1dbdb2] text-[#5c2d1b]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#5c2d1b" 
-          counterColor="#5c2d1b" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#5c2d1b"
+          counterColor="#5c2d1b"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5511,8 +5515,8 @@ export function SplitVariant81(props) {
       `}} />
 
       {/* Fundo com textura "noise" pesada simulando papel */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40 mix-blend-color-burn" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-40 mix-blend-color-burn"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
       />
 
       {/* Fita Laranja Inferior */}
@@ -5529,108 +5533,108 @@ export function SplitVariant81(props) {
 
       {/* Título Principal (Estilo Retro Rounded) */}
       <div className="relative z-20 flex flex-col items-center justify-center mt-6 mb-4">
-         <SmartField field="favTitle1" data={data} index={index} {...sp}>
-           <TextWrapper {...sp} as="h2" field="favTitle1" className="font-display text-[#fcf0d1] text-[36px] leading-[0.8] tracking-wider transform -rotate-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '2px 3px 0px #ab4a2c', fontSize: `${36 * sTitle}px` }}>
-             {data.favTitle1 || "Qual o seu"}
-           </TextWrapper>
-         </SmartField>
-         <SmartField field="titulo" data={data} index={index} {...sp}>
-           <TextWrapper {...sp} as="h1" field="titulo" className="font-display text-[#fcf0d1] text-[48px] leading-[0.85] tracking-tight transform -rotate-2 -ml-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '3px 4px 0px #ab4a2c', fontSize: `${48 * sTitle}px` }}>
-             {data.titulo || "FAVORITO?"}
-           </TextWrapper>
-         </SmartField>
+        <SmartField field="favTitle1" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h2" field="favTitle1" className="font-display text-[#fcf0d1] text-[36px] leading-[0.8] tracking-wider transform -rotate-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '2px 3px 0px #ab4a2c', fontSize: `${36 * sTitle}px` }}>
+            {data.favTitle1 || "Qual o seu"}
+          </TextWrapper>
+        </SmartField>
+        <SmartField field="titulo" data={data} index={index} {...sp}>
+          <TextWrapper {...sp} as="h1" field="titulo" className="font-display text-[#fcf0d1] text-[48px] leading-[0.85] tracking-tight transform -rotate-2 -ml-2 outline-none" style={{ WebkitTextStroke: '2.5px #ab4a2c', textShadow: '3px 4px 0px #ab4a2c', fontSize: `${48 * sTitle}px` }}>
+            {data.titulo || "FAVORITO?"}
+          </TextWrapper>
+        </SmartField>
       </div>
 
       {/* Card Central (Amarelo Pastel) */}
       <div className="relative z-20 flex-1 flex flex-col items-center w-full px-5 mt-2 min-h-0">
-         <div className="w-full bg-[#fdf5cc] border-[2px] border-[#5c2d1b] rounded-3xl pb-10 pt-6 px-3 shadow-sm relative">
-            
-            {/* Grid dos 3 Itens */}
-            <div className="flex justify-between items-start gap-1">
-              
-              {/* Item 1 */}
-              <div className="flex flex-col items-center flex-1">
-                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
-                    {/* SVG Starburst Azul */}
-                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
-                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
-                    </svg>
-                    {/* Imagem Redonda */}
-                    <SmartField field="imagem" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
-                      <img src={img1} className="w-full h-full object-cover" alt="Macarons" />
-                    </SmartField>
-                 </div>
-                 <SmartField field="favItem1" data={data} index={index} {...sp}>
-                   <TextWrapper {...sp} as="p" field="favItem1" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
-                     {data.favItem1 || "Macarons\nmacios"}
-                   </TextWrapper>
-                 </SmartField>
-              </div>
+        <div className="w-full bg-[#fdf5cc] border-[2px] border-[#5c2d1b] rounded-3xl pb-10 pt-6 px-3 shadow-sm relative">
 
-              {/* Item 2 */}
-              <div className="flex flex-col items-center flex-1">
-                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
-                    {/* SVG Starburst Azul */}
-                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
-                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
-                    </svg>
-                    {/* Imagem Redonda */}
-                    <SmartField field="imagem2" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
-                      <img src={img2} className="w-full h-full object-cover scale-125" alt="Cookie" />
-                    </SmartField>
-                 </div>
-                 <SmartField field="favItem2" data={data} index={index} {...sp}>
-                   <TextWrapper {...sp} as="p" field="favItem2" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
-                     {data.favItem2 || "Cookies\ncrocantes"}
-                   </TextWrapper>
-                 </SmartField>
-              </div>
+          {/* Grid dos 3 Itens */}
+          <div className="flex justify-between items-start gap-1">
 
-              {/* Item 3 */}
-              <div className="flex flex-col items-center flex-1">
-                 <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
-                    {/* SVG Starburst Azul */}
-                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
-                       <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
-                    </svg>
-                    {/* Imagem Redonda */}
-                    <SmartField field="imagem3" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
-                      <img src={img3} className="w-full h-full object-cover scale-150" alt="Brigadeiro" />
-                    </SmartField>
-                 </div>
-                 <SmartField field="favItem3" data={data} index={index} {...sp}>
-                   <TextWrapper {...sp} as="p" field="favItem3" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
-                     {data.favItem3 || "Brigadeiros\ncremosos"}
-                   </TextWrapper>
-                 </SmartField>
+            {/* Item 1 */}
+            <div className="flex flex-col items-center flex-1">
+              <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                {/* SVG Starburst Azul */}
+                <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                  <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                </svg>
+                {/* Imagem Redonda */}
+                <SmartField field="imagem" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                  <img src={img1} className="w-full h-full object-cover" alt="Macarons" />
+                </SmartField>
               </div>
-
+              <SmartField field="favItem1" data={data} index={index} {...sp}>
+                <TextWrapper {...sp} as="p" field="favItem1" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                  {data.favItem1 || "Macarons\nmacios"}
+                </TextWrapper>
+              </SmartField>
             </div>
 
-            {/* Botão de CTA flutuando sobre a borda inferior do card */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
-               <SmartField field="favBtn" data={data} index={index} {...sp}>
-                 <TextWrapper {...sp} as="button" field="favBtn" className="bg-[#ab4a2c] text-white px-6 py-2.5 rounded-2xl text-[12px] font-outfit tracking-wide hover:scale-105 transition-transform border border-[#5c2d1b] outline-none">
-                   {data.favBtn || "Deixa nos comentários!"}
-                 </TextWrapper>
-               </SmartField>
+            {/* Item 2 */}
+            <div className="flex flex-col items-center flex-1">
+              <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                {/* SVG Starburst Azul */}
+                <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                  <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                </svg>
+                {/* Imagem Redonda */}
+                <SmartField field="imagem2" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                  <img src={img2} className="w-full h-full object-cover scale-125" alt="Cookie" />
+                </SmartField>
+              </div>
+              <SmartField field="favItem2" data={data} index={index} {...sp}>
+                <TextWrapper {...sp} as="p" field="favItem2" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                  {data.favItem2 || "Cookies\ncrocantes"}
+                </TextWrapper>
+              </SmartField>
             </div>
-         </div>
+
+            {/* Item 3 */}
+            <div className="flex flex-col items-center flex-1">
+              <div className="w-[65px] h-[65px] relative mb-2 flex items-center justify-center">
+                {/* SVG Starburst Azul */}
+                <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-[#1dbdb2]" fill="currentColor" stroke="#ff5e4d" strokeWidth="4">
+                  <path d="M50 2 L58 18 L75 14 L77 31 L94 36 L85 50 L94 64 L77 69 L75 86 L58 82 L50 98 L42 82 L25 86 L23 69 L6 64 L15 50 L6 36 L23 31 L25 14 L42 18 Z" />
+                </svg>
+                {/* Imagem Redonda */}
+                <SmartField field="imagem3" data={data} index={index} {...sp} className="relative z-10 w-[75%] h-[75%] rounded-full overflow-hidden border-2 border-white/50 bg-white">
+                  <img src={img3} className="w-full h-full object-cover scale-150" alt="Brigadeiro" />
+                </SmartField>
+              </div>
+              <SmartField field="favItem3" data={data} index={index} {...sp}>
+                <TextWrapper {...sp} as="p" field="favItem3" className="text-[11px] font-outfit text-[#5c2d1b] leading-tight text-center font-medium whitespace-pre-line outline-none" style={{ fontSize: `${11 * sText}px` }}>
+                  {data.favItem3 || "Brigadeiros\ncremosos"}
+                </TextWrapper>
+              </SmartField>
+            </div>
+
+          </div>
+
+          {/* Botão de CTA flutuando sobre a borda inferior do card */}
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+            <SmartField field="favBtn" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="button" field="favBtn" className="bg-[#ab4a2c] text-white px-6 py-2.5 rounded-2xl text-[12px] font-outfit tracking-wide hover:scale-105 transition-transform border border-[#5c2d1b] outline-none">
+                {data.favBtn || "Deixa nos comentários!"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+        </div>
       </div>
 
       {/* Rodapé na Fita Laranja */}
       <div className="relative z-20 flex justify-between items-center w-full px-6 pb-6 mt-auto shrink-0">
-         <SmartField field="favContact" data={data} index={index} {...sp} className="flex-1 text-left">
-           <TextWrapper {...sp} as="span" field="favContact" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
-             {data.favContact || "(11) 1234-5678 - telefone e whatsapp"}
-           </TextWrapper>
-         </SmartField>
-         <div className="h-4 w-[1px] bg-white opacity-40 mx-2 shrink-0" />
-         <SmartField field="favAddress" data={data} index={index} {...sp} className="flex-1 text-right">
-           <TextWrapper {...sp} as="span" field="favAddress" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
-             {data.favAddress || "Rua do Doce, n° 105"}
-           </TextWrapper>
-         </SmartField>
+        <SmartField field="favContact" data={data} index={index} {...sp} className="flex-1 text-left">
+          <TextWrapper {...sp} as="span" field="favContact" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
+            {data.favContact || "(11) 1234-5678 - telefone e whatsapp"}
+          </TextWrapper>
+        </SmartField>
+        <div className="h-4 w-[1px] bg-white opacity-40 mx-2 shrink-0" />
+        <SmartField field="favAddress" data={data} index={index} {...sp} className="flex-1 text-right">
+          <TextWrapper {...sp} as="span" field="favAddress" className="text-white text-[8px] font-light tracking-wide opacity-90 outline-none">
+            {data.favAddress || "Rua do Doce, n° 105"}
+          </TextWrapper>
+        </SmartField>
       </div>
     </div>
   );
@@ -5652,32 +5656,33 @@ export function SplitVariant82(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#d94a6b] bg-[#fde5ec]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#d94a6b" 
-          counterColor="#d94a6b" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#d94a6b"
+          counterColor="#d94a6b"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5699,18 +5704,18 @@ export function SplitVariant82(props) {
       </div>
 
       {/* Card Central Branco */}
-      <div 
+      <div
         style={{ width: 'calc(82% - 14px)', top: '68.8px' }}
         className="relative z-20 h-[63%] bg-white rounded-xl shadow-[0_25px_55px_rgba(0,0,0,0.12)] p-6 pb-0 flex flex-col items-start overflow-hidden mx-auto my-auto mt-6 mb-4 shrink-0"
       >
-        
+
         {/* Header: Logo e Arroba */}
         <div className="flex items-center gap-3 mb-4 w-full shrink-0">
           <div className="w-9 h-9 bg-[#fde5ec] border border-[#ef3d76]/20 rounded-full flex items-center justify-center shrink-0 shadow-sm relative overflow-hidden">
-             <span className="font-lobster text-[#ef3d76] text-xs z-10">C</span>
-             <svg className="absolute w-full h-full text-[#ef3d76] opacity-30" viewBox="0 0 24 24" fill="currentColor">
-               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-             </svg>
+            <span className="font-lobster text-[#ef3d76] text-xs z-10">C</span>
+            <svg className="absolute w-full h-full text-[#ef3d76] opacity-30" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 19.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.22.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+            </svg>
           </div>
           <div className="flex flex-col items-start relative -top-[5px]">
             <SmartField field="lembreteLogo" data={data} index={index} {...sp}>
@@ -5739,11 +5744,11 @@ export function SplitVariant82(props) {
 
         {/* Imagem do Cheesecake (Com Overlap para baixo) */}
         <SmartField field="imagem" data={data} index={index} {...sp} className="relative w-[110%] -ml-[5%] h-32 mt-2 bg-zinc-100 rounded-t-xl overflow-hidden shadow-inner flex-1 min-h-0">
-          <img 
-            src={img1} 
+          <img
+            src={img1}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover object-bottom" 
-            alt="Cheesecake" 
+            className="w-full h-full object-cover object-bottom"
+            alt="Cheesecake"
           />
         </SmartField>
 
@@ -5767,32 +5772,33 @@ export function SplitVariant83(props) {
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white bg-[#00a8a8]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#white" 
-          counterColor="#white" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#white"
+          counterColor="#white"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5803,70 +5809,70 @@ export function SplitVariant83(props) {
 
       {/* Top Split Background (Turquoise & Magenta) */}
       <div className="absolute top-0 left-0 w-full h-[55%] bg-[#55c5c5] z-0 overflow-hidden shrink-0">
-         {/* Bloco Magenta Angulado */}
-         <div className="absolute top-[-20%] left-[-30%] w-[100%] h-[150%] bg-[#e6007e] transform rotate-[15deg] z-0" />
-         
-         {/* Gotas de Chocolate Flutuantes (Simuladas) */}
-         <div className="absolute top-[8%] right-[25%] w-5 h-5 bg-[#3a2012] rounded-full blur-[1.5px] opacity-90 shadow-sm" />
-         <div className="absolute top-[25%] left-[8%] w-4 h-4 bg-[#3a2012] rounded-full blur-[1px] opacity-80 shadow-sm" />
-         <div className="absolute bottom-[20%] right-[10%] w-6 h-6 bg-[#3a2012] rounded-full blur-[2px] opacity-90 transform -rotate-12 shadow-md" />
+        {/* Bloco Magenta Angulado */}
+        <div className="absolute top-[-20%] left-[-30%] w-[100%] h-[150%] bg-[#e6007e] transform rotate-[15deg] z-0" />
+
+        {/* Gotas de Chocolate Flutuantes (Simuladas) */}
+        <div className="absolute top-[8%] right-[25%] w-5 h-5 bg-[#3a2012] rounded-full blur-[1.5px] opacity-90 shadow-sm" />
+        <div className="absolute top-[25%] left-[8%] w-4 h-4 bg-[#3a2012] rounded-full blur-[1px] opacity-80 shadow-sm" />
+        <div className="absolute bottom-[20%] right-[10%] w-6 h-6 bg-[#3a2012] rounded-full blur-[2px] opacity-90 transform -rotate-12 shadow-md" />
       </div>
 
       {/* Main Image: Cookie/Pie on Bamboo Board */}
       <div className="relative z-10 w-full h-[55%] flex items-end justify-center mt-[-4%] shrink-0">
-         {/* Contêiner da tábua rotacionado sutilmente */}
-         <SmartField field="imagem" data={data} index={index} {...sp} className="w-[125%] ml-[-5%] overflow-hidden">
-            <img 
-              src={img1} 
-              crossOrigin="anonymous"
-              className="w-full h-full object-cover object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)] transform -rotate-2" 
-              alt="Cookie Pie on Board" 
-            />
-         </SmartField>
+        {/* Contêiner da tábua rotacionado sutilmente */}
+        <SmartField field="imagem" data={data} index={index} {...sp} className="w-[125%] ml-[-5%] overflow-hidden">
+          <img
+            src={img1}
+            crossOrigin="anonymous"
+            className="w-full h-full object-cover object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)] transform -rotate-2"
+            alt="Cookie Pie on Board"
+          />
+        </SmartField>
       </div>
 
       {/* Bottom Content Area */}
       <div className="relative z-20 flex-1 flex items-center justify-between px-6 pb-4 min-h-0 bg-[#00a8a8]">
-         
-         {/* Left Side: Typography */}
-         <div className="flex flex-col flex-[1.2] items-start pt-2 min-w-0">
-            <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
-              <TextWrapper {...sp} as="h1" field="titulo" className="font-outfit font-black text-[34px] leading-[0.9] tracking-tighter text-white drop-shadow-sm mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px` }}>
-                {data.titulo || "VONTADE\nDE DOCE?"}
-              </TextWrapper>
-            </SmartField>
-            <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
-              <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif font-bold text-[#442614] text-[26px] leading-[0.95] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${33 * sText}px` }}>
-                {data.subtitulo || "A Mari vai\naté você!"}
-              </TextWrapper>
-            </SmartField>
-         </div>
 
-         {/* Vertical Divider */}
-         <div className="w-[1.5px] bg-white h-[65%] mx-3 opacity-90 rounded-full shrink-0" />
+        {/* Left Side: Typography */}
+        <div className="flex flex-col flex-[1.2] items-start pt-2 min-w-0">
+          <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="h1" field="titulo" className="font-outfit font-black text-[34px] leading-[0.9] tracking-tighter text-white drop-shadow-sm mb-2 outline-none whitespace-pre-line" style={{ fontSize: `${45 * sTitle}px` }}>
+              {data.titulo || "VONTADE\nDE DOCE?"}
+            </TextWrapper>
+          </SmartField>
+          <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+            <TextWrapper {...sp} as="h2" field="subtitulo" className="font-serif font-bold text-[#442614] text-[26px] leading-[0.95] tracking-tight outline-none whitespace-pre-line" style={{ fontSize: `${33 * sText}px` }}>
+              {data.subtitulo || "A Mari vai\naté você!"}
+            </TextWrapper>
+          </SmartField>
+        </div>
 
-         {/* Right Side: CTA & Logo */}
-         <div className="flex flex-col flex-1 items-end justify-between h-full pt-4 pb-2 min-w-0">
-            <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full text-right mb-auto min-h-0">
-              <TextWrapper {...sp} as="p" field="texto_apoio" className="font-outfit font-light text-[#442614] text-[13.5px] leading-[1.2] text-right whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${25 * sText}px` }}>
-                {data.texto_apoio || "Clique no link\nda bio e peça agora!"}
+        {/* Vertical Divider */}
+        <div className="w-[1.5px] bg-white h-[65%] mx-3 opacity-90 rounded-full shrink-0" />
+
+        {/* Right Side: CTA & Logo */}
+        <div className="flex flex-col flex-1 items-end justify-between h-full pt-4 pb-2 min-w-0">
+          <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full text-right mb-auto min-h-0">
+            <TextWrapper {...sp} as="p" field="texto_apoio" className="font-outfit font-light text-[#442614] text-[13.5px] leading-[1.2] text-right whitespace-pre-line tracking-tight outline-none" style={{ fontSize: `${25 * sText}px` }}>
+              {data.texto_apoio || "Clique no link\nda bio e peça agora!"}
+            </TextWrapper>
+          </SmartField>
+
+          {/* Logo "Bella Doceria" */}
+          <div className="flex flex-col items-center mt-4 shrink-0">
+            <SmartField field="bellaVontadeLogo" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="bellaVontadeLogo" className="font-lobster text-white text-[32px] leading-none drop-shadow-sm tracking-wide outline-none">
+                {data.bellaVontadeLogo || "Mari"}
               </TextWrapper>
             </SmartField>
-            
-            {/* Logo "Bella Doceria" */}
-            <div className="flex flex-col items-center mt-4 shrink-0">
-               <SmartField field="bellaVontadeLogo" data={data} index={index} {...sp}>
-                 <TextWrapper {...sp} as="span" field="bellaVontadeLogo" className="font-lobster text-white text-[32px] leading-none drop-shadow-sm tracking-wide outline-none">
-                   {data.bellaVontadeLogo || "Mari"}
-                 </TextWrapper>
-               </SmartField>
-               <SmartField field="bellaVontadeLogoSub" data={data} index={index} {...sp}>
-                 <TextWrapper {...sp} as="span" field="bellaVontadeLogoSub" className="font-outfit font-black text-white text-[6.5px] tracking-[0.35em] uppercase mt-0.5 outline-none">
-                   {data.bellaVontadeLogoSub || "Confeitaria"}
-                 </TextWrapper>
-               </SmartField>
-            </div>
-         </div>
+            <SmartField field="bellaVontadeLogoSub" data={data} index={index} {...sp}>
+              <TextWrapper {...sp} as="span" field="bellaVontadeLogoSub" className="font-outfit font-black text-white text-[6.5px] tracking-[0.35em] uppercase mt-0.5 outline-none">
+                {data.bellaVontadeLogoSub || "Confeitaria"}
+              </TextWrapper>
+            </SmartField>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -5887,32 +5893,33 @@ export function SplitVariant84(props) {
     <div className="relative w-full h-full bg-[#f64c1c] flex flex-col font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-white">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.15)" 
-          handleColor="white" 
-          counterColor="white" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.15)"
+          handleColor="white"
+          counterColor="white"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -5928,7 +5935,7 @@ export function SplitVariant84(props) {
           <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img1} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 1" />
           </SmartField>
-          <div 
+          <div
             className="absolute top-0 left-3 text-white w-8 h-8 rounded-b-2xl rounded-tl-md flex items-center justify-center shadow-md z-50 pointer-events-none"
             style={{ backgroundColor: brandColor || '#f64c1c' }}
           >
@@ -5940,7 +5947,7 @@ export function SplitVariant84(props) {
           <SmartField field="imagem2" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img2} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 2" />
           </SmartField>
-          <div 
+          <div
             className="absolute top-0 right-3 text-white w-8 h-8 rounded-b-2xl flex items-center justify-center shadow-md z-50 pointer-events-none"
             style={{ backgroundColor: brandColor || '#f64c1c' }}
           >
@@ -5956,7 +5963,7 @@ export function SplitVariant84(props) {
           <SmartField field="imagem3" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img3} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 3" />
           </SmartField>
-          <div 
+          <div
             className="absolute top-0 left-3 text-white w-8 h-8 rounded-b-2xl rounded-tl-md flex items-center justify-center shadow-md z-50 pointer-events-none"
             style={{ backgroundColor: brandColor || '#f64c1c' }}
           >
@@ -5968,7 +5975,7 @@ export function SplitVariant84(props) {
           <SmartField field="imagem4" data={data} index={index} {...sp} className="w-full h-full z-0">
             <img src={img4} crossOrigin="anonymous" className="w-full h-full object-cover opacity-90" alt="Cake 4" />
           </SmartField>
-          <div 
+          <div
             className="absolute top-0 right-3 text-white w-8 h-8 rounded-b-2xl flex items-center justify-center shadow-md z-50 pointer-events-none"
             style={{ backgroundColor: brandColor || '#f64c1c' }}
           >
@@ -5978,7 +5985,7 @@ export function SplitVariant84(props) {
       </div>
 
       {/* Pílula Central Absoluta com Z-Index alto (renderizada no final para sobrepor todas as imagens) */}
-      <div 
+      <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white px-5 py-2.5 rounded-[10px] shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
         style={{ backgroundColor: brandColor || '#f64c1c' }}
       >
@@ -6004,32 +6011,33 @@ export function SplitVariant85(props) {
     <div className="relative w-full h-full flex flex-col items-center justify-between font-montserrat select-none overflow-hidden text-[#1A1A1A] py-8 rounded-slide shadow-2xl bg-[#efede7]" style={{ borderBottom: `15px solid ${brandColor || '#e9582d'}` }}>
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.06)" 
-          handleColor="#1A1A1A" 
-          counterColor="#1A1A1A" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.06)"
+          handleColor="#1A1A1A"
+          counterColor="#1A1A1A"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&family=League+Gothic&family=Montserrat:wght@400;600;800;900&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6042,63 +6050,36 @@ export function SplitVariant85(props) {
 
       {/* Padrões de Mandalas Simulados (SVGs de Fundo para textura) */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] z-0 hidden">
-         {/* Center */}
-         <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64" viewBox="0 0 100 100" fill="currentColor">
-           <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" strokeDasharray="15 10"/>
-           <circle cx="50" cy="50" r="25" fill="currentColor" />
-         </svg>
-         {/* Top Left */}
-         <svg className="absolute -top-10 -left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
-           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15"/>
-           <circle cx="50" cy="50" r="15" fill="currentColor" />
-         </svg>
-         {/* Top Right */}
-         <svg className="absolute -top-10 -right-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
-           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15"/>
-           <circle cx="50" cy="50" r="15" fill="currentColor" />
-         </svg>
+        {/* Center */}
+        <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" strokeDasharray="15 10" />
+          <circle cx="50" cy="50" r="25" fill="currentColor" />
+        </svg>
+        {/* Top Left */}
+        <svg className="absolute -top-10 -left-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15" />
+          <circle cx="50" cy="50" r="15" fill="currentColor" />
+        </svg>
+        {/* Top Right */}
+        <svg className="absolute -top-10 -right-10 w-48 h-48" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="6" strokeDasharray="20 15" />
+          <circle cx="50" cy="50" r="15" fill="currentColor" />
+        </svg>
       </div>
 
       {/* Elementos Blurry (Blocos de Chocolate Fora de Foco) */}
 
 
-      {/* Header: Logo da Luana */}
-      <div className="relative z-20 flex flex-col items-center -mt-2">
-        <div className="flex items-center justify-center gap-2">
-          <div className="w-[38px] h-[38px] relative shrink-0">
-            <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-sm">
-              <circle cx="50" cy="50" r="45" fill="#3c1d0f" />
-              <circle cx="50" cy="50" r="35" fill="#fcaebb" />
-              <circle cx="50" cy="50" r="15" fill="#e9582d" />
-              <circle cx="50" cy="25" r="4" fill="#fcae12" />
-              <circle cx="50" cy="75" r="4" fill="#fcae12" />
-              <circle cx="25" cy="50" r="4" fill="#fcae12" />
-              <circle cx="75" cy="50" r="4" fill="#fcae12" />
-            </svg>
-          </div>
-          <div className="flex flex-col text-left justify-center pt-0.5 shrink-0">
-            <SmartField field="halloweenLogoTop" data={data} index={index} {...sp}>
-              <TextWrapper {...sp} as="span" field="halloweenLogoTop" className="text-[#1A1A1A] font-bold text-[10.5px] leading-none tracking-tight outline-none">
-                {data.halloweenLogoTop || "Mari"}
-              </TextWrapper>
-            </SmartField>
-            <SmartField field="halloweenLogoBottom" data={data} index={index} {...sp}>
-              <TextWrapper {...sp} as="span" field="halloweenLogoBottom" className="text-[#1A1A1A] font-normal text-[10px] leading-none tracking-tight outline-none mt-0.5">
-                {data.halloweenLogoBottom || "Confeitaria"}
-              </TextWrapper>
-            </SmartField>
-          </div>
-        </div>
-      </div>
+
 
       {/* Título Principal Bicolor com Linhas Horizontais */}
       <div className="relative z-20 flex flex-col items-center mt-3 mb-2 w-full px-6 text-center">
         <div className="flex items-center w-full justify-center gap-3">
-           <SmartField field="titulo" data={data} index={index} {...sp} className="shrink-0">
-             <TextWrapper {...sp} as="h1" field="titulo" className="font-montserrat font-black text-[38px] leading-none tracking-tight text-[#1A1A1A] outline-none" style={{ fontSize: `${55 * sTitle}px` }}>
-               {data.titulo || "TORTA"}
-             </TextWrapper>
-           </SmartField>
+          <SmartField field="titulo" data={data} index={index} {...sp} className="shrink-0">
+            <TextWrapper {...sp} as="h1" field="titulo" className="font-montserrat font-black text-[38px] leading-none tracking-tight text-[#1A1A1A] outline-none" style={{ fontSize: `${55 * sTitle}px` }}>
+              {data.titulo || "TORTA"}
+            </TextWrapper>
+          </SmartField>
         </div>
         <SmartField field="titulo2" data={data} index={index} {...sp} className="w-full mt-1">
           <TextWrapper {...sp} as="h1" field="titulo2" className="font-montserrat font-black text-[36px] leading-[0.8] tracking-tight outline-none" style={{ fontSize: `${50 * sTitle}px`, color: brandColor || "#e9582d" }}>
@@ -6108,17 +6089,17 @@ export function SplitVariant85(props) {
       </div>
 
       {/* Imagem Central Arredondada (Bolo Texturizado) */}
-      <div className="relative z-20 w-[88%] aspect-[4/3] rounded-[1.5625rem] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-white">
+      <div className="relative z-20 w-[88%] aspect-[5/3] rounded-[1.5625rem] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.15)] bg-white">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-          <img 
-            src={img1} 
-            className="w-full h-full object-cover" 
+          <img
+            src={img1}
+            className="w-full h-full object-cover"
             style={{
               transform: `scale(${data.imageScale ?? 1})`,
               transformOrigin: 'center center',
               objectPosition: `${data.imagePositionX ?? 50}% ${data.imagePosition ?? 50}%`
             }}
-            alt="Fatia de Torta Intensa" 
+            alt="Fatia de Torta Intensa"
             crossOrigin={img1?.startsWith('blob:') || img1?.startsWith('data:') ? undefined : "anonymous"}
           />
         </SmartField>
@@ -6126,17 +6107,17 @@ export function SplitVariant85(props) {
 
       {/* Textos Inferiores (Descrição + Destaque) */}
       <div className="relative z-20 flex flex-col items-center text-center px-6 mt-4">
-         <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
-           <TextWrapper {...sp} as="p" field="subtitulo" className="font-montserrat font-semibold text-[13.5px] leading-[1.3] text-[#1A1A1A] mb-4 outline-none" style={{ fontSize: `${20 * sText}px` }}>
-             {data.subtitulo || "Sabor intenso de chocolate e base crocante de biscoito transformam essa sobremesa em um clássico familiar que atravessa gerações."}
-           </TextWrapper>
-         </SmartField>
-         
-         <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
-           <TextWrapper {...sp} as="h3" field="texto_apoio" className="font-montserrat font-extrabold text-[18px] leading-[1.1] tracking-tight outline-none" style={{ fontSize: `${22 * sText}px`, color: brandColor || "#e9582d" }}>
-             {data.texto_apoio || "Todo mundo adora essa torta de chocolate!"}
-           </TextWrapper>
-         </SmartField>
+        <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full">
+          <TextWrapper {...sp} as="p" field="subtitulo" className="font-montserrat font-semibold text-[13.5px] leading-[1.3] text-[#1A1A1A] mb-4 outline-none" style={{ fontSize: `${20 * sText}px` }}>
+            {data.subtitulo || "Sabor intenso de chocolate e base crocante de biscoito transformam essa sobremesa em um clássico familiar que atravessa gerações."}
+          </TextWrapper>
+        </SmartField>
+
+        <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
+          <TextWrapper {...sp} as="h3" field="texto_apoio" className="font-montserrat font-extrabold text-[18px] leading-[1.1] tracking-tight outline-none" style={{ fontSize: `${22 * sText}px`, color: brandColor || "#e9582d" }}>
+            {data.texto_apoio || "Todo mundo adora essa torta de chocolate!"}
+          </TextWrapper>
+        </SmartField>
       </div>
     </div>
   );
@@ -6154,32 +6135,33 @@ export function SplitVariant86(props) {
     <div className="relative w-full h-full bg-[#FAF1EA] flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-zinc-800">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#333" 
-          counterColor="#333" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#333"
+          counterColor="#333"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6191,11 +6173,11 @@ export function SplitVariant86(props) {
       {/* Imagem Superior */}
       <div className="h-[48%] w-full relative bg-zinc-200 shrink-0">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-          <img 
-            src={img1} 
-            className="absolute inset-0 w-full h-full object-cover object-center" 
-            alt="Product Image" 
-            crossOrigin="anonymous" 
+          <img
+            src={img1}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            alt="Product Image"
+            crossOrigin="anonymous"
           />
         </SmartField>
       </div>
@@ -6205,22 +6187,22 @@ export function SplitVariant86(props) {
         {/* Linhas Laterais Rosas */}
         <div className="absolute left-6 top-6 bottom-6 w-[1.5px] bg-[#d56b82]/40 rounded-full pointer-events-none" />
         <div className="absolute right-6 top-6 bottom-6 w-[1.5px] bg-[#d56b82]/40 rounded-full pointer-events-none" />
-        
+
         <div className="w-full px-6 flex flex-col items-center">
           <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
             <TextWrapper {...sp} as="h2" field="titulo" className="font-serif text-[#333] text-[34px] font-bold leading-none outline-none text-center" style={{ fontSize: `${34 * sTitle}px`, fontFamily: titleFont }}>
               {data.titulo || "Charity Bake Sale"}
             </TextWrapper>
           </SmartField>
-          
+
           <SmartField field="subtitulo" data={data} index={index} {...sp} className="w-full mt-2">
             <TextWrapper {...sp} as="p" field="subtitulo" className="text-zinc-500 font-light text-[12px] tracking-wide outline-none text-center" style={{ fontSize: `${12 * sText}px`, fontFamily: textFont }}>
               {data.subtitulo || "come and taste the best cake"}
             </TextWrapper>
           </SmartField>
-          
+
           <div className="w-8 h-[1px] bg-zinc-200 my-4 shrink-0" />
-          
+
           <SmartField field="texto_apoio" data={data} index={index} {...sp} className="w-full">
             <TextWrapper {...sp} as="p" field="texto_apoio" className="text-[#333] font-outfit font-medium text-xs tracking-wider uppercase outline-none text-center" style={{ fontSize: `${12 * sText}px` }}>
               {data.texto_apoio || "09 AM-05 PM January 22-24"}
@@ -6244,32 +6226,33 @@ export function SplitVariant87(props) {
     <div className="relative w-full h-full bg-[#efe7cc] flex flex-col font-outfit select-none overflow-hidden rounded-slide shadow-2xl text-[#3d2b1f]">
       {/* Slide Header flutuando no topo */}
       <div className="absolute top-2 left-0 w-full px-8 z-40 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.1)" 
-          handleColor="#3d2b1f" 
-          counterColor="#3d2b1f" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.1)"
+          handleColor="#3d2b1f"
+          counterColor="#3d2b1f"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6281,11 +6264,11 @@ export function SplitVariant87(props) {
       {/* Metade Superior: Imagem com Corte Seco Fiel ao Original */}
       <div className="h-[56%] w-full relative overflow-hidden bg-[#222] shrink-0">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-          <img 
-            src={img1} 
+          <img
+            src={img1}
             crossOrigin="anonymous"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-95" 
-            alt="Cinnamon Rolls" 
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-95"
+            alt="Cinnamon Rolls"
           />
         </SmartField>
       </div>
@@ -6336,18 +6319,18 @@ export function SplitVariant88(props) {
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between font-outfit select-none overflow-hidden rounded-slide shadow-2xl bg-white" style={{ backgroundColor: "#ffffff" }}>
-      
+
       {/* 1. O Fundo em SVG nativo para manter as elipses e proporções exatas do Figma */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1088 1358" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="filter1_n_0_1" x="-51" y="0" width="1206" height="1350" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
               <feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="9064" />
               <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
               <feComponentTransfer in="alphaNoise" result="coloredNoise1">
-                <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+                <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 " />
               </feComponentTransfer>
               <feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
               <feFlood floodColor="rgba(0, 0, 0, 0.25)" result="color1Flood" />
@@ -6371,32 +6354,33 @@ export function SplitVariant88(props) {
 
       {/* 2. Slide Header flutuando no topo com Z-Index alto */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(255,255,255,0.15)" 
-          handleColor="white" 
-          counterColor="white" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(255,255,255,0.15)"
+          handleColor="white"
+          counterColor="white"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&family=Lobster&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6417,18 +6401,18 @@ export function SplitVariant88(props) {
       {/* 4. Imagem Central do Produto */}
       <div className="absolute top-[18.9%] left-[24.3%] w-[51.2%] h-[47%] z-20 flex items-center justify-center">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full rounded-2xl overflow-hidden">
-          <img 
-            src={img1} 
-            crossOrigin="anonymous" 
-            className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]" 
-            alt="Chocolate Product" 
+          <img
+            src={img1}
+            crossOrigin="anonymous"
+            className="w-full h-full object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]"
+            alt="Chocolate Product"
           />
         </SmartField>
       </div>
 
       {/* 5. Área de Textos Inferior (sobreposta ao fundo roxo escuro) */}
       <div className="absolute top-[67%] left-0 w-full h-[33%] z-20 flex flex-col items-center justify-start text-center px-12 pt-4">
-        
+
         {/* Título Principal */}
         <div className="w-full mb-3">
           <SmartField field="titulo" data={data} index={index} {...sp} className="w-full">
@@ -6454,8 +6438,8 @@ export function SplitVariant88(props) {
 }
 
 export function SplitVariant89(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -6467,33 +6451,34 @@ export function SplitVariant89(props) {
 
   return (
     <div className="w-full h-full bg-[#f9f9f9] flex flex-col justify-between py-6 font-outfit select-none overflow-hidden text-[#333] relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
       `}} />
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="#4a592d" 
-          counterColor="#4a592d" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="#4a592d"
+          counterColor="#4a592d"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -6517,11 +6502,11 @@ export function SplitVariant89(props) {
         {/* Main Image */}
         <div className="relative w-[110%] -ml-[5%] aspect-[4/3] flex items-center justify-center">
           <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-            <img 
-              src={imgUrl} 
-              crossOrigin="anonymous" 
-              className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] scale-110" 
-              alt="Torta de Limão com Merengue" 
+            <img
+              src={imgUrl}
+              crossOrigin="anonymous"
+              className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)] scale-110"
+              alt="Torta de Limão com Merengue"
             />
           </SmartField>
         </div>
@@ -6548,7 +6533,7 @@ export function SplitVariant89(props) {
           <path d="M100,100 C120,80 150,80 170,100 C190,120 190,150 170,170 C150,190 120,190 100,170 C80,150 80,120 100,100 Z" />
           <circle cx="60" cy="140" r="30" fill="#f2e205" />
           <circle cx="140" cy="60" r="25" fill="#f2e205" />
-          <path d="M40,180 Q60,160 80,180 Q100,200 80,220" stroke="currentColor" strokeWidth="4" fill="none"/>
+          <path d="M40,180 Q60,160 80,180 Q100,200 80,220" stroke="currentColor" strokeWidth="4" fill="none" />
         </svg>
         <svg className="absolute bottom-[-5%] right-[-10%] w-[50%] h-auto text-[#f2e205] opacity-95" viewBox="0 0 200 200" fill="currentColor">
           <circle cx="100" cy="100" r="50" />
@@ -6560,8 +6545,8 @@ export function SplitVariant89(props) {
 }
 
 export function SplitVariant90(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -6571,7 +6556,8 @@ export function SplitVariant90(props) {
 
   return (
     <div className="w-full h-full bg-[#fdfafb] flex flex-col font-outfit select-none overflow-hidden text-zinc-900 relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6585,27 +6571,27 @@ export function SplitVariant90(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="#ff2a70" 
-          counterColor="#ff2a70" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="#ff2a70"
+          counterColor="#ff2a70"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -6674,8 +6660,8 @@ export function SplitVariant90(props) {
 }
 
 export function SplitVariant91(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -6685,7 +6671,8 @@ export function SplitVariant91(props) {
 
   return (
     <div className="w-full h-full bg-[#fdfafb] flex flex-col font-outfit select-none overflow-hidden text-zinc-900 relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6699,27 +6686,27 @@ export function SplitVariant91(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="#ff2a70" 
-          counterColor="#ff2a70" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="#ff2a70"
+          counterColor="#ff2a70"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -6784,8 +6771,8 @@ export function SplitVariant91(props) {
 }
 
 export function SplitVariant92(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -6809,7 +6796,8 @@ export function SplitVariant92(props) {
 
   return (
     <div className="w-full h-full bg-[#ff7a7a] flex flex-col justify-between font-outfit select-none overflow-hidden text-[#ffebe4] relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6820,27 +6808,27 @@ export function SplitVariant92(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(255,255,255,0.15)" 
-          handleColor="#ffebe4" 
-          counterColor="#ffebe4" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(255,255,255,0.15)"
+          handleColor="#ffebe4"
+          counterColor="#ffebe4"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -6863,7 +6851,7 @@ export function SplitVariant92(props) {
       <div className="relative z-10 pl-5 mt-1">
         <SmartField field="titulo" data={data} index={index} {...sp}>
           <TextWrapper {...sp} as="h1" field="titulo" className="font-serif text-[4.2rem] leading-[0.8] tracking-[-0.03em] font-medium text-[#ffebe4] drop-shadow-sm outline-none" style={{ fontSize: `${67.2 * sTitle}px`, fontFamily: titleFont }}>
-            {title1}<br/>{title2}
+            {title1}<br />{title2}
           </TextWrapper>
         </SmartField>
       </div>
@@ -6880,15 +6868,15 @@ export function SplitVariant92(props) {
           { top: '58%', left: '55%' },
           { top: '75%', left: '53%' } // The Dot
         ].map((pos, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="absolute w-14 h-14 rounded-full shadow-[0_8px_15px_rgba(0,0,0,0.3)] bg-[#2a130c] border-[3px] border-[#1a0a05] flex items-center justify-center overflow-hidden transform transition-transform duration-500 hover:scale-110 pointer-events-auto"
             style={{ top: pos.top, left: pos.left }}
           >
-            <img 
-              src={imgUrl} 
+            <img
+              src={imgUrl}
               crossOrigin="anonymous"
-              alt="Brigadeiro" 
+              alt="Brigadeiro"
               className="w-full h-full object-cover opacity-90 mix-blend-screen"
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_20%,#2a130c_120%)]" />
@@ -6929,8 +6917,8 @@ export function SplitVariant92(props) {
 }
 
 export function SplitVariant93(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -6949,7 +6937,8 @@ export function SplitVariant93(props) {
 
   return (
     <div className="w-full h-full bg-[#fdf5f7] flex font-outfit select-none overflow-hidden text-[#ff4b82] relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -6961,27 +6950,27 @@ export function SplitVariant93(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="#ff4b82" 
-          counterColor="#ff4b82" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="#ff4b82"
+          counterColor="#ff4b82"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -6998,11 +6987,11 @@ export function SplitVariant93(props) {
       {/* Left Side: Donuts Stack Vertical */}
       <div className="w-[40%] h-full relative z-10 shadow-[10px_0_25px_rgba(0,0,0,0.15)] bg-white overflow-hidden">
         <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-          <img 
-            src={imgUrl} 
+          <img
+            src={imgUrl}
             crossOrigin="anonymous"
-            className="w-full h-full object-cover" 
-            alt="Donuts Stack Vertical" 
+            className="w-full h-full object-cover"
+            alt="Donuts Stack Vertical"
           />
         </SmartField>
       </div>
@@ -7020,11 +7009,11 @@ export function SplitVariant93(props) {
         </div>
 
         {/* Mini donut flutuante borrado no canto superior direito */}
-        <img 
-          src={flyingDonutUrl} 
+        <img
+          src={flyingDonutUrl}
           crossOrigin="anonymous"
-          className="absolute top-[18%] right-2 w-8 h-8 object-cover rounded-full shadow-md blur-[1px] rotate-12 opacity-90" 
-          alt="Mini donut blur" 
+          className="absolute top-[18%] right-2 w-8 h-8 object-cover rounded-full shadow-md blur-[1px] rotate-12 opacity-90"
+          alt="Mini donut blur"
         />
 
         {/* Bloco de Texto Ultra-Bold Esmagado */}
@@ -7062,8 +7051,8 @@ export function SplitVariant93(props) {
 }
 
 export function SplitVariant94(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -7117,11 +7106,12 @@ export function SplitVariant94(props) {
   const { c1: gradColor1, c2: gradColor2 } = getGradientColors(brandColor);
 
   return (
-    <div 
+    <div
       className="w-full h-full flex flex-col font-outfit select-none overflow-hidden text-white relative rounded-slide"
       style={{ background: `linear-gradient(145deg, ${gradColor1} 0%, ${gradColor2} 100%)` }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -7132,34 +7122,34 @@ export function SplitVariant94(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(255,255,255,0.2)" 
-          handleColor="#ffffff" 
-          counterColor="#ffffff" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(255,255,255,0.2)"
+          handleColor="#ffffff"
+          counterColor="#ffffff"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
 
       {/* Main Card (Split Pink/Cream) */}
       <div className="absolute top-1/2 left-[7.5%] w-[85%] h-[68%] -translate-y-1/2 rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)] flex flex-col z-10 pointer-events-auto">
-        
+
         {/* Top Pink Section */}
         <div className="bg-[#fe4eb3] h-[45%] p-5 flex flex-col justify-center">
           <SmartField field="titulo" data={data} index={index} {...sp}>
@@ -7168,14 +7158,14 @@ export function SplitVariant94(props) {
             </TextWrapper>
           </SmartField>
         </div>
-        
+
         {/* Bottom Cream Section */}
         <div className="bg-[#f8f4e2] flex-1 p-5 pt-6 flex flex-col justify-start">
           <SmartField field="texto_apoio" data={data} index={index} {...sp}>
             <TextWrapper {...sp} as="div" field="texto_apoio" className="text-[#2a6878] text-[16px] font-normal leading-[1.35] tracking-tight outline-none" style={{ fontSize: `${16 * sText}px`, fontFamily: textFont }}>
               {descLines.map((line, idx) => {
-                 if (idx === 1 || idx === 3) return <span key={idx} className="font-bold block">{line}</span>;
-                 return <span key={idx} className="block">{line}</span>;
+                if (idx === 1 || idx === 3) return <span key={idx} className="font-bold block">{line}</span>;
+                return <span key={idx} className="block">{line}</span>;
               })}
             </TextWrapper>
           </SmartField>
@@ -7185,7 +7175,7 @@ export function SplitVariant94(props) {
 
       {/* Footer */}
       <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between z-20 px-1 opacity-90 pointer-events-auto">
-        
+
         {/* Pink Pie Logo */}
         <div className="flex items-center gap-1.5 flex-1">
           <svg className="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24">
@@ -7215,8 +7205,8 @@ export function SplitVariant94(props) {
 
 
 export function SplitVariant95(props) {
-  const { 
-    data, index, brandColor, brandHandle, isVerified, slideCount, 
+  const {
+    data, index, brandColor, brandHandle, isVerified, slideCount,
     titleScale, textScale, onActionStart, onTextChange, selectedElement, onSelectElement,
     titleFont, textFont, tagFont
   } = props;
@@ -7236,7 +7226,8 @@ export function SplitVariant95(props) {
 
   return (
     <div className="w-full h-full bg-[#fcdced] flex flex-col items-center font-outfit select-none overflow-hidden text-[#1a1a1a] relative rounded-slide">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Alfa+Slab+One&family=Charmonman:wght@700&display=swap');
         .font-outfit { font-family: 'Outfit', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -7247,27 +7238,27 @@ export function SplitVariant95(props) {
 
       {/* Slide Header */}
       <div className="absolute top-2 left-0 w-full px-8 z-50 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={props.showBrandHandle} 
-          brandColor={brandColor} 
-          isVerified={isVerified} 
-          showSlideCounter={props.showSlideCounter} 
-          slideCounterPosition={props.slideCounterPosition} 
-          brandAvatar={props.brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="#1a1a1a" 
-          counterColor="#1a1a1a" 
-          brandLogo={props.brandLogo} 
-          showBrandLogo={props.showBrandLogo} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={props.showBrandHandle}
+          brandColor={brandColor}
+          isVerified={isVerified}
+          showSlideCounter={props.showSlideCounter}
+          slideCounterPosition={props.slideCounterPosition}
+          brandAvatar={props.brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="#1a1a1a"
+          counterColor="#1a1a1a"
+          brandLogo={props.brandLogo}
+          showBrandLogo={props.showBrandLogo}
           className="pointer-events-auto"
         />
       </div>
@@ -7296,7 +7287,7 @@ export function SplitVariant95(props) {
 
       {/* Elemento Central: Copo e Guardanapo */}
       <div className="relative z-20 flex-1 flex flex-col items-center justify-center w-full mt-2">
-        
+
         {/* Anotações e Setas (SVGs customizados) */}
         {/* Esquerda */}
         <div className="absolute top-[35%] left-[8%] flex flex-col items-center pointer-events-auto">
@@ -7328,7 +7319,7 @@ export function SplitVariant95(props) {
 
         {/* Copo */}
         <div className="relative flex flex-col items-center w-[55%] mt-2 z-10 hover:-translate-y-2 transition-transform duration-700">
-          
+
           {/* Guardanapo sob o copo */}
           <div className="absolute bottom-[-15px] w-[140%] h-12 bg-white/95 rounded-sm shadow-[0_15px_15px_rgba(200,60,100,0.3)] transform -rotate-2 z-0 skew-x-12" />
           <div className="absolute bottom-[-8px] w-[130%] h-8 bg-white rounded-sm shadow-md transform rotate-1 z-0 skew-x-[-12deg]" />
@@ -7336,15 +7327,15 @@ export function SplitVariant95(props) {
           {/* Imagem do copo cortada verticalmente */}
           <div className="relative w-full aspect-[2/3] z-10 drop-shadow-xl overflow-visible">
             <SmartField field="imagem" data={data} index={index} {...sp} className="w-full h-full">
-              <img 
-                src={imgUrl} 
+              <img
+                src={imgUrl}
                 crossOrigin="anonymous"
-                className="w-full h-full object-cover object-bottom" 
-                style={{ 
+                className="w-full h-full object-cover object-bottom"
+                style={{
                   WebkitMaskImage: 'polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 90% 100%, 10% 100%)',
                   maskImage: 'polygon(0% 15%, 15% 0%, 85% 0%, 100% 15%, 90% 100%, 10% 100%)'
                 }}
-                alt="Ice Cream Cup" 
+                alt="Ice Cream Cup"
               />
             </SmartField>
           </div>
@@ -7391,7 +7382,8 @@ export function SplitVariant210({
 
   return (
     <div className="relative w-full h-full bg-[#e81b85] flex flex-col font-outfit select-none overflow-hidden text-white">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
         .font-lobster { font-family: 'Lobster', cursive; }
         .text-stroke-curso { -webkit-text-stroke: 7px #e81b85; paint-order: stroke fill; }
@@ -7416,7 +7408,7 @@ export function SplitVariant210({
 
       {/* Área de Conteúdo Tipográfico */}
       <div className="relative z-20 flex flex-col pt-[28%] px-5 h-full">
-        
+
         {/* Badge "CURSO DE" & Título Script */}
         <div className="flex flex-col items-start ml-2 relative">
           <SmartField field="tag" {...sp}>
@@ -7428,16 +7420,16 @@ export function SplitVariant210({
               {cursoLabel}
             </span>
           </SmartField>
-            
+
           <div className="relative z-20">
             <SmartField field="titulo" {...sp}>
-              <h2 
+              <h2
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
                 className="font-lobster text-[46px] leading-[0.85] text-white text-stroke-curso-thin drop-shadow-md outline-none cursor-text select-text whitespace-pre-wrap"
                 style={{ fontSize: `${46 * sTitle}px` }}
               >
-                {cursoTitle1}<br/>{cursoTitle2}
+                {cursoTitle1}<br />{cursoTitle2}
               </h2>
             </SmartField>
           </div>
@@ -7446,7 +7438,7 @@ export function SplitVariant210({
         {/* Texto Gigante "INSCRIÇÕES" */}
         <div className="mt-4 -ml-2 relative z-30">
           <SmartField field="sub_titulo" {...sp}>
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'sub_titulo', e.currentTarget.innerText)}
               className="font-outfit font-black text-[56px] leading-[0.8] text-white tracking-tighter text-stroke-curso drop-shadow-lg outline-none cursor-text select-text"
@@ -7461,7 +7453,7 @@ export function SplitVariant210({
         <div className="relative mt-2 -ml-3 z-40">
           <div className="bg-[#00c814] px-5 pt-1.5 pb-0 rounded-2xl shadow-[0_10px_20px_rgba(0,200,20,0.4)] inline-block relative">
             <SmartField field="badge_text" {...sp}>
-              <h1 
+              <h1
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                 className="font-outfit font-black text-[62px] leading-[0.85] text-white tracking-tighter drop-shadow-sm outline-none cursor-text select-text"
@@ -7470,7 +7462,7 @@ export function SplitVariant210({
                 {abertasText}
               </h1>
             </SmartField>
-            
+
             {/* Selo Checkmark */}
             <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#00c814] rounded-full flex items-center justify-center z-50">
               <div className="absolute inset-[-4px] border-[2px] border-dashed border-white rounded-full opacity-80" />
@@ -7489,7 +7481,7 @@ export function SplitVariant210({
             <img src={avatarImage} className="w-full h-full object-cover" alt="Author" />
           </div>
           <SmartField field="texto_apoio" {...sp}>
-            <div 
+            <div
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
               className="flex flex-col outline-none cursor-text select-text text-left"
@@ -7498,7 +7490,7 @@ export function SplitVariant210({
               <span className="font-outfit font-bold text-[11px] leading-tight text-white tracking-wide" style={{ fontSize: 'inherit' }}>
                 {cursoAuthorName}
               </span>
-              <span className="font-outfit font-light text-[10px] leading-tight text-white/90 tracking-wide" style={{ fontSize: `${10/11 * 11 * sText}px` }}>
+              <span className="font-outfit font-light text-[10px] leading-tight text-white/90 tracking-wide" style={{ fontSize: `${10 / 11 * 11 * sText}px` }}>
                 {cursoAuthorHandle}
               </span>
             </div>
@@ -7540,10 +7532,10 @@ export function SplitVariant211({
 
   return (
     <div className="relative w-full h-full bg-[#ffbd00] flex flex-col font-outfit select-none overflow-hidden text-[#6b0c19]">
-      
+
       {/* Fundo com Textura de Ondas Suaves */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-10" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C50,20 150,60 200,40 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,80 C50,60 150,100 200,80 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,120 C50,100 150,140 200,120 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3C/svg%3E")`, backgroundSize: '150% 150%', backgroundPosition: 'center' }} 
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-10"
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C50,20 150,60 200,40 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,80 C50,60 150,100 200,80 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3Cpath d='M0,120 C50,100 150,140 200,120 L200,200 L0,200 Z' fill='%23000000' opacity='0.2'/%3E%3C/svg%3E")`, backgroundSize: '150% 150%', backgroundPosition: 'center' }}
       />
 
       {/* Elemento de Canto Superior Direito (Corte) */}
@@ -7567,7 +7559,7 @@ export function SplitVariant211({
       {/* Tipografia Central Garrafal */}
       <div className="relative z-20 flex flex-col items-center text-center mt-8 px-4 w-full">
         <SmartField field="titulo" {...sp}>
-          <div 
+          <div
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="flex flex-col items-center outline-none whitespace-pre-wrap cursor-text select-text"
@@ -7575,22 +7567,22 @@ export function SplitVariant211({
             <h3 className="font-outfit font-black text-[13px] tracking-wide text-[#6b0c19] mb-1" style={{ fontSize: `${13 * sTitle}px` }}>
               {t1}
             </h3>
-            
+
             <div className="flex flex-col items-center mt-[-5px]">
               <h1 className="font-outfit font-black text-[62px] leading-[0.8] tracking-tighter text-[#6b0c19]" style={{ fontSize: `${62 * sTitle}px` }}>
                 {t2}
               </h1>
-              
+
               {/* Efeito Risco Duplo (Preenchido + Contorno Offset) */}
               <div className="relative w-full flex justify-center h-[75px] mt-1">
                 {/* Stroke de Fundo (Branco) */}
-                <span className="absolute top-[4px] left-[52%] -translate-x-1/2 font-outfit font-black text-[70px] leading-[0.8] tracking-tighter text-transparent z-0" 
-                      style={{ WebkitTextStroke: '3px white', fontSize: `${70 * sTitle}px` }}>
+                <span className="absolute top-[4px] left-[52%] -translate-x-1/2 font-outfit font-black text-[70px] leading-[0.8] tracking-tighter text-transparent z-0"
+                  style={{ WebkitTextStroke: '3px white', fontSize: `${70 * sTitle}px` }}>
                   {t3}
                 </span>
                 {/* Texto Principal */}
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 font-outfit font-black text-[70px] leading-[0.8] tracking-tighter text-[#6b0c19] z-10"
-                      style={{ fontSize: `${70 * sTitle}px` }}>
+                  style={{ fontSize: `${70 * sTitle}px` }}>
                   {t3}
                 </span>
               </div>
@@ -7602,9 +7594,9 @@ export function SplitVariant211({
       {/* Imagem Principal do Crepe (Base) */}
       <div className="absolute bottom-[-10%] left-[-15%] w-[120%] h-[60%] z-10 flex items-end justify-start pointer-events-none">
         <div className="relative w-full h-full transform -rotate-[8deg] drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)]">
-          <ImageBg 
+          <ImageBg
             imageUrl={imgHeld}
-            className="w-full h-full rounded-tr-[4rem]" 
+            className="w-full h-full rounded-tr-[4rem]"
             style={{ WebkitMaskImage: 'radial-gradient(circle, black 80%, transparent 95%)', maskImage: 'radial-gradient(circle, black 80%, transparent 95%)' }}
           />
         </div>
@@ -7613,7 +7605,7 @@ export function SplitVariant211({
       {/* Caixa Lateral Direita "Porque..." */}
       <div className="absolute bottom-[28%] right-5 bg-[#6b0c19] text-[#ffbd00] pl-5 pr-8 py-4 rounded-tl-[1.5rem] rounded-br-[1.5rem] shadow-xl z-30">
         <SmartField field="texto_apoio" {...sp}>
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="font-outfit font-bold text-[11px] leading-[1.3] tracking-wide text-left whitespace-pre-line outline-none cursor-text select-text"
@@ -7679,7 +7671,8 @@ export function SplitVariant212({
 
   return (
     <div className="relative w-full h-full bg-[#fcaebb] flex flex-col font-outfit select-none overflow-hidden text-[#432311]">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
         .font-lobster { font-family: 'Lobster', cursive; }
         .text-shadow-dark { text-shadow: 1px 2px 4px rgba(0,0,0,0.8); }
@@ -7687,84 +7680,84 @@ export function SplitVariant212({
 
       <div className="absolute inset-0 z-0" style={{ backgroundColor: bgYellow }} />
       <div className="absolute inset-0 flex flex-col z-10">
-        
+
         {/* Bloco 1 */}
         <div className="flex-[1.2] relative bg-[#fffdfb] overflow-hidden border-b-[3px]" style={{ borderColor: brandColor }}>
-          
+
           {/* Top Header Card */}
           <div className="absolute top-0 left-0 w-full h-[30%] flex items-center justify-center border-b-[5px] z-20" style={{ backgroundColor: accentYellow, borderColor: brandColor }}>
-             <div className="absolute top-[-10px] w-48 h-20 bg-[#33180c] rounded-full blur-[10px] opacity-20" />
-             <div className="relative flex flex-col items-center mt-3 drop-shadow-[0_4px_4px_rgba(51,24,12,0.8)]">
-               
-               <div className="bg-white px-3 py-1 rounded border shadow-sm transform -rotate-2 flex flex-col items-center" style={{ borderColor: brandColor }}>
-                 <SmartField field="sub_titulo" {...sp}>
-                   <div className="outline-none text-center">
-                     <span 
-                       contentEditable suppressContentEditableWarning
-                       onBlur={(e) => {
-                         onTextChange(index, 'sub_titulo', e.currentTarget.innerText);
-                       }}
-                       className="font-lobster text-[#d95229] text-[18px] leading-none drop-shadow-sm pr-1 cursor-text select-text"
-                     >
-                       {logoText}
-                     </span>
-                   </div>
-                 </SmartField>
-               </div>
+            <div className="absolute top-[-10px] w-48 h-20 bg-[#33180c] rounded-full blur-[10px] opacity-20" />
+            <div className="relative flex flex-col items-center mt-3 drop-shadow-[0_4px_4px_rgba(51,24,12,0.8)]">
 
-             </div>
+              <div className="bg-white px-3 py-1 rounded border shadow-sm transform -rotate-2 flex flex-col items-center" style={{ borderColor: brandColor }}>
+                <SmartField field="sub_titulo" {...sp}>
+                  <div className="outline-none text-center">
+                    <span
+                      contentEditable suppressContentEditableWarning
+                      onBlur={(e) => {
+                        onTextChange(index, 'sub_titulo', e.currentTarget.innerText);
+                      }}
+                      className="font-lobster text-[#d95229] text-[18px] leading-none drop-shadow-sm pr-1 cursor-text select-text"
+                    >
+                      {logoText}
+                    </span>
+                  </div>
+                </SmartField>
+              </div>
+
+            </div>
           </div>
 
           <ImageBg imageUrl={img1} className="w-full h-full" />
 
           {/* Text & Price Info */}
           <div className="absolute bottom-4 right-4 text-right flex flex-col items-end drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-             <SmartField field="titulo" {...sp}>
-               <span 
-                 contentEditable suppressContentEditableWarning
-                 onBlur={(e) => updateTitleItem(0, e.currentTarget.innerText)}
-                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
-                 style={{ fontSize: `${32 * sTitle}px` }}
-               >
-                 {b1Title}
-               </span>
-             </SmartField>
+            <SmartField field="titulo" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => updateTitleItem(0, e.currentTarget.innerText)}
+                className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                style={{ fontSize: `${32 * sTitle}px` }}
+              >
+                {b1Title}
+              </span>
+            </SmartField>
           </div>
         </div>
 
         {/* Bloco 2 */}
         <div className="flex-1 relative bg-[#e5dfd3] overflow-hidden border-b-[3px]" style={{ borderColor: brandColor }}>
           <ImageBg imageUrl={img2} className="w-full h-full" />
-          
+
           <div className="absolute bottom-4 left-4 text-left flex flex-col items-start drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-             <SmartField field="titulo" {...sp}>
-               <span 
-                 contentEditable suppressContentEditableWarning
-                 onBlur={(e) => updateTitleItem(1, e.currentTarget.innerText)}
-                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
-                 style={{ fontSize: `${32 * sTitle}px` }}
-               >
-                 {b2Title}
-               </span>
-             </SmartField>
+            <SmartField field="titulo" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => updateTitleItem(1, e.currentTarget.innerText)}
+                className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                style={{ fontSize: `${32 * sTitle}px` }}
+              >
+                {b2Title}
+              </span>
+            </SmartField>
           </div>
         </div>
 
         {/* Bloco 3 */}
         <div className="flex-1 relative bg-[#f1f0ee] overflow-hidden">
           <ImageBg imageUrl={img3} className="w-full h-full" />
-          
+
           <div className="absolute bottom-4 right-4 text-right flex flex-col items-end drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-             <SmartField field="titulo" {...sp}>
-               <span 
-                 contentEditable suppressContentEditableWarning
-                 onBlur={(e) => updateTitleItem(2, e.currentTarget.innerText)}
-                 className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
-                 style={{ fontSize: `${32 * sTitle}px` }}
-               >
-                 {b3Title}
-               </span>
-             </SmartField>
+            <SmartField field="titulo" {...sp}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => updateTitleItem(2, e.currentTarget.innerText)}
+                className="font-lobster text-white text-[32px] leading-[0.85] tracking-wide text-shadow-dark mb-1 block outline-none cursor-text select-text whitespace-pre-wrap"
+                style={{ fontSize: `${32 * sTitle}px` }}
+              >
+                {b3Title}
+              </span>
+            </SmartField>
           </div>
         </div>
 
@@ -7800,15 +7793,16 @@ export function SplitVariant213(props) {
   const subtitle = data.texto_apoio !== undefined ? data.texto_apoio : "Material exclusivo com criações pensadas para vender mais, produzir melhor e encantar seus clientes";
   const ctaText = data.badge_text !== undefined ? data.badge_text : "Baixe agora no link da bio";
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80";
-  
+
   const primaryColor = brandColor || "#99001f";
 
   return (
-    <div 
-      id="tpl-mothers_day" 
+    <div
+      id="tpl-mothers_day"
       className="template-card w-full h-full flex flex-col relative bg-white justify-between p-0 overflow-hidden"
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         .font-script { font-family: 'Playfair Display', serif; }
         .shadow-\\[0_24px_50px_rgba\\(0\\2c 0\\2c 0\\2c 0\\.35\\)\\] {
@@ -7819,17 +7813,17 @@ export function SplitVariant213(props) {
       `}} />
 
       {/* Painel Superior com Fundo Vermelho e Arco Côncavo */}
-      <div 
-        id="md_top_panel" 
-        className="relative w-full h-[62%] shrink-0 flex flex-col justify-start text-center pt-[38px] px-[32px] z-10 text-white" 
+      <div
+        id="md_top_panel"
+        className="relative w-full h-[62%] shrink-0 flex flex-col justify-start text-center pt-[38px] px-[32px] z-10 text-white"
         style={{ backgroundColor: primaryColor }}
       >
         {/* Título Script Manuscrito */}
         <SmartField field="tag" {...sp} className="relative z-20">
-          <h3 
+          <h3
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-            id="md_title_script_lbl" 
+            id="md_title_script_lbl"
             className="font-script text-white outline-none cursor-text select-text text-center text-stroke-none"
             style={{ fontSize: `${45.9 * sTitle}px`, lineHeight: 1 }}
           >
@@ -7839,10 +7833,10 @@ export function SplitVariant213(props) {
 
         {/* Título de Impacto Secundário */}
         <SmartField field="titulo" {...sp} className="relative z-20 mt-[3px]">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            id="md_title_main_lbl" 
+            id="md_title_main_lbl"
             className="font-sans font-black uppercase text-white tracking-tight leading-[1.1] outline-none cursor-text select-text text-center"
             style={{ fontSize: `${45 * sTitle}px` }}
           >
@@ -7863,10 +7857,10 @@ export function SplitVariant213(props) {
         {/* Subtítulo de Apoio no Meio */}
         <div className="w-full text-center mt-[60px] px-[22px] z-10">
           <SmartField field="texto_apoio" {...sp}>
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-              id="md_subtitle_lbl" 
+              id="md_subtitle_lbl"
               className="text-zinc-600 font-medium tracking-wide leading-relaxed max-w-[90%] mx-auto outline-none cursor-text select-text"
               style={{ fontSize: `${19 * sText}px` }}
             >
@@ -7879,12 +7873,12 @@ export function SplitVariant213(props) {
         {ctaText && (
           <div className="w-full flex justify-center mt-auto pb-[11px] z-10">
             <SmartField field="badge_text" {...sp}>
-              <div 
-                id="md_cta_btn" 
-                className="text-white rounded-full px-[32px] py-[13.5px] font-extrabold flex items-center gap-[11px] shadow-xl transition-all duration-300 outline-none cursor-text select-text" 
+              <div
+                id="md_cta_btn"
+                className="text-white rounded-full px-[32px] py-[13.5px] font-extrabold flex items-center gap-[11px] shadow-xl transition-all duration-300 outline-none cursor-text select-text"
                 style={{ backgroundColor: primaryColor }}
               >
-                <span 
+                <span
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                   id="md_cta_lbl"
@@ -7912,7 +7906,7 @@ export function SplitVariant213(props) {
         brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
         showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
         hideDot={true} brandLogo={brandLogo} showBrandLogo={showBrandLogo}
-        handleColor={showSlideCounter && slideCounterPosition === 'top' ? "#ffffff" : "#636363"} 
+        handleColor={showSlideCounter && slideCounterPosition === 'top' ? "#ffffff" : "#636363"}
         counterColor="#636363" counterBg="#ffffff" />
     </div>
   );
@@ -7935,27 +7929,27 @@ export function SplitVariant214(props) {
   const helperPhrase = data.tag !== undefined ? data.tag : "Um copo de suco de laranja por dia pode";
   const impactTitle = data.titulo || "MUDAR A\nSUA ROTINA";
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80";
-  
+
   const backgroundColor = brandColor || "#ff9000";
   const textColor = "#fdfcf7";
   const archHeightPercent = 58;
 
   return (
-    <div 
-      id="tpl-orange_routine" 
+    <div
+      id="tpl-orange_routine"
       className="w-full h-full flex flex-col relative p-0 justify-between overflow-hidden"
       style={{ backgroundColor, color: textColor }}
     >
       {/* Conteúdo do Topo (Textos e Ícone) */}
       <div className="w-full flex flex-col pt-[43px] px-[43px] text-center z-10">
-        
+
         {/* Frase Auxiliar Superior */}
         {helperPhrase && (
           <SmartField field="tag" {...sp} className="mb-[16px]">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
-              id="or_title1_lbl" 
+              id="or_title1_lbl"
               className="font-medium tracking-wide opacity-90 leading-tight outline-none cursor-text select-text"
               style={{ fontSize: `${21 * sText}px` }}
             >
@@ -7966,10 +7960,10 @@ export function SplitVariant214(props) {
 
         {/* Título Gigante Principal */}
         <SmartField field="titulo" {...sp}>
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-            id="or_title2_lbl" 
+            id="or_title2_lbl"
             className="font-sans font-black uppercase whitespace-pre-line tracking-tight leading-none outline-none cursor-text select-text text-center"
             style={{ fontSize: `${60 * sTitle}px` }}
           >
@@ -7979,8 +7973,8 @@ export function SplitVariant214(props) {
       </div>
 
       {/* Painel em Arco Portal (Sangramento total inferior) */}
-      <SmartField field="imagem" {...sp} 
-        className="relative w-full overflow-hidden rounded-t-[90px] bg-zinc-200 shrink-0 border-t border-white" 
+      <SmartField field="imagem" {...sp}
+        className="relative w-full overflow-hidden rounded-t-[90px] bg-zinc-200 shrink-0 border-t border-white"
         style={{ height: `${archHeightPercent}%` }}
       >
         <ImageBg data={data} imageUrl={imageUrl} className="absolute inset-0" />
@@ -8017,14 +8011,14 @@ export function SplitVariant215(props) {
   const tagText = data.tag !== undefined ? data.tag : "Receita";
   const actionText = data.badge_text !== undefined ? data.badge_text : "arraste para\no lado";
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=1080&auto=format&fit=crop";
-  
+
   const backgroundColor = brandColor || "#e20613";
   const tagBackgroundColor = "#ffdf59";
   const tagTextColor = "#8a1c14";
 
   return (
-    <div 
-      id="tpl-recipe_swipe" 
+    <div
+      id="tpl-recipe_swipe"
       className="w-full h-full relative flex flex-col overflow-hidden transition-all duration-300"
       style={{ backgroundColor }}
     >
@@ -8039,7 +8033,7 @@ export function SplitVariant215(props) {
       <div className="flex-1 flex flex-col p-[24px] relative z-20 justify-between">
         <div className="space-y-[6px]">
           <SmartField field="titulo" {...sp} className="w-[95%]">
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-sans font-bold text-white leading-[1.1] tracking-tight outline-none text-left whitespace-pre-line"
@@ -8050,7 +8044,7 @@ export function SplitVariant215(props) {
           </SmartField>
           {subtitle && (
             <SmartField field="texto_apoio" {...sp}>
-              <p 
+              <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
                 className="font-sans text-white/90 font-light outline-none text-left whitespace-pre-line"
@@ -8064,7 +8058,7 @@ export function SplitVariant215(props) {
 
         {/* Footer (Botão Swipe + Logo) */}
         <div className="flex justify-between items-end mt-auto">
-          
+
           {/* Botão Pill 'Arraste' */}
           {actionText && (
             <SmartField field="badge_text" {...sp}>
@@ -8072,7 +8066,7 @@ export function SplitVariant215(props) {
                 <svg className="w-[20px] h-[20px] text-white shrink-0 pointer-events-none" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-                <p 
+                <p
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
                   className="font-sans text-white leading-tight font-medium tracking-wide outline-none whitespace-pre-line"
@@ -8083,14 +8077,14 @@ export function SplitVariant215(props) {
               </div>
             </SmartField>
           )}
-          
+
           {/* Logo com Auto-White Filter */}
           {showBrandLogo && brandLogo && (
-            <img 
-              src={brandLogo} 
-              className="h-[40px] object-contain drop-shadow-md pb-[4px]" 
-              style={{ filter: 'brightness(0) invert(1)' }} 
-              crossOrigin="anonymous" 
+            <img
+              src={brandLogo}
+              className="h-[40px] object-contain drop-shadow-md pb-[4px]"
+              style={{ filter: 'brightness(0) invert(1)' }}
+              crossOrigin="anonymous"
               alt="Logo"
             />
           )}
@@ -8113,10 +8107,10 @@ export function SplitVariant215(props) {
 // VARIANTE 216 — Clean Tweet
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant216(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -8128,14 +8122,14 @@ export function SplitVariant216(props) {
   const title = data.titulo || "5 sinais de que seu brigadeiro vai cristalizar antes de ir para a forminha";
   const description = data.texto_apoio || "O seu doce fica arenoso ou duro muito rápido? O erro quase nunca é a marca do leite condensado, mas sim a técnica de cocção!";
   const footerLeft = data.badge_text || "ESTÚDIO DE CONFEITARIA";
-  
+
   const avatarUrl = brandAvatar || "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=150";
   const imageUrl = data.imageUrl || "https://tudosobrebrigadeirogourmet.com/wp-content/uploads/2018/02/ganhar-dinheiro-vendendo-brigadeiro.webp";
   const accentColor = brandColor || "#DE1E4D";
 
   return (
     <div id="container-clean" className="w-full h-full bg-white text-zinc-950 p-6 flex flex-col justify-between transition-all duration-300 relative select-none">
-      
+
       <div className="space-y-4">
         {/* Header com Perfil */}
         <div className="flex items-center gap-3">
@@ -8145,7 +8139,7 @@ export function SplitVariant216(props) {
           <div className="leading-tight">
             <div className="flex items-center gap-1">
               <SmartField field="tag" {...sp}>
-                <span 
+                <span
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
                   className="font-sans font-extrabold text-sm tracking-tight text-zinc-900 outline-none block"
@@ -8155,7 +8149,7 @@ export function SplitVariant216(props) {
               </SmartField>
               {isVerified && (
                 <svg className="w-4 h-4 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
               )}
             </div>
@@ -8165,7 +8159,7 @@ export function SplitVariant216(props) {
 
         {/* Manchete Impactante */}
         <SmartField field="titulo" {...sp}>
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-sans font-extrabold leading-snug text-zinc-950 tracking-tight outline-none"
@@ -8177,7 +8171,7 @@ export function SplitVariant216(props) {
 
         {/* Texto Descritivo */}
         <SmartField field="texto_apoio" {...sp}>
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="text-zinc-600 font-normal leading-relaxed outline-none"
@@ -8197,7 +8191,7 @@ export function SplitVariant216(props) {
       {/* Rodapé Sutil do Post */}
       <div className="mt-4 pt-3 border-t border-zinc-100 flex justify-between items-center text-[10px] font-bold text-zinc-400 tracking-wider">
         <SmartField field="badge_text" {...sp}>
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
             className="outline-none block"
@@ -8208,34 +8202,34 @@ export function SplitVariant216(props) {
         <span className="flex items-center gap-1 uppercase" style={{ color: accentColor }}>
           ARRASTA PARA O LADO
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </span>
       </div>
 
       {/* SlideHeader do Carrossel Studio integrado de forma sutil no topo para numeração de página */}
       <div className="absolute top-2 right-6 pointer-events-none">
-        <SlideHeader 
-          data={data} 
-          slideIndex={index} 
-          onActionStart={onActionStart} 
-          selectedElement={selectedElement} 
-          onSelectElement={onSelectElement} 
-          index={index + 1} 
-          total={slideCount} 
-          brandHandle={brandHandle} 
-          showBrandHandle={false} 
-          brandColor={brandColor} 
-          isVerified={false} 
-          showSlideCounter={showSlideCounter} 
-          slideCounterPosition={slideCounterPosition} 
-          brandAvatar={brandAvatar} 
-          hideDot={true} 
-          counterBg="rgba(0,0,0,0.05)" 
-          handleColor="transparent" 
-          counterColor="#9ca3af" 
-          brandLogo={brandLogo} 
-          showBrandLogo={false} 
+        <SlideHeader
+          data={data}
+          slideIndex={index}
+          onActionStart={onActionStart}
+          selectedElement={selectedElement}
+          onSelectElement={onSelectElement}
+          index={index + 1}
+          total={slideCount}
+          brandHandle={brandHandle}
+          showBrandHandle={false}
+          brandColor={brandColor}
+          isVerified={false}
+          showSlideCounter={showSlideCounter}
+          slideCounterPosition={slideCounterPosition}
+          brandAvatar={brandAvatar}
+          hideDot={true}
+          counterBg="rgba(0,0,0,0.05)"
+          handleColor="transparent"
+          counterColor="#9ca3af"
+          brandLogo={brandLogo}
+          showBrandLogo={false}
           className="pointer-events-auto"
         />
       </div>
@@ -8247,10 +8241,10 @@ export function SplitVariant216(props) {
 // VARIANTE 217 — Choux Lab (4 Quadrantes)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant217(props) {
-  const { 
-    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
-    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -8268,7 +8262,8 @@ export function SplitVariant217(props) {
 
   return (
     <div id="tpl-choux_lab" className="w-full h-full grid grid-cols-2 grid-rows-2 relative transition-all duration-300 overflow-hidden bg-black select-none">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .text-shadow-dark { text-shadow: 1px 2px 4px rgba(0,0,0,0.8); }
       `}} />
       {/* Overlay de Ruído Geral */}
@@ -8362,10 +8357,10 @@ export function SplitVariant217(props) {
 // VARIANTE 218 — Açaí Grid Showcase
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant218(props) {
-  const { 
-    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
-    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement };
@@ -8406,20 +8401,20 @@ export function SplitVariant218(props) {
   } : {};
 
   return (
-    <div 
+    <div
       className="w-full h-full relative flex items-center justify-center transition-all duration-300 overflow-hidden"
-      style={{ 
+      style={{
         backgroundColor: bgColor,
         ...linenStyle
       }}
     >
       {/* Wrapper para controlar a margem interna (Padding) dinamicamente */}
-      <div 
+      <div
         className="w-full h-full flex items-center justify-center"
         style={{ padding: `${padding}%` }}
       >
         {/* Grid 3x4 de Imagens */}
-        <div 
+        <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
@@ -8431,18 +8426,18 @@ export function SplitVariant218(props) {
           {gridImages.map((imgSrc, i) => {
             const fieldName = i === 0 ? 'imagem' : `imagem${i + 1}`;
             return (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="w-full h-full overflow-hidden bg-neutral-800/10 relative"
                 style={{ borderRadius: `${radius}px` }}
               >
                 <SmartField field={fieldName} {...sp} className="absolute inset-0 w-full h-full">
-                  <ImageBg 
-                    data={data} 
-                    imageUrl={imgSrc} 
-                    imagePosition={data[`imagePosition${i === 0 ? '' : i + 1}`]} 
-                    imageScale={data[`imageScale${i === 0 ? '' : i + 1}`]} 
-                    className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" 
+                  <ImageBg
+                    data={data}
+                    imageUrl={imgSrc}
+                    imagePosition={data[`imagePosition${i === 0 ? '' : i + 1}`]}
+                    imageScale={data[`imageScale${i === 0 ? '' : i + 1}`]}
+                    className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
                   />
                 </SmartField>
               </div>
@@ -8467,10 +8462,10 @@ export function SplitVariant218(props) {
 // VARIANTE 219 — Tributo Curvo
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant219(props) {
-  const { 
-    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified, 
-    titleScale, textScale, showMetrics, onActionStart, onTextChange, 
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, brandAvatar, isVerified,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -8490,80 +8485,80 @@ export function SplitVariant219(props) {
     stars_users: (
       <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Três Estrelas no Topo */}
-        <polygon points="50,6 53,16 63,16 55,22 58,32 50,26 42,32 45,22 37,16 47,16" fill="white"/>
-        <polygon points="30,14 32.5,21 39.5,21 34,25.5 36,32.5 30,28 24,32.5 26,25.5 20.5,21 27.5,21" fill="white" opacity={0.8}/>
-        <polygon points="70,14 72.5,21 79.5,21 74,25.5 76,32.5 70,28 64,32.5 66,25.5 60.5,21 67.5,21" fill="white" opacity={0.8}/>
-        
+        <polygon points="50,6 53,16 63,16 55,22 58,32 50,26 42,32 45,22 37,16 47,16" fill="white" />
+        <polygon points="30,14 32.5,21 39.5,21 34,25.5 36,32.5 30,28 24,32.5 26,25.5 20.5,21 27.5,21" fill="white" opacity={0.8} />
+        <polygon points="70,14 72.5,21 79.5,21 74,25.5 76,32.5 70,28 64,32.5 66,25.5 60.5,21 67.5,21" fill="white" opacity={0.8} />
+
         {/* Corações de Parceria Laterais */}
-        <path d="M12,40 C8,35 2,38 2,44 C2,50 12,56 12,56 C12,56 22,50 22,44 C22,38 16,35 12,40 Z" fill="none" stroke="white" strokeWidth={2}/>
-        <path d="M18,52 C15,48 11,50 11,54 C11,58 18,62 18,62 C18,62 25,58 25,54 C25,50 21,48 18,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7}/>
-        
-        <path d="M88,40 C84,35 78,38 78,44 C78,50 88,56 88,56 C88,56 98,50 98,44 C98,38 92,35 88,40 Z" fill="none" stroke="white" strokeWidth={2}/>
-        <path d="M82,52 C79,48 75,50 75,54 C75,58 82,62 82,62 C82,62 89,58 89,54 C89,50 85,48 82,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7}/>
+        <path d="M12,40 C8,35 2,38 2,44 C2,50 12,56 12,56 C12,56 22,50 22,44 C22,38 16,35 12,40 Z" fill="none" stroke="white" strokeWidth={2} />
+        <path d="M18,52 C15,48 11,50 11,54 C11,58 18,62 18,62 C18,62 25,58 25,54 C25,50 21,48 18,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7} />
+
+        <path d="M88,40 C84,35 78,38 78,44 C78,50 88,56 88,56 C88,56 98,50 98,44 C98,38 92,35 88,40 Z" fill="none" stroke="white" strokeWidth={2} />
+        <path d="M82,52 C79,48 75,50 75,54 C75,58 82,62 82,62 C82,62 89,58 89,54 C89,50 85,48 82,52 Z" fill="none" stroke="white" strokeWidth={1.5} opacity={0.7} />
 
         {/* Clientes Centralizados */}
-        <circle cx="50" cy="46" r="11" fill="white"/>
-        <path d="M32,74 C32,60 40,54 50,54 C60,54 68,60 68,74 Z" fill="white"/>
-        
+        <circle cx="50" cy="46" r="11" fill="white" />
+        <path d="M32,74 C32,60 40,54 50,54 C60,54 68,60 68,74 Z" fill="white" />
+
         {/* Cliente Esquerdo */}
-        <circle cx="34" cy="52" r="8" fill="white" opacity={0.9}/>
-        <path d="M20,74 C20,64 26,60 34,60 C38,60 41,61 43,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9}/>
-        <path d="M20,74 C20,64 26,60 34,60 C36,60 39,61 41,62" fill="white" opacity={0.9}/>
+        <circle cx="34" cy="52" r="8" fill="white" opacity={0.9} />
+        <path d="M20,74 C20,64 26,60 34,60 C38,60 41,61 43,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9} />
+        <path d="M20,74 C20,64 26,60 34,60 C36,60 39,61 41,62" fill="white" opacity={0.9} />
 
         {/* Cliente Direito */}
-        <circle cx="66" cy="52" r="8" fill="white" opacity={0.9}/>
-        <path d="M80,74 C80,64 74,60 66,60 C62,60 59,61 57,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9}/>
-        <path d="M80,74 C80,64 74,60 66,60 C64,60 61,61 59,62" fill="white" opacity={0.9}/>
+        <circle cx="66" cy="52" r="8" fill="white" opacity={0.9} />
+        <path d="M80,74 C80,64 74,60 66,60 C62,60 59,61 57,63" stroke="white" strokeWidth={4} strokeLinecap="round" fill="none" opacity={0.9} />
+        <path d="M80,74 C80,64 74,60 66,60 C64,60 61,61 59,62" fill="white" opacity={0.9} />
       </svg>
     ),
     gourmet_chef: (
       <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Brilhos e Estrelas */}
-        <polygon points="20,25 22,30 27,30 23,33 25,38 20,35 15,38 17,33 13,30 18,30" fill="white"/>
-        <polygon points="80,25 82,30 87,30 83,33 85,38 80,35 75,38 77,33 73,30 78,30" fill="white"/>
-        <polygon points="50,5 52,10 57,10 53,13 55,18 50,15 45,18 47,13 43,10 48,10" fill="white"/>
+        <polygon points="20,25 22,30 27,30 23,33 25,38 20,35 15,38 17,33 13,30 18,30" fill="white" />
+        <polygon points="80,25 82,30 87,30 83,33 85,38 80,35 75,38 77,33 73,30 78,30" fill="white" />
+        <polygon points="50,5 52,10 57,10 53,13 55,18 50,15 45,18 47,13 43,10 48,10" fill="white" />
 
         {/* Chapéu de Chef Elegante */}
-        <path d="M30,55 C25,55 22,48 27,42 C22,35 32,25 40,30 C45,20 55,20 60,30 C68,25 78,35 73,42 C78,48 75,55 70,55 Z" fill="white"/>
-        <rect x="33" y="53" width="34" height="12" rx="4" fill="white" stroke={bgColor} strokeWidth={2}/>
-        <line x1="42" y1="53" x2="42" y2="65" stroke={bgColor} strokeWidth={1.5}/>
-        <line x1="50" y1="53" x2="50" y2="65" stroke={bgColor} strokeWidth={1.5}/>
-        <line x1="58" y1="53" x2="58" y2="65" stroke={bgColor} strokeWidth={1.5}/>
+        <path d="M30,55 C25,55 22,48 27,42 C22,35 32,25 40,30 C45,20 55,20 60,30 C68,25 78,35 73,42 C78,48 75,55 70,55 Z" fill="white" />
+        <rect x="33" y="53" width="34" height="12" rx="4" fill="white" stroke={bgColor} strokeWidth={2} />
+        <line x1="42" y1="53" x2="42" y2="65" stroke={bgColor} strokeWidth={1.5} />
+        <line x1="50" y1="53" x2="50" y2="65" stroke={bgColor} strokeWidth={1.5} />
+        <line x1="58" y1="53" x2="58" y2="65" stroke={bgColor} strokeWidth={1.5} />
 
         {/* Talheres cruzados festivos */}
-        <path d="M35,78 L45,68" stroke="white" strokeWidth={3} strokeLinecap="round"/>
-        <path d="M65,78 L55,68" stroke="white" strokeWidth={3} strokeLinecap="round"/>
+        <path d="M35,78 L45,68" stroke="white" strokeWidth={3} strokeLinecap="round" />
+        <path d="M65,78 L55,68" stroke="white" strokeWidth={3} strokeLinecap="round" />
       </svg>
     ),
     sweet_celebration: (
       <svg className="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Balão de Amor Superior */}
-        <path d="M50,12 C46,4 32,4 32,16 C32,28 50,40 50,40 C50,40 68,28 68,16 C68,4 54,4 50,12 Z" fill="white"/>
-        
+        <path d="M50,12 C46,4 32,4 32,16 C32,28 50,40 50,40 C50,40 68,28 68,16 C68,4 54,4 50,12 Z" fill="white" />
+
         {/* Prato do Bolo */}
-        <line x1="20" y1="75" x2="80" y2="75" stroke="white" strokeWidth={4} strokeLinecap="round"/>
-        <path d="M35,75 L42,88 L58,88 L65,75" fill="white" opacity={0.9}/>
+        <line x1="20" y1="75" x2="80" y2="75" stroke="white" strokeWidth={4} strokeLinecap="round" />
+        <path d="M35,75 L42,88 L58,88 L65,75" fill="white" opacity={0.9} />
 
         {/* Bolo de 2 Andares */}
-        <rect x="28" y="52" width="44" height="23" rx="3" fill="white"/>
-        <rect x="35" y="36" width="30" height="16" rx="2" fill="white" opacity={0.95}/>
-        
+        <rect x="28" y="52" width="44" height="23" rx="3" fill="white" />
+        <rect x="35" y="36" width="30" height="16" rx="2" fill="white" opacity={0.95} />
+
         {/* Velinhas acesas */}
-        <line x1="50" y1="36" x2="50" y2="28" stroke="white" strokeWidth={2}/>
-        <path d="M50,28 C50,28 48,25 50,22 C52,25 50,28 50,28 Z" fill={bgColor}/>
+        <line x1="50" y1="36" x2="50" y2="28" stroke="white" strokeWidth={2} />
+        <path d="M50,28 C50,28 48,25 50,22 C52,25 50,28 50,28 Z" fill={bgColor} />
 
         {/* Detalhes de Confeitos com a cor dinâmica de fundo */}
-        <circle cx="34" cy="62" r="2.5" fill={bgColor}/>
-        <circle cx="45" cy="64" r="2.5" fill={bgColor}/>
-        <circle cx="56" cy="61" r="2.5" fill={bgColor}/>
-        <circle cx="66" cy="63" r="2.5" fill={bgColor}/>
+        <circle cx="34" cy="62" r="2.5" fill={bgColor} />
+        <circle cx="45" cy="64" r="2.5" fill={bgColor} />
+        <circle cx="56" cy="61" r="2.5" fill={bgColor} />
+        <circle cx="66" cy="63" r="2.5" fill={bgColor} />
       </svg>
     )
   };
 
   return (
     <div className="w-full h-full relative flex flex-col justify-between bg-white transition-all duration-300 select-none overflow-hidden">
-      
+
       {/* Linhas Geométricas Sutis de Fundo (Fundo Branco do Rodapé) */}
       {lines && (
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
@@ -8574,16 +8569,16 @@ export function SplitVariant219(props) {
       )}
 
       {/* Cúpula Colorida Superior (Arco Orgânico) */}
-      <div 
-        className="w-full h-[68%] relative flex flex-col items-center justify-between py-[12%] px-[8%] text-center z-10 transition-all duration-300" 
-        style={{ 
-          backgroundColor: bgColor, 
-          borderRadius: '0 0 50% 50% / 0 0 22% 22%' 
+      <div
+        className="w-full h-[68%] relative flex flex-col items-center justify-between py-[12%] px-[8%] text-center z-10 transition-all duration-300"
+        style={{
+          backgroundColor: bgColor,
+          borderRadius: '0 0 50% 50% / 0 0 22% 22%'
         }}
       >
         {/* Tag Superior */}
         <SmartField field="tag" {...sp}>
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
             className="text-[10px] font-extrabold uppercase tracking-widest text-white/90 outline-none block"
@@ -8592,7 +8587,7 @@ export function SplitVariant219(props) {
             {topSmallText}
           </span>
         </SmartField>
-        
+
         {/* Ilustração Vetorial Dinâmica Centralizada */}
         <div className="w-24 h-24 my-auto flex items-center justify-center text-white">
           {vectorIllustrations[iconType] || vectorIllustrations.stars_users}
@@ -8600,7 +8595,7 @@ export function SplitVariant219(props) {
 
         {/* Texto de Gratidão Principal */}
         <SmartField field="titulo" {...sp} className="max-w-[90%]">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="text-white font-extrabold leading-tight tracking-tight uppercase outline-none"
@@ -8615,7 +8610,7 @@ export function SplitVariant219(props) {
       <div className="h-[32%] w-full flex flex-col justify-between items-center text-center px-[8%] pb-[8%] pt-[4%] z-10 relative">
         {/* Frase de Parceria */}
         <SmartField field="texto_apoio" {...sp} className="max-w-[85%] my-auto">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="text-neutral-500 font-semibold leading-relaxed outline-none"
@@ -8624,11 +8619,11 @@ export function SplitVariant219(props) {
             {bottomText}
           </p>
         </SmartField>
-        
+
         {/* Logo Textual da Assinatura */}
         <SmartField field="badge_text" {...sp}>
           <div className="flex items-center gap-1.5 justify-center">
-            <span 
+            <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
               className="font-extrabold text-sm tracking-tight text-neutral-800 outline-none block"
@@ -8657,10 +8652,10 @@ export function SplitVariant219(props) {
 // VARIANTE 220 — Cupcake Retro (Doçura)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant220(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -8670,7 +8665,7 @@ export function SplitVariant220(props) {
   const title1 = data.titulo || "Doces Retrô";
   const description = data.texto_apoio || "Coleção Exclusiva Anos 70";
   const cta = data.badge_text !== undefined ? data.badge_text : "Peça o Seu!";
-  
+
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?q=80&w=1080&auto=format&fit=crop";
   const backgroundColor = brandColor || data.backgroundColor || "#ec4899";
   const backgroundColorLight = data.backgroundColorLight || "#f9a8d4";
@@ -8679,13 +8674,14 @@ export function SplitVariant220(props) {
   const footerColor = data.footerColor || "#0f172a";
 
   return (
-    <div 
-      id="tpl-cupcake" 
+    <div
+      id="tpl-cupcake"
       className="w-full h-full relative overflow-hidden flex flex-col select-none transition-all duration-300 font-sans"
       style={{ background: `radial-gradient(circle, ${backgroundColorLight} 0%, ${backgroundColor} 100%)` }}
     >
       {/* Estilos locais para garantir independência de CSS global */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Inter:wght@300;400;600;800&display=swap');
         
         .font-bebas { font-family: 'Bebas Neue', sans-serif; }
@@ -8716,7 +8712,7 @@ export function SplitVariant220(props) {
       `}} />
 
       {/* Text Repeating Background */}
-      <div 
+      <div
         className="absolute inset-x-0 top-12 flex flex-col items-center justify-center select-none pointer-events-none opacity-20 font-bebas tracking-wide leading-none text-stroke-1"
         style={{ color: textColor }}
       >
@@ -8726,21 +8722,21 @@ export function SplitVariant220(props) {
       </div>
 
       {/* Floaty Chocolates (Vetor SVG) */}
-      <svg 
-        className="absolute top-24 left-8 w-12 h-12 animate-float-1 pointer-events-none opacity-70" 
-        viewBox="0 0 24 24" 
+      <svg
+        className="absolute top-24 left-8 w-12 h-12 animate-float-1 pointer-events-none opacity-70"
+        viewBox="0 0 24 24"
         fill="currentColor"
         style={{ color: backgroundColorLight }}
       >
-        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z"/>
+        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z" />
       </svg>
-      <svg 
-        className="absolute bottom-32 right-8 w-10 h-10 animate-float-2 pointer-events-none opacity-60" 
-        viewBox="0 0 24 24" 
+      <svg
+        className="absolute bottom-32 right-8 w-10 h-10 animate-float-2 pointer-events-none opacity-60"
+        viewBox="0 0 24 24"
         fill="currentColor"
         style={{ color: backgroundColorLight }}
       >
-        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z"/>
+        <path d="M12 2C11.5 2 10 3 10 5s1 3 2 3 2-1 2-3-1.5-3-2-3zm-5 5c-1 0-2 1-2 2.5s1 2.5 2 2.5c.5 0 1-.2 1.4-.5.5.9 1.4 1.5 2.6 1.5s2.1-.6 2.6-1.5c.4.3.9.5 1.4.5 1 0 2-1 2-2.5S18 7 17 7h-10zm-3 8c0 2 2 4 4.5 4h5c2.5 0 4.5-2 4.5-4H4z" />
       </svg>
 
       {/* Main Image Frame */}
@@ -8751,7 +8747,7 @@ export function SplitVariant220(props) {
       {/* Bouncy Badge / Tag */}
       {cta && (
         <SmartField field="badge_text" {...sp} className="absolute top-12 right-6 animate-bounce-subtle z-20">
-          <div 
+          <div
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'badge_text', e.currentTarget.innerText)}
             className="text-slate-900 px-4 py-2 font-black text-xs uppercase tracking-wider rounded-2xl shadow-xl border-2 border-slate-900 flex items-center justify-center transform rotate-12 outline-none"
@@ -8763,15 +8759,15 @@ export function SplitVariant220(props) {
       )}
 
       {/* Base Curve & CTA Section */}
-      <div 
+      <div
         className="absolute inset-x-0 bottom-0 h-[110px] flex flex-col items-center justify-center text-center rounded-t-[2.5rem] shadow-[0_-15px_30px_rgba(0,0,0,0.3)] z-10 px-8"
-        style={{ 
-          backgroundColor: footerColor, 
+        style={{
+          backgroundColor: footerColor,
           borderTop: `4px solid ${accentColor}`
         }}
       >
         <SmartField field="titulo" {...sp}>
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-pacifico leading-tight outline-none"
@@ -8781,7 +8777,7 @@ export function SplitVariant220(props) {
           </h2>
         </SmartField>
         <SmartField field="texto_apoio" {...sp} className="mt-0.5">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="font-bold tracking-widest uppercase lbl-description outline-none"
@@ -8808,10 +8804,10 @@ export function SplitVariant220(props) {
 // VARIANTE 221 — Feedback (Prova Social)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant221(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -8824,7 +8820,7 @@ export function SplitVariant221(props) {
   const titleFg = data.titulo || "de clientes";
   const text = data.texto_apoio || "BOA TARDE, ANA! TUDO BEM?!\nQUERIA TE AGRADECER PELO BOLO... ALÉM DE LINDO, SUPER SABOROSO! QUATRO LEITES COM MORANGO É MINHA PAIXÃO, MAS ESSE MARTA ROCHA ESTÁ ROUBANDO MEU CORAÇÃO!!\nRECOMENDO SEMPRE!! PARABÉNS PELO SEU TRABALHO! E OBRIGADA!!";
   const name = data.favName || "Rithiely Knoth";
-  
+
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1080&auto=format&fit=crop";
   const backgroundColor = brandColor || data.backgroundColor || "#e61159";
   const boxColor = data.boxColor || "#ff85b3";
@@ -8848,12 +8844,13 @@ export function SplitVariant221(props) {
   const rgbBoxColor = hexToRgb(boxColor);
 
   return (
-    <div 
-      id="tpl_feedback" 
+    <div
+      id="tpl_feedback"
       className="w-full h-full relative overflow-hidden flex select-none transition-all duration-300"
       style={{ backgroundColor }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Great+Vibes&family=Montserrat:wght@400;700&family=Inter:wght@400;700&display=swap');
         .font-cinzel { font-family: 'Cinzel', serif; }
         .font-script { font-family: 'Great Vibes', cursive; }
@@ -8870,14 +8867,14 @@ export function SplitVariant221(props) {
 
       {/* Lado Direito: Conteúdo e Texto */}
       <div className="w-[50%] h-full relative flex flex-col pt-16 pr-12 pb-16 pl-4" style={{ zIndex: 70 }}>
-        
+
         {/* Header / Logo Area */}
         <div className="flex flex-col items-center justify-center w-full mb-8 relative z-20">
           {brandLogo || brandAvatar ? (
             <img src={brandLogo || brandAvatar} className="h-12 object-contain mb-2" alt="Logo" />
           ) : (
             <svg className="w-12 h-12 mb-2 text-white/80" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5V9.5C10 8.67 10.67 8 11.5 8h1c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5zm2-6.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-5.5V9.5C10 8.67 10.67 8 11.5 8h1c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5h-1c-.83 0-1.5-.67-1.5-1.5zm2-6.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z" />
             </svg>
           )}
 
@@ -8886,13 +8883,13 @@ export function SplitVariant221(props) {
         {/* Título "Feedback de clientes" Sobreposto */}
         <div className="relative flex items-center justify-center mb-8 w-full z-30 ml-[-4rem]">
           <SmartField field="favTitle1" {...sp} className="absolute -top-3 w-[120%] text-center left-[-10%] select-none z-10">
-            <h2 
+            <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'favTitle1', e.currentTarget.innerText)}
               className="font-cinzel font-black tracking-widest uppercase outline-none whitespace-nowrap"
-              style={{ 
-                color: 'transparent', 
-                WebkitTextStroke: '1px rgba(255,255,255,0.7)', 
+              style={{
+                color: 'transparent',
+                WebkitTextStroke: '1px rgba(255,255,255,0.7)',
                 fontSize: `${54 * sTitle}px`,
                 transform: 'translate(25px, -60px)',
                 whiteSpace: 'nowrap'
@@ -8901,13 +8898,13 @@ export function SplitVariant221(props) {
               {titleBg.replace(/[\r\n]+/g, ' ').replace(/<br\s*\/?>/gi, ' ')}
             </h2>
           </SmartField>
-          
+
           <SmartField field="titulo" {...sp} className="z-20 transform -rotate-2 mt-[-0.75rem]" style={{ zIndex: 42 }}>
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
               className="font-script text-white drop-shadow-md outline-none block leading-none text-center"
-              style={{ 
+              style={{
                 fontSize: `${56 * sTitle}px`,
                 transform: 'translateX(-70px)',
                 whiteSpace: 'nowrap'
@@ -8919,13 +8916,13 @@ export function SplitVariant221(props) {
         </div>
 
         {/* Balão de Depoimento */}
-        <div 
-          id="tpl_feedback_box" 
+        <div
+          id="tpl_feedback_box"
           className="w-[114%] ml-[-7%] flex-1 rounded-[2rem] shadow-xl p-6 relative flex flex-col justify-center border border-white/20 z-20"
           style={{ backgroundColor: boxColor === '#ff85b3' ? 'rgba(255, 255, 255, 0.15)' : `rgba(${rgbBoxColor}, 0.25)` }}
         >
           <SmartField field="texto_apoio" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
               className="text-white font-sans font-bold text-center uppercase tracking-wide outline-none whitespace-pre-line leading-relaxed"
@@ -8937,11 +8934,11 @@ export function SplitVariant221(props) {
 
           {/* Assinatura do Nome */}
           <SmartField field="favName" {...sp} className="absolute -bottom-6 left-[-1.5rem] z-30">
-            <div 
+            <div
               className="text-white px-6 py-2 rounded-full shadow-lg border-[3px] border-white text-center"
               style={{ backgroundColor }}
             >
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'favName', e.currentTarget.innerText)}
                 className="font-display font-bold tracking-tight outline-none block"
@@ -8951,10 +8948,10 @@ export function SplitVariant221(props) {
               </span>
             </div>
           </SmartField>
-          
+
           {/* Aspas decorativas */}
           <svg className="absolute -bottom-6 right-6 w-12 h-12 text-white drop-shadow-md z-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
         </div>
 
@@ -8975,10 +8972,10 @@ export function SplitVariant221(props) {
 // VARIANTE 222 — Festa Junina / Card Base
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant222(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sText = textScale / 100;
@@ -9010,12 +9007,13 @@ export function SplitVariant222(props) {
   };
 
   return (
-    <div 
-      id="template_09" 
+    <div
+      id="template_09"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Pacifico&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -9024,33 +9022,33 @@ export function SplitVariant222(props) {
 
       {/* Elementos Decorativos (Círculos no Fundo com mix-blend-multiply e blur) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 overflow-hidden mix-blend-multiply">
-        <div 
-          id="t9-circle1" 
+        <div
+          id="t9-circle1"
           className="absolute rounded-full bg-slate-400/50 blur-sm"
           style={{ width: '350px', height: '350px', top: '-100px', left: '100px' }}
         ></div>
-        <div 
-          id="t9-circle2" 
+        <div
+          id="t9-circle2"
           className="absolute rounded-full bg-slate-400/40 blur-sm"
           style={{ width: '250px', height: '250px', top: '100px', left: '350px' }}
         ></div>
-        <div 
-          id="t9-circle3" 
+        <div
+          id="t9-circle3"
           className="absolute rounded-full bg-rose-400/40 blur-sm"
           style={{ width: '450px', height: '450px', top: '350px', left: '-100px' }}
         ></div>
       </div>
 
       {/* Card Flutuante Inferior */}
-      <div 
+      <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[42%] backdrop-blur-md z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex items-center justify-center p-8 px-12"
-        style={{ 
+        style={{
           backgroundColor: hexToRgba(colorBg, 0.9),
           borderRadius: '3rem 3rem 0 0'
         }}
       >
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-[#4a4a4a] text-center font-light leading-relaxed outline-none"
@@ -9076,10 +9074,10 @@ export function SplitVariant222(props) {
 // VARIANTE 223 — Empreendedor
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant223(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9089,7 +9087,7 @@ export function SplitVariant223(props) {
   const title2 = data.titulo || "Mesmo aos pequenos empreendedores,\né possível profissionalizar a produção\npara obter um resultando consistente\ne trazer credibilidade à marca.";
   const desc = data.texto_apoio || "Com uma seladora manual e selos\nde proteção (plástico ou alumínio), as\nembalagens ficam seguras, padronizadas\ne com uma boa apresentação.";
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1589363460779-cbdf170e1239?q=80&w=1000";
-  
+
   const colorBg = data.backgroundColor || "#eceae6";
   const colorAccent = brandColor || data.accentColor || "#3d3d3d";
 
@@ -9111,11 +9109,12 @@ export function SplitVariant223(props) {
   };
 
   return (
-    <div 
-      id="template_10" 
+    <div
+      id="template_10"
       className="w-full h-full relative overflow-hidden flex select-none bg-white font-sans transition-all duration-300"
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -9124,29 +9123,29 @@ export function SplitVariant223(props) {
 
       {/* Elementos Decorativos (Círculos no Fundo com mix-blend-multiply e blur) */}
       <div className="absolute bottom-0 right-0 w-full h-full pointer-events-none z-10 overflow-hidden mix-blend-multiply">
-        <div 
-          id="t10-circle1" 
+        <div
+          id="t10-circle1"
           className="absolute rounded-full bg-stone-400/40 blur-md"
           style={{ width: '450px', height: '450px', bottom: '-100px', right: '50px' }}
         ></div>
-        <div 
-          id="t10-circle2" 
+        <div
+          id="t10-circle2"
           className="absolute rounded-full bg-rose-900/20 blur-md"
           style={{ width: '550px', height: '550px', bottom: '150px', right: '-150px' }}
         ></div>
       </div>
 
       {/* Card Flutuante Superior */}
-      <div 
-        id="t10-card" 
+      <div
+        id="t10-card"
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[92%] backdrop-blur-md z-20 shadow-[0_10px_30px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center p-8 pb-10"
-        style={{ 
+        style={{
           backgroundColor: hexToRgba(colorBg, 0.95),
           borderRadius: '0 0 3rem 3rem'
         }}
       >
         <SmartField field="titulo" {...sp} className="mb-4">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-sans text-center outline-none whitespace-pre-line"
@@ -9156,7 +9155,7 @@ export function SplitVariant223(props) {
           </p>
         </SmartField>
         <SmartField field="texto_apoio" {...sp}>
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
             className="font-sans font-bold text-center outline-none whitespace-pre-line"
@@ -9183,10 +9182,10 @@ export function SplitVariant223(props) {
 // VARIANTE 224 — Sundae (Red Box)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant224(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9196,32 +9195,33 @@ export function SplitVariant224(props) {
   const title1 = data.titulo || "MIX DE\nACOMPANHAMENTOS";
   const desc = data.texto_apoio || "Muitas vezes, sorvetes e açaí vêm\ncom um mix de acompanhamentos\n(pedaços de frutas, granolas ou\ngranulados), que <b>não podem ser\ntriturados pelo sistema de dosagem.</b>\nPor isso, exigem dosadores específicos.";
   const imageUrl = data.imageUrl || "https://png.pngtree.com/png-vector/20231020/ourmid/pngtree-sundae-ice-cream-with-chocolate-syrup-png-image_10237731.png";
-  
+
   const colorAccent = brandColor || data.accentColor || "#d6102c";
   const colorBg = data.backgroundColor || "#ffffff";
 
   return (
-    <div 
-      id="template_11" 
+    <div
+      id="template_11"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Caixa de Destaque Superior (Red Box) */}
-      <div 
-        id="t11-red-box" 
+      <div
+        id="t11-red-box"
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-[52%] flex flex-col items-center justify-start z-10 shadow-lg px-8 pt-16"
-        style={{ 
+        style={{
           backgroundColor: colorAccent,
           borderRadius: '0 0 2.5rem 2.5rem'
         }}
       >
         <SmartField field="titulo" {...sp} className="mb-4">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-sans font-black text-white text-center uppercase outline-none whitespace-pre-line"
@@ -9232,7 +9232,7 @@ export function SplitVariant224(props) {
         </SmartField>
 
         <SmartField field="texto_apoio" {...sp}>
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans font-light text-white text-center outline-none whitespace-pre-line"
@@ -9245,11 +9245,11 @@ export function SplitVariant224(props) {
       {/* Container da Imagem Central/Produto */}
       <SmartField field="imagem" {...sp} className="absolute left-1/2 -translate-x-1/2 z-20 flex justify-center w-[300px] bottom-[30px]">
         {imageUrl ? (
-          <img 
-            src={getCorsSafeUrl(imageUrl)} 
-            crossOrigin="anonymous" 
-            className="w-full object-contain drop-shadow-2xl max-h-[300px]" 
-            alt="Sundae" 
+          <img
+            src={getCorsSafeUrl(imageUrl)}
+            crossOrigin="anonymous"
+            className="w-full object-contain drop-shadow-2xl max-h-[300px]"
+            alt="Sundae"
           />
         ) : (
           <div className="w-40 h-40 bg-zinc-900/10 flex items-center justify-center rounded-full">
@@ -9274,10 +9274,10 @@ export function SplitVariant224(props) {
 // VARIANTE 225 — Açaí Textura
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant225(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9291,21 +9291,22 @@ export function SplitVariant225(props) {
   const colorAccent = brandColor || data.accentColor || "#d6102c";
 
   return (
-    <div 
-      id="template_12" 
+    <div
+      id="template_12"
       className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-4 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Caixa de Destaque Central */}
-      <div 
-        id="t12-red-box" 
+      <div
+        id="t12-red-box"
         className="relative w-[90%] shadow-xl flex flex-col items-center mt-20"
-        style={{ 
+        style={{
           backgroundColor: '#ffffff',
           borderRadius: '24px',
           paddingTop: '90px',
@@ -9317,7 +9318,7 @@ export function SplitVariant225(props) {
       >
         {/* Container da Imagem do Produto (Círculo sobreposto) */}
         <SmartField field="imagem" {...sp} forceX={0} forceY={0} className="absolute aspect-square flex justify-center drop-shadow-xl z-20"
-          style={{ 
+          style={{
             position: 'absolute',
             left: 'calc(50% - 80px)',
             width: '160px',
@@ -9326,11 +9327,11 @@ export function SplitVariant225(props) {
           }}
         >
           {imageUrl ? (
-            <img 
-              id="t12-img" 
-              src={getCorsSafeUrl(imageUrl)} 
+            <img
+              id="t12-img"
+              src={getCorsSafeUrl(imageUrl)}
               crossOrigin="anonymous"
-              className="w-full h-full object-cover rounded-full" 
+              className="w-full h-full object-cover rounded-full"
               style={{ border: '3px solid #ffffff' }}
               alt="Açaí"
             />
@@ -9347,7 +9348,7 @@ export function SplitVariant225(props) {
           <SmartField field="titulo" {...sp} forceX={0} forceY={0} className="w-full"
             style={{ width: '100%' }}
           >
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="font-sans font-black text-black text-center uppercase tracking-wide outline-none whitespace-pre-line"
@@ -9360,7 +9361,7 @@ export function SplitVariant225(props) {
           <SmartField field="texto_apoio" {...sp} forceX={0} forceY={0} className="w-full"
             style={{ width: '100%' }}
           >
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
               className="font-sans font-light text-black text-center outline-none whitespace-pre-line"
@@ -9387,10 +9388,10 @@ export function SplitVariant225(props) {
 // VARIANTE 226 — Benefícios (Curva)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant226(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sText = textScale / 100;
@@ -9402,20 +9403,21 @@ export function SplitVariant226(props) {
   const colorAccent = brandColor || data.accentColor || "#ffffff";
 
   return (
-    <div 
-      id="template_13" 
+    <div
+      id="template_13"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Imagem Superior com Curva */}
       <SmartField field="imagem" {...sp} className="absolute top-0 left-0 w-full h-[65%] overflow-hidden z-10 bg-white"
-        style={{ 
-          borderBottomLeftRadius: '50% 20%', 
+        style={{
+          borderBottomLeftRadius: '50% 20%',
           borderBottomRightRadius: '50% 20%',
           borderBottom: '3px solid #fff'
         }}
@@ -9424,15 +9426,15 @@ export function SplitVariant226(props) {
       </SmartField>
 
       {/* Área Inferior */}
-      <div 
-        id="t13-bottom" 
+      <div
+        id="t13-bottom"
         className="absolute bottom-0 left-0 w-full h-[35%] flex items-center justify-center z-20 p-8"
       >
         {/* Box com contorno */}
-        <div 
-          id="t13-outline-box" 
+        <div
+          id="t13-outline-box"
           className="w-[95%] text-center flex flex-col justify-center border"
-          style={{ 
+          style={{
             borderColor: '#ffffff8a',
             borderRadius: '25px',
             padding: '18px 8px',
@@ -9442,11 +9444,11 @@ export function SplitVariant226(props) {
         >
           {/* Descrição / Benefícios */}
           <SmartField field="texto_apoio" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
               className="font-sans font-light tracking-wide text-center outline-none whitespace-pre-line"
-              style={{ 
+              style={{
                 color: '#ffffff',
                 fontSize: `${19.2 * sText}px`,
                 lineHeight: '1.4'
@@ -9473,10 +9475,10 @@ export function SplitVariant226(props) {
 // VARIANTE 227 — Tropisuco
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant227(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9488,44 +9490,45 @@ export function SplitVariant227(props) {
   const colorAccent = brandColor || data.accentColor || "#ffffff";
 
   return (
-    <div 
-      id="template_15" 
+    <div
+      id="template_15"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
-      style={{ 
+      style={{
         backgroundColor: colorBg,
         padding: '20px 24px 32px 24px'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Container da Imagem Central */}
       <SmartField field="imagem" {...sp} className="w-full flex-1 overflow-hidden shadow-sm relative z-10"
-        style={{ 
+        style={{
           borderRadius: '40px'
         }}
       >
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </SmartField>
-      
+
       {/* Área de Rodapé */}
-      <div 
+      <div
         className="w-full shrink-0 flex items-end justify-between z-10"
-        style={{ 
-          paddingTop: '24px', 
-          paddingLeft: '4px', 
-          paddingRight: '4px' 
+        style={{
+          paddingTop: '24px',
+          paddingLeft: '4px',
+          paddingRight: '4px'
         }}
       >
         {/* Título Principal */}
         <SmartField field="titulo" {...sp} className="w-[80%]">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans font-light outline-none"
-            style={{ 
+            style={{
               color: colorAccent,
               fontSize: `${25.6 * sTitle}px`,
               lineHeight: '1.05',
@@ -9537,14 +9540,14 @@ export function SplitVariant227(props) {
 
         {/* Logo Laranja / Suco */}
         <div className="w-[20%] flex justify-end pb-1">
-          <svg 
-            id="t15-logo" 
-            viewBox="0 0 100 100" 
+          <svg
+            id="t15-logo"
+            viewBox="0 0 100 100"
             className="drop-shadow-sm"
-            style={{ 
-              width: '56px', 
+            style={{
+              width: '56px',
               height: '56px',
-              fill: colorAccent 
+              fill: colorAccent
             }}
           >
             <circle cx="50" cy="70" r="26" />
@@ -9570,10 +9573,10 @@ export function SplitVariant227(props) {
 // VARIANTE 228 — Ice Cream Info
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant228(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9588,12 +9591,13 @@ export function SplitVariant228(props) {
   const colorAccent = brandColor || data.accentColor || "#d61a3c";
 
   return (
-    <div 
-      id="template_19" 
+    <div
+      id="template_19"
       className="w-full h-full relative overflow-hidden flex flex-col justify-center px-10 gap-6 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         #template_19 strong { color: #000000 !important; font-weight: bold !important; }
@@ -9601,7 +9605,7 @@ export function SplitVariant228(props) {
 
       {/* Título Principal */}
       <SmartField field="titulo" {...sp} className="w-full">
-        <h1 
+        <h1
           contentEditable suppressContentEditableWarning
           onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
           className="font-sans font-black uppercase leading-tight tracking-tight outline-none whitespace-pre-line"
@@ -9609,19 +9613,19 @@ export function SplitVariant228(props) {
           dangerouslySetInnerHTML={{ __html: title1.replace(/\n/g, '<br />') }}
         />
       </SmartField>
-      
+
       {/* Container da Imagem Central */}
       <SmartField field="imagem" {...sp} className="w-full h-[192px] rounded-2xl border-[2.5px] overflow-hidden shrink-0 shadow-sm"
         style={{ borderColor: '#ffffff' }}
       >
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </SmartField>
-      
+
       {/* Bloco de Textos Descritivos */}
       <div id="t19-text-block" className="flex flex-col gap-4">
         {/* Descrição Longa */}
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-white leading-[1.4] font-light outline-none whitespace-pre-line"
@@ -9631,7 +9635,7 @@ export function SplitVariant228(props) {
         </SmartField>
         {/* Destaque Final */}
         <SmartField field="subtitulo" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
             className="font-sans font-bold uppercase tracking-wide outline-none whitespace-pre-line"
@@ -9657,10 +9661,10 @@ export function SplitVariant228(props) {
 // VARIANTE 229 — Conteúdo
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant229(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9678,47 +9682,48 @@ export function SplitVariant229(props) {
   const colorAccent = brandColor || data.accentColor || "#ffffff";
 
   return (
-    <div 
-      id="template_20" 
+    <div
+      id="template_20"
       className="w-full h-full relative overflow-hidden flex flex-col px-8 py-10 gap-6 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Ícone de Culinária Superior */}
-      <div 
-        id="t20-icon" 
+      <div
+        id="t20-icon"
         className="w-8 h-8 border flex items-center justify-center shrink-0"
         style={{ borderColor: colorAccent }}
       >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="20" 
-          height="20" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           style={{ color: colorAccent }}
         >
-          <path d="M2 12h20"/>
-          <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/>
-          <path d="M4 8h16"/>
-          <path d="M12 2v2"/>
-          <path d="m9 2 .5 2"/>
-          <path d="m15 2-.5 2"/>
+          <path d="M2 12h20" />
+          <path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+          <path d="M4 8h16" />
+          <path d="M12 2v2" />
+          <path d="m9 2 .5 2" />
+          <path d="m15 2-.5 2" />
         </svg>
       </div>
 
       {/* Seção do Título Principal */}
       <div className="mb-2">
         <SmartField field="titulo" {...sp} className="w-full">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
             className="font-sans font-medium tracking-wide uppercase outline-none"
@@ -9727,8 +9732,8 @@ export function SplitVariant229(props) {
             {title1}
           </h1>
         </SmartField>
-        <div 
-          id="t20-line" 
+        <div
+          id="t20-line"
           className="h-[1.5px] w-[80%] mt-2 opacity-60"
           style={{ backgroundColor: colorAccent }}
         ></div>
@@ -9737,7 +9742,7 @@ export function SplitVariant229(props) {
       {/* Bloco de Conteúdo 1 */}
       <div className="flex flex-col gap-2.5">
         <SmartField field="subtitulo" {...sp} className="w-full">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
             className="font-sans font-medium outline-none"
@@ -9751,7 +9756,7 @@ export function SplitVariant229(props) {
             <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
           </SmartField>
           <SmartField field="texto_apoio" {...sp} className="flex-1">
-            <div 
+            <div
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
               className="font-sans leading-[1.7] font-light outline-none whitespace-pre-line"
@@ -9765,7 +9770,7 @@ export function SplitVariant229(props) {
       {/* Bloco de Conteúdo 2 */}
       <div className="flex flex-col gap-2.5">
         <SmartField field="subtitulo2" {...sp} className="w-full">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'subtitulo2', e.currentTarget.innerText)}
             className="font-sans font-medium outline-none"
@@ -9777,11 +9782,11 @@ export function SplitVariant229(props) {
         <div className="flex gap-4 items-center">
           <SmartField field="imageUrl2" {...sp} className="w-[45%] aspect-square shrink-0 shadow-md">
             {imageUrl2 ? (
-              <img 
-                src={getCorsSafeUrl(imageUrl2)} 
-                crossOrigin="anonymous" 
-                className="w-full h-full object-cover" 
-                alt="Conteúdo 2" 
+              <img
+                src={getCorsSafeUrl(imageUrl2)}
+                crossOrigin="anonymous"
+                className="w-full h-full object-cover"
+                alt="Conteúdo 2"
               />
             ) : (
               <div className="w-full h-full bg-zinc-900/10 flex items-center justify-center">
@@ -9790,7 +9795,7 @@ export function SplitVariant229(props) {
             )}
           </SmartField>
           <SmartField field="extra2" {...sp} className="flex-1">
-            <div 
+            <div
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
               className="font-sans leading-[1.7] font-light outline-none whitespace-pre-line"
@@ -9817,10 +9822,10 @@ export function SplitVariant229(props) {
 // VARIANTE 230 — Corporate
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant230(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9837,11 +9842,12 @@ export function SplitVariant230(props) {
   const colorAccent = brandColor || data.accentColor || "#e11b22";
 
   return (
-    <div 
-      id="template_21" 
+    <div
+      id="template_21"
       className="w-full h-full relative overflow-hidden flex select-none bg-white font-sans transition-all duration-300"
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -9854,17 +9860,17 @@ export function SplitVariant230(props) {
       </SmartField>
 
       {/* Painel de Fundo da Esquerda - 58% de largura */}
-      <div 
-        id="t21-bg" 
-        className="absolute top-0 left-0 w-[58%] h-full z-0" 
+      <div
+        id="t21-bg"
+        className="absolute top-0 left-0 w-[58%] h-full z-0"
         style={{ backgroundColor: colorBg }}
       ></div>
-      
+
       {/* Container de Conteúdo Esquerdo - 58% de largura */}
       <div className="relative z-10 w-[58%] h-full flex flex-col justify-center pl-6 pr-14">
         {/* Logo / Badge */}
         <SmartField field="extra1" {...sp} forceX={0} forceY={0} className="absolute top-8 right-14">
-          <div 
+          <div
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
             className="font-display font-black text-[23px] tracking-tighter outline-none"
@@ -9876,7 +9882,7 @@ export function SplitVariant230(props) {
 
         {/* Título Principal */}
         <SmartField field="titulo" {...sp} forceX={0} forceY={0} className="mb-4">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans font-bold leading-[1.1] text-black tracking-tight outline-none whitespace-pre-line"
@@ -9887,7 +9893,7 @@ export function SplitVariant230(props) {
 
         {/* Descrição Longa */}
         <SmartField field="texto_apoio" {...sp} forceX={0} forceY={0} className="pr-4">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-relaxed text-black font-medium outline-none whitespace-pre-line"
@@ -9898,14 +9904,14 @@ export function SplitVariant230(props) {
       </div>
 
       {/* Card de Estatística Inferior */}
-      <div 
-        id="t21-stat-card" 
+      <div
+        id="t21-stat-card"
         className="absolute bottom-10 left-4 w-[83%] h-[70px] bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.15)] flex items-center py-2 px-5 gap-4 z-20 border border-neutral-100"
         style={{ zIndex: 20 }}
       >
         {/* Número de Destaque */}
         <SmartField field="subtitulo" {...sp} forceX={0} forceY={0} className="shrink-0">
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
             className="font-display font-black text-[56px] text-black leading-none tracking-tighter outline-none"
@@ -9915,7 +9921,7 @@ export function SplitVariant230(props) {
         </SmartField>
         {/* Texto descritivo da estatística */}
         <SmartField field="extra2" {...sp} forceX={0} forceY={0} className="flex-1 max-w-[280px]" style={data.positions?.extra2?.width ? {} : { width: 'auto' }}>
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
             className="font-sans text-[12px] leading-[1.3] text-black font-medium outline-none whitespace-pre-line block"
@@ -9940,10 +9946,10 @@ export function SplitVariant230(props) {
 // VARIANTE 231 — Açaí Textura Premium
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant231(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -9958,21 +9964,22 @@ export function SplitVariant231(props) {
   const borderColor = data.borderColor || "#fde047";
 
   return (
-    <div 
-      id="template_12" 
+    <div
+      id="template_12"
       className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-4 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Caixa de Destaque Central */}
-      <div 
-        id="t12-red-box" 
+      <div
+        id="t12-red-box"
         className="relative w-[90%] shadow-xl flex flex-col items-center mt-20"
-        style={{ 
+        style={{
           backgroundColor: '#ffffff',
           borderRadius: '24px',
           paddingTop: '90px',
@@ -9984,7 +9991,7 @@ export function SplitVariant231(props) {
       >
         {/* Container da Imagem do Produto (Círculo sobreposto) */}
         <SmartField field="imagem" {...sp} forceX={0} forceY={0} className="absolute aspect-square flex justify-center drop-shadow-xl z-20"
-          style={{ 
+          style={{
             position: 'absolute',
             left: 'calc(50% - 80px)',
             width: '160px',
@@ -9993,11 +10000,11 @@ export function SplitVariant231(props) {
           }}
         >
           {imageUrl ? (
-            <img 
-              id="t12-img" 
-              src={getCorsSafeUrl(imageUrl)} 
+            <img
+              id="t12-img"
+              src={getCorsSafeUrl(imageUrl)}
               crossOrigin="anonymous"
-              className="w-full h-full object-cover rounded-full" 
+              className="w-full h-full object-cover rounded-full"
               style={{ border: '3px solid #ffffff' }}
               alt="Açaí"
             />
@@ -10014,7 +10021,7 @@ export function SplitVariant231(props) {
           <SmartField field="titulo" {...sp} forceX={0} forceY={0} className="w-full"
             style={{ width: '100%' }}
           >
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="font-sans font-black text-black text-center uppercase tracking-wide outline-none whitespace-pre-line"
@@ -10027,7 +10034,7 @@ export function SplitVariant231(props) {
           <SmartField field="texto_apoio" {...sp} forceX={0} forceY={0} className="w-full"
             style={{ width: '100%' }}
           >
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
               className="font-sans font-light text-black text-center outline-none whitespace-pre-line"
@@ -10054,10 +10061,10 @@ export function SplitVariant231(props) {
 // VARIANTE 232 — Template Promo Páscoa
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant232(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10071,12 +10078,13 @@ export function SplitVariant232(props) {
   const colorText = data.textColor || "#311b11";
 
   return (
-    <div 
-      id="tpl_promo_pascoa" 
+    <div
+      id="tpl_promo_pascoa"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
@@ -10092,13 +10100,13 @@ export function SplitVariant232(props) {
         {/* Estrela SVG Decorativa */}
         <div className="absolute left-[8%] top-[20%] pointer-events-none opacity-80">
           <svg width="24" height="24" viewBox="0 0 24 24" fill={colorText} xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
           </svg>
         </div>
 
         {/* Título Principal */}
         <SmartField field="titulo" {...sp} className="w-full mb-2">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-serif font-black leading-[1.1] tracking-tight outline-none whitespace-pre-line"
@@ -10109,7 +10117,7 @@ export function SplitVariant232(props) {
 
         {/* Subtítulo */}
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans font-light leading-[1.2] tracking-tight outline-none whitespace-pre-line"
@@ -10135,10 +10143,10 @@ export function SplitVariant232(props) {
 // VARIANTE 233 — Restaurante Trio
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant233(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10149,23 +10157,24 @@ export function SplitVariant233(props) {
   const handle = data.extra1 || brandHandle || '@KOTORI.SP';
   const address = data.extra2 || 'R. Cônego Eugênio Leite, 639 - Pinheiros';
   const hours = data.texto_apoio || 'Ter. a sex.: 19h-23h / Sáb.: 12h-16h e 19h-23h';
-  
+
   const imageUrl1 = data.imageUrl || 'https://images.unsplash.com/photo-1615361200141-f45040f367be?q=80&w=1080&auto=format&fit=crop';
   const imageUrl2 = data.imageUrl2 || 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1080&auto=format&fit=crop';
   const imageUrl3 = data.imageUrl3 || 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1080&auto=format&fit=crop';
-  
+
   const colorBg = data.backgroundColor || '#9e4b32';
   const colorText = data.textColor || '#f4ebd9';
   const colorCircle1 = data.extraColor || '#c07452';
   const colorCircle2 = data.extraColor2 || '#8a3e26';
 
   return (
-    <div 
-      id="tpl_restaurant_trio" 
+    <div
+      id="tpl_restaurant_trio"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -10173,12 +10182,12 @@ export function SplitVariant233(props) {
       `}} />
 
       {/* Círculos Decorativos de Fundo */}
-      <div 
-        className="absolute -bottom-16 -right-16 w-[350px] h-[350px] rounded-full border-[40px] opacity-80 pointer-events-none z-0" 
+      <div
+        className="absolute -bottom-16 -right-16 w-[350px] h-[350px] rounded-full border-[40px] opacity-80 pointer-events-none z-0"
         style={{ borderColor: colorCircle1 }}
       ></div>
-      <div 
-        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border-[60px] opacity-80 pointer-events-none z-0" 
+      <div
+        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border-[60px] opacity-80 pointer-events-none z-0"
         style={{ borderColor: colorCircle2 }}
       ></div>
 
@@ -10186,21 +10195,21 @@ export function SplitVariant233(props) {
       <div className="w-full pt-12 px-8 pb-4 z-10 flex flex-col">
         <div className="flex items-baseline gap-3 mb-2 flex-wrap">
           <SmartField field="titulo" {...sp} className="shrink-0">
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
-              className="font-display font-black leading-none tracking-tighter uppercase outline-none" 
+              className="font-display font-black leading-none tracking-tighter uppercase outline-none"
               style={{ fontSize: `${48 * sTitle}px`, color: colorText }}
             >
               {title}
             </h1>
           </SmartField>
-          
+
           <SmartField field="extra1" {...sp} className="shrink-0">
-            <span 
+            <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
-              className="font-sans font-bold text-[16px] tracking-wide outline-none" 
+              className="font-sans font-bold text-[16px] tracking-wide outline-none"
               style={{ color: colorText }}
             >
               {handle}
@@ -10209,10 +10218,10 @@ export function SplitVariant233(props) {
         </div>
 
         <SmartField field="extra2" {...sp} className="w-full mb-1">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
-            className="font-sans font-light text-[16px] tracking-wide outline-none whitespace-pre-line" 
+            className="font-sans font-light text-[16px] tracking-wide outline-none whitespace-pre-line"
             style={{ color: colorText }}
           >
             {address}
@@ -10220,10 +10229,10 @@ export function SplitVariant233(props) {
         </SmartField>
 
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
-            className="font-serif italic font-light text-[14px] tracking-wide outline-none whitespace-pre-line" 
+            className="font-serif italic font-light text-[14px] tracking-wide outline-none whitespace-pre-line"
             style={{ color: colorText }}
           >
             {hours}
@@ -10261,10 +10270,10 @@ export function SplitVariant233(props) {
 // VARIANTE 234 — Mosaico 3x3
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant234(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10284,12 +10293,13 @@ export function SplitVariant234(props) {
   const img8 = data.imageUrl8 || "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=400&auto=format&fit=crop";
 
   return (
-    <div 
-      id="tpl_grid_center_text" 
+    <div
+      id="tpl_grid_center_text"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -10310,19 +10320,19 @@ export function SplitVariant234(props) {
         <SmartField field="imagem4" {...sp} className="w-full h-full overflow-hidden bg-white">
           <ImageBg data={data} imageUrl={img4} className="w-full h-full mix-blend-multiply opacity-95" />
         </SmartField>
-        
+
         <div className="w-full h-full flex items-center justify-center p-3 text-center bg-transparent z-10">
           <SmartField field="titulo" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-              className="font-sans leading-[1] tracking-tighter outline-none whitespace-pre-line block" 
+              className="font-sans leading-[1] tracking-tighter outline-none whitespace-pre-line block"
               style={{ fontSize: `${32 * sTitle}px`, color: colorText }}
               dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
         </div>
-        
+
         <SmartField field="imagem5" {...sp} className="w-full h-full overflow-hidden bg-white">
           <ImageBg data={data} imageUrl={img5} className="w-full h-full mix-blend-multiply opacity-95" />
         </SmartField>
@@ -10355,10 +10365,10 @@ export function SplitVariant234(props) {
 // VARIANTE 235 — Promo Plataforma
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant235(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10368,7 +10378,7 @@ export function SplitVariant235(props) {
   const bgImg = data.imageUrl || "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=1080&auto=format&fit=crop";
   const product = data.imageUrl2 || "https://images.unsplash.com/photo-1600189020473-b2585f6e85d9?q=80&w=800&auto=format&fit=crop";
   const logo = data.imageUrl3 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  
+
   const title1 = data.titulo || "Pão de queijo";
   const title2 = data.subtitulo || "Solves everything.";
   const tag1 = data.extra1 || "FAST";
@@ -10380,12 +10390,13 @@ export function SplitVariant235(props) {
   const colorBottom = brandColor || data.backgroundColor2 || "#6104e8";
 
   return (
-    <div 
-      id="tpl_promo_plataforma" 
+    <div
+      id="tpl_promo_plataforma"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: '#ffffff' }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
@@ -10398,8 +10409,8 @@ export function SplitVariant235(props) {
       </SmartField>
 
       {/* Bottom Solid Color Area */}
-      <div 
-        className="w-full h-[35%] relative z-10 flex px-8 items-center justify-end" 
+      <div
+        className="w-full h-[35%] relative z-10 flex px-8 items-center justify-end"
         style={{ backgroundColor: colorBottom }}
       >
         {/* Floating Platform (Left) */}
@@ -10407,25 +10418,25 @@ export function SplitVariant235(props) {
           <div className="relative w-full pb-[15%]">
             <div className="absolute bottom-0 w-full h-[16px] rounded-full bg-black/20 blur-md"></div>
             <div className="absolute bottom-[4px] w-full h-full bg-gradient-to-t from-white/10 to-transparent rounded-t-[24px] opacity-50"></div>
-            
+
             {/* Product PNG */}
             <SmartField field="imagem2" {...sp} className="w-[90%] mx-auto relative z-20">
-              <img 
-                id="tpl_plat_product" 
-                src={getCorsSafeUrl(product)} 
-                className="w-full object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.4)] transform -translate-y-[10%]" 
+              <img
+                id="tpl_plat_product"
+                src={getCorsSafeUrl(product)}
+                className="w-full object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.4)] transform -translate-y-[10%]"
                 crossOrigin="anonymous"
                 alt="Produto"
               />
             </SmartField>
-            
+
             {/* Price Pill */}
-            <div 
+            <div
               className="absolute bottom-0 -right-4 rounded-full px-3 py-1 flex items-baseline gap-0.5 shadow-lg border border-white/10 z-30"
               style={{ backgroundColor: brandColor || '#a35dd7' }}
             >
               <SmartField field="extra6" {...sp} className="shrink-0">
-                <span 
+                <span
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'extra6', e.currentTarget.innerText)}
                   className="font-sans font-bold text-white text-[10px] outline-none"
@@ -10434,7 +10445,7 @@ export function SplitVariant235(props) {
                 </span>
               </SmartField>
               <SmartField field="extra5" {...sp} className="shrink-0">
-                <span 
+                <span
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'extra5', e.currentTarget.innerText)}
                   className="font-display font-black text-white text-[20px] leading-none tracking-tighter outline-none"
@@ -10449,7 +10460,7 @@ export function SplitVariant235(props) {
         {/* Right Text Content */}
         <div className="w-[48%] flex flex-col pt-4">
           <SmartField field="titulo" {...sp} className="w-full mb-1">
-            <h2 
+            <h2
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="font-sans font-bold text-white leading-[1.1] tracking-tight outline-none whitespace-pre-line"
@@ -10457,9 +10468,9 @@ export function SplitVariant235(props) {
               dangerouslySetInnerHTML={{ __html: title1.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
-          
+
           <SmartField field="subtitulo" {...sp} className="w-full mb-2">
-            <h1 
+            <h1
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
               className="font-serif italic font-medium text-[#e0e565] leading-[1.0] tracking-tighter drop-shadow-sm outline-none whitespace-pre-line"
@@ -10467,10 +10478,10 @@ export function SplitVariant235(props) {
               dangerouslySetInnerHTML={{ __html: title2.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
-          
+
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <SmartField field="extra1" {...sp}>
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
                 className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
@@ -10480,7 +10491,7 @@ export function SplitVariant235(props) {
             </SmartField>
             <span className="w-[1px] h-3 bg-white/30"></span>
             <SmartField field="extra2" {...sp}>
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
                 className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
@@ -10490,7 +10501,7 @@ export function SplitVariant235(props) {
             </SmartField>
             <span className="w-[1px] h-3 bg-white/30"></span>
             <SmartField field="extra3" {...sp}>
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
                 className="font-sans font-bold text-[10px] text-white tracking-wider uppercase outline-none"
@@ -10499,9 +10510,9 @@ export function SplitVariant235(props) {
               </span>
             </SmartField>
           </div>
-          
+
           <SmartField field="extra4" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerHTML)}
               className="font-sans font-bold text-white tracking-tight outline-none whitespace-pre-line"
@@ -10515,10 +10526,10 @@ export function SplitVariant235(props) {
       {/* Logo (Top Right) */}
       <SmartField field="imagem3" {...sp} className="absolute top-10 right-10 h-8 z-30">
         {logo ? (
-          <img 
-            id="tpl_plat_logo" 
-            src={getCorsSafeUrl(logo)} 
-            className="h-full object-contain filter brightness-0 invert drop-shadow-md" 
+          <img
+            id="tpl_plat_logo"
+            src={getCorsSafeUrl(logo)}
+            className="h-full object-contain filter brightness-0 invert drop-shadow-md"
             crossOrigin="anonymous"
             alt="Logo"
           />
@@ -10543,10 +10554,10 @@ export function SplitVariant235(props) {
 // VARIANTE 236 — Sua Rotina
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant236(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10556,19 +10567,20 @@ export function SplitVariant236(props) {
   const topText = data.titulo || "Pronto para beber, fácil de encontrar\ne simples de incluir na rotina:";
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1527661591450-b4dca88926d1?q=80&w=1080&auto=format&fit=crop";
   const bottomText = data.texto_apoio || "seja no <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">café da manhã</span>, na saída\ncom os <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">amigos</span> ou nos\nencontros de <span class=\"font-bold\" style=\"color: var(--text-bottom-bold);\">família</span>.";
-  
+
   const colorBg = brandColor || (data.backgroundColor === "#0a4b2c" ? brandColor : data.backgroundColor) || "#000000";
   const colorTopText = data.textColor || "#ffffff";
   const colorBottomLight = data.extraColor || "#fad570";
   const colorBottomBold = brandColor || data.accentColor || "#e88912";
 
   return (
-    <div 
-      id="tpl_juice_routine" 
+    <div
+      id="tpl_juice_routine"
       className="w-full h-full relative overflow-hidden flex flex-col items-center justify-between py-12 px-8 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -10576,10 +10588,10 @@ export function SplitVariant236(props) {
       {/* Texto Superior */}
       <div className="w-full text-center z-10 pt-4">
         <SmartField field="titulo" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-sans font-light leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
+            className="font-sans font-light leading-[1.15] tracking-tight outline-none whitespace-pre-line block"
             style={{ fontSize: `${30 * sTitle}px`, color: colorTopText }}
             dangerouslySetInnerHTML={{ __html: topText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -10597,10 +10609,10 @@ export function SplitVariant236(props) {
       {/* Texto Inferior */}
       <div className="w-full text-center z-10 pb-4">
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
-            className="font-sans leading-[1.15] tracking-tight outline-none whitespace-pre-line block" 
+            className="font-sans leading-[1.15] tracking-tight outline-none whitespace-pre-line block"
             style={{ '--text-bottom-bold': '#000000', color: '#ffffff', fontSize: `${25 * sText}px` }}
             dangerouslySetInnerHTML={{ __html: bottomText.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -10623,10 +10635,10 @@ export function SplitVariant236(props) {
 // VARIANTE 237 — Promo Páscoa (ID 237)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant237(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10640,12 +10652,13 @@ export function SplitVariant237(props) {
   const colorText = data.textColor || "#311b11";
 
   return (
-    <div 
-      id="tpl_promo_pascoa" 
+    <div
+      id="tpl_promo_pascoa"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
@@ -10661,13 +10674,13 @@ export function SplitVariant237(props) {
         {/* Estrela SVG Decorativa */}
         <div className="absolute left-[8%] top-[20%] pointer-events-none opacity-80">
           <svg width="24" height="24" viewBox="0 0 24 24" fill={colorText} xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
           </svg>
         </div>
 
         {/* Título Principal */}
         <SmartField field="titulo" {...sp} className="w-full mb-2">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-serif font-black leading-[1.1] tracking-tight outline-none whitespace-pre-line"
@@ -10678,7 +10691,7 @@ export function SplitVariant237(props) {
 
         {/* Subtítulo */}
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <h2 
+          <h2
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans font-light leading-[1.2] tracking-tight outline-none whitespace-pre-line"
@@ -10704,10 +10717,10 @@ export function SplitVariant237(props) {
 // VARIANTE 238 — Promo Benefícios
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant238(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10717,28 +10730,29 @@ export function SplitVariant238(props) {
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1080&auto=format&fit=crop";
   const badgeUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
   const title = data.titulo || "Por que\napostar\n<span style=\"box-shadow: inset 0 -22px 0 var(--accent);\">no NY Roll?</span>";
-  
+
   const t1 = data.extra1 || "Segurança";
   const d1 = data.extra2 || "Resultados padronizados e alta qualidade.";
   const t2 = data.extra3 || "Agilidade";
   const d2 = data.extra4 || "Performance para as horas de maior demanda.";
   const t3 = data.extra5 || "Lucratividade";
   const d3 = data.extra6 || "Item visualmente incrível e com alto valor agregado.";
-  
+
   const colorBg = data.backgroundColor || "#11065e";
   const colorAccent = brandColor || data.accentColor || "#ff5400";
 
   return (
-    <div 
-      id="tpl_promo_benefits" 
+    <div
+      id="tpl_promo_benefits"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
-      style={{ 
-        '--bg-main': colorBg, 
+      style={{
+        '--bg-main': colorBg,
         '--accent': colorAccent,
         backgroundColor: 'var(--bg-main)'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -10751,7 +10765,7 @@ export function SplitVariant238(props) {
       {/* Left Title Area */}
       <div className="absolute bottom-[12%] left-[8%] w-[42%] z-10">
         <SmartField field="titulo" {...sp} className="w-full">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans font-bold leading-[1.25] text-white tracking-tight outline-none whitespace-pre-line"
@@ -10762,18 +10776,18 @@ export function SplitVariant238(props) {
       </div>
 
       {/* Right Orange Box */}
-      <div 
-        className="absolute bottom-0 right-4 w-[46%] h-[58%] z-20 px-6 py-6 flex flex-col justify-center gap-4 shadow-[-15px_15px_30px_rgba(0,0,0,0.25)]" 
+      <div
+        className="absolute bottom-0 right-4 w-[46%] h-[58%] z-20 px-6 py-6 flex flex-col justify-center gap-4 shadow-[-15px_15px_30px_rgba(0,0,0,0.25)]"
         style={{ backgroundColor: 'var(--accent)' }}
       >
         {/* Badge */}
         <SmartField field="imagem2" {...sp} className="absolute -top-[15%] right-[8%] w-16 h-16 z-30">
           {badgeUrl ? (
-            <img 
-              id="tpl_promo_badge" 
-              src={getCorsSafeUrl(badgeUrl)} 
-              className="w-full h-full object-contain drop-shadow-xl" 
-              style={{ filter: 'brightness(0) invert(1)' }} 
+            <img
+              id="tpl_promo_badge"
+              src={getCorsSafeUrl(badgeUrl)}
+              className="w-full h-full object-contain drop-shadow-xl"
+              style={{ filter: 'brightness(0) invert(1)' }}
               crossOrigin="anonymous"
               alt="Selo"
             />
@@ -10785,7 +10799,7 @@ export function SplitVariant238(props) {
         {/* Item 1 */}
         <div className="flex flex-col gap-0.5">
           <SmartField field="extra1" {...sp} className="w-full">
-            <h3 
+            <h3
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
               className="font-sans font-bold text-white leading-none outline-none"
@@ -10795,7 +10809,7 @@ export function SplitVariant238(props) {
             </h3>
           </SmartField>
           <SmartField field="extra2" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
               className="font-sans text-white/95 leading-tight font-light outline-none"
@@ -10809,7 +10823,7 @@ export function SplitVariant238(props) {
         {/* Item 2 */}
         <div className="flex flex-col gap-0.5">
           <SmartField field="extra3" {...sp} className="w-full">
-            <h3 
+            <h3
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
               className="font-sans font-bold text-white leading-none outline-none"
@@ -10819,7 +10833,7 @@ export function SplitVariant238(props) {
             </h3>
           </SmartField>
           <SmartField field="extra4" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerText)}
               className="font-sans text-white/95 leading-tight font-light outline-none"
@@ -10833,7 +10847,7 @@ export function SplitVariant238(props) {
         {/* Item 3 */}
         <div className="flex flex-col gap-0.5">
           <SmartField field="extra5" {...sp} className="w-full">
-            <h3 
+            <h3
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra5', e.currentTarget.innerText)}
               className="font-sans font-bold text-white leading-none outline-none"
@@ -10843,7 +10857,7 @@ export function SplitVariant238(props) {
             </h3>
           </SmartField>
           <SmartField field="extra6" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra6', e.currentTarget.innerText)}
               className="font-sans text-white/95 leading-tight font-light outline-none"
@@ -10871,10 +10885,10 @@ export function SplitVariant238(props) {
 // VARIANTE 239 — Promo Panettone
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant239(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10886,31 +10900,32 @@ export function SplitVariant239(props) {
   const colorText = data.textColor || "#2b1810";
 
   return (
-    <div 
-      id="tpl_promo_panettone" 
+    <div
+      id="tpl_promo_panettone"
       className="w-full h-full relative overflow-hidden flex flex-col items-center px-8 pt-12 pb-12 select-none font-sans transition-all duration-300"
-      style={{ 
-        '--bg-main': colorBg, 
+      style={{
+        '--bg-main': colorBg,
         '--text-main': colorText,
         backgroundColor: 'var(--bg-main)'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Top Text Box */}
-      <div 
-        className="w-full border-2 rounded-[24px] px-8 py-6 flex flex-col justify-center text-center z-10 relative bg-transparent" 
+      <div
+        className="w-full border-2 rounded-[24px] px-8 py-6 flex flex-col justify-center text-center z-10 relative bg-transparent"
         style={{ borderColor: 'var(--text-main)' }}
       >
         <SmartField field="titulo" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-serif leading-[1.2] tracking-tight outline-none whitespace-pre-line" 
+            className="font-serif leading-[1.2] tracking-tight outline-none whitespace-pre-line"
             style={{ fontSize: `${30 * sTitle}px`, color: 'var(--text-main)' }}
             dangerouslySetInnerHTML={{ __html: text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -10943,10 +10958,10 @@ export function SplitVariant239(props) {
 // VARIANTE 240 — Vitrine Produto
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant240(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -10959,18 +10974,19 @@ export function SplitVariant240(props) {
   const t2 = data.extra3 || "DIAMOND";
   const body = data.texto_apoio || "A caixa mede 14,3 x 3,5 cm (LxA) e possui capacidade para 200g. Acompanha forma plástica modelo coração lapidado.";
   const swipe = data.extra4 || "arrasta pro lado";
-  
+
   const colorBg = data.backgroundColor || "#e8a274";
   const colorText = data.textColor || "#3a1e0b";
   const colorHigh = brandColor || data.accentColor || "#f5e4c3";
 
   return (
-    <div 
-      id="tpl_product_box" 
+    <div
+      id="tpl_product_box"
       className="w-full h-full relative overflow-hidden flex flex-col pt-12 px-8 pb-8 select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap');
         .font-display { font-family: 'Anton', sans-serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
@@ -10986,7 +11002,7 @@ export function SplitVariant240(props) {
       {/* Área de Textos */}
       <div className="w-full mt-4 flex flex-col z-20">
         {/* Título Multi-Cor com Transformação Vertical */}
-        <h1 
+        <h1
           className="font-display font-black uppercase leading-none tracking-tighter origin-left transform scale-y-125 mb-4 flex gap-2 flex-wrap"
           style={{ fontSize: `${28 * sTitle}px` }}
         >
@@ -11000,13 +11016,13 @@ export function SplitVariant240(props) {
             <span contentEditable suppressContentEditableWarning onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)} style={{ color: colorText }} className="outline-none">{t2}</span>
           </SmartField>
         </h1>
-        
+
         {/* Descrição */}
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
-            className="font-sans font-medium leading-[1.3] outline-none whitespace-pre-line" 
+            className="font-sans font-medium leading-[1.3] outline-none whitespace-pre-line"
             style={{ fontSize: `${14 * sText}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -11014,8 +11030,8 @@ export function SplitVariant240(props) {
       </div>
 
       {/* Indicador de Swipe (Arraste pro lado) */}
-      <div 
-        className="absolute bottom-6 right-8 flex items-center gap-1.5 z-30 opacity-90 pointer-events-none" 
+      <div
+        className="absolute bottom-6 right-8 flex items-center gap-1.5 z-30 opacity-90 pointer-events-none"
         style={{ color: colorText }}
       >
         <svg className="w-4 h-4 transform -rotate-12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -11024,7 +11040,7 @@ export function SplitVariant240(props) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 11v6a5 5 0 01-10 0V8"></path>
         </svg>
         <SmartField field="extra4" {...sp} className="shrink-0 pointer-events-auto">
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra4', e.currentTarget.innerText)}
             className="font-sans font-medium tracking-wide outline-none text-[10px]"
@@ -11050,10 +11066,10 @@ export function SplitVariant240(props) {
 // VARIANTE 241 — Produto Split
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant241(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11063,69 +11079,59 @@ export function SplitVariant241(props) {
   const imageUrl = data.imageUrl || "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Heart%20with%20ribbon/3D/heart_with_ribbon_3d.png";
   const title = data.titulo || "Lata de Coração\ncom bombons <span class=\"italic font-light\">100g</span>";
   const body = data.texto_apoio || "Lata em formato de coração\ncom 8 bombons nos sabores avelã e doce de leite.";
-  
+
   const colorTop = data.backgroundColor2 || "#faeadb";
   const colorBottom = brandColor || data.backgroundColor || "#7a3623";
   const colorText = data.textColor || "#fdf3e7";
 
   return (
-    <div 
-      id="tpl_product_split" 
+    <div
+      id="tpl_product_split"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBottom }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
       `}} />
 
       {/* Top Section (Fundo Claro com Borda Arredondada Inferior) */}
-      <div 
+      <div
         className="w-full h-[65%] relative z-10 flex items-center justify-center rounded-b-[32px] shadow-sm"
         style={{ backgroundColor: colorTop }}
       >
-        {/* Imagem do Produto */}
-        <SmartField field="imagem" {...sp} className="w-[85%] h-[85%] relative z-10 flex justify-center items-center">
-          <img 
-            id="tpl_product_split_img" 
-            src={getCorsSafeUrl(imageUrl)} 
-            className="w-full h-full object-contain drop-shadow-[0_20px_20px_rgba(0,0,0,0.25)]" 
-            crossOrigin="anonymous"
-            alt="Produto"
-          />
-        </SmartField>
-        
         {/* Estrela Quatro Pontas Centralizada */}
-        <svg 
-          className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-10 h-10 z-20 drop-shadow-md pointer-events-none" 
+        <svg
+          className="absolute -bottom-5 left-1/2 transform -translate-x-1/2 w-10 h-10 z-20 drop-shadow-md pointer-events-none"
           style={{ color: colorBottom }}
-          viewBox="0 0 24 24" 
+          viewBox="0 0 24 24"
           fill="currentColor"
         >
-          <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z"/>
+          <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z" />
         </svg>
       </div>
-      
+
       {/* Bottom Section (Fundo Escuro) */}
       <div className="w-full h-[35%] relative z-0 flex flex-col items-center justify-center px-8 pt-6 pb-4 text-center">
         {/* Título Serifado */}
         <SmartField field="titulo" {...sp} className="w-full mb-2">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-serif font-bold leading-[1.1] outline-none whitespace-pre-line" 
+            className="font-serif font-bold leading-[1.1] outline-none whitespace-pre-line"
             style={{ fontSize: `${40 * sTitle}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
-        
+
         {/* Descrição */}
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
-            className="font-sans text-[32px] font-normal leading-[1.4] w-[90%] outline-none whitespace-pre-line block animate-none" 
+            className="font-sans text-[32px] font-normal leading-[1.4] w-[90%] outline-none whitespace-pre-line block animate-none"
             style={{ fontSize: `${20 * sText}px`, color: colorText }}
             dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -11148,10 +11154,10 @@ export function SplitVariant241(props) {
 // VARIANTE 242 — Passo a Passo
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant242(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11164,27 +11170,28 @@ export function SplitVariant242(props) {
   const number = data.extra2 || "1";
   const tag = data.extra3 || "1º Erro";
   const title = data.titulo || "Usar\nchocolate\nbaixa\nqualidade";
-  
+
   const colorBg = data.backgroundColor || "#e8e6e1";
   const colorAccent = brandColor || data.accentColor || "#c21010";
 
   const watermarkHtml = `${watermark}<br />${watermark}<br />${watermark}`;
 
   return (
-    <div 
-      id="tpl_listicle_step" 
+    <div
+      id="tpl_listicle_step"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
       style={{ backgroundColor: colorBg }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
 
       {/* Watermark Background */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-[0.03] z-0 transform -rotate-12 scale-125">
-        <span 
-          id="tpl_listicle_watermark" 
+        <span
+          id="tpl_listicle_watermark"
           className="font-sans font-black text-black tracking-tighter leading-none text-center select-none"
           style={{ fontSize: '90px' }}
           dangerouslySetInnerHTML={{ __html: watermarkHtml.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
@@ -11194,10 +11201,10 @@ export function SplitVariant242(props) {
       {/* Logo */}
       <SmartField field="imagem2" {...sp} className="absolute top-8 w-full flex justify-center z-20 h-10">
         {logoUrl ? (
-          <img 
-            id="tpl_listicle_logo" 
-            src={getCorsSafeUrl(logoUrl)} 
-            className="h-full object-contain drop-shadow-md" 
+          <img
+            id="tpl_listicle_logo"
+            src={getCorsSafeUrl(logoUrl)}
+            className="h-full object-contain drop-shadow-md"
             crossOrigin="anonymous"
             alt="Logo"
           />
@@ -11209,10 +11216,10 @@ export function SplitVariant242(props) {
       {/* Giant Number Background */}
       <div className="absolute top-[8%] left-4 z-10 w-[120px] flex justify-center">
         <SmartField field="extra2" {...sp} className="w-full text-center">
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
-            className="font-sans font-black leading-none tracking-tighter outline-none block" 
+            className="font-sans font-black leading-none tracking-tighter outline-none block"
             style={{ color: colorAccent, textShadow: '0 5px 15px rgba(0,0,0,0.08)', fontSize: `${240 * sTitle}px` }}
           >
             {number}
@@ -11223,10 +11230,10 @@ export function SplitVariant242(props) {
       {/* Floating Tag */}
       <div className="absolute top-[18%] left-12 bg-white px-3 py-1 shadow-md transform -rotate-2 z-40 border border-neutral-100">
         <SmartField field="extra3" {...sp} className="w-full">
-          <span 
+          <span
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'extra3', e.currentTarget.innerText)}
-            className="font-sans font-black tracking-tight outline-none block" 
+            className="font-sans font-black tracking-tight outline-none block"
             style={{ color: colorAccent, fontSize: `${16 * sText}px` }}
           >
             {tag}
@@ -11236,10 +11243,10 @@ export function SplitVariant242(props) {
 
       {/* 3D Character */}
       <SmartField field="imagem" {...sp} className="absolute bottom-[-2%] left-[-8%] w-[200px] h-[250px] z-30">
-        <img 
-          id="tpl_listicle_img" 
-          src={getCorsSafeUrl(imageUrl)} 
-          className="w-full h-full object-contain drop-shadow-[10px_10px_20px_rgba(0,0,0,0.25)]" 
+        <img
+          id="tpl_listicle_img"
+          src={getCorsSafeUrl(imageUrl)}
+          className="w-full h-full object-contain drop-shadow-[10px_10px_20px_rgba(0,0,0,0.25)]"
           crossOrigin="anonymous"
           alt="Personagem"
         />
@@ -11248,10 +11255,10 @@ export function SplitVariant242(props) {
       {/* Title Content */}
       <div className="absolute top-[32%] left-[42%] z-20 w-[55%] pl-2">
         <SmartField field="titulo" {...sp} className="w-full">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-sans font-black leading-[1.05] tracking-tight outline-none whitespace-pre-line" 
+            className="font-sans font-black leading-[1.05] tracking-tight outline-none whitespace-pre-line"
             style={{ fontSize: `${30 * sTitle}px`, color: colorAccent }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -11281,10 +11288,10 @@ export function SplitVariant242(props) {
 // VARIANTE 246 — Portfólio Agência iPhone
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant246(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11295,25 +11302,26 @@ export function SplitVariant246(props) {
   const bg1Url = data.imageUrl2 || "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop";
   const bg2Url = data.imageUrl3 || "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop";
   const logoUrl = data.imageUrl4 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  
+
   const title = data.titulo || "PRECISA DE POSTS CATIVANTES E ESTRATÉGIAS SOB MEDIDA?";
   const body = data.texto_apoio || "Vamos elevar sua presença online para o próximo nível. Não espere mais, dê o primeiro passo para o sucesso hoje mesmo!";
   const cta = data.extra1 || "VAMOS ABRIR ESSA PORTA JUNTOS!";
   const phone = data.extra2 || "62 98230-4734";
-  
+
   const colorBg = brandColor || data.backgroundColor || "#e64f22";
   const colorText = data.textColor || "#ffffff";
 
   return (
-    <div 
-      id="tpl_agency_mockup_246" 
+    <div
+      id="tpl_agency_mockup_246"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
-      style={{ 
+      style={{
         '--bg-main': colorBg,
         backgroundColor: 'var(--bg-main)'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Montserrat', sans-serif; }
@@ -11321,7 +11329,7 @@ export function SplitVariant246(props) {
 
       {/* Lado Esquerdo: Mockups Flutuantes */}
       <div className="w-[52%] h-full relative z-20">
-        
+
         {/* Post Fundo 1 (Canto Superior Esq) */}
         <SmartField field="imagem2" rotation={350} {...sp} className="absolute -top-[12%] left-[10%] w-[130px] rounded-[16px] bg-white shadow-lg transform rotate-[350deg] p-1 pb-4 z-0 opacity-90">
           <ImageBg data={data} imageUrl={bg1Url} className="w-full aspect-square rounded-[12px]" />
@@ -11351,7 +11359,7 @@ export function SplitVariant246(props) {
             <div className="pt-4 pb-1.5 px-2.5 flex items-center gap-1.5 border-b border-gray-100 bg-white z-20">
               <div className="w-4 h-4 bg-gray-200 rounded-full flex items-center justify-center text-gray-400">
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
               </div>
               <div className="flex-1">
@@ -11369,14 +11377,14 @@ export function SplitVariant246(props) {
             <div className="p-2.5 flex justify-between items-center bg-white z-20 border-t border-gray-100">
               <div className="flex gap-1.5">
                 <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
                 <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
               <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
               </svg>
             </div>
           </div>
@@ -11386,7 +11394,7 @@ export function SplitVariant246(props) {
       {/* Lado Direito: Textos e Call to Action */}
       <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-10">
         <SmartField field="titulo" {...sp} className="w-full">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-display font-black text-white leading-[1.05] tracking-tighter uppercase drop-shadow-sm outline-none whitespace-pre-line"
@@ -11394,9 +11402,9 @@ export function SplitVariant246(props) {
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
           />
         </SmartField>
-        
+
         <SmartField field="texto_apoio" {...sp} className="w-full mt-4">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-white/95 font-light leading-snug outline-none whitespace-pre-line"
@@ -11408,7 +11416,7 @@ export function SplitVariant246(props) {
         {/* CTA Box */}
         <SmartField field="extra1" {...sp} className="mt-6">
           <div className="border-[2px] border-white rounded-[16px] py-1.5 px-3 w-fit hover:bg-white hover:text-black transition-colors duration-300 cursor-default">
-            <span 
+            <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
               className="font-sans font-medium text-white uppercase tracking-wider text-inherit outline-none text-[10px]"
@@ -11423,10 +11431,10 @@ export function SplitVariant246(props) {
           <span className="font-sans text-[8px] text-white/80 uppercase tracking-widest font-semibold">ENTRE EM CONTATO:</span>
           <div className="flex items-center gap-1.5">
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
             </svg>
             <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
                 className="font-display font-bold text-white tracking-tight leading-none outline-none text-[16px]"
@@ -11440,10 +11448,10 @@ export function SplitVariant246(props) {
         {/* Logo */}
         <SmartField field="imagem4" {...sp} className="absolute bottom-6 right-8 h-8 z-30">
           {logoUrl ? (
-            <img 
-              id="tpl_agency_logo_246" 
-              src={getCorsSafeUrl(logoUrl)} 
-              className="h-full object-contain drop-shadow-md" 
+            <img
+              id="tpl_agency_logo_246"
+              src={getCorsSafeUrl(logoUrl)}
+              className="h-full object-contain drop-shadow-md"
               style={{ filter: 'brightness(0) invert(1)' }}
               crossOrigin="anonymous"
               alt="Logo"
@@ -11471,10 +11479,10 @@ export function SplitVariant246(props) {
 // VARIANTE 247 — Portfólio Agência Mockup
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant247(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11485,25 +11493,26 @@ export function SplitVariant247(props) {
   const bg1Url = data.imageUrl2 || "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop";
   const bg2Url = data.imageUrl3 || "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop";
   const logoUrl = data.imageUrl4 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  
+
   const title = data.titulo || "PRECISA DE POSTS CATIVANTES E ESTRATÉGIAS SOB MEDIDA?";
   const body = data.texto_apoio || "Vamos elevar sua presença online para o próximo nível. Não espere mais, dê o primeiro passo para o sucesso hoje mesmo!";
   const cta = data.extra1 || "VAMOS ABRIR ESSA PORTA JUNTOS!";
   const phone = data.extra2 || "62 98230-4734";
-  
+
   const colorBg = brandColor || data.backgroundColor || "#e64f22";
   const colorText = data.textColor || "#ffffff";
 
   return (
-    <div 
-      id="tpl_agency_mockup_247" 
+    <div
+      id="tpl_agency_mockup_247"
       className="w-full h-full relative overflow-hidden flex select-none font-sans transition-all duration-300"
-      style={{ 
+      style={{
         '--bg-main': colorBg,
         backgroundColor: 'var(--bg-main)'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Montserrat', sans-serif; }
@@ -11523,7 +11532,7 @@ export function SplitVariant247(props) {
             <div className="pt-4 pb-1.5 px-2.5 flex items-center gap-1.5 border-b border-gray-100 bg-white z-20">
               <div className="w-4 h-4 bg-gray-200 rounded-full flex items-center justify-center text-gray-400">
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
               </div>
               <div className="flex-1">
@@ -11541,14 +11550,14 @@ export function SplitVariant247(props) {
             <div className="p-2.5 flex justify-between items-center bg-white z-20 border-t border-gray-100">
               <div className="flex gap-1.5">
                 <svg className="w-3.5 h-3.5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
                 <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
               <svg className="w-3.5 h-3.5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
               </svg>
             </div>
           </div>
@@ -11558,7 +11567,7 @@ export function SplitVariant247(props) {
       {/* Lado Direito: Textos e Call to Action */}
       <div className="w-[48%] h-full flex flex-col justify-center pr-6 pl-4 relative z-10">
         <SmartField field="titulo" {...sp} className="w-full">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-display font-black text-white leading-[1.05] tracking-tighter uppercase drop-shadow-sm outline-none whitespace-pre-line"
@@ -11566,9 +11575,9 @@ export function SplitVariant247(props) {
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\\n/g, '<br />') }}
           />
         </SmartField>
-        
+
         <SmartField field="texto_apoio" {...sp} className="w-full mt-4">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans text-white/95 font-light leading-snug outline-none whitespace-pre-line"
@@ -11580,7 +11589,7 @@ export function SplitVariant247(props) {
         {/* CTA Box */}
         <SmartField field="extra1" {...sp} className="mt-6">
           <div className="border-[2px] border-white rounded-[16px] py-1.5 px-3 w-fit hover:bg-white hover:text-black transition-colors duration-300 cursor-default">
-            <span 
+            <span
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
               className="font-sans font-medium text-white uppercase tracking-wider text-inherit outline-none text-[10px]"
@@ -11595,10 +11604,10 @@ export function SplitVariant247(props) {
           <span className="font-sans text-[8px] text-white/80 uppercase tracking-widest font-semibold">ENTRE EM CONTATO:</span>
           <div className="flex items-center gap-1.5">
             <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+              <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
             </svg>
             <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
-              <span 
+              <span
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
                 className="font-display font-bold text-white tracking-tight leading-none outline-none text-[16px]"
@@ -11612,10 +11621,10 @@ export function SplitVariant247(props) {
         {/* Logo */}
         <SmartField field="imagem4" {...sp} className="absolute bottom-6 right-8 h-8 z-30">
           {logoUrl ? (
-            <img 
-              id="tpl_agency_logo_247" 
-              src={getCorsSafeUrl(logoUrl)} 
-              className="h-full object-contain drop-shadow-md" 
+            <img
+              id="tpl_agency_logo_247"
+              src={getCorsSafeUrl(logoUrl)}
+              className="h-full object-contain drop-shadow-md"
               style={{ filter: 'brightness(0) invert(1)' }}
               crossOrigin="anonymous"
               alt="Logo"
@@ -11643,10 +11652,10 @@ export function SplitVariant247(props) {
 // VARIANTE 248 — Social Meme (Estilo Confeitunes)
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant248(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11665,14 +11674,15 @@ export function SplitVariant248(props) {
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&q=80&w=600";
 
   return (
-    <div 
-      id="tpl_social_meme_248" 
+    <div
+      id="tpl_social_meme_248"
       className="w-full h-full relative overflow-hidden flex flex-col justify-between select-none p-6 box-border transition-all duration-300"
-      style={{ 
+      style={{
         backgroundColor: colorBg
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans-meme { font-family: 'Plus Jakarta Sans', sans-serif; }
         .text-shadow-premium {
@@ -11681,8 +11691,8 @@ export function SplitVariant248(props) {
       `}} />
 
       {/* Card Branco Estilo Tweet / Post Social */}
-      <div 
-        id="meme-card" 
+      <div
+        id="meme-card"
         className="rounded-[24px] p-5 shadow-xl flex flex-col gap-4 box-border font-sans-meme"
         style={{ backgroundColor: colorCard }}
       >
@@ -11690,19 +11700,19 @@ export function SplitVariant248(props) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <SmartField field="imagem2" {...sp} className="w-10 h-10 rounded-full overflow-hidden border border-gray-200 shrink-0">
-              <img 
-                id="meme-preview-avatar" 
-                className="w-full h-full object-cover" 
-                src={getCorsSafeUrl(avatarUrl)} 
+              <img
+                id="meme-preview-avatar"
+                className="w-full h-full object-cover"
+                src={getCorsSafeUrl(avatarUrl)}
                 crossOrigin="anonymous"
-                alt="Avatar" 
+                alt="Avatar"
               />
             </SmartField>
-            
+
             <div className="flex flex-col justify-center leading-tight">
               <div className="flex items-center gap-1.5">
                 <SmartField field="extra1" {...sp} className="shrink-0">
-                  <span 
+                  <span
                     contentEditable suppressContentEditableWarning
                     onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
                     className="font-extrabold text-[#111827] text-[13px] tracking-tight outline-none"
@@ -11710,12 +11720,12 @@ export function SplitVariant248(props) {
                     {authorName}
                   </span>
                 </SmartField>
-                
+
                 {verified && (
-                  <svg 
-                    id="meme-display-verified" 
-                    className="h-3.5 w-3.5 text-sky-500 flex-shrink-0" 
-                    fill="currentColor" 
+                  <svg
+                    id="meme-display-verified"
+                    className="h-3.5 w-3.5 text-sky-500 flex-shrink-0"
+                    fill="currentColor"
                     viewBox="0 0 20 20"
                   >
                     <path fillRule="evenodd" d="M6.267 3.455a.75.75 0 00-.708-.523 4.25 4.25 0 00-4.25 4.25 1.25 1.25 0 01-.15.584.75.75 0 00.323.978l1.58.825a.75.75 0 001.037-.323 1.25 1.25 0 011.666-.667.75.75 0 00.978-.323l.825-1.58a1.25 1.25 0 01.584-.15.75.75 0 00.978-.323l.825-1.58a.75.75 0 00-.323-.978 1.25 1.25 0 01-.15-.584zm5.111.455a.75.75 0 01.708.523 4.25 4.25 0 014.25 4.25c0 .2.05.39.15.584a.75.75 0 01-.323.978l-1.58.825a.75.75 0 01-1.037-.323 1.25 1.25 0 01-1.666-.667.75.75 0 00.978-.323l.825-1.58a1.25 1.25 0 01.584-.15.75.75 0 00.978-.323l.825-1.58a.75.75 0 00-.323-.978 1.25 1.25 0 01-.15-.584z" clipRule="evenodd" />
@@ -11724,7 +11734,7 @@ export function SplitVariant248(props) {
                 )}
               </div>
               <SmartField field="extra2" {...sp} className="shrink-0 mt-0.5">
-                <span 
+                <span
                   contentEditable suppressContentEditableWarning
                   onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerText)}
                   className="text-[10px] text-gray-500 font-medium outline-none"
@@ -11739,7 +11749,7 @@ export function SplitVariant248(props) {
         {/* Textos do Post */}
         <div className="flex flex-col gap-1.5">
           <SmartField field="titulo" {...sp} className="w-full">
-            <p 
+            <p
               contentEditable suppressContentEditableWarning
               onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
               className="text-gray-800 font-bold text-[13px] leading-[1.35] tracking-tight m-0 outline-none whitespace-pre-line block"
@@ -11749,7 +11759,7 @@ export function SplitVariant248(props) {
           </SmartField>
           {subText && (
             <SmartField field="subtitulo" {...sp} className="w-full">
-              <p 
+              <p
                 contentEditable suppressContentEditableWarning
                 onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
                 className="text-gray-600 font-semibold text-[11px] m-0 outline-none whitespace-pre-line block"
@@ -11769,7 +11779,7 @@ export function SplitVariant248(props) {
       {/* Rodapé Texto Fora do Card */}
       <div className="text-center px-4 font-sans-meme">
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="text-white text-[10px] font-semibold tracking-wide leading-[1.45] m-0 text-shadow-premium outline-none whitespace-pre-line block"
@@ -11794,10 +11804,10 @@ export function SplitVariant248(props) {
 // VARIANTE 243 — Convite Negócios BNI
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant243(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11812,14 +11822,15 @@ export function SplitVariant243(props) {
   const colorCta = brandColor || data.accentColor || "#d81b21";
 
   return (
-    <div 
-      id="tpl_business_invite" 
+    <div
+      id="tpl_business_invite"
       className="w-full h-full relative overflow-hidden flex flex-col items-center select-none font-sans transition-all duration-300"
-      style={{ 
+      style={{
         '--bg-cta': colorCta
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Montserrat', sans-serif; }
@@ -11829,17 +11840,17 @@ export function SplitVariant243(props) {
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </div>
-      
+
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/25 z-10 pointer-events-none"></div>
 
       {/* Top Logo */}
       <SmartField field="imagem2" {...sp} forceX={0} forceY={0} className="absolute top-10 w-full flex justify-center z-20 h-8">
         {logoUrl ? (
-          <img 
-            id="tpl_business_logo" 
-            src={getCorsSafeUrl(logoUrl)} 
-            className="h-full object-contain drop-shadow-lg" 
+          <img
+            id="tpl_business_logo"
+            src={getCorsSafeUrl(logoUrl)}
+            className="h-full object-contain drop-shadow-lg"
             style={{ filter: 'brightness(0) invert(1)' }}
             crossOrigin="anonymous"
             alt="Logo"
@@ -11851,44 +11862,44 @@ export function SplitVariant243(props) {
 
       {/* Main White Card */}
       <div className="relative z-20 w-[84%] bg-white rounded-[24px] shadow-2xl flex flex-col items-center pt-8 px-6 pb-14 mt-auto mb-[30%]">
-          {/* Título Principal */}
-          <SmartField field="titulo" {...sp} className="w-full mb-3">
-            <h1 
-              contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-              className="font-display font-black uppercase text-black leading-[1.15] text-center outline-none"
-              style={{ fontSize: `${28 * sTitle}px` }}
-              dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
-            />
-          </SmartField>
+        {/* Título Principal */}
+        <SmartField field="titulo" {...sp} className="w-full mb-3">
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            className="font-display font-black uppercase text-black leading-[1.15] text-center outline-none"
+            style={{ fontSize: `${28 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
 
-          {/* Corpo do Texto */}
-          <SmartField field="texto_apoio" {...sp} className="w-full">
-            <p 
+        {/* Corpo do Texto */}
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            className="font-sans text-gray-800 text-center leading-[1.45] outline-none"
+            style={{ fontSize: `${18 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+          />
+        </SmartField>
+
+        {/* Botão CTA */}
+        <div
+          className="absolute -bottom-7 w-[95%] rounded-[16px] py-3 px-4 shadow-lg flex items-center justify-center border-[3px] border-white"
+          style={{ backgroundColor: colorCta }}
+        >
+          <SmartField field="extra2" {...sp} className="w-full flex justify-center">
+            <p
+              id="tpl_business_cta"
               contentEditable suppressContentEditableWarning
-              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
-              className="font-sans text-gray-800 text-center leading-[1.45] outline-none"
+              onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
+              className="font-sans text-white leading-tight text-center font-light outline-none"
               style={{ fontSize: `${18 * sText}px` }}
-              dangerouslySetInnerHTML={{ __html: body.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
+              dangerouslySetInnerHTML={{ __html: cta.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
             />
           </SmartField>
-
-          {/* Botão CTA */}
-          <div 
-            className="absolute -bottom-7 w-[95%] rounded-[16px] py-3 px-4 shadow-lg flex items-center justify-center border-[3px] border-white" 
-            style={{ backgroundColor: colorCta }}
-          >
-            <SmartField field="extra2" {...sp} className="w-full flex justify-center">
-              <p 
-                id="tpl_business_cta" 
-                contentEditable suppressContentEditableWarning
-                onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
-                className="font-sans text-white leading-tight text-center font-light outline-none"
-                style={{ fontSize: `${18 * sText}px` }}
-                dangerouslySetInnerHTML={{ __html: cta.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
-              />
-            </SmartField>
-          </div>
+        </div>
       </div>
 
       {/* SlideHeader do Carrossel Studio */}
@@ -11907,10 +11918,10 @@ export function SplitVariant243(props) {
 // VARIANTE 244 — Citação Negócios
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant244(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -11921,16 +11932,17 @@ export function SplitVariant244(props) {
   const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
   const p1 = data.titulo || "Se é o mais inteligente da mesa, <span class=\"font-black text-black\">está na mesa errada.</span> O sucesso nos negócios não é um evento isolado, é uma <span class=\"font-black text-black\">consequência do meio</span> em que se move.";
   const p2 = data.texto_apoio || "No BNI, não oferecemos apenas contatos; oferecemos um <span class=\"font-black text-black\">conselho consultivo</span> formado por empresários que já chegaram onde pretende chegar.";
-  
+
   const colorCard = data.backgroundColor2 || "#ffffff";
   const colorText = data.textColor || "#111827";
 
   return (
-    <div 
-      id="tpl_business_quote" 
+    <div
+      id="tpl_business_quote"
       className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center select-none font-sans transition-all duration-300"
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
       `}} />
@@ -11939,7 +11951,7 @@ export function SplitVariant244(props) {
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
       </div>
-      
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/40 z-10 pointer-events-none"></div>
 
@@ -11947,10 +11959,10 @@ export function SplitVariant244(props) {
       <div className="absolute top-10 left-0 w-full flex justify-center z-20 pointer-events-none">
         <SmartField field="imagem2" {...sp} forceX={0} forceY={0} className="h-8 pointer-events-auto flex justify-center items-center">
           {logoUrl ? (
-            <img 
-              id="tpl_business_quote_logo" 
-              src={getCorsSafeUrl(logoUrl)} 
-              className="h-full object-contain drop-shadow-md" 
+            <img
+              id="tpl_business_quote_logo"
+              src={getCorsSafeUrl(logoUrl)}
+              className="h-full object-contain drop-shadow-md"
               crossOrigin="anonymous"
               alt="Logo"
             />
@@ -11961,13 +11973,13 @@ export function SplitVariant244(props) {
       </div>
 
       {/* Main White Card */}
-      <div 
-        id="tpl_business_quote_card" 
+      <div
+        id="tpl_business_quote_card"
         className="relative z-20 w-[84%] rounded-[24px] shadow-2xl flex flex-col p-6"
         style={{ backgroundColor: colorCard, marginTop: '35px' }}
       >
         <SmartField field="titulo" {...sp} className="w-full mb-4">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
@@ -11975,9 +11987,9 @@ export function SplitVariant244(props) {
             dangerouslySetInnerHTML={{ __html: p1.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
         </SmartField>
-        
+
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] tracking-tight outline-none whitespace-pre-line"
@@ -12003,10 +12015,10 @@ export function SplitVariant244(props) {
 // VARIANTE 245 — Corp Split Card
 // ═══════════════════════════════════════════════════════════
 export function SplitVariant245(props) {
-  const { 
+  const {
     data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
     titleScale, textScale, showMetrics, onActionStart, onTextChange,
-    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo 
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
   } = props;
 
   const sTitle = titleScale / 100;
@@ -12015,23 +12027,24 @@ export function SplitVariant245(props) {
 
   const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1080&auto=format&fit=crop";
   const logoUrl = data.imageUrl2 || brandLogo || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/256px-React-icon.svg.png";
-  const title = data.titulo || "CAMPANHAS NÃO<br>RESOLVEM <span style=\"color: var(--accent);\">FALTA<br>DE CONFIANÇA.</span>";
-  const body = data.texto_apoio || "No marketing, o <span class=\"font-bold\">custo de aquisição (CAC)</span> dispara quando o cliente não conhece a sua entrega. Pode ter o <span class=\"font-bold\">melhor criativo</span> do mercado, mas se a primeira reunião for 'fria', <span class=\"font-bold\">o ciclo de vendas</span> será longo e desgastante. O mercado de <span class=\"font-bold\">serviços premium</span> exige algo que o <span class=\"font-bold\">tráfego pago não compra: o aval prévio.</span>";
-  
+  const title = data.titulo || "O SABOR COMEÇA<br>NA<span style=\"color: var(--accent);\"> APRESENTAÇÃO</span>";
+  const body = data.texto_apoio || "Na confeitaria <span class=\"font-bold\">premium</span> as pessoas compram com os olhos antes de comprar com o cartão. Uma <span class=\"font-bold\">identidade visual forte</span>, <span class=\"font-bold\">fotos profissionais</span> e uma <span class=\"font-bold\">apresentação cuidadosa</span> criam valor antes mesmo da degustação. Quando existe <span class=\"font-bold\">confiança</span>, o preço deixa de ser a objeção principal.";
+
   const colorBg = data.backgroundColor || "#f8f9fa";
   const colorAccent = brandColor || data.accentColor || "#cf2027";
 
   return (
-    <div 
-      id="tpl_corp_split_card" 
+    <div
+      id="tpl_corp_split_card"
       className="w-full h-full relative overflow-hidden flex flex-col select-none font-sans transition-all duration-300"
-      style={{ 
-        '--accent': colorAccent, 
+      style={{
+        '--accent': colorAccent,
         '--bg-top': colorBg,
         backgroundColor: 'var(--bg-top)'
       }}
     >
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-display { font-family: 'Oswald', sans-serif; }
@@ -12045,12 +12058,12 @@ export function SplitVariant245(props) {
       `}} />
 
       {/* Grid Pattern Background */}
-      <div 
-        className="absolute top-0 left-0 w-full h-[65%] pointer-events-none opacity-[0.12] z-0" 
-        style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 30 0 L 0 0 0 30' fill='none' stroke='%23000000' stroke-width='0.5'/%3E%3C/svg%3E")`, 
-          backgroundSize: '30px 30px', 
-          backgroundPosition: 'center' 
+      <div
+        className="absolute top-0 left-0 w-full h-[65%] pointer-events-none opacity-[0.12] z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 30 0 L 0 0 0 30' fill='none' stroke='%23000000' stroke-width='0.5'/%3E%3C/svg%3E")`,
+          backgroundSize: '30px 30px',
+          backgroundPosition: 'center'
         }}
       />
 
@@ -12059,10 +12072,10 @@ export function SplitVariant245(props) {
         {/* Logo */}
         <SmartField field="imagem2" {...sp} className="h-8 object-contain mb-4 z-20">
           {logoUrl ? (
-            <img 
-              id="tpl_corp_logo" 
-              src={getCorsSafeUrl(logoUrl)} 
-              className="h-full object-contain drop-shadow-sm" 
+            <img
+              id="tpl_corp_logo"
+              src={getCorsSafeUrl(logoUrl)}
+              className="h-full object-contain drop-shadow-sm"
               crossOrigin="anonymous"
               alt="Logo"
             />
@@ -12070,13 +12083,13 @@ export function SplitVariant245(props) {
             <div className="h-full w-8 bg-black/10 rounded" />
           )}
         </SmartField>
-        
+
         {/* Main Title */}
         <SmartField field="titulo" {...sp} className="w-full z-20">
-          <h1 
+          <h1
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
-            className="font-display font-black leading-[1] text-center uppercase tracking-tighter text-black outline-none whitespace-pre-line m-0" 
+            className="font-display font-black leading-[1] text-center uppercase tracking-tighter text-black outline-none whitespace-pre-line m-0"
             style={{ fontSize: `${52 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: title.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
           />
@@ -12091,7 +12104,7 @@ export function SplitVariant245(props) {
       {/* Floating White Card */}
       <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 w-[85%] bg-white rounded-[16px] shadow-xl border border-gray-100 px-5 py-[0.7rem] z-50">
         <SmartField field="texto_apoio" {...sp} className="w-full">
-          <p 
+          <p
             contentEditable suppressContentEditableWarning
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             className="font-sans leading-[1.5] text-gray-900 tracking-tight outline-none"
@@ -12112,6 +12125,469 @@ export function SplitVariant245(props) {
     </div>
   );
 }
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 249 — Klini Saudável
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant249(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#fb8c00";
+  const colorText = data.textColor || "#fdebd0";
+  const colorAccent = brandColor || data.accentColor || "#2e7d32";
+
+  const title1 = data.titulo || "BOLINHAS\nENERGÉTICAS\nDE AVEIA E\nPASTA DE AMENDOIM";
+  const title2 = data.subtitulo || "Receita saudável";
+  const description = data.texto_apoio || "Perfeitas para um lanche rápido, pré-treino\nou para matar a vontade de doce\nde forma saudável!";
+  
+  const list1 = data.list1 || data.list || "1 xícara (chá) de aveia em flocos\n½ xícara (chá) de pasta de amendoim";
+  const list2 = data.list2 || "1. Em uma tigela, misture a aveia, a chia, o coco ralado e o sal.\n2. Em outro recipiente, misture a pasta de amendoim.";
+  
+  const footer = data.extra1 || "Mais sabor,\nmais saúde,\nmenos desperdício.";
+  const footer2 = data.extra2 || "Rende cerca de 15 bolinhas.<br><b>Armazene na geladeira por até 7 dias.</b>";
+  
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1604085792782-8d92f276d7d8?q=80&w=2000&auto=format&fit=crop&bg=transparent";
+  const ribbonUrl = data.extra3 || "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Orange_ribbon.svg/512px-Orange_ribbon.svg.png";
+  const logoUrl = data.imageUrl2 || brandLogo || brandAvatar || "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Klarna_logo.svg/1024px-Klarna_logo.svg.png";
+
+  const renderIngredients = () => {
+    if (!list1) return null;
+    const items = Array.isArray(list1)
+      ? list1
+      : list1.split('\n').filter(item => item.trim() !== '');
+
+    return items.map((item, idx) => (
+      <li key={idx}>
+        <span className="text-[#5d4037]">{item}</span>
+      </li>
+    ));
+  };
+
+  const renderSteps = () => {
+    if (!list2) return null;
+    const steps = Array.isArray(list2)
+      ? list2
+      : list2.split('\n').filter(step => step.trim() !== '');
+
+    return steps.map((step, idx) => {
+      const match = step.match(/^(\d+)[.)]?\s*(.*)/);
+      if (match) {
+        return (
+          <div key={idx} className="flex gap-[6px] items-start">
+            <span className="bg-[#d84315] text-white rounded-full w-[14px] h-[14px] flex items-center justify-center text-[7px] font-bold shrink-0 mt-[2px]">
+              {match[1]}
+            </span>
+            <p className="flex-1 text-[8px] leading-tight text-[#5d4037]">{match[2]}</p>
+          </div>
+        );
+      }
+      return <p key={idx} className="text-[8px] leading-tight text-[#5d4037]">{step}</p>;
+    });
+  };
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl-klini2"
+      className="w-full h-full relative overflow-hidden flex select-none transition-colors duration-300 z-0 font-sans"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+      `}} />
+
+      {logoUrl && (
+        <div className="absolute top-[24px] left-[24px] z-20">
+          <img
+            id="out-klini2-logo"
+            src={getCorsSafeUrl(logoUrl)}
+            className="h-[24px] object-contain invert brightness-0"
+            alt="Logo"
+            crossOrigin="anonymous"
+          />
+        </div>
+      )}
+
+      {imageUrl && (
+        <div className="absolute bottom-0 -left-[10%] w-[55%] h-[80%] z-10 pointer-events-none">
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full bg-contain bg-left-bottom drop-shadow-2xl" />
+        </div>
+      )}
+
+      <div className="absolute bottom-[24px] left-[24px] bg-[#5d4037] rounded-[12px] p-[12px] flex items-center gap-[8px] z-20 max-w-[38%] shadow-xl">
+        <svg
+          className="w-[24px] h-[24px] shrink-0"
+          style={{ color: colorBg }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+          />
+        </svg>
+        <SmartField field="extra1" {...sp}>
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'extra1', e.currentTarget.innerText)}
+            id="out-klini2-footer"
+            className="text-white font-bold leading-tight outline-none"
+            style={{ fontSize: `${7.4 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(footer) }}
+          ></p>
+        </SmartField>
+      </div>
+
+      <div
+        className="absolute top-[16px] right-[16px] bottom-[16px] w-[62%] rounded-[24px] p-[20px] flex flex-col z-20 shadow-2xl overflow-hidden"
+        style={{ backgroundColor: colorText }}
+      >
+        <SmartField field="subtitulo" {...sp} className="mb-[4px]">
+          <h3
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+            id="out-klini2-title2"
+            className="font-serif italic text-[#d84315] leading-none outline-none"
+            style={{ fontSize: `${11 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(title2) }}
+          ></h3>
+        </SmartField>
+
+        <SmartField field="titulo" {...sp} className="mb-[12px]">
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            id="out-klini2-title1"
+            className="font-sans font-black leading-[1.05] uppercase tracking-tight outline-none"
+            style={{ color: colorAccent, fontSize: `${18 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(title1) }}
+          ></h1>
+        </SmartField>
+
+        <hr className="border-[#d84315]/30 mb-[12px] w-[48px] border-[2px] rounded shrink-0" />
+
+        <SmartField field="texto_apoio" {...sp} className="mb-[16px]">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+            id="out-klini2-desc"
+            className="font-sans text-[#5d4037] font-medium leading-snug outline-none"
+            style={{ fontSize: `${9 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(description) }}
+          ></p>
+        </SmartField>
+
+        <div className="flex-1 flex flex-col gap-[12px] min-h-0 relative z-10 overflow-hidden">
+          <div className="shrink-0">
+            <div className="flex items-center gap-[6px] mb-[8px]">
+              <svg
+                className="w-[16px] h-[16px] text-[#d84315]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <h2 className="font-serif italic text-[#d84315] font-bold" style={{ fontSize: `${13 * sTitle}px` }}>
+                Ingredientes
+              </h2>
+            </div>
+            <SmartField field="list1" {...sp}>
+              <ul
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list1', e.currentTarget.innerText)}
+                id="out-klini2-list1"
+                className="text-[#d84315] font-medium leading-snug space-y-[2px] ml-[8px] pl-[12px] list-disc marker:text-[#d84315] outline-none"
+                style={{ fontSize: `${8 * sText}px` }}
+              >
+                {renderIngredients()}
+              </ul>
+            </SmartField>
+          </div>
+
+          <hr className="border-[#d84315]/20 border-dashed border-t-[1px] my-[2px] shrink-0" />
+
+          <div className="shrink-0 overflow-hidden">
+            <div className="flex items-center gap-[6px] mb-[8px]">
+              <svg
+                className="w-[16px] h-[16px] text-[#d84315]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                />
+              </svg>
+              <h2 className="font-serif italic text-[#d84315] font-bold" style={{ fontSize: `${13 * sTitle}px` }}>
+                Modo de Preparo
+              </h2>
+            </div>
+            <SmartField field="list2" {...sp}>
+              <div
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list2', e.currentTarget.innerText)}
+                id="out-klini2-list2"
+                className="space-y-[6px] flex flex-col outline-none"
+              >
+                {renderSteps()}
+              </div>
+            </SmartField>
+          </div>
+        </div>
+
+        <div className="bg-[#fb8c00]/20 rounded-[12px] p-[10px] flex items-center gap-[8px] shrink-0 mt-[12px]">
+          <svg
+            className="w-[20px] h-[20px] text-[#d84315] shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            />
+          </svg>
+          <SmartField field="extra2" {...sp}>
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'extra2', e.currentTarget.innerHTML)}
+              id="out-klini2-footer2"
+              className="text-[#d84315] font-medium leading-tight outline-none"
+              style={{ fontSize: `${7.4 * sText}px` }}
+              dangerouslySetInnerHTML={{ __html: formatText(footer2) }}
+            ></p>
+          </SmartField>
+        </div>
+      </div>
+
+      {ribbonUrl && (
+        <div className="absolute top-[12%] -right-[2%] w-[15%] z-30 pointer-events-none">
+          <img
+            id="out-klini2-img2"
+            src={getCorsSafeUrl(ribbonUrl)}
+            className="w-full object-contain drop-shadow-md"
+            alt="Ribbon"
+            crossOrigin="anonymous"
+          />
+        </div>
+      )}
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 250 — Citrus
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant250(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#FF7A00";
+  const colorText = data.textColor || "#FF7A00";
+  const colorAccent = brandColor || data.accentColor || "#FFF5E1";
+
+  const title1 = data.titulo || "O suco de laranja é fonte natural\n<b>de vitamina C</b>";
+  const description = data.texto_apoio || "que ajuda no metabolismo e contribui\n<b>para mais disposição logo cedo.</b>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1611080541599-8c6dbde6ed28?q=80&w=2000&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl-citrus"
+      className="w-full h-full relative flex flex-col items-center overflow-hidden z-0 font-sans transition-colors duration-300"
+      style={{ backgroundColor: colorBg }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <svg
+        className="w-[32px] h-[32px] mt-[40px] z-10 transition-colors"
+        style={{ color: colorAccent }}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+
+      <div
+        className="rounded-[40px] px-[24px] py-[32px] mt-[32px] w-[85%] text-center flex flex-col gap-[16px] z-10 shadow-lg transition-colors overflow-hidden"
+        style={{ backgroundColor: colorAccent }}
+      >
+        <SmartField field="titulo" {...sp} className="w-full">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            id="out-citrus-title1"
+            className="font-sans font-light leading-snug outline-none"
+            style={{ color: colorText, fontSize: `${13.7 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(title1) }}
+          ></p>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            id="out-citrus-desc"
+            className="font-sans font-light leading-snug outline-none"
+            style={{ color: colorText, fontSize: `${13.7 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(description) }}
+          ></p>
+        </SmartField>
+      </div>
+
+      <SmartField field="imagem" {...sp} className="absolute -bottom-[15%] left-1/2 -translate-x-1/2 w-[120%] aspect-square rounded-full overflow-hidden z-0 bg-black/10">
+        {imageUrl && (
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        )}
+      </SmartField>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// VARIANTE 251 — Habit
+// ═══════════════════════════════════════════════════════════
+export function SplitVariant251(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#FF7A00";
+  const colorText = data.textColor || "#FFFFFF";
+
+  const title1 = data.titulo || "E com Tropisuco, fica mais fácil de\nmanter esse hábito todos os dias.";
+  const description = data.texto_apoio || "Sem açúcar, sem conservantes e feito\ndireto da fruta. Um hábito simples merece\num suco de verdade.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1622597467836-f38240662c8b?q=80&w=2000&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl-habit"
+      className="w-full h-full relative flex flex-col bg-zinc-950 overflow-hidden z-0 font-sans transition-colors duration-300"
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <SmartField field="imagem" {...sp} className="absolute inset-0 w-full h-full z-0">
+        {imageUrl && (
+          <ImageBg data={data} imageUrl={imageUrl} className="w-full h-full" />
+        )}
+      </SmartField>
+
+      <div
+        className="absolute bottom-[8%] right-0 w-[92%] rounded-l-[40px] py-[24px] pl-[32px] pr-[24px] flex flex-col justify-center text-right z-10 shadow-2xl transition-colors overflow-hidden"
+        style={{ backgroundColor: colorBg }}
+      >
+        <SmartField field="titulo" {...sp} className="w-full mb-[8px]">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            id="out-habit-title1"
+            className="font-sans font-bold leading-tight tracking-tight drop-shadow-sm outline-none"
+            style={{ color: colorText, fontSize: `${13.7 * sTitle}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(title1) }}
+          ></p>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp} className="w-full">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            id="out-habit-desc"
+            className="font-sans font-light leading-snug opacity-95 outline-none"
+            style={{ color: colorText, fontSize: `${11.8 * sText}px` }}
+            dangerouslySetInnerHTML={{ __html: formatText(description) }}
+          ></p>
+        </SmartField>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.1)" />
+    </div>
+  );
+}
+
 // ═══════════════════════════════════════════════════════════
 // REGISTRO DE VARIANTES
 // ═══════════════════════════════════════════════════════════
@@ -12247,6 +12723,9 @@ export const SPLIT_VARIANT_COMPONENTS = {
   246: SplitVariant246,
   247: SplitVariant247,
   248: SplitVariant248,
+  249: SplitVariant249,
+  250: SplitVariant250,
+  251: SplitVariant251,
 };
 
 export const SPLIT_VARIANT_META = [
@@ -12331,7 +12810,7 @@ export const SPLIT_VARIANT_META = [
   { id: 82, name: 'Lembrete Cheesecake', description: 'Card flutuante com morangos e cheesecake estourado', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split82.png' },
   { id: 83, name: 'Bella Vontade Doce', description: 'Split angulado magenta e turquesa com fatia de torta', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--83.png' },
   { id: 84, name: 'Mari Confeita Grid', description: 'Grade 2x2 com números e logo centralizado flutuante' },
-  { id: 85, name: 'Torta Intensa', description: 'Mandala de fundo com chocolate flutuante e imagem central' },
+  { id: 85, name: 'Torta Intensa', description: 'Mandala de fundo com chocolate flutuante e imagem central', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split85.png' },
   { id: 86, name: 'Charity Sale', description: 'Layout branco com linhas rosas laterais e imagem superior' },
   { id: 87, name: 'Cinnamon Rolls', description: 'Corte seco com pílula de título central e onda de divisão' },
   { id: 88, name: 'Chocolate Community', description: 'Estilo chocolate figma com elipse roxa e base escura' },
@@ -12344,7 +12823,7 @@ export const SPLIT_VARIANT_META = [
   { id: 95, name: 'Ice Cream Special', description: 'Ondas rosas na base, anotações caligráficas com setas e sorvete em copo geométrico' },
   { id: 210, name: 'Curso Inscrições (Infoproduto)', description: 'Estética magenta de lançamento com layout de blocos arredondados e box verde destacado.' },
   { id: 211, name: 'Crepe Aviso de Risco', description: 'Design amarelo e vinho marcante com contorno offset na palavra central e caixa informativa.' },
-  { id: 212, name: '3 Bolos', description: 'Layout 3-tier para brownies com tags de preços e cabeçalho vintage em estilo cartoon.' },
+  { id: 212, name: '3 Bolos', description: 'Layout 3-tier para brownies com tags de preços e cabeçalho vintage em estilo cartoon.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split212.png' },
   { id: 213, name: 'Day M', description: 'Arco côncavo superior com mockup flutuante centralizado e botão de chamada de ação.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split213.png' },
   { id: 214, name: 'Orange Routine', description: 'Design minimalista com ícone geométrico e painel em arco portal com sangramento total.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split214.png' },
   { id: 215, name: 'Recipe Red', description: 'Layout de receita com imagem superior de canto arredondado e badge de destaque.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split215.png' },
@@ -12352,7 +12831,7 @@ export const SPLIT_VARIANT_META = [
   { id: 217, name: 'Choux Lab (4 Quadrantes)', description: 'Grid com 4 fotos e rótulos de texto independentes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split217.png' },
   { id: 218, name: 'Açaí Grid Showcase', description: 'Grelha 3x4 com textura de tecido e cantos arredondados ajustáveis.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split218.png' },
   { id: 219, name: 'Tributo Curvo', description: 'Cúpula curva superior colorida com ilustrações vetoriais dinâmicas.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split219.png' },
-  { id: 220, name: 'Cupcake Retro (Doçura)', description: 'Design vintage com imagem moldurada, textos grandes estilizados e chocolates flutuantes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split220.png' },
+  { id: 220, name: 'Cupcake Retro (Clássico)', description: 'Design vintage com imagem moldurada, textos grandes estilizados e chocolates flutuantes.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split220.png' },
   { id: 221, name: 'Feedback (Prova Social)', description: 'Layout de depoimento com imagem arredondada deslocada e balão de texto em destaque.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split221.png' },
   { id: 222, name: 'Festa Junina (Card Base)', description: 'Layout de Festa Junina com imagem de fundo, círculos e card flutuante inferior.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split222.png' },
   { id: 223, name: 'Empreendedor', description: 'Layout editorial com imagem de fundo e caixa flutuante superior contendo dois parágrafos de texto.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split223.png' },
@@ -12375,10 +12854,13 @@ export const SPLIT_VARIANT_META = [
   { id: 240, name: 'Vitrine Produto', description: 'Imagem centralizada com sombra e título tricolor estilizado em letras garrafais.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split240.png' },
   { id: 241, name: 'Produto Split', description: 'Top section de cantos arredondados contendo produto sobre estrela decorativa e base escura.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split241.png' },
   { id: 242, name: 'Passo a Passo', description: 'Design com personagem 3D flutuante, número gigante de fundo, tag e bolinhas de carrossel.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split242.png' },
-  { id: 243, name: 'Convite Negócios BNI', description: 'Fundo escuro fotográfico com cartão centralizado branco de convite e botão de chamada destacado.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split243.png' },
+  { id: 243, name: 'Convite Negócios (Networking)', description: 'Fundo escuro fotográfico com cartão centralizado branco de convite e botão de chamada destacado.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split243.png' },
   { id: 244, name: 'Citação Negócios', description: 'Layout editorial com logo no topo, dois parágrafos destacados em caixa central e imagem de fundo.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split244.png' },
   { id: 245, name: 'Corp Split Card', description: 'Design quadriculado com título Anton, imagem na base e cartão flutuante de texto ao centro.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split245.png' },
-  { id: 246, name: 'Portfólio Agência iPhone', description: 'Mockups flutuantes com um iPhone em destaque contendo o feed do Instagram.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split246.png' },
+  { id: 246, name: 'Portfólio Agência Smartphone', description: 'Mockups flutuantes com um smartphone em destaque contendo o feed do Instagram.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split246.png' },
   { id: 247, name: 'Portfólio Agência Mockup', description: 'Estrutura de mockups de posts flutuantes e iPhone com feed dinâmico.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split247.png' },
-  { id: 248, name: 'Social Meme (Confeitunes)', description: 'Card de post estilo tweet com avatar, nome de usuário, verificado, texto do meme e imagem interna.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split248.png' },
+  { id: 248, name: 'Social Meme (Confeitaria)', description: 'Card de post estilo tweet com avatar, nome de usuário, verificado, texto do meme e imagem interna.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split248.png' },
+  { id: 249, name: 'Klini Saudável', description: 'Layout de receita saudável com card flutuante, ingredientes e modo de preparo' },
+  { id: 250, name: 'Citrus', description: 'Layout Citrus com balão de texto arredondado, ícone de sol superior e arco de imagem inferior' },
+  { id: 251, name: 'Habit', description: 'Layout Habit com caixa de destaque lateral direita e imagem de fundo inteira' },
 ];
