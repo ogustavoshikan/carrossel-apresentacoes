@@ -7,16 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
+            background-color: #0A0008;
+            color: #F5EEF5;
             overflow: hidden;
         }
         .serif {
             font-family: 'Playfair Display', serif;
+        }
+        .font-outfit {
+            font-family: 'Outfit', sans-serif;
         }
         .sidebar-item {
             transition: all 0.3s ease;
@@ -24,7 +27,7 @@
         }
         .sidebar-item.active {
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
         }
         .sidebar-item.active::before {
             content: '';
@@ -34,7 +37,7 @@
             transform: translateY(-50%);
             width: 4px;
             height: 16px;
-            background-color: #ffffff;
+            background-color: #de1e4d;
             border-radius: 0 4px 4px 0;
         }
         .cover-card {
@@ -50,11 +53,11 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1a1a1a;
+            background: rgba(222,30,77,0.15);
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #252525;
+            background: rgba(222,30,77,0.3);
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(10px); }
@@ -65,12 +68,12 @@
         }
     </style>
 </head>
-<body class="selection:bg-white selection:text-black flex h-screen">
+<body class="selection:bg-[#de1e4d] selection:text-white flex h-screen bg-[#0A0008]">
 
     <!-- Sidebar -->
-    <aside class="w-64 border-r border-neutral-900 flex flex-col p-8 shrink-0">
-        <div class="text-lg font-bold tracking-tighter uppercase mb-12">
-            Carrossel<br>Studio
+    <aside class="w-64 border-r border-white/5 bg-[#0A0008]/95 backdrop-blur-md flex flex-col p-8 shrink-0">
+        <div class="text-xl font-black tracking-tight uppercase mb-12 font-outfit">
+            Carrossel <span class="text-[#de1e4d]">Studio</span>
         </div>
 
         <nav class="flex flex-col gap-6">
@@ -104,28 +107,35 @@
         </nav>
 
         <div class="mt-auto pt-8">
-            <div class="p-4 bg-neutral-900/50 rounded-xl border border-neutral-800">
-                <p class="text-[10px] text-neutral-500 uppercase tracking-widest mb-2">Premium Design Library</p>
-                <p class="text-xs text-neutral-300 leading-relaxed">Biblioteca completa sincronizada com o repositório.</p>
+            <div class="p-4 bg-white/5 rounded-xl border border-white/[0.05]">
+                <p class="text-[9px] text-[#de1e4d] font-bold uppercase tracking-widest mb-2 font-outfit">Premium Design Library</p>
+                <p class="text-xs text-[#A890A0] leading-relaxed">Biblioteca completa sincronizada com o repositório.</p>
             </div>
         </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto scroll-smooth">
+    <main class="flex-1 overflow-y-auto scroll-smooth relative">
+        <!-- Efeito Luminoso de Fundo -->
+        <div class="absolute top-0 left-0 right-0 h-[400px] bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(222,30,77,0.1)_0%,transparent_70%)] pointer-events-none z-0"></div>
+
         <!-- Header -->
-        <header class="sticky top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md px-12 py-8 flex justify-between items-center border-b border-neutral-900/50">
-            <div id="category-title" class="text-sm tracking-widest uppercase text-neutral-400">Carregando...</div>
-            <a href="https://instagram.com/gustavogoncalvesia" target="_blank" class="text-[10px] font-bold tracking-widest uppercase border border-neutral-800 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all">
+        <header class="sticky top-0 w-full z-50 bg-[#0A0008]/80 backdrop-blur-md px-12 py-8 flex justify-between items-center border-b border-white/5 relative">
+            <div id="category-title" class="text-sm tracking-widest uppercase text-[#A890A0] font-outfit font-medium">Carregando...</div>
+            <a href="https://instagram.com/gustavogoncalvesia" target="_blank" class="text-[10px] font-bold tracking-widest uppercase border border-[#de1e4d]/30 text-[#de1e4d] bg-[#de1e4d]/5 px-4 py-2 rounded-full hover:bg-[#de1e4d] hover:text-white transition-all font-outfit">
                 Falar com Desenvolvedor
             </a>
         </header>
 
-        <div class="p-12 max-w-7xl mx-auto">
+        <div class="p-12 max-w-7xl mx-auto relative z-10">
             
             <div id="intro-section" class="mb-16">
-                <h1 id="main-heading" class="serif text-6xl mb-4 animate-fade-in">Designs de<br><span class="text-neutral-500 italic">alto impacto.</span></h1>
-                <p id="main-subheading" class="text-neutral-400 text-lg max-w-xl animate-fade-in" style="animation-delay: 0.1s">
+                <!-- Tag dourada inspirada no Funcionalidades -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-[#F5C842]/30 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase text-[#F5C842] bg-[#F5C842]/5 mb-6 font-outfit">
+                    Biblioteca de Designs Premium
+                </div>
+                <h1 id="main-heading" class="font-outfit font-black text-6xl tracking-tight leading-[1.05] text-white mb-4 animate-fade-in">Designs de<br><span class="text-[#de1e4d] italic font-light serif">alto impacto.</span></h1>
+                <p id="main-subheading" class="text-[#A890A0] text-lg max-w-xl animate-fade-in" style="animation-delay: 0.1s">
                     Selecione uma categoria para visualizar todas as variantes.
                 </p>
             </div>
@@ -136,13 +146,13 @@
             </div>
 
             <!-- Footer -->
-            <footer class="mt-32 pb-12 border-t border-neutral-900 pt-16 text-center">
-                <p class="text-neutral-600 text-[10px] uppercase tracking-[0.4em]">
-                    &copy; 2026 Carrossel Studio - Por <span class="lowercase">@gustavogoncalvesia</span>.
+            <footer class="mt-32 pb-12 border-t border-white/5 pt-16 text-center">
+                <p class="text-[#604858] text-[9px] uppercase tracking-[0.4em] font-outfit">
+                    &copy; 2026 Carrossel Studio - Por <span class="lowercase text-[#de1e4d] font-bold">@gustavogoncalvesia</span>.
                 </p>
             </footer>
             <!-- Back to Top Button -->
-            <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-white text-black p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50 hover:scale-110 flex items-center justify-center" aria-label="Voltar ao topo">
+            <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-white text-[#0A0008] p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50 hover:scale-110 flex items-center justify-center" aria-label="Voltar ao topo">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
                 </svg>
@@ -152,19 +162,19 @@
 
     <!-- Novos Designs Alerta Popup -->
     <div id="new-designs-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 hidden">
-        <div id="new-designs-popup-card" class="relative max-w-md w-full bg-neutral-950 border border-neutral-900 p-8 rounded-2xl shadow-2xl mx-4 transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        <div id="new-designs-popup-card" class="relative max-w-md w-full bg-[#0A0008] border border-white/5 p-8 rounded-2xl shadow-2xl mx-4 transform scale-95 opacity-0 transition-all duration-300 ease-out">
             <div class="flex justify-center mb-6">
-                <div class="p-3 bg-neutral-900 border border-neutral-800 rounded-full text-white animate-pulse">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-neutral-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="p-3 bg-white/5 border border-white/[0.05] rounded-full text-[#de1e4d] animate-pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#de1e4d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
                 </div>
             </div>
-            <h2 class="serif text-2xl text-center text-white mb-3">Novos Designs Disponíveis!</h2>
-            <p class="text-neutral-400 text-center text-sm leading-relaxed mb-6">
+            <h2 class="font-outfit font-black text-2xl text-center text-white mb-3">Novos Designs Disponíveis!</h2>
+            <p class="text-[#A890A0] text-center text-sm leading-relaxed mb-6">
                 Adicionamos novos designs e variantes recentemente. Para acessar a biblioteca de novidades completa, role a página até o final!
             </p>
-            <button onclick="closePopup()" class="w-full py-3 bg-white text-black font-semibold rounded-xl text-center hover:bg-neutral-200 transition-all cursor-pointer shadow-lg active:scale-95">
+            <button onclick="closePopup()" class="w-full py-3 bg-[#de1e4d] text-white font-semibold rounded-xl text-center hover:bg-[#de1e4d]/90 transition-all cursor-pointer shadow-lg active:scale-95 font-outfit">
                 Visualizar Designs
             </button>
         </div>
@@ -175,7 +185,7 @@
         const library = {
             capas: {
                 title: 'Capas Premium',
-                heading: 'Capas de<br><span class="text-neutral-500 italic">alto impacto.</span>',
+                heading: 'Capas de<br><span class="text-[#de1e4d] italic font-light serif">alto impacto.</span>',
                 description: 'Capture a atenção em milissegundos com layouts desenhados para conversão.',
                 items: [
                     { id: 0, name: 'Original', url: '/thumbnails/Thumbnails%20Capas/designs_capa_-0.png' },
@@ -243,7 +253,7 @@
             },
             conteudo: {
                 title: 'Conteúdo Dinâmico',
-                heading: 'Estruturas de<br><span class="text-neutral-500 italic">Conteúdo.</span>',
+                heading: 'Estruturas de<br><span class="text-[#de1e4d] italic font-light serif">Conteúdo.</span>',
                 description: 'Apresente informações com clareza usando layouts otimizados para leitura.',
                 items: [
                     { id: 0, name: 'Original', url: '/thumbnails/Thumbnails%20Conteudo/designs_split--0.png' },
@@ -368,7 +378,7 @@
             },
             impacto: {
                 title: 'Número de Impacto',
-                heading: 'Números que<br><span class="text-neutral-500 italic">marcam.</span>',
+                heading: 'Números que<br><span class="text-[#de1e4d] italic font-light serif">marcam.</span>',
                 description: 'Destaque dados e estatísticas com tipografia expressiva.',
                 items: [
                     { id: 0, name: 'Original', url: '/thumbnails/Thumbnail%20Bignumber/designs_bignumber-variants--0.png' },
@@ -393,7 +403,7 @@
             },
             citacao: {
                 title: 'Citação Exclusiva',
-                heading: 'Voz de<br><span class="text-neutral-500 italic">autoridade.</span>',
+                heading: 'Voz de<br><span class="text-[#de1e4d] italic font-light serif">autoridade.</span>',
                 description: 'Dê destaque para frases e citações importantes.',
                 items: [
                     { id: 0, name: 'Original', url: '/thumbnails/Thumbnails%20Citacao/designs_quote0.png' },
@@ -413,7 +423,7 @@
             },
             comparacao: {
                 title: 'Comparação',
-                heading: 'Análise<br><span class="text-neutral-500 italic">comparativa.</span>',
+                heading: 'Análise<br><span class="text-[#de1e4d] italic font-light serif">comparativa.</span>',
                 description: 'Mostre diferenças e benefícios lado a lado.',
                 items: [
                     { id: 2, name: 'Split View', url: '/thumbnails/Thumbnails%20Comparacao/comparison-variants--2.png' },
@@ -448,7 +458,7 @@
             },
             cta: {
                 title: 'Chamadas para Ação',
-                heading: 'Chamadas para<br><span class="text-neutral-500 italic">ação.</span>',
+                heading: 'Chamadas para<br><span class="text-[#de1e4d] italic font-light serif">ação.</span>',
                 description: 'Encerre seu carrossel com impacto e incentive interações.',
                 items: [
                     { id: 4, name: 'Ticket Card', url: '/thumbnails/Thumbnails%20CTA/designs_cta-4.png' },
@@ -478,7 +488,7 @@
             },
             capasExtras: {
                 title: 'Capas Extras',
-                heading: 'Capas<br><span class="text-neutral-500 italic">Extras.</span>',
+                heading: 'Capas<br><span class="text-[#de1e4d] italic font-light serif">Extras.</span>',
                 description: 'Mais opções impactantes para iniciar seu conteúdo.',
                 items: [
                     { id: 101, name: 'Moldura Editorial', url: '/thumbnails/Thumbnails%20Capas%20Extras/capas_extras101.png' },
@@ -552,7 +562,7 @@
             },
             sequencia: {
                 title: 'Sequência',
-                heading: 'Designs de<br><span class="text-neutral-500 italic">sequência.</span>',
+                heading: 'Designs de<br><span class="text-[#de1e4d] italic font-light serif">sequência.</span>',
                 description: 'Mantenha o fluxo e o engajamento com layouts contínuos.',
                 items: [
                     { id: 0, name: 'Anchor Progress', url: '/thumbnails/Thumbnails%20Sequencias/designs_sequence0.png' },
@@ -612,7 +622,7 @@
             },
             ctasExtras: {
                 title: 'CTAs Extras',
-                heading: 'CTAs<br><span class="text-neutral-500 italic">Extras.</span>',
+                heading: 'CTAs<br><span class="text-[#de1e4d] italic font-light serif">Extras.</span>',
                 description: 'Alternativas finais para fechamento perfeito.',
                 items: [
                     { id: 101, name: 'The Dark Luxury', url: '/thumbnails/Thumbnails%20CTA%20Extras/designs_cta-extra101.png' },
@@ -680,20 +690,20 @@
                 div.className = 'group animate-fade-in';
                 div.style.animationDelay = `${index * 0.03}s`;
                 div.innerHTML = `
-                    <div class="relative aspect-[4/5] overflow-hidden bg-neutral-900 rounded-xl cover-card border border-neutral-800/50">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-[#110910] rounded-xl cover-card border border-white/[0.05] transition-all duration-300 hover:border-[#de1e4d]/30">
                         <img 
                             src="${item.url}" 
                             alt="${item.name}" 
-                            class="w-full h-full object-contain bg-neutral-900 group-hover:scale-105 transition-transform duration-700"
+                            class="w-full h-full object-contain bg-[#110910] group-hover:scale-105 transition-transform duration-700"
                             loading="lazy"
                         >
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-[10px] tracking-widest uppercase text-neutral-400 mb-1 block">Variante ID #${item.id}</span>
-                            <h3 class="serif text-xl leading-tight">${item.name}</h3>
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <span class="text-[9px] tracking-widest uppercase text-[#de1e4d] font-bold mb-1 block font-outfit">Variante ID #${item.id}</span>
+                            <h3 class="font-outfit font-bold text-lg leading-tight text-white">${item.name}</h3>
                         </div>
                     </div>
                     <div class="mt-4 px-2">
-                         <h4 class="text-[10px] font-medium text-neutral-500 uppercase tracking-widest">${item.name}</h4>
+                         <h4 class="text-[9px] font-bold text-[#A890A0] uppercase tracking-widest font-outfit">${item.name}</h4>
                     </div>
                 `;
                 container.appendChild(div);

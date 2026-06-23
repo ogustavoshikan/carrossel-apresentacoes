@@ -7,15 +7,15 @@ const htmlPath = path.join(basePath, 'docs', 'Estante Designs.html');
 const deployHtmlPath = path.join(basePath, 'deploy-estante', 'index.html');
 
 const filesMap = {
-    capas: { file: 'cover-variants.jsx', title: 'Capas Premium', heading: 'Capas de<br><span class="text-neutral-500 italic">alto impacto.</span>', desc: 'Capture a atenção em milissegundos com layouts desenhados para conversão.' },
-    conteudo: { file: 'split-variants.jsx', title: 'Conteúdo Dinâmico', heading: 'Estruturas de<br><span class="text-neutral-500 italic">Conteúdo.</span>', desc: 'Apresente informações com clareza usando layouts otimizados para leitura.' },
-    impacto: { file: 'bignumber-variants.jsx', title: 'Número de Impacto', heading: 'Números que<br><span class="text-neutral-500 italic">marcam.</span>', desc: 'Destaque dados e estatísticas com tipografia expressiva.' },
-    citacao: { file: 'quote-variants.jsx', title: 'Citação Exclusiva', heading: 'Voz de<br><span class="text-neutral-500 italic">autoridade.</span>', desc: 'Dê destaque para frases e citações importantes.' },
-    comparacao: { file: 'comparison-variants.jsx', title: 'Comparação', heading: 'Análise<br><span class="text-neutral-500 italic">comparativa.</span>', desc: 'Mostre diferenças e benefícios lado a lado.' },
-    cta: { file: 'cta-variants.jsx', title: 'Chamadas para Ação', heading: 'Chamadas para<br><span class="text-neutral-500 italic">ação.</span>', desc: 'Encerre seu carrossel com impacto e incentive interações.' },
-    capasExtras: { file: 'cover-extra-variants.jsx', title: 'Capas Extras', heading: 'Capas<br><span class="text-neutral-500 italic">Extras.</span>', desc: 'Mais opções impactantes para iniciar seu conteúdo.' },
-    sequencia: { file: 'sequence-variants.jsx', title: 'Sequência', heading: 'Designs de<br><span class="text-neutral-500 italic">sequência.</span>', desc: 'Mantenha o fluxo e o engajamento com layouts contínuos.' },
-    ctasExtras: { file: 'cta-extra-variants.jsx', title: 'CTAs Extras', heading: 'CTAs<br><span class="text-neutral-500 italic">Extras.</span>', desc: 'Alternativas finais para fechamento perfeito.' }
+    capas: { file: 'cover-variants.jsx', title: 'Capas Premium', heading: 'Capas de<br><span class="text-[#de1e4d] italic font-light serif">alto impacto.</span>', desc: 'Capture a atenção em milissegundos com layouts desenhados para conversão.' },
+    conteudo: { file: 'split-variants.jsx', title: 'Conteúdo Dinâmico', heading: 'Estruturas de<br><span class="text-[#de1e4d] italic font-light serif">Conteúdo.</span>', desc: 'Apresente informações com clareza usando layouts otimizados para leitura.' },
+    impacto: { file: 'bignumber-variants.jsx', title: 'Número de Impacto', heading: 'Números que<br><span class="text-[#de1e4d] italic font-light serif">marcam.</span>', desc: 'Destaque dados e estatísticas com tipografia expressiva.' },
+    citacao: { file: 'quote-variants.jsx', title: 'Citação Exclusiva', heading: 'Voz de<br><span class="text-[#de1e4d] italic font-light serif">autoridade.</span>', desc: 'Dê destaque para frases e citações importantes.' },
+    comparacao: { file: 'comparison-variants.jsx', title: 'Comparação', heading: 'Análise<br><span class="text-[#de1e4d] italic font-light serif">comparativa.</span>', desc: 'Mostre diferenças e benefícios lado a lado.' },
+    cta: { file: 'cta-variants.jsx', title: 'Chamadas para Ação', heading: 'Chamadas para<br><span class="text-[#de1e4d] italic font-light serif">ação.</span>', desc: 'Encerre seu carrossel com impacto e incentive interações.' },
+    capasExtras: { file: 'cover-extra-variants.jsx', title: 'Capas Extras', heading: 'Capas<br><span class="text-[#de1e4d] italic font-light serif">Extras.</span>', desc: 'Mais opções impactantes para iniciar seu conteúdo.' },
+    sequencia: { file: 'sequence-variants.jsx', title: 'Sequência', heading: 'Designs de<br><span class="text-[#de1e4d] italic font-light serif">sequência.</span>', desc: 'Mantenha o fluxo e o engajamento com layouts contínuos.' },
+    ctasExtras: { file: 'cta-extra-variants.jsx', title: 'CTAs Extras', heading: 'CTAs<br><span class="text-[#de1e4d] italic font-light serif">Extras.</span>', desc: 'Alternativas finais para fechamento perfeito.' }
 };
 
 let navButtons = '';
