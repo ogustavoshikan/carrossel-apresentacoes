@@ -24,6 +24,7 @@ const LAYOUT_LABELS = {
   'cta':           'CTA',
   'sequence':      'Sequência',
   'cover-extra':   'Capa Extra',
+  'content-extra': 'Conteúdo Extra',
 };
 
 // Scale do preview ao lado: 1.0 = tamanho nativo do slide (400×500)

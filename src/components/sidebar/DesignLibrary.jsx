@@ -15,6 +15,7 @@ const META_LOADERS = {
   'sequence':      () => import('../slides/sequence-variants').then(m => m.SEQUENCE_VARIANT_META),
   'cover-extra':   () => import('../slides/cover-extra-variants').then(m => m.COVER_EXTRA_VARIANT_META),
   'cta-extra':     () => import('../slides/cta-extra-variants').then(m => m.CTA_EXTRA_VARIANT_META),
+  'content-extra': () => import('../slides/content-extra-variants').then(m => m.CONTENT_EXTRA_VARIANT_META),
 };
 
 // Cache em memória — evita re-importar ao trocar de aba

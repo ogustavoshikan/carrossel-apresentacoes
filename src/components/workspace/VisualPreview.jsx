@@ -56,6 +56,8 @@ import { CTA_VARIANT_META } from '../slides/cta-variants';
 import { CTA_EXTRA_VARIANT_META } from '../slides/cta-extra-variants';
 import { LIST_VARIANT_META } from '../slides/list-variants';
 import { SEQUENCE_VARIANT_META } from '../slides/sequence-variants';
+import ContentExtraVariantPopover from './ContentExtraVariantPopover';
+import { CONTENT_EXTRA_VARIANT_META } from '../slides/content-extra-variants';
 
 /**
  * VisualPreview — Grid horizontal de cards visuais com controles por slide.
@@ -100,6 +102,7 @@ export default function VisualPreview({
   favorites = [],
   onCoverVariantChange,
   onSplitVariantChange,
+  onContentExtraVariantChange,
   onBigNumberVariantChange,
   onQuoteVariantChange,
   onComparisonVariantChange,
@@ -160,6 +163,10 @@ export default function VisualPreview({
       case 'content-split':
         metas = SPLIT_VARIANT_META;
         handler = onSplitVariantChange;
+        break;
+      case 'content-extra':
+        metas = CONTENT_EXTRA_VARIANT_META;
+        handler = onContentExtraVariantChange;
         break;
       case 'big-number':
         metas = BIGNUMBER_VARIANT_META;
@@ -518,7 +525,7 @@ export default function VisualPreview({
 
                       <div className="flex items-center gap-1.5">
                         {/* Botão Aleatório (Shuffle) fora do popover */}
-                        {['cover', 'cover-extra', 'content-split', 'big-number', 'quote', 'comparison', 'cta', 'cta-extra', 'list', 'sequence'].includes(slide.layout) && (
+                        {['cover', 'cover-extra', 'content-split', 'content-extra', 'big-number', 'quote', 'comparison', 'cta', 'cta-extra', 'list', 'sequence'].includes(slide.layout) && (
                           <Tooltip text="Design Aleatório">
                             <button
                               onClick={(e) => { e.stopPropagation(); handleRandomVariant(index, slide); }}
@@ -581,6 +588,30 @@ export default function VisualPreview({
                                 onSelect={(variantId) => {
                                   onSplitVariantChange(index, variantId);
                                   handleActionFeedback(`Variante: ${variantId === 0 ? 'Original' : variantId}`);
+                                }}
+                                onClose={() => setOpenVariantIndex(-1)}
+                                brandColor={brandColor}
+                                brandAvatar={brandAvatar}
+                              />
+                            )}
+                          </div>
+                        )}
+
+                        {/* Trocar Variante — apenas para slides content-extra */}
+                        {slide.layout === 'content-extra' && onContentExtraVariantChange && (
+                          <div className="relative">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); setOpenVariantIndex(openVariantIndex === index ? -1 : index); }}
+                              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/50 hover:border-zinc-600 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md text-sm font-medium transition-all duration-150 active:scale-95 flex items-center"
+                            >
+                              Designs
+                            </button>
+                            {openVariantIndex === index && (
+                              <ContentExtraVariantPopover
+                                currentVariantIndex={slide.contentExtraVariantIndex || 252}
+                                onSelect={(variantId) => {
+                                  onContentExtraVariantChange(index, variantId);
+                                  handleActionFeedback(`Variante Extra: ${variantId}`);
                                 }}
                                 onClose={() => setOpenVariantIndex(-1)}
                                 brandColor={brandColor}

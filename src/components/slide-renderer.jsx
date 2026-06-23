@@ -7,6 +7,7 @@ import SlideComparison from './slides/SlideComparison';
 import SlideList from './slides/SlideList';
 import SlideCTA from './slides/SlideCTA';
 import SlideSequence from './slides/SlideSequence';
+import SlideContentExtra from './slides/SlideContentExtra';
 
 /**
  * SlideRenderer — Mapeia o layout do slide para o componente correto.
@@ -52,6 +53,7 @@ const LAYOUT_MAP = {
   'cta': SlideCTA,
   'cta-extra': SlideCTA,
   'sequence': SlideSequence,
+  'content-extra': SlideContentExtra,
 };
 
 
@@ -129,7 +131,8 @@ export default function SlideRenderer({
     data.comparisonVariantIndex, 
     data.listVariantIndex, 
     data.ctaVariantIndex, 
-    data.sequenceVariantIndex
+    data.sequenceVariantIndex,
+    data.contentExtraVariantIndex
   ]);
 
   // Efeito colateral para injeção dinâmica de ruído estritamente no background da variante (primeiro filho)
@@ -186,7 +189,7 @@ export default function SlideRenderer({
       </defs>
       <rect width="1088" height="1358" fill="transparent" filter="url(#noiseFilter-global-${index})" />
     `;
-  }, [data.enableNoise, data.noiseTarget, data.noiseOpacity, index, data.layout, data.splitVariantIndex]);
+  }, [data.enableNoise, data.noiseTarget, data.noiseOpacity, index, data.layout, data.splitVariantIndex, data.contentExtraVariantIndex]);
 
   // Variáveis de fonte específicas do slide ou globais
   const slideStyles = {

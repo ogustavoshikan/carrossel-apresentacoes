@@ -111,6 +111,16 @@ export const LAYOUT_ICONS = {
       <rect x="12" y="36" width="16" height="3" rx="1" fill="#fff" opacity="0.4" />
     </svg>
   ),
+  'content-extra': (
+    <svg viewBox="0 0 40 50" fill="none" className="w-full h-full">
+      <rect width="40" height="50" fill="#1a1a2e" />
+      <rect x="4" y="4" width="32" height="20" rx="2" fill="#2a2a4e" />
+      <rect x="6" y="28" width="10" height="2.5" rx="1" fill="#c084fc" />
+      <rect x="4" y="33" width="32" height="3" rx="1" fill="#3a3a5e" />
+      <rect x="4" y="38" width="28" height="2.5" rx="1" fill="#3a3a5e" />
+      <rect x="4" y="43" width="20" height="2.5" rx="1" fill="#3a3a5e" />
+    </svg>
+  ),
 };
 
 /**
@@ -229,6 +239,15 @@ export const LAYOUT_TEMPLATES = {
     tag: 'ENCOMENDAR',
     items: [],
   },
+  'content-extra': {
+    layout: 'content-extra',
+    titulo: 'Título do Conteúdo Extra',
+    texto_apoio: 'Descrição detalhada do conteúdo extra.',
+    sugestao_visual: 'Imagem de destaque do produto',
+    imageUrl: 'https://images.weserv.nl/?url=https://www.contioutra.com/content/uploads/2025/06/Qual-e-o-doce-mais-gostoso-do-mundo--696x418.png',
+    tag: 'EXTRA',
+    items: [],
+  },
 };
 
 /**
@@ -256,6 +275,7 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
     'cover': 'coverVariantIndex',
     'cover-extra': 'coverVariantIndex',
     'content-split': 'splitVariantIndex',
+    'content-extra': 'contentExtraVariantIndex',
     'big-number': 'bigNumberVariantIndex',
     'quote': 'quoteVariantIndex',
     'comparison': 'comparisonVariantIndex',
@@ -268,6 +288,15 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
   const field = variantFields[layoutType];
   if (field && variantIndex !== undefined) {
     slide[field] = variantIndex;
+  }
+
+  // Pre-configura a variante inicial padrão para content-extra
+  if (layoutType === 'content-extra') {
+    if (variantIndex === 0 || variantIndex === undefined) {
+      slide.contentExtraVariantIndex = 252;
+    } else {
+      slide.contentExtraVariantIndex = variantIndex;
+    }
   }
 
   // Pre-configura texto específico para a variante 120 de CTA Extra
@@ -330,6 +359,18 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
       slide.imageUrl = 'https://images.weserv.nl/?url=https://blogdeconfeitaria.com/wp-content/uploads/2024/10/brigadeiro-leite-ninho-com-nutella.jpg';
     } else {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://passaportefeliz.com.br/wp-content/uploads/2020/09/Trufas-de-Chocolate-750x1000.jpg';
+    }
+  }
+
+  // Pre-configura imagem de fundo para Content Extra Variants
+  if (layoutType === 'content-extra') {
+    const variantKey = slide.contentExtraVariantIndex || 252;
+    if (variantKey === 252) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 253) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=2000&auto=format&fit=crop';
+    } else if (variantKey === 254) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1509365465994-3e61c56cb3c0?q=80&w=2000&auto=format&fit=crop';
     }
   }
 
@@ -412,5 +453,11 @@ export const LAYOUT_META = [
     label: 'CTAs\nExtras',
     description: 'CTAs extras com estilos e fontes alternativos',
     thumbnailUrl: '/thumbnails/Thumbnails%20CTA/designs_cta18.png'
+  },
+  {
+    key: 'content-extra',
+    label: 'Conteúdo\nExtra',
+    description: 'Variantes premium de conteúdo complementar',
+    thumbnailUrl: '/thumbnails/wireframe_menu_content-split.png'
   },
 ];

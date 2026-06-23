@@ -532,6 +532,12 @@ export default function App() {
     ));
   }, []);
 
+  const handleContentExtraVariantChange = useCallback((slideIndex, variantIndex) => {
+    setSlides(prev => prev.map((s, i) =>
+      i === slideIndex ? { ...s, contentExtraVariantIndex: variantIndex } : s
+    ));
+  }, []);
+
   const handleBigNumberVariantChange = useCallback((slideIndex, variantIndex) => {
     setSlides(prev => prev.map((s, i) =>
       i === slideIndex ? { ...s, bigNumberVariantIndex: variantIndex } : s
@@ -1557,6 +1563,7 @@ export default function App() {
                         favorites={favorites}
                         onCoverVariantChange={handleCoverVariantChange}
                         onSplitVariantChange={handleSplitVariantChange}
+                        onContentExtraVariantChange={handleContentExtraVariantChange}
                         onBigNumberVariantChange={handleBigNumberVariantChange}
                         onQuoteVariantChange={handleQuoteVariantChange}
                         onComparisonVariantChange={handleComparisonVariantChange}
