@@ -38,7 +38,7 @@ for (const [key, data] of Object.entries(filesMap)) {
     }
 
     const items = [];
-    const regex = /\{\s*id:\s*(\d+)\s*,\s*(?:name|nome):\s*(['"`])([^'"\r\n]+)\2[^\}]*?(?:thumbnailUrl|url):\s*(['"`])([^'"\r\n]+)\4/gs;
+    const regex = /\{\s*id:\s*(\d+)\s*,\s*(?:name|nome):\s*(['"`])([^'"\r\n]+)\2[^\}]*?(?:thumbnailUrl|url):\s*(['"`])([^'"\r\n]*)\4/gs;
     let match;
     while ((match = regex.exec(content)) !== null) {
         const id = parseInt(match[1], 10);

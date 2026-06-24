@@ -11,6 +11,11 @@ Este arquivo define as instrucoes do projeto para o Codex CLI.
 4. Nao invente requisitos fora dos artefatos existentes
 <!-- AIOX-MANAGED-END: core -->
 
+## Agent Constraints
+- **Proibição de Commit Automático:** Em hipótese alguma o agente deve realizar qualquer commit ou envio de alterações ao repositório sem a permissão prévia e aprovação explícita do usuário.
+- **Proibição de Comandos Destrutivos no Git:** O agente está expressamente proibido de executar comandos que alterem ou descartem modificações locais na working tree (como `git reset`, `git checkout`, `git restore`, `git clean`, etc.) sem reportar previamente e obter aprovação explícita do usuário.
+
+
 <!-- AIOX-MANAGED-START: quality -->
 ## Quality Gates
 

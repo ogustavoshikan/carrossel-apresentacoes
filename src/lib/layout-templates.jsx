@@ -395,6 +395,18 @@ export function createSlideFromTemplate(layoutType, slideNumber, variantIndex = 
       slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1548907040-4d42b52125b0?q=80&w=800&auto=format&fit=crop';
     } else if (variantKey === 266) {
       slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1000&auto=format&fit=crop';
+    } else if (variantKey === 267) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1621236378699-8597ffc34f24?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 268) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 269) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 270) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 271) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop';
+    } else if (variantKey === 272) {
+      slide.imageUrl = 'https://images.weserv.nl/?url=https://images.unsplash.com/photo-1548848221-0c2e497ed557?q=80&w=1000&auto=format&fit=crop';
     }
   }
 
