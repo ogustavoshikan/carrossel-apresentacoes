@@ -8148,8 +8148,8 @@ export function SplitVariant216(props) {
                 </span>
               </SmartField>
               {isVerified && (
-                <svg className="w-4 h-4 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                <svg className="w-4 h-4 text-[#1d9bf0] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.99-3.818-3.99-.48 0-.94.1-1.348.27C14.825 2.515 13.512 1.5 12 1.5s-2.825 1.015-3.422 2.28c-.408-.17-.868-.27-1.348-.27-2.108 0-3.818 1.78-3.818 3.99 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.71 3.99 3.818 3.99.48 0 .94-.1 1.348-.27.597 1.265 1.91 2.28 3.422 2.28s2.825-1.015 3.422-2.28c.408.17.868.27 1.348.27 2.108 0 3.818-1.78 3.818-3.99 0-.495-.084-.965-.238-1.4 1.273-.65 2.148-2.02 2.148-3.6zm-12.72 3.29-3.29-3.29 1.41-1.42 1.88 1.88 5.18-5.18 1.42 1.41-6.6 6.6z" />
                 </svg>
               )}
             </div>
@@ -12560,7 +12560,7 @@ export function SplitVariant251(props) {
             onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
             id="out-habit-title1"
             className="font-sans font-bold leading-tight tracking-tight drop-shadow-sm outline-none"
-            style={{ color: colorText, fontSize: `${13.7 * sTitle}px` }}
+            style={{ color: colorText, fontSize: `${22 * sTitle}px` }}
             dangerouslySetInnerHTML={{ __html: formatText(title1) }}
           ></p>
         </SmartField>
@@ -12571,7 +12571,7 @@ export function SplitVariant251(props) {
             onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
             id="out-habit-desc"
             className="font-sans font-light leading-snug opacity-95 outline-none"
-            style={{ color: colorText, fontSize: `${11.8 * sText}px` }}
+            style={{ color: colorText, fontSize: `${19* sText}px` }}
             dangerouslySetInnerHTML={{ __html: formatText(description) }}
           ></p>
         </SmartField>
@@ -12862,5 +12862,5 @@ export const SPLIT_VARIANT_META = [
   { id: 248, name: 'Social Meme (Confeitaria)', description: 'Card de post estilo tweet com avatar, nome de usuário, verificado, texto do meme e imagem interna.', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split248.png' },
   { id: 249, name: 'Klini Saudável', description: 'Layout de receita saudável com card flutuante, ingredientes e modo de preparo' },
   { id: 250, name: 'Citrus', description: 'Layout Citrus com balão de texto arredondado, ícone de sol superior e arco de imagem inferior' },
-  { id: 251, name: 'Habit', description: 'Layout Habit com caixa de destaque lateral direita e imagem de fundo inteira' },
+  { id: 251, name: 'Habit', description: 'Layout Habit com caixa de destaque lateral direita e imagem de fundo inteira', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split251.png' },
 ];
