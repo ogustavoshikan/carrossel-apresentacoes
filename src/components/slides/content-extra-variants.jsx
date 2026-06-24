@@ -2015,6 +2015,1119 @@ export function ContentExtraVariant266(props) {
   );
 }
 
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 267 (Template 2: Cinnamon Roll)
+// ============================================================
+export function ContentExtraVariant267(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#d41d4b";
+  const colorAccent = data.accentColor || brandColor || "#7cb3c2"; // Usado para a canela azul
+  
+  const badgeText = data.tag || "do forno para o seu coração";
+  const title1 = data.titulo || "ROLO DE";
+  const title2 = data.subtitulo || "canela";
+  const circularText = data.badge_text || "• O CÉU É COMO CANELA • O CÉU É";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1621236378699-8597ffc34f24?q=80&w=800&auto=format&fit=crop";
+  const description = data.texto_apoio || "Massa fofinha, recheio de canela quentinho e cobertura cremosa. Simples assim, inesquecível.";
+  
+  const footerLeft = data.list_item_1 || "Doce Memória";
+  const footerCenter = data.list_item_2 || "Feito com Amor";
+  const footerRight = data.list_item_3 || brandHandle || "Doce Memória";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl_cinnamon"
+      className="w-full h-full absolute inset-0 bg-[#d41d4b] flex flex-col items-center justify-start overflow-hidden transition-colors duration-300 font-sans"
+      style={{ backgroundColor: colorBg, containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-cursive { font-family: 'Dancing Script', cursive; }
+        .text-cinnamonCream { color: #f9ebe0; }
+        .text-cinnamonBlue { color: ${colorAccent}; }
+        .animate-spin-slow { animation: spin 20s linear infinite; }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}} />
+
+      <div className="mt-[10cqw] z-20">
+        <SmartField field="tag" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            id="tpl_cinnamon_badge"
+            className="text-[3cqw] font-bold text-white tracking-wide lowercase outline-none"
+          >
+            {badgeText}
+          </span>
+        </SmartField>
+      </div>
+
+      <div className="relative flex flex-col items-center mt-[4cqw] z-20 w-full">
+        <SmartField field="titulo" {...sp}>
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            id="tpl_cinnamon_title1"
+            className="font-sans font-black text-cinnamonCream leading-[0.8] tracking-tight uppercase outline-none"
+            style={{ fontSize: `${22 * sTitle}cqw`, textShadow: "0 4px 15px rgba(0,0,0,0.15)" }}
+          >
+            {title1}
+          </h1>
+        </SmartField>
+
+        <SmartField field="subtitulo" {...sp} className="absolute -bottom-[7cqw] -right-[1cqw] transform -rotate-3 z-30">
+          <h2
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+            id="tpl_cinnamon_title2"
+            className="font-cursive text-cinnamonBlue leading-none drop-shadow-md outline-none"
+            style={{ fontSize: `${28 * sTitle}cqw` }}
+          >
+            {title2}
+          </h2>
+        </SmartField>
+      </div>
+
+      <div className="relative w-[85cqw] h-[75cqw] mt-[2cqw] flex items-center justify-center z-10">
+        <svg className="absolute -left-[1cqw] top-[20cqw] w-[14cqw] h-[14cqw] text-cinnamonCream drop-shadow-sm" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round">
+          <line x1="20" y1="50" x2="40" y2="50" />
+          <line x1="28" y1="28" x2="43" y2="43" />
+          <line x1="50" y1="20" x2="50" y2="40" />
+        </svg>
+
+        <div className="absolute right-[1cqw] top-[18cqw] w-[26cqw] h-[26cqw] z-30 flex items-center justify-center drop-shadow-xl">
+          <svg className="absolute inset-0 w-full h-full text-cinnamonBlue animate-spin-slow" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 2.5 L55.5 8.5 L63.5 6 L67 13 L75 13 L76.5 21 L83.5 23 L82.5 31 L88.5 34.5 L85 41.5 L89.5 48.5 L84 54.5 L86.5 62 L79.5 65.5 L79.5 73.5 L71.5 75 L69 82 L61.5 81 L56.5 87 L50 82.5 L43.5 87 L38.5 81 L31 82 L28.5 75 L20.5 73.5 L20.5 65.5 L13.5 62 L16 54.5 L10.5 48.5 L15 41.5 L11.5 34.5 L17.5 31 L16.5 23 L23.5 21 L25 13 L33 13 L36.5 6 L44.5 8.5 Z" />
+          </svg>
+          <svg className="absolute inset-0 w-full h-full text-cinnamonCream animate-spin-slow" viewBox="0 0 100 100">
+            <path id="textCircle" d="M 50, 18 a 32,32 0 1,1 0,64 a 32,32 0 1,1 0,-64" fill="none" />
+            <text fontSize="6.5" fontWeight="700" fill="currentColor" letterSpacing="1">
+              <textPath id="tpl_cinnamon_circular" href="#textCircle" startOffset="0%">
+                {circularText}
+              </textPath>
+            </text>
+          </svg>
+          <svg id="tpl_cinnamon_heart" className="relative z-10 w-[8cqw] h-[8cqw]" style={{ color: colorBg }} fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <SmartField field="imagem" {...sp} className="w-[90%] h-[90%] flex items-center justify-center z-20 scale-110">
+          {imageUrl && (
+            <img
+              id="tpl_cinnamon_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+              alt="Cinnamon Roll"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <SmartField field="texto_apoio" {...sp} className="w-[85%] mt-[1cqw] z-20 text-center">
+        <p
+          contentEditable suppressContentEditableWarning
+          onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+          id="tpl_cinnamon_desc"
+          className="font-serif text-cinnamonCream leading-[1.4] drop-shadow-sm outline-none"
+          style={{ fontSize: `${5 * sText}cqw` }}
+          dangerouslySetInnerHTML={{ __html: formatText(description) }}
+        ></p>
+      </SmartField>
+
+      <div className="absolute bottom-[6cqw] w-full px-[8cqw] flex justify-between items-center z-20">
+        <SmartField field="list_item_1" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'list_item_1', e.currentTarget.innerText)}
+            id="tpl_cinnamon_footer1_left"
+            className="text-[2.2cqw] font-bold text-white uppercase tracking-wider outline-none"
+          >
+            {footerLeft}
+          </span>
+        </SmartField>
+
+        <svg className="w-[2.2cqw] h-[2.2cqw] text-white shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+
+        <SmartField field="list_item_2" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'list_item_2', e.currentTarget.innerText)}
+            id="tpl_cinnamon_footer2"
+            className="text-[2.2cqw] font-bold text-white uppercase tracking-wider outline-none"
+          >
+            {footerCenter}
+          </span>
+        </SmartField>
+
+        <svg className="w-[2.2cqw] h-[2.2cqw] text-white shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+
+        <SmartField field="list_item_3" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'list_item_3', e.currentTarget.innerText)}
+            id="tpl_cinnamon_footer1_right"
+            className="text-[2.2cqw] font-bold text-white uppercase tracking-wider outline-none"
+          >
+            {footerRight}
+          </span>
+        </SmartField>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.15)" />
+    </div>
+  );
+}
+
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 268 (Template 15: LAB5)
+// ============================================================
+export function ContentExtraVariant268(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || brandColor || "#ce143c";
+  const title = data.titulo || "Lab5";
+  const subtitle = data.subtitulo || "by ISM";
+  const description = data.texto_apoio || "O motor da inovação<br>na confeitaria e doceria.";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl_lab5"
+      className="absolute inset-0 w-full h-full flex flex-col overflow-hidden font-sans"
+      style={{ containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <div className="absolute inset-0 h-[65%] z-10">
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          {imageUrl && (
+            <img
+              id="tpl_lab5_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover object-center"
+              alt="Lab5 Visual"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <div
+        id="tpl_lab5_bg"
+        className="absolute bottom-0 left-0 w-full h-[45%] z-20 flex flex-col justify-center px-[8cqw] transition-colors duration-300"
+        style={{ backgroundColor: colorBg }}
+      >
+        <svg
+          className="absolute bottom-[99%] left-0 w-[101%] h-[15cqw] transition-colors duration-300 -ml-[0.5%]"
+          id="tpl_lab5_wave"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+          fill="currentColor"
+          style={{ color: colorBg }}
+        >
+          <path d="M0,10 C20,20 40,20 60,10 C80,0 90,0 100,5 L100,20 L0,20 Z" />
+        </svg>
+
+        <div className="relative z-30 -mt-[5cqw] text-left">
+          <div className="flex items-baseline">
+            <SmartField field="titulo" {...sp} className="leading-[0.8] tracking-tighter">
+              <h1
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+                id="tpl_lab5_title"
+                className="font-sans font-black text-white drop-shadow-md outline-none"
+                style={{ fontSize: `${20 * sTitle}cqw` }}
+              >
+                {title}
+              </h1>
+            </SmartField>
+
+            <SmartField field="subtitulo" {...sp} className="ml-[2cqw] tracking-tight leading-none">
+              <h2
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+                id="tpl_lab5_badge"
+                className="font-sans font-bold text-white drop-shadow-md outline-none"
+                style={{ fontSize: `${7 * sTitle}cqw` }}
+              >
+                {subtitle}
+              </h2>
+            </SmartField>
+          </div>
+
+          <SmartField field="texto_apoio" {...sp} className="mt-[4cqw] w-[85%] leading-[1.2]">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+              id="tpl_lab5_desc"
+              className="font-sans font-medium text-white drop-shadow-sm outline-none"
+              style={{ fontSize: `${4.5 * sText}cqw` }}
+              dangerouslySetInnerHTML={{ __html: formatText(description) }}
+            ></p>
+          </SmartField>
+        </div>
+
+        <div className="absolute bottom-[8cqw] right-[8cqw] w-[12cqw] h-[12cqw] bg-white rounded-full flex items-center justify-center shadow-lg z-30">
+          <svg
+            id="tpl_lab5_arrow"
+            className="w-[6cqw] h-[6cqw] transition-colors duration-300"
+            style={{ color: colorBg }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2.5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#ffffff" counterColor="#ffffff" counterBg="rgba(0,0,0,0.2)" />
+    </div>
+  );
+}
+
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 269 (Template 14: SUCESSO)
+// ============================================================
+export function ContentExtraVariant269(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#f4f4f4";
+  const colorAccent = data.accentColor || brandColor || "#d80c3a";
+
+  const title = data.titulo || "Do conceito<br/>ao sucesso,<br/>a gente<br/>adoça o<br/>caminho.";
+  const description = data.texto_apoio || "O Lab5 by ISM é o ponto de encontro entre quem cria, desenvolve e transforma a confeitaria e doceria.";
+  
+  const iconText1 = data.list_item_1 || "Conexões<br/>que geram<br/>negócios";
+  const iconText2 = data.list_item_2 || "Ideias que<br/>viram<br/>produtos";
+  const iconText3 = data.list_item_3 || "Soluções<br/>em sintonia<br/>com o futuro";
+  const iconText4 = data.list_item_4 || "Impacto real<br/>na indústria<br/>doce";
+  
+  const subtitle = data.subtitulo || "Lab5 <span class=\"font-medium text-[4cqw]\">by ISM</span>";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  return (
+    <div
+      id="tpl_sucesso"
+      className="absolute inset-0 w-full h-full flex flex-col overflow-hidden text-gray-900 font-sans transition-colors duration-300"
+      style={{ backgroundColor: colorBg, containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <div className="absolute top-0 right-0 w-[60cqw] h-[75cqw] z-10 flex justify-end">
+        <div
+          className="absolute inset-y-0 left-0 w-[20cqw] z-10 pointer-events-none"
+          style={{
+            background: `linear-gradient(to right, ${colorBg} 0%, ${colorBg}cc 40%, transparent 100%)`
+          }}
+        />
+        <SmartField field="imagem" {...sp} className="w-full h-full">
+          {imageUrl && (
+            <img
+              id="tpl_sucesso_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-cover object-left"
+              alt="Sucesso Visual"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <div className="absolute top-[8cqw] left-[6cqw] w-[55%] z-20 flex flex-col items-start text-left">
+        <SmartField field="titulo" {...sp} className="leading-[0.95] tracking-tight">
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            id="tpl_sucesso_title"
+            className="font-sans font-black outline-none transition-colors duration-300"
+            style={{ color: colorAccent, fontSize: `${9.5 * sTitle}cqw` }}
+            dangerouslySetInnerHTML={{ __html: formatText(title) }}
+          ></h1>
+        </SmartField>
+
+        <SmartField field="texto_apoio" {...sp} className="mt-[4cqw] pr-[2cqw] leading-[1.3]">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            id="tpl_sucesso_desc"
+            className="font-sans text-gray-800 font-medium outline-none"
+            style={{ fontSize: `${3.8 * sText}cqw` }}
+            dangerouslySetInnerHTML={{ __html: formatText(description) }}
+          ></p>
+        </SmartField>
+      </div>
+
+      <div
+        id="tpl_sucesso_bottom_bg"
+        className="absolute bottom-0 left-0 w-full h-[38cqw] z-30 flex flex-col justify-end transition-colors duration-300"
+        style={{ backgroundColor: colorAccent }}
+      >
+        <svg
+          className="absolute bottom-[99%] left-0 w-[110%] h-[20cqw] transition-colors duration-300 -ml-[5%]"
+          id="tpl_sucesso_wave"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+          fill="currentColor"
+          style={{ color: colorAccent }}
+        >
+          <path d="M0,20 L0,15 C20,25 45,-5 100,10 L100,20 Z" />
+        </svg>
+
+        <div className="px-[4cqw] pb-[12cqw] w-full grid grid-cols-4 gap-[2cqw] items-start relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <svg className="w-[6cqw] h-[6cqw] text-white mb-[1.5cqw]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            <SmartField field="list_item_1" {...sp} className="leading-[1.2]">
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list_item_1', e.currentTarget.innerHTML)}
+                id="tpl_sucesso_icon1"
+                className="font-sans font-bold text-white outline-none"
+                style={{ fontSize: `${2.2 * sText}cqw` }}
+                dangerouslySetInnerHTML={{ __html: formatText(iconText1) }}
+              ></span>
+            </SmartField>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <svg className="w-[6cqw] h-[6cqw] text-white mb-[1.5cqw]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.829 1.58-2.083a4.5 4.5 0 10-7.66 0c.922.254 1.58 1.1 1.58 2.083v.192" />
+            </svg>
+            <SmartField field="list_item_2" {...sp} className="leading-[1.2]">
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list_item_2', e.currentTarget.innerHTML)}
+                id="tpl_sucesso_icon2"
+                className="font-sans font-bold text-white outline-none"
+                style={{ fontSize: `${2.2 * sText}cqw` }}
+                dangerouslySetInnerHTML={{ __html: formatText(iconText2) }}
+              ></span>
+            </SmartField>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <svg className="w-[6cqw] h-[6cqw] text-white mb-[1.5cqw]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+            </svg>
+            <SmartField field="list_item_3" {...sp} className="leading-[1.2]">
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list_item_3', e.currentTarget.innerHTML)}
+                id="tpl_sucesso_icon3"
+                className="font-sans font-bold text-white outline-none"
+                style={{ fontSize: `${2.2 * sText}cqw` }}
+                dangerouslySetInnerHTML={{ __html: formatText(iconText3) }}
+              ></span>
+            </SmartField>
+          </div>
+
+          <div className="flex flex-col items-center text-center">
+            <svg className="w-[6cqw] h-[6cqw] text-white mb-[1.5cqw]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+            <SmartField field="list_item_4" {...sp} className="leading-[1.2]">
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'list_item_4', e.currentTarget.innerHTML)}
+                id="tpl_sucesso_icon4"
+                className="font-sans font-bold text-white outline-none"
+                style={{ fontSize: `${2.2 * sText}cqw` }}
+                dangerouslySetInnerHTML={{ __html: formatText(iconText4) }}
+              ></span>
+            </SmartField>
+          </div>
+        </div>
+
+        <div className="absolute bottom-[4cqw] left-0 w-full px-[6cqw] flex justify-between items-center">
+          <SmartField field="subtitulo" {...sp} className="tracking-tight text-white leading-none">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerHTML)}
+              id="tpl_sucesso_badge"
+              className="font-sans font-black outline-none"
+              style={{ fontSize: `${6 * sTitle}cqw` }}
+              dangerouslySetInnerHTML={{ __html: formatText(subtitle) }}
+            ></span>
+          </SmartField>
+
+          <div className="w-[8cqw] h-[8cqw] rounded-full border-[0.3cqw] border-white flex items-center justify-center text-white shrink-0">
+            <svg className="w-[4cqw] h-[4cqw] ml-[0.5cqw]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 270 (Template 13: Brownie)
+// ============================================================
+export function ContentExtraVariant270(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = data.accentColor || brandColor || "#d80c3a";
+  const colorSecondary = data.secondaryColor || "#3e2723"; // marrom escuro do brownie
+
+  const badgeText = data.tag || "Comiê";
+  const title1 = data.titulo || "BROWNIE";
+  const title2 = data.subtitulo || "IRRESISTÍVEL DO COMEÇO";
+  const title3 = data.texto_apoio || "ao último pedaço!";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop";
+
+  const iconText1 = data.list_item_1 || "MUITO<br>CHOCOLATE";
+  const iconText2 = data.list_item_2 || "FEITO<br>COM AMOR";
+  const iconText3 = data.list_item_3 || "RECEITA<br>ARTESANAL";
+
+  const footerText = data.slide_call || "Garanta o <b>seu!</b>";
+
+  const formatText = (text, highlightColor) => {
+    if (!text) return "";
+    let formatted = text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+    if (highlightColor) {
+      const spanStyle = `style="color: ${highlightColor};"`;
+      formatted = formatted.replace(/<b>(.*?)<\/b>/g, `<span ${spanStyle}>$1</span>`);
+      formatted = formatted.replace(/<strong>(.*?)<\/strong>/g, `<span ${spanStyle}>$1</span>`);
+    }
+    return formatted;
+  };
+
+  return (
+    <div
+      id="tpl_brownie"
+      className="absolute inset-0 w-full h-full flex flex-col items-center overflow-hidden text-gray-900 font-sans transition-colors duration-300 bg-white"
+      style={{ backgroundColor: colorBg, containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-cursive { font-family: 'Dancing Script', cursive; }
+      `}} />
+
+      {/* Elementos abstratos de decoração desfocados */}
+      <div className="absolute top-[10cqw] left-[6cqw] w-[7cqw] h-[7cqw] rounded-sm transform -rotate-12 opacity-80 blur-[1px]" style={{ backgroundColor: colorSecondary }}></div>
+      <div className="absolute top-[35cqw] right-[4cqw] w-[8cqw] h-[8cqw] rounded-sm transform rotate-45 opacity-90 blur-[1.5px]" style={{ backgroundColor: colorSecondary }}></div>
+
+      <div className="mt-[8cqw] z-20">
+        <SmartField field="tag" {...sp}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            id="tpl_brownie_badge"
+            className="font-cursive text-[8cqw] leading-none transition-colors duration-300 outline-none"
+            style={{ color: colorAccent }}
+          >
+            {badgeText}
+          </span>
+        </SmartField>
+      </div>
+
+      <div className="flex flex-col items-center mt-[4cqw] w-full z-20">
+        <SmartField field="titulo" {...sp}>
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerText)}
+            id="tpl_brownie_t1"
+            className="font-sans font-black leading-[0.8] tracking-tight uppercase transition-colors duration-300 outline-none"
+            style={{ color: colorAccent, fontSize: `${25.7 * sTitle}cqw` }}
+          >
+            {title1}
+          </h1>
+        </SmartField>
+
+        <div className="px-[4cqw] py-[1.2cqw] rounded-[0.8cqw] mt-[2cqw] drop-shadow-md" style={{ backgroundColor: colorSecondary }}>
+          <SmartField field="subtitulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+              id="tpl_brownie_t2"
+              className="font-sans font-black text-[5cqw] leading-none text-white tracking-wide uppercase outline-none"
+            >
+              {title2}
+            </h2>
+          </SmartField>
+        </div>
+
+        <div className="flex items-center gap-[2cqw] mt-[2.5cqw]">
+          <svg className="w-[5cqw] h-[5cqw] transition-colors duration-300 shrink-0" id="tpl_brownie_spark_l" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ color: colorAccent }}>
+            <path d="M10 6 L5 8 M12 12 L4 12 M10 18 L5 16"/>
+          </svg>
+
+          <SmartField field="texto_apoio" {...sp}>
+            <h3
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerText)}
+              id="tpl_brownie_t3"
+              className="font-cursive leading-none transition-colors duration-300 outline-none"
+              style={{ color: colorAccent, fontSize: `${13 * sText}cqw` }}
+            >
+              {title3}
+            </h3>
+          </SmartField>
+
+          <svg className="w-[5cqw] h-[5cqw] transition-colors duration-300 shrink-0" id="tpl_brownie_spark_r" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ color: colorAccent }}>
+            <path d="M14 6 L19 8 M12 12 L20 12 M14 18 L19 16"/>
+          </svg>
+        </div>
+      </div>
+
+      <div className="relative w-full h-[45cqw] mt-[4cqw] flex items-center justify-center z-10">
+        <SmartField field="imagem" {...sp} className="w-[95%] h-full flex items-center justify-center">
+          {imageUrl && (
+            <img
+              id="tpl_brownie_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-contain drop-shadow-2xl"
+              alt="Brownie"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <div className="w-[85%] flex justify-between items-start mt-[6cqw] z-20 text-left">
+        <div className="flex flex-col items-center flex-1">
+          <svg id="tpl_brownie_icon1_svg" className="w-[8cqw] h-[8cqw] transition-colors duration-300 mb-[2cqw] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: colorAccent }}>
+            <rect x="5" y="2" width="14" height="20" rx="1"/>
+            <path d="M5 8h14M5 14h14M12 2v20"/>
+          </svg>
+          <SmartField field="list_item_1" {...sp} className="leading-[1.2] text-center w-full">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_1', e.currentTarget.innerHTML)}
+              id="tpl_brownie_icon1"
+              className="font-sans font-bold text-[2.5cqw] uppercase transition-colors duration-300 outline-none block"
+              style={{ color: colorAccent }}
+              dangerouslySetInnerHTML={{ __html: formatText(iconText1) }}
+            ></span>
+          </SmartField>
+        </div>
+
+        <div className="w-[0.2cqw] h-[8cqw] mt-[1cqw] transition-colors duration-300 shrink-0" id="tpl_brownie_div1" style={{ backgroundColor: colorAccent }}></div>
+
+        <div className="flex flex-col items-center flex-1">
+          <svg id="tpl_brownie_icon2_svg" className="w-[8cqw] h-[8cqw] transition-colors duration-300 mb-[2cqw] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: colorAccent }}>
+            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <SmartField field="list_item_2" {...sp} className="leading-[1.2] text-center w-full">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_2', e.currentTarget.innerHTML)}
+              id="tpl_brownie_icon2"
+              className="font-sans font-bold text-[2.5cqw] uppercase transition-colors duration-300 outline-none block"
+              style={{ color: colorAccent }}
+              dangerouslySetInnerHTML={{ __html: formatText(iconText2) }}
+            ></span>
+          </SmartField>
+        </div>
+
+        <div className="w-[0.2cqw] h-[8cqw] mt-[1cqw] transition-colors duration-300 shrink-0" id="tpl_brownie_div2" style={{ backgroundColor: colorAccent }}></div>
+
+        <div className="flex flex-col items-center flex-1">
+          <svg id="tpl_brownie_icon3_svg" className="w-[8cqw] h-[8cqw] transition-colors duration-300 mb-[2cqw] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: colorAccent }}>
+            <path d="M12 11 L 16 3 L 18 4 L 14 11" />
+            <path d="M12 11 L 14 4 L 16 5 L 13 11" />
+            <circle cx="17.5" cy="3.5" r="1.5" />
+          </svg>
+          <SmartField field="list_item_3" {...sp} className="leading-[1.2] text-center w-full">
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_3', e.currentTarget.innerHTML)}
+              id="tpl_brownie_icon3"
+              className="font-sans font-bold text-[2.5cqw] uppercase transition-colors duration-300 outline-none block"
+              style={{ color: colorAccent }}
+              dangerouslySetInnerHTML={{ __html: formatText(iconText3) }}
+            ></span>
+          </SmartField>
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-[18cqw] z-20 flex items-end justify-center overflow-visible">
+        <svg
+          className="absolute bottom-0 w-full h-[12cqw] transition-colors duration-300"
+          id="tpl_brownie_wave"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+          fill="currentColor"
+          style={{ color: colorAccent }}
+        >
+          <path d="M0,20 L100,20 L100,10 Q50,0 0,10 Z" />
+        </svg>
+        <div className="relative z-30 mb-[4cqw] bg-white px-[8cqw] py-[1.5cqw] rounded-md shadow-lg">
+          <SmartField field="slide_call" {...sp}>
+            <span
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'slide_call', e.currentTarget.innerHTML)}
+              id="tpl_brownie_footer"
+              className="font-sans font-bold text-[4cqw] text-gray-900 outline-none"
+              dangerouslySetInnerHTML={{ __html: formatText(footerText, colorAccent) }}
+            ></span>
+          </SmartField>
+        </div>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 271 (Template 12: Pedido)
+// ============================================================
+export function ContentExtraVariant271(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  const sTitle = titleScale / 100;
+  const sText = textScale / 100;
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = data.accentColor || brandColor || "#d80c3a";
+
+  const badgeText = (data.tag === 'EXTRA' || !data.tag) ? "Mari Confeitaria" : data.tag;
+  const title = data.titulo || "E VOCÊ?<br/>FEZ SEU<br/>PEDIDO<br/><b>DE HOJE?</b>";
+  const circularText = data.badge_text || "FEITO COM CARINHO • PARA ADOÇAR SUA VIDA •";
+  const letterCenter = data.subtitulo || brandHandle ? brandHandle.charAt(1).toUpperCase() : "C";
+  const description = data.texto_apoio || "Doce é carinho.<br/>Compartilhe mais<br/>momentos assim!";
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  const formatTitle = (text, highlightColor) => {
+    if (!text) return "";
+    let formatted = text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+    const spanStyle = `class="inline-block px-[2cqw] py-[1cqw] text-white mt-[1cqw]" style="background-color: ${highlightColor};"`;
+    formatted = formatted.replace(/<b>(.*?)<\/b>/g, `<span ${spanStyle}>$1</span>`);
+    formatted = formatted.replace(/<strong>(.*?)<\/strong>/g, `<span ${spanStyle}>$1</span>`);
+    return formatted;
+  };
+
+  return (
+    <div
+      id="tpl_pedido"
+      className="absolute inset-0 w-full h-full flex flex-col overflow-hidden text-gray-900 bg-white font-sans transition-colors duration-300"
+      style={{ backgroundColor: colorBg, containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+        .font-cursive { font-family: 'Dancing Script', cursive; }
+        .animate-spin-slow { animation: spin 20s linear infinite; }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}} />
+
+      <svg 
+        viewBox="0 0 1080 1350" 
+        className="absolute inset-0 w-full h-full select-none pointer-events-none z-0 transition-colors duration-300"
+        id="tpl_pedido_bottom_wave"
+        style={{ color: colorAccent }}
+      >
+        <path 
+          d="M 441 1350 C 682 1109, 885 1385, 1080 1077 L 1080 1230 C 947 1380, 690 1312, 616 1350 Z" 
+          fill="currentColor" 
+        />
+      </svg>
+
+      <div className="absolute top-[6cqw] right-[6cqw] w-[20cqw] h-[20cqw] z-20 flex items-center justify-center">
+        <svg className="absolute inset-0 w-full h-full transition-colors duration-300" id="tpl_pedido_circle_text" viewBox="0 0 100 100" style={{ color: colorAccent }}>
+          <path id="circlePathPedido" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+          <text fontSize="10.5" fontWeight="700" fill="currentColor" letterSpacing="1">
+            <textPath href="#circlePathPedido" startOffset="0%" id="tpl_pedido_circular">
+              {circularText}
+            </textPath>
+          </text>
+        </svg>
+        <div className="w-[10cqw] h-[10cqw] rounded-full transition-colors duration-300 flex items-center justify-center" id="tpl_pedido_circle_center" style={{ backgroundColor: colorAccent }}>
+          <SmartField field="subtitulo" {...sp}>
+            <h2
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+              className="font-cursive text-[6cqw] text-white outline-none"
+            >
+              {letterCenter}
+            </h2>
+          </SmartField>
+        </div>
+      </div>
+
+      <div className="absolute top-[18cqw] left-[8cqw] w-[60%] z-20 flex flex-col items-start text-left">
+        <SmartField field="tag" {...sp} className="leading-none mb-[3cqw]">
+          <h2 id="tpl_pedido_badge" className="font-cursive text-[9cqw] transition-colors duration-300 outline-none" style={{ color: colorAccent }}>
+            {badgeText}
+          </h2>
+        </SmartField>
+
+        <SmartField field="titulo" {...sp} className="leading-[0.95] tracking-tight uppercase">
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            id="tpl_pedido_title"
+            className="font-sans font-black transition-colors duration-300 outline-none"
+            style={{ fontSize: `${15 * sTitle}cqw`, color: colorAccent }}
+            dangerouslySetInnerHTML={{ __html: formatTitle(title, colorAccent) }}
+          ></h1>
+        </SmartField>
+
+        <svg className="w-[60cqw] h-[4cqw] mt-[5cqw] -ml-[6.5cqw] transition-colors duration-300" id="tpl_pedido_wave_sep" viewBox="0 0 245 20" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" style={{ color: colorAccent }}>
+          <path d="M5,10 Q20,20 35,10 T65,10 T95,10 T125,10 T155,10 T185,10 T215,10 T240,4" />
+        </svg>
+      </div>
+
+      <div className="absolute bottom-[8cqw] left-[8cqw] w-[50%] z-20 flex flex-col items-start text-left">
+        <div id="tpl_pedido_icon_bg" className="w-[8cqw] h-[8cqw] rounded-xl rounded-bl-sm flex items-center justify-center mb-[4cqw] transition-colors duration-300 shrink-0" style={{ backgroundColor: colorAccent }}>
+          <svg className="w-[4cqw] h-[4cqw] text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <SmartField field="texto_apoio" {...sp} className="leading-[1.3] font-bold">
+          <p
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'texto_apoio', e.currentTarget.innerHTML)}
+            id="tpl_pedido_desc"
+            className="font-sans transition-colors duration-300 outline-none"
+            style={{ color: colorAccent, fontSize: `${4.8 * sText}cqw` }}
+            dangerouslySetInnerHTML={{ __html: formatText(description) }}
+          ></p>
+        </SmartField>
+      </div>
+
+      <div className="absolute top-[25cqw] right-[0cqw] w-[55cqw] h-[75cqw] z-10 flex items-center justify-center">
+        <SmartField field="imagem" {...sp} className="w-full h-full flex items-center justify-center">
+          {imageUrl && (
+            <img
+              id="tpl_pedido_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-contain object-right drop-shadow-2xl"
+              alt="Pedido Visual"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
+// ============================================================
+// CONTEÚDO EXTRA — VARIANTE 272 (Template 11: SLIDE V6)
+// ============================================================
+export function ContentExtraVariant272(props) {
+  const {
+    data, index, slideCount, brandHandle, showBrandHandle, brandColor, isVerified, brandAvatar,
+    titleScale, textScale, showMetrics, onActionStart, onTextChange,
+    selectedElement, onSelectElement, showSlideCounter, slideCounterPosition, brandLogo, showBrandLogo
+  } = props;
+
+  if (data && data.positions) {
+    data.positions.tag = { x: 0, y: 0, scale: 1 };
+    data.positions.titulo = { x: 0, y: 0, scale: 1 };
+    data.positions.subtitulo = { x: 0, y: 0, scale: 1 };
+  }
+
+  const sTitle = 1;
+  const sText = 1;
+
+  const sp = { data, index, showMetrics, onActionStart, selectedElement, onSelectElement, onTextChange };
+
+  const colorBg = data.backgroundColor || "#ffffff";
+  const colorAccent = data.accentColor || brandColor || "#ce143c";
+
+  const tagText = (data.tag === 'EXTRA' || !data.tag) ? "5" : data.tag;
+  const title = data.titulo || "PEQUENA QUANTIDADE,<br/>GRANDE RESULTADO.";
+  
+  const iconText1 = data.subtitulo || "R$";
+  
+  const topic1 = data.list_item_1 || "Mais lucro<br/>por unidade.";
+  const topic2 = data.list_item_2 || "Produção mais<br/>rápida e eficiente.";
+  const topic3 = data.list_item_3 || "Clientes satisfeitos<br/>e que voltam sempre.";
+  
+  const imageUrl = data.imageUrl || "https://images.unsplash.com/photo-1548848221-0c2e497ed557?q=80&w=1000&auto=format&fit=crop";
+
+  const formatText = (text) => {
+    if (!text) return "";
+    return text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+  };
+
+  const formatTitle272 = (text, highlightColor) => {
+    if (!text) return "";
+    let formatted = text.replace(/\\n/g, '<br />').replace(/\n/g, '<br />');
+    
+    // Substitui marcas de negrito por cor de destaque
+    formatted = formatted.replace(/<b>(.*?)<\/b>/g, `<span style="color: ${highlightColor}">$1</span>`);
+    formatted = formatted.replace(/<strong>(.*?)<\/strong>/g, `<span style="color: ${highlightColor}">$1</span>`);
+    
+    // Se não tiver estilo de cor explícito, colore a segunda linha/última parte da quebra
+    if (!formatted.includes('style="color:') && !formatted.includes("style='color:")) {
+      if (formatted.includes('<br />')) {
+        const parts = formatted.split('<br />');
+        const lastIdx = parts.length - 1;
+        parts[lastIdx] = `<span style="color: ${highlightColor}">${parts[lastIdx]}</span>`;
+        formatted = parts.join('<br />');
+      } else if (formatted.includes('<br/>')) {
+        const parts = formatted.split('<br/>');
+        const lastIdx = parts.length - 1;
+        parts[lastIdx] = `<span style="color: ${highlightColor}">${parts[lastIdx]}</span>`;
+        formatted = parts.join('<br/>');
+      }
+    }
+    return formatted;
+  };
+
+  return (
+    <div
+      id="tpl_slide_v6"
+      className="absolute inset-0 w-full h-full overflow-hidden text-gray-900 bg-white font-sans transition-colors duration-300"
+      style={{ backgroundColor: colorBg, containerType: 'inline-size' }}
+    >
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        .font-sans { font-family: 'Inter', sans-serif; }
+      `}} />
+
+      <div id="tpl_slide_v6_bottomstrip" className="absolute bottom-0 left-0 w-full h-[4cqw] transition-colors duration-300 z-20" style={{ backgroundColor: colorAccent }}></div>
+
+      <div className="absolute top-[12cqw] right-[8cqw] z-20 leading-none">
+        <SmartField field="tag" {...sp} forceX={0} forceY={0} forceScale={1}>
+          <span
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'tag', e.currentTarget.innerText)}
+            id="tpl_slide_v6_badge"
+            className="font-sans font-black text-[30cqw] leading-[0.8] tracking-tighter transition-colors duration-300 outline-none"
+            style={{ color: colorAccent }}
+          >
+            {tagText}
+          </span>
+        </SmartField>
+      </div>
+
+      <div className="absolute top-[12cqw] left-[8cqw] w-[84%] z-20 flex flex-col items-start text-left">
+        <SmartField field="titulo" {...sp} forceX={0} forceY={0} forceScale={1} className="leading-[1.0] tracking-tight uppercase">
+          <h1
+            contentEditable suppressContentEditableWarning
+            onBlur={(e) => onTextChange(index, 'titulo', e.currentTarget.innerHTML)}
+            id="tpl_slide_v6_title"
+            className="font-sans font-black text-gray-900 outline-none"
+            style={{ fontSize: `${7.2 * sTitle}cqw` }}
+            dangerouslySetInnerHTML={{ __html: formatTitle272(title, colorAccent) }}
+          ></h1>
+        </SmartField>
+        <div id="tpl_slide_v6_divider" className="w-[8cqw] h-[0.5cqw] mt-[2.5cqw] transition-colors duration-300" style={{ backgroundColor: colorAccent }}></div>
+      </div>
+
+      <div className="absolute top-[42cqw] left-[8cqw] w-[45%] flex flex-col gap-[3.5cqw] z-20 text-left">
+        <div className="flex items-center gap-[3cqw]">
+          <div
+            id="tpl_slide_v6_icon1_ring"
+            className="w-[8.5cqw] h-[8.5cqw] rounded-full border-[0.3cqw] flex items-center justify-center shrink-0 transition-colors duration-300 bg-white"
+            style={{ borderColor: colorAccent }}
+          >
+            <SmartField field="subtitulo" {...sp} forceX={0} forceY={0} forceScale={1}>
+              <span
+                contentEditable suppressContentEditableWarning
+                onBlur={(e) => onTextChange(index, 'subtitulo', e.currentTarget.innerText)}
+                id="tpl_slide_v6_icon1_text"
+                className="font-sans font-black text-[3cqw] transition-colors duration-300 outline-none"
+                style={{ color: colorAccent }}
+              >
+                {iconText1}
+              </span>
+            </SmartField>
+          </div>
+          <SmartField field="list_item_1" {...sp} className="leading-[1.2] font-medium shrink-0">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_1', e.currentTarget.innerHTML)}
+              id="tpl_slide_v6_topic1"
+              className="font-sans text-gray-800 outline-none"
+              style={{ fontSize: `${4 * sText}cqw` }}
+              dangerouslySetInnerHTML={{ __html: formatText(topic1) }}
+            ></p>
+          </SmartField>
+        </div>
+
+        <div className="flex items-center gap-[3cqw]">
+          <div
+            id="tpl_slide_v6_icon2_ring"
+            className="w-[8.5cqw] h-[8.5cqw] rounded-full border-[0.3cqw] flex items-center justify-center shrink-0 transition-colors duration-300 bg-white"
+            style={{ borderColor: colorAccent }}
+          >
+            <svg id="tpl_slide_v6_icon2_svg" className="w-[4cqw] h-[4cqw] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" style={{ color: colorAccent }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <SmartField field="list_item_2" {...sp} className="leading-[1.2] font-medium shrink-0">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_2', e.currentTarget.innerHTML)}
+              id="tpl_slide_v6_topic2"
+              className="font-sans text-gray-800 outline-none"
+              style={{ fontSize: `${4 * sText}cqw` }}
+              dangerouslySetInnerHTML={{ __html: formatText(topic2) }}
+            ></p>
+          </SmartField>
+        </div>
+
+        <div className="flex items-center gap-[3cqw]">
+          <div
+            id="tpl_slide_v6_icon3_ring"
+            className="w-[8.5cqw] h-[8.5cqw] rounded-full border-[0.3cqw] flex items-center justify-center shrink-0 transition-colors duration-300 bg-white"
+            style={{ borderColor: colorAccent }}
+          >
+            <svg id="tpl_slide_v6_icon3_svg" className="w-[4cqw] h-[4cqw] transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" style={{ color: colorAccent }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <SmartField field="list_item_3" {...sp} className="leading-[1.2] font-medium shrink-0">
+            <p
+              contentEditable suppressContentEditableWarning
+              onBlur={(e) => onTextChange(index, 'list_item_3', e.currentTarget.innerHTML)}
+              id="tpl_slide_v6_topic3"
+              className="font-sans text-gray-800 outline-none"
+              style={{ fontSize: `${4 * sText}cqw` }}
+              dangerouslySetInnerHTML={{ __html: formatText(topic3) }}
+            ></p>
+          </SmartField>
+        </div>
+      </div>
+
+      <div className="absolute bottom-[6cqw] right-0 w-[46cqw] h-[52cqw] z-10 flex items-end justify-end">
+        <SmartField field="imagem" {...sp} className="w-full h-full flex items-center justify-center">
+          {imageUrl && (
+            <img
+              id="tpl_slide_v6_img"
+              src={getCorsSafeUrl(imageUrl)}
+              crossOrigin="anonymous"
+              className="w-full h-full object-contain object-right-bottom drop-shadow-2xl"
+              alt="Slide V6 Visual"
+            />
+          )}
+        </SmartField>
+      </div>
+
+      <SlideHeader data={data} slideIndex={index} onActionStart={onActionStart} selectedElement={selectedElement} onSelectElement={onSelectElement}
+        index={index + 1} total={slideCount}
+        brandHandle={brandHandle} showBrandHandle={showBrandHandle}
+        brandColor={brandColor} isVerified={isVerified} brandAvatar={brandAvatar}
+        showSlideCounter={showSlideCounter} slideCounterPosition={slideCounterPosition}
+        hideDot={true} brandLogo={brandLogo} showBrandLogo={false}
+        handleColor="#1a1a1a" counterColor="#1a1a1a" counterBg="rgba(0,0,0,0.05)" />
+    </div>
+  );
+}
+
 export const CONTENT_EXTRA_VARIANT_COMPONENTS = {
   252: ContentExtraVariant252,
   253: ContentExtraVariant253,
@@ -2031,6 +3144,12 @@ export const CONTENT_EXTRA_VARIANT_COMPONENTS = {
   264: ContentExtraVariant264,
   265: ContentExtraVariant265,
   266: ContentExtraVariant266,
+  267: ContentExtraVariant267,
+  268: ContentExtraVariant268,
+  269: ContentExtraVariant269,
+  270: ContentExtraVariant270,
+  271: ContentExtraVariant271,
+  272: ContentExtraVariant272,
 };
 
 export const CONTENT_EXTRA_VARIANT_META = [
@@ -2049,5 +3168,11 @@ export const CONTENT_EXTRA_VARIANT_META = [
   { id: 264, name: 'Divisão Diagonal', description: 'Layout Divisão Diagonal Clássica com a metade esquerda em clip-path de imagem e metade direita com texto editável', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--10.png' },
   { id: 265, name: 'Clássico Vazando', description: 'Layout O Clássico com palavra gigante em marca d\'água de fundo, imagem enquadrada com cantos arredondados e texto ao lado', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--11.png' },
   { id: 266, name: 'Party People', description: 'Layout Party People com faixa lateral sólida, título gigante rotacionado na vertical sobreposto e card de informações sobre a imagem', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--12.png' },
+  { id: 267, name: 'Cinnamon Roll', description: 'Layout Cinnamon Roll com texto arqueado rotativo, badge inferior, imagens e rodapé duplo com corações', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--12.png' },
+  { id: 268, name: 'LAB5 (Novo)', description: 'Layout LAB5 com topo de imagem inteira de fundo e base colorida ondulada com botão seta', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--7.png' },
+  { id: 269, name: 'Sucesso', description: 'Layout Sucesso com topo de imagem lateral integrada e base colorida em onda contendo 4 cards de ícone', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--8.png' },
+  { id: 270, name: 'Brownie', description: 'Layout Brownie com fundo decorado, título marcante em destaque, rodapé ondulado e caixas flutuantes', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split--12.png' },
+  { id: 271, name: 'Pedido', description: 'Layout Pedido com texto arqueado, subtítulo centralizado, base ondulada e imagem em foco à direita', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split_extra271.png' },
+  { id: 272, name: 'Slide V6', description: 'Layout Slide V6 com marca d\'água numérica, faixa em rodapé, lista vertical com ícones e imagem à direita', thumbnailUrl: '/thumbnails/Thumbnails%20Conteudo/designs_split_extra272.png' },
 ];
 

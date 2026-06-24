@@ -9,6 +9,7 @@ const deployHtmlPath = path.join(basePath, 'deploy-estante', 'index.html');
 const filesMap = {
     capas: { file: 'cover-variants.jsx', title: 'Capas Premium', heading: 'Capas de<br><span class="text-[#de1e4d] italic font-light serif">alto impacto.</span>', desc: 'Capture a atenção em milissegundos com layouts desenhados para conversão.' },
     conteudo: { file: 'split-variants.jsx', title: 'Conteúdo Dinâmico', heading: 'Estruturas de<br><span class="text-[#de1e4d] italic font-light serif">Conteúdo.</span>', desc: 'Apresente informações com clareza usando layouts otimizados para leitura.' },
+    conteudoExtra: { file: 'content-extra-variants.jsx', title: 'Conteúdo Extra', heading: 'Estruturas de<br><span class="text-[#de1e4d] italic font-light serif">Conteúdo Extra.</span>', desc: 'Apresente informações adicionais com blocos e listas dinâmicas.' },
     impacto: { file: 'bignumber-variants.jsx', title: 'Número de Impacto', heading: 'Números que<br><span class="text-[#de1e4d] italic font-light serif">marcam.</span>', desc: 'Destaque dados e estatísticas com tipografia expressiva.' },
     citacao: { file: 'quote-variants.jsx', title: 'Citação Exclusiva', heading: 'Voz de<br><span class="text-[#de1e4d] italic font-light serif">autoridade.</span>', desc: 'Dê destaque para frases e citações importantes.' },
     comparacao: { file: 'comparison-variants.jsx', title: 'Comparação', heading: 'Análise<br><span class="text-[#de1e4d] italic font-light serif">comparativa.</span>', desc: 'Mostre diferenças e benefícios lado a lado.' },
